@@ -145,6 +145,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private final int maxContextConvoResponsesShow = 2;
     private final int maxLLUpgradeResponsesShow = 2;
     private final int charsPerTranscript = 90;
+    private final int charsPerHanziTranscript = 36;
 
 
     //    private SMSComms smsComms;
@@ -159,13 +160,9 @@ public class AugmentosService extends SmartGlassesAndroidService {
     //clear screen to start
     public boolean clearedScreenYet = false;
 
-    String oldLiveCaption = "";
-    String oldLiveCaptionFinal = "";
     String currentLiveCaption = "";
     String llCurrentString = "";
 
-    private String oldLiveCaptionText = "";
-    private String oldLiveTranslationText = "";
     private String translationText = ""; // [oldTranslation, currentTranslation]
     private String liveCaptionText = ""; // [oldLiveCaption, currentLiveCaption]
 
@@ -492,7 +489,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
         long currentTime = System.currentTimeMillis();
 
         if (isFinal) {
-            showTranscriptsToUser(transcript, true, isTranslated);
+            showTranscriptsToUser(transcript, isTranslated);
             return;
         }
 
@@ -500,22 +497,22 @@ public class AugmentosService extends SmartGlassesAndroidService {
         if (super.getSelectedLiveCaptionsTranslation(this) == 2) {
             if (isTranslated) {
                 if (currentTime - glassesTranslatedTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-                    showTranscriptsToUser(transcript, false, true);
+                    showTranscriptsToUser(transcript, true);
                     glassesTranslatedTranscriptLastSentTime = currentTime;
                 } else {
                     glassesTranscriptDebounceRunnable = () -> {
-                        showTranscriptsToUser(transcript, false, true);
+                        showTranscriptsToUser(transcript,true);
                         glassesTranslatedTranscriptLastSentTime = System.currentTimeMillis();
                     };
                     glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
                 }
             } else {
                 if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-                    showTranscriptsToUser(transcript, false, false);
+                    showTranscriptsToUser(transcript, false);
                     glassesTranscriptLastSentTime = currentTime;
                 } else {
                     glassesTranscriptDebounceRunnable = () -> {
-                        showTranscriptsToUser(transcript, false, false);
+                        showTranscriptsToUser(transcript, false);
                         glassesTranscriptLastSentTime = System.currentTimeMillis();
                     };
                     glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
@@ -523,11 +520,11 @@ public class AugmentosService extends SmartGlassesAndroidService {
             }
         } else {
             if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-                showTranscriptsToUser(transcript, false, false);
+                showTranscriptsToUser(transcript, false);
                 glassesTranscriptLastSentTime = currentTime;
             } else {
                 glassesTranscriptDebounceRunnable = () -> {
-                    showTranscriptsToUser(transcript, false, false);
+                    showTranscriptsToUser(transcript, false);
                     glassesTranscriptLastSentTime = System.currentTimeMillis();
                 };
                 glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
@@ -535,7 +532,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
         }
     }
 
-    private void showTranscriptsToUser(final String transcript, final boolean isFinal, final boolean isTranslated) {
+    private void showTranscriptsToUser(final String transcript, final boolean isTranslated) {
         String processed_transcript = transcript;
 
         if (!isTranslated && getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") ||
@@ -547,8 +544,8 @@ public class AugmentosService extends SmartGlassesAndroidService {
             else if (!segmenterLoading) new Thread(this::loadSegmenter).start();
         }
 
-        if (super.getSelectedLiveCaptionsTranslation(this) == 2) sendTextWallLiveTranslationLiveCaption(processed_transcript, isFinal, isTranslated);
-        else sendTextWallLiveCaptionLL(processed_transcript, isFinal, "");
+        if (super.getSelectedLiveCaptionsTranslation(this) == 2) sendTextWallLiveTranslationLiveCaption(processed_transcript, isTranslated);
+        else sendTextWallLiveCaptionLL(processed_transcript, "");
     }
 
     private void loadSegmenter() {
@@ -903,7 +900,21 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
     private String processString(String str) {
         if (str.length() > charsPerTranscript) {
-            str = str.substring(str.length() - charsPerTranscript);
+            int startIndex = str.length() - charsPerTranscript;
+
+            // Move startIndex forward to the next space to avoid splitting a word
+            while (startIndex < str.length() && str.charAt(startIndex) != ' ') {
+                startIndex++;
+            }
+
+            // If a space is found, start from the next character after the space
+            if (startIndex < str.length()) {
+                str = str.substring(startIndex + 1);
+            } else {
+                // If no space is found, it means the substring is a single long word
+                // In this case, start from the original startIndex
+                str = str.substring(str.length() - charsPerTranscript);
+            }
         }
 
         int len = str.length();
@@ -946,34 +957,74 @@ public class AugmentosService extends SmartGlassesAndroidService {
         return str;
     }
 
-    public void sendTextWallLiveCaptionLL(final String newLiveCaption, final boolean isLiveCaptionFinal, final String llString) {
+    private String processHanziString(String str) {
+        if (str.length() > charsPerHanziTranscript) {
+            str = str.substring(str.length() - charsPerHanziTranscript);
+        }
+
+        int len = str.length();
+        if (len > 2 * charsPerHanziTranscript / 3) {
+            // Split into three lines without searching for spaces
+            int index1 = len / 3;
+            int index2 = 2 * len / 3;
+
+            // Insert first newline after index1
+            str = str.substring(0, index1) + "\n" + str.substring(index1);
+
+            // Adjust index2 after the first insertion
+            index2 += 1;
+
+            // Insert second newline after index2
+            str = str.substring(0, index2) + "\n" + str.substring(index2);
+
+        } else if (len > charsPerHanziTranscript / 3) {
+            // Split into two lines
+            int index = len / 2;
+
+            // Insert newline at the middle
+            str = str.substring(0, index) + "\n" + str.substring(index) + "\n";
+        } else {
+            // If string is shorter, add two newlines at the end
+            str = str + "\n\n";
+        }
+
+        return str;
+    }
+
+    public void sendTextWallLiveCaptionLL(final String newLiveCaption, final String llString) {
         String textBubble = "\uD83D\uDDE8";
         if (!newLiveCaption.isEmpty()) {
-            currentLiveCaption = newLiveCaption;
+            if (getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") ||
+                    getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") && !segmenterLoaded) currentLiveCaption = processHanziString(newLiveCaption);
+            else currentLiveCaption = processString(newLiveCaption);
         }
         if (!llString.isEmpty()) llCurrentString = llString;
-        final String finalLiveCaption = textBubble + processString(currentLiveCaption);
 
+        final String finalLiveCaption = textBubble + currentLiveCaption;
         displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(llCurrentString, finalLiveCaption), true, false));
     }
 
-    public void sendTextWallLiveTranslationLiveCaption(final String newText, final boolean isFinal, final boolean isTranslated) {
+    public void sendTextWallLiveTranslationLiveCaption(final String newText, final boolean isTranslated) {
         if (!newText.isEmpty()) {
             if (isTranslated) {
-                translationText = newText;
+                if (getChosenSourceLanguage(this).equals("Chinese (Hanzi)") ||
+                        getChosenSourceLanguage(this).equals("Chinese (Pinyin)") && !segmenterLoaded) translationText = processHanziString(newText);
+                else translationText = processString(newText);
             } else {
-                liveCaptionText = newText;
+                if (getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") ||
+                        getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") && !segmenterLoaded) liveCaptionText = processHanziString(newText);
+                else liveCaptionText = processString(newText);
             }
         }
 
         String textBubble = "\uD83D\uDDE8";
 
         final String finalLiveTranslationText;
-        if (!liveCaptionText.isEmpty()) finalLiveTranslationText = textBubble + processString(translationText) + "\n";
+        if (!liveCaptionText.isEmpty()) finalLiveTranslationText = textBubble + translationText + "\n";
         else finalLiveTranslationText = "\n\n\n";
 
         final String finalLiveCaptionText;
-        if (!translationText.isEmpty()) finalLiveCaptionText = textBubble + processString(liveCaptionText);
+        if (!translationText.isEmpty()) finalLiveCaptionText = textBubble + liveCaptionText;
         else finalLiveCaptionText = "\n\n\n";
 
         displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(finalLiveTranslationText, finalLiveCaptionText), true, false));
@@ -1083,7 +1134,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
                 String textWallString = Arrays.stream(llCombineResults)
                         .reduce((a, b) -> b + newLineSeparator + a)
                         .orElse("");
-                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", false, textWallString);
+                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString);
                 else {
                     displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), false, true));
                 }
@@ -1106,7 +1157,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
                         .orElse("");
                 //sendRowsCard(llContextConvoResponses);
 
-                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", false, textWallString);
+                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString);
                 else {
                     displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), false, true));
                 }
