@@ -161,16 +161,21 @@ public class AugmentosService extends SmartGlassesAndroidService {
     public boolean clearedScreenYet = false;
 
     String currentLiveCaption = "";
+    String finalLiveCaption = "";
     String llCurrentString = "";
 
-    private String translationText = ""; // [oldTranslation, currentTranslation]
-    private String liveCaptionText = ""; // [oldLiveCaption, currentLiveCaption]
+    private String translationText = "";
+    private String liveCaptionText = "";
+
+    private String finalLiveCaptionText = "";
+    private String finalTranslationText = "";
 
     // Double clicking constants
     private final long doublePressTimeConst = 420;
     private final long doubleTapTimeConst = 600;
     private boolean segmenterLoaded = false;
     private boolean segmenterLoading = false;
+    private boolean hasUserBeenNotified = false;
 
     private DisplayQueue displayQueue;
 
@@ -210,14 +215,17 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
 //        startNotificationService();
 
-        if (
-            (super.getSelectedLiveCaptionsTranslation(this) == 1 && getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)")) ||
-            (super.getSelectedLiveCaptionsTranslation(this) == 2 && (getChosenSourceLanguage(this).equals("Chinese (Pinyin)") ||
-                getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && getChosenTranscribeLanguage(this).equals(getChosenSourceLanguage(this)))
-            )
-        ) {
-            new Thread(this::loadSegmenter).start();
-        }
+        // load pinyin converter in the background
+        new Thread(this::loadSegmenter).start();
+//        if (
+//            (super.getSelectedLiveCaptionsTranslation(this) == 1 && getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)")) ||
+//            (super.getSelectedLiveCaptionsTranslation(this) == 2 && (getChosenSourceLanguage(this).equals("Chinese (Pinyin)") ||
+//                getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && getChosenTranscribeLanguage(this).equals(getChosenSourceLanguage(this)))
+//            )
+//        ) {
+//            new Thread(this::loadSegmenter).start();
+//        }
+
 
         completeInitialization();
     }
@@ -489,7 +497,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
         long currentTime = System.currentTimeMillis();
 
         if (isFinal) {
-            showTranscriptsToUser(transcript, isTranslated);
+            showTranscriptsToUser(transcript, isTranslated, true);
             return;
         }
 
@@ -497,22 +505,22 @@ public class AugmentosService extends SmartGlassesAndroidService {
         if (super.getSelectedLiveCaptionsTranslation(this) == 2) {
             if (isTranslated) {
                 if (currentTime - glassesTranslatedTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-                    showTranscriptsToUser(transcript, true);
+                    showTranscriptsToUser(transcript, true, false);
                     glassesTranslatedTranscriptLastSentTime = currentTime;
                 } else {
                     glassesTranscriptDebounceRunnable = () -> {
-                        showTranscriptsToUser(transcript,true);
+                        showTranscriptsToUser(transcript, true, false);
                         glassesTranslatedTranscriptLastSentTime = System.currentTimeMillis();
                     };
                     glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
                 }
             } else {
                 if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-                    showTranscriptsToUser(transcript, false);
+                    showTranscriptsToUser(transcript, false, false);
                     glassesTranscriptLastSentTime = currentTime;
                 } else {
                     glassesTranscriptDebounceRunnable = () -> {
-                        showTranscriptsToUser(transcript, false);
+                        showTranscriptsToUser(transcript, false, false);
                         glassesTranscriptLastSentTime = System.currentTimeMillis();
                     };
                     glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
@@ -520,11 +528,11 @@ public class AugmentosService extends SmartGlassesAndroidService {
             }
         } else {
             if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-                showTranscriptsToUser(transcript, false);
+                showTranscriptsToUser(transcript, false, false);
                 glassesTranscriptLastSentTime = currentTime;
             } else {
                 glassesTranscriptDebounceRunnable = () -> {
-                    showTranscriptsToUser(transcript, false);
+                    showTranscriptsToUser(transcript, false, false);
                     glassesTranscriptLastSentTime = System.currentTimeMillis();
                 };
                 glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
@@ -532,7 +540,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
         }
     }
 
-    private void showTranscriptsToUser(final String transcript, final boolean isTranslated) {
+    private void showTranscriptsToUser(final String transcript, final boolean isTranslated, final boolean isFinal) {
         String processed_transcript = transcript;
 
         if (!isTranslated && getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") ||
@@ -540,21 +548,28 @@ public class AugmentosService extends SmartGlassesAndroidService {
                 getChosenSourceLanguage(this).equals("Chinese (Pinyin)") ||
                 getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && getChosenTranscribeLanguage(this).equals(getChosenSourceLanguage(this)))
         ) {
-            if(segmenterLoaded) processed_transcript = convertToPinyin(transcript);
-            else if (!segmenterLoading) new Thread(this::loadSegmenter).start();
+            if(segmenterLoaded) {
+                processed_transcript = convertToPinyin(transcript);
+            } else if (!segmenterLoading) {
+                new Thread(this::loadSegmenter).start();
+                hasUserBeenNotified = true;
+                displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false));
+            } else if (!hasUserBeenNotified) {  //tell user we are loading the pinyin converter
+                hasUserBeenNotified = true;
+                displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false));
+            }
         }
 
-        if (super.getSelectedLiveCaptionsTranslation(this) == 2) sendTextWallLiveTranslationLiveCaption(processed_transcript, isTranslated);
-        else sendTextWallLiveCaptionLL(processed_transcript, "");
+        if (super.getSelectedLiveCaptionsTranslation(this) == 2) sendTextWallLiveTranslationLiveCaption(processed_transcript, isTranslated, isFinal);
+        else sendTextWallLiveCaptionLL(processed_transcript, "", isFinal);
     }
 
     private void loadSegmenter() {
-        displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false));
         segmenterLoading = true;
         final JiebaSegmenter segmenter = new JiebaSegmenter();
         segmenterLoaded = true;
         segmenterLoading = false;
-        displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Pinyin Converter Loaded!"), true, false));
+//        displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Pinyin Converter Loaded!"), true, false));
     }
 
     private String convertToPinyin(final String chineseText) {
@@ -991,12 +1006,23 @@ public class AugmentosService extends SmartGlassesAndroidService {
         return str;
     }
 
-    public void sendTextWallLiveCaptionLL(final String newLiveCaption, final String llString) {
+    public void sendTextWallLiveCaptionLL(final String newLiveCaption, final String llString, final boolean isFinal) {
         String textBubble = "\uD83D\uDDE8";
         if (!newLiveCaption.isEmpty()) {
             if (getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") ||
-                    getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") && !segmenterLoaded) currentLiveCaption = processHanziString(newLiveCaption);
-            else currentLiveCaption = processString(newLiveCaption);
+                    getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") && !segmenterLoaded) {
+                currentLiveCaption = processHanziString(finalLiveCaption + " " + newLiveCaption);
+            } else {
+                currentLiveCaption = processString(finalLiveCaption + " " + newLiveCaption);
+            }
+            if (isFinal) {
+                finalLiveCaption += " " + newLiveCaption;
+            }
+
+            // Limit the length of the final live caption, in case it gets too long
+            if (finalLiveCaption.length() > 5000) {
+                finalLiveCaption = finalLiveCaption.substring(finalLiveCaption.length() - 5000);
+            }
         }
         if (!llString.isEmpty()) llCurrentString = llString;
 
@@ -1004,30 +1030,60 @@ public class AugmentosService extends SmartGlassesAndroidService {
         displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(llCurrentString, finalLiveCaption), true, false));
     }
 
-    public void sendTextWallLiveTranslationLiveCaption(final String newText, final boolean isTranslated) {
+    public void sendTextWallLiveTranslationLiveCaption(final String newText, final boolean isTranslated, final boolean isFinal) {
         if (!newText.isEmpty()) {
             if (isTranslated) {
                 if (getChosenSourceLanguage(this).equals("Chinese (Hanzi)") ||
-                        getChosenSourceLanguage(this).equals("Chinese (Pinyin)") && !segmenterLoaded) translationText = processHanziString(newText);
-                else translationText = processString(newText);
+                        getChosenSourceLanguage(this).equals("Chinese (Pinyin)") && !segmenterLoaded) {
+                    translationText = processHanziString(finalTranslationText + " " + newText);
+                } else {
+                    translationText = processString(finalTranslationText + " " + newText);
+                }
+
+                if (isFinal) {
+                    finalTranslationText += " " + newText;
+                }
+
+                // Limit the length of the final translation text
+                if (finalTranslationText.length() > 5000) {
+                    finalTranslationText = finalTranslationText.substring(finalTranslationText.length() - 5000);
+                }
             } else {
                 if (getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") ||
-                        getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") && !segmenterLoaded) liveCaptionText = processHanziString(newText);
-                else liveCaptionText = processString(newText);
+                        getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") && !segmenterLoaded) {
+                    liveCaptionText = processHanziString(finalLiveCaptionText + " " + newText);
+                } else {
+                    liveCaptionText = processString(finalLiveCaptionText + " " + newText);
+                }
+
+                if (isFinal) {
+                    finalLiveCaptionText += " " + newText;
+                }
+
+                // Limit the length of the final live caption text
+                if (finalLiveCaptionText.length() > 5000) {
+                    finalLiveCaptionText = finalLiveCaptionText.substring(finalLiveCaptionText.length() - 5000);
+                }
             }
         }
 
         String textBubble = "\uD83D\uDDE8";
 
-        final String finalLiveTranslationText;
-        if (!liveCaptionText.isEmpty()) finalLiveTranslationText = textBubble + translationText + "\n";
-        else finalLiveTranslationText = "\n\n\n";
+        final String finalLiveTranslationDisplayText;
+        if (!translationText.isEmpty()) {
+            finalLiveTranslationDisplayText = textBubble + translationText + "\n";
+        } else {
+            finalLiveTranslationDisplayText = "\n\n\n";
+        }
 
-        final String finalLiveCaptionText;
-        if (!translationText.isEmpty()) finalLiveCaptionText = textBubble + liveCaptionText;
-        else finalLiveCaptionText = "\n\n\n";
+        final String finalLiveCaptionDisplayText;
+        if (!liveCaptionText.isEmpty()) {
+            finalLiveCaptionDisplayText = textBubble + liveCaptionText;
+        } else {
+            finalLiveCaptionDisplayText = "\n\n\n";
+        }
 
-        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(finalLiveTranslationText, finalLiveCaptionText), true, false));
+        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(finalLiveTranslationDisplayText, finalLiveCaptionDisplayText), true, false));
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
@@ -1134,7 +1190,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
                 String textWallString = Arrays.stream(llCombineResults)
                         .reduce((a, b) -> b + newLineSeparator + a)
                         .orElse("");
-                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString);
+                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString, false);
                 else {
                     displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), false, true));
                 }
@@ -1157,7 +1213,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
                         .orElse("");
                 //sendRowsCard(llContextConvoResponses);
 
-                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString);
+                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString, false);
                 else {
                     displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), false, true));
                 }
