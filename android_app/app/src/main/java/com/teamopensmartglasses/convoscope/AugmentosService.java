@@ -591,11 +591,10 @@ public class AugmentosService extends SmartGlassesAndroidService {
             }
         }
 
-        // Output debug information
-        System.out.println("Input: " + chineseText);
-        System.out.println("Output Pinyin: " + pinyinText.toString().trim());
+        // Replace multiple spaces with a single space, but preserve newlines
+        String cleanText = pinyinText.toString().trim().replaceAll("[ \\t]+", " ");  // Replace spaces and tabs only
 
-        return pinyinText.toString().trim();
+        return cleanText;
     }
 
     private long lastSentTime = 0;
