@@ -167,6 +167,9 @@ public class ConvoscopeUi extends Fragment {
         final Button settingsButton = view.findViewById(R.id.settings_button);
         settingsButton.setOnClickListener(v -> openSettingsFragment());
 
+        final Button connectButton = view.findViewById(R.id.connect_button);
+        connectButton.setOnClickListener(v -> connectGlasses());
+
 //        Button pickContactButton = view.findViewById(R.id.pick_contact_button);
 //        pickContactButton.setOnClickListener(new View.OnClickListener() {
 //          @Override
@@ -326,7 +329,7 @@ public class ConvoscopeUi extends Fragment {
 //        startActivity(intent);
 //      }
 
-      ((MainActivity)getActivity()).startConvoscopeService();
+//      ((MainActivity)getActivity()).startConvoscopeService();
     }
 
     private void pickContact() {
@@ -395,6 +398,10 @@ public class ConvoscopeUi extends Fragment {
     // Handle the text input result here
     Toast.makeText(this.getContext(), "Set UserID to: " + result, Toast.LENGTH_SHORT).show();
     EventBus.getDefault().post(new UserIdChangedEvent(result));
+  }
+
+  private void connectGlasses() {
+      ((MainActivity)getActivity()).startConvoscopeService();
   }
 
   private void openSettingsFragment() {

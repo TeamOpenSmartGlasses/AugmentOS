@@ -14,7 +14,7 @@
       android:layout_width="match_parent"
       android:layout_height="0dp"
       app:layout_constraintHeight_default="percent"
-      app:layout_constraintHeight_percent="0.55"
+      app:layout_constraintHeight_percent="0.5"
 
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent" />
@@ -28,7 +28,7 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintHeight_default="percent"
 
-      app:layout_constraintHeight_percent="0.45"
+      app:layout_constraintHeight_percent="0.5"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintWidth_default="percent"
       app:layout_constraintWidth_percent="0.5">
@@ -51,9 +51,22 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHeight_default="percent"
 
-      app:layout_constraintHeight_percent="0.45"
+      app:layout_constraintHeight_percent="0.5"
       app:layout_constraintWidth_default="percent"
       app:layout_constraintWidth_percent="0.503">
+
+
+    <Button
+        android:id="@+id/connect_button"
+        android:layout_width="wrap_content"
+        android:minWidth="115dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="6dp"
+        android:text="Connect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/settings_button"
@@ -65,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/connect_button" />
 
     <RadioGroup
         android:id="@+id/radioGroupOptions"
@@ -123,16 +136,16 @@
           android:id="@+id/radioButtonWalkNGrok"
           android:layout_width="match_parent"
           android:layout_height="32dp"
-          android:enabled="true"
-          android:buttonTint="@color/colorAccent"
+          android:enabled="false"
+          android:buttonTint="@color/colorLightGray"
           android:text="Live Captions" />
 
       <RadioButton
           android:id="@+id/radioButtonWalkNGrok"
           android:layout_width="match_parent"
           android:layout_height="32dp"
-          android:enabled="true"
-          android:buttonTint="@color/colorAccent"
+          android:enabled="false"
+          android:buttonTint="@color/colorLightGray"
           android:text="Translation" />
 
     </RadioGroup>

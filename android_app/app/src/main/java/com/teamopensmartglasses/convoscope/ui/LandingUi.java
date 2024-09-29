@@ -1,6 +1,7 @@
 package com.teamopensmartglasses.convoscope.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,7 @@ public class LandingUi extends Fragment {
     mAuth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
     if (currentUser != null) {
+      Log.d(TAG, "Already logged in, skipping to main UI");
       navController.navigate(R.id.nav_convoscope);
     }
 
