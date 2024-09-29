@@ -290,6 +290,12 @@ public class ConvoscopeUi extends Fragment {
       convoscopeModeSelector.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
+          if (((MainActivity)getActivity()) == null || ((MainActivity)getActivity()).mService == null) {
+            Log.e(TAG, "MainActivity or mService is null.");
+            Toast.makeText(mContext, "Service not available. Please connect your Glasses.", Toast.LENGTH_SHORT).show();
+            return;
+          }
+
           ((MainActivity)getActivity()).stopScreenCapture();
           screenMirrorImageToggle.setEnabled(true);
 
