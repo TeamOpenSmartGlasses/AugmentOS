@@ -1086,7 +1086,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
-        if (getSelectedLiveCaptionsTranslation(this) == 2) return;
+        if (Objects.equals(getCurrentMode(this), "Language Learning") && getSelectedLiveCaptionsTranslation(this) == 2) return;
 //        Log.d(TAG, "GOT CSE RESULT: " + response.toString());
         String imgKey = "image_url";
         String mapImgKey = "map_image_path";
