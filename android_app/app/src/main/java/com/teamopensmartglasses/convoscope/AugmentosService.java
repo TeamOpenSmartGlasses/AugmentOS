@@ -1178,7 +1178,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
         JSONArray llWordSuggestUpgradeResults = response.has(llWordSuggestUpgradeKey) ? response.getJSONArray(llWordSuggestUpgradeKey) : new JSONArray();
         updateCombineResponse(languageLearningResults, llWordSuggestUpgradeResults);
 //        Log.d(TAG, "ll results"+languageLearningResults.toString()+"\n"+"upgrade result:"+llWordSuggestUpgradeResults);
-        if (languageLearningResults.length() != 0 || llWordSuggestUpgradeResults.length() != 0) {
+        if (Objects.equals(getCurrentMode(this), "Language Learning") && (languageLearningResults.length() != 0 || llWordSuggestUpgradeResults.length() != 0)) {
 //            if (!clearedScreenYet) {
 //                sendHomeScreen();
 //                clearedScreenYet = true;
@@ -1512,14 +1512,18 @@ public class AugmentosService extends SmartGlassesAndroidService {
 //        }
 //    }
 
-    public void saveCurrentMode(Context context, String currentModeString) {
-        sendHomeScreen();
-
+    public static void saveCurrentModeLocal(Context context, String currentModeString) {
         //save the new mode
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
                 .putString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), currentModeString)
                 .apply();
+    }
+
+    public void saveCurrentMode(Context context, String currentModeString) {
+        sendHomeScreen();
+
+        saveCurrentModeLocal(context, currentModeString);
 
         try{
             JSONObject settingsObj = new JSONObject();

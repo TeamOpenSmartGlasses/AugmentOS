@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
   public SmartGlassesDevice selectedDevice;
 
+  public boolean gettingPermissions = false;
+
   @SuppressLint("ClickableViewAccessibility")
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
     permissionsUtils = new PermissionsUtils(this, TAG);
     if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
         != PackageManager.PERMISSION_GRANTED) {
+      gettingPermissions = true;
       permissionsUtils.getSomePermissions();
       //ActivityCompat.requestPermissions(:w
       // this, new String[] {Manifest.permission.RECORD_AUDIO}, PERMISSIONS_REQUEST_RECORD_AUDIO);
@@ -157,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
     super.onResume();
 //    UiUtils.setupTitle(this, defaultFragmentLabel);
     //register receiver that gets data from the service
-
 
     if (isMyServiceRunning(AugmentosService.class)) {
       //bind to WearableAi service
@@ -263,9 +265,23 @@ public class MainActivity extends AppCompatActivity {
 
   private static final int REQUEST_CODE_CAPTURE = 100;
   public void requestScreenCapturePermission() {
-    MediaProjectionManager projectionManager = (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
-    Intent captureIntent = projectionManager.createScreenCaptureIntent();
-    startActivityForResult(captureIntent, REQUEST_CODE_CAPTURE);
+    if (!isScreenCaptureServiceRunning()) {
+      MediaProjectionManager projectionManager = (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
+      Intent captureIntent = projectionManager.createScreenCaptureIntent();
+      startActivityForResult(captureIntent, REQUEST_CODE_CAPTURE);
+    } else {
+      Toast.makeText(this, "Screen capture is already active", Toast.LENGTH_SHORT).show();
+    }
+  }
+
+  public boolean isScreenCaptureServiceRunning() {
+    ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+    for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+      if (ScreenCaptureService.class.getName().equals(service.service.getClassName())) {
+        return true;
+      }
+    }
+    return false;
   }
 
   @Override
@@ -398,8 +414,8 @@ public class MainActivity extends AppCompatActivity {
     public String getCurrentMode(Context context) {
         String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
         if (currentModeString.equals("")){
-            saveCurrentMode(context, "Language Learning");
-            currentModeString = "Language Learning";
+            saveCurrentMode(context, "Proactive Agents");
+            currentModeString = "Proactive Agents";
         }
         return currentModeString;
     }
