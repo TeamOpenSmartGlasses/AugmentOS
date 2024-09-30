@@ -269,6 +269,9 @@ public class ConvoscopeUi extends Fragment {
         convoscopeModeSelector.check(R.id.radioButtonADHDGlasses);
       } else if (currentModeString.equals("Screen Mirror")) {
         convoscopeModeSelector.check(R.id.radioButtonScreenMirror);
+        if (!((MainActivity) getActivity()).isScreenCaptureServiceRunning()) {
+          ((MainActivity) getActivity()).requestScreenCapturePermission();
+        }
       }
 
       Context mContext = this.getContext();

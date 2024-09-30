@@ -143,6 +143,7 @@ public class ScreenCaptureService extends Service {
 
         this.textOnly = !PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean("screen_mirror_image", false);
         startImageBufferLoop();
+        if (bitmapBuffer != null) processBitmap(bitmapBuffer);
         return START_STICKY;
     }
 
