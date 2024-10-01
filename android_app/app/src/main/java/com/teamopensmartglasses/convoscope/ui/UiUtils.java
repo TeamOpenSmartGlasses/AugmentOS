@@ -2,8 +2,6 @@ package com.teamopensmartglasses.convoscope.ui;
 
 import android.app.Activity;
 
-import androidx.appcompat.widget.Toolbar;
-
 import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.convoscope.R;
 

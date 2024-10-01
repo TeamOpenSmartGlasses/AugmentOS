@@ -81,10 +81,8 @@ import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEW
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
-import javax.microedition.khronos.opengles.GL;
-
-public class ConvoscopeService extends SmartGlassesAndroidService {
-    public final String TAG = "Convoscope_ConvoscopeService";
+public class AugmentosService extends SmartGlassesAndroidService {
+    public final String TAG = "AugmentOS_AugmentOSService";
 
     private final IBinder binder = new LocalBinder();
 
@@ -146,6 +144,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private final int maxAdhdStmbShowNum = 3;
     private final int maxContextConvoResponsesShow = 2;
     private final int maxLLUpgradeResponsesShow = 2;
+    private final int charsPerTranscript = 90;
+    private final int charsPerHanziTranscript = 36;
 
 
     //    private SMSComms smsComms;
@@ -160,23 +160,31 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     //clear screen to start
     public boolean clearedScreenYet = false;
 
-    String oldLiveCaption = "";
-    String oldLiveCaptionFinal = "";
     String currentLiveCaption = "";
+    String finalLiveCaption = "";
     String llCurrentString = "";
+
+    private String translationText = "";
+    private String liveCaptionText = "";
+
+    private String finalLiveCaptionText = "";
+    private String finalTranslationText = "";
 
     // Double clicking constants
     private final long doublePressTimeConst = 420;
     private final long doubleTapTimeConst = 600;
+    private boolean segmenterLoaded = false;
+    private boolean segmenterLoading = false;
+    private boolean hasUserBeenNotified = false;
 
     private DisplayQueue displayQueue;
 
-    public ConvoscopeService() {
+    public AugmentosService() {
         super(ConvoscopeUi.class,
-                "convoscope_app",
-                3588,
-                "Convoscope",
-                "Wearable intelligence upgrades. By TeamOpenSmartGlasses.", R.drawable.ic_launcher_foreground);
+                "augmentos_app",
+                3589,
+                "AugmentOS",
+                "Smart glasses super app by TOSG.", R.drawable.ic_launcher_foreground);
     }
 
     @Override
@@ -191,7 +199,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         //make responses holder
         responsesBuffer = new ArrayList<>();
         responsesToShare = new ArrayList<>();
-        responsesBuffer.add("Welcome to Convoscope.");
+        responsesBuffer.add("Welcome to AugmentOS.");
 
         //make responses holder
         transcriptsBuffer = new ArrayList<>();
@@ -205,7 +213,19 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //        Log.d(TAG, "ASR KEY: " + asrApiKey);
         saveApiKey(this, asrApiKey);
 
-        startNotificationService();
+//        startNotificationService();
+
+        // load pinyin converter in the background
+        new Thread(this::loadSegmenter).start();
+//        if (
+//            (super.getSelectedLiveCaptionsTranslation(this) == 1 && getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)")) ||
+//            (super.getSelectedLiveCaptionsTranslation(this) == 2 && (getChosenSourceLanguage(this).equals("Chinese (Pinyin)") ||
+//                getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && getChosenTranscribeLanguage(this).equals(getChosenSourceLanguage(this)))
+//            )
+//        ) {
+//            new Thread(this::loadSegmenter).start();
+//        }
+
 
         completeInitialization();
     }
@@ -216,7 +236,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         setUpLocationSending();
 
         //setup ASR version
-        ConvoscopeService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK);
+        AugmentosService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK);
 //        ConvoscopeService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.DEEPGRAM_ASR_FRAMEWORK);
 //        ConvoscopeService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
 
@@ -235,7 +255,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     @Override
     protected void onGlassesConnected(SmartGlassesDevice device) {
         Log.d(TAG, "Glasses connected successfully: " + device.deviceModelName);
-        setFontSize(SmartGlassesFontSize.LARGE);
+        setFontSize(SmartGlassesFontSize.MEDIUM);
         displayQueue.startQueue();
     }
 
@@ -355,7 +375,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             firebaseAuth.removeIdTokenListener(idTokenListener);
         }
 
-        stopNotificationService();
+//        stopNotificationService();
 
         if (displayQueue != null) displayQueue.stopQueue();
 
@@ -363,7 +383,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void convoscopeStartCommandCallback(String args, long commandTriggeredTime){
-        Log.d("TAG","Convoscope start callback called");
+        Log.d("TAG","AugmentOS start callback called");
         //runConvoscope();
     }
 
@@ -447,62 +467,114 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     @Subscribe
     public void onTranscript(SpeechRecOutputEvent event) {
         String text = event.text;
-        long time = event.timestamp;
+//        long time = event.timestamp;
         boolean isFinal = event.isFinal;
+        boolean isTranslated = event.isTranslated;
 //        Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + text);
 
-        if (isFinal) {
+        if (isFinal && !isTranslated) {
             transcriptsBuffer.add(text);
             sendFinalTranscriptToActivity(text);
         }
-
         //debounce and then send to backend
-        debounceAndSendTranscript(text, isFinal);
+        if (!isTranslated && super.getSelectedLiveCaptionsTranslation(this) != 2) debounceAndSendTranscript(text, isFinal);
 //        getSettings();
         // Send transcript to user if live captions are enabled
-        if (Objects.equals(getCurrentMode(this), "Language Learning") && getIsLiveCaptionsChecked(this)) {
+        if (Objects.equals(getCurrentMode(this), "Language Learning") && super.getSelectedLiveCaptionsTranslation(this) != 0) { // 0 is language learning mode
 //            showTranscriptsToUser(text, isFinal);
-            debounceAndShowTranscriptOnGlasses(text, isFinal);
+            debounceAndShowTranscriptOnGlasses(text, isFinal, isTranslated);
         }
     }
 
     private Handler glassesTranscriptDebounceHandler = new Handler(Looper.getMainLooper());
     private Runnable glassesTranscriptDebounceRunnable;
     private long glassesTranscriptLastSentTime = 0;
+    private long glassesTranslatedTranscriptLastSentTime = 0;
     private final long GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY = 400; // in milliseconds
-    private void debounceAndShowTranscriptOnGlasses(String transcript, boolean isFinal) {
+
+    private void debounceAndShowTranscriptOnGlasses(String transcript, boolean isFinal, boolean isTranslated) {
         glassesTranscriptDebounceHandler.removeCallbacks(glassesTranscriptDebounceRunnable);
         long currentTime = System.currentTimeMillis();
+
         if (isFinal) {
-            showTranscriptsToUser(transcript, isFinal);
-        } else { //if intermediate
+            showTranscriptsToUser(transcript, isTranslated, true);
+            return;
+        }
+
+        // if intermediate
+        if (super.getSelectedLiveCaptionsTranslation(this) == 2) {
+            if (isTranslated) {
+                if (currentTime - glassesTranslatedTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
+                    showTranscriptsToUser(transcript, true, false);
+                    glassesTranslatedTranscriptLastSentTime = currentTime;
+                } else {
+                    glassesTranscriptDebounceRunnable = () -> {
+                        showTranscriptsToUser(transcript, true, false);
+                        glassesTranslatedTranscriptLastSentTime = System.currentTimeMillis();
+                    };
+                    glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
+                }
+            } else {
+                if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
+                    showTranscriptsToUser(transcript, false, false);
+                    glassesTranscriptLastSentTime = currentTime;
+                } else {
+                    glassesTranscriptDebounceRunnable = () -> {
+                        showTranscriptsToUser(transcript, false, false);
+                        glassesTranscriptLastSentTime = System.currentTimeMillis();
+                    };
+                    glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
+                }
+            }
+        } else {
             if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-                showTranscriptsToUser(transcript, isFinal);
+                showTranscriptsToUser(transcript, false, false);
                 glassesTranscriptLastSentTime = currentTime;
             } else {
                 glassesTranscriptDebounceRunnable = () -> {
-                    showTranscriptsToUser(transcript, isFinal);
-                    lastSentTime = System.currentTimeMillis();
+                    showTranscriptsToUser(transcript, false, false);
+                    glassesTranscriptLastSentTime = System.currentTimeMillis();
                 };
                 glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
             }
         }
     }
 
-    private void showTranscriptsToUser(final String transcript, final boolean isFinal) {
-        String final_transcript;
+    private void showTranscriptsToUser(final String transcript, final boolean isTranslated, final boolean isFinal) {
+        String processed_transcript = transcript;
 
-        if (getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)")) {
-            final_transcript = convertToPinyin(transcript);
-        } else {
-            final_transcript = transcript;
+        if (!isTranslated && getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") ||
+            isTranslated && (
+                getChosenSourceLanguage(this).equals("Chinese (Pinyin)") ||
+                getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && getChosenTranscribeLanguage(this).equals(getChosenSourceLanguage(this)))
+        ) {
+            if(segmenterLoaded) {
+                processed_transcript = convertToPinyin(transcript);
+            } else if (!segmenterLoading) {
+                new Thread(this::loadSegmenter).start();
+                hasUserBeenNotified = true;
+                displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false));
+            } else if (!hasUserBeenNotified) {  //tell user we are loading the pinyin converter
+                hasUserBeenNotified = true;
+                displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false));
+            }
         }
 
-        sendTextWallLiveCaptionLL(final_transcript, isFinal, "");
+        if (super.getSelectedLiveCaptionsTranslation(this) == 2) sendTextWallLiveTranslationLiveCaption(processed_transcript, isTranslated, isFinal);
+        else sendTextWallLiveCaptionLL(processed_transcript, "", isFinal);
     }
 
-    private static String convertToPinyin(final String chineseText) {
+    private void loadSegmenter() {
+        segmenterLoading = true;
         final JiebaSegmenter segmenter = new JiebaSegmenter();
+        segmenterLoaded = true;
+        segmenterLoading = false;
+//        displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Pinyin Converter Loaded!"), true, false));
+    }
+
+    private String convertToPinyin(final String chineseText) {
+        final JiebaSegmenter segmenter = new JiebaSegmenter();
+
         final List<SegToken> tokens = segmenter.process(chineseText, JiebaSegmenter.SegMode.SEARCH);
 
         final HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
@@ -534,11 +606,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             }
         }
 
-        // Output debug information
-        System.out.println("Input: " + chineseText);
-        System.out.println("Output Pinyin: " + pinyinText.toString().trim());
+        // Replace multiple spaces with a single space, but preserve newlines
+        String cleanText = pinyinText.toString().trim().replaceAll("[ \\t]+", " ");  // Replace spaces and tabs only
 
-        return pinyinText.toString().trim();
+        return cleanText;
     }
 
     private long lastSentTime = 0;
@@ -770,6 +841,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     public String[] calculateLLCombineResponseFormatted(LinkedList<LLCombineResponse> llCombineResponses) {
         int max_rows_allowed = 4;
+
         String[] llCombineResults = new String[Math.min(max_rows_allowed, llCombineResponses.size())];
 
         int minSpaces = 2;
@@ -781,7 +853,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //            Log.d(TAG, llCombineResponse.toString());
             if(llCombineResponse.inWord!=null && llCombineResponse.inWordTranslation!=null){
                 llCombineResults[index] = llCombineResponse.inWord + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + llCombineResponse.inWordTranslation;
-            }else if (llCombineResponse.inUpgrade != null && llCombineResponse.inUpgradeMeaning!= null) {
+            } else if (llCombineResponse.inUpgrade != null && llCombineResponse.inUpgradeMeaning!= null) {
                 llCombineResults[index] = "⬆ " + llCombineResponse.inUpgrade + enSpace.repeat(minSpaces) + "-" + enSpace.repeat(minSpaces) + llCombineResponse.inUpgradeMeaning;
             }
             index++;
@@ -821,20 +893,15 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //    }
 
     public String[] calculateLLContextConvoResponseFormatted(LinkedList<ContextConvoResponse> contextConvoResponses) {
-        int max_rows_allowed;
-        if (getIsLiveCaptionsChecked(this)) max_rows_allowed = 3; // Only show 2 rows if live captions are enabled
-        else max_rows_allowed = 4;
+        int max_rows_allowed = 4;
 
         if (!clearedScreenYet) {
             sendHomeScreen();
             clearedScreenYet = true;
         }
 
-
         String[] llResults = new String[Math.min(max_rows_allowed, contextConvoResponses.size())];
-//        String enSpace = "\u2002"; // Using en space for padding
 
-//        int minSpaces = 2;
         int index = 0;
         for (ContextConvoResponse contextConvoResponse: contextConvoResponses) {
             if (index >= max_rows_allowed) break;
@@ -845,47 +912,186 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         return llResults;
     }
 
-    public void sendTextWallLiveCaptionLL(final String newLiveCaption, final boolean isLiveCaptionFinal, final String llString) {
-        final String separatorLine = "";
+    private String processString(String str) {
+        if (str.length() > charsPerTranscript) {
+            int startIndex = str.length() - charsPerTranscript;
 
-        if (!newLiveCaption.isEmpty()) {
-            if (!oldLiveCaption.isEmpty()) {
-                oldLiveCaptionFinal = oldLiveCaption;
-                oldLiveCaption = "";
+            // Move startIndex forward to the next space to avoid splitting a word
+            while (startIndex < str.length() && str.charAt(startIndex) != ' ') {
+                startIndex++;
             }
-            if (isLiveCaptionFinal) oldLiveCaption = currentLiveCaption; // Only update old caption if the new one is final
-            currentLiveCaption = newLiveCaption;
+
+            // If a space is found, start from the next character after the space
+            if (startIndex < str.length()) {
+                str = str.substring(startIndex + 1);
+            } else {
+                // If no space is found, it means the substring is a single long word
+                // In this case, start from the original startIndex
+                str = str.substring(str.length() - charsPerTranscript);
+            }
+        }
+
+        int len = str.length();
+        if (len > 2 * charsPerTranscript / 3) {
+            // Insert newlines to split into three lines
+            int index1 = len / 3;
+            int index2 = 2 * len / 3;
+
+            // Find the last space before index1
+            while (index1 > 0 && str.charAt(index1) != ' ') {
+                index1--;
+            }
+            // Insert first newline
+            if (index1 > 0) {
+                str = str.substring(0, index1) + "\n" + str.substring(index1 + 1);
+                index2 += 1; // Adjust index2 after insertion
+            }
+
+            // Find the last space before index2
+            while (index2 > index1 && str.charAt(index2) != ' ') {
+                index2--;
+            }
+            // Insert second newline
+            if (index2 > index1) {
+                str = str.substring(0, index2) + "\n" + str.substring(index2 + 1);
+            }
+        } else if (len > charsPerTranscript / 3) {
+            // Insert newline to split into two lines
+            int index = len / 2;
+            while (index > 0 && str.charAt(index) != ' ') {
+                index--;
+            }
+            if (index > 0) {
+                str = str.substring(0, index) + "\n" + str.substring(index + 1) + "\n";
+            }
+        } else {
+            str = str + "\n\n";
+        }
+
+        return str;
+    }
+
+    private String processHanziString(String str) {
+        if (str.length() > charsPerHanziTranscript) {
+            str = str.substring(str.length() - charsPerHanziTranscript);
+        }
+
+        int len = str.length();
+        if (len > 2 * charsPerHanziTranscript / 3) {
+            // Split into three lines without searching for spaces
+            int index1 = len / 3;
+            int index2 = 2 * len / 3;
+
+            // Insert first newline after index1
+            str = str.substring(0, index1) + "\n" + str.substring(index1);
+
+            // Adjust index2 after the first insertion
+            index2 += 1;
+
+            // Insert second newline after index2
+            str = str.substring(0, index2) + "\n" + str.substring(index2);
+
+        } else if (len > charsPerHanziTranscript / 3) {
+            // Split into two lines
+            int index = len / 2;
+
+            // Insert newline at the middle
+            str = str.substring(0, index) + "\n" + str.substring(index) + "\n";
+        } else {
+            // If string is shorter, add two newlines at the end
+            str = str + "\n\n";
+        }
+
+        return str;
+    }
+
+    public void sendTextWallLiveCaptionLL(final String newLiveCaption, final String llString, final boolean isFinal) {
+        String textBubble = "\uD83D\uDDE8";
+        if (!newLiveCaption.isEmpty()) {
+            if (getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") ||
+                    getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") && !segmenterLoaded) {
+                currentLiveCaption = processHanziString(finalLiveCaption + " " + newLiveCaption);
+            } else {
+                currentLiveCaption = processString(finalLiveCaption + " " + newLiveCaption);
+            }
+            if (isFinal) {
+                finalLiveCaption += " " + newLiveCaption;
+            }
+
+            // Limit the length of the final live caption, in case it gets too long
+            if (finalLiveCaption.length() > 5000) {
+                finalLiveCaption = finalLiveCaption.substring(finalLiveCaption.length() - 5000);
+            }
         }
         if (!llString.isEmpty()) llCurrentString = llString;
 
-        // Truncate to the last 70 characters
-        oldLiveCaption = oldLiveCaption.length() > 70 ? oldLiveCaption.substring(oldLiveCaption.length() - 70) : oldLiveCaption;
-        currentLiveCaption = currentLiveCaption.length() > 70 ? currentLiveCaption.substring(currentLiveCaption.length() - 70) : currentLiveCaption;
+        final String finalLiveCaption = textBubble + currentLiveCaption;
+        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(llCurrentString, finalLiveCaption), true, false));
+    }
 
-        final String topSeparatorLine = !llCurrentString.isEmpty() ? separatorLine : "";
-        final String bottomSeparatorLine = !oldLiveCaptionFinal.isEmpty() ? separatorLine + "\n" : "";
+    public void sendTextWallLiveTranslationLiveCaption(final String newText, final boolean isTranslated, final boolean isFinal) {
+        if (!newText.isEmpty()) {
+            if (isTranslated) {
+                if (getChosenSourceLanguage(this).equals("Chinese (Hanzi)") ||
+                        getChosenSourceLanguage(this).equals("Chinese (Pinyin)") && !segmenterLoaded) {
+                    translationText = processHanziString(finalTranslationText + " " + newText);
+                } else {
+                    translationText = processString(finalTranslationText + " " + newText);
+                }
+
+                if (isFinal) {
+                    finalTranslationText += " " + newText;
+                }
+
+                // Limit the length of the final translation text
+                if (finalTranslationText.length() > 5000) {
+                    finalTranslationText = finalTranslationText.substring(finalTranslationText.length() - 5000);
+                }
+            } else {
+                if (getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") ||
+                        getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") && !segmenterLoaded) {
+                    liveCaptionText = processHanziString(finalLiveCaptionText + " " + newText);
+                } else {
+                    liveCaptionText = processString(finalLiveCaptionText + " " + newText);
+                }
+
+                if (isFinal) {
+                    finalLiveCaptionText += " " + newText;
+                }
+
+                // Limit the length of the final live caption text
+                if (finalLiveCaptionText.length() > 5000) {
+                    finalLiveCaptionText = finalLiveCaptionText.substring(finalLiveCaptionText.length() - 5000);
+                }
+            }
+        }
 
         String textBubble = "\uD83D\uDDE8";
-        String preOldCaptionTextBubble;
-        if (oldLiveCaptionFinal.equals("")){
-            preOldCaptionTextBubble = "";
-        } else {
-            preOldCaptionTextBubble = textBubble;
-        }
-//        if (!clearedScreenYet) {
-//            sendHomeScreen();
-//            clearedScreenYet = true;
-//        }
 
-        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(llCurrentString + topSeparatorLine, preOldCaptionTextBubble + oldLiveCaptionFinal + bottomSeparatorLine + textBubble + currentLiveCaption), false, true));
+        final String finalLiveTranslationDisplayText;
+        if (!translationText.isEmpty()) {
+            finalLiveTranslationDisplayText = textBubble + translationText + "\n";
+        } else {
+            finalLiveTranslationDisplayText = "\n\n\n";
+        }
+
+        final String finalLiveCaptionDisplayText;
+        if (!liveCaptionText.isEmpty()) {
+            finalLiveCaptionDisplayText = textBubble + liveCaptionText;
+        } else {
+            finalLiveCaptionDisplayText = "\n\n\n";
+        }
+
+        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(finalLiveTranslationDisplayText, finalLiveCaptionDisplayText), true, false));
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
+        if (Objects.equals(getCurrentMode(this), "Language Learning") && getSelectedLiveCaptionsTranslation(this) == 2) return;
 //        Log.d(TAG, "GOT CSE RESULT: " + response.toString());
         String imgKey = "image_url";
         String mapImgKey = "map_image_path";
 
-        boolean isLiveCaptionsChecked = getIsLiveCaptionsChecked(this);
+        boolean isLiveCaptionsChecked = super.getSelectedLiveCaptionsTranslation(this) != 0;
 
         //explicit queries
         JSONArray explicitAgentQueries = response.has(explicitAgentQueriesKey) ? response.getJSONArray(explicitAgentQueriesKey) : new JSONArray();
@@ -968,12 +1174,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //            responsesBuffer.add(String.join("\n", llResults));
 //        }
 
-
         JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
         JSONArray llWordSuggestUpgradeResults = response.has(llWordSuggestUpgradeKey) ? response.getJSONArray(llWordSuggestUpgradeKey) : new JSONArray();
         updateCombineResponse(languageLearningResults, llWordSuggestUpgradeResults);
 //        Log.d(TAG, "ll results"+languageLearningResults.toString()+"\n"+"upgrade result:"+llWordSuggestUpgradeResults);
-        if (languageLearningResults.length() != 0 || llWordSuggestUpgradeResults.length() != 0) {
+        if (Objects.equals(getCurrentMode(this), "Language Learning") && (languageLearningResults.length() != 0 || llWordSuggestUpgradeResults.length() != 0)) {
 //            if (!clearedScreenYet) {
 //                sendHomeScreen();
 //                clearedScreenYet = true;
@@ -984,7 +1189,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 String textWallString = Arrays.stream(llCombineResults)
                         .reduce((a, b) -> b + newLineSeparator + a)
                         .orElse("");
-                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", false, textWallString);
+                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString, false);
                 else {
                     displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), false, true));
                 }
@@ -993,7 +1198,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             sendUiUpdateSingle(String.join("\n", llCombineResults));
             responsesBuffer.add(String.join("\n", llCombineResults));
         }
-
 
         JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
 
@@ -1008,7 +1212,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                         .orElse("");
                 //sendRowsCard(llContextConvoResponses);
 
-                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", false, textWallString);
+                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString, false);
                 else {
                     displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), false, true));
                 }
@@ -1030,7 +1234,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
         }
 
         // systemMessages
@@ -1086,6 +1289,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         //go through explicit agent results and add to resultsToDisplayList
         // Show Wake Word Query
         for (int i = 0; i < explicitAgentResults.length(); i++){
+            Log.d(TAG, "explicitAgentResults.toString() *************");
+            Log.d(TAG, explicitAgentResults.toString());
             try {
                 JSONObject obj = explicitAgentResults.getJSONObject(i);
                 //String body = "Response: " + obj.getString("insight");
@@ -1113,7 +1318,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         //see if we should update user settings
         boolean shouldUpdateSettingsResult = response.has(shouldUpdateSettingsKey) && response.getBoolean(shouldUpdateSettingsKey);
         if (shouldUpdateSettingsResult){
-            Log.d(TAG, "Runnign get settings because shouldUpdateSettings true");
+            Log.d(TAG, "Running get settings because shouldUpdateSettings true");
             getSettings();
         }
     }
@@ -1278,14 +1483,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 .apply();
     }
 
-    public static void saveIsLiveCaptionsChecked(Context context, boolean isLiveCaptionsChecked) {
-        PreferenceManager.getDefaultSharedPreferences(context)
-                .edit()
-                .putBoolean(context.getResources().getString(R.string.SHARED_PREF_LIVE_CAPTIONS), isLiveCaptionsChecked)
-                .apply();
-    }
-
-
     public static String getChosenTargetLanguage(Context context) {
         String targetLanguageString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_TARGET_LANGUAGE), "");
         if (targetLanguageString.equals("")){
@@ -1304,10 +1501,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         return sourceLanguageString;
     }
 
-    public static boolean getIsLiveCaptionsChecked(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(context.getResources().getString(R.string.SHARED_PREF_LIVE_CAPTIONS), false);
-    }
-
 //    public void changeMode(String currentModeString){
 //        if (currentModeString.equals("Proactive Agents")){
 //            features = new String[]{explicitAgent, proactiveAgents, definerAgent};
@@ -1319,15 +1512,18 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //        }
 //    }
 
-    public void saveCurrentMode(Context context, String currentModeString) {
-        sendHomeScreen();
-
-
+    public static void saveCurrentModeLocal(Context context, String currentModeString) {
         //save the new mode
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
                 .putString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), currentModeString)
                 .apply();
+    }
+
+    public void saveCurrentMode(Context context, String currentModeString) {
+        sendHomeScreen();
+
+        saveCurrentModeLocal(context, currentModeString);
 
         try{
             JSONObject settingsObj = new JSONObject();
@@ -1341,7 +1537,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public String getCurrentMode(Context context) {
         String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
         if (currentModeString.equals("")){
-            currentModeString = "Language Learning";
+            currentModeString = "Proactive Agents";
             saveCurrentMode(context, currentModeString);
         }
         return currentModeString;

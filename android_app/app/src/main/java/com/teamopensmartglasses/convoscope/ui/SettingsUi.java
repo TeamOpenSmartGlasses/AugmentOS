@@ -14,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Switch;
 
@@ -25,7 +27,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.preference.PreferenceManager;
 
-import com.teamopensmartglasses.convoscope.ConvoscopeService;
+import com.teamopensmartglasses.convoscope.AugmentosService;
 import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.convoscope.R;
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
@@ -76,8 +78,8 @@ public class SettingsUi extends Fragment {
                 public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 //check to first make sure that user isn't trying to enable google without providing API key
-                if (ConvoscopeService.getChosenAsrFramework(mContext) == ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK) {
-                    String apiKey = ConvoscopeService.getApiKey(mContext);
+                if (AugmentosService.getChosenAsrFramework(mContext) == ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK) {
+                    String apiKey = AugmentosService.getApiKey(mContext);
                     if (apiKey == null || apiKey.equals("")) {
                         showNoGoogleAsrDialog();
                         return;
@@ -97,8 +99,8 @@ public class SettingsUi extends Fragment {
         //find out the current ASR state, remember it
 //        ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
 //        ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.DEEPGRAM_ASR_FRAMEWORK);
-        ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK);
-        ASR_FRAMEWORKS asrFramework = ConvoscopeService.getChosenAsrFramework(mContext);
+        AugmentosService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK);
+        ASR_FRAMEWORKS asrFramework = AugmentosService.getChosenAsrFramework(mContext);
 //        switchGoogleAsr.setChecked(asrFramework == ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
 //
 //        switchGoogleAsr.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -116,16 +118,16 @@ public class SettingsUi extends Fragment {
 //        });
 
         final Switch glassesAudioToggle = view.findViewById(R.id.glasses_audio_toggle);
-        glassesAudioToggle.setChecked(ConvoscopeService.getPreferredWearable(getContext()).equals(new AudioWearable().deviceModelName)); // off by default
+        glassesAudioToggle.setChecked(AugmentosService.getPreferredWearable(getContext()).equals(new AudioWearable().deviceModelName)); // off by default
         glassesAudioToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked){
-                    ConvoscopeService.savePreferredWearable(getContext(), new AudioWearable().deviceModelName);
+                    AugmentosService.savePreferredWearable(getContext(), new AudioWearable().deviceModelName);
                     ((MainActivity)getActivity()).restartConvoscopeService();
                 }
                 else {
-                    ConvoscopeService.savePreferredWearable(getContext(), "");
+                    AugmentosService.savePreferredWearable(getContext(), "");
                     ((MainActivity)getActivity()).restartConvoscopeService();
                 }
             }
@@ -140,7 +142,13 @@ public class SettingsUi extends Fragment {
 
         //ll vocabulary upgrade checkbox
         CheckBox vocabularyUpgradeCheckbox = view.findViewById(R.id.VocabularyUpgrade);
-        boolean isVocabularyUpgradeEnabled = ((MainActivity)getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
+        boolean isVocabularyUpgradeEnabled;
+        if (((MainActivity)getActivity()).mService != null) {
+            isVocabularyUpgradeEnabled = ((MainActivity) getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
+        } else {
+            isVocabularyUpgradeEnabled = false;
+            Log.d(TAG, "FAIL: runnings settings relying on Service... bad code");
+        }
         Log.d(TAG, "Initial Vocabulary Upgrade state: " + isVocabularyUpgradeEnabled);
         vocabularyUpgradeCheckbox.setChecked(isVocabularyUpgradeEnabled);
 
@@ -164,7 +172,7 @@ public class SettingsUi extends Fragment {
         // Retrieve the saved transcribe language
         String savedTranscribeLanguage = SmartGlassesAndroidService.getChosenTranscribeLanguage(mContext);
 
-        Boolean savedVocabularyUpgradeEnabled = ((MainActivity)getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
+//        Boolean savedVocabularyUpgradeEnabled = ((MainActivity)getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
 
         // Find the position of the saved language in the adapter
         int languageSpinnerPosition = transcribeAdapter.getPosition(savedTranscribeLanguage);
@@ -227,6 +235,7 @@ public class SettingsUi extends Fragment {
                 ((MainActivity)getActivity()).mService.saveChosenTargetLanguage(mContext, selectedLanguage);
                 if (((MainActivity)getActivity()).mService != null) {
                     ((MainActivity) getActivity()).mService.updateTargetLanguageOnBackend(mContext);
+                    ((MainActivity)getActivity()).restartConvoscopeService();
                 }
             }
 
@@ -267,6 +276,7 @@ public class SettingsUi extends Fragment {
                 ((MainActivity)getActivity()).mService.saveChosenSourceLanguage(mContext, selectedLanguage);
                 if (((MainActivity)getActivity()).mService != null) {
                     ((MainActivity)getActivity()).mService.updateSourceLanguageOnBackend(mContext);
+                    ((MainActivity)getActivity()).restartConvoscopeService();
                 }
             }
 
@@ -277,30 +287,54 @@ public class SettingsUi extends Fragment {
         });
 
         // setup live captions toggle
-        final CheckBox liveTranscriptionCheckBox = view.findViewById(R.id.live_captions_toggle);
-        final boolean isLiveCaptionsChecked = ConvoscopeService.getIsLiveCaptionsChecked(mContext);
-        liveTranscriptionCheckBox.setChecked(isLiveCaptionsChecked);
+        final RadioGroup liveCaptionsTranslationRadioGroup = view.findViewById(R.id.liveCaptionsTranslationRadioGroup);
+        final RadioButton languageLearningRadioButton = view.findViewById(R.id.languageLearning);
+        final RadioButton languageLearningWithLiveCaptionsRadioButton = view.findViewById(R.id.languageLearningWithLiveCaptions);
+        final RadioButton liveTranslationWithLiveCaptionsRadioButton = view.findViewById(R.id.liveTranslationWithLiveCaptions);
 
-        liveTranscriptionCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        final int liveCaptionsTranslationSelected = AugmentosService.getSelectedLiveCaptionsTranslation(mContext) % 3;
+        if (liveCaptionsTranslationSelected == 0) {
+            languageLearningRadioButton.setChecked(true);
+        } else if (liveCaptionsTranslationSelected == 1) {
+            languageLearningWithLiveCaptionsRadioButton.setChecked(true);
+        } else if (liveCaptionsTranslationSelected == 2) {
+            liveTranslationWithLiveCaptionsRadioButton.setChecked(true);
+        }
+
+        liveCaptionsTranslationRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ConvoscopeService.saveIsLiveCaptionsChecked(mContext, isChecked);
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                int buttonId;
+                switch (checkedId) {
+                    case R.id.languageLearning:
+                        buttonId = 0;
+                        break;
+                    case R.id.languageLearningWithLiveCaptions:
+                    default:
+                        buttonId = 1;
+                        break;
+                    case R.id.liveTranslationWithLiveCaptions:
+                        buttonId = 2;
+                        break;
+                }
+                ((MainActivity)getActivity()).restartConvoscopeService();
+                AugmentosService.saveSelectedLiveCaptionsTranslationChecked(mContext, buttonId); // normalize the id
+                ((MainActivity)getActivity()).restartConvoscopeService();
             }
         });
 
-
-        final CheckBox shouldDisplayNotificationsCheckbox = view.findViewById(R.id.should_display_notifications_toggle);
-        final boolean isShouldDisplayNotificationsChecked = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("should_display_notifications", false);
-        shouldDisplayNotificationsCheckbox.setChecked(isShouldDisplayNotificationsChecked);
-        shouldDisplayNotificationsCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                PreferenceManager.getDefaultSharedPreferences(getContext())
-                        .edit()
-                        .putBoolean("should_display_notifications", isChecked)
-                        .apply();
-            }
-        });
+//        final CheckBox shouldDisplayNotificationsCheckbox = view.findViewById(R.id.should_display_notifications_toggle);
+//        final boolean isShouldDisplayNotificationsChecked = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("should_display_notifications", false);
+//        shouldDisplayNotificationsCheckbox.setChecked(isShouldDisplayNotificationsChecked);
+//        shouldDisplayNotificationsCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+//                PreferenceManager.getDefaultSharedPreferences(getContext())
+//                        .edit()
+//                        .putBoolean("should_display_notifications", isChecked)
+//                        .apply();
+//            }
+//        });
 
     }
 

@@ -54,7 +54,7 @@ public class ConvoscopeUi extends Fragment {
   public static final String CONVOSCOPE_MESSAGE_STRING = "CONVOSCOPE_MESSAGE_STRING";
   public static final String TRANSCRIPTS_MESSAGE_STRING = "TRANSCRIPTS_MESSAGE_STRING";
   public static final String FINAL_TRANSCRIPT = "FINAL_TRANSCRIPT";
-  private static final String fragmentLabel = "Convoscope";
+  private static final String fragmentLabel = "AugmentOS";
 
     private NavController navController;
 
@@ -167,6 +167,9 @@ public class ConvoscopeUi extends Fragment {
         final Button settingsButton = view.findViewById(R.id.settings_button);
         settingsButton.setOnClickListener(v -> openSettingsFragment());
 
+        final Button connectButton = view.findViewById(R.id.connect_button);
+        connectButton.setOnClickListener(v -> connectGlasses());
+
 //        Button pickContactButton = view.findViewById(R.id.pick_contact_button);
 //        pickContactButton.setOnClickListener(new View.OnClickListener() {
 //          @Override
@@ -255,17 +258,20 @@ public class ConvoscopeUi extends Fragment {
       RadioButton radioButtonWalkNGrok = view.findViewById(R.id.radioButtonWalkNGrok);
       RadioButton radioButtonScreenMirror = view.findViewById(R.id.radioButtonScreenMirror);
 
-      // Set the radio button as active based on the saved string
-      if (currentModeString.equals(radioButtonProactiveAgents.getText().toString())) {
+      // Set the radio button as active based on the saved mode string
+      if (currentModeString.equals("Proactive Agents")) {
         convoscopeModeSelector.check(R.id.radioButtonProactiveAgents);
-      } else if (currentModeString.equals(radioButtonLanguageLearning.getText().toString())) {
+      } else if (currentModeString.equals("Language Learning")) {
         convoscopeModeSelector.check(R.id.radioButtonLanguageLearning);
-      } else if (currentModeString.equals(radioButtonWalkNGrok.getText().toString())) {
+      } else if (currentModeString.equals("Walk'n'Grok")) {
         convoscopeModeSelector.check(R.id.radioButtonWalkNGrok);
-      } else if (currentModeString.equals(radioButtonADHDGlasses.getText().toString())) {
+      } else if (currentModeString.equals("ADHD Glasses")) {
         convoscopeModeSelector.check(R.id.radioButtonADHDGlasses);
-      } else if (currentModeString.equals(radioButtonScreenMirror.getText().toString())) {
+      } else if (currentModeString.equals("Screen Mirror")) {
         convoscopeModeSelector.check(R.id.radioButtonScreenMirror);
+        if (!((MainActivity) getActivity()).isScreenCaptureServiceRunning()) {
+          ((MainActivity) getActivity()).requestScreenCapturePermission();
+        }
       }
 
       Context mContext = this.getContext();
@@ -283,50 +289,67 @@ public class ConvoscopeUi extends Fragment {
         }
       });
 
-
       convoscopeModeSelector.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
-          ((MainActivity)getActivity()).stopScreenCapture();
+          // Stop screen capture only if it's running and we're not selecting Screen Mirror mode
+          if (((MainActivity) getActivity()).isScreenCaptureServiceRunning() && checkedId != R.id.radioButtonScreenMirror) {
+            ((MainActivity) getActivity()).stopScreenCapture();
+          }
+
+          // Enable screenMirrorImageToggle by default unless screen mirror is selected
           screenMirrorImageToggle.setEnabled(true);
 
           switch (checkedId) {
             case R.id.radioButtonProactiveAgents:
-              // Implement action for Proactive Agents
               Log.d(TAG, "PROACTIVE AGENTS MODE SELECTED");
-              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "Proactive Agents");
+              saveMode(mContext, "Proactive Agents");
               break;
             case R.id.radioButtonLanguageLearning:
-              // Implement action for Language Learning
               Log.d(TAG, "LLSG MODE SELECTED");
-              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "Language Learning");
+              saveMode(mContext, "Language Learning");
               break;
             case R.id.radioButtonWalkNGrok:
-              // Note: This case is inactive but structured for completeness
               Log.d(TAG, "WALK_GROK MODE SELECTED");
-              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "Walk'n'Grok");
+              saveMode(mContext, "Walk'n'Grok");
               break;
             case R.id.radioButtonADHDGlasses:
-              // Note: This case is inactive but structured for completeness
               Log.d(TAG, "ADHD MODE SELECTED");
-              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "ADHD Glasses");
+              saveMode(mContext, "ADHD Glasses");
               break;
             case R.id.radioButtonScreenMirror:
               Log.d(TAG, "SCREEN MIRROR SELECTED");
               screenMirrorImageToggle.setEnabled(false);
-              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "");
-              ((MainActivity)getActivity()).requestScreenCapturePermission();
+              saveMode(mContext, "Screen Mirror");
+
+              // Request screen capture permission only if it's not already running
+              if (!((MainActivity) getActivity()).isScreenCaptureServiceRunning()) {
+                ((MainActivity) getActivity()).requestScreenCapturePermission();
+              }
+              break;
           }
         }
       });
 
-      if (!isNotificationServiceEnabled(getContext())) {
-        Toast.makeText(getContext(), "Please enable Notification Access for this app", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
-        startActivity(intent);
-      }
+//      if (!isNotificationServiceEnabled(getContext())) {
+//        Toast.makeText(getContext(), "Please enable Notification Access for this app", Toast.LENGTH_LONG).show();
+//        Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
+//        startActivity(intent);
+//      }
 
-      ((MainActivity)getActivity()).startConvoscopeService();
+      //auto start if we have perms (if we are already running/connected, this is still safe to call)
+      if (!((MainActivity) getActivity()).gettingPermissions){
+        connectGlasses();
+      }
+    }
+
+    private void saveMode(Context mContext, String modeName){
+      //save this mode
+      if (((MainActivity)getActivity()).mService != null) {
+        ((MainActivity) getActivity()).mService.saveCurrentMode(mContext, modeName);
+      } else{
+        ((MainActivity) getActivity()).mService.saveCurrentModeLocal(mContext, modeName);
+      }
     }
 
     private void pickContact() {
@@ -395,6 +418,10 @@ public class ConvoscopeUi extends Fragment {
     // Handle the text input result here
     Toast.makeText(this.getContext(), "Set UserID to: " + result, Toast.LENGTH_SHORT).show();
     EventBus.getDefault().post(new UserIdChangedEvent(result));
+  }
+
+  private void connectGlasses() {
+      ((MainActivity)getActivity()).startConvoscopeService();
   }
 
   private void openSettingsFragment() {

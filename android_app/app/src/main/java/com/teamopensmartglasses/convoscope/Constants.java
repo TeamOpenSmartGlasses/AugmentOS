@@ -1,7 +1,7 @@
 package com.teamopensmartglasses.convoscope;
 
 public class Constants {
-    public static String appName = "Convoscope";
+    public static String appName = "Augment OS";
     public static String glassesCardTitle = "";
     public static String systemMessagesKey = "system_messages";
     public static String proactiveAgentResultsKey = "results_proactive_agent_insights";
