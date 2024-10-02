@@ -54,6 +54,37 @@ public class BackendServerComms {
         mRequestQueue = Volley.newRequestQueue(mContext);
     }
 
+    public void restRequestForPlayback(String endpoint, final VolleyJsonCallback callback) {
+        // Build the URL
+        String builtUrl = serverUrl + endpoint;
+
+        // Create GET request
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, builtUrl, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // Pass the response to the callback
+                        callback.onSuccess(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                Log.d(TAG, "Failure sending data.");
+                callback.onFailure(-1);
+            }
+        });
+
+        // Set retry policy
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                requestTimeoutPeriod,
+                0,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        // Add the request to the RequestQueue
+        mRequestQueue.add(request);
+    }
+
     //handles requesting data, sending data
     public void restRequest(String endpoint, JSONObject data, VolleyJsonCallback callback) throws JSONException {
         TokenHelper.getToken(new TokenHelper.TokenListener() {
@@ -66,9 +97,9 @@ public class BackendServerComms {
                 String builtUrl = serverUrl + endpoint;
 
                 //if using dev server, add /dev in front
-                if (useDevServer) {
-                    builtUrl = serverUrl + devServerUrl + endpoint;
-                }
+//                if (useDevServer) {
+//                    builtUrl = serverUrl + devServerUrl + endpoint;
+//                }
 
                 //get the request type
                 int requestType = Request.Method.GET;

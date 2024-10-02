@@ -3,6 +3,7 @@ package com.teamopensmartglasses.convoscope;
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.PLAYBACK_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
@@ -232,11 +233,12 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
     public void completeInitialization(){
         Log.d(TAG, "COMPLETE CONVOSCOPE INITIALIZATION");
-        setUpUiPolling();
-        setUpLocationSending();
+        setUpPlaybackPolling();
+//        setUpUiPolling();
+//        setUpLocationSending();
 
         //setup ASR version
-        AugmentosService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK);
+//        AugmentosService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK);
 //        ConvoscopeService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.DEEPGRAM_ASR_FRAMEWORK);
 //        ConvoscopeService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
 
@@ -322,6 +324,19 @@ public class AugmentosService extends SmartGlassesAndroidService {
             e.printStackTrace();
             Log.d(TAG, "SOME FAILURE HAPPENED (getSettings)");
         }
+    }
+
+    public void setUpPlaybackPolling() {
+        uiPollRunnableCode = new Runnable() {
+            @Override
+            public void run() {
+                if (shouldPoll) {
+                    requestCurrentPlayback();
+                }
+                csePollLoopHandler.postDelayed(this, POLL_INTERVAL_ACTIVE);
+            }
+        };
+        csePollLoopHandler.post(uiPollRunnableCode);
     }
 
     public void setUpUiPolling(){
@@ -466,7 +481,9 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
     @Subscribe
     public void onTranscript(SpeechRecOutputEvent event) {
+        if (true) return;
         String text = event.text;
+
 //        long time = event.timestamp;
         boolean isFinal = event.isFinal;
         boolean isTranslated = event.isTranslated;
@@ -659,6 +676,30 @@ public class AugmentosService extends SmartGlassesAndroidService {
         } catch (JSONException e){
             e.printStackTrace();
         }
+    }
+
+    public void requestCurrentPlayback(){
+//        try{
+//            JSONObject jsonQuery = new JSONObject();
+//            jsonQuery.put("deviceId", deviceId);
+            backendServerComms.restRequestForPlayback(PLAYBACK_POLL_ENDPOINT, new VolleyJsonCallback(){
+                @Override
+                public void onSuccess(JSONObject result){
+                    try {
+                        parseConvoscopeResults(result);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                @Override
+                public void onFailure(int code){
+                    Log.d(TAG, "SOME FAILURE HAPPENED (requestUiPoll)");
+                    if (code == 401){
+                        EventBus.getDefault().post(new GoogleAuthFailedEvent("401 AUTH ERROR (requestUiPoll)"));
+                    }
+                }
+            });
+//        }
     }
 
     public void requestUiPoll(){
@@ -1191,7 +1232,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
                         .orElse("");
                 if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString, false);
                 else {
-                    displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), false, true));
+                    displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), false, false));
                 }
             }
 //            Log.d(TAG, "ll combine results"+ llCombineResults.toString());
