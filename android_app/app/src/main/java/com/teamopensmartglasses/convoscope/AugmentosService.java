@@ -113,7 +113,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private Runnable locationSendingRunnableCode;
     private boolean shouldPoll = true;
     private long lastDataSentTime = 0;
-    private final long POLL_INTERVAL_ACTIVE = 200; // 200ms when actively sending data
+    private final long POLL_INTERVAL_ACTIVE = 2000;
     private final long POLL_INTERVAL_INACTIVE = 5000; // 5000ms (5s) when inactive
     private final long DATA_SENT_THRESHOLD = 90000; // 90 seconds
     private LocationSystem locationSystem;
