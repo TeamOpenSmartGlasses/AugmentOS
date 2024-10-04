@@ -10,8 +10,8 @@ from constants import EXPLICIT_AGENT
 
 db_handler = DatabaseHandler(parent_handler=False)
 
-pause_query_time = 2
-force_query_time = 12
+pause_query_time = 1.5
+force_query_time = 8
 
 @time_function()
 def stringify_history(insight_history):
