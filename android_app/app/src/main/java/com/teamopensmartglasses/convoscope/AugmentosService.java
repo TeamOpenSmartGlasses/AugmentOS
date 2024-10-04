@@ -3,7 +3,7 @@ package com.teamopensmartglasses.convoscope;
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.PLAYBACK_POLL_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.PLAYBACK_POLL_FOR_STUDY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
@@ -78,7 +78,6 @@ import com.huaban.analysis.jieba.SegToken;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
-import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
@@ -113,7 +112,8 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private Runnable locationSendingRunnableCode;
     private boolean shouldPoll = true;
     private long lastDataSentTime = 0;
-    private final long POLL_INTERVAL_ACTIVE = 2000;
+    private final long POLL_INTERVAL_ACTIVE_FOR_STUDY = 10; // 200ms when actively sending data
+    private final long POLL_INTERVAL_ACTIVE = 200; // 200ms when actively sending data
     private final long POLL_INTERVAL_INACTIVE = 5000; // 5000ms (5s) when inactive
     private final long DATA_SENT_THRESHOLD = 90000; // 90 seconds
     private LocationSystem locationSystem;
@@ -133,6 +133,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private LinkedList<STMBSummary> adhdStmbSummaries = new LinkedList<>();
     private LinkedList<LLUpgradeResponse> llUpgradeResponses = new LinkedList<>();
     private LinkedList<LLCombineResponse> llCombineResponses = new LinkedList<>();
+    private LinkedList<LLCombineResponseForStudy> llCombineResponsesForStudy = new LinkedList<>();
     private LinkedList<ContextConvoResponse> contextConvoResponses = new LinkedList<>();
     private final long llDefinedWordsShowTime = 40 * 1000; // define in milliseconds
     private final long llContextConvoResponsesShowTime = 3 * 60 * 1000; // define in milliseconds
@@ -141,7 +142,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private final long llUpgradeShowTime = 5 * 60 * 1000; // define in milliseconds
     private final long llCombineShowTime = 5 * 60 * 1000; // define in milliseconds
     private final int maxDefinedWordsShow = 4;
-    private final int maxLLCombineShow = 5;
+    private final int maxLLCombineShow = 3;
     private final int maxAdhdStmbShowNum = 3;
     private final int maxContextConvoResponsesShow = 2;
     private final int maxLLUpgradeResponsesShow = 2;
@@ -179,6 +180,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private boolean hasUserBeenNotified = false;
 
     private DisplayQueue displayQueue;
+    private TimestampedQueueForStudy timestampedQueueForStudy;
 
     public AugmentosService() {
         super(ConvoscopeUi.class,
@@ -196,6 +198,11 @@ public class AugmentosService extends SmartGlassesAndroidService {
         this.setupEventBusSubscribers();
 
         displayQueue = new DisplayQueue();
+        timestampedQueueForStudy = new TimestampedQueueForStudy();
+
+        timestampedQueueForStudy.enqueue(6.322, new LLCombineResponseForStudy("Second Word", "Second Definition"));
+        timestampedQueueForStudy.enqueue(4.432, new LLCombineResponseForStudy("Third Word", "Third Definition"));
+        timestampedQueueForStudy.enqueue(5.342, new LLCombineResponseForStudy("First Word", "First Definition"));
 
         //make responses holder
         responsesBuffer = new ArrayList<>();
@@ -233,7 +240,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
     public void completeInitialization(){
         Log.d(TAG, "COMPLETE CONVOSCOPE INITIALIZATION");
-        setUpPlaybackPolling();
+        setUpPlaybackTimePollingForStudy();
 //        setUpUiPolling();
 //        setUpLocationSending();
 
@@ -326,14 +333,14 @@ public class AugmentosService extends SmartGlassesAndroidService {
         }
     }
 
-    public void setUpPlaybackPolling() {
+    public void setUpPlaybackTimePollingForStudy() {
         uiPollRunnableCode = new Runnable() {
             @Override
             public void run() {
                 if (shouldPoll) {
-                    requestCurrentPlayback();
+                    requestCurrentPlaybackTimeForStudy();
                 }
-                csePollLoopHandler.postDelayed(this, POLL_INTERVAL_ACTIVE);
+                csePollLoopHandler.postDelayed(this, POLL_INTERVAL_ACTIVE_FOR_STUDY);
             }
         };
         csePollLoopHandler.post(uiPollRunnableCode);
@@ -678,15 +685,15 @@ public class AugmentosService extends SmartGlassesAndroidService {
         }
     }
 
-    public void requestCurrentPlayback(){
+    public void requestCurrentPlaybackTimeForStudy(){
 //        try{
 //            JSONObject jsonQuery = new JSONObject();
 //            jsonQuery.put("deviceId", deviceId);
-            backendServerComms.restRequestForPlayback(PLAYBACK_POLL_ENDPOINT, new VolleyJsonCallback(){
+            backendServerComms.restRequestPlaybackTimeForStudy(PLAYBACK_POLL_FOR_STUDY_ENDPOINT, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
-                        parseConvoscopeResults(result);
+                        parsePlaybackTimeForStudy(result);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
@@ -879,6 +886,27 @@ public class AugmentosService extends SmartGlassesAndroidService {
 //
 //        return llResults;
 //    }
+
+    public String[] calculateLLCombineResponsesForStudyFormatted(LinkedList<LLCombineResponseForStudy> llCombineResponsesForStudy) {
+        int max_rows_allowed = 4;
+
+        String[] llCombineResults = new String[Math.min(max_rows_allowed, llCombineResponsesForStudy.size())];
+
+        int minSpaces = 2;
+        int index = 0;
+        String enSpace = "\u2002";
+
+        for (LLCombineResponseForStudy llCombineResponseForStudy : llCombineResponsesForStudy) {
+            if (index >= max_rows_allowed) break;
+
+            if(llCombineResponseForStudy.getInWord() !=null && llCombineResponseForStudy.getInWordTranslation()!=null){
+                llCombineResults[index] = llCombineResponseForStudy.getInWord() + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + llCombineResponseForStudy.getInWordTranslation();
+            }
+            index++;
+        }
+
+        return llCombineResults;
+    }
 
     public String[] calculateLLCombineResponseFormatted(LinkedList<LLCombineResponse> llCombineResponses) {
         int max_rows_allowed = 4;
@@ -1124,6 +1152,35 @@ public class AugmentosService extends SmartGlassesAndroidService {
         }
 
         displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(finalLiveTranslationDisplayText, finalLiveCaptionDisplayText), true, false));
+    }
+
+    public void parsePlaybackTimeForStudy(JSONObject response) throws JSONException {
+        if (response.has("currentTime")) {
+            double playbackTime = response.getDouble("currentTime");
+
+            if (playbackTime == 0 || timestampedQueueForStudy.isEmpty()) {
+                return;
+            }
+
+            if (timestampedQueueForStudy.peek().getTimestamp() <= playbackTime) {
+                LLCombineResponseForStudy llCombineResponseForStudy = timestampedQueueForStudy.dequeue();
+                updateListForStudy(llCombineResponseForStudy);
+
+                String [] llCombineResults = calculateLLCombineResponsesForStudyFormatted(getLLCombineResponsesForStudy());
+                String newLineSeparator = "\n\n";
+                if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+                    String textWallString = Arrays.stream(llCombineResults)
+                            .reduce((a, b) -> b + newLineSeparator + a)
+                            .orElse("");
+
+                    displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall(textWallString), true, false));
+
+                    // Log.d(TAG, "ll combine results"+ llCombineResults.toString());
+                    sendUiUpdateSingle(String.join("\n", llCombineResults));
+                    responsesBuffer.add(String.join("\n", llCombineResults));
+                }
+            }
+        }
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
@@ -1655,6 +1712,18 @@ public class AugmentosService extends SmartGlassesAndroidService {
         }
     }
 
+    public void updateListForStudy(LLCombineResponseForStudy llCombineResponseForStudy) {
+        llCombineResponsesForStudy.addFirst(llCombineResponseForStudy);
+
+//        // Remove old words based on time constraint
+//        llCombineResponses.removeIf(word -> (currentTime - (word.timestamp * 1000)) > llCombineShowTime);
+
+        // Ensure list does not exceed max size
+        while (llCombineResponsesForStudy.size() > maxLLCombineShow) {
+            llCombineResponsesForStudy.removeLast();
+        }
+    }
+
     public void updateCombineResponse(JSONArray llData, JSONArray ugData) {
         long currentTime = System.currentTimeMillis();
         // Add new data to the list
@@ -1773,6 +1842,9 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
     public LinkedList<LLCombineResponse> getLLCombineResponse() {
         return llCombineResponses;
+    }
+    public LinkedList<LLCombineResponseForStudy> getLLCombineResponsesForStudy() {
+        return llCombineResponsesForStudy;
     }
 
     // A simple representation of your word data

@@ -9,10 +9,7 @@ import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOIN
 import static com.teamopensmartglasses.convoscope.Constants.GET_USER_SETTINGS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.convoscopebackend.Config.devServerUrl;
 import static com.teamopensmartglasses.convoscope.convoscopebackend.Config.serverUrl;
-import com.teamopensmartglasses.convoscope.convoscopebackend.DjangoServerTest;
-import static com.teamopensmartglasses.convoscope.convoscopebackend.Config.useDevServer;
 
 import android.content.Context;
 import android.util.Log;
@@ -42,8 +39,6 @@ public class BackendServerComms {
     private Context mContext;
     private int requestTimeoutPeriod = 0; //15000;
 
-    private DjangoServerTest djangoServerTest = new DjangoServerTest();
-
     public static BackendServerComms getInstance(Context c){
         if (restServerComms == null){
             restServerComms = new BackendServerComms(c);
@@ -57,11 +52,9 @@ public class BackendServerComms {
         mRequestQueue = Volley.newRequestQueue(mContext);
     }
 
-    public void restRequestForPlayback(String endpoint, final VolleyJsonCallback callback) {
+    public void restRequestPlaybackTimeForStudy(String endpoint, final VolleyJsonCallback callback) {
         // Build the URL
         String builtUrl = serverUrl + endpoint;
-        djangoServerTest.testServer(builtUrl);
-        Log.d(TAG, "Requesting data from: " + builtUrl);
 
         // Create GET request
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, builtUrl, null,
