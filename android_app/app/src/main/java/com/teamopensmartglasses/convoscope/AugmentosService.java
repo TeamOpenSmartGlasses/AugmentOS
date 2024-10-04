@@ -553,10 +553,10 @@ public class AugmentosService extends SmartGlassesAndroidService {
             } else if (!segmenterLoading) {
                 new Thread(this::loadSegmenter).start();
                 hasUserBeenNotified = true;
-                displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false));
+                displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false, false));
             } else if (!hasUserBeenNotified) {  //tell user we are loading the pinyin converter
                 hasUserBeenNotified = true;
-                displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false));
+                displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false, false));
             }
         }
 
@@ -1007,7 +1007,9 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
     public void sendTextWallLiveCaptionLL(final String newLiveCaption, final String llString, final boolean isFinal) {
         String textBubble = "\uD83D\uDDE8";
-        if (!newLiveCaption.isEmpty()) {
+        if (!llString.isEmpty()) {
+            llCurrentString = llString;
+        } else if (!newLiveCaption.isEmpty()) {
             if (getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") ||
                     getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") && !segmenterLoaded) {
                 currentLiveCaption = processHanziString(finalLiveCaption + " " + newLiveCaption);
@@ -1023,10 +1025,9 @@ public class AugmentosService extends SmartGlassesAndroidService {
                 finalLiveCaption = finalLiveCaption.substring(finalLiveCaption.length() - 5000);
             }
         }
-        if (!llString.isEmpty()) llCurrentString = llString;
 
         final String finalLiveCaption = textBubble + currentLiveCaption;
-        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(llCurrentString, finalLiveCaption), true, false));
+        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(llCurrentString, finalLiveCaption), true, false, true));
     }
 
     public void sendTextWallLiveTranslationLiveCaption(final String newText, final boolean isTranslated, final boolean isFinal) {
@@ -1082,7 +1083,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
             finalLiveCaptionDisplayText = "\n\n\n";
         }
 
-        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(finalLiveTranslationDisplayText, finalLiveCaptionDisplayText), true, false));
+        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(finalLiveTranslationDisplayText, finalLiveCaptionDisplayText), true, false, true));
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
@@ -1119,7 +1120,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
             updateAdhdSummaries(adhdStmbResults);
             String dynamicSummary = adhdStmbResults.getJSONObject(0).getString("summary");
             String [] adhdResults = calculateAdhdStmbStringFormatted(getAdhdStmbSummaries());
-            displayQueue.addTask(new DisplayQueue.Task(() -> this.sendRowsCard(adhdResults), false, true));
+            displayQueue.addTask(new DisplayQueue.Task(() -> this.sendRowsCard(adhdResults), false, true, false));
 //            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "chinese");
 //            Log.d(TAG, "GOT THAT ONEEEEEEEE:");
 //            Log.d(TAG, String.join("\n", llResults));
@@ -1191,7 +1192,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
                         .orElse("");
                 if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString, false);
                 else {
-                    displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), false, true));
+                    displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), true, true, true));
                 }
             }
 //            Log.d(TAG, "ll combine results"+ llCombineResults.toString());
@@ -1214,7 +1215,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
                 if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString, false);
                 else {
-                    displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), false, true));
+                    displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), false, true, false));
                 }
             }
             List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
@@ -1230,7 +1231,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
                 String language = toTTS.getString("language");
 //                Log.d(TAG, "Text: " + text + ", Language: " + language);
                 //sendTextToSpeech(text, language);
-                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextToSpeech(text, language), false, false));
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextToSpeech(text, language), false, false, false));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -1241,7 +1242,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
             try {
                 JSONObject obj = systemMessages.getJSONObject(i);
                 String body = obj.getString("message");
-                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(glassesCardTitle, body), false, false));
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(glassesCardTitle, body), false, false, false));
                 queueOutput(body);
             }
             catch (JSONException e){
@@ -1255,7 +1256,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
                 JSONObject obj = entityDefinitions.getJSONObject(i);
                 String name = obj.getString("name");
                 String body = obj.getString("summary");
-                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard("" + name + "", body), false, false));
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard("" + name + "", body), false, false, false));
                 queueOutput(name + ": " + body);
             } catch (JSONException e){
                 e.printStackTrace();
@@ -1268,7 +1269,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
         if (wakeWordTime != -1 && wakeWordTime != previousWakeWordTime){
             previousWakeWordTime = wakeWordTime;
             String body = "Listening... ";
-            displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(glassesCardTitle, body), true, true));
+            displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(glassesCardTitle, body), true, true, false));
             queueOutput(body);
         }
 
@@ -1279,7 +1280,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
                 JSONObject obj = explicitAgentQueries.getJSONObject(i);
                 String title = "Processing Query";
                 String body = "\"" + obj.getString("query") + "\"";
-                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(title, body), true, true));
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(title, body), true, true, false));
                 queueOutput(body);
             } catch (JSONException e){
                 e.printStackTrace();
@@ -1295,7 +1296,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
                 JSONObject obj = explicitAgentResults.getJSONObject(i);
                 //String body = "Response: " + obj.getString("insight");
                 String body = obj.getString("insight");
-                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(glassesCardTitle, body), true, false));
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(glassesCardTitle, body), true, false, false));
                 queueOutput(body);
             } catch (JSONException e){
                 e.printStackTrace();
@@ -1308,7 +1309,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
                 JSONObject obj = proactiveAgentResults.getJSONObject(i);
                 String name = obj.getString("agent_name") + " says";
                 String body = obj.getString("agent_insight");
-                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(name, body), false, false));
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(name, body), false, false, false));
                 queueOutput(name + ": " + body);
             } catch (JSONException e){
                 e.printStackTrace();
@@ -1906,16 +1907,16 @@ public class AugmentosService extends SmartGlassesAndroidService {
     public void onNewScreenTextEvent(NewScreenTextEvent event) {
         // Notification
         if (event.title != null && event.body != null) {
-            displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(event.title, event.body), false, false));
+            displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(event.title, event.body), false, false, false));
         }
         else if (event.body != null){ //Screen mirror text
-            displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(event.body), false, true));
+            displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(event.body), false, true, false));
         }
     }
 
     @Subscribe
     public void onNewScreenImageEvent(NewScreenImageEvent event) {
-        displayQueue.addTask(new DisplayQueue.Task(() -> this.sendBitmap(event.bmp), false, true));
+        displayQueue.addTask(new DisplayQueue.Task(() -> this.sendBitmap(event.bmp), false, true, false));
     }
 
     private void updateLastDataSentTime() {

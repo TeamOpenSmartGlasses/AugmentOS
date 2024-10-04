@@ -15,7 +15,8 @@ public class DisplayQueue {
     private ScheduledFuture<?> currentScheduledTask;
 
     private final int MAX_QUEUE_SIZE = 5;
-    private final long DELAY_TIME = 5; // 5 seconds
+    private final long DELAY_TIME = 5;
+    private final long IGNORE_AFTER_DELAY = 1;
 
     public final String TAG = "AugmentOS_DisplayQueue";
 
@@ -25,7 +26,7 @@ public class DisplayQueue {
     }
 
     public void startQueue() {
-        scheduleNextTask(0); // Start immediately if the queue has items
+        scheduleNextTask(0);
     }
 
     public void stopQueue() {
@@ -37,42 +38,34 @@ public class DisplayQueue {
 
     public void addTask(Task task) {
         if (task.shouldIgnoreIfNotInstant() && !taskList.isEmpty()) {
-            // Ignore the task if it should be ignored and the list is not empty
             return;
         }
 
         if (taskList.size() >= MAX_QUEUE_SIZE) {
-            // Remove the oldest item (the first item in the list) if the queue is full
             taskList.remove(0);
         }
 
         if (task.isTopPriority()) {
-            // Insert at the beginning of the list
             taskList.add(0, task);
         } else {
-            // Add to the end of the list
             taskList.add(task);
         }
 
-        // Schedule the next task immediately if this is the first task or a high-priority task
         if (taskList.size() == 1 || task.isTopPriority()) {
             scheduleNextTask(0);
         }
     }
 
     private void scheduleNextTask(long delay) {
-        // If the executor is shut down or terminated, don't schedule the task
         if (executorService == null || executorService.isShutdown() || executorService.isTerminated()) {
             Log.d(TAG, "ExecutorService is shut down or terminated, cannot schedule next task.");
             return;
         }
 
-        // If there's a task currently scheduled, cancel it
         if (currentScheduledTask != null && !currentScheduledTask.isCancelled()) {
             currentScheduledTask.cancel(false);
         }
 
-        // If there are tasks in the list, schedule the next one
         if (!taskList.isEmpty()) {
             currentScheduledTask = executorService.schedule(this::executeNext, delay, TimeUnit.SECONDS);
         }
@@ -80,9 +73,18 @@ public class DisplayQueue {
 
     private void executeNext() {
         if (!taskList.isEmpty()) {
-            Task task = taskList.remove(0);
+            Task task = taskList.get(0);
+
+            if (task.shouldIgnoreIfAfterDelay() && (System.currentTimeMillis() - task.getTimestamp()) > (IGNORE_AFTER_DELAY * 1000)) {
+                taskList.remove(0);
+                Log.d(TAG, "Task ignored due to delay exceeding threshold.");
+                scheduleNextTask(0);
+                return;
+            }
+
+            taskList.remove(0);
             task.execute();
-            scheduleNextTask(DELAY_TIME); // Schedule the next task after the current one is executed
+            scheduleNextTask(DELAY_TIME);
         }
     }
 
@@ -97,7 +99,6 @@ public class DisplayQueue {
         }
     }
 
-    // Functional interface for tasks with parameters
     @FunctionalInterface
     public interface Executable {
         void execute();
@@ -107,11 +108,15 @@ public class DisplayQueue {
         private final Executable action;
         private final boolean topPriority;
         private final boolean ignoreIfNotInstant;
+        private final boolean ignoreIfAfterDelay;
+        private final long timestamp;
 
-        public Task(Executable action, boolean topPriority, boolean ignoreIfNotInstant) {
+        public Task(Executable action, boolean topPriority, boolean ignoreIfNotInstant, boolean ignoreIfAfterDelay) {
             this.action = action;
             this.topPriority = topPriority;
             this.ignoreIfNotInstant = ignoreIfNotInstant;
+            this.ignoreIfAfterDelay = ignoreIfAfterDelay;
+            this.timestamp = System.currentTimeMillis();
         }
 
         public void execute() {
@@ -124,6 +129,14 @@ public class DisplayQueue {
 
         public boolean shouldIgnoreIfNotInstant() {
             return ignoreIfNotInstant;
+        }
+
+        public boolean shouldIgnoreIfAfterDelay() {
+            return ignoreIfAfterDelay;
+        }
+
+        public long getTimestamp() {
+            return timestamp;
         }
     }
 }
