@@ -53,6 +53,8 @@ import com.teamopensmartglasses.smartglassesmanager.utils.PermissionsUtils;
 import android.media.projection.MediaProjectionManager;
 
 import org.greenrobot.eventbus.Subscribe;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
   public final String TAG = "Convoscope_MainActivity";
@@ -427,6 +429,6 @@ public class MainActivity extends AppCompatActivity {
             currentModeString = "Proactive Agents";
         }
         return currentModeString;
-    }
+   }
 
 }

@@ -20,6 +20,7 @@ import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettings
 import static com.teamopensmartglasses.convoscope.Constants.systemMessagesKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -39,6 +40,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
+import com.teamopensmartglasses.convoscope.comms.BluetoothService;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
@@ -46,6 +48,7 @@ import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
+import com.teamopensmartglasses.convoscope.tpa.TPASystem;
 import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DiarizationOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
@@ -177,6 +180,8 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private boolean segmenterLoading = false;
     private boolean hasUserBeenNotified = false;
 
+    public TPASystem tpaSystem;
+
     private DisplayQueue displayQueue;
 
     public AugmentosService() {
@@ -225,6 +230,13 @@ public class AugmentosService extends SmartGlassesAndroidService {
 //        ) {
 //            new Thread(this::loadSegmenter).start();
 //        }
+
+        // Init TPA broadcast receivers
+        tpaSystem = new TPASystem(this);
+
+        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        BluetoothService bluetoothService = new BluetoothService(bluetoothAdapter, new Handler());
+        bluetoothService.startBluetoothServer();
 
 
         completeInitialization();
@@ -1936,4 +1948,85 @@ public class AugmentosService extends SmartGlassesAndroidService {
         stopService(notificationServiceIntent);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+//
+////b. Handle the Incoming Intent in MainActivity.kt
+//
+//
+//    @Override
+//    protected void onNewIntent(Intent intent) {
+//        super.onNewIntent(intent);
+//        handleIncomingManagerData(intent);
+//    }
+//
+//    private void handleIncomingManagerData(Intent intent) {
+//        if (intent != null && "com.augmentos_manager.ACTION_SEND_JSON".equals(intent.getAction())) {
+//            String payload = intent.getStringExtra("payload");
+//            if (payload != null) {
+//                Log.d(TAG, "Received payload: " + payload);
+//                try {
+//                    JSONObject jsonObject = new JSONObject(payload);
+//                    // TODO: Parse the JSON and perform necessary actions
+//                    String version = jsonObject.optString("version");
+//                    String action = jsonObject.optString("action");
+//                    String requestId = jsonObject.optString("request_id");
+//                    JSONObject parameters = jsonObject.optJSONObject("parameters");
+//
+//                    // Example: Handle different actions
+//                    switch (action) {
+//                        case "status":
+//                            // Retrieve and send back status
+//                            handleStatusRequest(requestId);
+//                            break;
+//                        case "start_app":
+//                            if (parameters != null) {
+//                                String appId = parameters.optString("app_id");
+//                                handleStartApp(appId);
+//                            }
+//                            break;
+//                        // Handle other actions similarly
+//                        default:
+//                            Log.w(TAG, "Unknown action: " + action);
+//                    }
+//
+//                } catch (JSONException e) {
+//                    Log.e(TAG, "JSON parsing error: " + e.getMessage());
+//                }
+//            }
+//        }
+//    }
+//
+//    private void handleStatusRequest(String requestId) {
+//        // Implement logic to retrieve status and possibly send a response
+//        Log.d(TAG, "Handling status request: " + requestId);
+//        // Example: You can use React Native's bridge to send data back to JavaScript if needed
+//    }
+//
+//    private void handleStartApp(String appId) {
+//        // Implement logic to start the specified app
+//        Log.d(TAG, "Starting app with ID: " + appId);
+//        // Example: Use PackageManager to launch the app
+//        Intent launchIntent = getPackageManager().getLaunchIntentForPackage(appId);
+//        if (launchIntent != null) {
+//            startActivity(launchIntent);
+//            Log.d(TAG, "App started successfully.");
+//        } else {
+//            Log.e(TAG, "App not found: " + appId);
+//        }
+//    }
+//
+//
+//    protected String getMainComponentName() {
+//        return "AugmentOS_Main"; // Replace with your actual main component name
+//    }
 }

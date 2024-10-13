@@ -10,3 +10,4 @@ public class Config {
     public static final Boolean useDevServer = false;
     public static final String devServerUrl = "/dev";
 }
+ 
