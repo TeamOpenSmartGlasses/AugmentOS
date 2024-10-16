@@ -69,6 +69,7 @@ dependencies {
     implementation 'com.google.protobuf:protobuf-java-util:3.21.12'
     implementation 'joda-time:joda-time:2.12.2'
     implementation 'io.grpc:grpc-okhttp:1.53.0'
+    implementation project(':AugmentOSLib')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'

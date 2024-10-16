@@ -1,7 +1,7 @@
 //modify the url to point to the correct endpoint
 const serverEndpointEnv = import.meta.env.VITE_SERVER_ENVIRONMENT;
 const isProd = (serverEndpointEnv === "prod"); //check if we're running on prod
-const baseEndpoint = isProd ? "/api" : ("/api/" + serverEndpointEnv); //if prod, no extra endpoint location, otherwise append the endpoint name
+const baseEndpoint = ""//: ("/api/" + serverEndpointEnv); //if prod, no extra endpoint location, otherwise append the endpoint name
 
 export const UI_POLL_ENDPOINT = baseEndpoint + "/ui_poll";
 
