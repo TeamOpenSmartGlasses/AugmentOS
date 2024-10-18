@@ -8,6 +8,7 @@ import com.facebook.react.shell.MainReactPackage // Make sure this is correctly 
 import com.facebook.soloader.SoLoader
 import com.augmentos_manager.IntentSenderPackage // Import your custom package
 import kjd.reactnative.bluetooth.RNBluetoothClassicPackage // Correct import
+import it.innove.BleManagerPackage; // Import this
 
 class MainApplication : Application(), ReactApplication {
 
@@ -21,7 +22,8 @@ class MainApplication : Application(), ReactApplication {
             return listOf(
                 MainReactPackage(), // This is where MainReactPackage is used
                 IntentSenderPackage(), // Add your custom native module package here
-                RNBluetoothClassicPackage() // Add this package
+                RNBluetoothClassicPackage(), // Add this package
+                BleManagerPackage()
             )
         }
 

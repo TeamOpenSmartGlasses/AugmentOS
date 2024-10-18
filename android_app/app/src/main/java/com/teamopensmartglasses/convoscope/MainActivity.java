@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
     mBound = false;
 
     permissionsUtils = new PermissionsUtils(this, TAG);
+    permissionsUtils.getSomePermissions();
     if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
         != PackageManager.PERMISSION_GRANTED) {
       gettingPermissions = true;

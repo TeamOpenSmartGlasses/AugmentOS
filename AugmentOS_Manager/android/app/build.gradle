@@ -119,4 +119,6 @@ dependencies {
     }
 
     //implementation project(':react-native-bluetooth-classic')
+    implementation project(':react-native-ble-manager')
+
 }

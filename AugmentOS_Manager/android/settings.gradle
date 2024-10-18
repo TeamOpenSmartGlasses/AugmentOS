@@ -7,3 +7,6 @@ includeBuild('../node_modules/@react-native/gradle-plugin')
 
 //include ':react-native-bluetooth-classic'
 //project(':react-native-bluetooth-classic').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-bluetooth-classic/android')
+
+include ':react-native-ble-manager'
+project(':react-native-ble-manager').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-ble-manager/android')

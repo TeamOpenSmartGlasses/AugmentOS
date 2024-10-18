@@ -40,7 +40,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
-import com.teamopensmartglasses.convoscope.comms.BluetoothService;
+import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
@@ -184,6 +184,8 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
     private DisplayQueue displayQueue;
 
+    private AugmentosBlePeripheral blePeripheral;
+
     public AugmentosService() {
         super(ConvoscopeUi.class,
                 "augmentos_app",
@@ -234,10 +236,9 @@ public class AugmentosService extends SmartGlassesAndroidService {
         // Init TPA broadcast receivers
         tpaSystem = new TPASystem(this);
 
-        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        BluetoothService bluetoothService = new BluetoothService(bluetoothAdapter, new Handler());
-        bluetoothService.startBluetoothServer();
-
+        // Initialize BLE Peripheral
+        blePeripheral = new AugmentosBlePeripheral(this);
+        blePeripheral.start();
 
         completeInitialization();
     }
@@ -390,6 +391,10 @@ public class AugmentosService extends SmartGlassesAndroidService {
 //        stopNotificationService();
 
         if (displayQueue != null) displayQueue.stopQueue();
+
+        if (blePeripheral != null) {
+            blePeripheral.stop();
+        }
 
         super.onDestroy();
     }
