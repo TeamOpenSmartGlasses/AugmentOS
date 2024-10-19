@@ -1,0 +1,110 @@
+# React Native
+
+# Node modules
+/node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+expo-debug.log*
+
+# React Native Packager
+*.pack
+*.bundle
+
+# Metro Bundler cache
+/metro-cache/
+.cache/
+
+# Temporary files
+/tmp/
+temp/
+
+# Build directories
+/android/app/build/
+/android/.gradle/
+/ios/build/
+/ios/Pods/
+!ios/Podfile.lock
+/ios/DerivedData/
+
+# Xcode
+*.xcworkspace
+*.xcuserstate
+*.moved-aside
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserdatad/
+*.xcscmblueprint
+
+# Android Studio
+/.idea/
+*.iml
+.gradle/
+/local.properties
+/.cxx/
+.externalNativeBuild
+.cxx/
+
+# Fastlane
+/fastlane/report.xml
+/fastlane/Preview.html
+/fastlane/screenshots/
+/fastlane/test_output/
+*.log
+
+# Buck
+/buck-out/
+/\.buckd/
+/.buckconfig.local
+
+# CocoaPods
+# Uncomment if you have CocoaPods dependencies checked in
+# /Pods/
+
+# Expo
+.expo/
+.expo-shared/
+
+# Miscellaneous
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.swp
+*.swo
+*.swn
+*.tmp
+*.temp
+*.log
+*.lock
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm/
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Storybook
+/storybook-static/
+
+# Misc
+*.pem
+*.key
+*.crt

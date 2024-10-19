@@ -17,9 +17,10 @@ import static com.teamopensmartglasses.convoscope.Constants.llContextConvoKey;
 import static com.teamopensmartglasses.convoscope.Constants.llWordSuggestUpgradeKey;
 import static com.teamopensmartglasses.convoscope.Constants.proactiveAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettingsKey;
-import static com.teamopensmartglasses.convoscope.Constants.systemMessagesKey;
+import static com.teamopensmartglasses.convoscope.Constants.displayRequestsKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -39,6 +40,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
+import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
@@ -46,6 +48,7 @@ import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
+import com.teamopensmartglasses.convoscope.tpa.TPASystem;
 import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DiarizationOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
@@ -177,7 +180,11 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private boolean segmenterLoading = false;
     private boolean hasUserBeenNotified = false;
 
+    public TPASystem tpaSystem;
+
     private DisplayQueue displayQueue;
+
+    private AugmentosBlePeripheral blePeripheral;
 
     public AugmentosService() {
         super(ConvoscopeUi.class,
@@ -226,6 +233,12 @@ public class AugmentosService extends SmartGlassesAndroidService {
 //            new Thread(this::loadSegmenter).start();
 //        }
 
+        // Init TPA broadcast receivers
+        tpaSystem = new TPASystem(this);
+
+        // Initialize BLE Peripheral
+        blePeripheral = new AugmentosBlePeripheral(this);
+        blePeripheral.start();
 
         completeInitialization();
     }
@@ -378,6 +391,10 @@ public class AugmentosService extends SmartGlassesAndroidService {
 //        stopNotificationService();
 
         if (displayQueue != null) displayQueue.stopQueue();
+
+        if (blePeripheral != null) {
+            blePeripheral.stop();
+        }
 
         super.onDestroy();
     }
@@ -1099,8 +1116,8 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
         JSONArray explicitAgentResults = response.has(explicitAgentResultsKey) ? response.getJSONArray(explicitAgentResultsKey) : new JSONArray();
 
-        //systemMessages
-        JSONArray systemMessages = response.has(systemMessagesKey) ? response.getJSONArray(systemMessagesKey) : new JSONArray();
+        //displayResults
+        JSONArray displayRequests = response.has(displayRequestsKey) ? response.getJSONArray(displayRequestsKey) : new JSONArray();
 
         //proactive agents
         JSONArray proactiveAgentResults = response.has(proactiveAgentResultsKey) ? response.getJSONArray(proactiveAgentResultsKey) : new JSONArray();
@@ -1237,13 +1254,45 @@ public class AugmentosService extends SmartGlassesAndroidService {
             }
         }
 
-        // systemMessages
-        for (int i = 0; i < systemMessages.length(); i++) {
+        // displayResults
+        for (int i = 0; i < displayRequests.length(); i++) {
             try {
-                JSONObject obj = systemMessages.getJSONObject(i);
-                String body = obj.getString("message");
-                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(glassesCardTitle, body), false, false, false));
-                queueOutput(body);
+                JSONObject obj = displayRequests.getJSONObject(i);
+                JSONObject req = obj.getJSONObject("data");
+                JSONObject content = req.getJSONObject("content");
+                String layout = req.getString("layout");
+                String title;
+                String body;
+                switch (layout){
+                    case "REFERENCE_CARD":
+                        title = content.getString("title");
+                        body = content.getString("body");
+                        queueOutput(title + ": " + body);
+                        displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(title, body), false, false, false));
+                        break;
+                    case "TEXT_WALL":
+                    case "TEXT_LINE":
+                        body = content.getString("body");
+                        queueOutput(body);
+                        displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(body), false, false,false));
+                        break;
+                    case "DOUBLE_TEXT_WALL":
+                        String bodyTop = content.getString("bodyTop");
+                        String bodyBottom = content.getString("bodyBottom");
+                        queueOutput(bodyTop + "\n\n" + bodyBottom);
+                        displayQueue.addTask(new DisplayQueue.Task(() -> this.sendDoubleTextWall(bodyTop, bodyBottom), false, false, false));
+                        break;
+                    case "ROWS_CARD":
+                        JSONArray rowsArray = content.getJSONArray("rows");
+                        String[] stringsArray = new String[rowsArray.length()];
+                        for (int k = 0; k < rowsArray.length(); k++)
+                            stringsArray[k] = rowsArray.getString(k);
+                        queueOutput(String.join("\n", stringsArray));
+                        displayQueue.addTask(new DisplayQueue.Task(() -> this.sendRowsCard(stringsArray), false, false, false));
+                        break;
+                    default:
+                        Log.d(TAG, "SOME ISSUE");
+                }
             }
             catch (JSONException e){
                 e.printStackTrace();
@@ -1936,4 +1985,85 @@ public class AugmentosService extends SmartGlassesAndroidService {
         stopService(notificationServiceIntent);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+//
+////b. Handle the Incoming Intent in MainActivity.kt
+//
+//
+//    @Override
+//    protected void onNewIntent(Intent intent) {
+//        super.onNewIntent(intent);
+//        handleIncomingManagerData(intent);
+//    }
+//
+//    private void handleIncomingManagerData(Intent intent) {
+//        if (intent != null && "com.augmentos_manager.ACTION_SEND_JSON".equals(intent.getAction())) {
+//            String payload = intent.getStringExtra("payload");
+//            if (payload != null) {
+//                Log.d(TAG, "Received payload: " + payload);
+//                try {
+//                    JSONObject jsonObject = new JSONObject(payload);
+//                    // TODO: Parse the JSON and perform necessary actions
+//                    String version = jsonObject.optString("version");
+//                    String action = jsonObject.optString("action");
+//                    String requestId = jsonObject.optString("request_id");
+//                    JSONObject parameters = jsonObject.optJSONObject("parameters");
+//
+//                    // Example: Handle different actions
+//                    switch (action) {
+//                        case "status":
+//                            // Retrieve and send back status
+//                            handleStatusRequest(requestId);
+//                            break;
+//                        case "start_app":
+//                            if (parameters != null) {
+//                                String appId = parameters.optString("app_id");
+//                                handleStartApp(appId);
+//                            }
+//                            break;
+//                        // Handle other actions similarly
+//                        default:
+//                            Log.w(TAG, "Unknown action: " + action);
+//                    }
+//
+//                } catch (JSONException e) {
+//                    Log.e(TAG, "JSON parsing error: " + e.getMessage());
+//                }
+//            }
+//        }
+//    }
+//
+//    private void handleStatusRequest(String requestId) {
+//        // Implement logic to retrieve status and possibly send a response
+//        Log.d(TAG, "Handling status request: " + requestId);
+//        // Example: You can use React Native's bridge to send data back to JavaScript if needed
+//    }
+//
+//    private void handleStartApp(String appId) {
+//        // Implement logic to start the specified app
+//        Log.d(TAG, "Starting app with ID: " + appId);
+//        // Example: Use PackageManager to launch the app
+//        Intent launchIntent = getPackageManager().getLaunchIntentForPackage(appId);
+//        if (launchIntent != null) {
+//            startActivity(launchIntent);
+//            Log.d(TAG, "App started successfully.");
+//        } else {
+//            Log.e(TAG, "App not found: " + appId);
+//        }
+//    }
+//
+//
+//    protected String getMainComponentName() {
+//        return "AugmentOS_Main"; // Replace with your actual main component name
+//    }
 }

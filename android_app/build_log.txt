@@ -21,13 +21,13 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 16.
 -- The C compiler identification is Clang 11.0.5
 -- The CXX compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
+-- Detecting CXX compiler ABI displayCommandInfo
+-- Detecting CXX compiler ABI displayCommandInfo - done
 -- Check for working CXX compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
@@ -45,13 +45,13 @@ HEAD is now at 9343853 Fix documentation typo.
 16.
 -- The C compiler identification is Clang 11.0.5
 -- The CXX compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
+-- Detecting CXX compiler ABI displayCommandInfo
+-- Detecting CXX compiler ABI displayCommandInfo - done
 -- Check for working CXX compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
@@ -246,8 +246,8 @@ fatal: No names found, cannot describe anything.
 -- ANDROID_PLATFORM not set. Defaulting to minimum supported version
 16.
 -- The C compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
@@ -534,13 +534,13 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 16.
 -- The C compiler identification is Clang 11.0.5
 -- The CXX compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
+-- Detecting CXX compiler ABI displayCommandInfo
+-- Detecting CXX compiler ABI displayCommandInfo - done
 -- Check for working CXX compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
@@ -578,13 +578,13 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 16.
 -- The C compiler identification is Clang 11.0.5
 -- The CXX compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
+-- Detecting CXX compiler ABI displayCommandInfo
+-- Detecting CXX compiler ABI displayCommandInfo - done
 -- Check for working CXX compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
@@ -602,13 +602,13 @@ HEAD is now at 9343853 Fix documentation typo.
 16.
 -- The C compiler identification is Clang 11.0.5
 -- The CXX compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
+-- Detecting CXX compiler ABI displayCommandInfo
+-- Detecting CXX compiler ABI displayCommandInfo - done
 -- Check for working CXX compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
@@ -803,8 +803,8 @@ fatal: No names found, cannot describe anything.
 -- ANDROID_PLATFORM not set. Defaulting to minimum supported version
 16.
 -- The C compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
@@ -1091,13 +1091,13 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 16.
 -- The C compiler identification is Clang 11.0.5
 -- The CXX compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
+-- Detecting CXX compiler ABI displayCommandInfo
+-- Detecting CXX compiler ABI displayCommandInfo - done
 -- Check for working CXX compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
@@ -1135,13 +1135,13 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 16.
 -- The C compiler identification is Clang 11.0.5
 -- The CXX compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
+-- Detecting CXX compiler ABI displayCommandInfo
+-- Detecting CXX compiler ABI displayCommandInfo - done
 -- Check for working CXX compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
@@ -1159,13 +1159,13 @@ HEAD is now at 9343853 Fix documentation typo.
 16.
 -- The C compiler identification is Clang 11.0.5
 -- The CXX compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
+-- Detecting CXX compiler ABI displayCommandInfo
+-- Detecting CXX compiler ABI displayCommandInfo - done
 -- Check for working CXX compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
@@ -1360,8 +1360,8 @@ fatal: No names found, cannot describe anything.
 -- ANDROID_PLATFORM not set. Defaulting to minimum supported version
 16.
 -- The C compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
@@ -1998,13 +1998,13 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 16.
 -- The C compiler identification is Clang 11.0.5
 -- The CXX compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
+-- Detecting CXX compiler ABI displayCommandInfo
+-- Detecting CXX compiler ABI displayCommandInfo - done
 -- Check for working CXX compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
@@ -2042,13 +2042,13 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 16.
 -- The C compiler identification is Clang 11.0.5
 -- The CXX compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
+-- Detecting CXX compiler ABI displayCommandInfo
+-- Detecting CXX compiler ABI displayCommandInfo - done
 -- Check for working CXX compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
@@ -2066,13 +2066,13 @@ HEAD is now at 9343853 Fix documentation typo.
 16.
 -- The C compiler identification is Clang 11.0.5
 -- The CXX compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
+-- Detecting CXX compiler ABI displayCommandInfo
+-- Detecting CXX compiler ABI displayCommandInfo - done
 -- Check for working CXX compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
@@ -2267,8 +2267,8 @@ fatal: No names found, cannot describe anything.
 -- ANDROID_PLATFORM not set. Defaulting to minimum supported version
 16.
 -- The C compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
@@ -2921,13 +2921,13 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 16.
 -- The C compiler identification is Clang 11.0.5
 -- The CXX compiler identification is Clang 11.0.5
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI displayCommandInfo
+-- Detecting C compiler ABI displayCommandInfo - done
 -- Check for working C compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
+-- Detecting CXX compiler ABI displayCommandInfo
+-- Detecting CXX compiler ABI displayCommandInfo - done
 -- Check for working CXX compiler: /home/cayden/biggem/programs/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
@@ -2950,7 +2950,7 @@ Could not create service of type ScriptPluginFactory using BuildScopeServices.cr
 > Could not create service of type PluginResolutionStrategyInternal using BuildScopeServices.createPluginResolutionStrategy().
 
 * Try:
-Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+Run with --stacktrace option to get the stack trace. Run with --displayCommandInfo or --debug option to get more log output. Run with --scan to get full insights.
 
 * Get more help at https://help.gradle.org
 
@@ -2964,7 +2964,7 @@ Could not open cp_settings generic class cache for settings file '/home/cayden/b
 > BUG! exception in phase 'semantic analysis' in source unit '_BuildScript_' Unsupported class file major version 64
 
 * Try:
-> Run with --info or --debug option to get more log output.
+> Run with --displayCommandInfo or --debug option to get more log output.
 > Run with --scan to get full insights.
 
 * Exception is:
