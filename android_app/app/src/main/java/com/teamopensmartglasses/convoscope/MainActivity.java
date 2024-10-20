@@ -77,6 +77,12 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
     mBound = false;
 
+    permissionsUtils = new PermissionsUtils(this, TAG);
+    if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+        != PackageManager.PERMISSION_GRANTED) {
+      gettingPermissions = true;
+    }
+
     //setup the nav bar
     NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
     Log.d(TAG, getSupportFragmentManager().getFragments().toString());
@@ -88,7 +94,10 @@ public class MainActivity extends AppCompatActivity {
     super.onStart();
     UiUtils.setupTitle(this, "AugmentOS");
 
-    permissionsUtils = new PermissionsUtils(this, TAG);
+    if (permissionsUtils == null) {
+      permissionsUtils = new PermissionsUtils(this, TAG);
+    }
+
     if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
         != PackageManager.PERMISSION_GRANTED) {
       gettingPermissions = true;
