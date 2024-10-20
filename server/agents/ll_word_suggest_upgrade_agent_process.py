@@ -11,7 +11,7 @@ from constants import LL_WORD_SUGGEST_UPGRADE_AGENT
 
 db_handler = DatabaseHandler(parent_handler=False)
 
-time_between_iterations = 30
+time_between_iterations = 15
 timelength_of_usable_transcripts = time_between_iterations * 2
 
 def start_ll_word_suggest_upgrade_agent_processing_loop():
@@ -80,12 +80,6 @@ async def process_transcript(transcript: str):
 
     #run the ll word suggest upgrade agent
     words_to_show = await run_ll_word_suggest_upgrade_agent(transcript['text'], word_frequency_percentiles, target_language, transcribe_language, source_language, live_upgrade_word_history)
-    #print("transcript is: ")
-    #print(transcript)
-
-    # loop_time = time.time() - ctime
-    # print(f"RAN LL IN : {loop_time}")
-    # print(words_to_show)
 
     if words_to_show:
         final_words_to_show = list(filter(None, words_to_show))

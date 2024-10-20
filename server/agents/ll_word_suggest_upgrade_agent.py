@@ -19,13 +19,11 @@ from pypinyin import pinyin, Style
 from Modules.LangchainSetup import *
 
 #draft word suggestion upgrade prompt by Susanna
-ll_word_suggest_upgrade_agent_prompt_blueprint="""
-
-You generate "Upgrades" for language learners. An Upgrade should be context based new word or phrase, that might be the most useful to the user.
+ll_word_suggest_upgrade_agent_prompt_blueprint="""You generate "Upgrades" for language learners. An Upgrade should be a new word or phrase, that might be useful to the user based on the context.
 
 Your hear the conversation in either the target language or the source language.
 
-The system will take in the context of what is being discussed, where the user is, what’s happening around them, what the user’s goal is, etc. in order to suggest some words to them that they otherwise would not use.
+You take in the context of what is being discussed, where the user is, what’s happening around them, what the user’s goal is, etc. in order to suggest some words to them that they otherwise would not use.
 
 For the upgrade word, provide the 1 word (upgrade_word) in {target_language} and its meaning (upgrade_word_meaning) in {source_language} in 1-3 words .
 
@@ -33,6 +31,7 @@ Come up with a new word that satisfies the following conditions:
 (upgrade_word not in conversation_context and upgrade_word not in live_upgrade_word_history) and \
 (upgrade_word_meaning not in conversation_context and upgrade_word_meaning not in live_upgrade_word_history)
 
+i.e. The new upgrade_word should not be a word in the conversation transcript, and it should not be a word that was previously suggested as an upgrade!
 
 Target Language (learning): {target_language}
 Source Language (already known): {source_language}
@@ -42,38 +41,35 @@ Frequency Ranking: The frequency percentile of each word tells you how common it
 Recently Suggested (live_upgrade_word_history): `{live_upgrade_word_history}`
 Output Format: {format_instructions}
 
-
 Examples:
 Source Language 1: English
 Target Language 1: French
 Conversation 1 (Transcript): "quel exercice aimes-tu? Aimes-tu l'eau?"
-Conversation 1 in Opposite Language: 'What exercise do you like? Do you like water?'
 Fluency Level: <50
 Output 1: {{"nager":"to swim"}}
 
 Source Language 2: English
 Target Language 2: Chinese
 Conversation 2 (Transcript): '她连续三年赢得奥林匹克赛的金牌，真是太厉害了。'
-Conversation 2 in Opposite Language: 'She won the Olympic gold medal three years in a row, which is amazing.'
 Fluency Level: >50
 Output 2: {{"天下无敌":"unbeatable everywhere"}}
 
 Source Language 3: Russian
 Target Language 3: English
 Conversation 3 (Transcript): "это катализ реакции одним из ее продуктов."
-Conversation 3 in Opposite Language: 'this is the catalysis of a reaction by one of its products.'
 Fluency Level: >75
 Output 2: {{"autocatalysis":"автокатализ"}}
 
-When target language is Chinese, do NOT output words with Pinyin! Always Chinese characters!
-
-if fluency level is < 30 suggest only common words, if fluency level is > 70 suggest only rare words
+If fluency level is < 30 suggest only common words, if fluency level is > 70 suggest only rare words.
 
 Don't output punctuation or periods! Output all lowercase! Never suggest highly common words like "the", "a", "it", etc.). Now provide the output:
 """
 
+#Conversation 1 in Opposite Language: 'What exercise do you like? Do you like water?'
 
+#Conversation 2 in Opposite Language: 'She won the Olympic gold medal three years in a row, which is amazing.'
 
+#Conversation 3 in Opposite Language: 'this is the catalysis of a reaction by one of its products.'
 
 
 def format_list_data(data: dict) -> str:
@@ -127,7 +123,7 @@ async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank
     )
 
     word_rank_string = format_list_data(word_rank)
-    print("LL UPGRADE WORD RANK STRING:" + word_rank_string)
+    #print("LL UPGRADE WORD RANK STRING:" + word_rank_string)
 #     print("LANGUAGE LEARNING WORD RANK STRING:" + word_rank_string)
 
     ll_word_suggest_upgrade_agent_query_prompt_string = extract_ll_word_suggest_upgrade_agent_query_prompt.format_prompt(
@@ -139,13 +135,14 @@ async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank
         live_upgrade_word_history=live_upgrade_word_history
     ).to_string()
 
-    print("ll word suggest upgrade PROMPT********************************")
+    #print("ll word suggest upgrade PROMPT********************************")
     # print(ll_word_suggest_upgrade_agent_query_prompt_string)
 
     # print("Proactive meta agent query prompt string", ll_word_suggest_upgrade_agent_query_prompt_string)
 
     response = await llm.ainvoke(
         [HumanMessage(content=ll_word_suggest_upgrade_agent_query_prompt_string)])
+    print("Word upgrade response:")
     print(response)
 
     try:
@@ -170,7 +167,7 @@ async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank
             upgrade_word_meaning = chinese_to_pinyin(upgrade_word_meaning)
 
         upgrade_word_and_meaning_obj = []
-        print(conversation_context)
+        #print(conversation_context)
         conversation_context_set = conversation_context.lower()
 
         live_upgrade_word_history_set = set(live_upgrade_word_history)  # Convert to set for efficient lookup
@@ -188,7 +185,6 @@ async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank
         print('parse fail')
         print(e)
         return None
-
 
 if __name__ == "__main__":
     # "It's a beautiful day to be out and about at the library! And you should come to my house tomorrow!"
