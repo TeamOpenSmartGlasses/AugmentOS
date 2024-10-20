@@ -46,7 +46,7 @@ import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
-import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
+import com.teamopensmartglasses.convoscope.ui.AugmentosUi;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DiarizationOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
@@ -180,7 +180,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private DisplayQueue displayQueue;
 
     public AugmentosService() {
-        super(ConvoscopeUi.class,
+        super(AugmentosUi.class,
                 "augmentos_app",
                 3589,
                 "AugmentOS",
@@ -1341,23 +1341,23 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
     public void sendUiUpdateFull(){
         Intent intent = new Intent();
-        intent.setAction(ConvoscopeUi.UI_UPDATE_FULL);
-        intent.putStringArrayListExtra(ConvoscopeUi.CONVOSCOPE_MESSAGE_STRING, responsesBuffer);
-        intent.putStringArrayListExtra(ConvoscopeUi.TRANSCRIPTS_MESSAGE_STRING, transcriptsBuffer);
+        intent.setAction(AugmentosUi.UI_UPDATE_FULL);
+        intent.putStringArrayListExtra(AugmentosUi.CONVOSCOPE_MESSAGE_STRING, responsesBuffer);
+        intent.putStringArrayListExtra(AugmentosUi.TRANSCRIPTS_MESSAGE_STRING, transcriptsBuffer);
         sendBroadcast(intent);
     }
 
     public void sendUiUpdateSingle(String message) {
         Intent intent = new Intent();
-        intent.setAction(ConvoscopeUi.UI_UPDATE_SINGLE);
-        intent.putExtra(ConvoscopeUi.CONVOSCOPE_MESSAGE_STRING, message);
+        intent.setAction(AugmentosUi.UI_UPDATE_SINGLE);
+        intent.putExtra(AugmentosUi.CONVOSCOPE_MESSAGE_STRING, message);
         sendBroadcast(intent);
     }
 
     public void sendFinalTranscriptToActivity(String transcript){
         Intent intent = new Intent();
-        intent.setAction(ConvoscopeUi.UI_UPDATE_FINAL_TRANSCRIPT);
-        intent.putExtra(ConvoscopeUi.FINAL_TRANSCRIPT, transcript);
+        intent.setAction(AugmentosUi.UI_UPDATE_FINAL_TRANSCRIPT);
+        intent.putExtra(AugmentosUi.FINAL_TRANSCRIPT, transcript);
         sendBroadcast(intent);
     }
 
@@ -1465,12 +1465,12 @@ public class AugmentosService extends SmartGlassesAndroidService {
 //                .getBoolean(context.getResources().getString(R.string.SHARED_PREF_VOCABULARY_UPGRADE), false);
 //    }
 
-    public Boolean isVocabularyUpgradeEnabled(Context context) {
+    public static Boolean isVocabularyUpgradeEnabled(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(context.getResources().getString(R.string.SHARED_PREF_VOCABULARY_UPGRADE), true);
     }
 
-    public void setVocabularyUpgradeEnabled(Context context, boolean isEnabled) {
+    public static void setVocabularyUpgradeEnabled(Context context, boolean isEnabled) {
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
                 .putBoolean(context.getResources().getString(R.string.SHARED_PREF_VOCABULARY_UPGRADE), isEnabled)

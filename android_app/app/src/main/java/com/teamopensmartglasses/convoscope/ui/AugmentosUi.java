@@ -40,7 +40,7 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
-public class ConvoscopeUi extends Fragment {
+public class AugmentosUi extends Fragment {
     public String TAG = "WearableAi_ConvoscopeUi";
 
      //UI
@@ -59,7 +59,7 @@ public class ConvoscopeUi extends Fragment {
     private NavController navController;
 
 
-    public ConvoscopeUi() {
+    public AugmentosUi() {
         // Required empty public constructor
     }
 
@@ -421,7 +421,7 @@ public class ConvoscopeUi extends Fragment {
   }
 
   private void connectGlasses() {
-      ((MainActivity)getActivity()).startConvoscopeService();
+      ((MainActivity)getActivity()).startAugmentosService();
   }
 
   private void openSettingsFragment() {
