@@ -201,6 +201,11 @@ class GenericAgent:
 
     ### Run this specific agent's gatekeeper & run agent if gatekeeper passes ###
     async def run_aio_agent_gatekeeper_async(self, user_id, conversation_context, insights_history: list):
+        ### TODO: Remove this later, don't do this if we've already done a result in the past 2 seconds
+        if len(db_handler.get_recent_n_seconds_agent_insights_query_history_for_user(user_id=user_id, n_seconds=2)) > 0:
+            print("\n\nTEMP FIX FOR OVERLAPPING AGENTS: IGNORING THIS RUN\n\n")
+            return
+        
         generic_gatekeeper_start_time = time.time()
 
         generic_gatekeeper_score_prompt = PromptTemplate(
