@@ -51,8 +51,8 @@ export class BluetoothService extends EventEmitter {
     bleManagerEmitter.removeAllListeners('BleManagerBondedPeripheral');
   }
 
-  // Handle discovered peripherals
-  handleDiscoveredPeripheral(peripheral: any) {
+  // Handle discovered peripherals (auto-connect logic here)
+  async handleDiscoveredPeripheral(peripheral: any) {
     if (!peripheral.name) {
       peripheral.name = 'Unknown Device';
     }
@@ -61,6 +61,10 @@ export class BluetoothService extends EventEmitter {
     if (!deviceExists) {
       this.devices = [...this.devices, peripheral];
       this.emit('devicesUpdated', this.devices); // Notify UI about new devices
+
+      // Attempt automatic connection to the device
+      console.log(`Attempting to connect to ${peripheral.name || peripheral.id}...`);
+      await this.connectToDevice(peripheral);
     }
   }
 
@@ -86,29 +90,6 @@ export class BluetoothService extends EventEmitter {
     Alert.alert('Bonded', `Successfully bonded with ${data.peripheral}`);
   }
 
-  // Request Bluetooth permissions (Android only)
-  async requestPermissions() {
-    try {
-      const granted = await PermissionsAndroid.requestMultiple([
-        PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
-        PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-      ]);
-
-      if (
-        granted['android.permission.BLUETOOTH_CONNECT'] === PermissionsAndroid.RESULTS.GRANTED &&
-        granted['android.permission.BLUETOOTH_SCAN'] === PermissionsAndroid.RESULTS.GRANTED &&
-        granted['android.permission.ACCESS_FINE_LOCATION'] === PermissionsAndroid.RESULTS.GRANTED
-      ) {
-        console.log('Bluetooth permissions granted');
-      } else {
-        Alert.alert('Permissions Denied', 'Please grant Bluetooth permissions to use this feature');
-      }
-    } catch (err) {
-      console.warn('Permission error:', err);
-    }
-  }
-
   // Start scanning for peripherals
   async scanForDevices() {
     if (this.isScanning) return;
@@ -127,18 +108,6 @@ export class BluetoothService extends EventEmitter {
     }
   }
 
-  // Stop scanning manually
-  async stopScan() {
-    try {
-      await BleManager.stopScan();
-      console.log('Manually stopped scanning');
-      this.isScanning = false;
-      this.emit('scanStopped');
-    } catch (error) {
-      console.error('Error stopping scan:', error);
-    }
-  }
-
   // Connect to a peripheral and bond
   async connectToDevice(device: Device) {
     try {
@@ -147,12 +116,12 @@ export class BluetoothService extends EventEmitter {
       this.connectedDevice = device;
       this.emit('deviceConnected', device);
 
-      // Create a bond with the device
-      await BleManager.createBond(device.id);
-
-      // Retrieve services
+      // Retrieve services and characteristics
       const services = await BleManager.retrieveServices(device.id);
       console.log('Retrieved services:', services);
+
+      // Create a bond with the device
+      await BleManager.createBond(device.id);
     } catch (error) {
       console.error(`Error connecting to ${device.name}:`, error);
       Alert.alert('Connection Failed', `Could not connect to ${device.name}`);
@@ -174,25 +143,63 @@ export class BluetoothService extends EventEmitter {
   }
 
   // Read data from a characteristic
-  async readCharacteristic(deviceId: string, serviceUUID: string, characteristicUUID: string) {
+  async readCharacteristic() {
+    if (!this.connectedDevice) {
+      console.warn('No device connected');
+      return;
+    }
+
     try {
-      const data = await BleManager.read(deviceId, serviceUUID, characteristicUUID);
+      const data = await BleManager.read(
+        this.connectedDevice.id,
+        this.SERVICE_UUID,
+        this.CHARACTERISTIC_UUID
+      );
       console.log('Read data:', data);
+      this.emit('dataReceived', data); // Notify UI about received data
       return data;
     } catch (error) {
       console.error('Error reading characteristic:', error);
-      throw error;
     }
   }
 
   // Write data to a characteristic
-  async writeCharacteristic(deviceId: string, serviceUUID: string, characteristicUUID: string, data: number[]) {
+  async writeCharacteristic(data: number[]) {
+    if (!this.connectedDevice) {
+      console.warn('No device connected');
+      return;
+    }
+
     try {
-      await BleManager.write(deviceId, serviceUUID, characteristicUUID, data);
+      await BleManager.write(
+        this.connectedDevice.id,
+        this.SERVICE_UUID,
+        this.CHARACTERISTIC_UUID,
+        data
+      );
       console.log('Data written successfully');
     } catch (error) {
       console.error('Error writing characteristic:', error);
-      throw error;
+    }
+  }
+
+  // Write without response (for fast data writes)
+  async writeWithoutResponse(data: number[]) {
+    if (!this.connectedDevice) {
+      console.warn('No device connected');
+      return;
+    }
+
+    try {
+      await BleManager.writeWithoutResponse(
+        this.connectedDevice.id,
+        this.SERVICE_UUID,
+        this.CHARACTERISTIC_UUID,
+        data
+      );
+      console.log('Data written without response');
+    } catch (error) {
+      console.error('Error writing without response:', error);
     }
   }
 }

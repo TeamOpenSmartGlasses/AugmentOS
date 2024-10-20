@@ -4,6 +4,8 @@ import React from 'react';
 import { View, Button, Text, StyleSheet } from 'react-native';
 import sendProtocolIntent from './IntentSender';
 import BluetoothManager from './BluetoothManager';
+import { StatusProvider } from './AugmentOSStatusProvider';
+import HomeScreenComponent from './HomeScreenComponent';
 
 const App: React.FC = () => {
   const handleSendStatus = () => {
@@ -30,19 +32,15 @@ const App: React.FC = () => {
     sendProtocolIntent(protocolData);
   };
 
-  // return (
-  //   <View style={styles.container}>
-  //     <Text style={styles.title}>AugmentOS Manager</Text>
-  //     <Button title="Send Status Intent" onPress={handleSendStatus} />
-  //     <Button title="Start App Intent" onPress={handleStartApp} />
-  //   </View>
-  // );
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>AugmentOS Manager</Text>
-      <BluetoothManager />
-  </View>
+    <StatusProvider>
+      <View style={styles.container}>
+        <Text style={styles.title}>AugmentOS Manager</Text>
+        <HomeScreenComponent />
+        <BluetoothManager />
+      </View>
+    </StatusProvider>
   )
 };
 
