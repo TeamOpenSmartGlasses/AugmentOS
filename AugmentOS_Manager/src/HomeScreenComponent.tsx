@@ -12,7 +12,7 @@ const HomeScreenComponent = () => {
       <Text>Puck Battery Life: {status.puck_battery_life ?? 'N/A'}%</Text>
 
       <Text style={{ marginTop: 10, fontWeight: 'bold' }}>Connected Glasses</Text>
-      {status.glasses_connected ? (
+      {status.glasses_info ? (
         <>
           <Text>Model: {status.glasses_info?.model_name}</Text>
           <Text>Battery Life: {status.glasses_info?.battery_life}%</Text>

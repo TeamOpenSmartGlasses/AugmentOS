@@ -4,33 +4,40 @@ import AugmentOSParser from './AugmentOSStatusParser';
 // Default dummy status data
 const defaultParsedData = {
     status: {
-        puck_battery_life: 25,
-        connected_glasses: {
-            model_name: "Vuzix Z100",
-            battery_life: 10,
+      puck_battery_life: 25,
+      charging_status: true,
+      connected_glasses: {
+        model_name: "Vuzix Z100",
+        battery_life: 10,
+      },
+      wifi: { is_connected: true, ssid: "test-ssid", signal_strength: 75 },
+      gsm: { is_connected: true, carrier: "T-Mobile", signal_strength: 85 },
+      apps: [
+        {
+          name: "Language Learner",
+          description: "A real-time translation and vocabulary builder.",
+          is_running: true,
+          is_foreground: true,
+          package_name: "com.language.learner",
         },
-        apps: [
-            {
-                name: "Language Learner",
-                description: "A real-time translation and vocabulary builder.",
-                is_running: true,
-                is_foreground: true,
-            },
-            {
-                name: "Navigation Assistant",
-                description: "Provides step-by-step navigation instructions.",
-                is_running: true,
-                is_foreground: false,
-            },
-            {
-                name: "Weather App",
-                description: "Displays current weather conditions.",
-                is_running: false,
-                is_foreground: false,
-            },
-        ],
+        {
+          name: "Navigation Assistant",
+          description: "Provides step-by-step navigation instructions.",
+          is_running: true,
+          is_foreground: false,
+          package_name: "com.navigation.assistant",
+        },
+        {
+          name: "Weather App",
+          description: "Displays current weather conditions.",
+          is_running: false,
+          is_foreground: false,
+          package_name: "com.weather.app",
+        },
+      ],
     },
-};
+  };
+  
 
 interface AugmentOSStatusContextType {
     status: ReturnType<AugmentOSParser['getStatus']>;
