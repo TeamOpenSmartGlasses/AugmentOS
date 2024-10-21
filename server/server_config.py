@@ -10,6 +10,7 @@ azure_openai_api_base = "https://convoscoperesource2.openai.azure.com/"
 azure_openai_api_gpt35_deployment = "ConvoscopeGPT3"
 azure_openai_api_gpt4_deployment = "ConvoscopeGPT4"
 azure_openai_api_gpt4o_deployment = "ConvoscopeGPT4o"
+azure_openai_api_gpt4omini_deployment = "ConvoscopeGPT4oMini"
 
 time_everything_spreadsheet_id = "1UD_Lf4V9yP5fdpgNb1PwLJAye2A7K5ihw7ozoO3cmz4"
 

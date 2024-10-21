@@ -14,6 +14,8 @@ GPT_TEMPERATURE = 0.0
 
 GPT_4O_MODEL = "gpt-4o"
 
+GPT_4O_MINI_MODEL = "gpt-4o-mini"
+
 GPT_35_MODEL = "gpt-3.5-turbo-1106"
 GPT_35_MAX_TOKENS = 2048
 
