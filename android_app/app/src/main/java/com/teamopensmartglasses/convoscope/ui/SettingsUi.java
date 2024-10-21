@@ -69,7 +69,7 @@ public class SettingsUi extends Fragment {
         killServiceButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                ((MainActivity)getActivity()).stopConvoscopeService();
+                ((MainActivity)getActivity()).stopAugmentosService();
             }
         });
 
@@ -85,8 +85,8 @@ public class SettingsUi extends Fragment {
                         return;
                     }
                 }
-                ((MainActivity)getActivity()).stopConvoscopeService();
-                ((MainActivity)getActivity()).startConvoscopeService();
+                ((MainActivity)getActivity()).stopAugmentosService();
+                ((MainActivity)getActivity()).startAugmentosService();
 
                 //TODO: Temporarily disable this
                 //navController.navigate(R.id.nav_select_smart_glasses);
@@ -97,22 +97,22 @@ public class SettingsUi extends Fragment {
         //final Switch switchGoogleAsr = view.findViewById(R.id.google_asr_switch);
 
         //find out the current ASR state, remember it
-//        ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
-//        ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.DEEPGRAM_ASR_FRAMEWORK);
+//        AugmentosService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
+//        AugmentosService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.DEEPGRAM_ASR_FRAMEWORK);
         AugmentosService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK);
         ASR_FRAMEWORKS asrFramework = AugmentosService.getChosenAsrFramework(mContext);
 //        switchGoogleAsr.setChecked(asrFramework == ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
 //
 //        switchGoogleAsr.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                ((MainActivity)getActivity()).stopConvoscopeService();
+//                ((MainActivity)getActivity()).stopAugmentosService();
 //
 //                //setGoogleApiKeyButton.setEnabled(isChecked);
 //                //save explicitly as well as force change in case the service is down, we want this to be saved either way
 //                if (isChecked) {
-//                    ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
+//                    AugmentosService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
 //                } else {
-//                    ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.VOSK_ASR_FRAMEWORK);
+//                    AugmentosService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.VOSK_ASR_FRAMEWORK);
 //                }
 //            }
 //        });
@@ -124,11 +124,11 @@ public class SettingsUi extends Fragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked){
                     AugmentosService.savePreferredWearable(getContext(), new AudioWearable().deviceModelName);
-                    ((MainActivity)getActivity()).restartConvoscopeService();
+                    ((MainActivity)getActivity()).restartAugmentosServiceIfRunning();
                 }
                 else {
                     AugmentosService.savePreferredWearable(getContext(), "");
-                    ((MainActivity)getActivity()).restartConvoscopeService();
+                    ((MainActivity)getActivity()).restartAugmentosServiceIfRunning();
                 }
             }
         });
@@ -143,12 +143,7 @@ public class SettingsUi extends Fragment {
         //ll vocabulary upgrade checkbox
         CheckBox vocabularyUpgradeCheckbox = view.findViewById(R.id.VocabularyUpgrade);
         boolean isVocabularyUpgradeEnabled;
-        if (((MainActivity)getActivity()).mService != null) {
-            isVocabularyUpgradeEnabled = ((MainActivity) getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
-        } else {
-            isVocabularyUpgradeEnabled = false;
-            Log.d(TAG, "FAIL: runnings settings relying on Service... bad code");
-        }
+        isVocabularyUpgradeEnabled = AugmentosService.isVocabularyUpgradeEnabled(mContext);
         Log.d(TAG, "Initial Vocabulary Upgrade state: " + isVocabularyUpgradeEnabled);
         vocabularyUpgradeCheckbox.setChecked(isVocabularyUpgradeEnabled);
 
@@ -156,9 +151,10 @@ public class SettingsUi extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Log.d(TAG, "Vocabulary Upgrade checkbox changed: " + isChecked);
-                ((MainActivity)getActivity()).mService.setVocabularyUpgradeEnabled(mContext, isChecked);
-                ((MainActivity)getActivity()).mService.updateVocabularyUpgradeOnBackend(mContext);
-//                ((MainActivity)getActivity()).restartConvoscopeService();
+                AugmentosService.setVocabularyUpgradeEnabled(mContext, isChecked);
+                if (((MainActivity) getActivity()).isAugmentosServiceRunning()){
+                    ((MainActivity) getActivity()).mService.updateVocabularyUpgradeOnBackend(mContext);
+                }
             }
         });
 
@@ -171,8 +167,6 @@ public class SettingsUi extends Fragment {
 
         // Retrieve the saved transcribe language
         String savedTranscribeLanguage = SmartGlassesAndroidService.getChosenTranscribeLanguage(mContext);
-
-//        Boolean savedVocabularyUpgradeEnabled = ((MainActivity)getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
 
         // Find the position of the saved language in the adapter
         int languageSpinnerPosition = transcribeAdapter.getPosition(savedTranscribeLanguage);
@@ -192,8 +186,8 @@ public class SettingsUi extends Fragment {
                 String selectedLanguage = parent.getItemAtPosition(position).toString();
                 // Save the selected language as the new transcribe language default
                 Log.d(TAG, "TRANSCRIBE LANGUAGE SPINNER CHANGED");
-                ((MainActivity)getActivity()).mService.saveChosenTranscribeLanguage(mContext, selectedLanguage);
-                ((MainActivity)getActivity()).restartConvoscopeService();
+                AugmentosService.saveChosenTranscribeLanguage(mContext, selectedLanguage);
+                ((MainActivity)getActivity()).restartAugmentosServiceIfRunning();
             }
 
             @Override
@@ -210,7 +204,7 @@ public class SettingsUi extends Fragment {
         targetLanguageSpinner.setAdapter(tlAdapter);
 
         // Retrieve the saved target targetLanguage
-        String savedTargetLanguage = ((MainActivity)getActivity()).mService.getChosenTargetLanguage(mContext);
+        String savedTargetLanguage = AugmentosService.getChosenTargetLanguage(mContext);
 
         Log.d(TAG, "TARGET LANGUAGE IS: " + savedTargetLanguage);
 
@@ -232,10 +226,10 @@ public class SettingsUi extends Fragment {
                 String selectedLanguage = parent.getItemAtPosition(position).toString();
                 // Save the selected targetLanguage as the new default
                 Log.d(TAG, "TARGET LANGUAGE SPINNER CHANGED");
-                ((MainActivity)getActivity()).mService.saveChosenTargetLanguage(mContext, selectedLanguage);
-                if (((MainActivity)getActivity()).mService != null) {
+                AugmentosService.saveChosenTargetLanguage(mContext, selectedLanguage);
+                if (((MainActivity)getActivity()).isAugmentosServiceRunning()) {
                     ((MainActivity) getActivity()).mService.updateTargetLanguageOnBackend(mContext);
-                    ((MainActivity)getActivity()).restartConvoscopeService();
+                    ((MainActivity)getActivity()).restartAugmentosService();
                 }
             }
 
@@ -253,7 +247,7 @@ public class SettingsUi extends Fragment {
         sourceLanguageSpinner.setAdapter(slAdapter);
 
         // Retrieve the saved source sourceLanguage
-        String savedSourceLanguage = ((MainActivity)getActivity()).mService.getChosenSourceLanguage(mContext);
+        String savedSourceLanguage = AugmentosService.getChosenSourceLanguage(mContext);
 
         // Find the position of the saved sourceLanguage in the adapter
         int sourceLanguageSpinnerPosition = slAdapter.getPosition(savedSourceLanguage);
@@ -273,10 +267,10 @@ public class SettingsUi extends Fragment {
                 String selectedLanguage = parent.getItemAtPosition(position).toString();
                 // Save the selected targetLanguage as the new default
                 Log.d(TAG, "SOURCE LANGUAGE SPINNER CHANGED");
-                ((MainActivity)getActivity()).mService.saveChosenSourceLanguage(mContext, selectedLanguage);
-                if (((MainActivity)getActivity()).mService != null) {
+                AugmentosService.saveChosenSourceLanguage(mContext, selectedLanguage);
+                if (((MainActivity)getActivity()).isAugmentosServiceRunning()) {
                     ((MainActivity)getActivity()).mService.updateSourceLanguageOnBackend(mContext);
-                    ((MainActivity)getActivity()).restartConvoscopeService();
+                    ((MainActivity)getActivity()).restartAugmentosService();
                 }
             }
 
@@ -317,9 +311,8 @@ public class SettingsUi extends Fragment {
                         buttonId = 2;
                         break;
                 }
-                ((MainActivity)getActivity()).restartConvoscopeService();
                 AugmentosService.saveSelectedLiveCaptionsTranslationChecked(mContext, buttonId); // normalize the id
-                ((MainActivity)getActivity()).restartConvoscopeService();
+                ((MainActivity)getActivity()).restartAugmentosServiceIfRunning();
             }
         });
 

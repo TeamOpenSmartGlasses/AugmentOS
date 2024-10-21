@@ -12,7 +12,7 @@ from constants import LANGUAGE_LEARNING_AGENT
 db_handler = DatabaseHandler(parent_handler=False)
 
 time_between_iterations = 0.5
-timelength_of_usable_transcripts = time_between_iterations * 6
+timelength_of_usable_transcripts = time_between_iterations * 20
 
 def start_language_learning_agent_processing_loop():
     loop = asyncio.new_event_loop()

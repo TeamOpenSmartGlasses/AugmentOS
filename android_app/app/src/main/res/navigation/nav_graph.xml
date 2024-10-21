@@ -13,7 +13,7 @@
 <!--    </fragment>-->
     <fragment
         android:id="@+id/nav_convoscope"
-        android:name="com.teamopensmartglasses.convoscope.ui.ConvoscopeUi"
+        android:name="com.teamopensmartglasses.convoscope.ui.AugmentosUi"
         tools:layout="@layout/convoscope_fragment"
         android:label="Convoscope" >
     </fragment>
