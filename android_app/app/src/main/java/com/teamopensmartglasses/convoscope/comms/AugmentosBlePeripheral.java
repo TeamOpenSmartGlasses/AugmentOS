@@ -139,6 +139,28 @@ public class AugmentosBlePeripheral {
         Log.d(TAG, "GATT server setup complete");
     }
 
+    @SuppressLint("MissingPermission")
+    public void sendDataToAugmentOsManager(String message) {
+        if (characteristic == null || gattServer == null) {
+            Log.e(TAG, "Characteristic or GATT server not initialized");
+            return;
+        }
+
+        characteristic.setValue(message.getBytes());
+        boolean notified = gattServer.notifyCharacteristicChanged(
+                null,  // Send to all connected devices
+                characteristic,
+                false  // Indication (true) or Notification (false)
+        );
+
+        if (notified) {
+            Log.d(TAG, "Sent notification to Central: " + message);
+        } else {
+            Log.e(TAG, "Failed to send notification.");
+        }
+    }
+
+
     // Start advertising the service
     @SuppressLint("MissingPermission")
     private void startAdvertising() {

@@ -122,6 +122,9 @@ export class BluetoothService extends EventEmitter {
 
       // Create a bond with the device
       await BleManager.createBond(device.id);
+
+      // Enable notifications for the device
+      await this.enableNotifications(device.id);
     } catch (error) {
       console.error(`Error connecting to ${device.name}:`, error);
       Alert.alert('Connection Failed', `Could not connect to ${device.name}`);
@@ -202,4 +205,13 @@ export class BluetoothService extends EventEmitter {
       console.error('Error writing without response:', error);
     }
   }
+
+  async enableNotifications (deviceId: string) {
+    try {
+      await BleManager.startNotification(deviceId, this.SERVICE_UUID, this.CHARACTERISTIC_UUID);
+      console.log('Notifications enabled');
+    } catch (error) {
+      console.error('Failed to enable notifications:', error);
+    }
+  };
 }
