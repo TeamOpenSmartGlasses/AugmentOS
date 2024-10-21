@@ -31,6 +31,8 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.service.notification.NotificationListenerService;
 import android.util.Log;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -40,6 +42,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
+import com.teamopensmartglasses.convoscope.comms.AugmentOsActionsCallback;
 import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
@@ -81,10 +84,11 @@ import com.huaban.analysis.jieba.SegToken;
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
-public class AugmentosService extends SmartGlassesAndroidService {
+public class AugmentosService extends SmartGlassesAndroidService implements AugmentOsActionsCallback {
     public final String TAG = "AugmentOS_AugmentOSService";
 
     private final IBinder binder = new LocalBinder();
@@ -237,7 +241,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
         tpaSystem = new TPASystem(this);
 
         // Initialize BLE Peripheral
-        blePeripheral = new AugmentosBlePeripheral(this);
+        blePeripheral = new AugmentosBlePeripheral(this, this);
         blePeripheral.start();
 
         completeInitialization();
@@ -1586,10 +1590,10 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
     public String getCurrentMode(Context context) {
         String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
-        if (currentModeString.equals("")){
-            currentModeString = "Proactive Agents";
-            saveCurrentMode(context, currentModeString);
-        }
+        // if (currentModeString.equals("")){
+        //     currentModeString = "Proactive Agents";
+        //     saveCurrentMode(context, currentModeString);
+        // }
         return currentModeString;
     }
 
@@ -1985,85 +1989,175 @@ public class AugmentosService extends SmartGlassesAndroidService {
         stopService(notificationServiceIntent);
     }
 
+    public JSONObject generateStatusJson() {
+        try {
+            // Creating the main status object
+            JSONObject status = new JSONObject();
 
+            // Adding puck battery life and charging status
+            status.put("puck_battery_life", 25);
+            status.put("charging_status", true);
 
+            // Adding connected glasses object
+            JSONObject connectedGlasses = new JSONObject();
+            connectedGlasses.put("model_name", "Vuzix Z100");
+            connectedGlasses.put("battery_life", 10);
+            status.put("connected_glasses", connectedGlasses);
 
+            // Adding wifi status
+            JSONObject wifi = new JSONObject();
+            wifi.put("is_connected", true);
+            wifi.put("ssid", "test-ssid");
+            wifi.put("signal_strength", 75);
+            status.put("wifi", wifi);
 
+            // Adding gsm status
+            JSONObject gsm = new JSONObject();
+            gsm.put("is_connected", true);
+            gsm.put("carrier", "T-Mobile");
+            gsm.put("signal_strength", 85);
+            status.put("gsm", gsm);
 
+            // Adding apps array
+            JSONArray apps = new JSONArray();
 
+            // First app
+            JSONObject app1 = new JSONObject();
+            app1.put("name", "Proactive Agents");
+            app1.put("description", "Convoscope is rad");
+            app1.put("is_running", false);
+            app1.put("is_foreground", false);
+            app1.put("package_name", "Proactive Agents");
+            apps.put(app1);
 
+            // Second app
+            JSONObject app2 = new JSONObject();
+            app2.put("name", "Language Learning");
+            app2.put("description", "Language Learning is also rad");
+            app2.put("is_running", false);
+            app2.put("is_foreground", false);
+            app2.put("package_name", "Language Learning");
+            apps.put(app2);
 
+            // Third app
+            JSONObject app3 = new JSONObject();
+            app3.put("name", "ADHD Live Memory Aid");
+            app3.put("description", "I don't remember what this app does");
+            app3.put("is_running", false);
+            app3.put("is_foreground", false);
+            app3.put("package_name", "ADHD Live Memory Aid");
+            apps.put(app3);
 
+            // Adding apps array to the status object
+            status.put("apps", apps);
 
+            // Wrapping the status object inside a main object (as shown in your example)
+            JSONObject mainObject = new JSONObject();
+            mainObject.put("status", status);
 
-//
-////b. Handle the Incoming Intent in MainActivity.kt
-//
-//
-//    @Override
-//    protected void onNewIntent(Intent intent) {
-//        super.onNewIntent(intent);
-//        handleIncomingManagerData(intent);
-//    }
-//
-//    private void handleIncomingManagerData(Intent intent) {
-//        if (intent != null && "com.augmentos_manager.ACTION_SEND_JSON".equals(intent.getAction())) {
-//            String payload = intent.getStringExtra("payload");
-//            if (payload != null) {
-//                Log.d(TAG, "Received payload: " + payload);
-//                try {
-//                    JSONObject jsonObject = new JSONObject(payload);
-//                    // TODO: Parse the JSON and perform necessary actions
-//                    String version = jsonObject.optString("version");
-//                    String action = jsonObject.optString("action");
-//                    String requestId = jsonObject.optString("request_id");
-//                    JSONObject parameters = jsonObject.optJSONObject("parameters");
-//
-//                    // Example: Handle different actions
-//                    switch (action) {
-//                        case "status":
-//                            // Retrieve and send back status
-//                            handleStatusRequest(requestId);
-//                            break;
-//                        case "start_app":
-//                            if (parameters != null) {
-//                                String appId = parameters.optString("app_id");
-//                                handleStartApp(appId);
-//                            }
-//                            break;
-//                        // Handle other actions similarly
-//                        default:
-//                            Log.w(TAG, "Unknown action: " + action);
-//                    }
-//
-//                } catch (JSONException e) {
-//                    Log.e(TAG, "JSON parsing error: " + e.getMessage());
-//                }
-//            }
-//        }
-//    }
-//
-//    private void handleStatusRequest(String requestId) {
-//        // Implement logic to retrieve status and possibly send a response
-//        Log.d(TAG, "Handling status request: " + requestId);
-//        // Example: You can use React Native's bridge to send data back to JavaScript if needed
-//    }
-//
-//    private void handleStartApp(String appId) {
-//        // Implement logic to start the specified app
-//        Log.d(TAG, "Starting app with ID: " + appId);
-//        // Example: Use PackageManager to launch the app
-//        Intent launchIntent = getPackageManager().getLaunchIntentForPackage(appId);
-//        if (launchIntent != null) {
-//            startActivity(launchIntent);
-//            Log.d(TAG, "App started successfully.");
-//        } else {
-//            Log.e(TAG, "App not found: " + appId);
-//        }
-//    }
-//
-//
-//    protected String getMainComponentName() {
-//        return "AugmentOS_Main"; // Replace with your actual main component name
-//    }
+            return mainObject;
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // AugmentOS_Manager Comms Callbacks
+
+    @Override
+    public void requestStatus() {
+        Log.d("AugmentOsService", "Requesting status: ");
+        // Build status obj, send to aosmanager
+        JSONObject status = generateStatusJson();
+        blePeripheral.sendDataToAugmentOsManager(status.toString());
+
+    }
+
+    @Override
+    public void connectToWearable(String wearableId) {
+        Log.d("AugmentOsService", "Connecting to wearable: " + wearableId);
+        // Logic to connect to wearable
+        aioConnectSmartGlasses();
+    }
+
+    @Override
+    public void disconnectWearable(String wearableId) {
+        Log.d("AugmentOsService", "Disconnecting from wearable: " + wearableId);
+        // Logic to disconnect wearable
+
+        //TODO: AugmentOsService and SmartGlasses-specific lifecycle needs to be decoupled for this method to make sense
+        stopSelf();
+    }
+
+    @Override
+    public void enableVirtualWearable(boolean enabled) {
+        Log.d("AugmentOsService", "Virtual wearable enabled: " + enabled);
+        // Logic to enable/disable virtual wearable
+        AugmentosService.savePreferredWearable(this, new AudioWearable().deviceModelName);
+        // TODO: Figure out how to do this here
+        // ((MainActivity)getActivity()).restartConvoscopeService();
+    }
+
+    @Override
+    public void startApp(String packageName) {
+        Log.d("AugmentOsService", "Starting app: " + packageName);
+        // Logic to start the app by package name
+
+        // NOTE: Until TPA paradigm is reimplemented, this just switches modes
+        saveCurrentMode(this, packageName);
+    }
+
+    @Override
+    public void stopApp(String packageName) {
+        Log.d("AugmentOsService", "Stopping app: " + packageName);
+        // Logic to stop the app by package name
+
+        // NOTE: Until TPA paradigm is reimplemented, this just switches modes
+        saveCurrentMode(this, "");
+    }
+
+    @Override
+    public void setAuthSecretKey(String authSecretKey) {
+        Log.d("AugmentOsService", "Setting auth secret key: " + authSecretKey);
+        // Logic to set the authentication key
+        // Save the new authSecretKey & verify it
+
+        // NOTE: This wont be used until phase 2
+    }
+
+    @Override
+    public void verifyAuthSecretKey() {
+        Log.d("AugmentOsService", "Deleting auth secret key");
+        // Logic to verify the authentication key
+        // (Ping a server /login or /verify route & return the result to aosManager)
+
+        // NOTE: This wont be used until phase 2
+    }
+
+    @Override
+    public void deleteAuthSecretKey() {
+        Log.d("AugmentOsService", "Deleting auth secret key");
+        // Logic to delete the authentication key
+        // Delete our authSecretKey
+
+        // NOTE: This wont be used until phase 2
+    }
+
+    @Override
+    public void updateAppSettings(String targetApp, JSONObject settings) {
+        Log.d("AugmentOsService", "Updating settings for app: " + targetApp);
+        // Logic to update the app's settings
+
+        // TODO: Hardcode this for now because the only relevant app here is LLSG
+        // TODO: Long term, figure out how to architect this system
+        if(targetApp.equals(("Language Learning"))){
+            try {
+                String newSourceLanguage = settings.getString("sourceLanguage");
+                String newTargetLanguage = settings.getString("targetLanguage");
+                String newTranscribeLanguage = settings.getString("transcribeLanguage");
+                String newVocabularyUpgrade = settings.getString("vocabularyUpgrade");
+                String newLiveCaptionsTranslationOption = settings.getString("liveCaptionsTranslationOption");
+
+            } catch (JSONException e){}
+        }
+    }
 }

@@ -19,11 +19,16 @@ import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.UUID;
 
 public class AugmentosBlePeripheral {
 
     private static final String TAG = "AugmentOS_BLE";
+    private final AugmentOsActionsCallback callback;  // Store the callback reference
+    private final AugmentOsManagerMessageParser parser;  // Store the parser instance
 
     // Define custom Service and Characteristic UUIDs
     private static final UUID SERVICE_UUID = UUID.fromString("12345678-1234-5678-1234-56789abcdef0");
@@ -36,8 +41,10 @@ public class AugmentosBlePeripheral {
     private BluetoothGattCharacteristic characteristic;
     private Context context;
 
-    public AugmentosBlePeripheral(Context context) {
+    public AugmentosBlePeripheral(Context context, AugmentOsActionsCallback callback) {
         this.context = context;
+        this.callback = callback;  // Store callback to delegate commands
+        this.parser = new AugmentOsManagerMessageParser(callback);  // Initialize the parser with callback
 
         if (!context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
             Log.e(TAG, "Device does not support Bluetooth Low Energy");
@@ -105,6 +112,7 @@ public class AugmentosBlePeripheral {
                 }
             }
 
+            @SuppressLint("MissingPermission")
             @Override
             public void onCharacteristicWriteRequest(BluetoothDevice device, int requestId,
                                                      BluetoothGattCharacteristic characteristic, boolean preparedWrite,
@@ -112,6 +120,8 @@ public class AugmentosBlePeripheral {
                 if (CHARACTERISTIC_UUID.equals(characteristic.getUuid())) {
                     String receivedData = new String(value);
                     Log.d(TAG, "Received data from Central: " + receivedData);
+
+                    parser.parseMessage(receivedData);
 
                     if (responseNeeded) {
                         gattServer.sendResponse(device, requestId, BluetoothGatt.GATT_SUCCESS, 0, null);
