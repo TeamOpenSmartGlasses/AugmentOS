@@ -116,6 +116,19 @@ USE_TZ = True
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",  # Your React app URL
+#     "http://127.0.0.1:3000",  # Another possible localhost version of your React app
+#     "http://localhost",       # For Postman
+#     "http://127.0.0.1"        # For Postman
+# ]
+
+ALLOWED_HOSTS = [
+    '101.5.196.50',
+    'localhost:8000',
+    'localhost'
+]
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
