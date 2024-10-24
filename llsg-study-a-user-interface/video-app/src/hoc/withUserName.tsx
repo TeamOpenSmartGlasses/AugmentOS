@@ -9,8 +9,8 @@ const withUserName = (WrappedComponent: React.FC<any>) => {
     useEffect(() => {
       const fetchUserName = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/api/get-current-user-id/');
-          setUserName(response.data.userName);
+          const response = await axios.get('http://localhost:8000/playback/api/get-current-user-id/');
+          setUserName(response.data.userID);
         } catch (error) {
           console.error('Error fetching user name:', error);
         }
