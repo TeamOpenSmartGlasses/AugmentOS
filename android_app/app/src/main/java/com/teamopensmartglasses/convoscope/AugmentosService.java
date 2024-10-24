@@ -3,6 +3,7 @@ package com.teamopensmartglasses.convoscope;
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.NEW_WORD_POLL_FOR_STUDY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.PLAYBACK_POLL_FOR_STUDY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
@@ -113,6 +114,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private boolean shouldPoll = true;
     private long lastDataSentTime = 0;
     private final long POLL_INTERVAL_ACTIVE_FOR_STUDY = 10; // 200ms when actively sending data
+//    private final long POLL_INTERVAL_ACTIVE_FOR_STUDY = 2000; // 200ms when actively sending data
     private final long POLL_INTERVAL_ACTIVE = 200; // 200ms when actively sending data
     private final long POLL_INTERVAL_INACTIVE = 5000; // 5000ms (5s) when inactive
     private final long DATA_SENT_THRESHOLD = 90000; // 90 seconds
@@ -198,11 +200,6 @@ public class AugmentosService extends SmartGlassesAndroidService {
         this.setupEventBusSubscribers();
 
         displayQueue = new DisplayQueue();
-        timestampedQueueForStudy = new TimestampedQueueForStudy();
-
-        timestampedQueueForStudy.enqueue(6.322, new LLCombineResponseForStudy("Second Word", "Second Definition"));
-        timestampedQueueForStudy.enqueue(4.432, new LLCombineResponseForStudy("Third Word", "Third Definition"));
-        timestampedQueueForStudy.enqueue(5.342, new LLCombineResponseForStudy("First Word", "First Definition"));
 
         //make responses holder
         responsesBuffer = new ArrayList<>();
@@ -240,7 +237,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
     public void completeInitialization(){
         Log.d(TAG, "COMPLETE CONVOSCOPE INITIALIZATION");
-        setUpPlaybackTimePollingForStudy();
+        setUpNewRareWordPollingForStudy();
 //        setUpUiPolling();
 //        setUpLocationSending();
 
@@ -333,12 +330,12 @@ public class AugmentosService extends SmartGlassesAndroidService {
         }
     }
 
-    public void setUpPlaybackTimePollingForStudy() {
+    public void setUpNewRareWordPollingForStudy() {
         uiPollRunnableCode = new Runnable() {
             @Override
             public void run() {
                 if (shouldPoll) {
-                    requestCurrentPlaybackTimeForStudy();
+                    requestNewRareWordForStudy();
                 }
                 csePollLoopHandler.postDelayed(this, POLL_INTERVAL_ACTIVE_FOR_STUDY);
             }
@@ -685,15 +682,15 @@ public class AugmentosService extends SmartGlassesAndroidService {
         }
     }
 
-    public void requestCurrentPlaybackTimeForStudy(){
+    public void requestNewRareWordForStudy(){
 //        try{
 //            JSONObject jsonQuery = new JSONObject();
 //            jsonQuery.put("deviceId", deviceId);
-            backendServerComms.restRequestPlaybackTimeForStudy(PLAYBACK_POLL_FOR_STUDY_ENDPOINT, new VolleyJsonCallback(){
+            backendServerComms.restRequestNewWordForStudy(NEW_WORD_POLL_FOR_STUDY_ENDPOINT, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
-                        parsePlaybackTimeForStudy(result);
+                        parseNewWordForStudy(result);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
@@ -1154,32 +1151,49 @@ public class AugmentosService extends SmartGlassesAndroidService {
         displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(finalLiveTranslationDisplayText, finalLiveCaptionDisplayText), true, false));
     }
 
-    public void parsePlaybackTimeForStudy(JSONObject response) throws JSONException {
-        if (response.has("currentTime")) {
-            double playbackTime = response.getDouble("currentTime");
+    public void parseNewWordForStudy(JSONObject response) throws JSONException {
+        if (response.has("word")) {
+            String newWord = response.getString("word");
+            String translation = response.getString("translation");
+            int condition = response.getInt("condition"); // 1: AI Keyword Gloss, 2: L2 Keyword Gloss, No intervention, 3, 4, 5, 6
 
-            if (playbackTime == 0 || timestampedQueueForStudy.isEmpty()) {
+            if (newWord.equals("null") || newWord.isEmpty() || condition == 5 || condition == 6) {
                 return;
             }
 
-            if (timestampedQueueForStudy.peek().getTimestamp() <= playbackTime) {
-                LLCombineResponseForStudy llCombineResponseForStudy = timestampedQueueForStudy.dequeue();
-                updateListForStudy(llCombineResponseForStudy);
+//            LLCombineResponseForStudy llCombineResponseForStudy = timestampedQueueForStudy.dequeue();
+//            updateListForStudy(llCombineResponseForStudy);
 
-                String [] llCombineResults = calculateLLCombineResponsesForStudyFormatted(getLLCombineResponsesForStudy());
-                String newLineSeparator = "\n\n";
-                if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
-                    String textWallString = Arrays.stream(llCombineResults)
-                            .reduce((a, b) -> b + newLineSeparator + a)
-                            .orElse("");
-
-                    displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall(textWallString), true, false));
-
-                    // Log.d(TAG, "ll combine results"+ llCombineResults.toString());
-                    sendUiUpdateSingle(String.join("\n", llCombineResults));
-                    responsesBuffer.add(String.join("\n", llCombineResults));
+//            String [] llCombineResults = calculateLLCombineResponsesForStudyFormatted(getLLCombineResponsesForStudy());
+//            String newLineSeparator = "\n\n";
+            int minSpaces = 2;
+            String enSpace = "\u2002";
+            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+                String textWallString = new String("");
+                if (condition == 1) {
+                    textWallString = newWord + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + translation;
+                } else if (condition == 3){
+                    textWallString = enSpace.repeat(minSpaces) + translation;
                 }
+
+                final String finalTextWallString = textWallString;
+                displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall(finalTextWallString), true, false));
+
+                // Log.d(TAG, "ll combine results"+ llCombineResults.toString());
+                sendUiUpdateSingle(String.join("\n", finalTextWallString));
+                responsesBuffer.add(String.join("\n", finalTextWallString));
             }
+//            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+//                String textWallString = Arrays.stream(llCombineResults)
+//                        .reduce((a, b) -> b + newLineSeparator + a)
+//                        .orElse("");
+//
+//                displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall(textWallString), true, false));
+//
+//                // Log.d(TAG, "ll combine results"+ llCombineResults.toString());
+//                sendUiUpdateSingle(String.join("\n", llCombineResults));
+//                responsesBuffer.add(String.join("\n", llCombineResults));
+//            }
         }
     }
 

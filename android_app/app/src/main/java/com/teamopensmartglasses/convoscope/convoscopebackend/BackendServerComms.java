@@ -52,7 +52,7 @@ public class BackendServerComms {
         mRequestQueue = Volley.newRequestQueue(mContext);
     }
 
-    public void restRequestPlaybackTimeForStudy(String endpoint, final VolleyJsonCallback callback) {
+    public void restRequestNewWordForStudy(String endpoint, final VolleyJsonCallback callback) {
         // Build the URL
         String builtUrl = serverUrl + endpoint;
 

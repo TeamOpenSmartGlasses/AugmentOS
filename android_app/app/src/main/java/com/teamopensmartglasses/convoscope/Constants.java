@@ -21,7 +21,8 @@ public class Constants {
     public static final String GEOLOCATION_STREAM_ENDPOINT = "/gps_location";
     public static final String BUTTON_EVENT_ENDPOINT = "/button_event";
     public static final String UI_POLL_ENDPOINT = "/ui_poll";
-    public static final String PLAYBACK_POLL_FOR_STUDY_ENDPOINT = "/playback/current-playback-time/";
+    public static final String PLAYBACK_POLL_FOR_STUDY_ENDPOINT = "/current-playback-time/";
+    public static final String NEW_WORD_POLL_FOR_STUDY_ENDPOINT = "/get-new-word/";
     public static final String SET_USER_SETTINGS_ENDPOINT = "/set_user_settings";
     public static final String GET_USER_SETTINGS_ENDPOINT = "/get_user_settings";
 }
