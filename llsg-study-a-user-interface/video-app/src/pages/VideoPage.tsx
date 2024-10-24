@@ -50,8 +50,8 @@ const VideoPage: React.FC = () => {
 
   return (
     <div className="video-container">
-      <h1 className="video-title">Video {id}</h1>
-      <video ref={videoRef} width="600" controls preload="auto" className="video-player">
+      {/*<h1 className="video-title">Video {id}</h1>*/}
+      <video ref={videoRef} width="600" controls preload="auto" className="video-player" autoPlay>
         <source src={`/videos/video_${id}.mp4`} type="video/mp4" />
         Your browser does not support the video tag.
       </video>

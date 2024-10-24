@@ -1,13 +1,13 @@
 import csv
 import os
-from collections import deque
-
+from django.utils import timezone
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 
 from django.conf import settings
-from .models import Participant
+from .models import Participant, Actuation
+import pandas as pd
 
 
 playback_time = 0
@@ -15,25 +15,26 @@ condition = 1
 current_user_id = None
 word_list = []
 
+
 def parse_csv():
     global word_list
     file_path = os.path.join(settings.BASE_DIR, '../rare_words.csv')
     try:
-        with open(file_path, 'r') as csvfile:
-            reader = csv.reader(csvfile)
-            next(reader)  # Skip the header row
-            for row in reader:
-                word, translation, start_time, end_time = row
-                word_list.append({
-                    'word': word,
-                    'translation': translation,
-                    'startTime': float(start_time),
-                    'endTime': float(end_time)
-                })
+        df = pd.read_csv(file_path)
+
+        for _, row in df.iterrows():
+            word_list.append({
+                'word_id': row['word_id'],
+                'word': row['word'],
+                'translation': row['translation'],
+                'startTime': float(row['start_time']),
+                'endTime': float(row['end_time'])
+            })
     except FileNotFoundError:
         print('CSV file not found')
     except Exception as e:
         print(f'Error reading CSV file: {e}')
+
 
 parse_csv()
 
@@ -96,16 +97,26 @@ def get_playback_time(request):
     return JsonResponse({'currentTime': playback_time})
 
 
-# TODO: can we optimize this function?
 def get_new_word(request):
     global word_list
-    if word_list:
+    global current_user_id
+
+    if word_list and current_user_id:
         current_word = word_list[0]
-        print(playback_time, current_word['startTime'])
         if current_word['startTime'] <= playback_time:
             word_list.pop(0)
 
-            print("SENDING WORD", current_word['word'])
+            try:
+                participant = Participant.objects.get(participant_id=current_user_id)
+            except Participant.DoesNotExist:
+                return JsonResponse({'error': 'Participant not found'}, status=400)
+
+            Actuation.objects.create(
+                participant=participant,
+                word_id=current_word['word_id'],
+                word=current_word['word'],
+                timestamp=timezone.now()
+            )
 
             return JsonResponse({
                 'word': current_word['word'],
@@ -148,10 +159,32 @@ def export_participants_csv(request):
 
     with open(file_path, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Participant ID', 'Video 1', 'Video 2', 'Video 3'])
+        writer.writerow(['Participant ID', 'Video 1', 'Video 2', 'Video 3', 'Word ID', 'Word', 'Timestamp'])
 
         participants = Participant.objects.all()
         for participant in participants:
-            writer.writerow([participant.participant_id, participant.video_1, participant.video_2, participant.video_3])
+            actuations = Actuation.objects.filter(participant=participant)
+
+            if actuations.exists():
+                for actuation in actuations:
+                    writer.writerow([
+                        participant.participant_id,
+                        participant.video_1,
+                        participant.video_2,
+                        participant.video_3,
+                        actuation.word_id,
+                        actuation.word,
+                        actuation.timestamp
+                    ])
+            else:
+                writer.writerow([
+                    participant.participant_id,
+                    participant.video_1,
+                    participant.video_2,
+                    participant.video_3,
+                    '',  # No word ID
+                    '',  # No word
+                    ''  # No timestamp
+                ])
 
     return JsonResponse({'message': f'CSV file saved locally at {file_path}'})

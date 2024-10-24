@@ -2,11 +2,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
   height: 100vh;
   background-color: black;
   position: relative;
-  flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
+
+.video-player {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.video-title {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  z-index: 10;
+  font-size: 24px;
+}
+
 
 .video-title {
   color: white;

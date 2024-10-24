@@ -17,3 +17,13 @@ class Participant(models.Model):
 
     def __str__(self):
         return self.participant_id
+
+
+class Actuation(models.Model):
+    participant = models.ForeignKey(Participant, on_delete=models.CASCADE)
+    word_id = models.CharField(max_length=255)
+    word = models.CharField(max_length=255)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.participant.participant_id} - {self.word} at {self.timestamp}'
