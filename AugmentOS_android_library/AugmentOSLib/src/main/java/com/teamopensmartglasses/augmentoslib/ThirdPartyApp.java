@@ -4,11 +4,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ThirdPartyApp implements Serializable {
-    String appName;
-    String appDescription;
+    public String appName;
+    public String appDescription;
+    public String packageName;
 
-    ThirdPartyApp(String appName, String appDescription){
+    public String serviceName;
+
+    public ArrayList<AugmentOSCommand> commandList;
+
+    ThirdPartyApp(String appName, String appDescription, String packageName,String serviceName, ArrayList<AugmentOSCommand> commandList){
         this.appName = appName;
         this.appDescription = appDescription;
+        this.packageName = packageName;
+        this.serviceName = serviceName;
+        this.commandList = commandList;
     }
 }

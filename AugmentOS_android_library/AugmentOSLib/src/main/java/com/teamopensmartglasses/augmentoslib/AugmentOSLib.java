@@ -6,6 +6,7 @@ import android.util.Log;
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.CenteredTextViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.CommandTriggeredEvent;
+import com.teamopensmartglasses.augmentoslib.events.DisplayCustomContentRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FinalScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FocusChangedEvent;
 import com.teamopensmartglasses.augmentoslib.events.FocusRequestEvent;
@@ -23,6 +24,7 @@ import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AugmentOSLib {
@@ -70,14 +72,25 @@ public class AugmentOSLib {
         subscribedDataStreams.put(dataStreamType, callback);
     }
 
-    //TPA request to be the app in focus - AugmentOS has to grant this request
-    public void requestFocus(FocusCallback callback){
-        focusCallback = callback;
-        EventBus.getDefault().post(new FocusRequestEvent(true));
-    }
+//    //TPA request to be the app in focus - AugmentOS has to grant this request
+//    public void requestFocus(FocusCallback callback){
+//        focusCallback = callback;
+//        EventBus.getDefault().post(new FocusRequestEvent(true));
+//    }
 
     //register our app with the AugmentOS
     public void registerApp(String appName, String appDescription) {
+        registerApp(appName, appDescription, new ArrayList<AugmentOSCommand>());
+    }
+
+    public void registerApp(String appName, String appDescription, ArrayList<AugmentOSCommand> commandList) {
+        String packageName = mContext.getPackageName();
+        String serviceName = mContext.getClass().getName();
+        ThirdPartyApp tpa = new ThirdPartyApp(appName, appDescription, packageName, serviceName, commandList);
+    }
+
+    public void sendCustomContent(String json) {
+        EventBus.getDefault().post(new DisplayCustomContentRequestEvent(json));
     }
 
     //show a reference card on the smart glasses with title and body text
