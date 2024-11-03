@@ -1,6 +1,5 @@
 package com.teamopensmartglasses.augmentoslib;
 
-import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -8,7 +7,6 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -21,6 +19,8 @@ import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
 
 import org.greenrobot.eventbus.Subscribe;
 
+import java.util.UUID;
+
 //a service provided for third party apps to extend, that make it easier to create a service in Android that will continually run in the background
 public abstract class SmartGlassesAndroidService extends LifecycleService {
     // Service Binder given to clients
@@ -29,23 +29,14 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     public static final String TPA_ACTION = "tpaAction";
     public static final String ACTION_START_FOREGROUND_SERVICE = "AugmentOSLIB_ACTION_START_FOREGROUND_SERVICE";
     public static final String ACTION_STOP_FOREGROUND_SERVICE = "AugmentOSLIB_ACTION_STOP_FOREGROUND_SERVICE";
-    private int myNotificationId;
-    private Class mainActivityClass;
-    private String myChannelId;
-    private String notificationAppName;
-    private String notificationDescription;
-    private int notificationDrawable;
+    private String NOTIFICATION_DESCRIPTION = "Running in foreground";
+    private final int NOTIFICATION_ID = Math.abs(UUID.randomUUID().hashCode());//Math.abs(getPackageName().hashCode());
+    private static final String CHANNEL_ID = "augmentos_default_channel";
 
+    private static final String CHANNEL_NAME = "AugmentOS Background Service";
     public FocusStates focusState;
 
-    public SmartGlassesAndroidService(Class mainActivityClass, String myChannelId, int myNotificationId, String notificationAppName, String notificationDescription, int notificationDrawable){
-        this.myNotificationId = myNotificationId;
-        this.mainActivityClass = mainActivityClass;
-        this.myChannelId = myChannelId;
-        this.notificationAppName = notificationAppName;
-        this.notificationDescription = notificationDescription;
-        this.notificationDrawable = notificationDrawable;
-
+    public SmartGlassesAndroidService(){
         this.focusState = FocusStates.OUT_FOCUS;
     }
 
@@ -53,28 +44,23 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     private Notification updateNotification() {
         Context context = getApplicationContext();
 
-        PendingIntent action = PendingIntent.getActivity(context,
-                0, new Intent(context, mainActivityClass),
-                PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_MUTABLE); // Flag indicating that if the described PendingIntent already exists, the current one should be canceled before generating a new one.
+//        PendingIntent action = PendingIntent.getActivity(context,
+//                0, new Intent(context, mainActivityClass),
+//                PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_MUTABLE); // Flag indicating that if the described PendingIntent already exists, the current one should be canceled before generating a new one.
 
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder builder;
 
-        String CHANNEL_ID = myChannelId;
-
-        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, notificationAppName,
+        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME,
                 NotificationManager.IMPORTANCE_HIGH);
-        channel.setDescription(notificationDescription);
+        channel.setDescription(NOTIFICATION_DESCRIPTION);
         manager.createNotificationChannel(channel);
 
-        builder = new NotificationCompat.Builder(this, CHANNEL_ID);
-
-        return builder.setContentIntent(action)
-                .setContentTitle(notificationAppName)
-                .setContentText(notificationDescription)
-                .setSmallIcon(notificationDrawable)
+        return new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setContentTitle(CHANNEL_NAME)
+                .setContentText(NOTIFICATION_DESCRIPTION)
+                .setSmallIcon(android.R.drawable.sym_def_app_icon)
                 .setTicker("...")
-                .setContentIntent(action)
                 .setOngoing(true).build();
     }
 
@@ -107,7 +93,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
                 case ACTION_START_FOREGROUND_SERVICE:
                     // start the service in the foreground
                     Log.d("TEST", "starting foreground");
-                    startForeground(myNotificationId, updateNotification());
+                    startForeground(NOTIFICATION_ID, updateNotification());
                     break;
                 case ACTION_STOP_FOREGROUND_SERVICE:
                     stopForeground(true);
