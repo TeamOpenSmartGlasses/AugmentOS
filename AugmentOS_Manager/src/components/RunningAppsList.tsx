@@ -21,7 +21,7 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme, runningA
     switch (appName) {
       case 'Convoscope':
         return require('../assets/app-icons/convo-rectangle.png');
-      case 'ADHD Assist':
+      case 'ADHD Aid': // Updated name
         return require('../assets/app-icons/adhd-rectangle.png');
       case 'Translator':
         return require('../assets/app-icons/translator-rectangle.png');
@@ -45,28 +45,33 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme, runningA
         end={{ x: 1, y: 1 }}
       >
         <View style={styles.appIconsContainer}>
-          <View style={[styles.mainAppIconWrapper, { borderColor }]}>
-            <ImageBackground
-              source={getAppImage('Convoscope')}
-              style={styles.mainAppIcon}
-              imageStyle={styles.mainAppIconImage}
-            >
-              <LinearGradient
-                colors={['#ADE7FF', '#FFB2F9', '#FFE396']}
-                style={styles.overlayRing}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-              />
-              {/* Updated Star Badge to Square with Rounded Edges */}
-              <View style={styles.squareBadge}>
-                <FontAwesome name="star" size={12} color="#FFFFFF" />
-              </View>
-            </ImageBackground>
+          <View style={styles.appWrapper}>
+            <View style={[styles.mainAppIconWrapper, { borderColor }]}>
+              <ImageBackground
+                source={getAppImage('Convoscope')}
+                style={styles.mainAppIcon}
+                imageStyle={styles.mainAppIconImage}
+              >
+                <LinearGradient
+                  colors={['#ADE7FF', '#FFB2F9', '#FFE396']}
+                  style={styles.overlayRing}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                />
+                <View style={styles.squareBadge}>
+                  <FontAwesome name="star" size={12} color="#FFFFFF" />
+                </View>
+              </ImageBackground>
+            </View>
+            <Text style={[styles.appName, { color: textColor }]} numberOfLines={1}>Convoscope</Text>
           </View>
 
           {limitedRunningApps.map((app, index) => (
-            <View key={index} style={[styles.appIconWrapper, { borderColor }]}>
-              <Image source={getAppImage(app)} style={styles.appIcon} />
+            <View key={index} style={styles.appWrapper}>
+              <View style={[styles.appIconWrapper, { borderColor }]}>
+                <Image source={getAppImage(app)} style={styles.appIcon} />
+              </View>
+              <Text style={[styles.appName, { color: textColor }]} numberOfLines={1}>{app}</Text>
             </View>
           ))}
         </View>
@@ -97,25 +102,27 @@ const styles = StyleSheet.create({
   },
   gradientBackground: {
     width: '100%',
-    height: 132,
+    height: 150,
     paddingVertical: 6,
-    paddingHorizontal: 15, // Adjusted padding to reduce right padding
+    paddingHorizontal: 15,
     borderRadius: 28,
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   appIconsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
+    width: '100%',
+  },
+  appWrapper: {
+    alignItems: 'center',
+    width: 75,
   },
   mainAppIconWrapper: {
-    width: 75, // Increased size
-    height: 75, // Increased size
+    width: 75,
+    height: 75,
     alignItems: 'center',
-    marginLeft: 17,
-    marginRight: 15,
     justifyContent: 'center',
     position: 'relative',
     borderWidth: 0.5,
@@ -128,8 +135,8 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 10,
   },
-
   mainAppIconImage: {
     borderRadius: 15,
   },
@@ -146,7 +153,7 @@ const styles = StyleSheet.create({
     right: -10,
     width: 24,
     height: 24,
-    borderRadius: 6, // Rounded edges to match other icons
+    borderRadius: 6,
     backgroundColor: '#FF438B',
     alignItems: 'center',
     justifyContent: 'center',
@@ -159,12 +166,20 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#000',
     borderRadius: 10,
-    marginHorizontal: 8,
+    marginTop: 10,
   },
   appIcon: {
     width: '100%',
     height: '100%',
     borderRadius: 10,
+  },
+  appName: {
+    marginTop: 15,
+    fontSize: 11,
+    fontWeight: '600',
+    fontFamily: 'Montserrat-Bold',
+  lineHeight: 16,
+  textAlign: 'center',
   },
 });
 
