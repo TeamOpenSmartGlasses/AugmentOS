@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { useStatus } from './AugmentOSStatusProvider';
 
 const HomeScreenComponent = () => {
-  const { status } = useStatus(); // Get the status from context
+  const { status } = useStatus();
 
   return (
     <View style={{ padding: 20 }}>

@@ -4,11 +4,16 @@ import android.app.Application
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
-import com.facebook.react.shell.MainReactPackage // Make sure this is correctly imported
+import com.facebook.react.shell.MainReactPackage
 import com.facebook.soloader.SoLoader
 import com.augmentos_manager.IntentSenderPackage // Import your custom package
-import kjd.reactnative.bluetooth.RNBluetoothClassicPackage // Correct import
-import it.innove.BleManagerPackage; // Import this
+import kjd.reactnative.bluetooth.RNBluetoothClassicPackage // Bluetooth package
+import it.innove.BleManagerPackage // BLE Manager package
+import com.swmansion.reanimated.ReanimatedPackage // Reanimated package
+import com.swmansion.rnscreens.RNScreensPackage // Screens package
+import com.th3rdwave.safeareacontext.SafeAreaContextPackage // SafeArea package
+import com.BV.LinearGradient.LinearGradientPackage // Add this import for LinearGradient
+import com.swmansion.gesturehandler.RNGestureHandlerPackage // Add GestureHandler import
 
 class MainApplication : Application(), ReactApplication {
 
@@ -20,10 +25,15 @@ class MainApplication : Application(), ReactApplication {
 
         override fun getPackages(): List<ReactPackage> {
             return listOf(
-                MainReactPackage(), // This is where MainReactPackage is used
-                IntentSenderPackage(), // Add your custom native module package here
-                RNBluetoothClassicPackage(), // Add this package
-                BleManagerPackage()
+                MainReactPackage(), // Main React package
+                IntentSenderPackage(), // Custom native module package
+                RNBluetoothClassicPackage(), // Bluetooth Classic package
+                BleManagerPackage(), // BLE Manager package
+                ReanimatedPackage(), // Reanimated package for animations
+                RNScreensPackage(), // Screens package for navigation
+                SafeAreaContextPackage(), // SafeArea context package
+                LinearGradientPackage(), // LinearGradient package
+                RNGestureHandlerPackage() // Add GestureHandler package here
             )
         }
 
