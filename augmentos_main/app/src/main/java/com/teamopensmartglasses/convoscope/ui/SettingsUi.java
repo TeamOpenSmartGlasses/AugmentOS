@@ -107,12 +107,7 @@ public class SettingsUi extends Fragment {
         //ll vocabulary upgrade checkbox
         CheckBox vocabularyUpgradeCheckbox = view.findViewById(R.id.VocabularyUpgrade);
         boolean isVocabularyUpgradeEnabled;
-        if (((MainActivity)getActivity()).mService != null) {
-            isVocabularyUpgradeEnabled = ((MainActivity) getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
-        } else {
-            isVocabularyUpgradeEnabled = false;
-            Log.d(TAG, "FAIL: runnings settings relying on Service... bad code");
-        }
+        isVocabularyUpgradeEnabled = AugmentosService.isVocabularyUpgradeEnabled(mContext);
         Log.d(TAG, "Initial Vocabulary Upgrade state: " + isVocabularyUpgradeEnabled);
         vocabularyUpgradeCheckbox.setChecked(isVocabularyUpgradeEnabled);
 
@@ -135,8 +130,6 @@ public class SettingsUi extends Fragment {
 
         // Retrieve the saved transcribe language
         String savedTranscribeLanguage = SmartGlassesAndroidService.getChosenTranscribeLanguage(mContext);
-
-//        Boolean savedVocabularyUpgradeEnabled = ((MainActivity)getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
 
         // Find the position of the saved language in the adapter
         int languageSpinnerPosition = transcribeAdapter.getPosition(savedTranscribeLanguage);
@@ -174,7 +167,7 @@ public class SettingsUi extends Fragment {
         targetLanguageSpinner.setAdapter(tlAdapter);
 
         // Retrieve the saved target targetLanguage
-        String savedTargetLanguage = ((MainActivity)getActivity()).mService.getChosenTargetLanguage(mContext);
+        String savedTargetLanguage = AugmentosService.getChosenTargetLanguage(mContext);
 
         Log.d(TAG, "TARGET LANGUAGE IS: " + savedTargetLanguage);
 
@@ -196,8 +189,8 @@ public class SettingsUi extends Fragment {
                 String selectedLanguage = parent.getItemAtPosition(position).toString();
                 // Save the selected targetLanguage as the new default
                 Log.d(TAG, "TARGET LANGUAGE SPINNER CHANGED");
-                ((MainActivity)getActivity()).mService.saveChosenTargetLanguage(mContext, selectedLanguage);
-                if (((MainActivity)getActivity()).mService != null) {
+                AugmentosService.saveChosenTargetLanguage(mContext, selectedLanguage);
+                if (((MainActivity)getActivity()).isAugmentosServiceRunning()) {
                     ((MainActivity) getActivity()).mService.updateTargetLanguageOnBackend(mContext);
                     ((MainActivity)getActivity()).mService.restartSmartGlassesService();
                 }
@@ -217,7 +210,7 @@ public class SettingsUi extends Fragment {
         sourceLanguageSpinner.setAdapter(slAdapter);
 
         // Retrieve the saved source sourceLanguage
-        String savedSourceLanguage = ((MainActivity)getActivity()).mService.getChosenSourceLanguage(mContext);
+        String savedSourceLanguage = AugmentosService.getChosenSourceLanguage(mContext);
 
         // Find the position of the saved sourceLanguage in the adapter
         int sourceLanguageSpinnerPosition = slAdapter.getPosition(savedSourceLanguage);
@@ -237,8 +230,8 @@ public class SettingsUi extends Fragment {
                 String selectedLanguage = parent.getItemAtPosition(position).toString();
                 // Save the selected targetLanguage as the new default
                 Log.d(TAG, "SOURCE LANGUAGE SPINNER CHANGED");
-                ((MainActivity)getActivity()).mService.saveChosenSourceLanguage(mContext, selectedLanguage);
-                if (((MainActivity)getActivity()).mService != null) {
+                AugmentosService.saveChosenSourceLanguage(mContext, selectedLanguage);
+                if (((MainActivity)getActivity()).isAugmentosServiceRunning()) {
                     ((MainActivity)getActivity()).mService.updateSourceLanguageOnBackend(mContext);
                     ((MainActivity)getActivity()).mService.restartSmartGlassesService();
                 }

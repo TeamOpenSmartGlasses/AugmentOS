@@ -16,8 +16,8 @@ from agents.generic_agent.generic_agent_prompts import *
 from langchain.schema.messages import HumanMessage
 
 db_handler = DatabaseHandler(parent_handler=False)
-llm4 = get_langchain_gpt4(max_tokens=180, temperature=0.2)
-llmMedium = get_langchain_gpt4o(temperature=0.0)
+llmLarge = get_langchain_gpt4o(temperature=0.2, max_tokens=180)
+llmMedium = get_langchain_gpt4o_mini(temperature=0.0)
 
 
 class GenericAgent:
@@ -51,7 +51,7 @@ class GenericAgent:
         self.small_model_confidence_threshold = small_model_confidence_threshold
         self.min_gatekeeper_score = min_gatekeeper_score
 
-        self.agent_small = initialize_agent([
+        self.agent_medium = initialize_agent([
             get_search_tool_for_agents(),
         ], llmMedium, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=False)
 
@@ -134,7 +134,7 @@ class GenericAgent:
             agent_tools.append(get_wolfram_alpha_tool_for_agents())
 
         # make the agent with tools
-        new_expert_agent = initialize_agent(agent_tools, llm4, agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True, max_iterations=4, handle_parsing_errors=True)
+        new_expert_agent = initialize_agent(agent_tools, llmLarge, agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True, max_iterations=4, handle_parsing_errors=True)
 
         # use function factory to make expert agent runner wrapper
         run_expert_agent_wrapper = self.run_agent_wrapper_async(new_expert_agent, expert_agent_explicit_prompt)
@@ -192,7 +192,7 @@ class GenericAgent:
 
     async def run_simple_llm_async(self, convo_context, insights_history: list):
         prompt_str = self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history, use_tools_prompt=False, use_agent_plan_prompt=False)
-        res = await llm4.ainvoke([HumanMessage(content=prompt_str)])
+        res = await llmMedium.ainvoke([HumanMessage(content=prompt_str)])
         response = agent_insight_parser.parse(res.content)
         response = response.dict()
 
@@ -202,6 +202,11 @@ class GenericAgent:
 
     ### Run this specific agent's gatekeeper & run agent if gatekeeper passes ###
     async def run_aio_agent_gatekeeper_async(self, user_id, conversation_context, insights_history: list):
+        ### TODO: Remove this later, don't do this if we've already done a result in the past 2 seconds
+        if len(db_handler.get_recent_n_seconds_agent_insights_query_history_for_user(user_id=user_id, n_seconds=2)) > 0:
+            print("\n\nTEMP FIX FOR OVERLAPPING AGENTS: IGNORING THIS RUN\n\n")
+            return
+        
         generic_gatekeeper_start_time = time.time()
 
         generic_gatekeeper_score_prompt = PromptTemplate(

@@ -57,7 +57,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
-  public final String TAG = "Convoscope_MainActivity";
+  public final String TAG = "Augmentos_MainActivity";
   public AugmentosService mService;
   boolean mBound;
   private NavController navController;
@@ -175,9 +175,9 @@ public class MainActivity extends AppCompatActivity {
 
     if (isMyServiceRunning(AugmentosService.class)) {
       //bind to WearableAi service
-      bindConvoscopeService();
+      bindAugmentosService();
 
-      //ask the service to send us all the Convoscope responses
+      //ask the service to send us all the Augmentos responses
       if (mService != null) {
         mService.sendUiUpdateFull();
       }
@@ -189,46 +189,62 @@ public class MainActivity extends AppCompatActivity {
     super.onPause();
 
     //unbind wearableAi service
-    unbindConvoscopeService();
+    unbindAugmentosService();
   }
 
-  public void restartConvoscopeService() {
-    stopConvoscopeService();
+  public void restartAugmentosServiceIfRunning() {
+    if (!isMyServiceRunning(AugmentosService.class)) return;
+    stopAugmentosService();
     Handler starter = new Handler();
     starter.postDelayed(new Runnable() {
       @Override
       public void run() {
-        startConvoscopeService();
+        startAugmentosService();
       }
     }, 300);
   }
 
-  public void stopConvoscopeService() {
-    unbindConvoscopeService();
+  public void restartAugmentosService() {
+    stopAugmentosService();
+    Handler starter = new Handler();
+    starter.postDelayed(new Runnable() {
+      @Override
+      public void run() {
+        startAugmentosService();
+      }
+    }, 300);
+  }
+
+  public void stopAugmentosService() {
+    unbindAugmentosService();
     if (!isMyServiceRunning(AugmentosService.class)) return;
     Intent stopIntent = new Intent(this, AugmentosService.class);
     stopIntent.setAction(AugmentosService.ACTION_STOP_FOREGROUND_SERVICE);
     startService(stopIntent);
   }
 
-  public void sendConvoscopeServiceMessage(String message) {
+  public void sendAugmentosServiceMessage(String message) {
     if (!isMyServiceRunning(AugmentosService.class)) return;
     Intent messageIntent = new Intent(this, AugmentosService.class);
     messageIntent.setAction(message);
     startService(messageIntent);
   }
 
-  public void startConvoscopeService() {
+  public void startAugmentosService() {
     if (isMyServiceRunning(AugmentosService.class)){
-      Log.d(TAG, "Not starting Convoscope service because it's already started.");
+      Log.d(TAG, "Not starting Augmentos service because it's already started.");
       return;
     }
 
-    Log.d(TAG, "Starting Convoscope service.");
+    Log.d(TAG, "Starting Augmentos service.");
     Intent startIntent = new Intent(this, AugmentosService.class);
     startIntent.setAction(AugmentosService.ACTION_START_FOREGROUND_SERVICE);
     startService(startIntent);
-    bindConvoscopeService();
+    bindAugmentosService();
+  }
+
+  public boolean isAugmentosServiceRunning(){
+    return isMyServiceRunning(AugmentosService.class);
   }
 
   //check if service is running
@@ -242,14 +258,14 @@ public class MainActivity extends AppCompatActivity {
     return false;
   }
 
-  public void bindConvoscopeService(){
+  public void bindAugmentosService(){
     if (!mBound){
       Intent intent = new Intent(this, AugmentosService.class);
       bindService(intent, convoscopeAppServiceConnection, Context.BIND_AUTO_CREATE);
     }
   }
 
-  public void unbindConvoscopeService() {
+  public void unbindAugmentosService() {
     if (mBound){
       unbindService(convoscopeAppServiceConnection);
       mBound = false;

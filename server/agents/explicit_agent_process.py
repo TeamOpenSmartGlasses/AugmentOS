@@ -100,8 +100,8 @@ async def call_explicit_agent(query, user_obj, device_id):
     insight_history = db_handler.get_explicit_insights_history_for_user(user['user_id'], device_id=None, should_consume=False, include_consumed=True)
     stringified_insight_history = stringify_history(insight_history)
 
-    # We get the last hour, but truncate to avoid context issues (TODO: FIX WHEN PKMS SUPPORT IS READY)
-    transcript_history = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user['user_id'], 60*60)
+    # We get the few minutes, but truncate to avoid context issues (TODO: FIX WHEN PKMS SUPPORT IS READY)
+    transcript_history = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user['user_id'], 8*60)
     # Remove query from history
     if query in transcript_history:
         transcript_history = transcript_history[0:transcript_history.find(query)]

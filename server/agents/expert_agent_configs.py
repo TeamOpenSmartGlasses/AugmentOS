@@ -3,6 +3,28 @@ from agents.generic_agent.generic_agent import GenericAgent
 
 
 expert_agent_config_list_og = {
+#     "Mathematician": {
+#         "agent_name": "Math",
+#         "tools": ["Wolfram_Alpha"],
+#         "discourage_tool_use": False,
+#         "insight_num_words": 15,
+#         "agent_insight_type": """solve mathematical problems or answer any questions demanding numerical calculations, formula-based solutions, or mathematical reasoning. If unable to find the answer through mathematical methods or Wolfram Alpha, output `null`.""",
+#         "agent_plan": """1. Identify if the conversation contains a math-related question or problem. If not, skip to the final step and output "null".\n2. If a problem is found, formulate the problem clearly and query the Wolfram Alpha tool.\n3. Generate the "Insight" with the computed solution or relevant mathematical information.""",
+#         "validation_criteria": """provides accurate mathematical answers or calculations""",
+#         "proactive_tool_description": """Trigger when a question requires mathematical reasoning, calculation, or a quantitative answer.""",
+#         "proactive_tool_example": """Conversation: Transcript mentions "What is the derivative of sin(x)?"
+# Insight: Derivative of sin(x) is cos(x).""",
+#         "examples": """
+# 1. Conversation: Transcript mentions "What's the square root of 144?"
+# Insight: Square root of 144 is 12.
+
+# 2. Conversation: Transcript asks "How many permutations of 3 items from 5?"
+# Insight: 60 permutations (5P3).
+
+# 3. Conversation: Transcript mentions "What is the area of a circle with radius 10?"
+# Insight: Area is 314.16 (π * r^2).
+# """,
+#     },
     "Statistician": {
         "agent_name": "Statistician",
         "tools": ["Search_Engine"],
@@ -96,26 +118,27 @@ Insight: "1st skyscraper: Chicago""",
         "examples": """Transcript mentions "I don't know how many parameters GPT3 has"
 Insight: "GPT3 has 175B parameters""",
    },
-    "RealTimer": {
-        "agent_name": "RealTimer",
-        "tools": ["Search_Engine"],
-        "discourage_tool_use": False,
-        "insight_num_words": 15,
-        "agent_insight_type": """listen for mention of ongoing events that would benefit from real-time information and generate insights based on real-time data and current events. Your tasks include updating ongoing events, reporting recent advancements, and relaying current statistics relevant to the topic. If real-time information isn't available or relevant, output `null`. Avoid outdated or speculative information. The information you find should be fast-changing and new, if it's not, just output `null`.""",
-        "agent_plan": """1. Identify the topic most requiring real-time updates. \n2. Use tools to gather the most recent, relevant information, focusing on reliable news sources, official reports, and recent statistics. \n3. Synthesize this information into a concise, informative insight. If you couldn't find a great insight or fast-changing update, just output `null`.""",
-        "validation_criteria": """contains up-to-date, fast-changing, relevant information""",
-        "proactive_tool_description": """Occurrences where the conversation can be enhanced with real-time, latest, fast-changing information, statistics, or updates on the discussed topic.""",
-        "proactive_tool_example": """Conversation: Transcript discusses the impact of a recent hurricane.
-Insight: Hurricane Delta: 250,000 currently without power, $1.2B estimated damages""",
-        "examples": """1. Conversation: Transcript mentions "Current state of the stock market".
-Insight: Dow Jones up 2% today, tech stocks leading the rise.
+#     "RealTimer": {
+#         "agent_name": "RealTimer",
+#         "tools": ["Search_Engine"],
+#         "discourage_tool_use": False,
+#         "insight_num_words": 15,
+#         "agent_insight_type": """listen for mention of ongoing events that would benefit from real-time information and generate insights based on real-time data and current events. Your tasks include updating ongoing events, reporting recent advancements, and relaying current statistics relevant to the topic. If real-time information isn't available or relevant, output `null`. Avoid outdated or speculative information. The information you find should be fast-changing and new, if it's not, just output `null`.""",
+#         "agent_plan": """1. Identify the topic most requiring real-time updates. \n2. Use tools to gather the most recent, relevant information, focusing on reliable news sources, official reports, and recent statistics. \n3. Synthesize this information into a concise, informative insight. If you couldn't find a great insight or fast-changing update, just output `null`.""",
+#         "validation_criteria": """contains up-to-date, fast-changing, relevant information""",
+#         "proactive_tool_description": """Occurrences where the conversation can be enhanced with real-time, latest, fast-changing information, statistics, or updates on the discussed topic.""",
+#         "proactive_tool_example": """Conversation: Transcript discusses the impact of a recent hurricane.
+# Insight: Hurricane Delta: 250,000 currently without power, $1.2B estimated damages""",
+#         "examples": """1. Conversation: Transcript mentions "Current state of the stock market".
+# Insight: Dow Jones up 2% today, tech stocks leading the rise.
 
-2. Conversation: Transcript discusses "Latest COVID-19 vaccine effectiveness".
-Insight: Recent study shows 95% effectiveness for Vaccine X, new variant response pending.
+# 2. Conversation: Transcript discusses "Latest COVID-19 vaccine effectiveness".
+# Insight: Recent study shows 95% effectiveness for Vaccine X, new variant response pending.
 
-3. Conversation: Transcript asks about "Today's weather forecast in Paris".
-Insight: Paris: 60% chance of rain, high of 22°C, air quality index at moderate.""",
-    },
+# 3. Conversation: Transcript asks about "Today's weather forecast in Paris".
+# Insight: Paris: 60% chance of rain, high of 22°C, air quality index at moderate.""",
+#     },
+
 #     "QuestionAnswerer": {
 #         "agent_name": "QuestionAnswerer",
 #         "tools": ["Search_Engine"],
