@@ -1,0 +1,126 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.teamopensmartglasses.convoscope'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.teamopensmartglasses.convoscope"
+        minSdk 30
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        ndk {
+            //noinspection ChromeOsAbiSupport
+            abiFilters 'arm64-v8a'//, 'x86_64'
+        }
+
+        externalNativeBuild {
+            cmake {
+                '-DANDROID_STL=c++_static'
+            }
+        }
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs += 'src/main/java'
+        }
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1,DEPENDENCIES}'
+            excludes += '/META-INF/INDEX.LIST'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'com.google.api.grpc:grpc-google-cloud-speech-v1p1beta1:2.6.0'
+    implementation 'com.google.flogger:flogger:0.7.4'
+    implementation 'com.google.flogger:flogger-system-backend:0.7.4'
+    implementation 'com.google.protobuf:protobuf-java:3.21.12'
+    implementation 'com.google.protobuf:protobuf-java-util:3.21.12'
+    implementation 'joda-time:joda-time:2.12.2'
+    implementation 'io.grpc:grpc-okhttp:1.53.0'
+    implementation project(':AugmentOSLib')
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //navigation
+    implementation "androidx.navigation:navigation-fragment:2.2.0"
+    implementation "androidx.navigation:navigation-ui:2.2.0"
+    implementation "androidx.navigation:navigation-runtime:2.2.0"
+    implementation "androidx.fragment:fragment:1.2.0"
+
+    // firebase
+    implementation platform('com.google.firebase:firebase-bom:32.7.1')
+    implementation "com.google.firebase:firebase-auth"
+    implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
+    apply plugin: 'com.google.gms.google-services'
+
+    //for lifecycle service that stays alive forever
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.2.0"
+
+    //REST API volley
+    implementation 'com.android.volley:volley:1.2.1';
+
+    //EventBus, greenrobot
+    implementation("org.greenrobot:eventbus:3.3.1")
+
+    //SGMLib library
+    implementation project (":SmartGlassesManager")
+
+    //location services
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+
+    //websocket for deepgram
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
+    // To recognize Latin script
+    implementation 'com.google.mlkit:text-recognition:16.0.0'
+
+    // To recognize Chinese script
+    implementation 'com.google.mlkit:text-recognition-chinese:16.0.0'
+
+    // To recognize Devanagari script
+    implementation 'com.google.mlkit:text-recognition-devanagari:16.0.0'
+
+    // To recognize Japanese script
+    implementation 'com.google.mlkit:text-recognition-japanese:16.0.0'
+
+    // To recognize Korean script
+    implementation 'com.google.mlkit:text-recognition-korean:16.0.0'
+
+    // To convert Chinese to Pinyin
+    implementation 'com.belerweb:pinyin4j:2.5.0'
+    implementation 'com.huaban:jieba-analysis:1.0.2'
+}
