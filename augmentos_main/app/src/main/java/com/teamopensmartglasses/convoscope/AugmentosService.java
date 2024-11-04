@@ -57,6 +57,9 @@ import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
+import com.teamopensmartglasses.convoscope.statushelpers.BatteryStatusHelper;
+import com.teamopensmartglasses.convoscope.statushelpers.GsmStatusHelper;
+import com.teamopensmartglasses.convoscope.statushelpers.WifiStatusHelper;
 import com.teamopensmartglasses.convoscope.tpa.TPASystem;
 import com.teamopensmartglasses.convoscope.ui.AugmentosUi;
 
@@ -109,6 +112,12 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     public static final String ACTION_START_FOREGROUND_SERVICE = "MY_ACTION_START_FOREGROUND_SERVICE";
     public static final String ACTION_STOP_FOREGROUND_SERVICE = "MY_ACTION_STOP_FOREGROUND_SERVICE";
+
+    private BatteryStatusHelper batteryStatusHelper;
+    private WifiStatusHelper wifiStatusHelper;
+    private GsmStatusHelper gsmStatusHelper;
+
+
 
     //Convoscope stuff
     String authToken = "";
@@ -240,6 +249,12 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         //setup backend comms
         backendServerComms = new BackendServerComms(this);
+        batteryStatusHelper = new BatteryStatusHelper(this);
+        wifiStatusHelper = new WifiStatusHelper(this);
+        gsmStatusHelper = new GsmStatusHelper(this);
+
+
+
 
         //startNotificationService();
 
@@ -2044,27 +2059,33 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             JSONObject status = new JSONObject();
 
             // Adding puck battery life and charging status
-            status.put("puck_battery_life", 25);
-            status.put("charging_status", true);
+            status.put("puck_battery_life", batteryStatusHelper.getBatteryLevel());
+            status.put("charging_status", batteryStatusHelper.isBatteryCharging());
 
             // Adding connected glasses object
             JSONObject connectedGlasses = new JSONObject();
-            connectedGlasses.put("model_name", "Vuzix Z100");
-            connectedGlasses.put("battery_life", 10);
+            if(isSmartGlassesServiceBound && smartGlassesService.getConnectedSmartGlasses() != null) {
+                connectedGlasses.put("model_name", smartGlassesService.getConnectedSmartGlasses().deviceModelName);
+                connectedGlasses.put("battery_life", 80);
+            }
+            else {
+                connectedGlasses.put("model_name", null);
+                connectedGlasses.put("battery_life", null);
+            }
             status.put("connected_glasses", connectedGlasses);
 
             // Adding wifi status
             JSONObject wifi = new JSONObject();
-            wifi.put("is_connected", true);
-            wifi.put("ssid", "test-ssid");
-            wifi.put("signal_strength", 75);
+            wifi.put("is_connected", wifiStatusHelper.isWifiConnected());
+            wifi.put("ssid", wifiStatusHelper.getSSID());
+            wifi.put("signal_strength", wifiStatusHelper.getSignalStrength());
             status.put("wifi", wifi);
 
             // Adding gsm status
             JSONObject gsm = new JSONObject();
-            gsm.put("is_connected", true);
-            gsm.put("carrier", "T-Mobile");
-            gsm.put("signal_strength", 85);
+            gsm.put("is_connected", gsmStatusHelper.isConnected());
+            gsm.put("carrier", gsmStatusHelper.getNetworkType());
+            gsm.put("signal_strength", gsmStatusHelper.getSignalStrength());
             status.put("gsm", gsm);
 
             // Adding apps array
