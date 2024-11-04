@@ -8,10 +8,10 @@ def read_time_ranges_from_csv(csv_file, fps):
     df = pd.read_csv(csv_file)
     time_ranges = []
     for _, row in df.iterrows():
-        start_time = row['word_start_time']
-        end_time = row['word_end_time']
-        start_frame = int(str(start_time).split('.')[0]) * fps + int(str(start_time).split('.')[1])
-        end_frame = int(str(end_time).split('.')[0]) * fps + int(str(end_time).split('.')[1])
+        start_time = row['start_time']
+        end_time = row['end_time']
+        start_frame = int(start_time * fps)
+        end_frame = int(end_time * fps)
         time_ranges.append([start_frame, end_frame])
     return time_ranges
 
@@ -34,8 +34,8 @@ def add_square(frame, frame_number, time_ranges):
     return np.array(img)
 
 
-csv_file_path = "../rare_words.csv"
-video_clip = VideoFileClip("../video-app/public/videos/video_base.mp4")
+csv_file_path = "../rare_words_with_timestamps_and_conditions/article_1_5_percent_rare_words_with_timestamps_and_conditions.csv"
+video_clip = VideoFileClip("./videos/video_1.mp4")
 fps = video_clip.fps
 time_ranges = read_time_ranges_from_csv(csv_file_path, fps)
 
@@ -44,7 +44,7 @@ modified_clip = video_clip.fl_image(
 )
 
 modified_clip.write_videofile(
-    "../video-app/public/videos/video_1.mp4",
+    "../../video-app/public/videos/video_1.mp4",
     codec="libx264",
     audio=True,
     audio_codec="aac",

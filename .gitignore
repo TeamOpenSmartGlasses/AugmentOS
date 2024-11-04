@@ -295,3 +295,9 @@ server/helpers/token.json
 server/word_freq_lists/
 server/glove.6B/glove.6B.50d.txt
 server/auth/serviceAccountKey.json
+
+# Audio or Video files
+*.mp3
+*.mp4
+*.wav
+*.m4a

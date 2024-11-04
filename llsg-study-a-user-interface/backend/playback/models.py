@@ -6,10 +6,9 @@ class Participant(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    # Add the three video attributes
-    video_1 = models.IntegerField(null=True, blank=True)
-    video_2 = models.IntegerField(null=True, blank=True)
-    video_3 = models.IntegerField(null=True, blank=True)
+    conditions_video_1 = models.JSONField(default=list)  # Add this line to store the list of conditions
+    conditions_video_2 = models.JSONField(default=list)
+    conditions_video_3 = models.JSONField(default=list)
 
     def save(self, *args, **kwargs):
         # Generate stratification if it doesn't already exist
@@ -20,7 +19,7 @@ class Participant(models.Model):
 
 
 class Actuation(models.Model):
-    participant = models.ForeignKey(Participant, on_delete=models.CASCADE)
+    participant: Participant = models.ForeignKey(Participant, on_delete=models.CASCADE)
     word_id = models.CharField(max_length=255)
     word = models.CharField(max_length=255)
     timestamp = models.DateTimeField(auto_now_add=True)

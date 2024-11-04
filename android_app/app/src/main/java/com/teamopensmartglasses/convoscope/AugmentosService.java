@@ -4,7 +4,6 @@ import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOIN
 import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.NEW_WORD_POLL_FOR_STUDY_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.PLAYBACK_POLL_FOR_STUDY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
@@ -135,7 +134,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private LinkedList<STMBSummary> adhdStmbSummaries = new LinkedList<>();
     private LinkedList<LLUpgradeResponse> llUpgradeResponses = new LinkedList<>();
     private LinkedList<LLCombineResponse> llCombineResponses = new LinkedList<>();
-    private LinkedList<LLCombineResponseForStudy> llCombineResponsesForStudy = new LinkedList<>();
+    private LinkedList<String> llCombineResponsesForStudy = new LinkedList<>();
     private LinkedList<ContextConvoResponse> contextConvoResponses = new LinkedList<>();
     private final long llDefinedWordsShowTime = 40 * 1000; // define in milliseconds
     private final long llContextConvoResponsesShowTime = 3 * 60 * 1000; // define in milliseconds
@@ -884,8 +883,8 @@ public class AugmentosService extends SmartGlassesAndroidService {
 //        return llResults;
 //    }
 
-    public String[] calculateLLCombineResponsesForStudyFormatted(LinkedList<LLCombineResponseForStudy> llCombineResponsesForStudy) {
-        int max_rows_allowed = 4;
+    public String[] calculateLLCombineResponsesForStudyFormatted(LinkedList<String> llCombineResponsesForStudy) {
+        int max_rows_allowed = maxLLCombineShow;
 
         String[] llCombineResults = new String[Math.min(max_rows_allowed, llCombineResponsesForStudy.size())];
 
@@ -893,12 +892,10 @@ public class AugmentosService extends SmartGlassesAndroidService {
         int index = 0;
         String enSpace = "\u2002";
 
-        for (LLCombineResponseForStudy llCombineResponseForStudy : llCombineResponsesForStudy) {
+        for (String llCombineResponseForStudy : llCombineResponsesForStudy) {
             if (index >= max_rows_allowed) break;
 
-            if(llCombineResponseForStudy.getInWord() !=null && llCombineResponseForStudy.getInWordTranslation()!=null){
-                llCombineResults[index] = llCombineResponseForStudy.getInWord() + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + llCombineResponseForStudy.getInWordTranslation();
-            }
+            llCombineResults[index] = llCombineResponseForStudy;
             index++;
         }
 
@@ -1157,31 +1154,36 @@ public class AugmentosService extends SmartGlassesAndroidService {
             String translation = response.getString("translation");
             int condition = response.getInt("condition"); // 1: AI Keyword Gloss, 2: L2 Keyword Gloss, No intervention, 3, 4, 5, 6
 
-            if (newWord.equals("null") || newWord.isEmpty() || condition == 5 || condition == 6) {
+            if (newWord.equals("null") || newWord.isEmpty() || condition == 2 || condition == 4 || condition == 5 || condition == 6) {
                 return;
             }
 
-//            LLCombineResponseForStudy llCombineResponseForStudy = timestampedQueueForStudy.dequeue();
-//            updateListForStudy(llCombineResponseForStudy);
+            LLCombineResponseForStudy llCombineResponseForStudy = new LLCombineResponseForStudy(newWord, translation);
 
-//            String [] llCombineResults = calculateLLCombineResponsesForStudyFormatted(getLLCombineResponsesForStudy());
-//            String newLineSeparator = "\n\n";
-            int minSpaces = 2;
-            String enSpace = "\u2002";
+
+            String [] llCombineResults;
+            if (condition == 1){
+                updateListForStudy(llCombineResponseForStudy);
+            } else if (condition == 3) {
+                updateListOnlyTranslationForStudy(llCombineResponseForStudy);
+            } else return;
+
+
+            llCombineResults = calculateLLCombineResponsesForStudyFormatted(getLLCombineResponsesForStudy());
+
+            String newLineSeparator = "\n\n";
+            String textWallString = Arrays.stream(llCombineResults).reduce((a, b) -> b + newLineSeparator + a).orElse("");
+
+//            int minSpaces = 2;
+//            String enSpace = "\u2002";
+
             if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
-                String textWallString = new String("");
-                if (condition == 1) {
-                    textWallString = newWord + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + translation;
-                } else if (condition == 3){
-                    textWallString = enSpace.repeat(minSpaces) + translation;
-                }
-
                 final String finalTextWallString = textWallString;
                 displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall(finalTextWallString), true, false));
 
                 // Log.d(TAG, "ll combine results"+ llCombineResults.toString());
-                sendUiUpdateSingle(String.join("\n", finalTextWallString));
-                responsesBuffer.add(String.join("\n", finalTextWallString));
+//                sendUiUpdateSingle(String.join("\n", finalTextWallString));
+//                responsesBuffer.add(String.join("\n", finalTextWallString));
             }
 //            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
 //                String textWallString = Arrays.stream(llCombineResults)
@@ -1726,18 +1728,6 @@ public class AugmentosService extends SmartGlassesAndroidService {
         }
     }
 
-    public void updateListForStudy(LLCombineResponseForStudy llCombineResponseForStudy) {
-        llCombineResponsesForStudy.addFirst(llCombineResponseForStudy);
-
-//        // Remove old words based on time constraint
-//        llCombineResponses.removeIf(word -> (currentTime - (word.timestamp * 1000)) > llCombineShowTime);
-
-        // Ensure list does not exceed max size
-        while (llCombineResponsesForStudy.size() > maxLLCombineShow) {
-            llCombineResponsesForStudy.removeLast();
-        }
-    }
-
     public void updateCombineResponse(JSONArray llData, JSONArray ugData) {
         long currentTime = System.currentTimeMillis();
         // Add new data to the list
@@ -1857,7 +1847,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     public LinkedList<LLCombineResponse> getLLCombineResponse() {
         return llCombineResponses;
     }
-    public LinkedList<LLCombineResponseForStudy> getLLCombineResponsesForStudy() {
+    public LinkedList<String> getLLCombineResponsesForStudy() {
         return llCombineResponsesForStudy;
     }
 
@@ -1906,6 +1896,43 @@ public class AugmentosService extends SmartGlassesAndroidService {
         }
     }
 
+    public void updateListForStudy(LLCombineResponseForStudy llCombineResponseForStudy) {
+
+        String enSpace = "\u2002";
+
+        int minSpaces = 2;
+        String combinedResponse;
+        if(llCombineResponseForStudy.getInWord() !=null && llCombineResponseForStudy.getInWordTranslation()!=null) {
+            combinedResponse = llCombineResponseForStudy.getInWord() + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + llCombineResponseForStudy.getInWordTranslation();
+        } else return;
+        llCombineResponsesForStudy.addFirst(combinedResponse);
+
+//        // Remove old words based on time constraint
+//        llCombineResponses.removeIf(word -> (currentTime - (word.timestamp * 1000)) > llCombineShowTime);
+
+        // Ensure list does not exceed max size
+        while (llCombineResponsesForStudy.size() > maxLLCombineShow) {
+            llCombineResponsesForStudy.removeLast();
+        }
+    }
+
+    public void updateListOnlyTranslationForStudy(LLCombineResponseForStudy llCombineResponseForStudy) {
+        String combinedResponse;
+
+        if(llCombineResponseForStudy.getInWordTranslation()!= null) {
+            combinedResponse = llCombineResponseForStudy.getInWordTranslation();
+        } else return;
+
+        llCombineResponsesForStudy.addFirst(combinedResponse);
+
+//        // Remove old words based on time constraint
+//        llCombineResponses.removeIf(word -> (currentTime - (word.timestamp * 1000)) > llCombineShowTime);
+
+        // Ensure list does not exceed max size
+        while (llCombineResponsesForStudy.size() > maxLLCombineShow) {
+            llCombineResponsesForStudy.removeLast();
+        }
+    }
 
     //context convo
     public void updateContextConvoResponses(JSONArray newData) {
