@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient'; // Import LinearGradient
 import Icon from 'react-native-vector-icons/FontAwesome';
 import NavigationBar from '../components/NavigationBar.tsx';
 
@@ -30,8 +29,6 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
     { id: 43, name: 'WeatherLens', content: 'Local forecast: Sunny, high of 75°F. Minimal rain expected today.' },
     { id: 54, name: 'Health Tracker', content: 'You’ve been sitting for over 45 minutes. Time to stand up and stretch!' },
     { id: 65, name: 'Convoscope', content: 'Important conversations saved. Topics flagged for easy navigation.' },
-    { id: 76, name: 'Mindful Moments', content: 'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.' },
-    { id: 87, name: 'Workout Buddy', content: 'Next exercise: 15 push-ups. Keep up the good work!' },
   ]);
 
   const scrollViewRef = useRef<ScrollView>(null);
@@ -99,15 +96,15 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
             const cardColor = getAppColor(card.name);
             const isLastCard = index === cards.length - 1;
             return isLastCard ? (
-                <LinearGradient
-                    key={card.id}
-                    colors={isDarkTheme ? ['#1a2b3c', '#3d5266'] : ['#a1c4fd', '#c2e9fb']}
-                    style={[styles.card, styles.lastCardFocused]}>
-             <View style={[styles.cardHeader, { backgroundColor: cardColor }]}>
-                  <Text style={[styles.cardName, isDarkTheme ? styles.darkText : styles.lightText]}>{card.name}</Text>
-                </View>
-                <Text style={[styles.cardContent, isDarkTheme ? styles.darkText : styles.lightText]}>{card.content}</Text>
-              </LinearGradient>
+              <View
+              key={card.id}
+              style={[styles.card, styles.lastCardFocused, isDarkTheme ? styles.cardDark : styles.cardLight]}>
+            <View style={[styles.cardHeader, { backgroundColor: cardColor }]}>
+              <Text style={[styles.cardName, isDarkTheme ? styles.darkText : styles.lightText]}>{card.name}</Text>
+            </View>
+            <Text style={[styles.cardContent, isDarkTheme ? styles.darkText : styles.lightText]}>{card.content}</Text>
+          </View>
+
             ) : (
               <View
                 key={card.id}
@@ -154,15 +151,14 @@ const styles = StyleSheet.create({
   titleContainer: {
     paddingBottom: 10,
     marginBottom: 20,
-    borderBottomWidth: 2,
-    borderBottomColor: '#4A90E2',
   },
   title: {
-    fontSize: 30,
+    fontSize: 28,
     fontWeight: 'bold',
-    textAlign: 'center',
+    textAlign: 'left', // Align title to the left
     fontFamily: 'Montserrat-Bold',
     color: '#4A90E2',
+    marginTop: 20, // Adjust spacing to match the main page distance from the top
   },
   darkText: {
     color: '#ffffff',
@@ -215,9 +211,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#1e1e1e',
   },
   lastCardFocused: {
-    borderWidth: 3,
-    height: 200,
-    borderRadius: 0 },
+    height: 180,
+   },
   cardHeader: {
     width: '100%',
     paddingVertical: 12,
