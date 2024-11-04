@@ -68,7 +68,7 @@
         android:label="AugmentOS Main"
         android:theme="@style/AppTheme">
 <!--        <intent-filter>-->
-<!--          <action android:name="SGM_COMMAND_INTENT" />-->
+<!--          <action android:name="AUGMENTOS_INTENT" />-->
 <!--        </intent-filter>-->
         <intent-filter>
           <action android:name="com.augmentos_manager.ACTION_SEND_JSON" />  <!-- Must match the action used in the Manager -->
@@ -81,7 +81,7 @@
         android:label="AugmentOS SGM"
         android:theme="@style/AppTheme">
       <intent-filter>
-        <action android:name="SGM_COMMAND_INTENT" />
+        <action android:name="AUGMENTOS_INTENT" />
       </intent-filter>
 <!--      <intent-filter>-->
 <!--        <action android:name="com.augmentos_manager.ACTION_SEND_JSON" />  &lt;!&ndash; Must match the action used in the Manager &ndash;&gt;-->
@@ -118,7 +118,7 @@
 
   <queries>
     <intent>
-      <action android:name="SGM_COMMAND_INTENT" />
+      <action android:name="AUGMENTOS_INTENT" />
     </intent>
   </queries>
 

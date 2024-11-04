@@ -1,20 +1,17 @@
 package com.teamopensmartglasses.augmentoslib.events;
 
 import com.teamopensmartglasses.augmentoslib.AugmentOSCommand;
+import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 
 import java.io.Serializable;
 import java.util.UUID;
 
 public class KillTpaEvent implements Serializable {
-    public UUID uuid;
+    public ThirdPartyApp tpa;
     public static final String eventId = "killTpaEvent";
 
-    public KillTpaEvent(AugmentOSCommand command){
-        this.uuid = command.getId();
-    }
-
-    public KillTpaEvent(UUID uuid) {
-        this.uuid = uuid;
+    public KillTpaEvent(ThirdPartyApp tpa){
+        this.tpa = tpa;
     }
 
 }

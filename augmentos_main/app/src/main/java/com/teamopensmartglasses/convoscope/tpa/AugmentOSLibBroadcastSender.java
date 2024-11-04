@@ -3,6 +3,7 @@ package com.teamopensmartglasses.convoscope.tpa;
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.EVENT_BUNDLE;
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.EVENT_ID;
 
+import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -11,8 +12,13 @@ import android.util.Log;
 import com.teamopensmartglasses.augmentoslib.AugmentOSCommand;
 import com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants;
 import com.teamopensmartglasses.augmentoslib.SmartGlassesAndroidService;
+import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.events.CommandTriggeredEvent;
+import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
 
+import org.greenrobot.eventbus.EventBus;
+
+import java.io.IOException;
 import java.io.Serializable;
 
 public class AugmentOSLibBroadcastSender {
@@ -56,21 +62,54 @@ public class AugmentOSLibBroadcastSender {
         context.sendBroadcast(intent);
     }
 
-    //Starts a AugmentOSCommand's service (if not already running)
-    public void startSgmCommandService(AugmentOSCommand augmentosCommand){
-        //tpaPackageName = "com.google.mlkit.samples.nl.translate";
-        //tpaServiceName = ".java.TranslationService";
-        Log.d(TAG, "Starting command package: " + augmentosCommand.packageName);
-        Log.d(TAG, "Starting command service: " + augmentosCommand.serviceName);
-
-        if(augmentosCommand.getPackageName() == "" || augmentosCommand.getServiceName() == ""){
+    public void startThirdPartyApp(ThirdPartyApp tpa){
+        if(tpa.packageName == "" || tpa.serviceName == ""){
             return;
         }
 
         Intent i = new Intent();
         i.setAction(SmartGlassesAndroidService.INTENT_ACTION);
         i.putExtra(SmartGlassesAndroidService.TPA_ACTION, SmartGlassesAndroidService.ACTION_START_FOREGROUND_SERVICE);
-        i.setComponent(new ComponentName(augmentosCommand.packageName, augmentosCommand.serviceName));
+        i.setComponent(new ComponentName(tpa.packageName, tpa.serviceName));
         ComponentName c = context.startForegroundService(i);
+    }
+
+    public void killThirdPartyApp(ThirdPartyApp tpa){
+        EventBus.getDefault().post(new KillTpaEvent(tpa));
+
+        // KILL IT WITH FIRE
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName(tpa.packageName, tpa.serviceName));
+        context.stopService(intent);
+
+        // DEPLOY THE LOW ORBITAL ION CANNON IN EVENT OF NON-COMPLIANCE
+        try {
+            String command = "am force-stop " + tpa.packageName;
+            Process process = Runtime.getRuntime().exec(command);
+            process.waitFor();
+        } catch (IOException | InterruptedException e) {
+            // Log the error, if needed, but let it fail silently otherwise
+            e.printStackTrace();
+        }
+    }
+
+    //Starts a AugmentOSCommand's service (if not already running)
+    public void startSgmCommandService(AugmentOSCommand augmentosCommand){
+        //tpaPackageName = "com.google.mlkit.samples.nl.translate";
+        //tpaServiceName = ".java.TranslationService";
+
+
+//        Log.d(TAG, "Starting command package: " + augmentosCommand.packageName);
+//        Log.d(TAG, "Starting command service: " + augmentosCommand.serviceName);
+//
+//        if(augmentosCommand.getPackageName() == "" || augmentosCommand.getServiceName() == ""){
+//            return;
+//        }
+//
+//        Intent i = new Intent();
+//        i.setAction(SmartGlassesAndroidService.INTENT_ACTION);
+//        i.putExtra(SmartGlassesAndroidService.TPA_ACTION, SmartGlassesAndroidService.ACTION_START_FOREGROUND_SERVICE);
+//        i.setComponent(new ComponentName(augmentosCommand.packageName, augmentosCommand.serviceName));
+//        ComponentName c = context.startForegroundService(i);
     }
 }

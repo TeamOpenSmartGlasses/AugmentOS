@@ -25,7 +25,7 @@ import java.util.UUID;
 public abstract class SmartGlassesAndroidService extends LifecycleService {
     // Service Binder given to clients
     private final IBinder binder = new LocalBinder();
-    public static final String INTENT_ACTION = "AugmentOS_COMMAND_INTENT";
+    public static final String INTENT_ACTION = "AUGMENTOS_INTENT";
     public static final String TPA_ACTION = "tpaAction";
     public static final String ACTION_START_FOREGROUND_SERVICE = "AugmentOSLIB_ACTION_START_FOREGROUND_SERVICE";
     public static final String ACTION_STOP_FOREGROUND_SERVICE = "AugmentOSLIB_ACTION_STOP_FOREGROUND_SERVICE";

@@ -19,11 +19,13 @@ import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardImageViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardSimpleViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.RegisterCommandRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.RegisterTpaRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStartRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStopRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecFinalOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecIntermediateOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.convoscope.tpa.eventbusmessages.TPARequestEvent;
@@ -55,8 +57,6 @@ public class TPASystem {
         //subscribe to event bus events
         EventBus.getDefault().register(this);
 
-
-
         sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         gson = new Gson();
         thirdPartyApps = new ArrayList<>();
@@ -64,16 +64,22 @@ public class TPASystem {
     }
 
     @Subscribe
+    public void onRegisterTpaRequestEvent(RegisterTpaRequestEvent e){
+        registerThirdPartyApp((ThirdPartyApp) e.thirdPartyApp);
+    }
+
+    @Subscribe
     public void onCommandTriggeredEvent(CommandTriggeredEvent receivedEvent){
-        Log.d(TAG, "Command was triggered: " + receivedEvent.command.getName());
-        AugmentOSCommand command = receivedEvent.command;
-        String args = receivedEvent.args;
-        long commandTriggeredTime = receivedEvent.commandTriggeredTime;
-        if (command != null) {
-            if (command.packageName != null){
-                augmentOsLibBroadcastSender.sendEventToTPAs(CommandTriggeredEvent.eventId, new CommandTriggeredEvent(command, args, commandTriggeredTime));
-            }
-        }
+        // TODO: Sort out new implementatation
+        //        Log.d(TAG, "Command was triggered: " + receivedEvent.command.getName());
+//        AugmentOSCommand command = receivedEvent.command;
+//        String args = receivedEvent.args;
+//        long commandTriggeredTime = receivedEvent.commandTriggeredTime;
+//        if (command != null) {
+//            if (command.packageName != null){
+//                augmentOsLibBroadcastSender.sendEventToTPAs(CommandTriggeredEvent.eventId, new CommandTriggeredEvent(command, args, commandTriggeredTime));
+//            }
+//        }
     }
 
     @Subscribe
@@ -90,16 +96,24 @@ public class TPASystem {
         }
     }
 
-    @Subscribe
-    public void onFocusChanged(FocusChangedEvent receivedEvent) {
-        augmentOsLibBroadcastSender.sendEventToTPAs(FocusChangedEvent.eventId, receivedEvent, receivedEvent.appPackage);
-    }
+//    @Subscribe
+//    public void onFocusChanged(FocusChangedEvent receivedEvent) {
+//        augmentOsLibBroadcastSender.sendEventToTPAs(FocusChangedEvent.eventId, receivedEvent, receivedEvent.appPackage);
+//    }
 
     @Subscribe
     public void onFinalTranscript(SpeechRecFinalOutputEvent event){
         boolean tpaIsSubscribed = true; //TODO: Hash out implementation
         if(tpaIsSubscribed){
             augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecFinalOutputEvent.eventId, event);
+        }
+    }
+
+    @Subscribe
+    public void onTranscript(SpeechRecOutputEvent event){
+        boolean tpaIsSubscribed = true;
+        if(tpaIsSubscribed){
+            augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecOutputEvent.eventId, event);
         }
     }
 
@@ -180,6 +194,10 @@ public class TPASystem {
             case RegisterCommandRequestEvent.eventId:
                 Log.d(TAG, "Resending register command request event");
                 EventBus.getDefault().post((RegisterCommandRequestEvent) receivedEvent.serializedEvent);
+                return;
+            case RegisterTpaRequestEvent.eventId:
+                Log.d(TAG, "Resending register TPA request event");
+                EventBus.getDefault().post((RegisterTpaRequestEvent) receivedEvent.serializedEvent);
                 return;
         }
 

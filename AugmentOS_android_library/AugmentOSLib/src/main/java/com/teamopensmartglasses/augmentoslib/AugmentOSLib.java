@@ -1,12 +1,14 @@
 package com.teamopensmartglasses.augmentoslib;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.CenteredTextViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.CommandTriggeredEvent;
 import com.teamopensmartglasses.augmentoslib.events.DisplayCustomContentRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.DoubleTextWallViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FinalScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FocusChangedEvent;
 import com.teamopensmartglasses.augmentoslib.events.FocusRequestEvent;
@@ -14,12 +16,17 @@ import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardImageViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardSimpleViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.RegisterCommandRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.RegisterTpaRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.RowsCardViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStartRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStopRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.SendBitmapViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecFinalOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecIntermediateOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -53,11 +60,27 @@ public class AugmentOSLib {
 
     //register a new command
     public void registerCommand(AugmentOSCommand augmentosCommand, AugmentOSCallback callback){
-        augmentosCommand.packageName = mContext.getPackageName();
+        // augmentosCommand.packageName = mContext.getPackageName();
         augmentosCommand.serviceName = mContext.getClass().getName();
 
         augmentosCallbackMapper.putCommandWithCallback(augmentosCommand, callback);
         EventBus.getDefault().post(new RegisterCommandRequestEvent(augmentosCommand));
+    }
+
+    //register our app with the AugmentOS
+    public void registerApp(String appName, String appDescription) {
+        registerApp(appName, appDescription, new AugmentOSCommand[]{});
+    }
+
+    public void registerApp(String appName, String appDescription, AugmentOSCommand[] commandList) {
+        String packageName = mContext.getPackageName();
+        String serviceName = mContext.getClass().getName();
+        ThirdPartyApp tpa = new ThirdPartyApp(appName, appDescription, packageName, serviceName, commandList);
+        EventBus.getDefault().post(new RegisterTpaRequestEvent(tpa));
+
+        for (AugmentOSCommand command : commandList) {
+
+        }
     }
 
     public void subscribe(DataStreamType dataStreamType, TranscriptCallback callback){
@@ -78,16 +101,6 @@ public class AugmentOSLib {
 //        EventBus.getDefault().post(new FocusRequestEvent(true));
 //    }
 
-    //register our app with the AugmentOS
-    public void registerApp(String appName, String appDescription) {
-        registerApp(appName, appDescription, new ArrayList<AugmentOSCommand>());
-    }
-
-    public void registerApp(String appName, String appDescription, ArrayList<AugmentOSCommand> commandList) {
-        String packageName = mContext.getPackageName();
-        String serviceName = mContext.getClass().getName();
-        ThirdPartyApp tpa = new ThirdPartyApp(appName, appDescription, packageName, serviceName, commandList);
-    }
 
     public void sendCustomContent(String json) {
         EventBus.getDefault().post(new DisplayCustomContentRequestEvent(json));
@@ -127,22 +140,48 @@ public class AugmentOSLib {
         EventBus.getDefault().post(new CenteredTextViewRequestEvent(text));
     }
 
+    public void sendTextWall(String text){
+        EventBus.getDefault().post(new TextWallViewRequestEvent(text));
+    }
+
+    public void sendDoubleTextWall(String textTop, String textBottom){
+        EventBus.getDefault().post(new DoubleTextWallViewRequestEvent(textTop, textBottom));
+    }
+
+    public void sendRowsCard(String[] rowStrings){
+        EventBus.getDefault().post(new RowsCardViewRequestEvent(rowStrings));
+    }
+
+    public void sendBitmap(Bitmap bmp){
+        EventBus.getDefault().post(new SendBitmapViewRequestEvent(bmp));
+    }
+
+
+
     @Subscribe
     public void onCommandTriggeredEvent(CommandTriggeredEvent receivedEvent){
         AugmentOSCommand command = receivedEvent.command;
-        String args = receivedEvent.args;
-        long commandTriggeredTime = receivedEvent.commandTriggeredTime;
+        // String args = receivedEvent.args;
+        // long commandTriggeredTime = receivedEvent.commandTriggeredTime;
         Log.d(TAG, " " + command.getId());
         Log.d(TAG, " " + command.getDescription());
-
-        //call the callback
-        AugmentOSCallback callback = augmentosCallbackMapper.getCommandCallback(command);
-        if (callback != null){
-            callback.runCommand(args, commandTriggeredTime);
-        }
+        receivedEvent.command.callback.runCommand(receivedEvent.args, receivedEvent.commandTriggeredTime);
+//        //call the callback
+//        AugmentOSCallback callback = augmentosCallbackMapper.getCommandCallback(command);
+//        if (callback != null){
+//            callback.runCommand(args, commandTriggeredTime);
+//        }
         Log.d(TAG, "Callback called");
     }
 
+    @Subscribe
+    public void onTranscript(SpeechRecOutputEvent event) {
+        String text = event.text;
+        long time = event.timestamp;
+        if (subscribedDataStreams.containsKey(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM)) {
+            ((TranscriptCallback)subscribedDataStreams.get(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM)).call(text, time, true);
+        }
+    }
     @Subscribe
     public void onIntermediateTranscript(SpeechRecIntermediateOutputEvent event) {
         String text = event.text;

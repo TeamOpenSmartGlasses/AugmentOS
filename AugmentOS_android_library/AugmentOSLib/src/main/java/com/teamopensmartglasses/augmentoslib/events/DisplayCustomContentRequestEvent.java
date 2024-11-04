@@ -1,4 +1,4 @@
-package com.teamopensmartglasses.augmentoslib.events;
+package com.teamopensmartglasses.augmentoslib.events;;
 
 import java.io.Serializable;
 

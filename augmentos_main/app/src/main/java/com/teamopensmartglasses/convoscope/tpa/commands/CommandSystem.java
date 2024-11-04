@@ -126,11 +126,11 @@ public class CommandSystem {
 
     public void registerLocalCommand(String name, UUID id, String[] phrases, String description, AugmentOSCallback callback) {
         //add a new command
-        AugmentOSCommand newCommand = new AugmentOSCommand(name, id, phrases, description);
-        newCommand.packageName = mContext.getPackageName();
-        newCommand.serviceName = mContext.getClass().getName();
-
-        augmentosCallbackMapper.putCommandWithCallback(newCommand, callback);
+//        AugmentOSCommand newCommand = new AugmentOSCommand(name, id, phrases, description);
+//        newCommand.packageName = mContext.getPackageName();
+//        newCommand.serviceName = mContext.getClass().getName();
+//
+//        augmentosCallbackMapper.putCommandWithCallback(newCommand, callback);
     }
 
     public void saveCommand(AugmentOSCommand command) {
@@ -208,33 +208,33 @@ public class CommandSystem {
 
     @Subscribe
     public void onCommandTriggeredEvent(CommandTriggeredEvent receivedEvent) {
-        AugmentOSCommand command = receivedEvent.command;
-        String args = receivedEvent.args;
-        long commandTriggeredTime = receivedEvent.commandTriggeredTime;
-        if (command != null) {
-            //start the app privilege timer as user triggered this command
-            Log.d(TAG, "Starting app privilege timer for app: " + receivedEvent.command.packageName);
-            appPrivilegeTimeout = new AppPrivilegeTimeout(receivedEvent.command.packageName, System.currentTimeMillis());
-
-            //run if it's a locally registered command
-            AugmentOSCallback callback = augmentosCallbackMapper.getCommandCallback(command);
-            if (callback != null) {
-                Log.d(TAG, "Running command");
-                suspendFocusIfNotFocused(mContext.getPackageName());
-                callback.runCommand(args, commandTriggeredTime);
-            }
-        }
+//        AugmentOSCommand command = receivedEvent.command;
+//        String args = receivedEvent.args;
+//        long commandTriggeredTime = receivedEvent.commandTriggeredTime;
+//        if (command != null) {
+//            //start the app privilege timer as user triggered this command
+//            // Log.d(TAG, "Starting app privilege timer for app: " + receivedEvent.command.packageName);
+//            // appPrivilegeTimeout = new AppPrivilegeTimeout(receivedEvent.command.packageName, System.currentTimeMillis());
+//
+//            //run if it's a locally registered command
+//            AugmentOSCallback callback = augmentosCallbackMapper.getCommandCallback(command);
+//            if (callback != null) {
+//                Log.d(TAG, "Running command");
+//                suspendFocusIfNotFocused(mContext.getPackageName());
+//                callback.runCommand(args, commandTriggeredTime);
+//            }
+//        }
     }
 
 
-    @Subscribe
-    public void onAugmentOSStealFocus(AugmentOSStealFocus receivedEvent) {
-        if (receivedEvent.inFocus == true){
-            suspendFocusedApp(NO_UNSUSPEND_DELAY);
-        } else {
-            unsuspendFocusedApp();
-        }
-    }
+//    @Subscribe
+////    public void onAugmentOSStealFocus(AugmentOSStealFocus receivedEvent) {
+////        if (receivedEvent.inFocus == true){
+////            suspendFocusedApp(NO_UNSUSPEND_DELAY);
+////        } else {
+////            unsuspendFocusedApp();
+////        }
+////    }
 
     public void destroy() {
         //if (voiceCommandServer != null) {

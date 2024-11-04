@@ -18,24 +18,27 @@ public class AugmentOSCommand implements Serializable {
     public String argPrompt;
     public ArrayList argOptions;
 
-    public String packageName; //the name of the package that made and owns this command
+    // public String packageName; //the name of the package that made and owns this command
     public String serviceName;
 
-    public AugmentOSCommand(String name, UUID id, String[] phrases, String description){
+    AugmentOSCallback callback;
+
+    public AugmentOSCommand(AugmentOSCallback callback, String name, UUID id, String[] phrases, String description){
         argRequired = false;
-        setupBaseCommand(name, id, phrases, description);
+        setupBaseCommand(callback, name, id, phrases, description);
     }
 
-    public AugmentOSCommand(String name, UUID id, String[] phrases, String description, boolean argRequired, String argPrompt, ArrayList argOptions){
-        setupBaseCommand(name, id, phrases, description);
+    public AugmentOSCommand(AugmentOSCallback callback, String name, UUID id, String[] phrases, String description, boolean argRequired, String argPrompt, ArrayList argOptions){
+        setupBaseCommand(callback, name, id, phrases, description);
         this.argRequired = argRequired;
         this.argPrompt = argPrompt;
         this.argOptions = argOptions;
     }
 
-    private void setupBaseCommand(String name, UUID id, String[] phrases, String description){
+    private void setupBaseCommand(AugmentOSCallback callback, String name, UUID id, String[] phrases, String description){
         this.mName = name;
         this.mId = id;
+        this.callback = callback;
         this.mPhrases = new ArrayList<>();
         this.mPhrases.addAll(Arrays.asList(phrases));
         this.mDescription = description;
@@ -57,9 +60,9 @@ public class AugmentOSCommand implements Serializable {
         return mPhrases;
     }
 
-    public String getPackageName(){
-        return packageName;
-    }
+    //public String getPackageName(){
+    //    return packageName;
+    //}
 
     public String getServiceName(){
         return serviceName;

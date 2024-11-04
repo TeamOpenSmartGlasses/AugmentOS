@@ -10,9 +10,9 @@ public class ThirdPartyApp implements Serializable {
 
     public String serviceName;
 
-    public ArrayList<AugmentOSCommand> commandList;
+    public AugmentOSCommand[] commandList;
 
-    ThirdPartyApp(String appName, String appDescription, String packageName,String serviceName, ArrayList<AugmentOSCommand> commandList){
+    ThirdPartyApp(String appName, String appDescription, String packageName, String serviceName, AugmentOSCommand[] commandList){
         this.appName = appName;
         this.appDescription = appDescription;
         this.packageName = packageName;

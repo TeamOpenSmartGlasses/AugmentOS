@@ -31,16 +31,15 @@ public class ExampleAugmentosAppService extends SmartGlassesAndroidService {
         augmentOSLib = new AugmentOSLib(this);
 
         // Define command
-        UUID exampleAppCommandUUID = UUID.fromString("aef7e07f-5c36-42f2-a808-21074b32bb28");
-        String[] phrases = new String[]{"Fact Checker", "Fact check"};
-        String description = "Fact check your conversation with ChatGPT!";
-        AugmentOSCommand startExampleAugmentosAppCommand = new AugmentOSCommand(appName, exampleAppCommandUUID, phrases, description);
-        augmentOSLib.registerCommand(startExampleAugmentosAppCommand, this::someExampleCallback);
+//        UUID exampleAppCommandUUID = UUID.fromString("aef7e07f-5c36-42f2-a808-21074b32bb28");
+//        String[] phrases = new String[]{"Fact Checker", "Fact check"};
+//        String description = "Fact check your conversation with ChatGPT!";
+//        AugmentOSCommand startExampleAugmentosAppCommand = new AugmentOSCommand(this::someExampleCallback, appName, exampleAppCommandUUID, phrases, description);
+
+        augmentOSLib.registerApp("Example App", "Example app description");
 
         //Subscribe to transcription stream
         augmentOSLib.subscribe(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM, this::processTranscriptionCallback);
-
-        Log.d(TAG, "onCreate: ChatGPT service started!");
 
         /* Handle ExampleAugmentosApp specific things */
 
@@ -63,6 +62,7 @@ public class ExampleAugmentosAppService extends SmartGlassesAndroidService {
 
     public void processTranscriptionCallback(String transcript, long timestamp, boolean isFinal) {
         Log.d(TAG, "Got a transcript: " + transcript);
+        augmentOSLib.sendReferenceCard("Example TPA Live Captions", transcript);
     }
 
 }

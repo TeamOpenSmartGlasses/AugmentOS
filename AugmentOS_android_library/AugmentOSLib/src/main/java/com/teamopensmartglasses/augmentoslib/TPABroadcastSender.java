@@ -6,17 +6,24 @@ import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.EVE
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.CenteredTextViewRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.DoubleTextWallViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FinalScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FocusRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardImageViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardSimpleViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.RegisterCommandRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.RegisterTpaRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.RowsCardViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStartRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStopRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.SendBitmapViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -83,6 +90,32 @@ public class TPABroadcastSender {
     }
 
     @Subscribe
+    public void onSendCenteredText(CenteredTextViewRequestEvent receivedEvent){
+        sendEventToAugmentOS(receivedEvent.eventId, receivedEvent);
+    }
+
+    @Subscribe
+    public void onSendTextWall(TextWallViewRequestEvent receivedEvent){
+        sendEventToAugmentOS(receivedEvent.eventId, receivedEvent);
+    }
+
+    @Subscribe
+    public void onSendDoubleTextWall(DoubleTextWallViewRequestEvent e){
+        sendEventToAugmentOS(e.eventId, e);
+    }
+
+    @Subscribe
+    public void onSendRowsCard(RowsCardViewRequestEvent e){
+        sendEventToAugmentOS(e.eventId, e);
+    }
+
+    @Subscribe
+    public void onSendBitmap(SendBitmapViewRequestEvent e){
+        sendEventToAugmentOS(e.eventId, e);
+    }
+
+
+    @Subscribe
     public void onFinalScrollingTextEvent(FinalScrollingTextRequestEvent receivedEvent){
         Log.d("TPASEND", "FINAL SCROLL SEND");
         String eventId = receivedEvent.eventId;
@@ -97,6 +130,11 @@ public class TPABroadcastSender {
     public void onRegisterCommandRequestEvent(RegisterCommandRequestEvent receivedEvent){
         String eventId = receivedEvent.getEventId();
         sendEventToAugmentOS(eventId, receivedEvent);
+    }
+
+    @Subscribe
+    public void onRegisterAppRequestEvent(RegisterTpaRequestEvent e){
+        sendEventToAugmentOS(e.eventId, e);
     }
 
     @Subscribe

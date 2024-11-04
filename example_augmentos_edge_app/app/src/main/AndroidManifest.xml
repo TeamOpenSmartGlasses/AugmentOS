@@ -22,13 +22,16 @@
             android:theme="@style/Theme.ExampleAugmentosApp.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <service android:name="com.teamopensourcesmartglasses.example_augmentos_app.ExampleAugmentosAppService"
-            android:exported="true"/>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="AUGMENTOS_INTENT" />
+            </intent-filter>
+        </service>
 
     </application>
 

@@ -8,6 +8,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.metrics.Event;
 import android.util.Log;
 
 import com.teamopensmartglasses.augmentoslib.events.CommandTriggeredEvent;
@@ -18,6 +19,7 @@ import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecFinalOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecIntermediateOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -46,6 +48,9 @@ public class TPABroadcastReceiver extends BroadcastReceiver {
                 break;
             case KillTpaEvent.eventId:
                 EventBus.getDefault().post((KillTpaEvent) serializedEvent);
+                break;
+            case SpeechRecOutputEvent.eventId:
+                EventBus.getDefault().post((SpeechRecOutputEvent) serializedEvent);
                 break;
             case SpeechRecIntermediateOutputEvent.eventId:
                 EventBus.getDefault().post((SpeechRecIntermediateOutputEvent) serializedEvent);

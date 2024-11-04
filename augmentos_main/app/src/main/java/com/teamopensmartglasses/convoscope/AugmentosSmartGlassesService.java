@@ -6,12 +6,12 @@ import android.os.Looper;
 import android.util.Log;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
-import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DiarizationOutputEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartGlassesConnectedEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
+import com.teamopensmartglasses.convoscope.ui.AugmentosUi;
+import com.teamopensmartglasses.augmentoslib.events.DiarizationOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.SmartGlassesConnectedEvent;
+import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -47,7 +47,7 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
     public DisplayQueue displayQueue;
 
     public AugmentosSmartGlassesService() {
-        super(ConvoscopeUi.class,
+        super(AugmentosUi.class,
                 "augmentos_app",
                 3589,
                 "AugmentOS SGM",
