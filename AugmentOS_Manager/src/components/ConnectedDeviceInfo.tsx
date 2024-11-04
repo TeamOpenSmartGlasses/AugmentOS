@@ -113,12 +113,14 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
             />
           )}
           <Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]}>
-            <Text style={[styles.connectedDot, { color: themeStyles.connectedDotColor }]}>●</Text>
-            <Text style={styles.connectedTextGreen}>Connected</Text>
-            <Text style={[styles.connectedTextTitle, { color: themeStyles.textColor }]}>
-              | {formatGlassesTitle(connectedGlasses)} Glasses
-            </Text>
-          </Animated.View>
+  <Text style={[styles.connectedDot, { color: themeStyles.connectedDotColor }]}>●</Text>
+  <Text style={styles.connectedTextGreen}>Connected</Text>
+  <Text style={styles.separator}>|</Text>
+  <Text style={[styles.connectedTextTitle, { color: themeStyles.textColor }]}>
+    {formatGlassesTitle(connectedGlasses)} Glasses
+  </Text>
+</Animated.View>
+
 
           <Animated.View style={[styles.statusBar, { opacity: fadeAnim }]}>
             <View style={styles.statusInfo}>
@@ -183,15 +185,21 @@ const styles = StyleSheet.create({
     marginRight: 2,
     fontFamily: 'Montserrat-Bold',
   },
+  separator: {
+    marginHorizontal: 10, // Adjust this to control the space around the "|"
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
+  },
   connectedTextGreen: {
     color: '#28a745',
     marginLeft: 4,
+    marginRight: 2, // Increased space to the right of "Connected"
     fontSize: 16,
     fontWeight: 'bold',
     fontFamily: 'Montserrat-Bold',
   },
   connectedTextTitle: {
-    marginLeft: 8,
     fontSize: 16,
     fontWeight: 'bold',
     fontFamily: 'Montserrat-Bold',

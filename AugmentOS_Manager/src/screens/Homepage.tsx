@@ -63,7 +63,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
           addAppToRunningApps={addAppToRunningApps}
           installedApps={[
             { name: 'Convoscope', icon: require('../assets/app-icons/convo-rectangle.png') },
-            { name: 'ADHD Assist', icon: require('../assets/app-icons/adhd-rectangle.png') },
+            { name: 'ADHD Aid', icon: require('../assets/app-icons/adhd-rectangle.png') },
             { name: 'Translator', icon: require('../assets/app-icons/translator-rectangle.png') },
             { name: 'Placeholder', icon: require('../assets/app-icons/ARGlassees-rectangle.png') },
             { name: 'Convoscope', icon: require('../assets/app-icons/convo-rectangle.png') },
