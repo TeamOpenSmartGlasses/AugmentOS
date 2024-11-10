@@ -1,44 +1,36 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { useStatus } from '../AugmentOSStatusProvider';
 
 interface RunningAppsListProps {
   isDarkTheme: boolean;
+  runningApps: string[];
 }
 
-const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
-  const { status } = useStatus();
-  const runningApps = useMemo(() => status.apps.filter((app) => app.is_running), [status]);
-
+const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme, runningApps }) => {
   const textColor = isDarkTheme ? '#FFFFFF' : '#000000';
   const borderColor = isDarkTheme ? '#FFFFFF' : '#CCCCCC';
   const gradientColors = isDarkTheme
     ? ['#4a3cb5', '#7856FE', '#9a7dff']
     : ['#56CCFE', '#FF8DF6', '#FFD04E'];
 
-  // Get the limited running apps (first three) from the list
-  const limitedRunningApps = useMemo(() => runningApps.slice(0, 3), [runningApps]);
+  const limitedRunningApps = runningApps.slice(0, 3);
 
-  // Memoized function to get the app image
-  const getAppImage = useMemo(
-    () => (appName: string) => {
-      switch (appName) {
-        case 'Convoscope':
-          return require('../assets/app-icons/convo-rectangle.png');
-        case 'ADHD Aid':
-          return require('../assets/app-icons/adhd-rectangle.png');
-        case 'Translator':
-          return require('../assets/app-icons/translator-rectangle.png');
-        case 'Placeholder':
-          return require('../assets/app-icons/ARGlassees-rectangle.png');
-        default:
-          return null;
-      }
-    },
-    []
-  );
+  const getAppImage = (appName: string) => {
+    switch (appName) {
+      case 'Convoscope':
+        return require('../assets/app-icons/convo-rectangle.png');
+      case 'ADHD Aid': // Updated name
+        return require('../assets/app-icons/adhd-rectangle.png');
+      case 'Translator':
+        return require('../assets/app-icons/translator-rectangle.png');
+      case 'Placeholder':
+        return require('../assets/app-icons/ARGlassees-rectangle.png');
+      default:
+        return null;
+    }
+  };
 
   return (
     <View style={styles.appsContainer}>
@@ -53,41 +45,33 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
         end={{ x: 1, y: 1 }}
       >
         <View style={styles.appIconsContainer}>
-          {/* First App is a highlighted app (Simulating Convoscope for now) */}
-          {runningApps.length > 0 && (
-            <View style={styles.appWrapper}>
-              <View style={[styles.mainAppIconWrapper, { borderColor }]}>
-                <ImageBackground
-                  source={getAppImage(runningApps[0].name)}
-                  style={styles.mainAppIcon}
-                  imageStyle={styles.mainAppIconImage}
-                >
-                  <LinearGradient
-                    colors={['#ADE7FF', '#FFB2F9', '#FFE396']}
-                    style={styles.overlayRing}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 1, y: 1 }}
-                  />
-                  <View style={styles.squareBadge}>
-                    <FontAwesome name="star" size={12} color="#FFFFFF" />
-                  </View>
-                </ImageBackground>
-              </View>
-              <Text style={[styles.appName, { color: textColor }]} numberOfLines={1}>
-                {runningApps[0].name}
-              </Text>
+          <View style={styles.appWrapper}>
+            <View style={[styles.mainAppIconWrapper, { borderColor }]}>
+              <ImageBackground
+                source={getAppImage('Convoscope')}
+                style={styles.mainAppIcon}
+                imageStyle={styles.mainAppIconImage}
+              >
+                <LinearGradient
+                  colors={['#ADE7FF', '#FFB2F9', '#FFE396']}
+                  style={styles.overlayRing}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                />
+                <View style={styles.squareBadge}>
+                  <FontAwesome name="star" size={12} color="#FFFFFF" />
+                </View>
+              </ImageBackground>
             </View>
-          )}
+            <Text style={[styles.appName, { color: textColor }]} numberOfLines={1}>Convoscope</Text>
+          </View>
 
-          {/* Display limited running apps */}
-          {limitedRunningApps.slice(1).map((app, index) => (
+          {limitedRunningApps.map((app, index) => (
             <View key={index} style={styles.appWrapper}>
               <View style={[styles.appIconWrapper, { borderColor }]}>
-                <Image source={getAppImage(app.name)} style={styles.appIcon} />
+                <Image source={getAppImage(app)} style={styles.appIcon} />
               </View>
-              <Text style={[styles.appName, { color: textColor }]} numberOfLines={1}>
-                {app.name}
-              </Text>
+              <Text style={[styles.appName, { color: textColor }]} numberOfLines={1}>{app}</Text>
             </View>
           ))}
         </View>
@@ -195,8 +179,8 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: '600',
     fontFamily: 'Montserrat-Bold',
-    lineHeight: 16,
-    textAlign: 'center',
+  lineHeight: 16,
+  textAlign: 'center',
   },
 });
 

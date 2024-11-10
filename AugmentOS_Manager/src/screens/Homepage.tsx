@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Header from '../components/Header';
 import ConnectedDeviceInfo from '../components/ConnectedDeviceInfo';
 import RunningAppsList from '../components/RunningAppsList';
 import YourAppsList from '../components/YourAppsList';
-import BluetoothManager from '../BluetoothManager';
 import NavigationBar from '../components/NavigationBar';
+import PuckConnection from '../components/PuckConnection';
 
 interface HomepageProps {
   isDarkTheme: boolean;
@@ -15,7 +15,6 @@ interface HomepageProps {
 
 const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
   const navigation = useNavigation(); // Access navigation using the hook
-  const [runningApps, setRunningApps] = useState<string[]>([]);
 
   // Initialize animations
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -37,10 +36,6 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
     ]).start();
   }, [fadeAnim, slideAnim]);
 
-  const addAppToRunningApps = (appName: string) => {
-    setRunningApps((prevApps) => [...prevApps, appName]);
-  };
-
   const currentThemeStyles = isDarkTheme ? darkThemeStyles : lightThemeStyles;
 
   return (
@@ -50,36 +45,21 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
       </Animated.View>
 
       <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
+        <PuckConnection />
+      </Animated.View>
+
+      <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
         <ConnectedDeviceInfo isDarkTheme={isDarkTheme} />
       </Animated.View>
 
       <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
-        <RunningAppsList isDarkTheme={isDarkTheme} runningApps={runningApps} />
+        <RunningAppsList isDarkTheme={isDarkTheme} />
       </Animated.View>
 
       <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
-        <YourAppsList
-          isDarkTheme={isDarkTheme}
-          addAppToRunningApps={addAppToRunningApps}
-          installedApps={[
-            { name: 'Convoscope', icon: require('../assets/app-icons/convo-rectangle.png') },
-            { name: 'ADHD Aid', icon: require('../assets/app-icons/adhd-rectangle.png') },
-            { name: 'Translator', icon: require('../assets/app-icons/translator-rectangle.png') },
-            { name: 'Placeholder', icon: require('../assets/app-icons/ARGlassees-rectangle.png') },
-            { name: 'Convoscope', icon: require('../assets/app-icons/convo-rectangle.png') },
-            { name: 'ADHD Assist', icon: require('../assets/app-icons/adhd-rectangle.png') },
-            { name: 'Translator', icon: require('../assets/app-icons/translator-rectangle.png') },
-            { name: 'Placeholder', icon: require('../assets/app-icons/ARGlassees-rectangle.png') },
-            { name: 'Convoscope', icon: require('../assets/app-icons/convo-rectangle.png') },
-            { name: 'ADHD Assist', icon: require('../assets/app-icons/adhd-rectangle.png') },
-            { name: 'Translator', icon: require('../assets/app-icons/translator-rectangle.png') },
-            { name: 'Placeholder', icon: require('../assets/app-icons/ARGlassees-rectangle.png') },
-
-          ]}
-        />
+        <YourAppsList isDarkTheme={isDarkTheme} />
       </Animated.View>
 
-      <BluetoothManager isDarkTheme={isDarkTheme} />
       <NavigationBar toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
     </View>
   );

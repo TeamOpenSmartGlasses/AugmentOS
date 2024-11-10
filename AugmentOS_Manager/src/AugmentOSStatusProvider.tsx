@@ -1,43 +1,5 @@
-import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useCallback, useMemo } from 'react';
 import AugmentOSParser from './AugmentOSStatusParser';
-
-// Default dummy status data
-const defaultParsedData = {
-    status: {
-      puck_battery_life: 25,
-      charging_status: true,
-      connected_glasses: {
-        model_name: "Vuzix Z100",
-        battery_life: 10,
-      },
-      wifi: { is_connected: true, ssid: "test-ssid", signal_strength: 75 },
-      gsm: { is_connected: true, carrier: "T-Mobile", signal_strength: 85 },
-      apps: [
-        {
-          name: "Language Learner",
-          description: "A real-time translation and vocabulary builder.",
-          is_running: true,
-          is_foreground: true,
-          package_name: "com.language.learner",
-        },
-        {
-          name: "Navigation Assistant",
-          description: "Provides step-by-step navigation instructions.",
-          is_running: true,
-          is_foreground: false,
-          package_name: "com.navigation.assistant",
-        },
-        {
-          name: "Weather App",
-          description: "Displays current weather conditions.",
-          is_running: false,
-          is_foreground: false,
-          package_name: "com.weather.app",
-        },
-      ],
-    },
-  };
-  
 
 interface AugmentOSStatusContextType {
     status: ReturnType<AugmentOSParser['getStatus']>;
@@ -47,17 +9,14 @@ interface AugmentOSStatusContextType {
 const AugmentOSStatusContext = createContext<AugmentOSStatusContextType | undefined>(undefined);
 
 export const StatusProvider = ({ children }: { children: ReactNode }) => {
-    const parser = new AugmentOSParser(); // Create the parser instance
+    const parser = useMemo(() => new AugmentOSParser(), []); // Create parser instance without default data
 
-    // Parse the default status data on initialization
-    parser.parseStatus(defaultParsedData);
-
-    const [status, setStatus] = useState(parser.getStatus()); // Use state to store status
+    const [status, setStatus] = useState(parser.getStatus()); // Initialize with empty/default status
 
     const refreshStatus = useCallback((data: any) => {
         parser.parseStatus(data); // Parse the new status
         setStatus(parser.getStatus()); // Update the state to trigger re-renders
-    }, []);
+    }, [parser]);
 
     return (
         <AugmentOSStatusContext.Provider value={{ status, refreshStatus }}>
