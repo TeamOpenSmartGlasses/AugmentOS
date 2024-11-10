@@ -1,67 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated, Alert, PermissionsAndroid, Platform } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { BluetoothService, Device } from '../BluetoothService';
-import { useStatus } from '../AugmentOSStatusProvider';
 
 interface ConnectedDeviceInfoProps {
   isDarkTheme: boolean;
 }
 
-const bluetoothService = new BluetoothService(); // Initialize a single instance of BluetoothService
-
 const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }) => {
   const [isConnected, setIsConnected] = useState(false);
-  const [connectedGlasses, setConnectedGlasses] = useState<string | null>(null); // Update type to `string | null`
+  const [connectedGlasses, setConnectedGlasses] = useState('');
+  const [batteryLevel] = useState(83); // Add setBatteryLevel to update battery level - const [batteryLevel, setBatteryLevel] = useState(83);
   const [isLoading, setIsLoading] = useState(false);
 
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(0.8)).current;
   const slideAnim = useRef(new Animated.Value(-50)).current;
-
-  const { status, refreshStatus } = useStatus(); // Access status data and refreshStatus function
-  const glassesInfo = status.glasses_info;
-  const batteryLevel = glassesInfo?.battery_life ?? 0;
-
-  useEffect(() => {
-    if (Platform.OS === 'android' && Platform.Version >= 23) {
-      PermissionsAndroid.requestMultiple([
-        PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
-        PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-      ]).then((result) => {
-        console.log('Permissions granted:', result);
-      });
-    }
-
-    const onDeviceConnected = (device: Device) => {
-      setIsConnected(true);
-      setConnectedGlasses(device.name);
-      setIsLoading(false);
-    };
-
-    const onDeviceDisconnected = () => {
-      setIsConnected(false);
-      setConnectedGlasses(null);
-    };
-
-    const onDataReceived = (data: any) => {
-      try {
-        const parsedData = data ? String.fromCharCode(...data) : 'No data';
-        refreshStatus({ status: JSON.parse(parsedData) });
-      } catch (error) {
-        console.error('Data parsing error:', error);
-      }
-    };
-
-    bluetoothService.on('deviceConnected', onDeviceConnected);
-    bluetoothService.on('deviceDisconnected', onDeviceDisconnected);
-    bluetoothService.on('dataReceived', onDataReceived);
-
-    return () => {
-      bluetoothService.removeListeners();
-    };
-  }, [refreshStatus]);
 
   useEffect(() => {
     if (isConnected) {
@@ -90,30 +43,22 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     }
   }, [isConnected, fadeAnim, scaleAnim, slideAnim]);
 
-  const handleConnect = async () => {
+  const handleConnect = () => {
     setIsLoading(true);
-    try {
-      await bluetoothService.scanForDevices();
-    } catch (error) {
-      Alert.alert('Error', 'Failed to start scanning for devices');
-      console.error('Scanning error:', error);
+    setTimeout(() => {
+      setIsConnected(true);
+      setConnectedGlasses('vuzix-z100');
       setIsLoading(false);
-    }
+    }, 2000);
   };
 
-  const handleDisconnect = async () => {
-    try {
-      await bluetoothService.disconnectFromDevice();
-      setIsConnected(false);
-      setConnectedGlasses(null);
-    } catch (error) {
-      console.error('Error disconnecting:', error);
-      Alert.alert('Disconnect Error', 'Failed to disconnect from device');
-    }
+  const handleDisconnect = () => {
+    setIsConnected(false);
+    setConnectedGlasses('');
   };
 
-  const formatGlassesTitle = (title: string | null) =>
-    title ? title.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) : '';
+  const formatGlassesTitle = (title: string) =>
+    title.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 
   // Theme styles defined as JavaScript objects, not within StyleSheet
   const themeStyles = {
@@ -124,7 +69,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     connectedDotColor: '#28a745', // common color for connected dot
   };
 
-  const getGlassesImage = (glasses: string | null) => {
+  const getGlassesImage = (glasses: string) => {
     switch (glasses) {
       case 'vuzix-z100':
         return require('../assets/glasses/vuzix-z100-glasses.png');
@@ -168,13 +113,14 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
             />
           )}
           <Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]}>
-            <Text style={[styles.connectedDot, { color: themeStyles.connectedDotColor }]}>●</Text>
-            <Text style={styles.connectedTextGreen}>Connected</Text>
-            <Text style={styles.separator}>|</Text>
-            <Text style={[styles.connectedTextTitle, { color: themeStyles.textColor }]}>
-              {formatGlassesTitle(connectedGlasses)} Glasses
-            </Text>
-          </Animated.View>
+  <Text style={[styles.connectedDot, { color: themeStyles.connectedDotColor }]}>●</Text>
+  <Text style={styles.connectedTextGreen}>Connected</Text>
+  <Text style={styles.separator}>|</Text>
+  <Text style={[styles.connectedTextTitle, { color: themeStyles.textColor }]}>
+    {formatGlassesTitle(connectedGlasses)} Glasses
+  </Text>
+</Animated.View>
+
 
           <Animated.View style={[styles.statusBar, { opacity: fadeAnim }]}>
             <View style={styles.statusInfo}>
@@ -214,9 +160,6 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     </View>
   );
 };
-
-
-
 
 const styles = StyleSheet.create({
   deviceInfoContainer: {

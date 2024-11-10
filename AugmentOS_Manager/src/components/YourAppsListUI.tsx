@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, NativeSyntheticEvent, NativeScrollEvent, Dimensions, TouchableOpacity } from 'react-native';
-import { useStatus } from '../AugmentOSStatusProvider';
 
 const { width } = Dimensions.get('window');
 
 interface YourAppsListProps {
   isDarkTheme: boolean;
+  addAppToRunningApps: (appName: string) => void;
+  installedApps: { name: string; icon: any }[];
 }
 
-const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
-  const { status } = useStatus(); // Access the status from AugmentOSStatusProvider
-  const installedApps = status.apps; // Get the list of apps from the status
-
+const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme, addAppToRunningApps, installedApps }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
@@ -41,8 +39,8 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
         contentContainerStyle={styles.scrollViewContent}
       >
         {installedApps.map((app, index) => (
-          <TouchableOpacity key={index} style={styles.appIconWrapper}>
-            <Image source={{ uri: app.icon }} style={styles.appIcon} />
+          <TouchableOpacity key={index} onPress={() => addAppToRunningApps(app.name)} style={styles.appIconWrapper}>
+            <Image source={app.icon} style={styles.appIcon} />
             <Text style={[styles.appLabel, { color: appLabelColor }]} numberOfLines={1}>
               {app.name}
             </Text>

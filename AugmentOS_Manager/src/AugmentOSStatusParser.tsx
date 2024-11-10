@@ -21,7 +21,9 @@ interface AppInfo {
   is_running: boolean;
   is_foreground: boolean;
   package_name: string;
+  icon: string; // Added this line to include the icon property
 }
+
 
 interface AugmentOSMainStatus {
   puck_connected: boolean;
@@ -54,14 +56,14 @@ class AugmentOSParser {
    * @param data The raw JSON object received from the puck.
    */
   parseStatus(data: any): void {
-    if ("status" in data) {
+    if ('status' in data) {
       const status = data.status;
 
       this.status.puck_connected = true;
       this.status.puck_battery_life = status.puck_battery_life ?? null;
       this.status.charging_status = status.charging_status ?? false;
 
-      if ("connected_glasses" in status) {
+      if ('connected_glasses' in status) {
         this.status.glasses_info = status.connected_glasses;
       } else {
         this.status.glasses_info = null;
@@ -71,11 +73,13 @@ class AugmentOSParser {
       this.status.gsm = status.gsm ?? this.status.gsm;
 
       this.status.apps = status.apps?.map((app: any) => ({
-        name: app.name || "Unknown App",
-        description: app.description || "No description available",
+        name: app.name || 'Unknown App',
+        description: app.description || 'No description available',
         is_running: !!app.is_running,
         is_foreground: !!app.is_foreground,
-        package_name: app.package_name || "unknown.package",
+        package_name: app.package_name || 'unknown.package',
+        icon: app.icon || 'default-icon-path', // Add this with a default or provided path
+
       })) || [];
     }
   }

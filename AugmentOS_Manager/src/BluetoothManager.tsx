@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Button, Text, View, FlatList, Alert, TextInput, StyleSheet } from 'react-native';
-// import AugmentOSParser from './AugmentOSStatusParser';
+import AugmentOSParser from './AugmentOSStatusParser';
 import { BluetoothService, Device } from './BluetoothService';
 import { useStatus } from './AugmentOSStatusProvider';
 
@@ -49,11 +49,22 @@ const BluetoothManager: React.FC<BluetoothManagerProps> = ({ isDarkTheme }) => {
     };
   }, [handleReceivedData]); // Add handleReceivedData to the dependency array
 
-  const handleScanForDevices = async () => {
-    if (bluetoothService) {
-      await bluetoothService.scanForDevices();
+  // Inside BluetoothManager component
+
+const handleScanForDevices = async () => {
+  if (bluetoothService) {
+    try {
+      setIsScanning(true); // Indicate that scanning has started
+      await bluetoothService.scanForDevices(); // Start scanning for devices
+      console.log('Scanning for devices...');
+    } catch (error) {
+      console.error('Error scanning for devices:', error);
+    } finally {
+      setIsScanning(false); // Ensure scanning status is reset after the scan
     }
-  };
+  }
+};
+
 
   const handleWriteData = async (data: string) => {
     if (bluetoothService && data) {
