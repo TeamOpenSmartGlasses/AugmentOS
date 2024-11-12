@@ -14,8 +14,7 @@ public class AugmentOsManagerMessageParser {
         this.callback = callback;  // Store the callback reference for triggering actions
     }
 
-    public void parseMessage(String json) {
-        try {
+    public void parseMessage(String json) throws JSONException {
             JSONObject commandObject = new JSONObject(json);
             String command = commandObject.getString("command");
 
@@ -71,8 +70,5 @@ public class AugmentOsManagerMessageParser {
                 default:
                     Log.w(TAG, "Unknown command: " + command);
             }
-        } catch (JSONException e) {
-            Log.e(TAG, "Invalid JSON command: " + e.getMessage());
-        }
     }
 }

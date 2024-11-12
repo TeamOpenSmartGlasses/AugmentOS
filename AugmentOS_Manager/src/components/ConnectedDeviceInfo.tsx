@@ -11,7 +11,7 @@ interface ConnectedDeviceInfoProps {
 const bluetoothService = new BluetoothService(); // Initialize a single instance of BluetoothService
 
 const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }) => {
-  const [isConnected, setIsConnected] = useState(false);
+  // const [isConnected, setIsConnected] = useState(false);
   const [connectedGlasses, setConnectedGlasses] = useState<string | null>(null); // Update type to `string | null`
   const [isLoading, setIsLoading] = useState(false);
 
@@ -35,14 +35,15 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     }
 
     const onDeviceConnected = (device: Device) => {
-      setIsConnected(true);
+      // setIsConnected(true);
       setConnectedGlasses(device.name);
       setIsLoading(false);
     };
 
     const onDeviceDisconnected = () => {
-      setIsConnected(false);
+      // setIsConnected(false);
       setConnectedGlasses(null);
+      setIsLoading(false);
     };
 
     const onDataReceived = (data: any) => {
@@ -64,7 +65,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   }, [refreshStatus]);
 
   useEffect(() => {
-    if (isConnected) {
+    if (status.puck_connected) {
       Animated.parallel([
         Animated.timing(fadeAnim, {
           toValue: 1,
@@ -88,7 +89,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
       scaleAnim.setValue(0.8);
       slideAnim.setValue(-50);
     }
-  }, [isConnected, fadeAnim, scaleAnim, slideAnim]);
+  }, [status, fadeAnim, scaleAnim, slideAnim]);
 
   const handleConnect = async () => {
     setIsLoading(true);
@@ -104,7 +105,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   const handleDisconnect = async () => {
     try {
       await bluetoothService.disconnectFromDevice();
-      setIsConnected(false);
+      //setIsConnected(false);
       setConnectedGlasses(null);
     } catch (error) {
       console.error('Error disconnecting:', error);
@@ -159,7 +160,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
 
   return (
     <View style={[styles.deviceInfoContainer, { backgroundColor: themeStyles.backgroundColor }]}>
-      {isConnected ? (
+      {status.puck_connected ? (
         <>
           {glassesImage && (
             <Animated.Image

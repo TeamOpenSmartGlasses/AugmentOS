@@ -16,6 +16,7 @@ const HomeScreenComponent = () => {
         <>
           <Text>Model: {status.glasses_info?.model_name}</Text>
           <Text>Battery Life: {status.glasses_info?.battery_life}%</Text>
+          <Text>{JSON.stringify(status)}</Text>
         </>
       ) : (
         <Text>No Glasses Connected</Text>

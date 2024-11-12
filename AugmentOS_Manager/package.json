@@ -16,7 +16,11 @@
 
     "start": "react-native start",
 
-    "test": "jest"
+    "test": "jest",
+
+    "build-android": "cd android && ./gradlew assembleDebug && adb install -r ./app/build/outputs/apk/debug/app-debug.apk",
+
+    "build-android-release": "cd android && ./gradlew assembleRelease && adb install -r ./app/build/outputs/apk/release/app-release.apk"
 
   },
 
@@ -54,7 +58,9 @@
 
     "react-native-screens": "^3.34.0",
 
-    "react-native-vector-icons": "^10.2.0"
+    "react-native-vector-icons": "^10.2.0",
+
+    "text-encoding": "^0.7.0"
 
   },
 

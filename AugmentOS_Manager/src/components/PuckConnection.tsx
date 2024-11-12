@@ -37,6 +37,9 @@ const PuckConnection: React.FC = () => {
         <Text style={[styles.statusText, isConnected ? styles.connectedText : styles.disconnectedText]}>
           {isConnected ? 'Connected' : 'Puck Disconnected'}
         </Text>
+        <Text>
+          {JSON.stringify(status)}
+        </Text>
       </View>
       {isConnected && (
         <View style={styles.batteryContainer}>

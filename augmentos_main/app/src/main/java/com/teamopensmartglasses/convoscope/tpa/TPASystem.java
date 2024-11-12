@@ -1,18 +1,23 @@
 package com.teamopensmartglasses.convoscope.tpa;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.ServiceInfo;
 import android.util.Log;
+import android.content.pm.PackageManager;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.teamopensmartglasses.augmentoslib.AugmentOSCommand;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.CommandTriggeredEvent;
 import com.teamopensmartglasses.augmentoslib.events.DisplayCustomContentRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FinalScrollingTextRequestEvent;
-import com.teamopensmartglasses.augmentoslib.events.FocusChangedEvent;
 import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.IntermediateScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
@@ -33,8 +38,10 @@ import com.teamopensmartglasses.convoscope.tpa.eventbusmessages.TPARequestEvent;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 public class TPASystem {
     private String TAG = "WearableAi_TPASystem";
@@ -44,6 +51,8 @@ public class TPASystem {
 
     private static final String PREFS_NAME = "AugmentOSPrefs";
     private static final String APPS_KEY = "thirdPartyApps";
+
+    private BroadcastReceiver packageInstallReceiver;
 
     private ArrayList<ThirdPartyApp> thirdPartyApps;
     private SharedPreferences sharedPreferences;
@@ -61,6 +70,90 @@ public class TPASystem {
         gson = new Gson();
         thirdPartyApps = new ArrayList<>();
         loadThirdPartyAppsFromStorage();
+        setupPackageInstallReceiver();
+    }
+
+    private void setupPackageInstallReceiver() {
+        packageInstallReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if (Intent.ACTION_PACKAGE_ADDED.equals(intent.getAction())) {
+                    String packageName = intent.getData().getSchemeSpecificPart();
+                    Log.d(TAG, "New app installed: " + packageName);
+                    checkIsInstalledPackageNameAugmentOsThirdPartyApp(packageName, context);
+                }
+            }
+        };
+
+        IntentFilter filter = new IntentFilter(Intent.ACTION_PACKAGE_ADDED);
+        filter.addDataScheme("package");
+        mContext.registerReceiver(packageInstallReceiver, filter);
+    }
+
+    private boolean checkIsInstalledPackageNameAugmentOsThirdPartyApp(String packageName, Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            PackageInfo packageInfo = packageManager.getPackageInfo(packageName, PackageManager.GET_SERVICES | PackageManager.GET_META_DATA);
+
+            if (packageInfo.services != null) {
+                for (ServiceInfo serviceInfo : packageInfo.services) {
+                    // Check if this service has metadata indicating it’s an AugmentOS TPA
+                    if (serviceInfo.metaData != null && serviceInfo.metaData.getBoolean("com.augmentos.TPA", false)) {
+                        Log.d(TAG, "AugmentOS TPA detected: " + packageName);
+                        return true;
+                    }
+                }
+            }
+            Log.d(TAG, "No AugmentOS components found in app: " + packageName);
+
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "Package not found: " + e.getMessage());
+        }
+        return false;
+    }
+
+    public void startThirdPartyAppByPackageName(String packageName){
+        if (isAppInstalled(packageName)) {
+            for (ThirdPartyApp tpa : thirdPartyApps) {
+                if (tpa.packageName.equals(packageName)) {
+                    augmentOsLibBroadcastSender.startThirdPartyApp(tpa);
+                }
+            }
+        } else {
+            Log.d(TAG, "App " + packageName + " is not installed. Removing from list.");
+            unregisterThirdPartyAppByPackageName(packageName);
+        }
+    }
+
+    public void stopThirdPartyAppByPackageName(String packageName){
+        for (ThirdPartyApp tpa : thirdPartyApps) {
+            if (tpa.packageName.equals(packageName)) {
+                augmentOsLibBroadcastSender.killThirdPartyApp(tpa);
+            }
+        }
+    }
+
+    public ThirdPartyApp getThirdPartyAppByPackageName(String packageName){
+        for (ThirdPartyApp tpa : thirdPartyApps) {
+            if (tpa.packageName.equals(packageName)) {
+                return tpa;
+            }
+        }
+        return null;
+    }
+
+    public void stopAllThirdPartyApps(){
+        for (ThirdPartyApp tpa : thirdPartyApps) augmentOsLibBroadcastSender.killThirdPartyApp(tpa);
+    }
+
+    public boolean isAppInstalled(String packageName) {
+        PackageManager packageManager = mContext.getPackageManager();
+        try {
+            packageManager.getPackageInfo(packageName, 0);
+            return true;  // Package is installed
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;  // Package not installed
+        }
     }
 
     @Subscribe
@@ -144,6 +237,13 @@ public class TPASystem {
     }
 
     public void registerThirdPartyApp(ThirdPartyApp app) {
+        ThirdPartyApp oldTpa = getThirdPartyAppByPackageName(app.packageName);
+        if (oldTpa != null) {
+            Log.d(TAG, "Replacing third party app:" + app.packageName);
+            Toast.makeText(mContext, "Replacing third party app:" + app.packageName, Toast.LENGTH_LONG);
+            thirdPartyApps.remove(oldTpa);
+        }
+
         thirdPartyApps.add(app);
         saveThirdPartyAppsToStorage();
     }
@@ -153,6 +253,16 @@ public class TPASystem {
         saveThirdPartyAppsToStorage();
     }
 
+    private void unregisterThirdPartyAppByPackageName(String packageName) {
+        for (ThirdPartyApp tpa : thirdPartyApps) {
+            if (tpa.packageName.equals(packageName)) {
+                thirdPartyApps.remove(tpa);
+                saveThirdPartyAppsToStorage();
+                break;
+            }
+        }
+    }
+
     private void saveThirdPartyAppsToStorage() {
         // Convert the list to JSON and save to SharedPreferences
         String json = gson.toJson(thirdPartyApps);
@@ -160,14 +270,51 @@ public class TPASystem {
     }
 
     public void loadThirdPartyAppsFromStorage() {
-        // Load JSON string from SharedPreferences
         String json = sharedPreferences.getString(APPS_KEY, null);
         if (json != null) {
             Type type = new TypeToken<ArrayList<ThirdPartyApp>>() {}.getType();
-            thirdPartyApps = gson.fromJson(json, type);
+            ArrayList<ThirdPartyApp> loadedApps = gson.fromJson(json, type);
+
+            // Filter out uninstalled apps
+            thirdPartyApps = new ArrayList<>();
+            for (ThirdPartyApp app : loadedApps) {
+                if (isAppInstalled(app.packageName)) {
+                    thirdPartyApps.add(app);
+                } else {
+                    Log.d(TAG, "App not installed: " + app.packageName + ", removing from list.");
+                }
+            }
+
+            // Save the filtered list back to storage
+            saveThirdPartyAppsToStorage();
         } else {
             thirdPartyApps = new ArrayList<>();
         }
+
+        // Now, check if there are any installed TPAs that we haven't registered yet
+        ArrayList<String> preinstalledPackageNames = getAllInstalledPackageNames(mContext);
+        for (String packageName : preinstalledPackageNames){
+            if(checkIsInstalledPackageNameAugmentOsThirdPartyApp(packageName, mContext)) {
+                if (getThirdPartyAppByPackageName(packageName) != null) {
+                    // TODO: In the future, do something graceful to automatically populate TPA information.
+                    Log.d(TAG, "Discovered an unregistered TPA on device: " + packageName);
+                    Toast.makeText(mContext, "Discovered an unregistered TPA on device: " + packageName, Toast.LENGTH_LONG);
+                    // ThirdPartyApp discoveredTpa = new ThirdPartyApp();
+                }
+            }
+        }
+    }
+
+    public static ArrayList<String> getAllInstalledPackageNames(Context context) {
+        ArrayList<String> packageNames = new ArrayList<>();
+        PackageManager packageManager = context.getPackageManager();
+        List<PackageInfo> packages = packageManager.getInstalledPackages(0);
+
+        for (PackageInfo packageInfo : packages) {
+            packageNames.add(packageInfo.packageName);
+        }
+
+        return packageNames;
     }
 
     public ArrayList<ThirdPartyApp> getThirdPartyApps() {
@@ -239,6 +386,7 @@ public class TPASystem {
 
     public void destroy(){
         augmentOsLibBroadcastReceiver.unregister();
+        mContext.unregisterReceiver(packageInstallReceiver);
         EventBus.getDefault().unregister(this);
     }
 }

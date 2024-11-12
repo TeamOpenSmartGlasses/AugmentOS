@@ -19,6 +19,7 @@ import static com.teamopensmartglasses.convoscope.Constants.proactiveAgentResult
 import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettingsKey;
 import static com.teamopensmartglasses.convoscope.Constants.displayRequestsKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
+import static com.teamopensmartglasses.convoscope.Constants.augmentOsMainServiceNotificationId;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -49,6 +50,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
+import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.convoscope.comms.AugmentOsActionsCallback;
 import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
@@ -107,7 +109,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     private final String notificationAppName = "AugmentOS_Main";
     private final String notificationDescription = "AugmentOS_Main Description";
-    private final int myNotificationId = 3588;
     private final String myChannelId = "augmentos_main";
 
     public static final String ACTION_START_FOREGROUND_SERVICE = "MY_ACTION_START_FOREGROUND_SERVICE";
@@ -234,7 +235,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         super.onCreate();
 
         createNotificationChannel(); // New method to ensure one-time channel creation
-        startForeground(myNotificationId, updateNotification());
+        startForeground(augmentOsMainServiceNotificationId, updateNotification());
 
         //setup event bus subscribers
         EventBus.getDefault().register(this);
@@ -307,6 +308,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         updateVocabularyUpgradeOnBackend(this);
         saveCurrentMode(this, getCurrentMode(this));
 
+        saveCurrentMode(this, "");
         // startSmartGlassesService();
     }
 
@@ -2091,32 +2093,15 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             // Adding apps array
             JSONArray apps = new JSONArray();
 
-            // First app
-            JSONObject app1 = new JSONObject();
-            app1.put("name", "Proactive Agents");
-            app1.put("description", "Convoscope is rad");
-            app1.put("is_running", false);
-            app1.put("is_foreground", false);
-            app1.put("package_name", "Proactive Agents");
-            apps.put(app1);
-
-            // Second app
-            JSONObject app2 = new JSONObject();
-            app2.put("name", "Language Learning");
-            app2.put("description", "Language Learning is also rad");
-            app2.put("is_running", false);
-            app2.put("is_foreground", false);
-            app2.put("package_name", "Language Learning");
-            apps.put(app2);
-
-            // Third app
-            JSONObject app3 = new JSONObject();
-            app3.put("name", "ADHD Live Memory Aid");
-            app3.put("description", "I don't remember what this app does");
-            app3.put("is_running", false);
-            app3.put("is_foreground", false);
-            app3.put("package_name", "ADHD Live Memory Aid");
-            apps.put(app3);
+            for (ThirdPartyApp tpa : tpaSystem.getThirdPartyApps()) {
+                JSONObject tpaObj = new JSONObject();
+                tpaObj.put("name", tpa.appName);
+                tpaObj.put("description", tpa.appDescription);
+                tpaObj.put("is_running", false);
+                tpaObj.put("is_foreground", false);
+                tpaObj.put("package_name", tpa.packageName);
+                apps.put(tpaObj);
+            }
 
             // Adding apps array to the status object
             status.put("apps", apps);
@@ -2173,8 +2158,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Starting app: " + packageName);
         // Logic to start the app by package name
 
-        // NOTE: Until TPA paradigm is reimplemented, this just switches modes
-        saveCurrentMode(this, packageName);
+        // Only one TPA permitted for now
+        tpaSystem.stopAllThirdPartyApps();
+        tpaSystem.startThirdPartyAppByPackageName(packageName);
+        // saveCurrentMode(this, packageName);
     }
 
     @Override
@@ -2183,7 +2170,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         // Logic to stop the app by package name
 
         // NOTE: Until TPA paradigm is reimplemented, this just switches modes
-        saveCurrentMode(this, "");
+        tpaSystem.stopThirdPartyAppByPackageName(packageName);
+        //saveCurrentMode(this, "");
     }
 
     @Override

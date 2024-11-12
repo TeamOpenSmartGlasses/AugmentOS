@@ -28,9 +28,14 @@
 
         <service android:name="com.teamopensourcesmartglasses.example_augmentos_app.ExampleAugmentosAppService"
             android:exported="true">
+
+            <!-- Required intent filter to communicate with AugmentOS -->
             <intent-filter>
                 <action android:name="AUGMENTOS_INTENT" />
             </intent-filter>
+
+            <!-- Metadata to identify this as an AugmentOS TPA -->
+            <meta-data android:name="com.augmentos.TPA" android:value="true" />
         </service>
 
     </application>

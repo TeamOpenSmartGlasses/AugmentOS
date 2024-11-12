@@ -28,7 +28,7 @@ interface AppInfo {
 interface AugmentOSMainStatus {
   puck_connected: boolean;
   puck_battery_life: number | null;
-  charging_status: boolean;
+  puck_charging_status: boolean;
   glasses_info: Glasses | null;
   wifi: WifiConnection | null;
   gsm: GSMConnection | null;
@@ -43,7 +43,7 @@ class AugmentOSParser {
     this.status = {
       puck_connected: false,
       puck_battery_life: null,
-      charging_status: false,
+      puck_charging_status: false,
       glasses_info: null,
       wifi: { is_connected: false, ssid: '', signal_strength: 0 },
       gsm: { is_connected: false, carrier: '', signal_strength: 0 },
@@ -56,12 +56,11 @@ class AugmentOSParser {
    * @param data The raw JSON object received from the puck.
    */
   parseStatus(data: any): void {
-    if ('status' in data) {
+    if (data && typeof data === 'object' && 'status' in data) {
       const status = data.status;
-
       this.status.puck_connected = true;
       this.status.puck_battery_life = status.puck_battery_life ?? null;
-      this.status.charging_status = status.charging_status ?? false;
+      this.status.puck_charging_status = status.charging_status ?? false;
 
       if ('connected_glasses' in status) {
         this.status.glasses_info = status.connected_glasses;
