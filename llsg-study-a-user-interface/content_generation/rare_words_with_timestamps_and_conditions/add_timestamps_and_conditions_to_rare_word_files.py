@@ -1,4 +1,4 @@
-# TODO: what if a word isn't detected by the STT model?
+# TODO: wha1t if a word isn't detected by the STT model?
 
 
 import os
@@ -65,10 +65,10 @@ def add_timestamps_and_conditions_to_rare_word_files(word_list, filename):
     matched_data = []
 
     word_id_map = {}
-    condition_map = {}
+    # condition_map = {}
 
-    possible_conditions = [1, 2, 3]
-    np.random.shuffle(possible_conditions)
+    # possible_conditions = [1, 2, 3]
+    # np.random.shuffle(possible_conditions)
     csv_words = df_original['rare_word'].str.lower().tolist()
 
     for entry in word_list:
@@ -83,8 +83,8 @@ def add_timestamps_and_conditions_to_rare_word_files(word_list, filename):
                 if word not in word_id_map:
                     word_id_map[word] = str(uuid.uuid4())
 
-                if word not in condition_map:
-                    condition_map[word] = np.random.choice(possible_conditions)
+                # if word not in condition_map:
+                #     condition_map[word] = np.random.choice(possible_conditions)
 
                 matched_data.append({
                     'word_id': str(uuid.uuid4()),
@@ -93,7 +93,7 @@ def add_timestamps_and_conditions_to_rare_word_files(word_list, filename):
                     'start_time': entry['start'],
                     'end_time': entry['end'],
                     'unique_word_id': word_id_map[word],
-                    'condition': condition_map[word]
+                    # 'condition': condition_map[word]
                 })
 
     if not matched_data:

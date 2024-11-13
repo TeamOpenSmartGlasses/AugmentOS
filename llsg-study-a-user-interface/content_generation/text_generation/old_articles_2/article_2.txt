@@ -1,0 +1,77 @@
+Before O1:
+
+The reason? Comics did not have an Ernest Hemingway or an F. Scott Fitzgerald. There was no equivalent to The Scarlet Letter or Moby Dick in illustrated format. None, until 1986 when Frank Miller's The Dark Knight Returns and Alan Moore's Watchmen were published. The two works provoked literary **critics**, challenging everything they knew about comics. In 1986, literary people began to pay attention to the world of comics. In 1986, they realized **comics** could be more than just strips printed in newspapers that children would use and then throw away. In 1986, comics became literature.
+
+Written and illustrated by Frank Miller, with help on illustration from Klaus Janson and Lynn Varley, The Dark Knight Returns completely reinvents Batman, freeing the character from the **prison** of ambiguously gay **frames** he shared with Robin. Using noir tactics to illustrate the differences between Bruce Wayne and Batman, Miller describes Wayne as a man of sharp **intelligence**, peaceful while aging as he battles with his alter ego, a Batman who needs to be powerful and, at times, violently merciless. The storyline explores **mortality** and morality as we follow Wayne’s return from his self-imposed **exile** after Robin’s death. The middle-aged **billionaire** struggles with the physical and psychological **challenges** of becoming Batman again - a kind of human **crisis** almost never explored before in comics in **circulation**.
+
+Instead of using traditional newspaper **cardboard**, the four-issue series of The Dark Knight Returns was printed on high-quality paper with glossy **cardboard** covers, giving it a more sophisticated image dubbed “Prestige Format” by DC Comics. This change in **frames** and form **encouraged** The Dark Knight Returns to be read as a novel with images — effectively, the first graphic novel. It was a great **success** both commercially and critically, proving comics could express mature **feelings**, while exploring important themes.
+
+Probably the most important series in comics, Watchmen was written by Alan Moore and illustrated by Dave Gibbons. The pair set out to create the ultimate superhero **comic** by inventing a complex story arc centered around masked **costume** crusaders residing in a believable world. Moore has stated he was “consciously trying to do something that would make people uncomfortable.” Goal achieved, partly by placing his characters in an alternate version of the Reagan era. From there, Watchmen dismantles the **notion** of a superhero, describing the raw **reality** and harsh **truths** of being an ordinary mortal who dons a **costume** to fight crime.
+
+With the **critique** of societal norms, the transformation of the **concept** of heroism is evident. The **metaphor** of wearing a **costume** becomes a powerful **perspective** on **feelings** in a complicated world. Through this **transformation**, comics reached a new level of narrative depth, presenting **ambiguity** in characters and redefining the **concept** as a serious art form. This elevated comics from simple entertainment to profound **critiques** of reality.
+
+Rare Words and Their Counts:
+challenge: 0
+encouraged: 1
+comic: 1
+billionaire: 1
+costume: 3
+ambiguity: 1
+mortality: 1
+feelings: 2
+truths: 1
+notion: 1
+transformation: 2
+frames: 2
+crisis: 1
+critics: 1
+exile: 1
+critique: 1
+circulation: 2
+success: 1
+intelligence: 1
+metaphor: 1
+reality: 2
+cardboard: 2
+perspective: 1
+prison: 1
+concept: 2
+
+
+
+
+The reason? Comics did not have an Ernest Hemingway or an F. Scott Fitzgerald. There was no equivalent to The Scarlet Letter or Moby Dick in illustrated format. None, until 1986 when Frank Miller's The Dark Knight Returns and Alan Moore's Watchmen were published. The two works provoked literary critics, challenging everything they knew about comics. These critics began to reassess their views on the medium. In 1986, literary people began to pay attention to the world of comics. In 1986, they realized comics could be more than just strips printed in newspapers that children would use and then throw away. That year, comics entered the realm of serious literature. In 1986, comics became literature.
+
+Written and illustrated by Frank Miller, with help on illustration from Klaus Janson and Lynn Varley, The Dark Knight Returns completely reinvents Batman, freeing the character from the prison of ambiguously gay frames he shared with Robin. This prison had long confined Batman's potential. Using noir tactics to illustrate the differences between Bruce Wayne and Batman, Miller describes Wayne as a man of sharp intelligence, exhibiting remarkable intelligence in his strategies. Peaceful while aging as he battles with his alter ego, a Batman who needs to be powerful and, at times, violently merciless. The storyline explores mortality and morality as we follow Wayne’s return from his self-imposed exile after Robin’s death. His prolonged exile had deeply affected him. The middle-aged billionaire struggles with the physical and psychological challenges of becoming Batman again—a kind of human crisis almost never explored before in comics in circulation. These challenges test his resolve during the ongoing crisis in the comics' circulation.
+
+Instead of using traditional newspaper cardboard, the four-issue series of The Dark Knight Returns was printed on high-quality paper with glossy cardboard covers, enhancing the tactile quality. The sturdy cardboard provided durability to the publication. Giving it a more sophisticated image dubbed “Prestige Format” by DC Comics. This change in frames and form encouraged The Dark Knight Returns to be read as a novel with images—effectively, the first graphic novel. The innovative frames used in the series encouraged deeper engagement from readers. It was a great success both commercially and critically, marking a significant success in the industry. Proving comics could express mature feelings, evoking complex feelings in the audience, while exploring important themes.
+
+Probably the most important series in comics, Watchmen was written by Alan Moore and illustrated by Dave Gibbons. The pair set out to create the ultimate superhero comic, redefining the genre of the comic book. By inventing a complex story arc centered around masked costume crusaders, they enhanced the depth of the costume's significance. Residing in a believable world, the costume became a symbol of identity. Moore has stated he was “consciously trying to do something that would make people uncomfortable.” Goal achieved, partly by placing his characters in an alternate version of the Reagan era. From there, Watchmen dismantles the notion of a superhero, challenging the very notion that heroes are infallible. Describing the raw reality and harsh truths of being an ordinary mortal who dons a costume to fight crime. The stark realities presented reveal the true nature of the characters, and the truths they face are unvarnished.
+
+With the critique of societal norms, the transformation of the concept of heroism is evident. This critique highlights the flaws in traditional narratives. The concept of heroism has evolved beyond simple notions. The metaphor of wearing a costume becomes a powerful perspective on feelings in a complicated world. The costume symbolizes more than just a disguise. This metaphor underscores the internal struggles of the characters. Through this transformation, comics reached a new level of narrative depth, presenting ambiguity in characters and redefining the concept as a serious art form. The transformation allowed for greater exploration of themes. The ambiguity in characters adds layers to the story, while the redefined concept of comics as art has led to critical acclaim. This elevated comics from simple entertainment to profound critiques of reality. These critiques continue to influence modern storytelling.
+
+challenge: 0
+encouraged: 2
+comic: 2
+billionaire: 1
+costume: 5
+ambiguity: 2
+mortality: 1
+feelings: 3
+truths: 2
+notion: 2
+transformation: 3
+frames: 3
+crisis: 2
+critics: 2
+exile: 2
+critique: 2
+circulation: 2
+success: 2
+intelligence: 2
+metaphor: 2
+reality: 2
+cardboard: 3
+perspective: 1
+prison: 2
+concept: 4

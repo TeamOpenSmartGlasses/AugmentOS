@@ -13,7 +13,7 @@ const ParticipantIDPage: React.FC = () => {
 
     try {
       // Send participant ID to backend to create a folder
-      await axios.post('http://localhost:8000/playback/api/create-participant/', {
+      await axios.post('http://localhost:8080/playback/api/create-participant/', {
         participantID,
       });
 

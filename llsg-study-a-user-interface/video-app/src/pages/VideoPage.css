@@ -1,7 +1,7 @@
 .video-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Center the video horizontally */
+  align-items: center; /* Center the video vertically */
   width: 100vw;
   height: 100vh;
   background-color: black;
@@ -11,26 +11,43 @@
 }
 
 .video-player {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+  width: 90vw; /* Adjust width for margin effect */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain;
 }
 
 .video-title {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 5px;
+  left: 5px;
   color: white;
   z-index: 10;
   font-size: 24px;
 }
 
-
-.video-title {
-  color: white;
-  margin-bottom: 20px;
-}
-
 .video-player {
   border: none;
+}
+
+.loading,
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: red;
+  background-color: #ffe6e6;
+  border: 1px solid red;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.error span {
+  margin-left: 10px;
 }

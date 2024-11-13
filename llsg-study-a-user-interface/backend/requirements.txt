@@ -1,0 +1,10 @@
+asgiref==3.8.1
+Django==5.1.2
+django-cors-headers==4.5.0
+numpy==2.1.2
+pandas==2.2.3
+python-dateutil==2.9.0.post0
+pytz==2024.2
+six==1.16.0
+sqlparse==0.5.1
+tzdata==2024.2

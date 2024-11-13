@@ -144,6 +144,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private final long llCombineShowTime = 5 * 60 * 1000; // define in milliseconds
     private final int maxDefinedWordsShow = 4;
     private final int maxLLCombineShow = 3;
+    private final int maxLLCombineShowForStudy = 3;
     private final int maxAdhdStmbShowNum = 3;
     private final int maxContextConvoResponsesShow = 2;
     private final int maxLLUpgradeResponsesShow = 2;
@@ -1154,7 +1155,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
             String translation = response.getString("translation");
             int condition = response.getInt("condition"); // 1: AI Keyword Gloss, 2: L2 Keyword Gloss, No intervention, 3, 4, 5, 6
 
-            if (newWord.equals("null") || newWord.isEmpty() || condition == 2 || condition == 4 || condition == 5 || condition == 6) {
+            if (newWord.equals("null") || newWord.isEmpty() || condition >= 3) {
                 return;
             }
 
@@ -1164,7 +1165,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
             String [] llCombineResults;
             if (condition == 1){
                 updateListForStudy(llCombineResponseForStudy);
-            } else if (condition == 3) {
+            } else if (condition == 2) {
                 updateListOnlyTranslationForStudy(llCombineResponseForStudy);
             } else return;
 
@@ -1911,7 +1912,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
 //        llCombineResponses.removeIf(word -> (currentTime - (word.timestamp * 1000)) > llCombineShowTime);
 
         // Ensure list does not exceed max size
-        while (llCombineResponsesForStudy.size() > maxLLCombineShow) {
+        while (llCombineResponsesForStudy.size() > maxLLCombineShowForStudy) {
             llCombineResponsesForStudy.removeLast();
         }
     }
@@ -1929,7 +1930,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
 //        llCombineResponses.removeIf(word -> (currentTime - (word.timestamp * 1000)) > llCombineShowTime);
 
         // Ensure list does not exceed max size
-        while (llCombineResponsesForStudy.size() > maxLLCombineShow) {
+        while (llCombineResponsesForStudy.size() > maxLLCombineShowForStudy) {
             llCombineResponsesForStudy.removeLast();
         }
     }

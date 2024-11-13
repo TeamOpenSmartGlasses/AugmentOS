@@ -1,7 +1,6 @@
 from django.urls import path
 from . import views
 
-
 urlpatterns = [
     path('api/test/', views.test, name='test'),
     path('api/update-playback-time/', views.update_playback_time, name='update_playback_time'),
@@ -11,4 +10,5 @@ urlpatterns = [
     path('api/set-current-user-id/', views.set_current_user_id, name='set_current_user_id'),
     path('api/get-current-user-id/', views.get_current_user_id, name='get_current_user_id'),
     path('api/export-participants-csv/', views.export_participants_csv, name='export_participants_csv'),
+    path('api/get-video-index-for-participant/', views.get_video_index_for_participant, name='get_video_index_for_participant'),
 ]

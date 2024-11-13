@@ -1,0 +1,14 @@
+Curiosidad insaciable
+
+Me encanta trabajar para startups. Tenemos la oportunidad de resolver problemas significativos con tecnología cool, pero lo más importante es que tenemos oportunidades increíbles para aprender. El aprendizaje constante es el componente clave en la creación de estados de flujo para la autorrealización, y tenemos la suerte de que el aprendizaje es más accesible ahora que nunca antes en la historia de la humanidad.
+
+Hay un montón de razones para aprender cosas nuevas: aprendizaje ad hoc en el puesto de trabajo, descifrar una herramienta que sabemos que tendremos que usar en el próximo proyecto o algo que tenemos que aprender para conseguir un ascenso. Tal vez estemos apostando por una tecnología joven y no demostrada con la esperanza de que cuando despegue, nosotros estaremos allí para ser los primeros en aspirar a los trabajos que genere (hola, Meteor).
+
+Todas estas son buenas razones pero mi excusa favorita para aprender algo —y la que más ha influenciado la mayoría de mis decisiones sobre el tema— es explorar mis fascinaciones más tontas.
+
+Curiosidad
+Uno de los rasgos fundamentales de un diseñador es su curiosidad insaciable. La curiosidad en las vidas de nuestros usuarios, en el contexto sobre el que se presentará nuetro trabajo y en los procesos que utilizamos para darnos cuenta de ello.
+
+En los últimos años he pasado de ser un diseñador gráfico obsesionado por la Helvetica y devoto de Müller-Brockmann, a ser una mezcla extraña de diseñador de interacción y desarrollador full-stack. Un “generalista”, supongo. Me encanta el trabajo que hago ahora, pero nunca fue una decisión consciente —no estaba caminando a una clase tipografía una mañana y de repente me sentí abrumado por la necesidad de preocuparme por el desarrollo guiado por pruebas de software— más bien lo que hago ahora es el resultado de un serie de ensoñaciones, holgazaneos y encontrarme a mí mismo interesado en cosas distintas de lo que estaba haciendo en el momento.
+
+Cuando sentí que mi aprendizaje sobre diseño gráfico estaba estancándose, me emocioné por las posibilidades de aprendizaje que ofrecían los nuevos medios: la web y el móvil. Esto se transformó en desarrollo front-end. Cuando sentí que mi aprendizaje sobre HTML y CSS se había estancado, aprendí JavaScript y Ruby; ahora trato de experimentar con otros lenguajes y disciplinas de ingeniería para saciar mis deseos de aprendizaje. Mi plan a 5 años fue, a posteriori, resolver las cosas a medida que avanzaba: una obsesión implacable con el aprendizaje de nuevas cosas.

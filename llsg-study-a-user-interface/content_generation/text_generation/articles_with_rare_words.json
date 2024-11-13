@@ -1,0 +1,124 @@
+{
+    "article_1_5_percent": {
+        "article_text": "Curiosidad insaciable\n\nMe encanta trabajar para startups. Tenemos la oportunidad de resolver problemas significativos con tecnología cool, pero lo más importante es que tenemos oportunidades increíbles para aprender. El aprendizaje constante es el componente clave en la creación de estados de flujo para la autorrealización, y tenemos la suerte de que el aprendizaje es más accesible ahora que nunca antes en la historia de la humanidad.\n\nHay un montón de razones para aprender cosas nuevas: aprendizaje ad hoc en el puesto de trabajo, descifrar una herramienta que sabemos que tendremos que usar en el próximo proyecto o algo que tenemos que aprender para conseguir un ascenso. Tal vez estemos apostando por una tecnología joven y no demostrada con la esperanza de que cuando despegue, nosotros estaremos allí para ser los primeros en aspirar a los trabajos que genere (hola, Meteor).\n\nTodas estas son buenas razones pero mi excusa favorita para aprender algo —y la que más ha influenciado la mayoría de mis decisiones sobre el tema— es explorar mis fascinaciones más tontas.\n\nCuriosidad\nUno de los rasgos fundamentales de un diseñador es su curiosidad insaciable. La curiosidad en las vidas de nuestros usuarios, en el contexto sobre el que se presentará nuetro trabajo y en los procesos que utilizamos para darnos cuenta de ello.\n\nEn los últimos años he pasado de ser un diseñador gráfico obsesionado por la Helvetica y devoto de Müller-Brockmann, a ser una mezcla extraña de diseñador de interacción y desarrollador full-stack. Un “generalista”, supongo. Me encanta el trabajo que hago ahora, pero nunca fue una decisión consciente —no estaba caminando a una clase tipografía una mañana y de repente me sentí abrumado por la necesidad de preocuparme por el desarrollo guiado por pruebas de software— más bien lo que hago ahora es el resultado de un serie de ensoñaciones, holgazaneos y encontrarme a mí mismo interesado en cosas distintas de lo que estaba haciendo en el momento.\n\nCuando sentí que mi aprendizaje sobre diseño gráfico estaba estancándose, me emocioné por las posibilidades de aprendizaje que ofrecían los nuevos medios: la web y el móvil. Esto se transformó en desarrollo front-end. Cuando sentí que mi aprendizaje sobre HTML y CSS se había estancado, aprendí JavaScript y Ruby; ahora trato de experimentar con otros lenguajes y disciplinas de ingeniería para saciar mis deseos de aprendizaje. Mi plan a 5 años fue, a posteriori, resolver las cosas a medida que avanzaba: una obsesión implacable con el aprendizaje de nuevas cosas.",
+        "article_length": 411,
+        "number_of_rare_words": 40,
+        "rare_words": [
+            {
+                "rare_word": "atorrante",
+                "translation": "slacker"
+            },
+            {
+                "rare_word": "apresto",
+                "translation": "preparation"
+            },
+            {
+                "rare_word": "auspicio",
+                "translation": "sponsorship"
+            },
+            {
+                "rare_word": "inquilinato",
+                "translation": "tenancy"
+            },
+            {
+                "rare_word": "peregrinaje",
+                "translation": "pilgrimage"
+            },
+            {
+                "rare_word": "salmuera",
+                "translation": "brine"
+            },
+            {
+                "rare_word": "travesura",
+                "translation": "mischief"
+            },
+            {
+                "rare_word": "vacilación",
+                "translation": "hesitation"
+            },
+            {
+                "rare_word": "zancada",
+                "translation": "stride"
+            },
+            {
+                "rare_word": "sesquidécada",
+                "translation": "decade and a half"
+            },
+            {
+                "rare_word": "albahaca",
+                "translation": "basil"
+            },
+            {
+                "rare_word": "ataraxia",
+                "translation": "tranquillity"
+            },
+            {
+                "rare_word": "cetrería",
+                "translation": "falconry"
+            },
+            {
+                "rare_word": "epifanía",
+                "translation": "epiphany"
+            },
+            {
+                "rare_word": "filántropo",
+                "translation": "philanthropist"
+            },
+            {
+                "rare_word": "gominola",
+                "translation": "gummy candy"
+            },
+            {
+                "rare_word": "hendija",
+                "translation": "slit"
+            },
+            {
+                "rare_word": "juglar",
+                "translation": "minstrel"
+            },
+            {
+                "rare_word": "limerencia",
+                "translation": "infatuation"
+            },
+            {
+                "rare_word": "mazmorra",
+                "translation": "dungeon"
+            },
+            {
+                "rare_word": "novatada",
+                "translation": "hazing"
+            },
+            {
+                "rare_word": "oleoducto",
+                "translation": "pipeline"
+            },
+            {
+                "rare_word": "panteón",
+                "translation": "mausoleum"
+            },
+            {
+                "rare_word": "quincena",
+                "translation": "fortnight"
+            },
+            {
+                "rare_word": "ubérrimo",
+                "translation": "fertile"
+            },
+            {
+                "rare_word": "vaguedad",
+                "translation": "vagueness"
+            }
+        ],
+        "article_text_with_rare_words": "I love working for startups. We have the chance to solve significant problems with cool technology, but most importantly, we have amazing opportunities to learn. Constant learning is the key **epiphany** in creating states of flow for self-fulfillment, and we are lucky that learning is more accessible now than ever before in human history.\n\nThere are plenty of reasons to learn new things: ad hoc learning on the job, figuring out a tool we know we'll need to use in the next project, or something we have to learn to get a promotion. Perhaps we are betting on a young, unproven technology with the hope that when it takes off, we'll be the first to stride into the jobs it creates (hello, Meteor). Someone might even discover a **pipeline** for new opportunities through these bets.\n\nAll of these are good reasons, but my favorite excuse to learn something—and the one that has influenced most of my decisions on the subject—is exploring my silly fascinations.\n\nCuriosity\nOne of the fundamental traits of a designer is their insatiable curiosity. Curiosity about the lives of our users, the context in which our work will be presented, and the process we use to realize it.\n\nIn the last decade and a half, I have gone from being a graphic designer obsessed with Helvetica and a devotee of Müller-Brockmann to becoming a strange mix of interaction designer and full-stack developer. A \"generalist,\" I suppose. I love the work I do now, but it was never a conscious decision— I wasn't walking into a typography class one morning and suddenly felt overwhelmed by the need to worry about test-driven software development—rather, what I do now is the result of a series of daydreams, **slacker** moments, and finding myself interested in different things from what I was doing at the time.\n\nWhen I felt that my learning in graphic design was stagnating, I was thrilled by the learning **preparation** opportunities offered by new media: the web and mobile. This transformed into front-end development. When I felt my learning in HTML and CSS had plateaued, I learned JavaScript and Ruby; now I try to **infatuation** myself with other languages and engineering disciplines to satisfy my learning cravings. My five-year plan was, in hindsight, to resolve things as I progressed: an unrelenting obsession with learning new things.\n\nLearning is like a **pilgrimage**. It's not always clear where one ends and another begins, much like wandering through a mental **dungeon** without a map, finding joys in unexpected places, and having epiphanies that shape your journey. The vagueness of the path can also lead to new and fertile ideas blooming unexpectedly. In this voyage, my mind is always at work, much like the stealth and grace of **falconry** where ideas soar one moment and glide the next. \n\nIn this world of constant change, being a **minstrel** of learning is essential to thrive. It's important not just to move from one task to another but to delve deeply into the experience, find enjoyment in the **mischief** of discovering something new, and emerge with newfound peace and skills, much like discovering a hidden **mausoleum** in a dense forest.\n\nThis relentless quest for knowledge might seem daunting, and **hesitation** could creep in, but remember, every two weeks, which is a **fortnight**, is a chance to be reborn with richer insight. Though it may feel like **hazing** sometimes, the rewards are as sweet as **gummy candy**, leaving a lasting sense of tranquillity when you look back at all you've accomplished and the skills you've amassed in the interim."
+    },
+    "article_3_english_5_percent": {
+        "article_text": "Fair games?\n\nFor seventeen days every four years the world is briefly arrested by the captivating, dizzying spectacle of athleticism, ambition, pride and celebration on display at the Summer Olympic Games. After the last weary spectators and competitors have returned home, however, host cities are often left awash in high debts and costly infrastructure maintenance. The staggering expenses involved in a successful Olympic bid are often assumed to be easily mitigated by tourist revenues and an increase in local employment, but more often than not host cities are short changed and their taxpayers for generations to come are left settling the debt.\n\nOlympic extravagances begin with the application process. Bidding alone will set most cities back about $20 million, and while officially bidding only takes two years (for cities that make the shortlist), most cities can expect to exhaust a decade working on their bid from the moment it is initiated to the announcement of voting results from International Olympic Committee members. Aside from the financial costs of the bid alone, the process ties up real estate in prized urban locations until the outcome is known. This can cost local economies millions of dollars of lost revenue from private developers who could have made use of the land, and can also mean that particular urban quarters lose their vitality due to the vacant lots. All of this can be for nothing if a bidding city does not appease the whims of IOC members – private connections and opinions on government conduct often hold sway (Chicago’s 2012 bid is thought to have been undercut by tensions over U.S. foreign policy).\n\nBidding costs do not compare, however, to the exorbitant bills that come with hosting the Olympic Games themselves. As is typical with large-scale, one-off projects, budgeting for the Olympics is a notoriously formidable task. Los Angelinos have only recently finished paying off their budget-breaking 1984 Olympics; Montreal is still in debt for its 1976 Games (to add insult to injury, Canada is the only host country to have failed to win a single gold medal during its own Olympics). The tradition of runaway expenses has persisted in recent years. London Olympics managers have admitted that their 2012 costs may increase ten times over their initial projections, leaving tax payers 20 billion pounds in the red.\n\nHosting the Olympics is often understood to be an excellent way to update a city’s sporting infrastructure. The extensive demands of Olympic sports include aquatic complexes, equestrian circuits, shooting ranges, beach volleyball courts, and, of course, an 80,000 seat athletic stadium. Yet these demands are typically only necessary to accommodate a brief influx of athletes from around the world. Despite the enthusiasm many populations initially have for the development of world-class sporting complexes in their home towns, these complexes typically fall into disuse after the Olympic fervour has waned. Even Australia, home to one of the world’s most sportive populations, has left its taxpayers footing a $32 million-a-year bill for the maintenance of vacant facilities.",
+        "article_length": 499,
+        "number_of_rare_words": 48
+    },
+    "article_2_5_percent": {
+        "article_text": "En 1952, la circulación de cómics en Estados Unidos alcanzó su punto máximo con alrededor de mil millones de copias de más de 3.000 revistas diferentes. Sin embargo, en términos de valor literario, ninguno fue considerado valioso hasta 1986.\n\n¿La razón? Los cómics no tenían un Ernest Hemingway o un F. Scott Fitzgerald. No había un equivalente a La letra escarlata o Moby Dick en formato ilustrado. Ninguno, hasta 1986 cuando se publica The Dark Knight Returns de Frank Miller y Watchmen de Alan Moore. Los dos provocaron a los críticos literarios, desafiando todo lo que creían saber sobre cómics. En 1986, los literatos empezaron a prestar atención al mundo del cómic. En 1986, se dieron cuenta de que los cómics podían ser algo más que tiras impresas en periódicos que los niños podían usar y luego botar. En 1986, los cómics se convirtieron en literatura.\n\nEscrito y dibujado por Frank Miller, con ayuda en la ilustración por parte de Klaus Janson y Lynn Varley, The Dark Knight Returns reinventa completamente a Batman, liberando al personaje de la prisión de recuadros ambiguamente gays que compartía con Robin. Utilizando tácticas noir para ilustrar las diferencias entre Bruce Wayne y Batman, Miller describe a Wayne como un hombre de aguda inteligencia, pacífico que envejece al mismo tiempo que lucha con su alter ego, un Batman que tiene que ser poderoso y, a veces, violentamente inmisericorde. El arco de la historia sondea la mortalidad y la moralidad mientras seguimos el regreso de Wayne (ahora de 55 años) desde su exilio autoimpuesto, luego de la muerte de Robin. El multimillonario de mediana edad lucha con los desafíos físicos y psicológicos de convertirse nuevamente en Batman - un tipo de crisis humana casi nunca antes explorada en los cómics en circulación.\n\nEn vez de usar el tradicional papel periódico de los cómic, la serie de cuatro números de Dark Knight Returns fue impresa en papel de alta calidad con tapas de cartulina brillante, lo que le dio una imagen más sofisticada que fue bautizada por DC Comics como “Formato de prestigio”. El cambio en el fondo y la forma alentó a que The Dark Knight Returns sea leída como una novela con imágenes — en definitiva, la primera novela gráfica. Fue un gran éxito tanto comercial como de crítica, lo que demostró que los cómics podían expresar sentimientos maduros, mientras exploraban temas importantes.\n\nProbablemente la serie más importante del cómic, Watchmen fue escrito por Alan Moore e ilustrada por Dave Gibbons. La pareja se dispuso a crear el último cómic de superhéroes inventando un arco de historia compleja que gira en torno a cruzados disfrazados que residen en un mundo creíble. Moore ha declarado que estaba “tratando conscientemente de hacer algo que ponga incómoda a la gente”. Objetivo logrado, en parte, al colocar a sus personajes en una versión alternativa de la era Reagan. A partir de ahí, Watchmen desarma la idea de un superhéroe, describiendo en imágenes la cruda realidad y las duras verdades de ser un simple mortal que se pone un disfraz para combatir el crimen.",
+        "article_length": 514,
+        "number_of_rare_words": 50
+    }
+}

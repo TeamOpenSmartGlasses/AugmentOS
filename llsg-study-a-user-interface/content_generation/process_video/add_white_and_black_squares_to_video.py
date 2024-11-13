@@ -20,13 +20,13 @@ def add_square(frame, frame_number, time_ranges):
     img = Image.fromarray(frame)
     draw = ImageDraw.Draw(img)
 
-    square_size = 150
+    square_size = 200
     square_color = (0, 0, 0)
     draw.rectangle([0, 0, square_size, square_size], fill=square_color)
 
     for start_frame, end_frame in time_ranges:
         if start_frame <= frame_number <= end_frame:
-            white_square_size = 100
+            white_square_size = 150
             white_square_color = (255, 255, 255)
             draw.rectangle([0, 0, white_square_size, white_square_size], fill=white_square_color)
             break

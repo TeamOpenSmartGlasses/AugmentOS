@@ -1,0 +1,24 @@
+### Insatiable Curiosity
+
+I love working for startups. We have the opportunity to solve significant problems with cool technology, but more importantly, we have incredible opportunities for learning. Constant learning is the key component in creating flow states for **self-fulfillment**, and we are lucky that learning is more accessible now than ever before in human history.
+
+There are many reasons to learn new things: ad hoc learning on the job, figuring out a tool we know we'll need for the next project, or something we have to learn to get a promotion. Maybe we are betting on a young, unproven technology hoping that when it takes off, we will be there to be the first to apply for the jobs it generates (hello, Meteor).
+
+All these are good reasons, but my favorite excuse to learn something — and the one that has influenced most of my decisions about it — is exploring my silliest **daydreamings**.
+
+Curiosity  
+One of the fundamental **traits** of a designer is their insatiable curiosity. Curiosity about the lives of our users, the context in which our work will be presented, and the processes we use to make it happen.
+
+In recent years, I have gone from being a graphic designer obsessed with Helvetica and a devotee of Müller-Brockmann to being a strange mix of interaction designer and full-stack **developer**. A "generalist," I suppose. I love the work I do now, but it was never a conscious decision — I was not walking to a **typography** class one morning and suddenly overwhelmed by the need to care about test-driven software development — rather, what I do now is the result of a series of **daydreamings**, **loungings**, and finding myself interested in things different from what I was doing at the moment.
+
+When I felt my learning about graphic design was **stagnation**, I got excited about the learning possibilities offered by new media: the web and mobile. This transformed into front-end development. When I felt my learning about HTML and CSS had **stagnation**, I learned JavaScript and Ruby; now I try to experiment with other languages and engineering disciplines to satisfy my learning desires. My five-year plan was, **after the fact**, to figure things out as I went: an unrelenting obsession with learning new things.
+
+My favorite part of this constant learning journey is how it adds to my **self-fulfillment**. It's not just about acquiring new skills but about enriching my sense of purpose and achievement. Every new skill learned, every curiosity followed, ties back to a deep feeling of **self-fulfillment**.
+
+The never-ending cycle of curiosity leading to learning, and learning leading to curiosity, can often produce an internal **stagnation** if not managed well. That's where breaking away for a bit, indulging in some mindless **loungings**, or going on whimsical **daydreamings** helps rejuvenate the mind.
+
+**Typography** may have been the starting point, but the world of design and development has opened a vast realm where curiosity can truly flourish. It's important to maintain a balance and understand that rest, as found in moments of **loungings**, is as crucial as the eagerly pursued learning paths. Each role, every project, and even every mistake plays a role in developing a well-rounded **developer**.
+
+Understanding one's **traits** deeply can enhance the capacity to learn effectively and to apply oneself in diverse situations. It's this blend of curiosity, relentless pursuit of knowledge, and recognition of one's unique **traits** that drives us towards true growth.
+
+Looking back at my journey, it's clear that what mattered most was the attitude towards learning **after the fact**. The ability to see every challenge as an opportunity and every opportunity as a step towards greater **self-fulfillment** is what keeps the spirit of learning alive, no matter how many **daydreamings** or **loungings** it takes to stay inspired.
