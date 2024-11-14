@@ -110,7 +110,7 @@ export class BluetoothService extends EventEmitter {
 
   async connectToDevice(device: Device) {
     try {
-      console.log("\n\nCONNECTING TO PUCK\n\n");
+      console.log('\n\nCONNECTING TO PUCK\n\n');
       await BleManager.connect(device.id);
 
       // Poll to confirm the device is actually connected
@@ -120,7 +120,9 @@ export class BluetoothService extends EventEmitter {
         for (let i = 0; i < 5; i++) {
           await new Promise(resolve => setTimeout(resolve, 500)); // Wait 500ms
           isConnected = await BleManager.isPeripheralConnected(device.id, []);
-          if (isConnected) break;
+          if (isConnected) {
+            break;
+          }
         }
       }
 
@@ -131,7 +133,7 @@ export class BluetoothService extends EventEmitter {
       this.connectedDevice = device;
       this.emit('deviceConnected', device);
 
-      console.log("\n\nCHECKING BONDING STATUS\n\n");
+      console.log('\n\nCHECKING BONDING STATUS\n\n');
       const bondedDevices = await BleManager.getBondedPeripherals();
       const isAlreadyBonded = bondedDevices.some(bondedDevice => bondedDevice.id === device.id);
 
@@ -145,7 +147,7 @@ export class BluetoothService extends EventEmitter {
 
       try {
         await new Promise(resolve => setTimeout(resolve, 3000));
-        console.log("\n\nGETTING PUCK SERVICES\n\n");
+        console.log('\n\nGETTING PUCK SERVICES\n\n');
         const services = await BleManager.retrieveServices(device.id);
         console.log('Retrieved services:', services);
       } catch (error) {
@@ -154,7 +156,7 @@ export class BluetoothService extends EventEmitter {
 
       try {
         this.mtuSize = 23; //default mtu size
-        const mtu = await BleManager.requestMTU(device.id, 512) //512 supposed to be max mtu
+        const mtu = await BleManager.requestMTU(device.id, 512); // 512 supposed to be max mtu
         console.log(`MTU size changed to ${mtu}`);
         this.mtuSize = mtu;
       } catch (error) {
@@ -162,9 +164,9 @@ export class BluetoothService extends EventEmitter {
       }
 
       await new Promise(resolve => setTimeout(resolve, 500));
-      console.log("\n\nENABLING NOTIFICATIONS\n\n");
+      console.log('\n\nENABLING NOTIFICATIONS\n\n');
       await this.enableNotifications(device.id);
-      console.log("\n\nSENDING STATUS\n\n");
+      console.log('\n\nSENDING STATUS\n\n');
 
       await this.sendRequestStatus();
     } catch (error) {
@@ -180,7 +182,7 @@ export class BluetoothService extends EventEmitter {
     } catch (error) {
       console.error('Failed to enable notifications:', error);
     }
-  };
+  }
 
   async disconnectFromDevice() {
     if (!this.connectedDevice) {
@@ -206,7 +208,7 @@ export class BluetoothService extends EventEmitter {
     try {
       const data = await BleManager.read(this.connectedDevice.id, this.SERVICE_UUID, this.CHARACTERISTIC_UUID);
       this.emit('dataReceived', data);
-      console.log("\n\nRECEIVED DATA FROM AUGMENTOS_MAIN:\n" + data + "\n\n");
+      console.log('\n\nRECEIVED DATA FROM AUGMENTOS_MAIN:\n' + data + '\n\n');
       return data;
     } catch (error) {
       console.error('Error reading characteristic:', error);
@@ -344,29 +346,29 @@ export class BluetoothService extends EventEmitter {
 
   async sendRequestStatus() {
     return await this.sendDataToAugmentOs(
-      { "command": "request_status" }
+      { 'command': 'request_status' }
     );
   }
 
   async sendConnectWearable() {
     return await this.sendDataToAugmentOs(
-      { "command": "connect_wearable" }
+      { 'command': 'connect_wearable' }
     );
   }
 
   async sendDisconnectWearable() {
     return await this.sendDataToAugmentOs(
-      { "command": "disconnect_wearable" }
+      { 'command': 'disconnect_wearable' }
     );
   }
 
   async sendToggleVirtualWearable(enabled: boolean) {
     return await this.sendDataToAugmentOs(
       {
-        "command": "enable_virtual_wearable",
-        "params": {
-          "enabled": enabled
-        }
+        'command': 'enable_virtual_wearable',
+        'params': {
+          'enabled': enabled,
+        },
       }
     );
   }
@@ -374,10 +376,10 @@ export class BluetoothService extends EventEmitter {
   async startAppByPackageName(packageName: string) {
     return await this.sendDataToAugmentOs(
       {
-        "command": "start_app",
-        "params": {
-          "target": packageName
-        }
+        'command': 'start_app',
+        'params': {
+          'target': packageName,
+        },
       }
     );
   }
@@ -385,10 +387,10 @@ export class BluetoothService extends EventEmitter {
   async stopAppByPackageName(packageName: string) {
     return await this.sendDataToAugmentOs(
       {
-        "command": "stop_app",
-        "params": {
-          "target": packageName
-        }
+        'command': 'stop_app',
+        'params': {
+          'target': packageName,
+        },
       }
     );
   }
@@ -396,10 +398,10 @@ export class BluetoothService extends EventEmitter {
   async setAuthenticationSecretKey(authSecretKey: string) {
     return await this.sendDataToAugmentOs(
       {
-        "command": "set_auth_secret_key",
-        "params": {
-          "authSecretKey": authSecretKey
-        }
+        'command': 'set_auth_secret_key',
+        'params': {
+          'authSecretKey': authSecretKey,
+        },
       }
     );
   }
@@ -407,7 +409,7 @@ export class BluetoothService extends EventEmitter {
   async verifyAuthenticationSecretKey() {
     return await this.sendDataToAugmentOs(
       {
-        "command": "verify_auth_secret_key"
+        'command': 'verify_auth_secret_key',
       }
     );
   }
@@ -415,11 +417,12 @@ export class BluetoothService extends EventEmitter {
   async deleteAuthenticationSecretKey() {
     return await this.sendDataToAugmentOs(
       {
-        "command": "delete_auth_secret_key"
+        'command': 'delete_auth_secret_key',
       }
     );
   }
 
 }
+
 
 export const bluetoothService = new BluetoothService();
