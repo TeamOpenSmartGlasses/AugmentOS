@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useStatus } from '../AugmentOSStatusProvider';
@@ -7,6 +7,14 @@ const PuckConnection: React.FC = () => {
   const { status } = useStatus();
   const isConnected = status.puck_connected;
   const batteryLevel = status.puck_battery_life ?? 0; // Default to 0 if battery level is null
+
+  useEffect(()=>{
+    console.log("STATUS UPDATED WOOT WOOT");
+    console.log(JSON.stringify(status))
+    console.log("\n")
+  }, [
+    status
+  ])
 
   // Function to determine the battery icon based on battery level
   const getBatteryIcon = (level: number) => {

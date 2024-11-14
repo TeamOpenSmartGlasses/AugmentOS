@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated, Alert, PermissionsAndroid, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { BluetoothService, Device } from '../BluetoothService';
+import { bluetoothService, Device } from '../BluetoothService';
 import { useStatus } from '../AugmentOSStatusProvider';
 
 interface ConnectedDeviceInfoProps {
   isDarkTheme: boolean;
 }
 
-const bluetoothService = new BluetoothService(); // Initialize a single instance of BluetoothService
+//const bluetoothService = new BluetoothService(); // Initialize a single instance of BluetoothService
 
 const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }) => {
   // const [isConnected, setIsConnected] = useState(false);
@@ -46,18 +46,8 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
       setIsLoading(false);
     };
 
-    const onDataReceived = (data: any) => {
-      try {
-        const parsedData = data ? String.fromCharCode(...data) : 'No data';
-        refreshStatus({ status: JSON.parse(parsedData) });
-      } catch (error) {
-        console.error('Data parsing error:', error);
-      }
-    };
-
     bluetoothService.on('deviceConnected', onDeviceConnected);
     bluetoothService.on('deviceDisconnected', onDeviceDisconnected);
-    bluetoothService.on('dataReceived', onDataReceived);
 
     return () => {
       bluetoothService.removeListeners();

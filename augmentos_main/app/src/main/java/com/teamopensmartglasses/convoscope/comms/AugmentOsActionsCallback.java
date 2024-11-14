@@ -9,6 +9,9 @@ public interface AugmentOsActionsCallback {
     void enableVirtualWearable(boolean enabled);
     void startApp(String packageName);
     void stopApp(String packageName);
+    void installAppFromRepository(JSONObject repoAppData);
+    void uninstallApp(String packageName);
+    void handleNotificationData(JSONObject notificationData);
     void setAuthSecretKey(String authSecretKey);
     void verifyAuthSecretKey();
     void deleteAuthSecretKey();

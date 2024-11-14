@@ -67,8 +67,8 @@ export class BluetoothService extends EventEmitter {
     this.emit('scanStarted');
 
     try {
-      await BleManager.scan([this.SERVICE_UUID], 5, true);
       console.log('Scanning for BLE devices...');
+      await BleManager.scan([this.SERVICE_UUID], 5, true);
     } catch (error) {
       console.error('Error during scanning:', error);
       this.isScanning = false;
@@ -128,8 +128,8 @@ export class BluetoothService extends EventEmitter {
         throw new Error(`Failed to connect to ${device.name} after multiple attempts`);
       }
 
-      this.connectedDevice = device;
-      this.emit('deviceConnected', device);
+      // this.connectedDevice = device;
+      // this.emit('deviceConnected', device);
 
       console.log("\n\nCHECKING BONDING STATUS\n\n");
       const bondedDevices = await BleManager.getBondedPeripherals();
@@ -165,6 +165,9 @@ export class BluetoothService extends EventEmitter {
       console.log("\n\nENABLING NOTIFICATIONS\n\n");
       await this.enableNotifications(device.id);
       console.log("\n\nSENDING STATUS\n\n");
+
+      this.connectedDevice = device;
+      this.emit('deviceConnected', device);
 
       await this.sendRequestStatus();
     } catch (error) {
@@ -248,10 +251,10 @@ export class BluetoothService extends EventEmitter {
         const jsonString = textDecoder.decode(completeData);
 
         // Process the JSON data
-        this.emit('dataReceived', jsonString);
         try {
           const jsonData = JSON.parse(jsonString);
           console.log('Received JSON data:', jsonData);
+          this.emit('dataReceived', jsonData);
         } catch (error) {
           console.error('Error parsing JSON data:', error);
         }

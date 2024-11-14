@@ -1,6 +1,7 @@
 interface Glasses {
   model_name: string;
   battery_life: number;
+  is_searching: boolean;
 }
 
 interface WifiConnection {
@@ -25,7 +26,7 @@ interface AppInfo {
 }
 
 
-interface AugmentOSMainStatus {
+export interface AugmentOSMainStatus {
   puck_connected: boolean;
   puck_battery_life: number | null;
   puck_charging_status: boolean;
@@ -35,12 +36,9 @@ interface AugmentOSMainStatus {
   apps: AppInfo[];
 }
 
-class AugmentOSParser {
-  private status: AugmentOSMainStatus;
-
-  constructor() {
-    // Default initial status with empty values
-    this.status = {
+export class AugmentOSParser {
+  static parseStatus(data: any): AugmentOSMainStatus {
+    const defaultStatus: AugmentOSMainStatus = {
       puck_connected: false,
       puck_battery_life: null,
       puck_charging_status: false,
@@ -49,46 +47,35 @@ class AugmentOSParser {
       gsm: { is_connected: false, carrier: '', signal_strength: 0 },
       apps: [],
     };
-  }
 
-  /**
-   * Parse a status message from AugmentOS_Main.
-   * @param data The raw JSON object received from the puck.
-   */
-  parseStatus(data: any): void {
-    if (data && typeof data === 'object' && 'status' in data) {
+    console.log('checking dat');
+    if (data && 'status' in data) {
+      console.log('data good?')
       const status = data.status;
-      this.status.puck_connected = true;
-      this.status.puck_battery_life = status.puck_battery_life ?? null;
-      this.status.puck_charging_status = status.charging_status ?? false;
-
-      if ('connected_glasses' in status) {
-        this.status.glasses_info = status.connected_glasses;
-      } else {
-        this.status.glasses_info = null;
-      }
-
-      this.status.wifi = status.wifi ?? this.status.wifi;
-      this.status.gsm = status.gsm ?? this.status.gsm;
-
-      this.status.apps = status.apps?.map((app: any) => ({
-        name: app.name || 'Unknown App',
-        description: app.description || 'No description available',
-        is_running: !!app.is_running,
-        is_foreground: !!app.is_foreground,
-        package_name: app.package_name || 'unknown.package',
-        icon: app.icon || 'default-icon-path', // Add this with a default or provided path
-
-      })) || [];
+      return {
+        puck_connected: true,
+        puck_battery_life: status.puck_battery_life ?? null,
+        puck_charging_status: status.charging_status ?? false,
+        glasses_info: status.connected_glasses
+          ? {
+              model_name: status.connected_glasses.model_name,
+              battery_life: status.connected_glasses.battery_life,
+              is_searching: status.connected_glasses.is_searching ?? false,
+            }
+          : null,
+        wifi: status.wifi ?? defaultStatus.wifi,
+        gsm: status.gsm ?? defaultStatus.gsm,
+        apps: status.apps?.map((app: any) => ({
+          name: app.name || 'Unknown App',
+          description: app.description || 'No description available',
+          is_running: !!app.is_running,
+          is_foreground: !!app.is_foreground,
+          package_name: app.package_name || 'unknown.package',
+          icon: app.icon || 'default-icon-path',
+        })) || [],
+      };
     }
-  }
-
-  /**
-   * Get the current status of AugmentOS_Main.
-   * @returns AugmentOSMainStatus object.
-   */
-  getStatus(): AugmentOSMainStatus {
-    return this.status;
+    return defaultStatus;
   }
 }
 

@@ -48,6 +48,21 @@ public class AugmentOsManagerMessageParser {
                     callback.stopApp(stopPackage);
                     break;
 
+                case "install_app_from_repository":
+                    JSONObject repoAppData = commandObject.getJSONObject("params");
+                    callback.installAppFromRepository(repoAppData);
+                    break;
+
+                case "uninstall_app":
+                    String uninstallPackage = commandObject.getJSONObject("params").getString("target");
+                    callback.uninstallApp(uninstallPackage);
+                    break;
+
+                case "phone_notification":
+                    JSONObject notificationData = commandObject.getJSONObject("params");
+                    callback.handleNotificationData(notificationData);
+                    break;
+
                 case "set_auth_secret_key":
                     String authKey = commandObject.getJSONObject("params").getString("authSecretKey");
                     callback.setAuthSecretKey(authKey);

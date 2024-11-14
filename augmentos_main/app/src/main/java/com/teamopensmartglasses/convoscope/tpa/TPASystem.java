@@ -33,6 +33,7 @@ import com.teamopensmartglasses.augmentoslib.events.SpeechRecIntermediateOutputE
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
+import com.teamopensmartglasses.convoscope.events.TriggerSendStatusToAugmentOsManagerEvent;
 import com.teamopensmartglasses.convoscope.tpa.eventbusmessages.TPARequestEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -246,6 +247,11 @@ public class TPASystem {
 
         thirdPartyApps.add(app);
         saveThirdPartyAppsToStorage();
+
+        // TODO: Evaluate if we should be doing this
+        // Manually triggering these status updates seems like it will lead to chaotic spaghetti slot
+        // I *think* status updates should be 99% manager-controlled, basically REST API pattern.
+        // EventBus.getDefault().post(new TriggerSendStatusToAugmentOsManagerEvent());
     }
 
     public void unregisterThirdPartyApp(ThirdPartyApp app) {
@@ -256,8 +262,7 @@ public class TPASystem {
     private void unregisterThirdPartyAppByPackageName(String packageName) {
         for (ThirdPartyApp tpa : thirdPartyApps) {
             if (tpa.packageName.equals(packageName)) {
-                thirdPartyApps.remove(tpa);
-                saveThirdPartyAppsToStorage();
+                unregisterThirdPartyApp(tpa);
                 break;
             }
         }

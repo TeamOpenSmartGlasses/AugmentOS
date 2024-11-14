@@ -216,11 +216,13 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             AugmentosSmartGlassesService.LocalBinder binder = (AugmentosSmartGlassesService.LocalBinder) service;
             smartGlassesService = (AugmentosSmartGlassesService) binder.getService();
             isSmartGlassesServiceBound = true;
+            sendStatusToAugmentOsManager();
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
             isSmartGlassesServiceBound = false;
+            sendStatusToAugmentOsManager();
         }
     };
 //        super(AugmentosUi.class,
@@ -387,7 +389,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Subscribe
     public void onGlassesConnnected(SmartGlassesConnectedEvent event) {
-
+        sendStatusToAugmentOsManager();
     }
 
     public void handleSignOut(){
@@ -2055,6 +2057,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         stopService(notificationServiceIntent);
     }
 
+    public boolean getIsSearchingForGlasses() {
+        return isSmartGlassesServiceBound && smartGlassesService.getConnectedSmartGlasses() == null;
+    }
+
     public JSONObject generateStatusJson() {
         try {
             // Creating the main status object
@@ -2073,6 +2079,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             else {
                 connectedGlasses.put("model_name", null);
                 connectedGlasses.put("battery_life", null);
+                connectedGlasses.put("is_searching", getIsSearchingForGlasses());
             }
             status.put("connected_glasses", connectedGlasses);
 
@@ -2117,14 +2124,16 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     // AugmentOS_Manager Comms Callbacks
+    public void sendStatusToAugmentOsManager(){
+        // Build status obj, send to aosmanager
+        JSONObject status = generateStatusJson();
+        blePeripheral.sendDataToAugmentOsManager(status.toString());
+    }
 
     @Override
     public void requestStatus() {
         Log.d("AugmentOsService", "Requesting status: ");
-        // Build status obj, send to aosmanager
-        JSONObject status = generateStatusJson();
-        blePeripheral.sendDataToAugmentOsManager(status.toString());
-
+        sendStatusToAugmentOsManager();
     }
 
     @Override
@@ -2132,6 +2141,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Connecting to wearable: " + wearableId);
         // Logic to connect to wearable
         startSmartGlassesService();
+
+        sendStatusToAugmentOsManager();
     }
 
     @Override
@@ -2139,6 +2150,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Disconnecting from wearable: " + wearableId);
         // Logic to disconnect wearable
         stopSmartGlassesService();
+
+        sendStatusToAugmentOsManager();
     }
 
     @Override
@@ -2151,6 +2164,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             AugmentosSmartGlassesService.savePreferredWearable(this, "");
 
         if (isSmartGlassesServiceBound) restartSmartGlassesService();
+
+        sendStatusToAugmentOsManager();
     }
 
     @Override
@@ -2160,18 +2175,43 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         // Only one TPA permitted for now
         tpaSystem.stopAllThirdPartyApps();
+
         tpaSystem.startThirdPartyAppByPackageName(packageName);
-        // saveCurrentMode(this, packageName);
+        sendStatusToAugmentOsManager();
     }
 
     @Override
     public void stopApp(String packageName) {
         Log.d("AugmentOsService", "Stopping app: " + packageName);
-        // Logic to stop the app by package name
-
-        // NOTE: Until TPA paradigm is reimplemented, this just switches modes
         tpaSystem.stopThirdPartyAppByPackageName(packageName);
-        //saveCurrentMode(this, "");
+        sendStatusToAugmentOsManager();
+    }
+
+    @Override
+    public void installAppFromRepository(JSONObject repoAppData) {
+        Log.d(TAG, "installAppFromRepository not implemented");
+        //TODO: Implement this
+        sendStatusToAugmentOsManager();
+    }
+
+    @Override
+    public void uninstallApp(String uninstallPackageName) {
+        Log.d(TAG, "uninstallApp not implemented");
+        //TODO: Implement this
+        sendStatusToAugmentOsManager();
+    }
+
+    @Override
+    public void handleNotificationData(JSONObject notificationData){
+        if (notificationData != null) {
+            String jsonString = notificationData.toString();
+            System.out.println("Notification Data: " + jsonString);
+
+            //TODO: Actually finish implementing notifications
+            //TODO: Also pull navigation data from this?
+        } else {
+            System.out.println("Notification Data is null");
+        }
     }
 
     @Override
@@ -2218,6 +2258,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             } catch (JSONException e){}
         }
+
+        sendStatusToAugmentOsManager();
     }
 
     public class LocalBinder extends Binder {

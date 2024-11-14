@@ -1,25 +1,26 @@
 import React, { createContext, useContext, useState, ReactNode, useCallback, useMemo, useEffect } from 'react';
-import AugmentOSParser from './AugmentOSStatusParser';
+import {AugmentOSParser, AugmentOSMainStatus} from './AugmentOSStatusParser';
 import { bluetoothService } from './BluetoothService';
 
 interface AugmentOSStatusContextType {
-    status: ReturnType<AugmentOSParser['getStatus']>;
+    status: AugmentOSMainStatus;
     refreshStatus: (data: any) => void;
 }
 
 const AugmentOSStatusContext = createContext<AugmentOSStatusContextType | undefined>(undefined);
 
 export const StatusProvider = ({ children }: { children: ReactNode }) => {
-    const parser = useMemo(() => new AugmentOSParser(), []); // Create parser instance without default data
-    const [status, setStatus] = useState(parser.getStatus()); // Initialize with empty/default status
+    const [status, setStatus] = useState(AugmentOSParser.parseStatus({}));
 
     const refreshStatus = useCallback((data: any) => {
-        parser.parseStatus(data); // Parse the new status
-        setStatus(parser.getStatus()); // Update the state to trigger re-renders
-    }, [parser]);
+        const parsedStatus = AugmentOSParser.parseStatus(data);
+        console.log("\n\nPARSED STATUS: ", parsedStatus);
+        setStatus(parsedStatus);
+    }, []);
 
     useEffect(() => {
         const handleDataReceived = (data: any) => {
+            console.log("Handling received data.. refreshing status..");
             refreshStatus(data);
         };
 
@@ -37,7 +38,6 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
     );
 };
 
-// Custom hook to access the status context
 export const useStatus = () => {
     const context = useContext(AugmentOSStatusContext);
     if (!context) {
