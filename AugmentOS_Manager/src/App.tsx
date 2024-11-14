@@ -10,6 +10,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
 import ProfileSettingsPage from './screens/ProfileSettingsPage';
 import GlassesMirror from './screens/GlassesMirror';
+import NotificationListener from './components/NotificationListener';
 import { StyleSheet } from 'react-native';
 
 const Stack = createNativeStackNavigator();
@@ -23,65 +24,67 @@ const App: React.FC = () => {
 
   return (
     <GestureHandlerRootView style={styles.container}>
-      <StatusProvider>
-        <NavigationContainer>
-          <Stack.Navigator initialRouteName="Intro">
-            <Stack.Screen
-              name="Intro"
-              component={IntroScreen}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Home"
-              options={{ headerShown: false }}
-            >
-              {() => <Homepage isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />}
-            </Stack.Screen>
-            <Stack.Screen
-              name="Register"
-              component={RegisterScreen}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Login"
-              component={LoginScreen}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="SettingsPage"
-              options={{ headerShown: false }}
-            >
-              {() => <SettingsPage isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />}
-            </Stack.Screen>
-            <Stack.Screen
-              name="ProfileSettings"
-              options={{
-                headerShown: false,
-                title: 'Profile Settings',
-                headerStyle: {
-                  backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
-                },
-                headerTintColor: isDarkTheme ? '#ffffff' : '#000000',
-              }}
-            >
-              {(props) => <ProfileSettingsPage {...props} isDarkTheme={isDarkTheme} />}
-            </Stack.Screen>
-            <Stack.Screen
-              name="GlassesMirror"
-              options={{
-                headerShown: false,
-                title: 'Glasses Mirror',
-                headerStyle: {
-                  backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
-                },
-                headerTintColor: isDarkTheme ? '#ffffff' : '#000000',
-              }}
-            >
-              {() => <GlassesMirror isDarkTheme={isDarkTheme} />}
-            </Stack.Screen>
-          </Stack.Navigator>
-        </NavigationContainer>
-      </StatusProvider>
+      <NotificationListener>
+        <StatusProvider>
+          <NavigationContainer>
+            <Stack.Navigator initialRouteName="Intro">
+              <Stack.Screen
+                name="Intro"
+                component={IntroScreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Home"
+                options={{ headerShown: false }}
+              >
+                {() => <Homepage isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />}
+              </Stack.Screen>
+              <Stack.Screen
+                name="Register"
+                component={RegisterScreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Login"
+                component={LoginScreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="SettingsPage"
+                options={{ headerShown: false }}
+              >
+                {() => <SettingsPage isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />}
+              </Stack.Screen>
+              <Stack.Screen
+                name="ProfileSettings"
+                options={{
+                  headerShown: false,
+                  title: 'Profile Settings',
+                  headerStyle: {
+                    backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
+                  },
+                  headerTintColor: isDarkTheme ? '#ffffff' : '#000000',
+                }}
+              >
+                {(props) => <ProfileSettingsPage {...props} isDarkTheme={isDarkTheme} />}
+              </Stack.Screen>
+              <Stack.Screen
+                name="GlassesMirror"
+                options={{
+                  headerShown: false,
+                  title: 'Glasses Mirror',
+                  headerStyle: {
+                    backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
+                  },
+                  headerTintColor: isDarkTheme ? '#ffffff' : '#000000',
+                }}
+              >
+                {() => <GlassesMirror isDarkTheme={isDarkTheme} />}
+              </Stack.Screen>
+            </Stack.Navigator>
+          </NavigationContainer>
+        </StatusProvider>
+      </NotificationListener>
     </GestureHandlerRootView>
   );
 };

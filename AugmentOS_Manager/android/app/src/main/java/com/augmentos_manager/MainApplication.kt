@@ -1,6 +1,8 @@
 package com.augmentos_manager // Ensure this matches your actual package name
 
 import android.app.Application
+import android.content.IntentFilter
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
@@ -33,7 +35,7 @@ class MainApplication : Application(), ReactApplication {
                 RNScreensPackage(), // Screens package for navigation
                 SafeAreaContextPackage(), // SafeArea context package
                 LinearGradientPackage(), // LinearGradient package
-                RNGestureHandlerPackage() // Add GestureHandler package here
+                RNGestureHandlerPackage() // GestureHandler package
             )
         }
 
@@ -42,8 +44,19 @@ class MainApplication : Application(), ReactApplication {
         }
     }
 
+    // Initialize NotificationReceiver
+    private lateinit var notificationReceiver: NotificationReceiver
+
     override fun onCreate() {
         super.onCreate()
         SoLoader.init(this, /* native exopackage */ false)
+
+        // Register NotificationReceiver to listen for broadcasts from NotificationListenerService
+        val reactContext = reactNativeHost.reactInstanceManager.currentReactContext
+        if (reactContext != null) {
+            notificationReceiver = NotificationReceiver(reactContext)
+            val filter = IntentFilter("NOTIFICATION_LISTENER")
+            LocalBroadcastManager.getInstance(this).registerReceiver(notificationReceiver, filter)
+        }
     }
 }
