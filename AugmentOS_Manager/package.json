@@ -92,6 +92,8 @@
 
     "@types/react-test-renderer": "^18.0.0",
 
+    "@types/text-encoding": "^0.0.39",
+
     "babel-jest": "^29.6.3",
 
     "eslint": "^8.19.0",

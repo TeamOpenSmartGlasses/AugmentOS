@@ -1,25 +1,28 @@
-package com.augmentos_manager // Ensure this matches your actual package name
+package com.augmentos_manager
 
 import android.app.Application
+import android.content.Context
 import android.content.IntentFilter
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
+import com.facebook.react.bridge.ReactContext
+import com.facebook.react.ReactInstanceEventListener
 import com.facebook.react.shell.MainReactPackage
 import com.facebook.soloader.SoLoader
-import com.augmentos_manager.IntentSenderPackage // Import your custom package
-import kjd.reactnative.bluetooth.RNBluetoothClassicPackage // Bluetooth package
-import it.innove.BleManagerPackage // BLE Manager package
-import com.swmansion.reanimated.ReanimatedPackage // Reanimated package
-import com.swmansion.rnscreens.RNScreensPackage // Screens package
-import com.th3rdwave.safeareacontext.SafeAreaContextPackage // SafeArea package
-import com.BV.LinearGradient.LinearGradientPackage // Add this import for LinearGradient
-import com.swmansion.gesturehandler.RNGestureHandlerPackage // Add GestureHandler import
+import com.augmentos_manager.IntentSenderPackage
+import kjd.reactnative.bluetooth.RNBluetoothClassicPackage
+import it.innove.BleManagerPackage
+import com.swmansion.reanimated.ReanimatedPackage
+import com.swmansion.rnscreens.RNScreensPackage
+import com.th3rdwave.safeareacontext.SafeAreaContextPackage
+import com.BV.LinearGradient.LinearGradientPackage
+import com.swmansion.gesturehandler.RNGestureHandlerPackage
+import com.augmentos_manager.NotificationReceiver
 
 class MainApplication : Application(), ReactApplication {
 
-    // Define reactNativeHost as a property and override it properly
     override val reactNativeHost: ReactNativeHost = object : ReactNativeHost(this) {
         override fun getUseDeveloperSupport(): Boolean {
             return BuildConfig.DEBUG
@@ -27,15 +30,15 @@ class MainApplication : Application(), ReactApplication {
 
         override fun getPackages(): List<ReactPackage> {
             return listOf(
-                MainReactPackage(), // Main React package
-                IntentSenderPackage(), // Custom native module package
-                RNBluetoothClassicPackage(), // Bluetooth Classic package
-                BleManagerPackage(), // BLE Manager package
-                ReanimatedPackage(), // Reanimated package for animations
-                RNScreensPackage(), // Screens package for navigation
-                SafeAreaContextPackage(), // SafeArea context package
-                LinearGradientPackage(), // LinearGradient package
-                RNGestureHandlerPackage() // GestureHandler package
+                MainReactPackage(),
+                IntentSenderPackage(),
+                RNBluetoothClassicPackage(),
+                BleManagerPackage(),
+                ReanimatedPackage(),
+                RNScreensPackage(),
+                SafeAreaContextPackage(),
+                LinearGradientPackage(),
+                RNGestureHandlerPackage()
             )
         }
 
@@ -44,19 +47,17 @@ class MainApplication : Application(), ReactApplication {
         }
     }
 
-    // Initialize NotificationReceiver
-    private lateinit var notificationReceiver: NotificationReceiver
-
     override fun onCreate() {
         super.onCreate()
         SoLoader.init(this, /* native exopackage */ false)
 
-        // Register NotificationReceiver to listen for broadcasts from NotificationListenerService
-        val reactContext = reactNativeHost.reactInstanceManager.currentReactContext
-        if (reactContext != null) {
-            notificationReceiver = NotificationReceiver(reactContext)
-            val filter = IntentFilter("NOTIFICATION_LISTENER")
-            LocalBroadcastManager.getInstance(this).registerReceiver(notificationReceiver, filter)
-        }
+        // Register a listener to set up notificationReceiver once React context is available
+        reactNativeHost.reactInstanceManager.addReactInstanceEventListener(object : ReactInstanceEventListener {
+            override fun onReactContextInitialized(reactContext: ReactContext) {
+                val notificationReceiver = NotificationReceiver(reactContext)
+                val filter = IntentFilter("NOTIFICATION_LISTENER")
+                LocalBroadcastManager.getInstance(this@MainApplication).registerReceiver(notificationReceiver, filter)
+            }
+        })
     }
 }
