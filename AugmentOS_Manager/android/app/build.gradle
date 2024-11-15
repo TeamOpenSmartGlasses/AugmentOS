@@ -79,6 +79,7 @@ dependencies {
     implementation project(':react-native-safe-area-context')
     implementation project(':react-native-ble-manager')
     implementation project(':react-native-linear-gradient')
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
 
     // Kotlin dependencies
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
