@@ -156,7 +156,7 @@ export class BluetoothService extends EventEmitter {
 
       try {
         this.mtuSize = 23; //default mtu size
-        const mtu = await BleManager.requestMTU(device.id, 512) //512 supposed to be max mtu
+        const mtu = await BleManager.requestMTU(device.id, 512);//512 supposed to be max mtu
         console.log(`MTU size changed to ${mtu}`);
         this.mtuSize = mtu;
       } catch (error) {
@@ -185,7 +185,7 @@ export class BluetoothService extends EventEmitter {
     } catch (error) {
       console.error('Failed to enable notifications:', error);
     }
-  };
+  }
 
   async disconnectFromDevice() {
     if (!this.connectedDevice) {

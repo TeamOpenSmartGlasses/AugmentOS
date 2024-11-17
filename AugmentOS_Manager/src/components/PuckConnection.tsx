@@ -9,12 +9,12 @@ const PuckConnection: React.FC = () => {
   const batteryLevel = status.puck_battery_life ?? 0; // Default to 0 if battery level is null
 
   useEffect(()=>{
-    console.log("STATUS UPDATED WOOT WOOT");
-    console.log(JSON.stringify(status))
-    console.log("\n")
+    console.log('STATUS UPDATED WOOT WOOT');
+    console.log(JSON.stringify(status));
+    console.log('\n');
   }, [
-    status
-  ])
+    status,
+  ]);
 
   // Function to determine the battery icon based on battery level
   const getBatteryIcon = (level: number) => {
