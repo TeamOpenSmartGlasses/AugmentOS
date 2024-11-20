@@ -14,6 +14,8 @@ import datetime
 from django.conf import settings
 from django.views.decorators.http import condition
 
+import warnings
+
 if __name__ != "__main__":
     from .models import Participant, Actuation
 import pandas as pd
@@ -26,8 +28,9 @@ NUMBER_OF_PARTICIPANTS = 21
 RARE_WORD_DISPLAY_THRESHOLD = 0.5
 
 participant_index = 0 # index of the participant in the list of participants
-index_video_word = 0 # index of the word in the list of words for the video
+video_word_index = 0 # index of the word in the list of words for the video
 video_index = 0 # index of the video in the list of videos
+buffer_time = 1 # time in advance to display the word
 
 if __name__ == '__main__':
     rare_words_directory_path = '../../content_generation/rare_words_with_timestamps_and_conditions'
@@ -36,7 +39,7 @@ else:
 
 print(os.listdir(rare_words_directory_path))
 rare_words_for_each_video_dict = dict()
-FRACTION_OF_NO_INTERVENTION_PARTICIPANTS = 1/3
+FRACTION_OF_NO_INTERVENTION_PARTICIPANTS = 1/5 # TODO: change this
 
 def parse_csv():
     # TODO: fix this
@@ -132,7 +135,6 @@ print(output_data)
 def test(request):
     return JsonResponse({'message': 'Server is up'})
 
-
 video_list_index = 0
 @csrf_exempt
 def get_video_index_for_participant(request) -> JsonResponse:
@@ -140,6 +142,11 @@ def get_video_index_for_participant(request) -> JsonResponse:
     global video_index
     global current_participant_id
     global participant_index
+    global video_word_index
+    global playback_time
+
+    video_word_index = 0
+    playback_time = 0
 
     print("video_list_index", video_list_index)
     print("video_index", video_index)
@@ -264,20 +271,33 @@ def get_playback_time(request):
 
 @csrf_exempt
 def get_new_word(request): # TODO: check latency between request being sent and word being displayed
-    global index_video_word
+    global video_word_index
     global current_participant_id
     global participant_conditionsr
+    global video_index
+
+
+    # video_index = 1 # TODO: remove this
+
+    # print("index_video_word", video_index)
 
     # if index_video < len(rare_words_for_each_video_dict["video_1"]) and current_user_id:
     try:
-        current_word = rare_words_for_each_video_dict[f"video_{video_index}"][index_video_word] # TODO: fix this\
-        condition = participant_conditions[f"video_{video_index}"][index_video_word]
+        current_word = rare_words_for_each_video_dict[f"video_{video_index}"][video_word_index] # TODO: fix this
+        condition = participant_conditions[f"video_{video_index}"][video_word_index]
     except:
+        warnings.warn("No video")
         return JsonResponse({'word': None, 'translation': None, 'condition': 0})
 
+    print()
+    print(condition)
+    print("video_index", video_index)
+    print("video_word_index", video_word_index)
+    print("current_word", current_word)
     print(current_word['startTime'], playback_time)
-    if current_word['startTime'] <= playback_time:
-        index_video_word += 1
+
+    if current_word['startTime'] <= playback_time  + buffer_time:
+        video_word_index += 1
 
         try:
             _ = Participant.objects.get(participant_id=current_participant_id)
@@ -294,6 +314,10 @@ def get_new_word(request): # TODO: check latency between request being sent and 
             condition=condition,
             timestamp=timezone.now(),
         )
+
+        # print("##########################")
+        # print("##########################")
+        # print("current datetime", datetime.datetime.now())
 
         return JsonResponse({
             'word': current_word['word'],
