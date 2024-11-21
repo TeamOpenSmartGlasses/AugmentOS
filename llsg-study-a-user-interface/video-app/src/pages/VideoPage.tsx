@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+ import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './VideoPage.css';
@@ -44,64 +44,68 @@ const VideoPage: React.FC = () => {
     console.log("Video Index:", videoIndex);
   };
 
-
   useEffect(() => {
-    console.log("%%%%%%%%%%%%%%%^&&&&&&&&&&&&")
+    console.log("Fetching video index...");
     fetchVideoIndex();
   }, []); // Empty dependency array ensures this runs only once
 
+  // Event listeners for video events
   useEffect(() => {
     if (videoIndex === null) return;
-
-    const sendPlaybackTime = () => {
-      if (videoRef.current && participantID) {
-        const currentTime = videoRef.current.currentTime;
-        console.log(`Current playback time: ${currentTime}s`);
-        axios
-          .post('http://localhost:61234/playback/api/update-playback-time/', {
-            participantID,
-            videoID: videoIndex,
-            currentTime,
-          })
-          .catch((error) => {
-            console.error('Error sending playback time:', error);
-          });
-      }
-    };
+    if (!videoStarted) return;
 
     const handleVideoEnded = () => {
       navigate(`/tlx/`);
+    };
+
+    const handlePause = () => {
+      if (videoStarted && videoRef.current) {
+        videoRef.current.play().catch((error) => {
+          console.error('Error replaying video after pause:', error);
+        });
+      }
     };
 
     const videoElement = videoRef.current;
 
     if (videoElement) {
       videoElement.addEventListener('ended', handleVideoEnded);
-
-      // Disable pausing once the video starts
-      const handlePause = () => {
-        if (videoStarted) {
-          videoElement.play().catch((error) => {
-            console.error('Error replaying video after pause:', error);
-          });
-        }
-      };
       videoElement.addEventListener('pause', handlePause);
 
-      // Cleanup event listeners
+      // Cleanup event listeners on unmount or when dependencies change
       return () => {
         videoElement.removeEventListener('ended', handleVideoEnded);
         videoElement.removeEventListener('pause', handlePause);
       };
     }
+  }, [videoIndex, participantID, navigate, videoStarted]);
 
-    // Send playback time every second (1000ms)
-    const interval = setInterval(sendPlaybackTime, 1000);
+  // Interval for sending playback time
+  useEffect(() => {
+    if (!videoStarted) return;
+    if (!videoRef.current || !participantID || videoIndex === null) return;
 
+    const sendPlaybackTime = () => {
+      const currentTime = videoRef.current!.currentTime;
+      console.log(`Current playback time: ${currentTime}s`);
+      axios
+        .post('http://localhost:61234/playback/api/update-playback-time/', {
+          participantID,
+          videoID: videoIndex,
+          currentTime,
+        })
+        .catch((error) => {
+          console.error('Error sending playback time:', error);
+        });
+    };
+
+    const interval = setInterval(sendPlaybackTime, 10);
+
+    // Cleanup interval on unmount or when dependencies change
     return () => {
       clearInterval(interval);
     };
-  }, [videoIndex, participantID, navigate, videoStarted]);
+  }, [videoStarted, participantID, videoIndex]);
 
   const handleSpacebarPress = (event: KeyboardEvent) => {
     if (event.code === 'Space' && !videoStarted) {
@@ -129,7 +133,7 @@ const VideoPage: React.FC = () => {
     };
   }, [videoStarted]);
 
-  // New useEffect to handle playing the video after it's rendered
+  // Play video when videoStarted changes to true
   useEffect(() => {
     if (videoStarted && videoRef.current) {
       videoRef.current.play().catch((error) => {
@@ -158,16 +162,18 @@ const VideoPage: React.FC = () => {
           You are about to watch a video. Please press the spacebar to begin.
         </div>
       )}
-      <video
-        ref={videoRef}
-        width="600"
-        preload="auto"
-        className="video-player"
-        style={{ display: videoStarted ? 'block' : 'none' }}
-      >
-        <source src={`/videos/video_${videoIndex}.mp4`} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {videoStarted && (
+        <video
+          ref={videoRef}
+          width="600"
+          preload="auto"
+          className="video-player"
+          // Removed inline style for better control
+        >
+          <source src={`/videos/video_${videoIndex}.mp4`} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )}
     </div>
   );
 };
