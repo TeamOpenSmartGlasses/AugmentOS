@@ -2,34 +2,35 @@
 
 import csv
 import os
-from typing import List, Dict
+from typing import List
 
 from django.utils import timezone
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-import json
 import random
-import datetime
 
 from django.conf import settings
 from django.views.decorators.http import condition
-
-import warnings
 
 if __name__ != "__main__":
     from .models import Participant, Actuation
 import pandas as pd
 
 
+
+how_many_words_to_send_list = [1]*20 + [2]*19 + [3]*19
+how_many_words_to_send_index = 0
+is_special_video_playing = False
+
 # playback_time = 40 # TODO: change this
 playback_time = 0
 current_participant_id = None
-NUMBER_OF_PARTICIPANTS = 21
+NUMBER_OF_PARTICIPANTS = 12
 RARE_WORD_DISPLAY_THRESHOLD = 0.5
 
 participant_index = 0 # index of the participant in the list of participants
 video_word_index = 0 # index of the word in the list of words for the video
-video_index = 0 # index of the video in the list of videos
+video_index = 1 # index of the video in the list of videos
 buffer_time = 1 # time in advance to display the word
 
 if __name__ == '__main__':
@@ -39,11 +40,11 @@ else:
 
 print(os.listdir(rare_words_directory_path))
 rare_words_for_each_video_dict = dict()
-FRACTION_OF_NO_INTERVENTION_PARTICIPANTS = 1/5 # TODO: change this
+FRACTION_OF_NO_INTERVENTION_PARTICIPANTS = 1/3
 
 def parse_csv():
     # TODO: fix this
-    if len(os.listdir(rare_words_directory_path)) > 5: # should have at most 3 rare word files one for each video
+    if len(os.listdir(rare_words_directory_path)) > 6: # should have at most 3 rare word files one for each video
         raise RuntimeError('Too many files in the directory. Shutting down the server.')
 
     global rare_words_for_each_video_dict
@@ -51,7 +52,12 @@ def parse_csv():
     for filename in os.listdir(rare_words_directory_path):
         if filename.endswith('.csv'):
             file_path = os.path.join(rare_words_directory_path, filename)
-            video_name = "video_" + filename.split('_')[1]
+
+            if filename == 'special_video_with_timestamps_and_conditions.csv':
+                video_name = 'special_video'
+            else:
+                video_name = "video_" + filename.split('_')[1]
+
             rare_words_for_each_video_dict[video_name] = list()
 
             try:
@@ -77,9 +83,10 @@ def assign_videos_and_conditions_to_participants() -> List:
     video_orders = [[1, 2, 3] for _ in range(NUMBER_OF_PARTICIPANTS)]
     condition_orders = [[1, 2, 3] for _ in range(NUMBER_OF_PARTICIPANTS)]
 
-    for i in range(NUMBER_OF_PARTICIPANTS):
-        random.shuffle(video_orders[i])
-        random.shuffle(condition_orders[i])
+    # TODO: remove this for the actual study
+    # for i in range(NUMBER_OF_PARTICIPANTS):
+    #     random.shuffle(video_orders[i])
+    #     random.shuffle(condition_orders[i])
 
     participants_data = [
         {"video_order": video_orders[i], "condition_order": condition_orders[i]}
@@ -131,9 +138,14 @@ participant_video_and_condition = output_data['data']
 participant_conditions = dict()
 print(output_data)
 
+# TODO: remove this
+# playback_time = 0
+# is_special_video_playing = True
+
 
 def test(request):
     return JsonResponse({'message': 'Server is up'})
+
 
 video_list_index = 0
 @csrf_exempt
@@ -158,12 +170,17 @@ def get_video_index_for_participant(request) -> JsonResponse:
             return JsonResponse({'error': 'Participant ID is required'}, status=400)
 
         try:
-            participant = Participant.objects.get(participant_id=current_participant_id)
+            _ = Participant.objects.get(participant_id=current_participant_id)
         except Participant.DoesNotExist:
             return JsonResponse({'error': 'Participant not found'}, status=404)
 
         try:
             video_index = participant_video_and_condition[participant_index]['video_order'][video_list_index]
+            condition = participant_conditions[f"video_{video_index}"][video_word_index]
+
+            if condition > 3:
+                condition -= 3
+
             video_list_index += 1
         except IndexError:
             return JsonResponse({'error': 'No more videos to watch'}, status=400)
@@ -173,7 +190,7 @@ def get_video_index_for_participant(request) -> JsonResponse:
             video_list_index = 0
 
 
-        return JsonResponse({'video_index': video_index})
+        return JsonResponse({'video_index': video_index, 'condition': condition})
 
     return JsonResponse({'error': 'Invalid request method'}, status=400)
 
@@ -210,6 +227,10 @@ def create_participant(request):
     global participant_conditions
     global current_participant_id
     global video_list_index
+    global is_special_video_playing
+
+    # TODO: change this
+    is_special_video_playing = False
 
     video_list_index = 0
 
@@ -253,6 +274,21 @@ def create_participant(request):
 
 
 @csrf_exempt
+def play_special_video(request):
+    global is_special_video_playing
+    global playback_time
+    global video_word_index
+
+    if request.method == 'POST':
+            playback_time = 0
+            video_word_index = 0
+            is_special_video_playing = True
+            return JsonResponse({'status': 'success', 'message': 'Special video is playing'}, status=200)
+    else:
+        return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+
+@csrf_exempt
 def update_playback_time(request):
     global playback_time
 
@@ -273,21 +309,27 @@ def get_playback_time(request):
 def get_new_word(request): # TODO: check latency between request being sent and word being displayed
     global video_word_index
     global current_participant_id
-    global participant_conditionsr
+    global participant_conditions
+    global how_many_words_to_send_index
+    global is_special_video_playing
     global video_index
 
+    clear_screen = False
 
-    # video_index = 1 # TODO: remove this
+    if not is_special_video_playing:
+        num_words_at_a_time = 1
 
-    # print("index_video_word", video_index)
-
-    # if index_video < len(rare_words_for_each_video_dict["video_1"]) and current_user_id:
-    try:
-        current_word = rare_words_for_each_video_dict[f"video_{video_index}"][video_word_index] # TODO: fix this
-        condition = participant_conditions[f"video_{video_index}"][video_word_index]
-    except:
-        warnings.warn("No video")
-        return JsonResponse({'word': None, 'translation': None, 'condition': 0})
+        try:
+            current_word = rare_words_for_each_video_dict[f"video_{video_index}"][video_word_index]  # TODO: fix this
+            # condition = participant_conditions[f"video_{video_index}"][video_word_index] # TODO: change this for the actual study
+            condition = 1
+        except:
+            return JsonResponse({'word': None, 'translation': None, 'condition': 0, 'numWordsToShowAtATime': 0, 'clearScreen': False})
+    else:
+        num_words_at_a_time = how_many_words_to_send_list[how_many_words_to_send_index]
+        current_word = rare_words_for_each_video_dict["special_video"][how_many_words_to_send_index]
+        condition = 1
+        clear_screen = False
 
     print()
     print(condition)
@@ -296,8 +338,12 @@ def get_new_word(request): # TODO: check latency between request being sent and 
     print("current_word", current_word)
     print(current_word['startTime'], playback_time)
 
-    if current_word['startTime'] <= playback_time  + buffer_time:
-        video_word_index += 1
+    if current_word['startTime'] <= playback_time + buffer_time:
+        if not is_special_video_playing:
+            video_word_index += 1
+        else:
+            how_many_words_to_send_index += 1
+            video_index = 4
 
         try:
             _ = Participant.objects.get(participant_id=current_participant_id)
@@ -305,7 +351,7 @@ def get_new_word(request): # TODO: check latency between request being sent and 
             return JsonResponse({'error': 'Participant not found'}, status=400)
 
         Actuation.objects.create(
-            participant=current_participant_id,
+            participant_id=current_participant_id,
             word_id=current_word['word_id'],
             video_index=video_index,
             unique_word_id=current_word['unique_word_id'],
@@ -313,19 +359,22 @@ def get_new_word(request): # TODO: check latency between request being sent and 
             translation=current_word['translation'],
             condition=condition,
             timestamp=timezone.now(),
+            # TODO: remove line below the line below when running the actual study
+            number_of_words_shown_at_time=num_words_at_a_time,
         )
-
-        # print("##########################")
-        # print("##########################")
-        # print("current datetime", datetime.datetime.now())
 
         return JsonResponse({
             'word': current_word['word'],
             'translation': current_word['translation'],
             'condition': condition,
+            'numWordsToShowAtATime': num_words_at_a_time,
+            'clearScreen': clear_screen
         })
 
-    return JsonResponse({'word': None, 'translation': None, 'condition': 0})
+    if video_word_index == 0:
+        clear_screen = True
+
+    return JsonResponse({'word': None, 'translation': None, 'condition': 0, 'numWordsToShowAtATime': 0, 'clearScreen': clear_screen})
 
 
 @csrf_exempt

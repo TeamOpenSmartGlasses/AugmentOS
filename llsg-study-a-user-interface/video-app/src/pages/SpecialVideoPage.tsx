@@ -3,56 +3,26 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './VideoPage.css';
 
-const VideoPage: React.FC = () => {
+const SpecialVideoPage: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const participantID = localStorage.getItem('participantID');
   const Q_R = localStorage.getItem('Q_R');
   const navigate = useNavigate();
 
-  const [videoIndex, setVideoIndex] = useState<number | null>(null);
-  const [condition, setCondition] = useState<number | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
   const [videoStarted, setVideoStarted] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const fetchVideoIndex = async () => {
-    if (!participantID) {
-      setError('Participant ID not found. Using default video.');
-      setVideoIndex(1);
-      setLoading(false);
-      return;
-    }
-
-    try {
-      const response = await axios.get('http://localhost:61234/playback/api/get-video-index-for-participant/', {
-        params: { participantID },
+  // Initial POST request to 'special_video/' endpoint
+  useEffect(() => {
+    axios.post('http://localhost:61234/playback/api/special_video/')
+      .catch((error) => {
+        console.error('Error sending special video request:', error);
+        setError('Failed to initiate special video.');
       });
+  }, []);
 
-      const { video_index, condition } = response.data;
-      setVideoIndex(video_index);
-      setCondition(condition);
-
-      localStorage.setItem('videoIndex', video_index);
-      localStorage.setItem('condition', condition);
-    } catch (err) {
-      console.error('Error fetching video index:', err);
-      setError('Failed to fetch video index. Using default video.');
-      setVideoIndex(1);
-    } finally {
-      setLoading(false);
-    }
-    console.log("Video Index:", videoIndex);
-  };
-
-
+  // Effect to handle video playback and related event listeners
   useEffect(() => {
-    console.log("%%%%%%%%%%%%%%%^&&&&&&&&&&&&")
-    fetchVideoIndex();
-  }, []); // Empty dependency array ensures this runs only once
-
-  useEffect(() => {
-    if (videoIndex === null) return;
-
     const sendPlaybackTime = () => {
       if (videoRef.current && participantID) {
         const currentTime = videoRef.current.currentTime;
@@ -60,7 +30,6 @@ const VideoPage: React.FC = () => {
         axios
           .post('http://localhost:61234/playback/api/update-playback-time/', {
             participantID,
-            videoID: videoIndex,
             currentTime,
           })
           .catch((error) => {
@@ -70,39 +39,38 @@ const VideoPage: React.FC = () => {
     };
 
     const handleVideoEnded = () => {
-      navigate(`/tlx/`);
+      navigate(`/qualitative_overall/`);
+    };
+
+    const handlePause = () => {
+      if (videoStarted && videoRef.current) {
+        videoRef.current.play().catch((error) => {
+          console.error('Error replaying video after pause:', error);
+        });
+      }
     };
 
     const videoElement = videoRef.current;
 
     if (videoElement) {
       videoElement.addEventListener('ended', handleVideoEnded);
-
-      // Disable pausing once the video starts
-      const handlePause = () => {
-        if (videoStarted) {
-          videoElement.play().catch((error) => {
-            console.error('Error replaying video after pause:', error);
-          });
-        }
-      };
       videoElement.addEventListener('pause', handlePause);
-
-      // Cleanup event listeners
-      return () => {
-        videoElement.removeEventListener('ended', handleVideoEnded);
-        videoElement.removeEventListener('pause', handlePause);
-      };
     }
 
     // Send playback time every second (1000ms)
     const interval = setInterval(sendPlaybackTime, 1000);
 
+    // Cleanup function
     return () => {
+      if (videoElement) {
+        videoElement.removeEventListener('ended', handleVideoEnded);
+        videoElement.removeEventListener('pause', handlePause);
+      }
       clearInterval(interval);
     };
-  }, [videoIndex, participantID, navigate, videoStarted]);
+  }, [participantID, navigate, videoStarted]);
 
+  // Event handler for spacebar press to start the video
   const handleSpacebarPress = (event: KeyboardEvent) => {
     if (event.code === 'Space' && !videoStarted) {
       event.preventDefault(); // Prevent default spacebar behavior like scrolling
@@ -110,6 +78,7 @@ const VideoPage: React.FC = () => {
     }
   };
 
+  // Event handler for secret key press ('S') to skip video
   const handleSecretKeyPress = (event: KeyboardEvent) => {
     if (event.code === "KeyS") {
       if (videoRef.current) {
@@ -119,29 +88,28 @@ const VideoPage: React.FC = () => {
     }
   };
 
+  // Add event listeners for key presses
   useEffect(() => {
     window.addEventListener('keydown', handleSpacebarPress);
     window.addEventListener('keydown', handleSecretKeyPress);
 
+    // Cleanup function
     return () => {
       window.removeEventListener('keydown', handleSpacebarPress);
       window.removeEventListener('keydown', handleSecretKeyPress);
     };
   }, [videoStarted]);
 
-  // New useEffect to handle playing the video after it's rendered
+  // Effect to play the video once it has started
   useEffect(() => {
     if (videoStarted && videoRef.current) {
       videoRef.current.play().catch((error) => {
         console.error('Error playing video:', error);
       });
-      videoRef.current.playbackRate = 2.0;
+      // Set a standard playback rate
+      videoRef.current.playbackRate = 1.0;
     }
   }, [videoStarted]);
-
-  if (loading) {
-    return <div className="loading">Loading video...</div>;
-  }
 
   return (
     <div className="video-container">
@@ -165,11 +133,11 @@ const VideoPage: React.FC = () => {
         className="video-player"
         style={{ display: videoStarted ? 'block' : 'none' }}
       >
-        <source src={`/videos/video_${videoIndex}.mp4`} type="video/mp4" />
+        <source src={`/videos/special_video.mp4`} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
   );
 };
 
-export default VideoPage;
+export default SpecialVideoPage;

@@ -11,4 +11,5 @@ urlpatterns = [
     path('api/get-current-user-id/', views.get_current_user_id, name='get_current_user_id'),
     path('api/export-participants-csv/', views.export_participants_csv, name='export_participants_csv'),
     path('api/get-video-index-for-participant/', views.get_video_index_for_participant, name='get_video_index_for_participant'),
+    path('api/special_video/', views.play_special_video, name='special_video'),
 ]

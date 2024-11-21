@@ -124,12 +124,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 # ]
 
 ALLOWED_HOSTS = [
-    '101.5.196.50',
-    '183.173.242.37',
-    'localhost:8000',
-    '183.173.190.186',
-    '0.0.0.0',
-    'localhost'
+    '*'
 ]
 
 # Static files (CSS, JavaScript, Images)

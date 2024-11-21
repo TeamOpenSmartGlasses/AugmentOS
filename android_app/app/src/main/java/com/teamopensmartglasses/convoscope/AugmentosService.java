@@ -144,7 +144,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private final long llCombineShowTime = 5 * 60 * 1000; // define in milliseconds
     private final int maxDefinedWordsShow = 4;
     private final int maxLLCombineShow = 3;
-    private final int maxLLCombineShowForStudy = 3;
+    private int maxLLCombineShowForStudy = 3;
     private final int maxAdhdStmbShowNum = 3;
     private final int maxContextConvoResponsesShow = 2;
     private final int maxLLUpgradeResponsesShow = 2;
@@ -1154,6 +1154,16 @@ public class AugmentosService extends SmartGlassesAndroidService {
             String newWord = response.getString("word");
             String translation = response.getString("translation");
             int condition = response.getInt("condition"); // 1: AI Keyword Gloss, 2: L2 Keyword Gloss, No intervention, 3, 4, 5, 6
+            maxLLCombineShowForStudy = response.getInt("numWordsToShowAtATime");
+            boolean clearScreen = response.getBoolean("clearScreen");
+
+            if (clearScreen) {
+                sendHomeScreen();
+                clearedScreenYet = true;
+            } else {
+                clearedScreenYet = false;
+            }
+            clearScreen = false;
 
             if (newWord.equals("null") || newWord.isEmpty() || condition >= 3) {
                 return;
@@ -1161,14 +1171,12 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
             LLCombineResponseForStudy llCombineResponseForStudy = new LLCombineResponseForStudy(newWord, translation);
 
-
             String [] llCombineResults;
             if (condition == 1){
                 updateListForStudy(llCombineResponseForStudy);
             } else if (condition == 2) {
                 updateListOnlyTranslationForStudy(llCombineResponseForStudy);
             } else return;
-
 
             llCombineResults = calculateLLCombineResponsesForStudyFormatted(getLLCombineResponsesForStudy());
 

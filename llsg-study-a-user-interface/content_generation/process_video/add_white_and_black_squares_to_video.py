@@ -34,8 +34,8 @@ def add_square(frame, frame_number, time_ranges):
     return np.array(img)
 
 
-csv_file_path = "../rare_words_with_timestamps_and_conditions/article_1_5_percent_rare_words_with_timestamps_and_conditions.csv"
-video_clip = VideoFileClip("./videos/video_1.mp4")
+csv_file_path = "../rare_words_with_timestamps_and_conditions/article_3_15_percent_with_timestamps_and_conditions.csv"
+video_clip = VideoFileClip("./videos/video_3.mp4")
 fps = video_clip.fps
 time_ranges = read_time_ranges_from_csv(csv_file_path, fps)
 
@@ -44,7 +44,7 @@ modified_clip = video_clip.fl_image(
 )
 
 modified_clip.write_videofile(
-    "../../video-app/public/videos/video_1.mp4",
+    "../../video-app/public/videos/video_3.mp4",
     codec="libx264",
     audio=True,
     audio_codec="aac",

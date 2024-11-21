@@ -25,15 +25,16 @@ class Participant(models.Model):
 
 
 class Actuation(models.Model):
-    participant: str = models.CharField(max_length=255, default='')
+    participant_id: str = models.CharField(max_length=255, default='')
     word_id = models.CharField(max_length=255, default='')
     unique_word_id = models.CharField(max_length=255, default='')
     word = models.CharField(max_length=255, default='')
     translation = models.CharField(max_length=255, default='')
     video_index = models.IntegerField(default=0)
     condition = models.IntegerField(default=0)
+    number_of_words_shown_at_time = models.IntegerField(default=0)
     timestamp = models.DateTimeField(auto_now_add=True)
     objects = models.Manager()
 
     def __str__(self):
-        return f'{self.participant.participant_id} - {self.word} at {self.timestamp}'
+        return f'{self.participant_id} - {self.word} at {self.timestamp}'

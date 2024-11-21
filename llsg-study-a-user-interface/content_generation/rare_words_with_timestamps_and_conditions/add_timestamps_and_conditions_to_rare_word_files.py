@@ -3,7 +3,6 @@
 
 import os
 import pandas as pd
-import numpy as np
 import uuid
 
 from deepgram.utils import verboselogs
@@ -17,6 +16,8 @@ from deepgram import (
     FileSource,
 )
 
+
+VIDEO_LANGUAGE = "es"
 
 rare_words_folder = '../text_generation/rare_words'
 
@@ -39,7 +40,7 @@ def extract_timestamps_from_video(audio_file_path):
             model="nova-2",
             smart_format=True,
             utterances=True,
-            language="es",
+            language=VIDEO_LANGUAGE,
         )
 
         response = deepgram.listen.rest.v("1").transcribe_file(
@@ -76,7 +77,6 @@ def add_timestamps_and_conditions_to_rare_word_files(word_list, filename):
 
         if detected_word in csv_words:
             df_matches = df_original[df_original['rare_word'].str.lower() == detected_word]
-
             for _, row in df_matches.iterrows():
                 word = row['rare_word']
 
@@ -104,7 +104,7 @@ def add_timestamps_and_conditions_to_rare_word_files(word_list, filename):
     df_matched.sort_values(by='start_time', inplace=True)
     df_matched.reset_index(drop=True, inplace=True)
 
-    columns = ['word_id', 'unique_word_id', 'word', 'translation', 'start_time', 'end_time', 'condition']
+    columns = ['word_id', 'unique_word_id', 'word', 'translation', 'start_time', 'end_time']
     df_matched = df_matched[columns]
 
     output_filename = filename.split('.')[0] + "_with_time_stamps_and_conditions.csv"
@@ -118,12 +118,13 @@ def add_timestamps_and_conditions_to_rare_word_files(word_list, filename):
 
 
 if __name__ == "__main__":
-    audio_file_path = '../process_video/videos/video_1.mp4'
-    word_list = extract_timestamps_from_video(audio_file_path)
+    video_file_path = '../process_video/videos/video_3.mp4'
+    word_list = extract_timestamps_from_video(video_file_path)
 
     if not word_list:
         print("No words detected. Exiting.")
     else:
-        for filename in os.listdir(rare_words_folder):
-            if filename.endswith('.csv'):
-                add_timestamps_and_conditions_to_rare_word_files(word_list, filename)
+        # for filename in os.listdir(rare_words_folder):
+            # if filename.endswith('.csv'):
+        filename = 'article_3_15_percent.csv'
+        add_timestamps_and_conditions_to_rare_word_files(word_list, filename)

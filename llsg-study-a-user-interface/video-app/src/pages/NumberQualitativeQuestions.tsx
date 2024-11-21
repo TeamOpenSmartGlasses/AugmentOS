@@ -1,21 +1,19 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
-const PretestPage: React.FC = () => {
+const NumberQualitativeQuestions: React.FC = () => {
+    const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
     const participantID = localStorage.getItem('participantID');
-    localStorage.setItem('videoCount', '0');
+    const Q_R = localStorage.getItem('Q_R');
+    const videoIndex = localStorage.getItem('videoIndex');
+    const condition = localStorage.getItem('condition');
 
-    console.log("videoCount:", localStorage.getItem('videoCount'));
+    const handleSurveyCompletion = () => {
+        navigate(`/special_video/`);
+    };
 
-  // Function to handle survey completion
-  const handleSurveyCompletion = () => {
-    // Navigate to the first video
-    navigate('/video');
-  };
-
-  // Listen for messages from Qualtrics iframe
-window.addEventListener("message", (event) => {
+    window.addEventListener("message", (event) => {
     const message = event.data;
 
     console.log("Event origin:", event.origin);
@@ -49,19 +47,19 @@ window.addEventListener("message", (event) => {
     } else {
         console.warn("Unrecognized event received:", message.event);
     }
-});
+    });
 
-return (
+  return (
     <div>
-      <h1>Pre-test</h1>
+      <h1>Survey</h1>
       <iframe
-        src={`https://mit.co1.qualtrics.com/jfe/form/SV_55SFkZAiT7tFxY2?code_block_num=demographics&participant_id=${participantID}`}
+        src={`https://mit.co1.qualtrics.com/jfe/form/SV_55SFkZAiT7tFxY2?code_block_num=qualitative_num_words&participant_id=${participantID}&Q_R=${Q_R}`}
+        title="Survey"
         width="100%"
         height="600px"
         frameBorder="0"
         style={{ border: '2px solid black' }} // Add border here
         onLoad={() => {
-          // Listen for messages from Qualtrics
           window.addEventListener('message', (event) => {
             if (event.data === 'SurveyCompleted') {
               handleSurveyCompletion();
@@ -73,4 +71,4 @@ return (
   );
 };
 
-export default PretestPage;
+export default NumberQualitativeQuestions;
