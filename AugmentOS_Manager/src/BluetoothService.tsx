@@ -166,7 +166,6 @@ export class BluetoothService extends EventEmitter {
       await new Promise(resolve => setTimeout(resolve, 500));
       console.log('\n\nENABLING NOTIFICATIONS\n\n');
       await this.enableNotifications(device.id);
-      console.log('\n\nSENDING STATUS\n\n');
 
       this.connectedDevice = device;
       this.emit('deviceConnected', device);
@@ -348,24 +347,28 @@ export class BluetoothService extends EventEmitter {
   /* AugmentOS Comms Methods (call these to do things) */
 
   async sendRequestStatus() {
+    console.log('Send Request Status');
     return await this.sendDataToAugmentOs(
       { 'command': 'request_status' }
     );
   }
 
   async sendConnectWearable() {
+    console.log('sendConnectWearable')
     return await this.sendDataToAugmentOs(
       { 'command': 'connect_wearable' }
     );
   }
 
   async sendDisconnectWearable() {
+    console.log('sendDisconnectWearable')
     return await this.sendDataToAugmentOs(
       { 'command': 'disconnect_wearable' }
     );
   }
 
   async sendToggleVirtualWearable(enabled: boolean) {
+    console.log('sendToggleVirtualWearable')
     return await this.sendDataToAugmentOs(
       {
         'command': 'enable_virtual_wearable',
@@ -377,6 +380,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   async startAppByPackageName(packageName: string) {
+    console.log('startAppByPackageName')
     return await this.sendDataToAugmentOs(
       {
         'command': 'start_app',
@@ -388,6 +392,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   async stopAppByPackageName(packageName: string) {
+    console.log('stopAppByPackageName')
     return await this.sendDataToAugmentOs(
       {
         'command': 'stop_app',
@@ -399,6 +404,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   async setAuthenticationSecretKey(authSecretKey: string) {
+    console.log('setAuthenticationSecretKey')
     return await this.sendDataToAugmentOs(
       {
         'command': 'set_auth_secret_key',
@@ -410,6 +416,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   async verifyAuthenticationSecretKey() {
+    console.log('verifyAuthenticationSecretKey')
     return await this.sendDataToAugmentOs(
       {
         'command': 'verify_auth_secret_key',
@@ -418,6 +425,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   async deleteAuthenticationSecretKey() {
+    console.log('deleteAuthenticationSecretKey')
     return await this.sendDataToAugmentOs(
       {
         'command': 'delete_auth_secret_key',
