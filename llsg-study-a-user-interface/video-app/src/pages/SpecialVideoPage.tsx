@@ -39,6 +39,22 @@ const SpecialVideoPage: React.FC = () => {
     };
 
     const handleVideoEnded = () => {
+      const sendPlaybackTime = () => {
+        const currentTime = -1;
+        console.log(`Current playback time: ${currentTime}s`);
+        axios
+          .post('http://localhost:61234/playback/api/update-playback-time/', {
+            participantID,
+            videoID: 4,
+            currentTime,
+          })
+          .catch((error) => {
+            console.error('Error sending playback time:', error);
+          });
+      };
+
+      sendPlaybackTime();
+    
       navigate(`/qualitative_overall/`);
     };
 
@@ -126,6 +142,20 @@ const SpecialVideoPage: React.FC = () => {
           You are about to watch a video. Please press the spacebar to begin.
         </div>
       )}
+      {!videoStarted && (
+        <div
+          className="instruction-message"
+          style={{
+            color: 'red',
+            fontSize: '1.5em',
+            margin: '20px 0',
+            textAlign: 'center',
+          }}
+        >
+          In this video, more than one word will be shown on the glasses:
+          initially 1 word, then 2, and finally 3.
+        </div>
+      )}
       <video
         ref={videoRef}
         width="600"
@@ -138,6 +168,7 @@ const SpecialVideoPage: React.FC = () => {
       </video>
     </div>
   );
+  
 };
 
 export default SpecialVideoPage;

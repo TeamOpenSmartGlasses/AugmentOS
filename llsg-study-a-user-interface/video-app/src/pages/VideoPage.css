@@ -5,15 +5,16 @@
   width: 100vw;
   height: 100vh;
   background-color: black;
-  position: relative;
   margin: 0;
   padding: 0;
+  overflow: hidden; /* Ensure no scrollbars appear */
 }
 
 .video-player {
-  width: 90vw; /* Adjust width for margin effect */
-  height: auto; /* Maintain aspect ratio */
-  object-fit: contain;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  object-fit: cover; /* Ensures the video covers the screen while maintaining aspect ratio */
+  border: none;
 }
 
 .video-title {

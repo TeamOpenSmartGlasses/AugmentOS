@@ -55,9 +55,9 @@ const ContentUnderstandingPage: React.FC = () => {
             localStorage.setItem("participantSession", JSON.stringify(updatedSession));
 
             // Proceed to the next block or action
-            if (block_completed.includes("understanding")) {
-                handleSurveyCompletion();
-            }
+            // if (block_completed.includes("understanding")) {
+            handleSurveyCompletion();
+            // }
         } else {
             console.warn("Unrecognized event received:", message.event);
         }

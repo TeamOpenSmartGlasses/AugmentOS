@@ -55,8 +55,27 @@ const VideoPage: React.FC = () => {
     if (!videoStarted) return;
 
     const handleVideoEnded = () => {
+      const sendPlaybackTime = () => {
+        if (videoRef.current) {
+          const currentTime = videoRef.current.currentTime;
+          console.log(`Final playback time: ${currentTime}s`);
+          axios
+            .post('http://localhost:61234/playback/api/update-playback-time/', {
+              participantID,
+              videoID: videoIndex,
+              currentTime,
+            })
+            .catch((error) => {
+              console.error('Error sending playback time:', error);
+            });
+        } else {
+          console.warn('Video element is not available. Skipping final playback time update.');
+        }
+      };
+    
+      sendPlaybackTime();
       navigate(`/tlx/`);
-    };
+    };    
 
     const handlePause = () => {
       if (videoStarted && videoRef.current) {
@@ -99,7 +118,7 @@ const VideoPage: React.FC = () => {
         });
     };
 
-    const interval = setInterval(sendPlaybackTime, 10);
+    const interval = setInterval(sendPlaybackTime, 50);
 
     // Cleanup interval on unmount or when dependencies change
     return () => {
@@ -139,7 +158,7 @@ const VideoPage: React.FC = () => {
       videoRef.current.play().catch((error) => {
         console.error('Error playing video:', error);
       });
-      videoRef.current.playbackRate = 2.0;
+      videoRef.current.playbackRate = 1.0;
     }
   }, [videoStarted]);
 

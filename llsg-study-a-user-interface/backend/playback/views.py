@@ -16,6 +16,9 @@ if __name__ != "__main__":
     from .models import Participant, Actuation
 import pandas as pd
 
+import pytz
+
+est = pytz.timezone('US/Eastern')
 
 
 how_many_words_to_send_list = [1]*20 + [2]*19 + [3]*19
@@ -26,12 +29,13 @@ is_special_video_playing = False
 playback_time = 0
 current_participant_id = None
 NUMBER_OF_PARTICIPANTS = 12
+# RARE_WORD_DISPLAY_THRESHOLD = 0.5
 RARE_WORD_DISPLAY_THRESHOLD = 0.5
 
 participant_index = 0 # index of the participant in the list of participants
 video_word_index = 0 # index of the word in the list of words for the video
 video_index = 1 # index of the video in the list of videos
-buffer_time = 1 # time in advance to display the word
+buffer_time = 0.1 # time in advance to display the word
 
 if __name__ == '__main__':
     rare_words_directory_path = '../../content_generation/rare_words_with_timestamps_and_conditions'
@@ -40,7 +44,7 @@ else:
 
 print(os.listdir(rare_words_directory_path))
 rare_words_for_each_video_dict = dict()
-FRACTION_OF_NO_INTERVENTION_PARTICIPANTS = 1/3
+FRACTION_OF_NO_INTERVENTION_PARTICIPANTS = 0
 
 def parse_csv():
     # TODO: fix this
@@ -197,7 +201,10 @@ def get_video_index_for_participant(request) -> JsonResponse:
 
 def get_conditions_for_participant(video_key: str) -> List:
     index = int(video_key.split("_")[1])
+
     intervention_type = participant_video_and_condition[participant_index]['condition_order'][index - 1]
+
+    print(rare_words_for_each_video_dict.keys())
 
     words = rare_words_for_each_video_dict[video_key]
 
@@ -281,7 +288,7 @@ def play_special_video(request):
 
     if request.method == 'POST':
             playback_time = 0
-            video_word_index = 0
+            video_word_index = 1
             is_special_video_playing = True
             return JsonResponse({'status': 'success', 'message': 'Special video is playing'}, status=200)
     else:
@@ -313,6 +320,7 @@ def get_new_word(request): # TODO: check latency between request being sent and 
     global how_many_words_to_send_index
     global is_special_video_playing
     global video_index
+    global playback_time
 
     clear_screen = False
 
@@ -321,10 +329,14 @@ def get_new_word(request): # TODO: check latency between request being sent and 
 
         try:
             current_word = rare_words_for_each_video_dict[f"video_{video_index}"][video_word_index]  # TODO: fix this
+
+            if playback_time <= 0:
+                clear_screen = True
+
             # condition = participant_conditions[f"video_{video_index}"][video_word_index] # TODO: change this for the actual study
             condition = 1
         except:
-            return JsonResponse({'word': None, 'translation': None, 'condition': 0, 'numWordsToShowAtATime': 0, 'clearScreen': False})
+            return JsonResponse({'word': None, 'translation': None, 'condition': 0, 'numWordsToShowAtATime': 0, 'clearScreen': True})
     else:
         num_words_at_a_time = how_many_words_to_send_list[how_many_words_to_send_index]
         current_word = rare_words_for_each_video_dict["special_video"][how_many_words_to_send_index]
@@ -408,53 +420,44 @@ def get_current_user_id(request):
 @csrf_exempt
 def export_participants_csv(request):
     global video_index
-    if __name__ == "__main__":
-        file_path = f'./participants_{datetime.datetime.now()}.csv'
-    else:
-        file_path = os.path.join(settings.BASE_DIR, f'participant_list/participants_{datetime.datetime.now()}.csv')
+
+    # Replace invalid characters in the timestamp
+    timestamp = datetime.datetime.now(est).strftime('%Y-%m-%d_%H-%M-%S')
+    file_path = f'./participant_list/{current_participant_id}_{timestamp}.csv'
 
     with open(file_path, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow([
-            'Participant ID', 'Current Video Index', 'Current Condition',
-            'Word ID', 'Unique Word ID', 'Word', 'Translation',
-            'Condition', 'Timestamp'
+            'Participant ID', 'Current Video Index', 'Condition',
+            'Word ID', 'Unique Word ID', 'Word', 'Translation', 'Timestamp'
         ])
 
         participants = Participant.objects.all()
-        for participant in participants:
-            actuations = Actuation.objects.filter(participant=participant)
+        actuations = Actuation.objects.filter(participant_id=current_participant_id)
 
-            if actuations.exists():
-                for actuation in actuations:
-                    writer.writerow([
-                        participant.participant_id,
-                        actuation.video_index,
-                        actuation.condition,
-                        actuation.word_id,
-                        actuation.unique_word_id,
-                        actuation.word,
-                        actuation.translation,
-                        actuation.condition,
-                        actuation.timestamp
-                    ])
-            else:
+        if actuations.exists():
+            for actuation in actuations:
                 writer.writerow([
-                    participant.participant_id,
-                    '',  # No video index
-                    '',  # No condition
-                    '',  # No word ID
-                    '',  # No unique word ID
-                    '',  # No word
-                    '',  # No translation
-                    '',  # No condition
-                    ''  # No timestamp
+                    current_participant_id,
+                    actuation.video_index,
+                    actuation.condition,
+                    actuation.word_id,
+                    actuation.unique_word_id,
+                    actuation.word,
+                    actuation.translation,
+                    actuation.timestamp
                 ])
+        else:
+            writer.writerow([
+                current_participant_id,
+                '',  # No video index
+                '',  # No condition
+                '',  # No word ID
+                '',  # No unique word ID
+                '',  # No word
+                '',  # No translation
+                '',  # No condition
+                ''  # No timestamp
+            ])
 
     return JsonResponse({'message': f'CSV file saved locally at {file_path}'})
-
-
-if __name__ == '__main__':
-    test_conditions = get_conditions_for_participant("video_1")
-    export_participants_csv(None)
-    print(test_conditions)
