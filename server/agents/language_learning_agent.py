@@ -21,7 +21,7 @@ from Modules.LangchainSetup import *
 language_learning_agent_prompt_blueprint = """You are listening to a user's conversation right now. You help the language learner user by identifying vocabulary/words from the conversation transcript (Input Text) that the user might not understand and then translate just those words into the Ouput language. You output 0 to 3 words. If the learner's fluency level is less than 50, they will need about 1/5 words define. 50-75 fluency level might need 1 word per sentence. If fluency level is >75, only choose and translate very rare words.
 
 Input Text Language: {transcribe_language}
-Output (translated) language: {output_language}
+Output (translated) Language: {output_language}
 Fluency Level: {fluency_level}
 
 Process:
@@ -29,7 +29,8 @@ Process:
 1. Skim through the Input Text and identify 0 to 3 words that may unfamiliar to someone with a fluency level of {fluency_level} AND that have not been previously defined.
 2. Consider how common a word is (the word frequency percentile) to determine how likely the user knows that word.
 3. For each of the zero to three identified words in the Input Text, provide a translation in {output_language}. Make translations short. Use context from the conversation to inform translation of homonyms.
-4. Output response using the format instructions below, provide words in the order they appear in the text. Don't redefine any words that are in the "Recently Translated" list of words.
+4. If the Input Text is in the Output Language consider translating some words back to the Input Language. Do not provide a definition for the words simply translate them back to the Input Language.
+5. Output response using the format instructions below, provide words in the order they appear in the text. Don't redefine any words that are in the "Recently Translated" list of words.
 
 Examples:
 Conversation 1: 'I ran for the train, but the fruit stand was in the way'
@@ -117,9 +118,12 @@ async def run_language_learning_agent(conversation_context: str, word_rank: dict
     conversation_context = conversation_context
     fluency_level = 15  # hardcoded Example fluency level
     remove_pinyin = " (Pinyin)"
-    output_language = source_language.replace(remove_pinyin, "")
+    remove_hanzi = " (Hanzi)"
+    output_language = source_language.replace(remove_pinyin, "").replace(remove_hanzi, "")
+    transcribe_language = transcribe_language.replace(remove_pinyin, "").replace(remove_hanzi, "")
+    
     if transcribe_language == source_language:
-        output_language = target_language.replace(remove_pinyin, "")
+        output_language = target_language.replace(remove_pinyin, "").replace(remove_hanzi, "")
 
     class LanguageLearningAgentQuery(BaseModel):
         """
@@ -133,7 +137,7 @@ async def run_language_learning_agent(conversation_context: str, word_rank: dict
 
     extract_language_learning_agent_query_prompt = PromptTemplate(
         template=language_learning_agent_prompt_blueprint,
-        input_variables=["conversation_context", "target_language", "transcribe_language", "output_language", "source_language", "fluency_level", "word_rank", "live_translate_word_history"],
+        input_variables=["conversation_context", "transcribe_language", "output_language", "source_language", "fluency_level", "word_rank", "live_translate_word_history"],
         partial_variables={
             "format_instructions": language_learning_agent_query_parser.get_format_instructions()}
     )
@@ -143,12 +147,11 @@ async def run_language_learning_agent(conversation_context: str, word_rank: dict
     language_learning_agent_query_prompt_string = extract_language_learning_agent_query_prompt.format_prompt(
         conversation_context=conversation_context,
         source_language=source_language,
-        target_language=target_language,
         fluency_level=fluency_level,
         word_rank=word_rank_string,
         output_language=output_language,
         transcribe_language=transcribe_language,
-        live_translate_word_history=live_translate_word_history
+        live_translate_word_history=live_translate_word_history,
     ).to_string()
 
     response = await llm.ainvoke(
