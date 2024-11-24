@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { View, StyleSheet, Animated, ScrollView } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, StyleSheet, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Header from '../components/Header';
 import ConnectedDeviceInfo from '../components/ConnectedDeviceInfo';
@@ -7,8 +7,6 @@ import RunningAppsList from '../components/RunningAppsList';
 import YourAppsList from '../components/YourAppsList';
 import NavigationBar from '../components/NavigationBar';
 import PuckConnection from '../components/PuckConnection';
-import { useStatus } from '../AugmentOSStatusProvider';
-import { AppInfo } from '../AugmentOSStatusParser';
 
 interface HomepageProps {
   isDarkTheme: boolean;
@@ -17,12 +15,6 @@ interface HomepageProps {
 
 const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
   const navigation = useNavigation(); // Access navigation using the hook
-  const { status, refreshStatus } = useStatus(); // Access status data and refreshStatus function
-  const [isLoading, setIsLoading] = useState(false);
-  const getRunningApps = (): AppInfo[] => {
-    return status.apps.filter(app => app.is_running);
-  }
-
 
   // Initialize animations
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -48,32 +40,25 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
 
   return (
     <View style={currentThemeStyles.container}>
-      <ScrollView>
-        <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
-          <Header isDarkTheme={isDarkTheme} navigation={navigation} />
-        </Animated.View>
+      <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
+        <Header isDarkTheme={isDarkTheme} navigation={navigation} />
+      </Animated.View>
 
-        <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
-          <PuckConnection />
-        </Animated.View>
+      <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
+  <PuckConnection isDarkTheme={isDarkTheme} />
+</Animated.View>
 
-        <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
-          <ConnectedDeviceInfo isDarkTheme={isDarkTheme} />
-        </Animated.View>
+      <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
+        <ConnectedDeviceInfo isDarkTheme={isDarkTheme} />
+      </Animated.View>
 
-        {status.glasses_info?.model_name && (
-          <>
-{getRunningApps().length > 0 && (
-        <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
-          <RunningAppsList isDarkTheme={isDarkTheme} />
-        </Animated.View>
-)}
-        <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
-          <YourAppsList isDarkTheme={isDarkTheme} />
-        </Animated.View>
-          </>
-        )}
-      </ScrollView>
+      <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
+        <RunningAppsList isDarkTheme={isDarkTheme} />
+      </Animated.View>
+
+      <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
+        <YourAppsList isDarkTheme={isDarkTheme} />
+      </Animated.View>
 
       <NavigationBar toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
     </View>

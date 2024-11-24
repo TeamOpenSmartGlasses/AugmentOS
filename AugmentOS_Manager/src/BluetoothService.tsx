@@ -102,11 +102,11 @@ export class BluetoothService extends EventEmitter {
     this.devices = [];
     this.emit('scanStarted');
 
-    const MAX_SCAN_SECONDS = 10
+    const MAX_SCAN_SECONDS = 10;
     // Set a timeout to stop the scan regardless
     const scanTimeout = setTimeout(() => {
       if (this.isScanning) {
-        console.log("(scanForDevices) Stoping the scan")
+        console.log('(scanForDevices) Stoping the scan');
         this.handleStopScan();
       }
     }, MAX_SCAN_SECONDS * 1000);
@@ -154,30 +154,20 @@ export class BluetoothService extends EventEmitter {
       this.emit('scanStopped');
       console.log('Scanning stopped');
     } else {
-      console.log("handleStopScan called but scanning was not active");
+      console.log('handleStopScan called but scanning was not active');
     }
   }
 
   handleDisconnectedPeripheral(data: any) {
     if (this.connectedDevice?.id === data.peripheral) {
-      console.log(`Disconnected from ${data.peripheral}, attempting to reconnect...`);
-      this.connectedDevice = null;
-      // Attempt to reconnect
-      // setTimeout(async () => {
-      //   try {
-      //     const peripheral = this.devices.find((device) => device.id === data.peripheral);
-      //     if (peripheral) {
-      //       console.log(`Reconnecting to ${peripheral.name}`);
-      //       await this.connectToDevice(peripheral);
-      //     } else {
-      //       console.log('Peripheral not found in cached devices');
-      //     }
-      //   } catch (error) {
-      //     console.error('Reconnection attempt failed:', error);
-      //   }
-      // }, 5000); // Retry after 5 seconds
+        console.log('Puck disconnected:', data.peripheral);
+        this.connectedDevice = null;
+        this.emit('deviceDisconnected');
+        this.emit('puckStatus', { puck_connected: false });
     }
-  }
+}
+
+
   // Handle bonded peripherals
   handleBondedPeripheral(data: any) {
     console.log('Bonding successful with:', data);
@@ -187,69 +177,55 @@ export class BluetoothService extends EventEmitter {
 
   async connectToDevice(device: Device) {
     try {
-      console.log('\n\nCONNECTING TO PUCK\n\n');
-      await BleManager.connect(device.id);
+        console.log('Connecting to Puck:', device.id);
+        await BleManager.connect(device.id);
 
-      // Poll to confirm the device is actually connected
-      let isConnected = await BleManager.isPeripheralConnected(device.id, []);
-      if (!isConnected) {
-        // Retry a few times with a slight delay
-        for (let i = 0; i < 5; i++) {
-          await new Promise(resolve => setTimeout(resolve, 500)); // Wait 500ms
-          isConnected = await BleManager.isPeripheralConnected(device.id, []);
-          if (isConnected) {
-            break;
-          }
+        let isConnected = await BleManager.isPeripheralConnected(device.id, []);
+        for (let i = 0; i < 5 && !isConnected; i++) {
+            await new Promise(resolve => setTimeout(resolve, 500));
+            isConnected = await BleManager.isPeripheralConnected(device.id, []);
         }
-      }
 
-      if (!isConnected) {
-        throw new Error(`Failed to connect to ${device.name} after multiple attempts`);
-      }
+        if (!isConnected) {
+            throw new Error('Failed to connect after retries.');
+        }
 
-      console.log('\n\nCHECKING BONDING STATUS\n\n');
-      const bondedDevices = await BleManager.getBondedPeripherals();
-      const isAlreadyBonded = bondedDevices.some(bondedDevice => bondedDevice.id === device.id);
+        console.log('Puck connected successfully:', device.id);
 
-      if (!isAlreadyBonded) {
-        console.log(`Device ${device.id} is not bonded. Initiating bond process...`);
-        await BleManager.createBond(device.id);
-        console.log('Bonding process complete.');
-      } else {
-        console.log(`Device ${device.id} is already bonded.`);
-      }
+        this.connectedDevice = device;
+        this.emit('deviceConnected', true);
 
-      try {
-        await new Promise(resolve => setTimeout(resolve, 3000));
-        console.log('\n\nGETTING PUCK SERVICES\n\n');
+        const bondedDevices = await BleManager.getBondedPeripherals();
+        const isBonded = bondedDevices.some(bonded => bonded.id === device.id);
+        if (!isBonded) {
+            console.log('Bonding with device...');
+            await BleManager.createBond(device.id);
+        }
+
         const services = await BleManager.retrieveServices(device.id);
-        console.log('Retrieved services:', services);
-      } catch (error) {
-        console.error('Error retrieving services:', error);
-      }
+console.log('Retrieved services and characteristics:', JSON.stringify(services, null, 2));
 
-      try {
-        this.mtuSize = 23; //default mtu size
-        const mtu = await BleManager.requestMTU(device.id, 512);//512 supposed to be max mtu
-        console.log(`MTU size changed to ${mtu}`);
-        this.mtuSize = mtu;
-      } catch (error) {
-        console.error('MTU exchange error:', error);
-      }
+        try {
+            const mtu = await BleManager.requestMTU(device.id, 512);
+            this.mtuSize = mtu;
+            console.log(`MTU set to ${mtu}`);
+        } catch {
+            console.warn('MTU negotiation failed. Using default 23.');
+        }
 
-      await new Promise(resolve => setTimeout(resolve, 500));
-      console.log('\n\nENABLING NOTIFICATIONS\n\n');
-      await this.enableNotifications(device.id);
+        await this.enableNotifications(device.id);
+        this.emit('puckStatus', {
+            puck_connected: true,
+            puck_battery_life: null,
+            puck_charging_status: false,
+        });
 
-      this.connectedDevice = device;
-      this.emit('deviceConnected', device);
-
-      await this.sendRequestStatus();
     } catch (error) {
-      console.error(`Error connecting to ${device.name}:`, error);
-      Alert.alert('Connection Failed', `Could not connect to ${device.name}`);
+        console.error('Error connecting to puck:', error);
+        this.emit('deviceConnected', false);
     }
-  }
+}
+
 
   async enableNotifications(deviceId: string) {
     try {
@@ -292,6 +268,8 @@ export class BluetoothService extends EventEmitter {
   }
 
   handleCharacteristicUpdate(data: any) {
+    console.log('Characteristic update received:', data);
+
     if (data.peripheral === this.connectedDevice?.id && data.characteristic === this.CHARACTERISTIC_UUID) {
       const deviceId = data.peripheral;
       const value = data.value; // This is an array of bytes (number[])
@@ -432,13 +410,13 @@ export class BluetoothService extends EventEmitter {
         }, 6000); // Timeout after 5 seconds
 
         this.once('dataReceived', (data) => {
-          /* 
+          /*
           TODO: This does not validate that the response we got pertains to the command we sent
           But at the same time we're literally only accepting status objects right now
-          so it doesn't really matter 
+          so it doesn't really matter
           */
             responseReceived = true;
-            this.isLocked=false;
+            this.isLocked = false;
             clearTimeout(timeout);
             console.log('GOT A RESPONSE FROM THE THING SO ALL GOOD CUZ');
             resolve(null);
@@ -460,21 +438,21 @@ export class BluetoothService extends EventEmitter {
   }
 
   async sendConnectWearable() {
-    console.log('sendConnectWearable')
+    console.log('sendConnectWearable');
     return await this.sendDataToAugmentOs(
       { 'command': 'connect_wearable' }
     );
   }
 
   async sendDisconnectWearable() {
-    console.log('sendDisconnectWearable')
+    console.log('sendDisconnectWearable');
     return await this.sendDataToAugmentOs(
       { 'command': 'disconnect_wearable' }
     );
   }
 
   async sendToggleVirtualWearable(enabled: boolean) {
-    console.log('sendToggleVirtualWearable')
+    console.log('sendToggleVirtualWearable');
     return await this.sendDataToAugmentOs(
       {
         'command': 'enable_virtual_wearable',
@@ -486,7 +464,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   async startAppByPackageName(packageName: string) {
-    console.log('startAppByPackageName')
+    console.log('startAppByPackageName');
     return await this.sendDataToAugmentOs(
       {
         'command': 'start_app',
@@ -498,7 +476,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   async stopAppByPackageName(packageName: string) {
-    console.log('stopAppByPackageName')
+    console.log('stopAppByPackageName');
     return await this.sendDataToAugmentOs(
       {
         'command': 'stop_app',
@@ -510,7 +488,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   async setAuthenticationSecretKey(authSecretKey: string) {
-    console.log('setAuthenticationSecretKey')
+    console.log('setAuthenticationSecretKey');
     return await this.sendDataToAugmentOs(
       {
         'command': 'set_auth_secret_key',
@@ -522,7 +500,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   async verifyAuthenticationSecretKey() {
-    console.log('verifyAuthenticationSecretKey')
+    console.log('verifyAuthenticationSecretKey');
     return await this.sendDataToAugmentOs(
       {
         'command': 'verify_auth_secret_key',
@@ -531,7 +509,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   async deleteAuthenticationSecretKey() {
-    console.log('deleteAuthenticationSecretKey')
+    console.log('deleteAuthenticationSecretKey');
     return await this.sendDataToAugmentOs(
       {
         'command': 'delete_auth_secret_key',

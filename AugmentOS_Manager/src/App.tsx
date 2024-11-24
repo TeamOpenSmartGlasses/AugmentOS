@@ -11,9 +11,14 @@ import LoginScreen from './screens/LoginScreen';
 import ProfileSettingsPage from './screens/ProfileSettingsPage';
 import GlassesMirror from './screens/GlassesMirror';
 import NotificationListener from './components/NotificationListener';
+import AppStore from './screens/AppStore';
+import AppDetails from './screens/AppDetails';
+import Reviews from './screens/ReviewSection.tsx';
 import { StyleSheet } from 'react-native';
+import { RootStackParamList } from './components/types'; // Update path as needed
 
-const Stack = createNativeStackNavigator();
+// Assign the RootStackParamList to the navigator
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App: React.FC = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -55,6 +60,27 @@ const App: React.FC = () => {
               >
                 {() => <SettingsPage isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />}
               </Stack.Screen>
+              <Stack.Screen
+                name="AppStore"
+                component={AppStore}
+                options={{ title: 'App Store', headerShown: false }}
+              />
+                <Stack.Screen
+  name="Reviews"
+  component={Reviews}
+  options={({ route }) => ({
+    title: route.params.appName ? `Reviews for ${route.params.appName}` : 'Reviews',
+  })}
+/>
+
+
+              <Stack.Screen
+                name="AppDetails"
+                component={AppDetails}
+                options={({ route }) => ({
+                  title: route.params.app.name || 'App Details',
+                })}
+              />
               <Stack.Screen
                 name="ProfileSettings"
                 options={{

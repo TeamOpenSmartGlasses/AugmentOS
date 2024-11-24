@@ -76,19 +76,19 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   };
 
 
-  const handleDisconnect = async () => {
-    try {
-      await bluetoothService.disconnectFromDevice();
-      //setIsConnected(false);
-      // setConnectedGlasses(null);
-    } catch (error) {
-      console.error('Error disconnecting:', error);
-      Alert.alert('Disconnect Error', 'Failed to disconnect from device');
-    }
-  };
+  // const handleDisconnect = async () => {
+  //   try {
+  //     await bluetoothService.disconnectFromDevice();
+  //     //setIsConnected(false);
+  //     // setConnectedGlasses(null);
+  //   } catch (error) {
+  //     console.error('Error disconnecting:', error);
+  //     Alert.alert('Disconnect Error', 'Failed to disconnect from device');
+  //   }
+  // };
 
-  const formatGlassesTitle = (title: string | null | undefined) =>
-    title ? title.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) : '';
+  // const formatGlassesTitle = (title: string | null | undefined) =>
+  //   title ? title.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) : '';
 
   // Theme styles defined as JavaScript objects, not within StyleSheet
   const themeStyles = {

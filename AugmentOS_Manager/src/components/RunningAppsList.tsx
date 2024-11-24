@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
-import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+// import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useStatus } from '../AugmentOSStatusProvider';
 import AppIcon from './AppIcon';
 import { bluetoothService } from '../BluetoothService';
@@ -11,12 +11,12 @@ interface RunningAppsListProps {
 }
 
 const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
-  const { status, refreshStatus } = useStatus(); // Access status data and refreshStatus function
-  const [isLoading, setIsLoading] = useState(false);
+  const { status } = useStatus(); // Access status data and refreshStatus function
+  const [_isLoading, setIsLoading] = useState(false);
   const runningApps = useMemo(() => status.apps.filter((app) => app.is_running), [status]);
 
   const textColor = isDarkTheme ? '#FFFFFF' : '#000000';
-  const borderColor = isDarkTheme ? '#FFFFFF' : '#CCCCCC';
+  // const borderColor = isDarkTheme ? '#FFFFFF' : '#CCCCCC';
   const gradientColors = isDarkTheme
     ? ['#4a3cb5', '#7856FE', '#9a7dff']
     : ['#56CCFE', '#FF8DF6', '#FFD04E'];
@@ -81,7 +81,7 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
             key={index}
             onClick={() => {
               stopApp(app.package_name);
-            }}></AppIcon>
+            }} />
             // <View key={index} style={styles.appWrapper}>
             //   <View style={[styles.appIconWrapper, { borderColor }]}>
             //     <Image source={getAppImage(app.name)} style={styles.appIcon} />

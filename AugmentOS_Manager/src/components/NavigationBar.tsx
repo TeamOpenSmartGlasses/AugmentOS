@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { NavigationProps } from '../components/types'; // Import NavigationProps instead of NativeStackNavigationProp
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { NavigationProps } from '../components/types';
 
 interface NavigationBarProps {
   toggleTheme: () => void;
@@ -9,29 +10,32 @@ interface NavigationBarProps {
 }
 
 const NavigationBar: React.FC<NavigationBarProps> = ({ isDarkTheme }) => {
-  const navigation = useNavigation<NavigationProps>(); // Use NavigationProps directly
+  const navigation = useNavigation<NavigationProps>();
   const iconColor = isDarkTheme ? '#FFFFFF' : '#000000';
   const backgroundColor = isDarkTheme ? '#000000' : '#F2F2F7';
 
+  const iconSize = 30; // Set a uniform icon size
+
   return (
     <View style={[styles.navBarContainer, { backgroundColor }]}>
+      {/* Home Icon */}
       <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.iconWrapper}>
-        <Image 
-          source={require('../icons/Home-Icon.png')} 
-          style={[styles.icon, { tintColor: iconColor }]} 
-        />
+        <MaterialCommunityIcons name="home-outline" size={iconSize} color={iconColor} />
       </TouchableOpacity>
+
+      {/* Glasses Mirror Icon */}
       <TouchableOpacity onPress={() => navigation.navigate('GlassesMirror')} style={styles.iconWrapper}>
-        <Image 
-          source={require('../icons/Screen-Mirron-Icon.png')} 
-          style={[styles.icon, { tintColor: iconColor }]} 
-        />
+        <MaterialCommunityIcons name="monitor" size={iconSize} color={iconColor} />
       </TouchableOpacity>
+
+      {/* App Store Icon (Apps) */}
+      <TouchableOpacity onPress={() => navigation.navigate('AppStore')} style={styles.iconWrapper}>
+        <MaterialCommunityIcons name="apps" size={iconSize} color={iconColor} />
+      </TouchableOpacity>
+
+      {/* Settings Icon */}
       <TouchableOpacity onPress={() => navigation.navigate('SettingsPage')} style={styles.iconWrapper}>
-        <Image 
-          source={require('../icons/Settings-Icon.png')} 
-          style={[styles.icon, { tintColor: iconColor }]} 
-        />
+        <MaterialCommunityIcons name="cog-outline" size={iconSize} color={iconColor} />
       </TouchableOpacity>
     </View>
   );
@@ -48,13 +52,14 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 60,
+    borderTopWidth: 1,
+    borderTopColor: '#ccc',
   },
   iconWrapper: {
     alignItems: 'center',
-  },
-  icon: {
-    width: 30,
-    height: 30,
+    justifyContent: 'center',
+    width: 50, // Set a fixed width for alignment
+    height: 50, // Set a fixed height for alignment
   },
 });
 

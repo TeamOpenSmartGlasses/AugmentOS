@@ -50,7 +50,7 @@ export class AugmentOSParser {
 
     // console.log('checking dat');
     if (data && 'status' in data) {
-      console.log('data good?')
+      console.log('data good?');
       const status = data.status;
       return {
         puck_connected: true,
