@@ -69,6 +69,7 @@ export class BluetoothService extends EventEmitter {
     try {
       console.log('Scanning for BLE devices...');
       await BleManager.scan([this.SERVICE_UUID], 5, true);
+      console.log('BLE scan successfully started');
     } catch (error) {
       console.error('Error during scanning:', error);
       this.isScanning = false;
@@ -79,6 +80,7 @@ export class BluetoothService extends EventEmitter {
   handleDiscoveredPeripheral(peripheral: any) {
     console.log('Discovered peripheral:', peripheral); // Log all discovered peripherals
     if (peripheral.name === 'AugOS') {
+      console.log('Found an AugOS device... Stop scan and connect');
       BleManager.stopScan();
       this.connectToDevice(peripheral);
     } else {

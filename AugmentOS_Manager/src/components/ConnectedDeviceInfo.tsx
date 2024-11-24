@@ -11,8 +11,6 @@ interface ConnectedDeviceInfoProps {
 //const bluetoothService = new BluetoothService(); // Initialize a single instance of BluetoothService
 
 const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }) => {
-  // const [isConnected, setIsConnected] = useState(false);
-  const [connectedGlasses, setConnectedGlasses] = useState<string | null>(null); // Update type to `string | null`
   const [isLoading, setIsLoading] = useState(false);
 
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -35,14 +33,10 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     }
 
     const onDeviceConnected = (device: Device) => {
-      // setIsConnected(true);
-      setConnectedGlasses(device.name);
       setIsLoading(false);
     };
 
     const onDeviceDisconnected = () => {
-      // setIsConnected(false);
-      setConnectedGlasses(null);
       setIsLoading(false);
     };
 
@@ -92,18 +86,27 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     }
   };
 
+  const connectGlasses = async () => {
+    try {
+      await bluetoothService.sendConnectWearable();
+    } catch (error) {
+      console.error('connect 2 glasses error:', error);
+    }
+  };
+
+
   const handleDisconnect = async () => {
     try {
       await bluetoothService.disconnectFromDevice();
       //setIsConnected(false);
-      setConnectedGlasses(null);
+      // setConnectedGlasses(null);
     } catch (error) {
       console.error('Error disconnecting:', error);
       Alert.alert('Disconnect Error', 'Failed to disconnect from device');
     }
   };
 
-  const formatGlassesTitle = (title: string | null) =>
+  const formatGlassesTitle = (title: string | null | undefined) =>
     title ? title.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) : '';
 
   // Theme styles defined as JavaScript objects, not within StyleSheet
@@ -144,7 +147,6 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     return '#FF5722'; // Red
   };
 
-  const glassesImage = getGlassesImage(connectedGlasses);
   const batteryIcon = getBatteryIcon(batteryLevel);
   const batteryColor = getBatteryColor(batteryLevel);
 
@@ -152,40 +154,49 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     <View style={[styles.deviceInfoContainer, { backgroundColor: themeStyles.backgroundColor }]}>
       {status.puck_connected ? (
         <>
-          {glassesImage && (
-            <Animated.Image
-              source={glassesImage}
-              style={[styles.glassesImage, { opacity: fadeAnim, transform: [{ scale: scaleAnim }] }]}
-            />
-          )}
-          <Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]}>
-            <Text style={[styles.connectedDot, { color: themeStyles.connectedDotColor }]}>●</Text>
-            <Text style={styles.connectedTextGreen}>Connected</Text>
+          {status.glasses_info?.model_name ? (
+            <>
+              <Animated.Image
+                source={getGlassesImage('vuzix-z100')}
+                style={[styles.glassesImage, { opacity: fadeAnim, transform: [{ scale: scaleAnim }] }]}
+              />
+              <Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]}>
+
+                {/* <Text style={[styles.connectedDot, { color: themeStyles.connectedDotColor }]}>●</Text> */}
+                {/* <Text style={styles.connectedTextGreen}>{"Puck Connected"}</Text>
             <Text style={styles.separator}>|</Text>
             <Text style={[styles.connectedTextTitle, { color: themeStyles.textColor }]}>
-              {formatGlassesTitle(connectedGlasses)} Glasses
-            </Text>
-          </Animated.View>
+              {formatGlassesTitle(status.glasses_info?.model_name) || "Glasses\nDisconnected"}
+            </Text> */}
+              </Animated.View>
 
-          <Animated.View style={[styles.statusBar, { opacity: fadeAnim }]}>
-            <View style={styles.statusInfo}>
-              <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Battery</Text>
-              <View style={styles.batteryContainer}>
-                <Icon name={batteryIcon} size={20} color={batteryColor} style={styles.batteryIcon} />
-                <Text style={[styles.batteryValue, { color: batteryColor }]}>{batteryLevel}%</Text>
-              </View>
-            </View>
 
-            <View style={styles.statusInfo}>
-              <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
-              <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>87%</Text>
-            </View>
+              <Animated.View style={[styles.statusBar, { opacity: fadeAnim }]}>
+                <View style={styles.statusInfo}>
+                  <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Battery</Text>
+                  <View style={styles.batteryContainer}>
+                    <Icon name={batteryIcon} size={20} color={batteryColor} style={styles.batteryIcon} />
+                    <Text style={[styles.batteryValue, { color: batteryColor }]}>{batteryLevel}%</Text>
+                  </View>
+                </View>
 
-            <TouchableOpacity style={styles.disconnectButton} onPress={handleDisconnect}>
-              <Icon name="power-off" size={18} color="white" style={styles.icon} />
-              <Text style={styles.disconnectText}>Disconnect</Text>
-            </TouchableOpacity>
-          </Animated.View>
+                <View style={styles.statusInfo}>
+                  <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
+                  <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>87%</Text>
+                </View>
+              </Animated.View>
+            </>
+          ) : (
+            <>
+              <Animated.View style={[{ transform: [{ translateX: slideAnim }], alignItems: 'center', justifyContent: 'center' }]}>
+                <Text style={{ color: 'black', textAlign: 'center', fontSize: 18, marginBottom: 10 }}>No Glasses Connected</Text>
+                <TouchableOpacity style={[styles.connectButton, { justifyContent: 'center' }]} onPress={connectGlasses}>
+                  <Icon name="wifi" size={18} color="white" style={styles.icon} />
+                  <Text style={styles.buttonText}>Connect Glasses</Text>
+                </TouchableOpacity>
+              </Animated.View>
+            </>
+          )}
         </>
       ) : (
         <>

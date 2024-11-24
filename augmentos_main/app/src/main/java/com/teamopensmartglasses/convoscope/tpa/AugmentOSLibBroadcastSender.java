@@ -93,6 +93,29 @@ public class AugmentOSLibBroadcastSender {
         }
     }
 
+    public boolean isThirdPartyAppRunning(ThirdPartyApp tpa) {
+// TODO: Cannot be implemented this way w/o being a system level app
+        //        if (tpa.packageName.isEmpty() || tpa.serviceName.isEmpty()) {
+//            return false; // Invalid TPA details
+//        }
+//
+//        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+//        if (activityManager == null) {
+//            return false; // If ActivityManager is not available
+//        }
+//
+//        // Iterate through the list of running services
+//        for (ActivityManager.RunningServiceInfo service : activityManager.getRunningServices(Integer.MAX_VALUE)) {
+//            if (service.service.getPackageName().equals(tpa.packageName) &&
+//                    service.service.getClassName().equals(tpa.serviceName)) {
+//                return true; // Found the running service
+//            }
+//        }
+//
+//        return false; // Service not running
+        return false;
+    }
+
     //Starts a AugmentOSCommand's service (if not already running)
     public void startSgmCommandService(AugmentOSCommand augmentosCommand){
         //tpaPackageName = "com.google.mlkit.samples.nl.translate";

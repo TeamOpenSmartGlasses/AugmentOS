@@ -42,7 +42,9 @@ import org.greenrobot.eventbus.Subscribe;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class TPASystem {
     private String TAG = "WearableAi_TPASystem";
@@ -58,11 +60,13 @@ public class TPASystem {
     private ArrayList<ThirdPartyApp> thirdPartyApps;
     private SharedPreferences sharedPreferences;
     private Gson gson;
+    private Set<String> runningApps;
 
     public TPASystem(Context context){
         mContext = context;
         augmentOsLibBroadcastSender = new AugmentOSLibBroadcastSender(mContext);
         augmentOsLibBroadcastReceiver = new AugmentOSLibBroadcastReceiver(mContext);
+        runningApps = new HashSet<>();
 
         //subscribe to event bus events
         EventBus.getDefault().register(this);
@@ -113,11 +117,20 @@ public class TPASystem {
         return false;
     }
 
+    public boolean checkIsThirdPartyAppRunningByPackageName(String packageName) {
+        return runningApps.contains(packageName);
+    }
+
+    public Set<String> getRunningApps() {
+        return new HashSet<>(runningApps);
+    }
+
     public void startThirdPartyAppByPackageName(String packageName){
         if (isAppInstalled(packageName)) {
             for (ThirdPartyApp tpa : thirdPartyApps) {
                 if (tpa.packageName.equals(packageName)) {
                     augmentOsLibBroadcastSender.startThirdPartyApp(tpa);
+                    runningApps.add(packageName);
                 }
             }
         } else {
@@ -129,6 +142,7 @@ public class TPASystem {
     public void stopThirdPartyAppByPackageName(String packageName){
         for (ThirdPartyApp tpa : thirdPartyApps) {
             if (tpa.packageName.equals(packageName)) {
+                runningApps.remove(packageName);
                 augmentOsLibBroadcastSender.killThirdPartyApp(tpa);
             }
         }

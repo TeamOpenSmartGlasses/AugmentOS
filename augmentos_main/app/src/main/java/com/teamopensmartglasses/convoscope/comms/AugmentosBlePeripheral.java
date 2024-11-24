@@ -210,7 +210,7 @@ public class AugmentosBlePeripheral {
                         gattServer.sendResponse(device, requestId, BluetoothGatt.GATT_SUCCESS, 0, null);
                     } catch (JSONException e) {
                         // Handle JSON parsing error
-                        Log.e(TAG, "Invalid JSON command: " + e.getMessage());
+                        Log.e(TAG, "Invalid JSON command onExecuteWrite: " + e.getMessage());
                         gattServer.sendResponse(device, requestId, BluetoothGatt.GATT_FAILURE, 0, null);
                     } catch (UnsupportedEncodingException e) {
                         // Handle encoding error

@@ -1,8 +1,19 @@
-# Convoscope Android app frontend/client
+# AugmentOS_Core
+
+This is the Android code that runs on the Puck device.
+
+### Build Notes
+
+- Must use Java SDK 17
+    - To set this, in Android Studio, go to Settings > Build, Execution, Deployment > Build Tools > Gradle, go to Gradle JDK and select version 17
+
+- AugmentOS_Core currently depends on the "SmartGlassesManager" repo being next to it. Eventually, this will be a typical library, but for now it must be manually installed. To do this, clone the "SmartGlassesManager" repository into the same parent directory as this `augmentos_core` directory.
+
+- If AugmentOS_Core still uses firebase by the time you're reading this, you'll need to figure out your own firebase setup, otherwise AugmentOS_Core will not function correctly :)
 
 ##### Building OGG/Orbis C++ for ASP
 
-(You probably don't need this unless you the OG h4ck3r).
+(Disregard this section unless you are an OG H4CK3R... if you have to ask, you are not an OG H4CK3R)
 
 You only have to follow these specific steps if you are building the OGG/Orbis C++ code. Otherwise, things will likely work with your regular Android Studio setup.
 

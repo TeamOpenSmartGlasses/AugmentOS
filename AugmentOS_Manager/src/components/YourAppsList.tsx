@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, NativeSyntheticEvent, NativeScrollEvent, Dimensions, TouchableOpacity } from 'react-native';
 import { useStatus } from '../AugmentOSStatusProvider';
+import AppIcon from './AppIcon';
+import { bluetoothService } from '../BluetoothService';
 
 const { width } = Dimensions.get('window');
 
@@ -11,6 +13,7 @@ interface YourAppsListProps {
 const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
   const { status } = useStatus(); // Access the status from AugmentOSStatusProvider
   const installedApps = status.apps; // Get the list of apps from the status
+  const [isLoading, setIsLoading] = useState(false);
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -23,6 +26,18 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
   const textColor = isDarkTheme ? '#FFFFFF' : '#000000';
   const dotColor = isDarkTheme ? '#FFFFFF' : '#000000';
   const appLabelColor = isDarkTheme ? '#C0C0C0' : 'black';
+
+  const startApp = async (packageName: string) => {
+    setIsLoading(true);
+    try {
+      await bluetoothService.startAppByPackageName(packageName);
+    } catch (error) {
+      console.error('start app error:', error);
+    }
+    finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <View style={styles.appsContainer}>
@@ -41,12 +56,16 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
         contentContainerStyle={styles.scrollViewContent}
       >
         {installedApps.map((app, index) => (
-          <TouchableOpacity key={index} style={styles.appIconWrapper}>
-            <Image source={{ uri: app.icon }} style={styles.appIcon} />
-            <Text style={[styles.appLabel, { color: appLabelColor }]} numberOfLines={1}>
-              {app.name}
-            </Text>
-          </TouchableOpacity>
+          // <TouchableOpacity key={index} style={styles.appIconWrapper}>
+          //   <Image source={{ uri: app.icon }} style={styles.appIcon} />
+          //   <Text style={[styles.appLabel, { color: appLabelColor }]} numberOfLines={1}>
+          //     {app.name}
+          //   </Text>
+          // </TouchableOpacity>
+          <AppIcon
+          app={app} onClick={()=>{startApp(app.package_name)}}>
+
+          </AppIcon>
         ))}
       </ScrollView>
 

@@ -1,5 +1,9 @@
 package com.teamopensmartglasses.augmentoslib;
 
+import android.app.ActivityManager;
+import android.content.Context;
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 

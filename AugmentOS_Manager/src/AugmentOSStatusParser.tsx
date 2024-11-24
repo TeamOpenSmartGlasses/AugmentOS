@@ -16,7 +16,7 @@ interface GSMConnection {
   signal_strength: number; // 0-100
 }
 
-interface AppInfo {
+export interface AppInfo {
   name: string;
   description: string;
   is_running: boolean;

@@ -69,14 +69,15 @@ public class SettingsUi extends Fragment {
         killServiceButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                ((MainActivity)getActivity()).mService.stopSmartGlassesService();
+                ((MainActivity)getActivity()).mService.disconnectWearable("");
             }
         });
 
         final Button connectSmartGlassesButton = view.findViewById(R.id.connect_smart_glasses);
             connectSmartGlassesButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    ((MainActivity)getActivity()).mService.restartSmartGlassesService();
+                    ((MainActivity)getActivity()).mService.disconnectWearable("");
+                    ((MainActivity)getActivity()).mService.connectToWearable("");
                 }
         });
 
@@ -88,11 +89,13 @@ public class SettingsUi extends Fragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked){
                     SmartGlassesAndroidService.savePreferredWearable(getContext(), new AudioWearable().deviceModelName);
-                    ((MainActivity)getActivity()).mService.restartSmartGlassesService();
+                    ((MainActivity)getActivity()).mService.disconnectWearable("");
+                    ((MainActivity)getActivity()).mService.connectToWearable("");
                 }
                 else {
                     SmartGlassesAndroidService.savePreferredWearable(getContext(), "");
-                    ((MainActivity)getActivity()).mService.restartSmartGlassesService();
+                    ((MainActivity)getActivity()).mService.disconnectWearable("");
+                    ((MainActivity)getActivity()).mService.connectToWearable("");
                 }
             }
         });
@@ -117,7 +120,8 @@ public class SettingsUi extends Fragment {
                 Log.d(TAG, "Vocabulary Upgrade checkbox changed: " + isChecked);
                 ((MainActivity)getActivity()).mService.setVocabularyUpgradeEnabled(mContext, isChecked);
                 ((MainActivity)getActivity()).mService.updateVocabularyUpgradeOnBackend(mContext);
-                ((MainActivity)getActivity()).mService.restartSmartGlassesService();
+                ((MainActivity)getActivity()).mService.disconnectWearable("");
+                ((MainActivity)getActivity()).mService.connectToWearable("");
             }
         });
 
@@ -150,7 +154,8 @@ public class SettingsUi extends Fragment {
                 // Save the selected language as the new transcribe language default
                 Log.d(TAG, "TRANSCRIBE LANGUAGE SPINNER CHANGED");
                 SmartGlassesAndroidService.saveChosenTranscribeLanguage(mContext, selectedLanguage);
-                ((MainActivity)getActivity()).mService.restartSmartGlassesService();
+                ((MainActivity)getActivity()).mService.disconnectWearable("");
+                ((MainActivity)getActivity()).mService.connectToWearable("");
             }
 
             @Override
@@ -192,7 +197,8 @@ public class SettingsUi extends Fragment {
                 AugmentosService.saveChosenTargetLanguage(mContext, selectedLanguage);
                 if (((MainActivity)getActivity()).isAugmentosServiceRunning()) {
                     ((MainActivity) getActivity()).mService.updateTargetLanguageOnBackend(mContext);
-                    ((MainActivity)getActivity()).mService.restartSmartGlassesService();
+                    ((MainActivity)getActivity()).mService.disconnectWearable("");
+                    ((MainActivity)getActivity()).mService.connectToWearable("");
                 }
             }
 
@@ -233,7 +239,8 @@ public class SettingsUi extends Fragment {
                 AugmentosService.saveChosenSourceLanguage(mContext, selectedLanguage);
                 if (((MainActivity)getActivity()).isAugmentosServiceRunning()) {
                     ((MainActivity)getActivity()).mService.updateSourceLanguageOnBackend(mContext);
-                    ((MainActivity)getActivity()).mService.restartSmartGlassesService();
+                    ((MainActivity)getActivity()).mService.disconnectWearable("");
+                    ((MainActivity)getActivity()).mService.connectToWearable("");
                 }
             }
 
@@ -274,9 +281,9 @@ public class SettingsUi extends Fragment {
                         buttonId = 2;
                         break;
                 }
-                ((MainActivity)getActivity()).mService.restartSmartGlassesService();
                 SmartGlassesAndroidService.saveSelectedLiveCaptionsTranslationChecked(mContext, buttonId); // normalize the id
-                ((MainActivity)getActivity()).mService.restartSmartGlassesService();
+                ((MainActivity)getActivity()).mService.disconnectWearable("");
+                ((MainActivity)getActivity()).mService.connectToWearable("");
             }
         });
 

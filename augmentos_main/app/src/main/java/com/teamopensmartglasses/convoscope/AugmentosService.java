@@ -221,16 +221,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
+            Log.d(TAG,"SMART GLASSES SERVICE DISCONNECTED!!!!");
             isSmartGlassesServiceBound = false;
             sendStatusToAugmentOsManager();
         }
     };
-//        super(AugmentosUi.class,
-//                "augmentos_app",
-//                3589,
-//                "AugmentOS",
-//                "Smart glasses super app by TOSG.", R.drawable.ic_launcher_foreground);
-//    }
 
     @Override
     public void onCreate() {
@@ -389,6 +384,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Subscribe
     public void onGlassesConnnected(SmartGlassesConnectedEvent event) {
+        Log.d(TAG, "Got even for onGlassesConnected....");
         sendStatusToAugmentOsManager();
     }
 
@@ -2104,8 +2100,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 JSONObject tpaObj = new JSONObject();
                 tpaObj.put("name", tpa.appName);
                 tpaObj.put("description", tpa.appDescription);
-                tpaObj.put("is_running", false);
-                tpaObj.put("is_foreground", false);
+                tpaObj.put("is_running", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
+                tpaObj.put("is_foreground", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
                 tpaObj.put("package_name", tpa.packageName);
                 apps.put(tpaObj);
             }

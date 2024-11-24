@@ -24,12 +24,14 @@ public class AugmentOsManagerMessageParser {
                     break;
 
                 case "connect_wearable":
-                    String wearableId = commandObject.getJSONObject("params").getString("target");
+                    // String wearableId = commandObject.getJSONObject("params").getString("target");
+                    String wearableId = "notImplemented";
                     callback.connectToWearable(wearableId);
                     break;
 
                 case "disconnect_wearable":
-                    String disconnectId = commandObject.getJSONObject("params").getString("target");
+                    // String disconnectId = commandObject.getJSONObject("params").getString("target");
+                    String disconnectId = "notImplemented";
                     callback.disconnectWearable(disconnectId);
                     break;
 
