@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {  useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated, Alert, PermissionsAndroid, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { bluetoothService, Device } from '../BluetoothService';
+import { bluetoothService} from '../BluetoothService';
 import { useStatus } from '../AugmentOSStatusProvider';
 
 interface ConnectedDeviceInfoProps {
@@ -75,21 +75,6 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     }
   };
 
-
-  // const handleDisconnect = async () => {
-  //   try {
-  //     await bluetoothService.disconnectFromDevice();
-  //     //setIsConnected(false);
-  //     // setConnectedGlasses(null);
-  //   } catch (error) {
-  //     console.error('Error disconnecting:', error);
-  //     Alert.alert('Disconnect Error', 'Failed to disconnect from device');
-  //   }
-  // };
-
-  // const formatGlassesTitle = (title: string | null | undefined) =>
-  //   title ? title.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) : '';
-
   // Theme styles defined as JavaScript objects, not within StyleSheet
   const themeStyles = {
     backgroundColor: isDarkTheme ? '#333333' : '#F2F2F7',
@@ -146,16 +131,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                 source={getGlassesImage(status.glasses_info.model_name)}
                 style={[styles.glassesImage, { opacity: fadeAnim, transform: [{ scale: scaleAnim }] }]}
               />
-              <Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]}>
-
-                {/* <Text style={[styles.connectedDot, { color: themeStyles.connectedDotColor }]}>●</Text> */}
-                {/* <Text style={styles.connectedTextGreen}>{"Puck Connected"}</Text>
-            <Text style={styles.separator}>|</Text>
-            <Text style={[styles.connectedTextTitle, { color: themeStyles.textColor }]}>
-              {formatGlassesTitle(status.glasses_info?.model_name) || "Glasses\nDisconnected"}
-            </Text> */}
-              </Animated.View>
-
+              <Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]} />
 
               <Animated.View style={[styles.statusBar, { opacity: fadeAnim }]}>
                 <View style={styles.statusInfo}>
@@ -174,8 +150,8 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
             </>
           ) : (
             <>
-              <Animated.View style={[{ transform: [{ translateX: slideAnim }], alignItems: 'center', justifyContent: 'center' }]}>
-                <Text style={{ color: 'black', textAlign: 'center', fontSize: 18, marginBottom: 10 }}>No Glasses Connected</Text>
+              <Animated.View style={[styles.deviceInfoContainer, { transform: [{ translateX: slideAnim }] }]}>
+                <Text style={styles.noGlassesText}>No Glasses Connected</Text>
                 <TouchableOpacity style={[styles.connectButton, { }]} onPress={connectGlasses}>
                   <Icon name="wifi" size={18} color="white" style={styles.icon} />
                   <Text style={styles.buttonText}>Connect Glasses</Text>
@@ -202,10 +178,6 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     </View>
   );
 };
-
-
-
-
 const styles = StyleSheet.create({
   deviceInfoContainer: {
     padding: 20,
@@ -219,6 +191,12 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 150,
     resizeMode: 'contain',
+  },
+  noGlassesText: {
+    color: 'black',
+    textAlign: 'center',
+    fontSize: 18,
+    marginBottom: 10,
   },
   connectedStatus: {
     flexDirection: 'row',

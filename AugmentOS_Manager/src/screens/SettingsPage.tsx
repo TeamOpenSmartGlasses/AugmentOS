@@ -11,7 +11,7 @@ const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> 
   const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] = useState(false);
   const navigation = useNavigation<NavigationProps>();
   const { status } = useStatus();
-  const [isUsingAudioWearable, setIsUsingAudioWearable] = useState (status.glasses_info?.model_name == "Audio Wearable")
+  const [isUsingAudioWearable, setIsUsingAudioWearable] = useState(status.glasses_info?.model_name === 'Audio Wearable');
 
   const backgroundStyle = isDarkTheme ? styles.darkBackground : styles.lightBackground;
   const titleColorStyle = isDarkTheme ? styles.darkTitle : styles.lightTitle;
@@ -147,7 +147,6 @@ const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> 
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
