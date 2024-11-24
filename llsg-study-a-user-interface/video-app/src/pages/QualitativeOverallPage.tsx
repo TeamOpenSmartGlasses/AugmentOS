@@ -11,7 +11,7 @@ const participantID = localStorage.getItem('participantID');
 
   const handleSurveyCompletion = () => {
     // Assuming there are 3 videos
-    navigate(`/completion/`);
+    navigate(`/rare_word_test/`);
   };
 
   window.addEventListener("message", (event) => {
@@ -55,7 +55,7 @@ const participantID = localStorage.getItem('participantID');
     <div>
       <h1>Survey</h1>
       <iframe
-        src={`https://mit.co1.qualtrics.com/jfe/form/SV_55SFkZAiT7tFxY2?code_block_num=qualitative_overall&participant_id=${participantID}&Q_R=${Q_R}`}
+        src={`https://mit.co1.qualtrics.com/jfe/form/SV_3lwhnSHD7NXq41E?code_block_num=qualitative_overall&participant_id=${participantID}&Q_R=${Q_R}`}
         title="Survey"
         width="100%"
         height="600px"

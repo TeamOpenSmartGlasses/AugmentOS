@@ -20,7 +20,7 @@ const ContentUnderstandingPage: React.FC = () => {
             localStorage.setItem('videoCount', videoCount.toString());
             navigate(`/video/`);
         } else {
-            navigate(`/number_qualitative/`);
+            navigate(`/qualitative_overall/`);
         }
     };
 
@@ -76,7 +76,7 @@ const ContentUnderstandingPage: React.FC = () => {
     <div>
       <h1>Post-test for Video {id}</h1>
       <iframe
-        src={`https://mit.co1.qualtrics.com/jfe/form/SV_55SFkZAiT7tFxY2?code_block_num=understanding_${videoIndex}&participant_id=${participantID}&Q_R=${Q_R}`}
+        src={`https://mit.co1.qualtrics.com/jfe/form/SV_3lwhnSHD7NXq41E?code_block_num=understanding_${videoIndex}&participant_id=${participantID}&Q_R=${Q_R}`}
         title="Post-test Survey"
         width="100%"
         height="600px"

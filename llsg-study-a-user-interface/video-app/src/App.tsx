@@ -10,6 +10,7 @@ import SpecialVideoPage from "./pages/SpecialVideoPage";
 import QualitativeOverallPage from "./pages/QualitativeOverallPage";
 import CompletionPage from "./pages/CompletionPage";
 import ContentUnderstandingPage from './pages/ContentUnderstandingPage';
+import RareWordTestPage from './pages/RareWordTestPage';
 
 const App: React.FC = () => {
     localStorage.setItem('video_count', '0');
@@ -26,6 +27,7 @@ const App: React.FC = () => {
         <Route path="/special_video/" element={<SpecialVideoPage />} />
         <Route path="/qualitative_overall/" element={<QualitativeOverallPage />} />
         <Route path="/completion/" element={<CompletionPage />} />
+        <Route path="/rare_word_test/" element={<CompletionPage />} />
       </Routes>
     </Router>
   );

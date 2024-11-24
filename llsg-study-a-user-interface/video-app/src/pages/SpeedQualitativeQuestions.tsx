@@ -2,17 +2,17 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const SpeedQualitativeQuestions: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
-const participantID = localStorage.getItem('participantID');
-  const Q_R = localStorage.getItem('Q_R');
+    const { id } = useParams<{ id: string }>();
+    const navigate = useNavigate();
+    const participantID = localStorage.getItem('participantID');
+    const Q_R = localStorage.getItem('Q_R');
     const videoIndex = localStorage.getItem('videoIndex');
     const condition = localStorage.getItem('condition');
 
-  const handleSurveyCompletion = () => {
-    // Assuming there are 3 videos
-    navigate(`/special_video/`);
-  };
+    const handleSurveyCompletion = () => {
+      // Assuming there are 3 videos
+      navigate(`/special_video/`);
+    };
 
     window.addEventListener("message", (event) => {
     const message = event.data;
@@ -48,14 +48,13 @@ const participantID = localStorage.getItem('participantID');
     } else {
         console.warn("Unrecognized event received:", message.event);
     }
-});
-
+  });
 
   return (
     <div>
       <h1>Survey</h1>
       <iframe
-        src={`https://mit.co1.qualtrics.com/jfe/form/SV_55SFkZAiT7tFxY2?code_block_num=qualitative_speed&participant_id=${participantID}&Q_R=${Q_R}`}
+        src={`https://mit.co1.qualtrics.com/jfe/form/SV_3lwhnSHD7NXq41E?code_block_num=qualitative_speed&participant_id=${participantID}&Q_R=${Q_R}`}
         title="Survey"
         width="100%"
         height="600px"
