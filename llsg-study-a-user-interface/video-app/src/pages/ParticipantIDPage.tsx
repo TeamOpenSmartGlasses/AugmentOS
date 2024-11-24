@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, CSSProperties } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -25,27 +25,80 @@ const ParticipantIDPage: React.FC = () => {
 
       // Navigate to pretest page
       navigate('/pretest');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error creating participant:', error);
-      // @ts-ignore
       setError(`Failed to create participant: ${error.message}`);
     }
   };
 
+  const styles: {
+    container: CSSProperties;
+    formContainer: CSSProperties;
+    form: CSSProperties;
+    input: CSSProperties;
+    button: CSSProperties;
+    message: CSSProperties;
+  } = {
+    container: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      backgroundColor: '#f9f9f9',
+      margin: 0,
+    },
+    formContainer: {
+      textAlign: 'center' as CSSProperties['textAlign'],
+      padding: '20px',
+      border: '1px solid #ccc',
+      borderRadius: '8px',
+      backgroundColor: '#fff',
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    },
+    form: {
+      marginTop: '15px',
+    },
+    input: {
+      padding: '10px',
+      marginBottom: '10px',
+      borderRadius: '4px',
+      border: '1px solid #ccc',
+      width: '100%',
+      maxWidth: '300px',
+    },
+    button: {
+      padding: '10px 20px',
+      backgroundColor: '#007BFF',
+      color: '#fff',
+      border: 'none',
+      borderRadius: '4px',
+      cursor: 'pointer',
+    },
+    message: {
+      marginTop: '10px',
+      fontSize: '14px',
+    },
+  };
+
   return (
-    <div>
-      <h1>Enter Participant ID</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={participantID}
-          onChange={(e) => setParticipantID(e.target.value)}
-          required
-        />
-        <button type="submit">Start</button>
-      </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {success && <p style={{ color: 'green' }}>{success}</p>}
+    <div style={styles.container}>
+      <div style={styles.formContainer}>
+        <h1>Enter Participant ID</h1>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <input
+            type="text"
+            value={participantID}
+            onChange={(e) => setParticipantID(e.target.value)}
+            required
+            style={styles.input}
+          />
+          <button type="submit" style={styles.button}>
+            Start
+          </button>
+        </form>
+        {error && <p style={{ ...styles.message, color: 'red' }}>{error}</p>}
+        {success && <p style={{ ...styles.message, color: 'green' }}>{success}</p>}
+      </div>
     </div>
   );
 };
