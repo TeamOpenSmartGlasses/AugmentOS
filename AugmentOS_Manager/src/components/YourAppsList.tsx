@@ -63,7 +63,7 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
           //   </Text>
           // </TouchableOpacity>
           <AppIcon
-          app={app} onClick={()=>{startApp(app.package_name)}}>
+          app={app} key={index} onClick={()=>{startApp(app.package_name)}}>
 
           </AppIcon>
         ))}

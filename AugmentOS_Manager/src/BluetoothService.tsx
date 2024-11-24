@@ -3,6 +3,8 @@ import { NativeEventEmitter, NativeModules, Alert } from 'react-native';
 import BleManager from 'react-native-ble-manager';
 import { EventEmitter } from 'events';
 import { TextDecoder } from 'text-encoding';
+import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
+import { AppState } from 'react-native';
 
 const BleManagerModule = NativeModules.BleManager;
 const bleManagerEmitter = new NativeEventEmitter(BleManagerModule);
@@ -25,9 +27,14 @@ export class BluetoothService extends EventEmitter {
   SERVICE_UUID: string = '12345678-1234-5678-1234-56789abcdef0';
   CHARACTERISTIC_UUID: string = 'abcdef12-3456-789a-bcde-f01234567890';
 
+  isLocked: boolean = false;
+
   constructor() {
     super();
     this.initializeBleManager();
+    this.startReconnectionScan();
+
+    AppState.addEventListener('change', this.handleAppStateChange.bind(this));
   }
 
   async initializeBleManager() {
@@ -56,9 +63,38 @@ export class BluetoothService extends EventEmitter {
     bleManagerEmitter.removeAllListeners('BleManagerBondedPeripheral');
   }
 
+  handleAppStateChange(nextAppState: string) {
+    if (nextAppState === 'active') {
+      console.log('App became active. Checking connection...');
+      if (!this.connectedDevice) {
+        this.scanForDevices();
+      }
+    }
+  }
+
+  async isBluetoothEnabled(): Promise<boolean> {
+    const state = await BleManager.checkState();
+    return state === 'on';
+  }
+
+  async isLocationEnabled(): Promise<boolean> {
+    const result = await check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
+    return result === RESULTS.GRANTED;
+  }
+
   async scanForDevices() {
+    if (!(await this.isBluetoothEnabled())) {
+      console.log('Bluetooth is not enabled');
+      return;
+    }
+
+    if (!(await this.isLocationEnabled())) {
+      console.log('Location is not enabled');
+      return;
+    }
+
     if (this.isScanning) {
-      console.log('Already scanning');
+      console.log('Already scanning for devices');
       return;
     }
 
@@ -66,16 +102,38 @@ export class BluetoothService extends EventEmitter {
     this.devices = [];
     this.emit('scanStarted');
 
+    const MAX_SCAN_SECONDS = 10
+    // Set a timeout to stop the scan regardless
+    const scanTimeout = setTimeout(() => {
+      if (this.isScanning) {
+        console.log("(scanForDevices) Stoping the scan")
+        this.handleStopScan();
+      }
+    }, MAX_SCAN_SECONDS * 1000);
+
     try {
       console.log('Scanning for BLE devices...');
-      await BleManager.scan([this.SERVICE_UUID], 5, true);
-      console.log('BLE scan successfully started');
+      await BleManager.scan([this.SERVICE_UUID], MAX_SCAN_SECONDS, true);
+      console.log('BLE scan started');
     } catch (error) {
       console.error('Error during scanning:', error);
       this.isScanning = false;
       this.emit('scanStopped');
+    } finally {
+      console.log('Clear the scan timeout');
+      clearTimeout(scanTimeout); // Clear the timeout if scan finishes normally
     }
   }
+
+  startReconnectionScan() {
+    setInterval(() => {
+      if (!this.connectedDevice) {
+        console.log('No device connected. Starting reconnection scan...');
+        this.scanForDevices();
+      }
+    }, 30000); // Scan every 30 seconds
+  }
+
 
   handleDiscoveredPeripheral(peripheral: any) {
     console.log('Discovered peripheral:', peripheral); // Log all discovered peripherals
@@ -91,18 +149,35 @@ export class BluetoothService extends EventEmitter {
 
 
   handleStopScan() {
-    this.isScanning = false;
-    this.emit('scanStopped');
-    console.log('Scanning stopped');
+    if (this.isScanning) {
+      this.isScanning = false;
+      this.emit('scanStopped');
+      console.log('Scanning stopped');
+    } else {
+      console.log("handleStopScan called but scanning was not active");
+    }
   }
 
   handleDisconnectedPeripheral(data: any) {
     if (this.connectedDevice?.id === data.peripheral) {
+      console.log(`Disconnected from ${data.peripheral}, attempting to reconnect...`);
       this.connectedDevice = null;
-      this.emit('deviceDisconnected');
+      // Attempt to reconnect
+      // setTimeout(async () => {
+      //   try {
+      //     const peripheral = this.devices.find((device) => device.id === data.peripheral);
+      //     if (peripheral) {
+      //       console.log(`Reconnecting to ${peripheral.name}`);
+      //       await this.connectToDevice(peripheral);
+      //     } else {
+      //       console.log('Peripheral not found in cached devices');
+      //     }
+      //   } catch (error) {
+      //     console.error('Reconnection attempt failed:', error);
+      //   }
+      // }, 5000); // Retry after 5 seconds
     }
   }
-
   // Handle bonded peripherals
   handleBondedPeripheral(data: any) {
     console.log('Bonding successful with:', data);
@@ -131,9 +206,6 @@ export class BluetoothService extends EventEmitter {
       if (!isConnected) {
         throw new Error(`Failed to connect to ${device.name} after multiple attempts`);
       }
-
-      // this.connectedDevice = device;
-      // this.emit('deviceConnected', device);
 
       console.log('\n\nCHECKING BONDING STATUS\n\n');
       const bondedDevices = await BleManager.getBondedPeripherals();
@@ -197,7 +269,6 @@ export class BluetoothService extends EventEmitter {
     try {
       await BleManager.disconnect(this.connectedDevice.id);
       this.connectedDevice = null;
-      this.emit('deviceDisconnected');
     } catch (error) {
       console.error('Error during disconnect:', error);
     }
@@ -313,9 +384,16 @@ export class BluetoothService extends EventEmitter {
 
   async sendDataToAugmentOs(dataObj: any) {
     if (!this.connectedDevice) {
-      console.log('No connected device to write to');
+      console.log('SendDataToAugmentOs: No connected device to write to');
       return;
     }
+
+    if (this.isLocked) {
+      console.log('Action is locked. Ignoring button press.');
+      return;
+    }
+
+    this.isLocked = true;
 
     try {
       // Convert data to byte array
@@ -324,6 +402,8 @@ export class BluetoothService extends EventEmitter {
 
       const mtuSize = this.mtuSize || 23; // Use negotiated MTU size, or default to 23
       const maxChunkSize = mtuSize - 3; // Subtract 3 bytes for ATT protocol overhead
+
+      let responseReceived = false;
 
       // Split data into chunks
       for (let i = 0; i < byteData.length; i += maxChunkSize) {
@@ -339,9 +419,33 @@ export class BluetoothService extends EventEmitter {
         );
       }
 
-      console.log('Data written with response');
+      console.log('Data chunk written, waiting for response...');
+
+      // Wait for response or timeout
+      await new Promise((resolve, reject) => {
+        const timeout = setTimeout(() => {
+          if (!responseReceived) {
+            console.log('No response received within timeout. Triggering reconnection...');
+            this.handleDisconnectedPeripheral({ peripheral: this.connectedDevice?.id });
+            reject(new Error('Response timeout'));
+          }
+        }, 6000); // Timeout after 5 seconds
+
+        this.once('dataReceived', (data) => {
+          /* 
+          TODO: This does not validate that the response we got pertains to the command we sent
+          But at the same time we're literally only accepting status objects right now
+          so it doesn't really matter 
+          */
+            responseReceived = true;
+            this.isLocked=false;
+            clearTimeout(timeout);
+            console.log('GOT A RESPONSE FROM THE THING SO ALL GOOD CUZ');
+            resolve(null);
+        });
+      });
     } catch (error) {
-      console.error('Error writing data:', error);
+      // console.error('Error writing data:', error);
       Alert.alert('Write Error', 'Failed to write data to device');
     }
   }

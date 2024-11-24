@@ -4,6 +4,7 @@ import { bluetoothService } from './BluetoothService';
 
 interface AugmentOSStatusContextType {
     status: AugmentOSMainStatus;
+    isSearching: boolean;
     refreshStatus: (data: any) => void;
 }
 
@@ -11,6 +12,7 @@ const AugmentOSStatusContext = createContext<AugmentOSStatusContextType | undefi
 
 export const StatusProvider = ({ children }: { children: ReactNode }) => {
     const [status, setStatus] = useState(AugmentOSParser.parseStatus({}));
+    const [isSearching, setIsSearching] = useState(false);
 
     const refreshStatus = useCallback((data: any) => {
         const parsedStatus = AugmentOSParser.parseStatus(data);
@@ -24,15 +26,22 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
             refreshStatus(data);
         };
 
+        const handleScanStarted = () => setIsSearching(true);
+        const handleScanStopped = () => setIsSearching(false);
+
         bluetoothService.on('dataReceived', handleDataReceived);
+        bluetoothService.on('scanStarted', handleScanStarted);
+        bluetoothService.on('scanStopped', handleScanStopped);
 
         return () => {
             bluetoothService.removeListener('dataReceived', handleDataReceived);
+            bluetoothService.removeListener('scanStarted', handleScanStarted);
+            bluetoothService.removeListener('scanStopped', handleScanStopped);
         };
     }, [refreshStatus]);
 
     return (
-        <AugmentOSStatusContext.Provider value={{ status, refreshStatus }}>
+        <AugmentOSStatusContext.Provider value={{ status, isSearching, refreshStatus }}>
             {children}
         </AugmentOSStatusContext.Provider>
     );

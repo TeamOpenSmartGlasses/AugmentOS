@@ -20,6 +20,7 @@ import com.th3rdwave.safeareacontext.SafeAreaContextPackage
 import com.BV.LinearGradient.LinearGradientPackage
 import com.swmansion.gesturehandler.RNGestureHandlerPackage
 import com.augmentos_manager.NotificationReceiver
+import com.zoontek.rnpermissions.RNPermissionsPackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -38,7 +39,8 @@ class MainApplication : Application(), ReactApplication {
                 RNScreensPackage(),
                 SafeAreaContextPackage(),
                 LinearGradientPackage(),
-                RNGestureHandlerPackage()
+                RNGestureHandlerPackage(),
+                RNPermissionsPackage()
             )
         }
 

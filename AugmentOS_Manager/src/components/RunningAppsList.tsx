@@ -77,7 +77,9 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
 
           {/* Display limited running apps */}
           {limitedRunningApps.map((app, index) => (
-            <AppIcon app={app} onClick={() => {
+            <AppIcon app={app}
+            key={index}
+            onClick={() => {
               stopApp(app.package_name);
             }}></AppIcon>
             // <View key={index} style={styles.appWrapper}>

@@ -4,17 +4,28 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import NavigationBar from '../components/NavigationBar';
 import { useNavigation } from '@react-navigation/native';
 import { NavigationProps } from '../components/types';
+import { useStatus } from '../AugmentOSStatusProvider';
 
 const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> = ({ isDarkTheme, toggleTheme }) => {
   const [isDoNotDisturbEnabled, setDoNotDisturbEnabled] = useState(false);
   const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] = useState(false);
   const navigation = useNavigation<NavigationProps>();
+  const { status } = useStatus();
+  const [isUsingAudioWearable, setIsUsingAudioWearable] = useState (status.glasses_info?.model_name == "Audio Wearable")
 
   const backgroundStyle = isDarkTheme ? styles.darkBackground : styles.lightBackground;
   const titleColorStyle = isDarkTheme ? styles.darkTitle : styles.lightTitle;
   const labelColorStyle = isDarkTheme ? styles.darkLabel : styles.lightLabel;
   const valueColorStyle = isDarkTheme ? styles.darkValue : styles.lightValue;
   const iconColor = isDarkTheme ? '#666666' : '#333333';
+
+  function sendToggleVirtualWearable(arg0: boolean): void | Promise<void> {
+    throw new Error('Function not implemented.');
+  }
+
+  function sendDisconnectWearable() {
+    throw new Error('Function not implemented.');
+  }
 
   return (
     <View style={[styles.container, backgroundStyle]}>
@@ -38,6 +49,15 @@ const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> 
           </View>
           <Icon name="angle-right" size={20} color={iconColor} />
         </TouchableOpacity>
+
+        {/* Toggle Virtual Wearable */}
+        <View style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, labelColorStyle]}>Use Virtual Wearable</Text>
+            <Text style={[styles.value, valueColorStyle]}>Puck will use a simulated smart glasses instead of real smart glasses.</Text>
+          </View>
+          <Switch value={isUsingAudioWearable} onValueChange={() => sendToggleVirtualWearable(!isUsingAudioWearable)} />
+        </View>
 
         {/* Link to Profile Settings */}
         <TouchableOpacity style={styles.settingItem} onPress={() => navigation.navigate('ProfileSettings')}>
@@ -97,6 +117,18 @@ const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> 
           </View>
           <Icon name="angle-right" size={20} color={iconColor} />
         </TouchableOpacity>
+
+        {/* Disconnect Wearable */}
+        {status.glasses_info?.model_name && (
+        <TouchableOpacity style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, labelColorStyle]}>Disconnect Wearable</Text>
+          </View>
+            <TouchableOpacity onPress={() => { sendDisconnectWearable(); }}>
+          <Icon name="angle-right" size={20} color={iconColor} />
+          </TouchableOpacity>
+        </TouchableOpacity>
+        )}
 
         {/* Control Audio During Screen Rest */}
         <TouchableOpacity style={styles.settingItem}>

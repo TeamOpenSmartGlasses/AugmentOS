@@ -248,6 +248,8 @@ public class CommandSystem {
         Log.d(TAG, "event requesting privilege: " + eventId);
         return true;
 
+
+
 //        //check if app has focus - if so, it can do whatever it wants
 //        if (isInActiveFocus(sendingPackage)){
 //            return true;
@@ -316,7 +318,7 @@ public class CommandSystem {
         }
 
         //check if the app making the request has privilege, only run it if it does have privilege
-        if (true){ //(checkAppHasPrivilege(receivedEvent.eventId, receivedEvent.sendingPackage)) { //comment out check for privilege until this is a problem - TPAs should all request check for privilege anyway
+        if (checkAppHasPrivilege(receivedEvent.eventId, receivedEvent.sendingPackage)) { //comment out check for privilege until this is a problem - TPAs should all request check for privilege anyway
             Log.d(TAG, "Allowing and resending event: ," + receivedEvent.eventId + "requested by: " + receivedEvent.sendingPackage);
             //map from id to event for all events that need permissions
             switch (receivedEvent.eventId) {

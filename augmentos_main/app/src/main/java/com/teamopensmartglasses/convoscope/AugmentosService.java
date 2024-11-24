@@ -257,7 +257,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         //startNotificationService();
 
         // load pinyin converter in the background
-        new Thread(this::loadSegmenter).start();
+        // new Thread(this::loadSegmenter).start();
 //        if (
 //            (super.getSelectedLiveCaptionsTranslation(this) == 1 && getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)")) ||
 //            (super.getSelectedLiveCaptionsTranslation(this) == 2 && (getChosenSourceLanguage(this).equals("Chinese (Pinyin)") ||

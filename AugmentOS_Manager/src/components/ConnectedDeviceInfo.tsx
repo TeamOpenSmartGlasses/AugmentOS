@@ -11,13 +11,11 @@ interface ConnectedDeviceInfoProps {
 //const bluetoothService = new BluetoothService(); // Initialize a single instance of BluetoothService
 
 const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }) => {
-  const [isLoading, setIsLoading] = useState(false);
-
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(0.8)).current;
   const slideAnim = useRef(new Animated.Value(-50)).current;
 
-  const { status, refreshStatus } = useStatus(); // Access status data and refreshStatus function
+  const { status, isSearching, refreshStatus } = useStatus(); // Access status data and refreshStatus function
   const glassesInfo = status.glasses_info;
   const batteryLevel = glassesInfo?.battery_life ?? 0;
 
@@ -31,21 +29,6 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
         console.log('Permissions granted:', result);
       });
     }
-
-    const onDeviceConnected = (device: Device) => {
-      setIsLoading(false);
-    };
-
-    const onDeviceDisconnected = () => {
-      setIsLoading(false);
-    };
-
-    bluetoothService.on('deviceConnected', onDeviceConnected);
-    bluetoothService.on('deviceDisconnected', onDeviceDisconnected);
-
-    return () => {
-      bluetoothService.removeListeners();
-    };
   }, [refreshStatus]);
 
   useEffect(() => {
@@ -76,13 +59,11 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   }, [status, fadeAnim, scaleAnim, slideAnim]);
 
   const handleConnect = async () => {
-    setIsLoading(true);
     try {
       await bluetoothService.scanForDevices();
     } catch (error) {
       Alert.alert('Error', 'Failed to start scanning for devices');
       console.error('Scanning error:', error);
-      setIsLoading(false);
     }
   };
 
@@ -121,6 +102,8 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   const getGlassesImage = (glasses: string | null) => {
     switch (glasses) {
       case 'vuzix-z100':
+      case 'Vuzix Z100':
+      case 'Vuzix Ultralite':
         return require('../assets/glasses/vuzix-z100-glasses.png');
       case 'inmo_air':
         return require('../assets/glasses/inmo_air.png');
@@ -128,6 +111,9 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
         return require('../assets/glasses/tcl_rayneo_x_two.png');
       case 'vuzix_shield':
         return require('../assets/glasses/vuzix_shield.png');
+      case 'virtual-wearable':
+      case 'Audio Wearable':
+        return require('../assets/glasses/virtual_wearable.png');
       default:
         return null;
     }
@@ -157,7 +143,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
           {status.glasses_info?.model_name ? (
             <>
               <Animated.Image
-                source={getGlassesImage('vuzix-z100')}
+                source={getGlassesImage(status.glasses_info.model_name)}
                 style={[styles.glassesImage, { opacity: fadeAnim, transform: [{ scale: scaleAnim }] }]}
               />
               <Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]}>
@@ -190,7 +176,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
             <>
               <Animated.View style={[{ transform: [{ translateX: slideAnim }], alignItems: 'center', justifyContent: 'center' }]}>
                 <Text style={{ color: 'black', textAlign: 'center', fontSize: 18, marginBottom: 10 }}>No Glasses Connected</Text>
-                <TouchableOpacity style={[styles.connectButton, { justifyContent: 'center' }]} onPress={connectGlasses}>
+                <TouchableOpacity style={[styles.connectButton, { }]} onPress={connectGlasses}>
                   <Icon name="wifi" size={18} color="white" style={styles.icon} />
                   <Text style={styles.buttonText}>Connect Glasses</Text>
                 </TouchableOpacity>
@@ -201,9 +187,9 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
       ) : (
         <>
           <Text style={[styles.connectText, { color: themeStyles.textColor }]}>
-            {isLoading ? 'Connecting...' : 'No device connected'}
+            {isSearching ? 'Connecting...' : 'No device connected'}
           </Text>
-          {isLoading ? (
+          {isSearching ? (
             <ActivityIndicator size="large" color="#2196F3" />
           ) : (
             <TouchableOpacity style={styles.connectButton} onPress={handleConnect}>
@@ -310,11 +296,12 @@ const styles = StyleSheet.create({
   connectButton: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
     backgroundColor: '#2196F3',
     padding: 15,
     borderRadius: 10,
     width: '100%',
-    justifyContent: 'center',
   },
   icon: {
     marginRight: 6,

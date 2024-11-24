@@ -340,16 +340,6 @@ public class TPASystem {
         return thirdPartyApps;
     }
 
-    public boolean shouldAppBeRunning(String packageName){
-        for (ThirdPartyApp app : thirdPartyApps) {
-            if (app.packageName.equals(packageName)) {
-                // TODO: OK WE HAVE THE APP, NOW MAKE SURE IT'S SUPPOSED TO BE RUNNING
-                return true;
-            }
-        }
-        return false;
-    }
-
     //respond and approve events below
     @Subscribe
     public void onTPARequestEvent(TPARequestEvent receivedEvent) {
@@ -367,8 +357,10 @@ public class TPASystem {
                 return;
         }
 
-        if (!shouldAppBeRunning(receivedEvent.sendingPackage)) {
-            Log.d(TAG, "Unknown app '" + receivedEvent.serializedEvent + "' attempting request... weird...");
+        // Check if this TPA should even be running
+        if (!checkIsThirdPartyAppRunningByPackageName(receivedEvent.sendingPackage)) {
+            Log.d(TAG, "Unknown app '" + receivedEvent.serializedEvent + "' attempting request... weird... bye felicia");
+            stopThirdPartyAppByPackageName(receivedEvent.sendingPackage);
             return;
         }
 

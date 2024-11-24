@@ -48,7 +48,7 @@ export class AugmentOSParser {
       apps: [],
     };
 
-    console.log('checking dat');
+    // console.log('checking dat');
     if (data && 'status' in data) {
       console.log('data good?')
       const status = data.status;
