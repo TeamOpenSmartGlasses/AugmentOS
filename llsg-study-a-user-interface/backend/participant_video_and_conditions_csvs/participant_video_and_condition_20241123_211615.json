@@ -1,8 +1,92 @@
 {
-    "date_saved": "2024-11-24T01:32:59.953433",
+    "date_saved": "2024-11-23T21:16:15.815043",
     "data": [
         {
             "video_order": [
+                3,
+                1,
+                2
+            ],
+            "condition_order": [
+                2,
+                1,
+                3
+            ]
+        },
+        {
+            "video_order": [
+                1,
+                3,
+                2
+            ],
+            "condition_order": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "video_order": [
+                3,
+                1,
+                2
+            ],
+            "condition_order": [
+                3,
+                2,
+                1
+            ]
+        },
+        {
+            "video_order": [
+                3,
+                1,
+                2
+            ],
+            "condition_order": [
+                3,
+                1,
+                2
+            ]
+        },
+        {
+            "video_order": [
+                1,
+                3,
+                2
+            ],
+            "condition_order": [
+                3,
+                2,
+                1
+            ]
+        },
+        {
+            "video_order": [
+                2,
+                1,
+                3
+            ],
+            "condition_order": [
+                3,
+                1,
+                2
+            ]
+        },
+        {
+            "video_order": [
+                3,
+                2,
+                1
+            ],
+            "condition_order": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "video_order": [
                 2,
                 1,
                 3
@@ -21,31 +105,7 @@
             ],
             "condition_order": [
                 2,
-                3,
-                1
-            ]
-        },
-        {
-            "video_order": [
                 1,
-                2,
-                3
-            ],
-            "condition_order": [
-                1,
-                2,
-                3
-            ]
-        },
-        {
-            "video_order": [
-                1,
-                3,
-                2
-            ],
-            "condition_order": [
-                1,
-                2,
                 3
             ]
         },
@@ -56,9 +116,9 @@
                 3
             ],
             "condition_order": [
-                3,
+                2,
                 1,
-                2
+                3
             ]
         },
         {
@@ -68,87 +128,39 @@
                 1
             ],
             "condition_order": [
-                2,
-                3,
-                1
-            ]
-        },
-        {
-            "video_order": [
-                1,
-                3,
-                2
-            ],
-            "condition_order": [
-                1,
-                2,
-                3
-            ]
-        },
-        {
-            "video_order": [
-                3,
-                1,
-                2
-            ],
-            "condition_order": [
-                1,
-                3,
-                2
-            ]
-        },
-        {
-            "video_order": [
                 3,
                 2,
                 1
+            ]
+        },
+        {
+            "video_order": [
+                2,
+                1,
+                3
             ],
             "condition_order": [
+                1,
                 2,
-                3,
-                1
+                3
             ]
         },
         {
             "video_order": [
                 1,
-                2,
-                3
+                3,
+                2
             ],
             "condition_order": [
-                1,
                 3,
+                1,
                 2
             ]
         },
         {
             "video_order": [
                 1,
-                2,
-                3
-            ],
-            "condition_order": [
-                1,
                 3,
-                2
-            ]
-        },
-        {
-            "video_order": [
-                2,
-                1,
-                3
-            ],
-            "condition_order": [
-                2,
-                1,
-                3
-            ]
-        },
-        {
-            "video_order": [
-                3,
-                1,
                 2
             ],
             "condition_order": [
@@ -159,9 +171,9 @@
         },
         {
             "video_order": [
-                1,
                 3,
-                2
+                2,
+                1
             ],
             "condition_order": [
                 3,
@@ -171,26 +183,14 @@
         },
         {
             "video_order": [
-                1,
-                2,
-                3
-            ],
-            "condition_order": [
-                1,
                 3,
-                2
-            ]
-        },
-        {
-            "video_order": [
                 2,
-                3,
                 1
             ],
             "condition_order": [
                 3,
-                1,
-                2
+                2,
+                1
             ]
         },
         {
@@ -207,26 +207,26 @@
         },
         {
             "video_order": [
-                2,
                 3,
+                2,
                 1
             ],
             "condition_order": [
                 2,
-                1,
-                3
+                3,
+                1
             ]
         },
         {
             "video_order": [
-                1,
                 2,
+                1,
                 3
             ],
             "condition_order": [
-                3,
+                1,
                 2,
-                1
+                3
             ]
         },
         {
@@ -236,9 +236,9 @@
                 2
             ],
             "condition_order": [
+                1,
                 3,
-                2,
-                1
+                2
             ]
         }
     ]

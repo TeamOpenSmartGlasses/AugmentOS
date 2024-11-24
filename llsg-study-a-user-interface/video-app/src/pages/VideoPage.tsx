@@ -158,7 +158,7 @@ const VideoPage: React.FC = () => {
       videoRef.current.play().catch((error) => {
         console.error('Error playing video:', error);
       });
-      videoRef.current.playbackRate = 1.0;
+      videoRef.current.playbackRate = 8.0;
     }
   }, [videoStarted]);
 

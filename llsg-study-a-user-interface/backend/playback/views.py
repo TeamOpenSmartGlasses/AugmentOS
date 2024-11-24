@@ -35,7 +35,7 @@ RARE_WORD_DISPLAY_THRESHOLD = 0.5
 participant_index = 0 # index of the participant in the list of participants
 video_word_index = 0 # index of the word in the list of words for the video
 video_index = 1 # index of the video in the list of videos
-buffer_time = 0.1 # time in advance to display the word
+buffer_time = 0.2 # time in advance to display the word
 
 if __name__ == '__main__':
     rare_words_directory_path = '../../content_generation/rare_words_with_timestamps_and_conditions'
@@ -332,8 +332,7 @@ def get_new_word(request): # TODO: check latency between request being sent and 
             if playback_time <= 0:
                 clear_screen = True
 
-            # condition = participant_conditions[f"video_{video_index}"][video_word_index] # TODO: change this for the actual study
-            condition = 1
+            condition = participant_conditions[f"video_{video_index}"][video_word_index]
         except:
             return JsonResponse({'word': None, 'translation': None, 'condition': 0, 'numWordsToShowAtATime': 0, 'clearScreen': True})
     else:
