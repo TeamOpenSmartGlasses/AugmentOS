@@ -29,13 +29,13 @@ is_special_video_playing = False
 playback_time = 0
 current_participant_id = None
 
-NUMBER_OF_PARTICIPANTS = 20
+NUMBER_OF_PARTICIPANTS = 12
 RARE_WORD_DISPLAY_THRESHOLD = 0.5
 
 participant_index = 0 # index of the participant in the list of participants
 video_word_index = 0 # index of the word in the list of words for the video
 video_index = 1 # index of the video in the list of videos
-buffer_time = 0.2 # time in advance to display the word
+buffer_time = 0.1 # time in advance to display the word
 
 if __name__ == '__main__':
     rare_words_directory_path = '../../content_generation/rare_words_with_timestamps_and_conditions'
@@ -44,7 +44,7 @@ else:
 
 print(os.listdir(rare_words_directory_path))
 rare_words_for_each_video_dict = dict()
-FRACTION_OF_NO_INTERVENTION_PARTICIPANTS = 1/3
+FRACTION_OF_NO_INTERVENTION_PARTICIPANTS = 2/8
 
 def parse_csv():
     # TODO: fix this
@@ -214,10 +214,12 @@ def get_conditions_for_participant(video_key: str) -> List:
         uid = word['unique_word_id']
         unique_word_id_to_indices.setdefault(uid, []).append(i)
 
-    for uid, indices in unique_word_id_to_indices.items():
-        num_to_increment = int(len(indices) * FRACTION_OF_NO_INTERVENTION_PARTICIPANTS)
-        indices_to_increment = random.sample(indices, num_to_increment)
-        for idx in indices_to_increment:
+    uids_to_increment = random.sample(list(unique_word_id_to_indices.keys()),
+                                      int(len(unique_word_id_to_indices) * FRACTION_OF_NO_INTERVENTION_PARTICIPANTS))
+
+    for uid in uids_to_increment:
+        indices = unique_word_id_to_indices[uid]
+        for idx in indices:
             conditions[idx] += 3
 
     return conditions
