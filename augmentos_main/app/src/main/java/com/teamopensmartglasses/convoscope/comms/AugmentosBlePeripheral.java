@@ -339,6 +339,11 @@ public class AugmentosBlePeripheral {
 
     @SuppressLint("MissingPermission")
     private void sendNotification(byte[] data) {
+        if (connectedDevice == null) {
+            Log.d(TAG, "Tried to send data via BLE but no device connected");
+            return;
+        }
+
         characteristic.setValue(data);
         boolean notificationSent = gattServer.notifyCharacteristicChanged(connectedDevice, characteristic, false);
 
