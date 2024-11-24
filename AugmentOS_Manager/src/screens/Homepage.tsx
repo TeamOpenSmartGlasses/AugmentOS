@@ -53,7 +53,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
       </Animated.View>
 
       <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
-        <RunningAppsList isDarkTheme={isDarkTheme} />
+        <RunningAppsList isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
       </Animated.View>
 
       <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>

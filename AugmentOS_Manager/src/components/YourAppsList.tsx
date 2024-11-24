@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, NativeSyntheticEvent, NativeScrollEvent, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, NativeSyntheticEvent, NativeScrollEvent, Dimensions } from 'react-native';
 import { useStatus } from '../AugmentOSStatusProvider';
 import AppIcon from './AppIcon';
 import { bluetoothService } from '../BluetoothService';
@@ -63,9 +63,7 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
           //   </Text>
           // </TouchableOpacity>
           <AppIcon
-          app={app} key={index} onClick={()=>{startApp(app.package_name)}}>
-
-          </AppIcon>
+          app={app} key={index} onClick={()=>{startApp(app.package_name);}} />
         ))}
       </ScrollView>
 

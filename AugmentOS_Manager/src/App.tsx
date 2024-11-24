@@ -58,7 +58,7 @@ const App: React.FC = () => {
                 name="SettingsPage"
                 options={{ headerShown: false }}
               >
-                {() => <SettingsPage isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />}
+                {(props) => <SettingsPage {...props} isDarkTheme={isDarkTheme} />}
               </Stack.Screen>
               <Stack.Screen
                 name="AppStore"
