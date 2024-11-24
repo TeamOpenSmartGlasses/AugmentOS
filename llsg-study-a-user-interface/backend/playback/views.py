@@ -28,8 +28,8 @@ is_special_video_playing = False
 # playback_time = 40 # TODO: change this
 playback_time = 0
 current_participant_id = None
-NUMBER_OF_PARTICIPANTS = 12
-# RARE_WORD_DISPLAY_THRESHOLD = 0.5
+
+NUMBER_OF_PARTICIPANTS = 20
 RARE_WORD_DISPLAY_THRESHOLD = 0.5
 
 participant_index = 0 # index of the participant in the list of participants
@@ -44,11 +44,11 @@ else:
 
 print(os.listdir(rare_words_directory_path))
 rare_words_for_each_video_dict = dict()
-FRACTION_OF_NO_INTERVENTION_PARTICIPANTS = 0
+FRACTION_OF_NO_INTERVENTION_PARTICIPANTS = 1/3
 
 def parse_csv():
     # TODO: fix this
-    if len(os.listdir(rare_words_directory_path)) > 6: # should have at most 3 rare word files one for each video
+    if len(os.listdir(rare_words_directory_path)) > 7: # should have at most 3 rare word files one for each video
         raise RuntimeError('Too many files in the directory. Shutting down the server.')
 
     global rare_words_for_each_video_dict
@@ -87,10 +87,9 @@ def assign_videos_and_conditions_to_participants() -> List:
     video_orders = [[1, 2, 3] for _ in range(NUMBER_OF_PARTICIPANTS)]
     condition_orders = [[1, 2, 3] for _ in range(NUMBER_OF_PARTICIPANTS)]
 
-    # TODO: remove this for the actual study
-    # for i in range(NUMBER_OF_PARTICIPANTS):
-    #     random.shuffle(video_orders[i])
-    #     random.shuffle(condition_orders[i])
+    for i in range(NUMBER_OF_PARTICIPANTS):
+        random.shuffle(video_orders[i])
+        random.shuffle(condition_orders[i])
 
     participants_data = [
         {"video_order": video_orders[i], "condition_order": condition_orders[i]}

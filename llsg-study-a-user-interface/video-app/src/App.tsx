@@ -27,7 +27,7 @@ const App: React.FC = () => {
         <Route path="/special_video/" element={<SpecialVideoPage />} />
         <Route path="/qualitative_overall/" element={<QualitativeOverallPage />} />
         <Route path="/completion/" element={<CompletionPage />} />
-        <Route path="/rare_word_test/" element={<CompletionPage />} />
+        <Route path="/rare_word_test/" element={<RareWordTestPage />} />
       </Routes>
     </Router>
   );

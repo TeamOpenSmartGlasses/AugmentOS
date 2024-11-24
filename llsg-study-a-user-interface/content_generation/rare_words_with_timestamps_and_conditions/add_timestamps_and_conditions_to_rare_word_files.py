@@ -48,6 +48,9 @@ def extract_timestamps_from_video(audio_file_path):
         )
         response = json.loads(response.to_json())['results']['channels'][0]['alternatives'][0]['words']
 
+        with open('timestamps.json', 'w') as f:
+            json.dump(response, f, indent=4)
+
         return response
 
     except Exception as e:
