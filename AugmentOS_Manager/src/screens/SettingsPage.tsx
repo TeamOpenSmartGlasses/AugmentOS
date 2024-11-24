@@ -1,215 +1,333 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, Switch, TouchableOpacity, ScrollView } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated, Alert, PermissionsAndroid, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import NavigationBar from '../components/NavigationBar';
-import { useNavigation } from '@react-navigation/native';
-import { NavigationProps } from '../components/types';
+import { bluetoothService, Device } from '../BluetoothService';
 import { useStatus } from '../AugmentOSStatusProvider';
 
-const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> = ({ isDarkTheme, toggleTheme }) => {
-  const [isDoNotDisturbEnabled, setDoNotDisturbEnabled] = useState(false);
-  const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] = useState(false);
-  const navigation = useNavigation<NavigationProps>();
-  const { status } = useStatus();
-  const [isUsingAudioWearable, setIsUsingAudioWearable] = useState(status.glasses_info?.model_name === 'Audio Wearable');
+interface ConnectedDeviceInfoProps {
+  isDarkTheme: boolean;
+}
 
-  const backgroundStyle = isDarkTheme ? styles.darkBackground : styles.lightBackground;
-  const titleColorStyle = isDarkTheme ? styles.darkTitle : styles.lightTitle;
-  const labelColorStyle = isDarkTheme ? styles.darkLabel : styles.lightLabel;
-  const valueColorStyle = isDarkTheme ? styles.darkValue : styles.lightValue;
-  const iconColor = isDarkTheme ? '#666666' : '#333333';
+//const bluetoothService = new BluetoothService(); // Initialize a single instance of BluetoothService
 
-  function sendToggleVirtualWearable(arg0: boolean): void | Promise<void> {
-    throw new Error('Function not implemented.');
-  }
+const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }) => {
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const scaleAnim = useRef(new Animated.Value(0.8)).current;
+  const slideAnim = useRef(new Animated.Value(-50)).current;
 
-  function sendDisconnectWearable() {
-    throw new Error('Function not implemented.');
-  }
+  const { status, isSearching, refreshStatus } = useStatus(); // Access status data and refreshStatus function
+  const glassesInfo = status.glasses_info;
+  const batteryLevel = glassesInfo?.battery_life ?? 0;
+
+  useEffect(() => {
+    if (Platform.OS === 'android' && Platform.Version >= 23) {
+      PermissionsAndroid.requestMultiple([
+        PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
+        PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      ]).then((result) => {
+        console.log('Permissions granted:', result);
+      });
+    }
+  }, [refreshStatus]);
+
+  useEffect(() => {
+    if (status.puck_connected) {
+      Animated.parallel([
+        Animated.timing(fadeAnim, {
+          toValue: 1,
+          duration: 1200,
+          useNativeDriver: true,
+        }),
+        Animated.spring(scaleAnim, {
+          toValue: 1,
+          friction: 8,
+          tension: 60,
+          useNativeDriver: true,
+        }),
+        Animated.timing(slideAnim, {
+          toValue: 0,
+          duration: 700,
+          useNativeDriver: true,
+        }),
+      ]).start();
+    } else {
+      fadeAnim.setValue(0);
+      scaleAnim.setValue(0.8);
+      slideAnim.setValue(-50);
+    }
+  }, [status, fadeAnim, scaleAnim, slideAnim]);
+
+  const handleConnect = async () => {
+    try {
+      await bluetoothService.scanForDevices();
+    } catch (error) {
+      Alert.alert('Error', 'Failed to start scanning for devices');
+      console.error('Scanning error:', error);
+    }
+  };
+
+  const connectGlasses = async () => {
+    try {
+      await bluetoothService.sendConnectWearable();
+    } catch (error) {
+      console.error('connect 2 glasses error:', error);
+    }
+  };
+
+
+  const handleDisconnect = async () => {
+    try {
+      await bluetoothService.disconnectFromDevice();
+      //setIsConnected(false);
+      // setConnectedGlasses(null);
+    } catch (error) {
+      console.error('Error disconnecting:', error);
+      Alert.alert('Disconnect Error', 'Failed to disconnect from device');
+    }
+  };
+
+  const formatGlassesTitle = (title: string | null | undefined) =>
+    title ? title.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) : '';
+
+  // Theme styles defined as JavaScript objects, not within StyleSheet
+  const themeStyles = {
+    backgroundColor: isDarkTheme ? '#333333' : '#F2F2F7',
+    textColor: isDarkTheme ? '#FFFFFF' : '#333333',
+    statusLabelColor: isDarkTheme ? '#CCCCCC' : '#666666',
+    statusValueColor: isDarkTheme ? '#FFFFFF' : '#333333',
+    connectedDotColor: '#28a745', // common color for connected dot
+  };
+
+  const getGlassesImage = (glasses: string | null) => {
+    switch (glasses) {
+      case 'vuzix-z100':
+      case 'Vuzix Z100':
+      case 'Vuzix Ultralite':
+        return require('../assets/glasses/vuzix-z100-glasses.png');
+      case 'inmo_air':
+        return require('../assets/glasses/inmo_air.png');
+      case 'tcl_rayneo_x_two':
+        return require('../assets/glasses/tcl_rayneo_x_two.png');
+      case 'vuzix_shield':
+        return require('../assets/glasses/vuzix_shield.png');
+      case 'virtual-wearable':
+      case 'Audio Wearable':
+        return require('../assets/glasses/virtual_wearable.png');
+      default:
+        return null;
+    }
+  };
+
+  const getBatteryIcon = (level: number) => {
+    if (level > 75) { return 'battery-full'; }
+    if (level > 50) { return 'battery-three-quarters'; }
+    if (level > 25) { return 'battery-half'; }
+    if (level > 10) { return 'battery-quarter'; }
+    return 'battery-empty';
+  };
+
+  const getBatteryColor = (level: number) => {
+    if (level > 60) { return '#4CAF50'; } // Green
+    if (level > 20) { return '#FFB300'; } // Darker Yellow for better contrast
+    return '#FF5722'; // Red
+  };
+
+  const batteryIcon = getBatteryIcon(batteryLevel);
+  const batteryColor = getBatteryColor(batteryLevel);
 
   return (
-    <View style={[styles.container, backgroundStyle]}>
-      <ScrollView contentContainerStyle={styles.scrollViewContent} showsVerticalScrollIndicator={false}>
-        <Text style={[styles.title, titleColorStyle]}>Settings for Glasses</Text>
+    <View style={[styles.deviceInfoContainer, { backgroundColor: themeStyles.backgroundColor }]}>
+      {status.puck_connected ? (
+        <>
+          {status.glasses_info?.model_name ? (
+            <>
+              <Animated.Image
+                source={getGlassesImage(status.glasses_info.model_name)}
+                style={[styles.glassesImage, { opacity: fadeAnim, transform: [{ scale: scaleAnim }] }]}
+              />
+              <Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]}>
 
-        {/* Dark Mode Toggle */}
-        <View style={styles.settingItem}>
-          <View style={styles.settingTextContainer}>
-            <Text style={[styles.label, labelColorStyle]}>Dark Mode</Text>
-            <Text style={[styles.value, valueColorStyle]}>Toggle between light and dark mode</Text>
-          </View>
-          <Switch value={isDarkTheme} onValueChange={toggleTheme} />
-        </View>
+                {/* <Text style={[styles.connectedDot, { color: themeStyles.connectedDotColor }]}>●</Text> */}
+                {/* <Text style={styles.connectedTextGreen}>{"Puck Connected"}</Text>
+            <Text style={styles.separator}>|</Text>
+            <Text style={[styles.connectedTextTitle, { color: themeStyles.textColor }]}>
+              {formatGlassesTitle(status.glasses_info?.model_name) || "Glasses\nDisconnected"}
+            </Text> */}
+              </Animated.View>
 
-        {/* Name of Glasses */}
-        <TouchableOpacity style={styles.settingItem}>
-          <View style={styles.settingTextContainer}>
-            <Text style={[styles.label, labelColorStyle]}>Name of Glasses</Text>
-            <Text style={[styles.value, valueColorStyle]}>MYVU B0OC</Text>
-          </View>
-          <Icon name="angle-right" size={20} color={iconColor} />
-        </TouchableOpacity>
 
-        {/* Toggle Virtual Wearable */}
-        <View style={styles.settingItem}>
-          <View style={styles.settingTextContainer}>
-            <Text style={[styles.label, labelColorStyle]}>Use Virtual Wearable</Text>
-            <Text style={[styles.value, valueColorStyle]}>Puck will use a simulated smart glasses instead of real smart glasses.</Text>
-          </View>
-          <Switch value={isUsingAudioWearable} onValueChange={() => sendToggleVirtualWearable(!isUsingAudioWearable)} />
-        </View>
+              <Animated.View style={[styles.statusBar, { opacity: fadeAnim }]}>
+                <View style={styles.statusInfo}>
+                  <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Battery</Text>
+                  <View style={styles.batteryContainer}>
+                    <Icon name={batteryIcon} size={20} color={batteryColor} style={styles.batteryIcon} />
+                    <Text style={[styles.batteryValue, { color: batteryColor }]}>{batteryLevel}%</Text>
+                  </View>
+                </View>
 
-        {/* Link to Profile Settings */}
-        <TouchableOpacity style={styles.settingItem} onPress={() => navigation.navigate('ProfileSettings')}>
-          <View style={styles.settingTextContainer}>
-            <Text style={[styles.label, labelColorStyle]}>Profile Settings</Text>
-            <Text style={[styles.value, valueColorStyle]}>Edit your profile settings</Text>
-          </View>
-          <Icon name="angle-right" size={20} color={iconColor} />
-        </TouchableOpacity>
-
-        {/* App List */}
-        <TouchableOpacity style={styles.settingItem}>
-          <View style={styles.settingTextContainer}>
-            <Text style={[styles.label, labelColorStyle]}>App List</Text>
-            <Text style={[styles.value, valueColorStyle]}>Adjust the order of the Glasses app list</Text>
-          </View>
-          <Icon name="angle-right" size={20} color={iconColor} />
-        </TouchableOpacity>
-
-        {/* Standby Components */}
-        <TouchableOpacity style={styles.settingItem}>
-          <View style={styles.settingTextContainer}>
-            <Text style={[styles.label, labelColorStyle]}>Standby Components</Text>
-            <Text style={[styles.value, valueColorStyle]}>Adjust the display position of standby components</Text>
-          </View>
-          <Icon name="angle-right" size={20} color={iconColor} />
-        </TouchableOpacity>
-
-        {/* Do Not Disturb Mode */}
-        <View style={styles.settingItem}>
-          <View style={styles.settingTextContainer}>
-            <Text style={[styles.label, labelColorStyle]}>Do Not Disturb Mode</Text>
-            <Text style={[styles.value, valueColorStyle]}>Glasses will not provide any notifications when enabled</Text>
-          </View>
-          <Switch value={isDoNotDisturbEnabled} onValueChange={() => setDoNotDisturbEnabled(!isDoNotDisturbEnabled)} />
-        </View>
-
-        {/* Automatically Adjust Brightness */}
-        <View style={styles.settingItem}>
-          <View style={styles.settingTextContainer}>
-            <Text style={[styles.label, labelColorStyle]}>Automatically Adjust Brightness</Text>
-            <Text style={[styles.value, valueColorStyle]}>
-              Automatically adjust brightness of Glasses with time of sunrise and sunset
-            </Text>
-          </View>
-          <Switch
-            value={isBrightnessAutoEnabled}
-            onValueChange={() => setBrightnessAutoEnabled(!isBrightnessAutoEnabled)}
-          />
-        </View>
-
-        {/* Auto-Lock */}
-        <TouchableOpacity style={styles.settingItem}>
-          <View style={styles.settingTextContainer}>
-            <Text style={[styles.label, labelColorStyle]}>Auto-Lock</Text>
-            <Text style={[styles.value, valueColorStyle]}>30 seconds</Text>
-          </View>
-          <Icon name="angle-right" size={20} color={iconColor} />
-        </TouchableOpacity>
-
-        {/* Disconnect Wearable */}
-        {status.glasses_info?.model_name && (
-        <TouchableOpacity style={styles.settingItem}>
-          <View style={styles.settingTextContainer}>
-            <Text style={[styles.label, labelColorStyle]}>Disconnect Wearable</Text>
-          </View>
-            <TouchableOpacity onPress={() => { sendDisconnectWearable(); }}>
-          <Icon name="angle-right" size={20} color={iconColor} />
-          </TouchableOpacity>
-        </TouchableOpacity>
-        )}
-
-        {/* Control Audio During Screen Rest */}
-        <TouchableOpacity style={styles.settingItem}>
-          <View style={styles.settingTextContainer}>
-            <Text style={[styles.label, labelColorStyle]}>Control Audio During Screen Rest</Text>
-            <Text style={[styles.value, valueColorStyle]}>
-              Supports control of audio during screen rest by the glasses touchpad or phone touchpad
-            </Text>
-          </View>
-          <Icon name="angle-right" size={20} color={iconColor} />
-        </TouchableOpacity>
-      </ScrollView>
-
-      {/* Navigation Bar */}
-      <NavigationBar isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
+                <View style={styles.statusInfo}>
+                  <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
+                  <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>87%</Text>
+                </View>
+              </Animated.View>
+            </>
+          ) : (
+            <>
+              <Animated.View style={[{ transform: [{ translateX: slideAnim }], alignItems: 'center', justifyContent: 'center' }]}>
+                <Text style={{ color: 'black', textAlign: 'center', fontSize: 18, marginBottom: 10 }}>No Glasses Connected</Text>
+                <TouchableOpacity style={[styles.connectButton, { }]} onPress={connectGlasses}>
+                  <Icon name="wifi" size={18} color="white" style={styles.icon} />
+                  <Text style={styles.buttonText}>Connect Glasses</Text>
+                </TouchableOpacity>
+              </Animated.View>
+            </>
+          )}
+        </>
+      ) : (
+        <>
+          <Text style={[styles.connectText, { color: themeStyles.textColor }]}>
+            {isSearching ? 'Connecting...' : 'No device connected'}
+          </Text>
+          {isSearching ? (
+            <ActivityIndicator size="large" color="#2196F3" />
+          ) : (
+            <TouchableOpacity style={styles.connectButton} onPress={handleConnect}>
+              <Icon name="wifi" size={18} color="white" style={styles.icon} />
+              <Text style={styles.buttonText}>Connect</Text>
+            </TouchableOpacity>
+          )}
+        </>
+      )}
     </View>
   );
 };
+
+
+
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingVertical: 20,
-  },
-  scrollViewContent: {
-    paddingHorizontal: 20,
-    paddingBottom: 40, // Padding at the bottom to avoid cutting off last items
-  },
-  darkBackground: {
-    backgroundColor: '#1c1c1c',
-  },
-  lightBackground: {
-    backgroundColor: '#f0f0f0',
-  },
-  title: {
-    fontSize: 26, // Increased font size for readability
-    fontWeight: 'bold',
+  deviceInfoContainer: {
+    padding: 20,
+    marginTop: 20,
+    borderRadius: 10,
     marginBottom: 20,
-    textAlign: 'center',
-    fontFamily: 'Montserrat-Bold',
+    alignItems: 'center',
+    width: '100%',
   },
-  darkTitle: {
-    color: '#D3D3D3',
+  glassesImage: {
+    width: '100%',
+    height: 150,
+    resizeMode: 'contain',
   },
-  lightTitle: {
-    color: '#333333',
-  },
-  settingItem: {
+  connectedStatus: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 25, // Increased padding for spacing
-    borderBottomColor: '#333',
-    borderBottomWidth: 1,
+    marginVertical: 10,
   },
-  settingTextContainer: {
-    flex: 1,
-    paddingRight: 10,
-  },
-  label: {
-    fontSize: 18, // Increased font size for readability
-    flexWrap: 'wrap',
+  connectedDot: {
+    fontSize: 14,
+    marginRight: 2,
     fontFamily: 'Montserrat-Bold',
   },
-  darkLabel: {
-    color: 'white',
+  separator: {
+    marginHorizontal: 10, // Adjust this to control the space around the "|"
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
   },
-  lightLabel: {
-    color: 'black',
+  connectedTextGreen: {
+    color: '#28a745',
+    marginLeft: 4,
+    marginRight: 2, // Increased space to the right of "Connected"
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
   },
-  value: {
-    fontSize: 14, // Increased font size for readability
-    marginTop: 5,
-    flexWrap: 'wrap',
+  connectedTextTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
+  },
+  statusBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderRadius: 12,
+    padding: 15,
+    width: '100%',
+    marginTop: 10,
+    backgroundColor: '#6750A414',
+  },
+  statusInfo: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  batteryContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  batteryIcon: {
+    marginRight: 5,
+  },
+  batteryValue: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
+  },
+  statusValue: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
+  },
+  statusLabel: {
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: '500',
+    letterSpacing: -0.08,
+    fontFamily: 'SF Pro',
+  },
+  connectText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    fontFamily: 'Montserrat-Bold',
+  },
+  connectButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    backgroundColor: '#2196F3',
+    padding: 15,
+    borderRadius: 10,
+    width: '100%',
+  },
+  icon: {
+    marginRight: 6,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
+  },
+  disconnectButton: {
+    flexDirection: 'row',
+    backgroundColor: '#E24A24',
+    alignItems: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 12,
+    justifyContent: 'center',
+    marginLeft: 10,
+  },
+  disconnectText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '500',
     fontFamily: 'Montserrat-Regular',
-  },
-  darkValue: {
-    color: '#999999',
-  },
-  lightValue: {
-    color: '#666666',
   },
 });
 
-export default SettingsPage;
+export default ConnectedDeviceInfo;

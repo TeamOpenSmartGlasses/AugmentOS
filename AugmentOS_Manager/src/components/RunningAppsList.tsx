@@ -1,203 +1,216 @@
-import React, { useMemo, useState } from 'react';
-import { View, Text, StyleSheet} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-// import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Switch, TouchableOpacity, ScrollView } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import NavigationBar from '../components/NavigationBar';
+import { useNavigation } from '@react-navigation/native';
+import { NavigationProps } from '../components/types';
 import { useStatus } from '../AugmentOSStatusProvider';
-import AppIcon from './AppIcon';
-import { bluetoothService } from '../BluetoothService';
 
-interface RunningAppsListProps {
-  isDarkTheme: boolean;
-}
+const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> = ({ isDarkTheme, toggleTheme }) => {
+  const [isDoNotDisturbEnabled, setDoNotDisturbEnabled] = useState(false);
+  const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] = useState(false);
+  const navigation = useNavigation<NavigationProps>();
+  const { status } = useStatus();
+  const [isUsingAudioWearable, setIsUsingAudioWearable] = useState (status.glasses_info?.model_name == "Audio Wearable")
 
-const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
-  const { status } = useStatus(); // Access status data and refreshStatus function
-  const [_isLoading, setIsLoading] = useState(false);
-  const runningApps = useMemo(() => status.apps.filter((app) => app.is_running), [status]);
+  const backgroundStyle = isDarkTheme ? styles.darkBackground : styles.lightBackground;
+  const titleColorStyle = isDarkTheme ? styles.darkTitle : styles.lightTitle;
+  const labelColorStyle = isDarkTheme ? styles.darkLabel : styles.lightLabel;
+  const valueColorStyle = isDarkTheme ? styles.darkValue : styles.lightValue;
+  const iconColor = isDarkTheme ? '#666666' : '#333333';
 
-  const textColor = isDarkTheme ? '#FFFFFF' : '#000000';
-  // const borderColor = isDarkTheme ? '#FFFFFF' : '#CCCCCC';
-  const gradientColors = isDarkTheme
-    ? ['#4a3cb5', '#7856FE', '#9a7dff']
-    : ['#56CCFE', '#FF8DF6', '#FFD04E'];
+  function sendToggleVirtualWearable(arg0: boolean): void | Promise<void> {
+    throw new Error('Function not implemented.');
+  }
 
-  // Get the limited running apps (first three) from the list
-  const limitedRunningApps = useMemo(() => runningApps.slice(0, 3), [runningApps]);
-
-  const stopApp = async (packageName: string) => {
-    setIsLoading(true);
-    try {
-      await bluetoothService.stopAppByPackageName(packageName);
-    } catch (error) {
-      console.error('Stop app error:', error);
-    }
-    finally {
-      setIsLoading(false);
-    }
-  };
+  function sendDisconnectWearable() {
+    throw new Error('Function not implemented.');
+  }
 
   return (
-    <View style={styles.appsContainer}>
-      <View style={styles.header}>
-        <Text style={[styles.sectionTitle, { color: textColor }]}>Running Apps</Text>
-      </View>
+    <View style={[styles.container, backgroundStyle]}>
+      <ScrollView contentContainerStyle={styles.scrollViewContent} showsVerticalScrollIndicator={false}>
+        <Text style={[styles.title, titleColorStyle]}>Settings for Glasses</Text>
 
-      <LinearGradient
-        colors={gradientColors}
-        style={styles.gradientBackground}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-      >
-        <View style={styles.appIconsContainer}>
-          {/* First App is a highlighted app (Simulating Convoscope for now) */}
-          {/* {runningApps.length > 0 && (
-            <View style={styles.appWrapper}>
-              <View style={[styles.mainAppIconWrapper, { borderColor }]}>
-                <ImageBackground
-                  source={getAppImage(runningApps[0].name)}
-                  style={styles.mainAppIcon}
-                  imageStyle={styles.mainAppIconImage}
-                >
-                  <LinearGradient
-                    colors={['#ADE7FF', '#FFB2F9', '#FFE396']}
-                    style={styles.overlayRing}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 1, y: 1 }}
-                  />
-                  <View style={styles.squareBadge}>
-                    <FontAwesome name="star" size={12} color="#FFFFFF" />
-                  </View>
-                </ImageBackground>
-              </View>
-              <Text style={[styles.appName, { color: textColor }]} numberOfLines={1}>
-                {runningApps[0].name}
-              </Text>
-            </View>
-          )} */}
-
-          {/* Display limited running apps */}
-          {limitedRunningApps.map((app, index) => (
-            <AppIcon app={app}
-            key={index}
-            onClick={() => {
-              stopApp(app.package_name);
-            }} />
-            // <View key={index} style={styles.appWrapper}>
-            //   <View style={[styles.appIconWrapper, { borderColor }]}>
-            //     <Image source={getAppImage(app.name)} style={styles.appIcon} />
-            //   </View>
-            //   <Text style={[styles.appName, { color: textColor }]} numberOfLines={1}>
-            //     {app.name}
-            //   </Text>
-            // </View>
-          ))}
+        {/* Dark Mode Toggle */}
+        <View style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, labelColorStyle]}>Dark Mode</Text>
+            <Text style={[styles.value, valueColorStyle]}>Toggle between light and dark mode</Text>
+          </View>
+          <Switch value={isDarkTheme} onValueChange={toggleTheme} />
         </View>
-      </LinearGradient>
+
+        {/* Name of Glasses */}
+        <TouchableOpacity style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, labelColorStyle]}>Name of Glasses</Text>
+            <Text style={[styles.value, valueColorStyle]}>MYVU B0OC</Text>
+          </View>
+          <Icon name="angle-right" size={20} color={iconColor} />
+        </TouchableOpacity>
+
+        {/* Toggle Virtual Wearable */}
+        <View style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, labelColorStyle]}>Use Virtual Wearable</Text>
+            <Text style={[styles.value, valueColorStyle]}>Puck will use a simulated smart glasses instead of real smart glasses.</Text>
+          </View>
+          <Switch value={isUsingAudioWearable} onValueChange={() => sendToggleVirtualWearable(!isUsingAudioWearable)} />
+        </View>
+
+        {/* Link to Profile Settings */}
+        <TouchableOpacity style={styles.settingItem} onPress={() => navigation.navigate('ProfileSettings')}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, labelColorStyle]}>Profile Settings</Text>
+            <Text style={[styles.value, valueColorStyle]}>Edit your profile settings</Text>
+          </View>
+          <Icon name="angle-right" size={20} color={iconColor} />
+        </TouchableOpacity>
+
+        {/* App List */}
+        <TouchableOpacity style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, labelColorStyle]}>App List</Text>
+            <Text style={[styles.value, valueColorStyle]}>Adjust the order of the Glasses app list</Text>
+          </View>
+          <Icon name="angle-right" size={20} color={iconColor} />
+        </TouchableOpacity>
+
+        {/* Standby Components */}
+        <TouchableOpacity style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, labelColorStyle]}>Standby Components</Text>
+            <Text style={[styles.value, valueColorStyle]}>Adjust the display position of standby components</Text>
+          </View>
+          <Icon name="angle-right" size={20} color={iconColor} />
+        </TouchableOpacity>
+
+        {/* Do Not Disturb Mode */}
+        <View style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, labelColorStyle]}>Do Not Disturb Mode</Text>
+            <Text style={[styles.value, valueColorStyle]}>Glasses will not provide any notifications when enabled</Text>
+          </View>
+          <Switch value={isDoNotDisturbEnabled} onValueChange={() => setDoNotDisturbEnabled(!isDoNotDisturbEnabled)} />
+        </View>
+
+        {/* Automatically Adjust Brightness */}
+        <View style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, labelColorStyle]}>Automatically Adjust Brightness</Text>
+            <Text style={[styles.value, valueColorStyle]}>
+              Automatically adjust brightness of Glasses with time of sunrise and sunset
+            </Text>
+          </View>
+          <Switch
+            value={isBrightnessAutoEnabled}
+            onValueChange={() => setBrightnessAutoEnabled(!isBrightnessAutoEnabled)}
+          />
+        </View>
+
+        {/* Auto-Lock */}
+        <TouchableOpacity style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, labelColorStyle]}>Auto-Lock</Text>
+            <Text style={[styles.value, valueColorStyle]}>30 seconds</Text>
+          </View>
+          <Icon name="angle-right" size={20} color={iconColor} />
+        </TouchableOpacity>
+
+        {/* Disconnect Wearable */}
+        {status.glasses_info?.model_name && (
+        <TouchableOpacity style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, labelColorStyle]}>Disconnect Wearable</Text>
+          </View>
+            <TouchableOpacity onPress={() => { sendDisconnectWearable(); }}>
+          <Icon name="angle-right" size={20} color={iconColor} />
+          </TouchableOpacity>
+        </TouchableOpacity>
+        )}
+
+        {/* Control Audio During Screen Rest */}
+        <TouchableOpacity style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, labelColorStyle]}>Control Audio During Screen Rest</Text>
+            <Text style={[styles.value, valueColorStyle]}>
+              Supports control of audio during screen rest by the glasses touchpad or phone touchpad
+            </Text>
+          </View>
+          <Icon name="angle-right" size={20} color={iconColor} />
+        </TouchableOpacity>
+      </ScrollView>
+
+      {/* Navigation Bar */}
+      <NavigationBar isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  appsContainer: {
-    marginBottom: 30,
-    borderRadius: 15,
+  container: {
+    flex: 1,
+    paddingVertical: 20,
   },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: '600',
-    fontFamily: 'Montserrat-Bold',
-    lineHeight: 25,
-    letterSpacing: 0.38,
-    marginBottom: 10,
+  scrollViewContent: {
+    paddingHorizontal: 20,
+    paddingBottom: 40, // Padding at the bottom to avoid cutting off last items
   },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 10,
+  darkBackground: {
+    backgroundColor: '#1c1c1c',
   },
-  gradientBackground: {
-    width: '100%',
-    height: 150,
-    paddingVertical: 6,
-    paddingHorizontal: 15,
-    borderRadius: 28,
-    alignItems: 'center',
-    justifyContent: 'center',
+  lightBackground: {
+    backgroundColor: '#f0f0f0',
   },
-  appIconsContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    width: '100%',
-  },
-  appWrapper: {
-    alignItems: 'center',
-    width: 75,
-    marginLeft: 10,
-  },
-  mainAppIconWrapper: {
-    width: 75,
-    height: 75,
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'relative',
-    borderWidth: 0.5,
-    borderColor: '#000',
-    borderRadius: 15,
-  },
-  mainAppIcon: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 10,
-  },
-  mainAppIconImage: {
-    borderRadius: 15,
-  },
-  overlayRing: {
-    position: 'absolute',
-    width: '120%',
-    height: '120%',
-    borderRadius: 15,
-    zIndex: -1,
-  },
-  squareBadge: {
-    position: 'absolute',
-    top: -10,
-    right: -10,
-    width: 24,
-    height: 24,
-    borderRadius: 6,
-    backgroundColor: '#FF438B',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  appIconWrapper: {
-    width: 70,
-    height: 70,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: '#000',
-    borderRadius: 10,
-    marginTop: 10,
-  },
-  appIcon: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 10,
-  },
-  appName: {
-    marginTop: 15,
-    fontSize: 11,
-    fontWeight: '600',
-    fontFamily: 'Montserrat-Bold',
-    lineHeight: 16,
+  title: {
+    fontSize: 26, // Increased font size for readability
+    fontWeight: 'bold',
+    marginBottom: 20,
     textAlign: 'center',
+    fontFamily: 'Montserrat-Bold',
+  },
+  darkTitle: {
+    color: '#D3D3D3',
+  },
+  lightTitle: {
+    color: '#333333',
+  },
+  settingItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 25, // Increased padding for spacing
+    borderBottomColor: '#333',
+    borderBottomWidth: 1,
+  },
+  settingTextContainer: {
+    flex: 1,
+    paddingRight: 10,
+  },
+  label: {
+    fontSize: 18, // Increased font size for readability
+    flexWrap: 'wrap',
+    fontFamily: 'Montserrat-Bold',
+  },
+  darkLabel: {
+    color: 'white',
+  },
+  lightLabel: {
+    color: 'black',
+  },
+  value: {
+    fontSize: 14, // Increased font size for readability
+    marginTop: 5,
+    flexWrap: 'wrap',
+    fontFamily: 'Montserrat-Regular',
+  },
+  darkValue: {
+    color: '#999999',
+  },
+  lightValue: {
+    color: '#666666',
   },
 });
 
-export default RunningAppsList;
+export default SettingsPage;
