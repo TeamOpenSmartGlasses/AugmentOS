@@ -1,21 +1,21 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const TLX: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
-  const participantID = localStorage.getItem('participantID');
-  const Q_R = localStorage.getItem('Q_R');
-  const videoIndex = localStorage.getItem('videoIndex');
-  const condition = localStorage.getItem('condition');
+const PretestPage: React.FC = () => {
+    const navigate = useNavigate();
+    const participantID = localStorage.getItem('participantID');
+    localStorage.setItem('videoCount', '0');
 
-  console.log("video Count from TLX", localStorage.getItem('videoCount'));
+    console.log("videoCount:", localStorage.getItem('videoCount'));
+
+  // Function to handle survey completion
   const handleSurveyCompletion = () => {
-    // Assuming there are 3 videos
-    navigate(`/content_understanding/`);
+    // Navigate to the first video
+    navigate('/completion/');
   };
 
-  window.addEventListener("message", (event) => {
+  // Listen for messages from Qualtrics iframe
+window.addEventListener("message", (event) => {
     const message = event.data;
 
     console.log("Event origin:", event.origin);
@@ -51,26 +51,26 @@ const TLX: React.FC = () => {
     }
 });
 
-  return (
+return (
     <div>
-      <h1>Post-test for Video {id}</h1>
+      <h1>Pre-test</h1>
       <iframe
-        src={`https://mit.co1.qualtrics.com/jfe/form/SV_55SFkZAiT7tFxY2?code_block_num=mental_load&participant_id=${participantID}&Q_R=${Q_R}&video=${videoIndex}&condition=${condition}`}
-        title="Post-test Survey"
+        src={`https://mit.co1.qualtrics.com/jfe/form/SV_3lwhnSHD7NXq41E?code_block_num=rare_word_list&participant_id=${participantID}`}
         width="100%"
         height="600px"
         frameBorder="0"
         style={{ border: '2px solid black' }} // Add border here
-        // onLoad={() => {
-        //   window.addEventListener('message', (event) => {
-        //     if (event.data === 'SurveyCompleted') {
-        //       handleSurveyCompletion();
-        //     }
-        //   });
-        // }}
+        onLoad={() => {
+          // Listen for messages from Qualtrics
+          window.addEventListener('message', (event) => {
+            if (event.data === 'SurveyCompleted') {
+              handleSurveyCompletion();
+            }
+          });
+        }}
       ></iframe>
     </div>
   );
 };
 
-export default TLX;
+export default PretestPage;

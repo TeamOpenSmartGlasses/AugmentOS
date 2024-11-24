@@ -111,14 +111,14 @@ def add_timestamps_and_conditions_to_rare_word_files(word_list, filename):
     output_path = os.path.join(rare_words_folder, output_filename)
 
     try:
-        df_matched.to_csv(f"{filename.split(".")[0]}_with_timestamps_and_conditions.csv", index=True, index_label='word_index')
+        df_matched.to_csv(f"{filename.split('.')[0]}_with_timestamps_and_conditions.csv", index=True, index_label='word_index')
         print(f"Processed and saved: {output_path}")
     except Exception as e:
         print(f"Failed to save {output_path}: {e}")
 
 
 if __name__ == "__main__":
-    video_file_path = '../process_video/videos/video_3.mp4'
+    video_file_path = '../process_video/videos/video_2.mp4'
     word_list = extract_timestamps_from_video(video_file_path)
 
     if not word_list:
@@ -126,5 +126,5 @@ if __name__ == "__main__":
     else:
         # for filename in os.listdir(rare_words_folder):
             # if filename.endswith('.csv'):
-        filename = 'article_3_15_percent.csv'
+        filename = 'article_2_5_percent.csv'
         add_timestamps_and_conditions_to_rare_word_files(word_list, filename)
