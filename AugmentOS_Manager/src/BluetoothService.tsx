@@ -162,8 +162,7 @@ export class BluetoothService extends EventEmitter {
     if (this.connectedDevice?.id === data.peripheral) {
         console.log('Puck disconnected:', data.peripheral);
         this.connectedDevice = null;
-        this.emit('deviceDisconnected');
-        this.emit('puckStatus', { puck_connected: false });
+        this.emit('deviceDisconnected')
     }
 }
 
@@ -192,9 +191,6 @@ export class BluetoothService extends EventEmitter {
 
         console.log('Puck connected successfully:', device.id);
 
-        this.connectedDevice = device;
-        this.emit('deviceConnected', true);
-
         const bondedDevices = await BleManager.getBondedPeripherals();
         const isBonded = bondedDevices.some(bonded => bonded.id === device.id);
         if (!isBonded) {
@@ -206,6 +202,7 @@ export class BluetoothService extends EventEmitter {
 console.log('Retrieved services and characteristics:', JSON.stringify(services, null, 2));
 
         try {
+            this.mtuSize = 23;
             const mtu = await BleManager.requestMTU(device.id, 512);
             this.mtuSize = mtu;
             console.log(`MTU set to ${mtu}`);
@@ -213,16 +210,16 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
             console.warn('MTU negotiation failed. Using default 23.');
         }
 
+        await new Promise(resolve => setTimeout(resolve, 500));
+        console.log('\n\nENABLING NOTIFICATIONS\n\n');
         await this.enableNotifications(device.id);
-        this.emit('puckStatus', {
-            puck_connected: true,
-            puck_battery_life: null,
-            puck_charging_status: false,
-        });
 
+        this.connectedDevice = device;
+        this.emit('deviceConnected', device);
+
+        await this.sendRequestStatus();
     } catch (error) {
         console.error('Error connecting to puck:', error);
-        this.emit('deviceConnected', false);
     }
 }
 
@@ -245,6 +242,7 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
     try {
       await BleManager.disconnect(this.connectedDevice.id);
       this.connectedDevice = null;
+      this.emit('deviceDisconnected')
     } catch (error) {
       console.error('Error during disconnect:', error);
     }
@@ -363,6 +361,7 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
   async sendDataToAugmentOs(dataObj: any) {
     if (!this.connectedDevice) {
       console.log('SendDataToAugmentOs: No connected device to write to');
+      this.emit('deviceDisconnected');
       return;
     }
 
@@ -425,6 +424,7 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
     } catch (error) {
       // console.error('Error writing data:', error);
       Alert.alert('Write Error', 'Failed to write data to device');
+      this.disconnectFromDevice();
     }
   }
 

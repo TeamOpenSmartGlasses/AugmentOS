@@ -16,10 +16,6 @@ const PuckConnection: React.FC<PuckConnectionProps> = ({ isDarkTheme }) => {
 
   useEffect(() => {
     console.log('AugmentOS Status Updated:', JSON.stringify(status, null, 2));
-
-    if (!isConnected) {
-      Alert.alert('Puck Disconnected', 'The puck has been disconnected.');
-    }
   }, [isConnected, status]);
 
   const getBatteryIcon = (level: number | null) => {
@@ -63,6 +59,7 @@ const PuckConnection: React.FC<PuckConnectionProps> = ({ isDarkTheme }) => {
     >
       <View style={currentStyles.innerContainer}>
         <View style={currentStyles.row}>
+          {( status.puck_connected &&
           <View style={currentStyles.item}>
             <Icon
               name={isCharging ? 'bolt' : 'plug'}
@@ -72,6 +69,7 @@ const PuckConnection: React.FC<PuckConnectionProps> = ({ isDarkTheme }) => {
             />
             <Text style={currentStyles.text}>{isCharging ? 'Charging' : 'Not Charging'}</Text>
           </View>
+          )}
           <View style={currentStyles.item}>
             <Icon
               name={isConnected ? 'check-circle' : 'exclamation-circle'}

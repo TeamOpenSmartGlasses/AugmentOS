@@ -37,17 +37,17 @@ export interface AugmentOSMainStatus {
 }
 
 export class AugmentOSParser {
-  static parseStatus(data: any): AugmentOSMainStatus {
-    const defaultStatus: AugmentOSMainStatus = {
-      puck_connected: false,
-      puck_battery_life: null,
-      puck_charging_status: false,
-      glasses_info: null,
-      wifi: { is_connected: false, ssid: '', signal_strength: 0 },
-      gsm: { is_connected: false, carrier: '', signal_strength: 0 },
-      apps: [],
-    };
+  static defaultStatus: AugmentOSMainStatus = {
+    puck_connected: false,
+    puck_battery_life: null,
+    puck_charging_status: false,
+    glasses_info: null,
+    wifi: { is_connected: false, ssid: '', signal_strength: 0 },
+    gsm: { is_connected: false, carrier: '', signal_strength: 0 },
+    apps: [],
+  };
 
+  static parseStatus(data: any): AugmentOSMainStatus {
     // console.log('checking dat');
     if (data && 'status' in data) {
       console.log('data good?');
@@ -63,8 +63,8 @@ export class AugmentOSParser {
               is_searching: status.connected_glasses.is_searching ?? false,
             }
           : null,
-        wifi: status.wifi ?? defaultStatus.wifi,
-        gsm: status.gsm ?? defaultStatus.gsm,
+        wifi: status.wifi ?? AugmentOSParser.defaultStatus.wifi,
+        gsm: status.gsm ?? AugmentOSParser.defaultStatus.gsm,
         apps: status.apps?.map((app: any) => ({
           name: app.name || 'Unknown App',
           description: app.description || 'No description available',
@@ -75,7 +75,7 @@ export class AugmentOSParser {
         })) || [],
       };
     }
-    return defaultStatus;
+    return AugmentOSParser.defaultStatus;
   }
 }
 

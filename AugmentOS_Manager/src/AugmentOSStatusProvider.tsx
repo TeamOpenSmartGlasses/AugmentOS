@@ -29,35 +29,17 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
             refreshStatus(data);
         };
 
+        const handleDeviceDisconnected = () => {
+            console.log('Device disconnected');
+            setStatus(AugmentOSParser.defaultStatus);
+        };
+
         const handleScanStarted = () => setIsSearching(true);
         const handleScanStopped = () => setIsSearching(false);
 
         bluetoothService.on('dataReceived', handleDataReceived);
         bluetoothService.on('scanStarted', handleScanStarted);
         bluetoothService.on('scanStopped', handleScanStopped);
-        // New logic for handling device connection
-        const handleDeviceConnected = () => {
-            console.log('Device connected');
-            setStatus((prevStatus) => ({
-                ...prevStatus,
-                puck_connected: true,
-            }));
-        };
-
-        // New logic for handling device disconnection
-        const handleDeviceDisconnected = () => {
-            console.log('Device disconnected');
-            setStatus((prevStatus) => ({
-                ...prevStatus,
-                puck_connected: false,
-                puck_battery_life: null,
-                puck_charging_status: false,
-            }));
-        };
-
-        // Register all event listeners
-        bluetoothService.on('dataReceived', handleDataReceived);
-        bluetoothService.on('deviceConnected', handleDeviceConnected);
         bluetoothService.on('deviceDisconnected', handleDeviceDisconnected);
 
         // Cleanup all event listeners
@@ -65,7 +47,6 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
             bluetoothService.removeListener('dataReceived', handleDataReceived);
             bluetoothService.removeListener('scanStarted', handleScanStarted);
             bluetoothService.removeListener('scanStopped', handleScanStopped);
-            bluetoothService.removeListener('deviceConnected', handleDeviceConnected);
             bluetoothService.removeListener('deviceDisconnected', handleDeviceDisconnected);
         };
     }, [refreshStatus]);
