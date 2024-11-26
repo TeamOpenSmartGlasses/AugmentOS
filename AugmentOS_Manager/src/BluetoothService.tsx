@@ -131,6 +131,9 @@ export class BluetoothService extends EventEmitter {
         console.log('No device connected. Starting reconnection scan...');
         this.scanForDevices();
       }
+      else {
+        this.sendConnectionCheck();
+      }
     }, 30000); // Scan every 30 seconds
   }
 
@@ -239,6 +242,7 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
       return;
     }
 
+    this.isLocked = false;
     try {
       await BleManager.disconnect(this.connectedDevice.id);
       this.connectedDevice = null;
@@ -429,6 +433,14 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
   }
 
   /* AugmentOS Comms Methods (call these to do things) */
+
+  async sendConnectionCheck() {
+    console.log('Send Connection Check (notImplementedYet)');
+    return;
+    //return await this.sendDataToAugmentOs(
+    //  { 'command': 'check_connected' }
+    //);
+  }
 
   async sendRequestStatus() {
     console.log('Send Request Status');

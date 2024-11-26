@@ -1,5 +1,6 @@
 package com.teamopensmartglasses.convoscope;
 
+import static com.teamopensmartglasses.convoscope.BatteryOptimizationHelper.handleBatteryOptimization;
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
@@ -307,6 +308,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         saveCurrentMode(this, "");
         // startSmartGlassesService();
+
+        // Whitelist AugmentOS from battery optimization when system app
+        // If not system app, bring up the settings menu
+        handleBatteryOptimization(this);
     }
 
     @Override
