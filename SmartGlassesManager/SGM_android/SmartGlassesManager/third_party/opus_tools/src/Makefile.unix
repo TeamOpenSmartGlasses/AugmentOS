@@ -1,0 +1,23 @@
+#Opus-tools should be built with autotools, not this makefile.
+#Run ./configure to run autotools/autoconf.
+#This makefile exists as a fallback where autotools isn't working.
+#CC=gcc
+CFLAGS:=-DPACKAGE='"opus-tools"' -DVERSION='"0.1.2git"' -DOPUSTOOLS -O2 -g -c -Wall -Wextra -DHAVE_GETOPT_H -DSPX_RESAMPLE_EXPORT= -DRANDOM_PREFIX=opustools -DOUTSIDE_SPEEX -DFLOATING_POINT $(CFLAGS)
+INCLUDES=-I../opus/include
+
+all: opusenc opusdec opusinfo
+
+.c.o:
+	$(CC) $(CFLAGS) $(INCLUDES) $< -o $@
+
+opusenc: src/opus_header.o src/opusenc.o src/resample.o src/audio-in.o src/diag_range.o src/lpc.o
+	$(CC) $(LDFLAGS) src/opus_header.o src/audio-in.o src/diag_range.o src/opusenc.o src/resample.o src/lpc.o -o opusenc ../opus/.libs/libopus.a -lm -logg
+
+opusdec: src/opus_header.o src/wav_io.o src/wave_out.o src/opusdec.o src/resample.o src/diag_range.o
+	$(CC) $(LDFLAGS) src/wave_out.o src/opus_header.o src/wav_io.o src/diag_range.o src/opusdec.o src/resample.o -o opusdec ../opus/.libs/libopus.a -lm -logg
+
+opusinfo: src/opus_header.o src/opusinfo.o src/info_opus.o
+	$(CC) $(LDFLAGS) src/opus_header.o src/opusinfo.o src/info_opus.o -o opusinfo -logg
+
+clean:
+	rm -f src/*.o opusenc opusdec opusinfo
