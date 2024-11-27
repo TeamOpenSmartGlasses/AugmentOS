@@ -20,24 +20,13 @@
 
 AugmentOS enables you to run multiple apps *at the same time* - enabling you to truly take advantage of AI-first wearables apps that run proactively based on context.
 
-*Available on iOS and Android 2024, supporting all common smart glasses.*  
-**add Google Play and iOS App Store Logos and links here**
+*Launching January 2025 on iOS and Android, supporting all common smart glasses.*  
 
+[Google Play Link (Coming Soon)](#)
 
-## AugmentOS SDK
-
-For developers,
-
-AugmentOS SDK is the best way to write a smart glasses app because it enables:
-
-1. Your single app runs on any pair of smart glasses.
-2. Access to smart glasses I/O continously - **alongside other apps running at the same time**
-
-AugmentOS is a fully open source OS for wearables. The AugmentOS SDK is a lightweight wrapper (Python, C++, Javascript, more) that allows any existing app to run as an AugmentOS app, in the cloud or on the edge. 
+[App Store Link (Coming Soon)](#)
 
 ## Apps
-
-**add images/screenshots/through the lens images of every app**
 
 #### "Mira" AI Assistant
 
@@ -63,9 +52,11 @@ Convoscope is a suite of proactive AI agents to augment conversations.
 - Someone makes a shaky claim? A fact checker agent provides a source to back it up or show it's false
 - Can't remember the website your coworker reccomended? Proactive agents review your past conversations and pull up the url.
 
-#### Language Learning
+#### Mentra Link - Language Learning
 
-An app to learn a new language 10x faster with smart glasses. Partial translation, AI foreign language conversations, word/phrase suggestions, immersive AR language annotations, etc.
+Learn a new language 10x faster with smart glasses. Partial translation, AI foreign language conversations, word/phrase suggestions, immersive AR language annotations, and more.
+
+[Mentra Link](https://mentra.glass/link)
 
 Artificial Immersion Language Learning Smart Glasses demos video: [https://www.youtube.com/watch?v=UFBEG1s27uU](https://www.youtube.com/watch?v=UFBEG1s27uU)  
 TEDxMIT Talk - "Can Smart Glasses Revolutionize How We Learn Languages?" - Cayden Pierce: [https://www.youtube.com/watch?v=7XuBVY3nVbA](https://www.youtube.com/watch?v=7XuBVY3nVbA)
@@ -77,17 +68,7 @@ TEDxMIT Talk - "Can Smart Glasses Revolutionize How We Learn Languages?" - Cayde
 
 #### Screen Mirror
 
-Mirror anything on your screen to your smart glasses. We use a lightweight, novel approach, which makes it very fast and makes text easy to read. Some examples of what you can do with it:
-
-- Listen to podcasts and stream the video captions to your glasses from YouTube
-- Watch your Uber arrival status while waiting with your friends.
-- Be the ultimate karaoke master, streaming lyrics to your glasses from Spotify
-- Stream Strava/fitness data to your glasses while exercising
-- Pull up recipes on your phone and read them on your glasses.
-- Stream your grocery list while at the store instead of pulling out your phone every 3 minutes.
-- Stream your phone camera viewfinder to your glasses to get the perfect pose while taking a group shot
-- Watch tutorials/lessons with your phone in your pocket - when you're walking, working out, running, etc.
-
+Mirror anything on your screen to your smart glasses. We use a lightweight, novel approach, which makes it very fast and makes text easy to read.
 
 #### Live Captions
 
@@ -103,34 +84,50 @@ Live translate languages - when someone speaks a foreign language, instantly see
 
 #### More Coming
 
-The community is working on many more apps - fully open source - join us and help build!
+The community is working on many more apps - fully open source - join us and help build! [Check out our roadmap here!](https://docs.google.com/document/d/1XK4TE6hDRa2ut0WBpMQGcNLS6icWj6DJCLP49Fldz2E/edit?usp=sharing)
 
-## Supported Hardware (Smart Glasses/Phones)
+## Developer Guide | How to build your own AugmentOS app
 
-**Glasses**
+For developers,
 
-- Vuzix Z100
-- Vuzix Shield
-- Inmo Air
-- TCL RayNeo X2
-- Most other Android smart glasses
-- Coming soon: Frames by Brilliant Labs, Meizu Myvu, Even Realities G1
+AugmentOS is the best way to write a smart glasses app because it enables:
 
-**Smart Phones**
+1. Your single app runs on any pair of smart glasses.
+2. Access to smart glasses I/O continously
+3. Running multiple apps running at the same time
 
-Any Android 12+ phone will work. We do NOT support Android 11 or below.
+AugmentOS is a fully open source OS for wearables. The AugmentOS SDK is a lightweight wrapper (Python, C++, Javascript, more) that allows any existing app to run as an AugmentOS app, in the cloud or on the edge. 
 
-## Install
+To get started, check out our [Example App](https://github.com/TeamOpenSmartGlasses/AugmentOS-Example-App).
 
-1. Install the Y app from Google Play or from the Github release.
-2. Accept all permissions (will not work without permissions).
-3. Sign in with Google.
-4. Glasses auto-connect (ensure glasses are connected to host app, if needed).
-5. Select apps you want to run on the glasses from within Y.
+## Required Hardware
 
-#### Developers Install/Setup
+### Glasses
 
-Coming soon: how to write an AugmentOS app.
+**Current Support:**
+
+- [Vuzix Z100](https://www.vuzix.com/products/z100-smart-glasses)
+
+**Future Support:**
+
+- [Even Realities G1](https://www.evenrealities.com/g1)
+- [Mentra Mach1](https://mentra.glass/)
+- [Frames](https://brilliant.xyz)
+- [Meizu StarV](https://www.meizu.com/starv)
+
+### Smart Phones
+
+**Android:** Any Android 12+ phone will work. We do NOT support Android 11 or below. 
+
+[Google Play Link (Coming Soon)](#)
+
+**iOS** 
+
+[App Store Link (Coming Soon)](#)
+
+### Puck
+
+The Puck is a small, wearable device that acts as a bridge between your smart glasses and smartphone, enabling seamless connectivity and enhanced functionality. You can buy one from our [official website](https://augmentos.org/) or authorized retailers.
 
 ## Authors / Team
 
