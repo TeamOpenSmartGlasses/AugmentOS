@@ -19,6 +19,10 @@ public class AugmentOsManagerMessageParser {
             String command = commandObject.getString("command");
 
             switch (command) {
+                case "ping":
+                    callback.requestPing();
+                    break;
+
                 case "request_status":
                     callback.requestStatus();
                     break;

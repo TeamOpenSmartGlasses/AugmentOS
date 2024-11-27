@@ -27,6 +27,7 @@ import android.content.res.Configuration;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -90,6 +91,24 @@ public class MainActivity extends AppCompatActivity {
     NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
     Log.d(TAG, getSupportFragmentManager().getFragments().toString());
     navController = navHostFragment.getNavController();
+
+    // Handle the deep link intent
+    Intent intent = getIntent();
+    Uri data = intent.getData();
+
+    if (data != null) {
+      Log.d(TAG, "Deep link URI: " + data.toString());
+
+      // Extract query parameters if needed
+      String sourcePackage = data.getQueryParameter("sourcePackage");
+      if (sourcePackage != null) {
+        Log.d(TAG, "Source Package: " + sourcePackage);
+        // TODO: You can perform actions based on the source package here
+      }
+
+      // Implement additional logic based on the deep link
+      // For example, navigate to a specific fragment or display certain content
+    }
   }
 
   @Override

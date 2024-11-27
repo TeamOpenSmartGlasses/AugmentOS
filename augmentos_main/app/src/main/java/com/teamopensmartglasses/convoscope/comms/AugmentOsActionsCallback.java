@@ -3,6 +3,7 @@ package com.teamopensmartglasses.convoscope.comms;
 import org.json.JSONObject;
 
 public interface AugmentOsActionsCallback {
+    void requestPing();
     void requestStatus();
     void connectToWearable(String wearableId);
     void disconnectWearable(String wearableId);

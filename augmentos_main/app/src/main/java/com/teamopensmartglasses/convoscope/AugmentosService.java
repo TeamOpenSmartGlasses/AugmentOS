@@ -2132,6 +2132,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Override
+    public void requestPing() {
+        Log.d("AugmentOsService", "Requesting status: ");
+        blePeripheral.sendDataToAugmentOsManager("pong");    }
+    @Override
     public void requestStatus() {
         Log.d("AugmentOsService", "Requesting status: ");
         sendStatusToAugmentOsManager();
