@@ -1929,7 +1929,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
         String combinedResponse;
 
         if(llCombineResponseForStudy.getInWordTranslation()!= null) {
-            combinedResponse = llCombineResponseForStudy.getInWordTranslation();
+            combinedResponse = llCombineResponseForStudy.getInWord();
         } else return;
 
         llCombineResponsesForStudy.addFirst(combinedResponse);
