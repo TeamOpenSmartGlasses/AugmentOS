@@ -3,8 +3,11 @@ package com.teamopensmartglasses.smartglassesmanager.utils;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
+import android.provider.Settings;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -154,6 +157,21 @@ public class PermissionsUtils {
 
     public void getSomePermissions(){
         ActivityCompat.requestPermissions(mCallingActivity,
-                new String[]{Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.BLUETOOTH_SCAN, android.Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_ADVERTISE, android.Manifest.permission.RECORD_AUDIO}, REQUEST_PERMISSION_CODE);
+                new String[]{
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        android.Manifest.permission.BLUETOOTH_SCAN,
+                        android.Manifest.permission.BLUETOOTH_CONNECT,
+                        Manifest.permission.BLUETOOTH_ADVERTISE,
+                        android.Manifest.permission.RECORD_AUDIO,
+                        android.Manifest.permission.READ_PHONE_STATE
+                }, REQUEST_PERMISSION_CODE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(mCallingActivity)) {
+            Log.d(TAG, "Requesting overlay permission");
+            Intent overlayIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + mCallingActivity));
+            overlayIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            mCallingActivity.startActivity(overlayIntent);
+        }
     }
 }

@@ -314,15 +314,20 @@ public class TPASystem {
                 if (getThirdPartyAppIfAppIsAugmentOsThirdPartyApp(app.packageName, mContext) != null) {
                     newThirdPartyAppList.add(app);
                 } else {
-                    Log.d(TAG, "App not installed: " + app.packageName + "... omitting it.");
+                    Log.d(TAG, "TPA from sharedpreferences not actually installed: " + app.packageName + "... omitting it.");
                 }
             }
+        }
+
+        HashSet<String> existingPackageNames = new HashSet<>();
+        for (ThirdPartyApp app : newThirdPartyAppList) {
+            existingPackageNames.add(app.packageName);
         }
 
         // Second, check if there are any installed TPAs that were missing from sharedpreferences
         ArrayList<String> preinstalledPackageNames = getAllInstalledPackageNames(mContext);
         for (String packageName : preinstalledPackageNames){
-            if (getThirdPartyAppByPackageName(packageName) == null) {
+            if (!existingPackageNames.contains(packageName)) {
                 ThirdPartyApp potentialTpa = getThirdPartyAppIfAppIsAugmentOsThirdPartyApp(packageName, mContext);
                 if(potentialTpa != null) {
                         Log.d(TAG, "Discovered an unregistered TPA on device: " + packageName);
