@@ -36,7 +36,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
@@ -47,15 +46,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
-import com.teamopensmartglasses.convoscope.ui.SelectSmartGlassesUi;
 import com.teamopensmartglasses.convoscope.ui.UiUtils;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.utils.PermissionsUtils;
 import android.media.projection.MediaProjectionManager;
 
 import org.greenrobot.eventbus.Subscribe;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
   public final String TAG = "Augmentos_MainActivity";
@@ -280,19 +276,19 @@ public class MainActivity extends AppCompatActivity {
   public void bindAugmentosService(){
     if (!mBound){
       Intent intent = new Intent(this, AugmentosService.class);
-      bindService(intent, convoscopeAppServiceConnection, Context.BIND_AUTO_CREATE);
+      bindService(intent, augmentosCoreAppServiceConnection, Context.BIND_AUTO_CREATE);
     }
   }
 
   public void unbindAugmentosService() {
     if (mBound){
-      unbindService(convoscopeAppServiceConnection);
+      unbindService(augmentosCoreAppServiceConnection);
       mBound = false;
     }
   }
 
   /** Defines callbacks for service binding, passed to bindService() */
-  private ServiceConnection convoscopeAppServiceConnection = new ServiceConnection() {
+  private ServiceConnection augmentosCoreAppServiceConnection = new ServiceConnection() {
     @Override
     public void onServiceConnected(ComponentName className,
                                    IBinder service) {
