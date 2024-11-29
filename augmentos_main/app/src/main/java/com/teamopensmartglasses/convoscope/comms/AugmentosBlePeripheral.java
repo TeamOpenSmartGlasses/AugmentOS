@@ -326,7 +326,7 @@ public class AugmentosBlePeripheral {
             buffer.put(chunk);
 
             // Send the chunk via notification
-            sendNotificationWithDelay(buffer.array(), 250);
+            sendNotificationWithDelay(buffer.array(), 450 * i);
         }
     }
 

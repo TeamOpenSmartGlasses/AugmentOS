@@ -206,7 +206,7 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
 
         try {
             this.mtuSize = 23;
-            const mtu = await BleManager.requestMTU(device.id, 512);
+            const mtu = await BleManager.requestMTU(device.id, 251);
             this.mtuSize = mtu;
             console.log(`MTU set to ${mtu}`);
         } catch {
@@ -390,14 +390,17 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
       for (let i = 0; i < byteData.length; i += maxChunkSize) {
         const chunk = byteData.slice(i, i + maxChunkSize);
 
+        setTimeout(async ()=>{
         // Send each chunk
         await BleManager.write(
+          //@ts-ignore
           this.connectedDevice.id,
           this.SERVICE_UUID,
           this.CHARACTERISTIC_UUID,
           chunk,
           maxChunkSize
         );
+        }, 250 * i)
       }
 
       console.log('Data chunk written, waiting for response...');

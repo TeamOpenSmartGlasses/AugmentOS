@@ -1,6 +1,8 @@
 package com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators;
 
 import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartGlassesConnectionEvent;
@@ -79,14 +81,37 @@ public abstract class SmartGlassesCommunicator {
         return (mConnectState == 2);
     }
 
-    public void connectionEvent(int connectState){
-        mConnectState = connectState;
-        EventBus.getDefault().post(new SmartGlassesConnectionEvent(mConnectState));
-        if (isConnected()) {
-            showHomeScreen();
-        }
-    }
+    private static final long DEBOUNCE_DELAY_MS = 500; // Adjust as needed
+    private final Handler debounceHandler = new Handler(Looper.getMainLooper());
+    private int lastConnectState = -1; // Tracks the last state processed
+    private boolean isPending = false;
 
+    public void connectionEvent(int connectState) {
+        if (connectState == lastConnectState && isPending) {
+            // Ignore duplicate calls within debounce period
+            return;
+        }
+
+        // Update the last state and mark as pending
+        lastConnectState = connectState;
+        isPending = true;
+
+        // Cancel any previously scheduled execution
+        debounceHandler.removeCallbacksAndMessages(null);
+
+        // Schedule the actual logic execution after the debounce delay
+        debounceHandler.postDelayed(() -> {
+            // Perform the actual connection logic
+            mConnectState = connectState;
+            EventBus.getDefault().post(new SmartGlassesConnectionEvent(mConnectState));
+            if (isConnected()) {
+                showHomeScreen();
+            }
+
+            // Reset the pending flag after execution
+            isPending = false;
+        }, DEBOUNCE_DELAY_MS);
+    }
     public void tapEvent(int num){
         EventBus.getDefault().post(new GlassesTapOutputEvent(num, false, System.currentTimeMillis()));
     }
