@@ -69,38 +69,38 @@ export class AugmentOSParser {
         is_running: true,
         is_foreground: true,
       },
-      // {
-      //   name: "Netflix",
-      //   package_name: "com.netflix.mediaclient",
-      //   icon: require('./assets/app-icons/adhd-rectangle.png'),
-      //   description: "Movie and TV streaming",
-      //   is_running: true,
-      //   is_foreground: false,
-      // },
-      // {
-      //   name: "Chrome",
-      //   package_name: "com.android.chrome",
-      //   icon: "placeholder",
-      //   description: "Web browser",
-      //   is_running: true,
-      //   is_foreground: false,
-      // },
-      // {
-      //   name: "Maps",
-      //   package_name: "com.google.android.apps.maps",
-      //   icon: "placeholder",
-      //   description: "Navigation app",
-      //   is_running: true,
-      //   is_foreground: false,
-      // },
-      // {
-      //   name: "Placeholder",
-      //   package_name: "com.example.placeholder",
-      //   icon: "placeholder",
-      //   description: "Placeholder app",
-      //   is_running: false,
-      //   is_foreground: false
-      // }
+      {
+        name: "Netflix",
+        package_name: "com.netflix.mediaclient",
+        icon: require('./assets/app-icons/adhd-rectangle.png'),
+        description: "Movie and TV streaming",
+        is_running: true,
+        is_foreground: false,
+      },
+      {
+        name: "Chrome",
+        package_name: "com.android.chrome",
+        icon: "placeholder",
+        description: "Web browser",
+        is_running: true,
+        is_foreground: false,
+      },
+      {
+        name: "Maps",
+        package_name: "com.google.android.apps.maps",
+        icon: "placeholder",
+        description: "Navigation app",
+        is_running: true,
+        is_foreground: false,
+      },
+      {
+        name: "Placeholder",
+        package_name: "com.example.placeholder",
+        icon: "placeholder",
+        description: "Placeholder app",
+        is_running: false,
+        is_foreground: false
+      }
     ],
   };
   
