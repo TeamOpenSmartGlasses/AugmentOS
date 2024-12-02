@@ -14,10 +14,10 @@ android {
         versionCode 1
         versionName "1.0"
 
-//        ndk {
-//            //noinspection ChromeOsAbiSupport
-//            abiFilters 'arm64-v8a'//, 'x86_64'
-//        }
+        ndk {
+            //noinspection ChromeOsAbiSupport
+            abiFilters "armeabi-v7a", "arm64-v8a"
+        }
 //
 //        externalNativeBuild {
 //            cmake {
