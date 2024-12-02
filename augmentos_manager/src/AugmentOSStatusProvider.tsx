@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode, useCallback, useEffect } from 'react';
 import { AugmentOSParser, AugmentOSMainStatus } from './AugmentOSStatusParser';
 import { bluetoothService } from './BluetoothService';
+import { MOCK_CONNECTION } from './consts';
 
 interface AugmentOSStatusContextType {
     status: AugmentOSMainStatus;
@@ -17,6 +18,9 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
     // Existing refreshStatus logic
     const refreshStatus = useCallback((data: any) => {
         console.log('Raw data received for parsing:', data);
+
+        if (!(data && 'status' in data)) return;
+
         const parsedStatus = AugmentOSParser.parseStatus(data);
         console.log('Parsed status:', parsedStatus);
         setStatus(parsedStatus);
@@ -37,17 +41,21 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
         const handleScanStarted = () => setIsSearching(true);
         const handleScanStopped = () => setIsSearching(false);
 
-        bluetoothService.on('dataReceived', handleDataReceived);
-        bluetoothService.on('scanStarted', handleScanStarted);
-        bluetoothService.on('scanStopped', handleScanStopped);
-        bluetoothService.on('deviceDisconnected', handleDeviceDisconnected);
+        if (!MOCK_CONNECTION) {
+            bluetoothService.on('dataReceived', handleDataReceived);
+            bluetoothService.on('scanStarted', handleScanStarted);
+            bluetoothService.on('scanStopped', handleScanStopped);
+            bluetoothService.on('deviceDisconnected', handleDeviceDisconnected);
+        }
 
         // Cleanup all event listeners
         return () => {
-            bluetoothService.removeListener('dataReceived', handleDataReceived);
-            bluetoothService.removeListener('scanStarted', handleScanStarted);
-            bluetoothService.removeListener('scanStopped', handleScanStopped);
-            bluetoothService.removeListener('deviceDisconnected', handleDeviceDisconnected);
+            if (!MOCK_CONNECTION) {
+                bluetoothService.removeListener('dataReceived', handleDataReceived);
+                bluetoothService.removeListener('scanStarted', handleScanStarted);
+                bluetoothService.removeListener('scanStopped', handleScanStopped);
+                bluetoothService.removeListener('deviceDisconnected', handleDeviceDisconnected);
+            }
         };
     }, [refreshStatus]);
 

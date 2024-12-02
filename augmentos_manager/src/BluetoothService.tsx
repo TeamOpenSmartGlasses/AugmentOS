@@ -5,6 +5,8 @@ import { EventEmitter } from 'events';
 import { TextDecoder } from 'text-encoding';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { AppState } from 'react-native';
+import { RotateInDownLeft } from 'react-native-reanimated';
+import { MOCK_CONNECTION } from './consts';
 
 const BleManagerModule = NativeModules.BleManager;
 const bleManagerEmitter = new NativeEventEmitter(BleManagerModule);
@@ -31,6 +33,9 @@ export class BluetoothService extends EventEmitter {
 
   constructor() {
     super();
+
+    if(MOCK_CONNECTION) return;
+
     this.initializeBleManager();
     this.startReconnectionScan();
 
@@ -106,8 +111,8 @@ export class BluetoothService extends EventEmitter {
     // Set a timeout to stop the scan regardless
     const scanTimeout = setTimeout(() => {
       if (this.isScanning) {
-        console.log('(scanForDevices) Stoping the scan');
-        this.handleStopScan();
+        //console.log('(scanForDevices) Stoping the scan');
+        //this.handleStopScan();
       }
     }, MAX_SCAN_SECONDS * 1000);
 
@@ -163,6 +168,7 @@ export class BluetoothService extends EventEmitter {
 
   handleDisconnectedPeripheral(data: any) {
     if (this.connectedDevice?.id === data.peripheral) {
+        this.isLocked = false;
         console.log('Puck disconnected:', data.peripheral);
         this.connectedDevice = null;
         this.emit('deviceDisconnected')
@@ -197,8 +203,11 @@ export class BluetoothService extends EventEmitter {
         const bondedDevices = await BleManager.getBondedPeripherals();
         const isBonded = bondedDevices.some(bonded => bonded.id === device.id);
         if (!isBonded) {
-            console.log('Bonding with device...');
-            await BleManager.createBond(device.id);
+            const randomInt = Math.floor(Math.random() * 1000);
+            
+            console.log(`[${randomInt}] Bonding with device...`);
+            await BleManager.createBond(device.id, '000000');
+            console.log(`[${randomInt}] bonding ended`);
         }
 
         const services = await BleManager.retrieveServices(device.id);
@@ -310,6 +319,7 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
           console.log('Received JSON data:', jsonData);
           this.emit('dataReceived', jsonData);
         } catch (error) {
+          console.log("(ERROR) RAW DATA RECEIVED:", jsonString);
           console.error('Error parsing JSON data:', error);
         }
 
@@ -411,7 +421,7 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
           if (!responseReceived) {
             console.log('No response received within timeout. Triggering reconnection...');
             this.handleDisconnectedPeripheral({ peripheral: this.connectedDevice?.id });
-            reject(new Error('Response timeout'));
+            reject(new Error('Response timeout for data: ' + JSON.stringify(dataObj)));
           }
         }, 6000); // Timeout after 5 seconds
 
@@ -430,7 +440,7 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
       });
     } catch (error) {
       // console.error('Error writing data:', error);
-      Alert.alert('Write Error', 'Failed to write data to device');
+      Alert.alert('Write Error', 'Failed to write data to device: ' + error);
       this.disconnectFromDevice();
     }
   }
@@ -438,11 +448,10 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
   /* AugmentOS Comms Methods (call these to do things) */
 
   async sendConnectionCheck() {
-    console.log('Send Connection Check (notImplementedYet)');
-    return;
-    //return await this.sendDataToAugmentOs(
-    //  { 'command': 'check_connected' }
-    //);
+    console.log('Send Connection Check');
+    return await this.sendDataToAugmentOs(
+      { 'command': 'ping' }
+    );
   }
 
   async sendRequestStatus() {

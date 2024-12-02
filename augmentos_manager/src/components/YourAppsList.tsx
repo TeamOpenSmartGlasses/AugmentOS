@@ -10,66 +10,10 @@ interface YourAppsListProps {
   isDarkTheme: boolean;
 }
 
-interface AppInfo {
-  name: string;
-  package_name: string;
-  icon: string;
-  description: string;
-  is_running: boolean;
-  is_foreground: boolean;
-}
-
 const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
   const { status } = useStatus();
   const [isLoading, setIsLoading] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-
-  // Simulated apps data with complete AppInfo interface
-  const simulatedApps: AppInfo[] = [
-    {
-      name: "YouTube",
-      package_name: "com.google.android.youtube",
-      icon: "youtube_icon",
-      description: "Video streaming platform",
-      is_running: false,
-      is_foreground: false
-    },
-    {
-      name: "Netflix",
-      package_name: "com.netflix.mediaclient",
-      icon: "netflix_icon",
-      description: "Movie and TV streaming",
-      is_running: false,
-      is_foreground: false
-    },
-    {
-      name: "Chrome",
-      package_name: "com.android.chrome",
-      icon: "chrome_icon",
-      description: "Web browser",
-      is_running: false,
-      is_foreground: false
-    },
-    {
-      name: "Maps",
-      package_name: "com.google.android.apps.maps",
-      icon: "maps_icon",
-      description: "Navigation app",
-      is_running: false,
-      is_foreground: false
-    },
-    {
-      name: "Placeholder",
-      package_name: "com.example.placeholder",
-      icon: "placeholder",
-      description: "Placeholder app",
-      is_running: false,
-      is_foreground: false
-    }
-  ];
-
-  // Use simulated apps instead of status.apps
-  const installedApps = simulatedApps;
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const scrollPosition = event.nativeEvent.contentOffset.x;
@@ -109,7 +53,7 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollViewContent}
       >
-        {installedApps.map((app, index) => (
+        {status.apps.map((app, index) => (
           <AppIcon
             app={app}
             key={index}
@@ -119,7 +63,7 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
       </ScrollView>
 
       <View style={styles.pagination}>
-        {[...Array(Math.ceil(installedApps.length / 4)).keys()].map((index) => (
+        {[...Array(Math.ceil(status.apps.length / 4)).keys()].map((index) => (
           <View
             key={index}
             style={[

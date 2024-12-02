@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -15,42 +15,6 @@ interface RunningAppsListProps {
 const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
   const { status } = useStatus();
   const [_isLoading, setIsLoading] = useState(false);
-
-  // Simulated running apps with a placeholder color instead of icon
-  const simulatedRunningApps = [
-    {
-      name: "YouTube",
-      package_name: "com.google.android.youtube",
-      icon: "youtube_icon",
-      description: "Video streaming platform",
-      is_running: true,
-      is_foreground: true,
-    },
-    {
-      name: "Netflix",
-      package_name: "com.netflix.mediaclient",
-      icon: require('../assets/app-icons/adhd-rectangle.png'),
-      description: "Movie and TV streaming",
-      is_running: true,
-      is_foreground: false,
-    },
-    {
-      name: "Chrome",
-      package_name: "com.android.chrome",
-      icon: "placeholder",
-      description: "Web browser",
-      is_running: true,
-      is_foreground: false,
-    },
-    {
-      name: "Maps",
-      package_name: "com.google.android.apps.maps",
-      icon: "placeholder",
-      description: "Navigation app",
-      is_running: true,
-      is_foreground: false,
-    },
-  ];
 
   const textColor = isDarkTheme ? '#FFFFFF' : '#000000';
   const borderColor = isDarkTheme ? '#FFFFFF' : '#CCCCCC';
@@ -69,6 +33,9 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
     }
   };
 
+  const runningApps = useMemo(() => status.apps.filter((app) => app.is_running && !app.is_foreground), [status]);
+  const foregroundApps = useMemo(() => status.apps.filter((app) => app.is_foreground), [status]);
+
   return (
     <View style={styles.appsContainer}>
       <Text style={[styles.sectionTitle, { color: textColor }]}>Running Apps</Text>
@@ -78,30 +45,36 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
       >
+
+
         <View style={styles.appIconsContainer}>
-          {/* Main/Highlighted App */}
-          <View style={styles.appWrapper}>
-            <View style={[styles.mainAppIconWrapper, { borderColor }]}>
-              <LinearGradient
-                colors={['#ADE7FF', '#FFB2F9', '#FFE396']}
-                style={styles.overlayRing}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-              />
-              <View style={styles.mainAppIcon}>
-                <FontAwesome name="youtube-play" size={30} color="#FF0000" />
-              </View>
-              <View style={styles.squareBadge}>
-                <FontAwesome name="star" size={12} color="#FFFFFF" />
+          {/* Main/Highlighted Apps */}
+          {foregroundApps.map((app, index) => (
+            <View key={index}>
+              <View style={[styles.mainAppIconWrapper, { borderColor }]}>
+                <LinearGradient
+                  colors={['#ADE7FF', '#FFB2F9', '#FFE396']}
+                  style={styles.overlayRing}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                />
+                  <AppIcon
+                    app={app}
+                    key={index}
+                    style={styles.mainAppIcon} // Pass style for round icons
+                    onClick={() => {
+                      stopApp(app.package_name);
+                    }}
+                  />
+                <View style={styles.squareBadge}>
+                  <FontAwesome name="star" size={12} color="#FFFFFF" />
+                </View>
               </View>
             </View>
-            <Text style={[styles.appName, { color: textColor }]} numberOfLines={1}>
-              {simulatedRunningApps[0].name}
-            </Text>
-          </View>
+          ))}
 
           {/* Other Running Apps */}
-          {simulatedRunningApps.slice(1).map((app, index) => (
+          {runningApps.map((app, index) => (
             <AppIcon
               app={app}
               key={index}
@@ -200,7 +173,7 @@ const styles = StyleSheet.create({
     height: 65,
     borderWidth: 1,
     borderColor: '#FFFFFF',
-    borderRadius:23, // Perfect circle
+    borderRadius: 23, // Perfect circle
     backgroundColor: 'transparent',
     alignItems: 'center',
     justifyContent: 'center',

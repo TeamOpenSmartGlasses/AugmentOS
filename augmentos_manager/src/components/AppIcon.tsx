@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { AppInfo } from '../AugmentOSStatusParser';
 
 interface AppIconProps {
     app: AppInfo;

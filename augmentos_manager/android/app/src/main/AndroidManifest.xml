@@ -33,6 +33,15 @@
     </intent-filter>
 </service>
 
+<!-- <service android:name="com.yourpackage.ManagerAugmentosCommsService"
+    android:exported="true">
+    <intent-filter>
+        <action android:name="AUGMENTOS_INTENT" />
+    </intent-filter>
+    <meta-data android:name="com.augmentos.tpa.name" android:value="Example App" />
+    <meta-data android:name="com.augmentos.tpa.description" android:value="Example App Description" />
+</service> -->
+
 
         <!-- Existing Activity Declaration -->
         <activity
