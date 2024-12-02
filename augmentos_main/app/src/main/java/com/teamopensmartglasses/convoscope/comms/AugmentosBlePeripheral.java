@@ -16,10 +16,12 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.ParcelUuid;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -49,7 +51,7 @@ public class AugmentosBlePeripheral {
     private Context context;
     private BluetoothDevice connectedDevice;
     private AdvertiseCallback advertiseCallback;
-    private Integer currentMtuSize = 251; //23;  // Default MTU size
+    private Integer currentMtuSize = 23;  // Default MTU size
     private Map<BluetoothDevice, ByteArrayOutputStream> deviceBuffers = new HashMap<>();
     private Map<BluetoothDevice, Integer> expectedDataLength = new HashMap<>();
 
@@ -79,15 +81,76 @@ public class AugmentosBlePeripheral {
         }
     }
 
+    // Handle bluetooth being started after augmentos already running
+    private final BroadcastReceiver bluetoothStateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
+                final int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR);
+                if (state == BluetoothAdapter.STATE_ON) {
+                    Log.d(TAG, "Bluetooth is now enabled. Starting BLE services.");
+                    start();
+                }
+                // TODO: Maybe do something when BT is stopped?
+            }
+        }
+    };
+
+    // handle pairing success/denied
+    private final BroadcastReceiver bondStateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            if (BluetoothDevice.ACTION_BOND_STATE_CHANGED.equals(action)) {
+                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                int bondState = intent.getIntExtra(BluetoothDevice.EXTRA_BOND_STATE, BluetoothDevice.ERROR);
+                int previousBondState = intent.getIntExtra(BluetoothDevice.EXTRA_PREVIOUS_BOND_STATE, BluetoothDevice.ERROR);
+
+                switch (bondState) {
+                    case BluetoothDevice.BOND_BONDED:
+                        Log.d(TAG, "Pairing successful with device: " + device.getAddress());
+                        // Proceed with connection or other tasks
+                        break;
+
+                    case BluetoothDevice.BOND_NONE:
+                        Log.e(TAG, "Pairing failed or was canceled for device: " + device.getAddress());
+                        if (previousBondState == BluetoothDevice.BOND_BONDING) {
+                            handlePairingDenied(device);
+                        }
+                        break;
+
+                    case BluetoothDevice.BOND_BONDING:
+                        Log.d(TAG, "Pairing in progress with device: " + device.getAddress());
+                        break;
+
+                    default:
+                        Log.w(TAG, "Unknown bond state: " + bondState);
+                        break;
+                }
+            }
+        }
+    };
+
     // Start BLE services: GATT server and advertising
     @SuppressLint("MissingPermission")
     public void start() {
-        if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled()) {
-            Log.e(TAG, "Bluetooth is not enabled");
+        if (bluetoothAdapter == null) {
+            Log.e(TAG, "Bluetooth is NULL");
             return;
         }
 
-        // Register for pairing request broadcast
+        if (!bluetoothAdapter.isEnabled()) {
+            Log.e(TAG, "Bluetooth is not enabled. Waiting for it to be enabled...");
+            // Register the receiver to listen for Bluetooth state changes
+            IntentFilter filter = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
+            context.registerReceiver(bluetoothStateReceiver, filter);
+            return;
+        }
+
+        IntentFilter bondStateFilter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
+        context.registerReceiver(bondStateReceiver, bondStateFilter);
+
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_PAIRING_REQUEST);
         context.registerReceiver(pairingRequestReceiver, filter);
 
@@ -99,6 +162,13 @@ public class AugmentosBlePeripheral {
         // Add a small delay before starting advertising
         new Handler(Looper.getMainLooper()).postDelayed(this::startAdvertising, 1000);
     }
+
+    private void handlePairingDenied(BluetoothDevice device) {
+        Log.e(TAG, "Pairing denied for device: " + device.getAddress());
+        stop();
+        new Handler(Looper.getMainLooper()).postDelayed(this::start, 2000);
+    }
+
 
     // Setup GATT server and handle read/write requests
     private void setupGattServer() {
@@ -436,6 +506,18 @@ public class AugmentosBlePeripheral {
             context.unregisterReceiver(pairingRequestReceiver);
         } catch (IllegalArgumentException e) {
             Log.w(TAG, "Pairing request receiver was not registered or already unregistered.");
+        }
+
+        try {
+            context.unregisterReceiver(bluetoothStateReceiver);
+        } catch (IllegalArgumentException e) {
+            Log.w(TAG, "bluetooth state receiver was not registered or already unregistered.");
+        }
+
+        try {
+            context.unregisterReceiver(bondStateReceiver);
+        } catch (IllegalArgumentException e) {
+            Log.w(TAG, "bond state receiver was not registered or already unregistered.");
         }
 
         if (bluetoothAdvertiser != null && advertiseCallback != null) {
