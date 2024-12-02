@@ -10,16 +10,70 @@ interface YourAppsListProps {
   isDarkTheme: boolean;
 }
 
-const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
-  const { status } = useStatus(); // Access the status from AugmentOSStatusProvider
-  const installedApps = status.apps; // Get the list of apps from the status
-  const [isLoading, setIsLoading] = useState(false);
+interface AppInfo {
+  name: string;
+  package_name: string;
+  icon: string;
+  description: string;
+  is_running: boolean;
+  is_foreground: boolean;
+}
 
+const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
+  const { status } = useStatus();
+  const [isLoading, setIsLoading] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // Simulated apps data with complete AppInfo interface
+  const simulatedApps: AppInfo[] = [
+    {
+      name: "YouTube",
+      package_name: "com.google.android.youtube",
+      icon: "youtube_icon",
+      description: "Video streaming platform",
+      is_running: false,
+      is_foreground: false
+    },
+    {
+      name: "Netflix",
+      package_name: "com.netflix.mediaclient",
+      icon: "netflix_icon",
+      description: "Movie and TV streaming",
+      is_running: false,
+      is_foreground: false
+    },
+    {
+      name: "Chrome",
+      package_name: "com.android.chrome",
+      icon: "chrome_icon",
+      description: "Web browser",
+      is_running: false,
+      is_foreground: false
+    },
+    {
+      name: "Maps",
+      package_name: "com.google.android.apps.maps",
+      icon: "maps_icon",
+      description: "Navigation app",
+      is_running: false,
+      is_foreground: false
+    },
+    {
+      name: "Placeholder",
+      package_name: "com.example.placeholder",
+      icon: "placeholder",
+      description: "Placeholder app",
+      is_running: false,
+      is_foreground: false
+    }
+  ];
+
+  // Use simulated apps instead of status.apps
+  const installedApps = simulatedApps;
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const scrollPosition = event.nativeEvent.contentOffset.x;
-    const activePageIndex = Math.round(scrollPosition / width); // Use width to snap by page of 4 icons
+    const activePageIndex = Math.round(scrollPosition / width);
     setActiveIndex(activePageIndex);
   };
 
@@ -49,21 +103,18 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
 
       <ScrollView
         horizontal
-        snapToInterval={width} // Snap to the full screen width to show exactly 4 icons per page
+        snapToInterval={width}
         decelerationRate="fast"
         onScroll={handleScroll}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollViewContent}
       >
         {installedApps.map((app, index) => (
-          // <TouchableOpacity key={index} style={styles.appIconWrapper}>
-          //   <Image source={{ uri: app.icon }} style={styles.appIcon} />
-          //   <Text style={[styles.appLabel, { color: appLabelColor }]} numberOfLines={1}>
-          //     {app.name}
-          //   </Text>
-          // </TouchableOpacity>
           <AppIcon
-          app={app} key={index} onClick={()=>{startApp(app.package_name);}} />
+            app={app}
+            key={index}
+            onClick={() => { startApp(app.package_name); }}
+          />
         ))}
       </ScrollView>
 
@@ -86,7 +137,8 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
 
 const styles = StyleSheet.create({
   appsContainer: {
-    marginBottom: 70,
+    marginTop: 20,
+    marginBottom: 0,
   },
   header: {
     flexDirection: 'row',
@@ -95,33 +147,18 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '600',
     fontFamily: 'Montserrat-Bold',
     lineHeight: 25,
     letterSpacing: 0.38,
     marginBottom: 10,
-  },
+    marginTop: 35 },
   scrollViewContent: {
     alignItems: 'center',
   },
-  appIconWrapper: {
-    width: width / 4 - 10, // Adjust to ensure 4 icons fit the screen width
-    alignItems: 'center',
-    marginHorizontal: 0,
-  },
-  appIcon: {
-    width: 78,
-    height: 78,
-    borderRadius: 16,
-  },
-  appLabel: {
-    marginTop: 5,
-    fontSize: 12,
-    fontWeight: '600',
-    fontFamily: 'Montserrat-Bold',
-    textAlign: 'center',
-  },
+
+
   pagination: {
     flexDirection: 'row',
     justifyContent: 'center',

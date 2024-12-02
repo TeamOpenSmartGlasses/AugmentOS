@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 
 interface HeaderProps {
   isDarkTheme: boolean;
-  navigation: any; // Add the navigation prop
+  navigation: any;
 }
 
 const Header: React.FC<HeaderProps> = ({ isDarkTheme, navigation }) => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Set to true to ensure "Sign Out" button is visible initially
-
-  // const toggleDropdown = () => {
-  //   setDropdownVisible(!isDropdownVisible);
-  // };
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const handleLogout = () => {
     setIsLoggedIn(false);
     setDropdownVisible(false);
     if (navigation) {
-      navigation.navigate('Intro'); // Navigate to the Intro screen after logging out
+      navigation.navigate('Intro');
     } else {
       console.error('Navigation prop is undefined');
     }
@@ -32,30 +28,23 @@ const Header: React.FC<HeaderProps> = ({ isDarkTheme, navigation }) => {
     }
   };
 
-
-  const textColor = isDarkTheme ? '#FFFFFF' : '#000000'; // Adjust text color based on theme
-  const dropdownBackgroundColor = isDarkTheme ? '#333333' : '#FFFFFF'; // Background color for dropdown
-  const shadowColor = isDarkTheme ? '#FFFFFF' : '#000000'; // Shadow color for better visibility in dark mode
+  const textColor = isDarkTheme ? '#FFFFFF' : '#000000';
+  const dropdownBackgroundColor = isDarkTheme ? '#333333' : '#FFFFFF';
+  const shadowColor = isDarkTheme ? '#FFFFFF' : '#000000';
 
   return (
     <View style={styles.headerContainer}>
-      <Text style={[styles.title, { color: textColor }]}>AugmentOS</Text>
-      {/* Commented out the profile image temporarily */}
-      {/* <TouchableOpacity onPress={toggleDropdown}>
-        <Image
-          source={require('../assets/profile-pic.jpg')}
-          style={styles.profileImage}
-        />
-      </TouchableOpacity> */}
+      <Text style={[styles.title, { color: textColor }]} numberOfLines={1}>
+        AugmentOS
+      </Text>
       {isDropdownVisible && (
         <View style={[styles.dropdown, { backgroundColor: dropdownBackgroundColor, shadowColor }]}>
           <TouchableOpacity style={styles.dropdownItem} onPress={handleProfileSettings}>
-            <Text style={{ color: textColor }}>Profile Settings</Text>
+            <Text style={[styles.dropdownItemText, { color: textColor }]}>Profile Settings</Text>
           </TouchableOpacity>
-
           {isLoggedIn && (
             <TouchableOpacity style={styles.dropdownItem} onPress={handleLogout}>
-              <Text style={{ color: textColor }}>Sign Out</Text>
+              <Text style={[styles.dropdownItemText, { color: textColor }]}>Sign Out</Text>
             </TouchableOpacity>
           )}
         </View>
@@ -63,45 +52,50 @@ const Header: React.FC<HeaderProps> = ({ isDarkTheme, navigation }) => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     alignItems: 'center',
-    padding: 20,
+    paddingVertical: 12,
+    marginLeft: 8,
     zIndex: 1,
+    minHeight: 60,
+    ...Platform.select({
+      ios: {
+        paddingTop: 44, // Additional padding for iOS status bar
+      },
+      android: {
+        paddingTop: 16,
+      },
+    }),
   },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: 'bold',
-    fontFamily: 'Montserrat-Bold', // Set Montserrat for the title
-  },
-  profileImage: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    fontFamily: 'Montserrat-Bold',
   },
   dropdown: {
     position: 'absolute',
     top: 70,
-    right: 20,
+    right: 16,
     borderRadius: 8,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 5,
-    padding: 10,
+    padding: 8,
     zIndex: 2,
   },
   dropdownItem: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
   },
   dropdownItemText: {
     fontSize: 16,
-    fontFamily: 'Montserrat-Regular', // Set Montserrat for dropdown items
+    fontFamily: 'Montserrat-Regular',
   },
 });
-
 
 export default Header;

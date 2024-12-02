@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import NavigationBar from '../components/NavigationBar.tsx';
 
@@ -15,33 +15,126 @@ interface GlassesMirrorProps {
 
 const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
   const [cards] = useState<Card[]>([
-    { id: 1, name: 'Convoscope', content: 'Last 10 minutes of conversation displayed with highlights on key phrases.' },
+    { id: 1, name: 'Convoscope', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
     { id: 2, name: 'ADHD Assist', content: 'Reminder to take a 10-minute break. Stretch and reset your focus.' },
     { id: 3, name: 'Translator', content: 'Currently translating your conversation from English to French in real-time.' },
     { id: 4, name: 'WeatherLens', content: 'Local forecast: Sunny, high of 75°F. Minimal rain expected today.' },
-    { id: 5, name: 'Health Tracker', content: 'You’ve been sitting for over 45 minutes. Time to stand up and stretch!' },
+    { id: 5, name: 'Health Tracker', content: 'Youve been sitting for over 45 minutes. Time to stand up and stretch!' },
     { id: 6, name: 'Convoscope', content: 'Important conversations saved. Topics flagged for easy navigation.' },
     { id: 7, name: 'Mindful Moments', content: 'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.' },
     { id: 8, name: 'Workout Buddy', content: 'Next exercise: 15 push-ups. Keep up the good work!' },
-    { id: 10, name: 'Convoscope', content: 'Last 10 minutes of conversation displayed with highlights on key phrases.' },
+    { id: 10, name: 'Convoscope', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
     { id: 21, name: 'ADHD Assist', content: 'Reminder to take a 10-minute break. Stretch and reset your focus.' },
     { id: 32, name: 'Translator', content: 'Currently translating your conversation from English to French in real-time.' },
     { id: 43, name: 'WeatherLens', content: 'Local forecast: Sunny, high of 75°F. Minimal rain expected today.' },
-    { id: 54, name: 'Health Tracker', content: 'You’ve been sitting for over 45 minutes. Time to stand up and stretch!' },
+    { id: 54, name: 'Health Tracker', content: 'Youve been sitting for over 45 minutes. Time to stand up and stretch!' },
     { id: 65, name: 'Convoscope', content: 'Important conversations saved. Topics flagged for easy navigation.' },
+    { id: 76, name: 'Mindful Moments', content: 'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.' },
+    { id: 87, name: 'Workout Buddy', content: 'Next exercise: 15 push-ups. Keep up the good work!' },
+    { id: 100, name: 'Convoscope', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate..' },
+    { id: 211, name: 'ADHD Assist', content: 'Reminder to take a 10-minute break. Stretch and reset your focus.' },
+    { id: 322, name: 'Translator', content: 'Currently translating your conversation from English to French in real-time.' },
+    { id: 433, name: 'WeatherLens', content: 'Local forecast: Sunny, high of 75°F. Minimal rain expected today.' },
+    { id: 544, name: 'Health Tracker', content: 'Youve been sitting for over 45 minutes. Time to stand up and stretch!' },
+    { id: 655, name: 'Convoscope', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
+    { id: 766, name: 'Mindful Moments', content: 'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.' },
+    { id: 877, name: 'Workout Buddy', content: 'Next exercise: 15 push-ups. Keep up the good work!' },
+    { id: 1000, name: 'Convoscope', content: 'Last 10 minutes of conversation displayed with highlights on key phrases.' },
+    { id: 2111, name: 'ADHD Assist', content: 'Reminder to take a 10-minute break. Stretch and reset your focus.' },
+    { id: 3222, name: 'Translator', content: 'Currently translating your conversation from English to French in real-time.' },
+    { id: 4333, name: 'WeatherLens', content: 'Local forecast: Sunny, high of 75°F. Minimal rain expected today.' },
+    { id: 5444, name: 'Health Tracker', content: 'Youve been sitting for over 45 minutes. Time to stand up and stretch!' },
+    { id: 6555, name: 'Convoscope', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
+    { id: 7666, name: 'Mindful Moments', content: 'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.' },
+    { id: 8777, name: 'Workout Buddy', content: 'Next exercise: 15 push-ups. Keep up the good work!' },
   ]);
 
   const scrollViewRef = useRef<ScrollView>(null);
+  const indicatorScrollViewRef = useRef<ScrollView>(null);
   const [showScrollDownButton, setShowScrollDownButton] = useState(false);
+  const pulseAnimation = useRef(new Animated.Value(1)).current;
 
+ // Change the initial values
+const [fadeAnims] = useState(() => 
+  cards.map(() => new Animated.Value(1)) // Start visible
+);
+const [slideAnims] = useState(() => 
+  cards.map(() => new Animated.Value(0)) // Start at final position
+);
   useEffect(() => {
     scrollViewRef.current?.scrollToEnd({ animated: false });
   }, []);
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(pulseAnimation, {
+          toValue: 1.0308,
+          duration: 2000,
+          useNativeDriver: true,  // Changed to true
+        }),
+        Animated.timing(pulseAnimation, {
+          toValue: 1,
+          duration: 2000,
+          useNativeDriver: true,  // Changed to true
+        }),
+      ])
+    ).start();
+  }, [pulseAnimation]);
+
+  useEffect(() => {
+    // First set initial values instantly
+    fadeAnims.forEach(anim => anim.setValue(0));
+    slideAnims.forEach(anim => anim.setValue(50));
+  
+    // Small delay before starting animations
+    setTimeout(() => {
+      // Reverse the animation order - start from the last card
+      const animations = [...cards]
+        .reverse()
+        .map((_, index) => {
+          const delay = index * 50;
+          return Animated.parallel([
+            Animated.timing(fadeAnims[cards.length - 1 - index], {
+              toValue: 1,
+              duration: 500,
+              delay,
+              useNativeDriver: true,
+            }),
+            Animated.timing(slideAnims[cards.length - 1 - index], {
+              toValue: 0,
+              duration: 500,
+              delay,
+              useNativeDriver: true,
+            }),
+          ]);
+        });
+
+      Animated.stagger(50, animations).start();
+    }, 100);
+  }, [cards, fadeAnims, slideAnims]);
 
   const handleScroll = (event: any) => {
     const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
     const isAtBottom = layoutMeasurement.height + contentOffset.y >= contentSize.height - 20;
     setShowScrollDownButton(!isAtBottom);
+
+    // Calculate the relative position of indicators
+    const cardHeight = 200; // Card height + margin
+    const totalIndicators = cards.length;
+    const maxScroll = (totalIndicators * cardHeight) - layoutMeasurement.height;
+    const scrollPercent = Math.min(Math.max(contentOffset.y / maxScroll, 0), 1);
+
+    // Get indicator ScrollView max scroll height
+    const indicatorTotalHeight = totalIndicators * 46; // indicatorTouchable height
+    const indicatorVisibleHeight = layoutMeasurement.height;
+    const indicatorMaxScroll = indicatorTotalHeight - indicatorVisibleHeight;
+
+    // Sync indicator position
+    indicatorScrollViewRef.current?.scrollTo({
+      y: scrollPercent * indicatorMaxScroll,
+      animated: false,
+    });
   };
 
   const handleScrollToBottom = () => {
@@ -51,87 +144,147 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
   const getAppColor = (name: string) => {
     switch (name) {
       case 'Convoscope':
-        return '#4A90E2'; // Blue
+        return '#4A90E2';
       case 'ADHD Assist':
-        return '#FF7F50'; // Coral
+        return '#FF7F50';
       case 'Translator':
-        return '#FFD700'; // Gold
+        return '#FFD700';
       case 'WeatherLens':
-        return '#87CEEB'; // Sky Blue
+        return '#87CEEB';
       case 'Health Tracker':
-        return '#32CD32'; // Lime Green
+        return '#32CD32';
       case 'Mindful Moments':
-        return '#FF69B4'; // Hot Pink
+        return '#FF69B4';
       case 'Workout Buddy':
-        return '#FF4500'; // Orange Red
+        return '#FF4500';
       default:
-        return '#CCCCCC'; // Gray for unknown apps
+        return '#CCCCCC';
     }
+  };
+
+  const renderCard = (card: Card, index: number) => {
+    const cardColor = getAppColor(card.name);
+    const isLastCard = index === cards.length - 1;
+
+    const cardStyleVariant = [
+      styles.card,
+      isDarkTheme ? styles.cardDark : styles.cardLight,
+      isLastCard ? styles.lastCard : styles.normalCard,
+      {
+        borderColor: cardColor,
+        backgroundColor: isLastCard
+          ? (isDarkTheme ? `${cardColor}25` : `${cardColor}25`)
+          : (isDarkTheme ? styles.cardDark.backgroundColor : styles.cardLight.backgroundColor),
+      },
+    ];
+
+    return (
+      <Animated.View
+        key={card.id}
+        style={[
+          styles.cardWrapper,
+          {
+            opacity: fadeAnims[index],
+            transform: [{ translateY: slideAnims[index] }],
+          },
+        ]}
+      >
+        {isLastCard ? (
+          <Animated.View
+            style={[
+              styles.lastCardWrapper,
+              styles.lastCardAnimation,
+              {
+                transform: [{ scale: pulseAnimation }],
+              },
+            ]}
+          >
+            <View style={cardStyleVariant}>
+              <View style={[styles.cardHeader, { backgroundColor: cardColor }]}>
+                <Text style={[styles.cardName, isDarkTheme ? styles.darkText : styles.lightText]}>
+                  {card.name}
+                </Text>
+              </View>
+              <Text style={[styles.cardContent, isDarkTheme ? styles.darkText : styles.lightText]}>
+                {card.content}
+              </Text>
+            </View>
+          </Animated.View>
+        ) : (
+          <View style={cardStyleVariant}>
+            <View style={[styles.cardHeader, { backgroundColor: cardColor }]}>
+              <Text style={[styles.cardName, isDarkTheme ? styles.darkText : styles.lightText]}>
+                {card.name}
+              </Text>
+            </View>
+            <Text style={[styles.cardContent, isDarkTheme ? styles.darkText : styles.lightText]}>
+              {card.content}
+            </Text>
+          </View>
+        )}
+      </Animated.View>
+    );
   };
 
   return (
     <View style={[styles.container, isDarkTheme ? styles.darkContainer : styles.lightContainer]}>
       <View style={styles.titleContainer}>
-        <Text style={[styles.title, isDarkTheme ? styles.darkText : styles.lightText]}>AugmentOS Glasses Mirror</Text>
+        <Text style={[styles.title, isDarkTheme ? styles.darkText : styles.lightText]}>
+          AugmentOS Glasses Mirror
+        </Text>
       </View>
 
-      {/* Mirrored Screen Area */}
-      <View style={styles.mirrorArea}>
-        <View style={styles.indicatorContainer}>
-          {cards.map((card, index) => (
-            <TouchableOpacity key={card.id} onPress={() => scrollViewRef.current?.scrollTo({ y: index * 100, animated: true })}>
-              <View style={[styles.indicatorBox, { backgroundColor: getAppColor(card.name) }]} />
-            </TouchableOpacity>
-          ))}
-        </View>
-        <ScrollView
-          ref={scrollViewRef}
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollViewContent}
-          showsVerticalScrollIndicator={false}
-          onScroll={handleScroll}
-          scrollEventThrottle={16}
-        >
-          {cards.map((card, index) => {
-            const cardColor = getAppColor(card.name);
-            const isLastCard = index === cards.length - 1;
-            return isLastCard ? (
-              <View
-              key={card.id}
-              style={[styles.card, styles.lastCardFocused, isDarkTheme ? styles.cardDark : styles.cardLight]}>
-            <View style={[styles.cardHeader, { backgroundColor: cardColor }]}>
-              <Text style={[styles.cardName, isDarkTheme ? styles.darkText : styles.lightText]}>{card.name}</Text>
+      <View style={styles.contentContainer}>
+      <View style={styles.indicatorColumn}>
+  <ScrollView
+    ref={indicatorScrollViewRef}
+    showsVerticalScrollIndicator={false}
+    style={styles.indicatorScrollView}
+    contentContainerStyle={styles.indicatorContainer}
+    scrollEnabled={true}
+    scrollEventThrottle={16}
+  >
+    {[...cards].map((card, index) => (
+      <TouchableOpacity
+        key={card.id}
+        style={styles.indicatorTouchable}
+        onPress={() => {
+          const cardHeight = 200; // Height of card + margin
+          scrollViewRef.current?.scrollTo({
+            y: index * cardHeight,  // Now this matches the visual order
+            animated: true,
+          });
+        }}
+      >
+        <View style={[styles.indicatorBox, { backgroundColor: getAppColor(card.name) }]} />
+      </TouchableOpacity>
+    ))}
+  </ScrollView>
+</View>
+
+        <View style={styles.cardsColumn}>
+          <ScrollView
+            ref={scrollViewRef}
+            style={styles.scrollView}
+            contentContainerStyle={styles.scrollViewContent}
+            showsVerticalScrollIndicator={false}
+            onScroll={handleScroll}
+            scrollEventThrottle={16}
+            onMomentumScrollEnd={(event) => handleScroll(event)}
+          >
+            <View style={styles.cardsContainer}>
+              {cards.map(renderCard)}
             </View>
-            <Text style={[styles.cardContent, isDarkTheme ? styles.darkText : styles.lightText]}>{card.content}</Text>
-          </View>
-
-            ) : (
-              <View
-                key={card.id}
-                style={[
-                  styles.card,
-                  isDarkTheme ? styles.cardDark : styles.cardLight,
-                  { borderColor: cardColor, shadowColor: cardColor },
-                ]}
-              >
-                <View style={[styles.cardHeader, { backgroundColor: cardColor }]}>
-                  <Text style={[styles.cardName, isDarkTheme ? styles.darkText : styles.lightText]}>{card.name}</Text>
-                </View>
-                <Text style={[styles.cardContent, isDarkTheme ? styles.darkText : styles.lightText]}>{card.content}</Text>
-              </View>
-            );
-          })}
-        </ScrollView>
+          </ScrollView>
+        </View>
       </View>
 
-      {/* Scroll Down Button */}
       {showScrollDownButton && (
         <TouchableOpacity style={styles.focusedScrollDownButton} onPress={handleScrollToBottom}>
           <Icon name="arrow-down" size={24} color="white" />
         </TouchableOpacity>
       )}
 
-      {/* Navigation Bar */}
       <NavigationBar isDarkTheme={isDarkTheme} toggleTheme={() => {}} />
     </View>
   );
@@ -150,15 +303,13 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     paddingBottom: 10,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: 'bold',
-    textAlign: 'left', // Align title to the left
     fontFamily: 'Montserrat-Bold',
-    color: '#4A90E2',
-    marginTop: 20, // Adjust spacing to match the main page distance from the top
+    textAlign: 'left',
   },
   darkText: {
     color: '#ffffff',
@@ -166,43 +317,73 @@ const styles = StyleSheet.create({
   lightText: {
     color: '#000000',
   },
-  mirrorArea: {
+  contentContainer: {
     flex: 1,
-    borderRadius: 15,
-    marginBottom: 20,
-    overflow: 'hidden',
-    alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'flex-start',
-    backgroundColor: 'transparent',
-    opacity: 0.8,
+    marginBottom: 0,
+  },
+  indicatorColumn: {
+    width: 20,
+    marginRight: 10,
+    justifyContent: 'center',
+  },
+  cardsColumn: {
+    flex: 1,
+  },
+  indicatorScrollView: {
+    height: '100%',
   },
   indicatorContainer: {
-    width: 10,
+    paddingVertical: 20,
+    alignItems: 'center',
+  },
+  indicatorTouchable: {
+    width: 20,
+    height: 46,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 5,
   },
   indicatorBox: {
-    width: 10,
-    height: 45,
-    borderRadius: 5,
-    marginVertical: 2,
+    width: 10,  // Changed from 6 to 10
+    height: 38,
+    borderRadius: 5, // Also increasing border radius to match wider width
+    marginVertical: 4,
   },
   scrollView: {
     flex: 1,
-    width: '100%',
   },
   scrollViewContent: {
     flexGrow: 1,
     justifyContent: 'flex-end',
+    paddingBottom: 40,
+  },
+  cardsContainer: {
+    paddingBottom: 10,
+  },
+  cardWrapper: {
+    paddingHorizontal: 2,
+    marginBottom: 20,
+    transform: [{ translateY: 0 }],
+  },
+  lastCardWrapper: {
+    marginBottom: 0,
+  },
+
+  lastCardAnimation: {
+    margin: 2,
+    transformOrigin: 'center',
   },
   card: {
-    height: 180,
-    marginBottom: 20,
-    borderWidth: 1,
+    minHeight: 180, // Changed from fixed height to minHeight
     borderRadius: 15,
     overflow: 'hidden',
+    flexDirection: 'column', // Ensure proper flex layout
+  },
+  normalCard: {
+    borderWidth: 1,
+  },
+  lastCard: {
+    borderWidth: 2,
   },
   cardLight: {
     backgroundColor: '#ffffff',
@@ -210,28 +391,28 @@ const styles = StyleSheet.create({
   cardDark: {
     backgroundColor: '#1e1e1e',
   },
-  lastCardFocused: {
-    height: 180,
-   },
   cardHeader: {
     width: '100%',
-    paddingVertical: 12,
+    paddingVertical: 8, // Reduced from 12 to 8
     paddingHorizontal: 16,
     justifyContent: 'center',
     alignItems: 'flex-start',
     borderBottomWidth: 1,
     borderBottomColor: '#dddddd',
+    flexShrink: 0, // Prevent header from shrinking
   },
   cardName: {
-    fontSize: 20,
+    fontSize: 18, // Reduced from 20 to 18 for better fit
     fontWeight: 'bold',
     fontFamily: 'Montserrat-Bold',
+    lineHeight: 24, // Added lineHeight to ensure consistent text height
   },
   cardContent: {
     fontSize: 16,
     fontFamily: 'Montserrat-Regular',
     padding: 16,
     textAlign: 'left',
+    flex: 1, // Allow content to expand
   },
   focusedScrollDownButton: {
     position: 'absolute',

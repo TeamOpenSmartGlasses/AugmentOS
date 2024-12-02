@@ -1,18 +1,14 @@
 import React, { useMemo } from 'react';
-import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { useStatus } from '../AugmentOSStatusProvider';
-import { AppInfo } from '../AugmentOSStatusParser';
+import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 
 interface AppIconProps {
     app: AppInfo;
     isMainApp?: boolean;
     onClick?: () => void;
+    style?: object;
 }
 
-const AppIcon: React.FC<AppIconProps> = ({ app, isMainApp = false, onClick }) => {
-    // Memoized function to get the app image
+const AppIcon: React.FC<AppIconProps> = ({ app, isMainApp = false, onClick, style }) => {
     const getAppImage = useMemo(
         () => (packageName: string) => {
             switch (packageName) {
@@ -32,132 +28,59 @@ const AppIcon: React.FC<AppIconProps> = ({ app, isMainApp = false, onClick }) =>
     );
 
     return (
-        <View style={styles.appWrapper} onTouchEnd={onClick}>
-            <View style={[isMainApp ? styles.mainAppIconWrapper : styles.appIconWrapper, {}]}>
-                <ImageBackground
-                    source={getAppImage(app.package_name)}
-                    style={isMainApp ? styles.mainAppIcon : styles.appIcon}
-                    imageStyle={isMainApp ? styles.mainAppIconImage : undefined}
-                >
-                    {isMainApp && (
-                        <>
-                            <LinearGradient
-                                colors={['#ADE7FF', '#FFB2F9', '#FFE396']}
-                                style={styles.overlayRing}
-                                start={{ x: 0, y: 0 }}
-                                end={{ x: 1, y: 1 }}
-                            />
-                            <View style={styles.squareBadge}>
-                                <FontAwesome name="star" size={12} color="#FFFFFF" />
-                            </View>
-                        </>
-                    )}
-                </ImageBackground>
+        <View>
+            <View style={[styles.appWrapper, style]} onTouchEnd={onClick}>
+                <View style={isMainApp ? styles.mainAppIconWrapper : styles.appIconWrapper}>
+                    <ImageBackground
+                        source={getAppImage(app.package_name)}
+                        style={isMainApp ? styles.mainAppIcon : styles.appIcon}
+                        imageStyle={styles.appIconRounded} // Add rounded corners
+                    />
+                </View>
             </View>
-            <Text style={[styles.appName, {  }]} numberOfLines={1}>
+            <Text style={styles.appName} numberOfLines={1}>
                 {app.name}
             </Text>
         </View>
     );
 };
 
-
 const styles = StyleSheet.create({
-    appsContainer: {
-        marginBottom: 30,
-        marginTop: 30,
-        borderRadius: 15,
-    },
-    sectionTitle: {
-        fontSize: 20,
-        fontWeight: '600',
-        fontFamily: 'Montserrat-Bold',
-        lineHeight: 25,
-        letterSpacing: 0.38,
-        marginBottom: 10,
-    },
-    header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 10,
-    },
-    gradientBackground: {
-        width: '100%',
-        height: 150,
-        paddingVertical: 6,
-        paddingHorizontal: 15,
-        borderRadius: 28,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    appIconsContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-around',
-        width: '100%',
-    },
     appWrapper: {
         alignItems: 'center',
         width: 75,
         marginLeft: 10,
+    },
+    appIconWrapper: {
+        width: 65,
+        height: 65,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderColor: 'transparent',
+        borderRadius: 15, // Apply border radius to the wrapper
+        overflow: 'hidden', // Ensure the child respects the border radius
     },
     mainAppIconWrapper: {
         width: 75,
         height: 75,
         alignItems: 'center',
         justifyContent: 'center',
-        position: 'relative',
-        borderWidth: 0.5,
-        borderColor: '#000',
-        borderRadius: 15,
-    },
-    mainAppIcon: {
-        width: '100%',
-        height: '100%',
-        borderRadius: 15,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 10,
-    },
-    mainAppIconImage: {
-        borderRadius: 15,
-    },
-    overlayRing: {
-        position: 'absolute',
-        width: '120%',
-        height: '120%',
-        borderRadius: 15,
-        zIndex: -1,
-    },
-    squareBadge: {
-        position: 'absolute',
-        top: -10,
-        right: -10,
-        width: 24,
-        height: 24,
-        borderRadius: 6,
-        backgroundColor: '#FF438B',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    appIconWrapper: {
-        width: 70,
-        height: 70,
-        alignItems: 'center',
-        justifyContent: 'center',
         borderWidth: 1,
         borderColor: '#000',
-        borderRadius: 10,
-        marginTop: 10,
+        borderRadius: 15, // Apply border radius to the wrapper
+        overflow: 'hidden', // Ensure the child respects the border radius
     },
     appIcon: {
         width: '100%',
         height: '100%',
-        borderRadius: 10,
+    },
+    appIconRounded: {
+        borderRadius: 15, // Round the corners of the ImageBackground
     },
     appName: {
         marginTop: 15,
+        marginLeft: 7,
         fontSize: 11,
         fontWeight: '600',
         fontFamily: 'Montserrat-Bold',

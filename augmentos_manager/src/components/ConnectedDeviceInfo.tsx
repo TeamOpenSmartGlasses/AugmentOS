@@ -1,23 +1,36 @@
-import React, {  useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated, Alert, PermissionsAndroid, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { bluetoothService} from '../BluetoothService';
+import { bluetoothService } from '../BluetoothService';
 import { useStatus } from '../AugmentOSStatusProvider';
 
 interface ConnectedDeviceInfoProps {
   isDarkTheme: boolean;
 }
 
-//const bluetoothService = new BluetoothService(); // Initialize a single instance of BluetoothService
-
 const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(0.8)).current;
   const slideAnim = useRef(new Animated.Value(-50)).current;
+  const [connectedGlasses, setConnectedGlasses] = useState('');
 
-  const { status, isSearching, refreshStatus } = useStatus(); // Access status data and refreshStatus function
-  const glassesInfo = status.glasses_info;
-  const batteryLevel = glassesInfo?.battery_life ?? 0;
+  // Set this to true/false to simulate connection state
+  const simulateConnected = true;
+
+  const { status, isSearching, refreshStatus } = useStatus();
+
+  // Simulate glasses connection data
+  const simulatedStatus = {
+    ...status,
+    puck_connected: simulateConnected,
+    glasses_info: simulateConnected ? {
+      model_name: 'Vuzix-z100',
+      battery_life: 85,
+    } : status.glasses_info,
+  };
+
+  // Use simulated or real status based on simulation flag
+  const effectiveStatus = simulateConnected ? simulatedStatus : status;
 
   useEffect(() => {
     if (Platform.OS === 'android' && Platform.Version >= 23) {
@@ -32,7 +45,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   }, [refreshStatus]);
 
   useEffect(() => {
-    if (status.puck_connected) {
+    if (effectiveStatus.puck_connected) {
       Animated.parallel([
         Animated.timing(fadeAnim, {
           toValue: 1,
@@ -56,37 +69,40 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
       scaleAnim.setValue(0.8);
       slideAnim.setValue(-50);
     }
-  }, [status, fadeAnim, scaleAnim, slideAnim]);
+  }, [effectiveStatus, fadeAnim, scaleAnim, slideAnim]);
 
   const handleConnect = async () => {
-    try {
-      await bluetoothService.scanForDevices();
-    } catch (error) {
-      Alert.alert('Error', 'Failed to start scanning for devices');
-      console.error('Scanning error:', error);
+    if (!simulateConnected) {
+      try {
+        await bluetoothService.scanForDevices();
+      } catch (error) {
+        Alert.alert('Error', 'Failed to start scanning for devices');
+        console.error('Scanning error:', error);
+      }
     }
   };
 
   const connectGlasses = async () => {
-    try {
-      await bluetoothService.sendConnectWearable();
-    } catch (error) {
-      console.error('connect 2 glasses error:', error);
+    if (!simulateConnected) {
+      try {
+        await bluetoothService.sendConnectWearable();
+      } catch (error) {
+        console.error('connect 2 glasses error:', error);
+      }
     }
   };
 
-  // Theme styles defined as JavaScript objects, not within StyleSheet
   const themeStyles = {
     backgroundColor: isDarkTheme ? '#333333' : '#F2F2F7',
     textColor: isDarkTheme ? '#FFFFFF' : '#333333',
     statusLabelColor: isDarkTheme ? '#CCCCCC' : '#666666',
     statusValueColor: isDarkTheme ? '#FFFFFF' : '#333333',
-    connectedDotColor: '#28a745', // common color for connected dot
+    connectedDotColor: '#28a745',
   };
 
   const getGlassesImage = (glasses: string | null) => {
     switch (glasses) {
-      case 'vuzix-z100':
+      case 'Vuzix-z100':
       case 'Vuzix Z100':
       case 'Vuzix Ultralite':
         return require('../assets/glasses/vuzix-z100-glasses.png');
@@ -94,7 +110,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
         return require('../assets/glasses/inmo_air.png');
       case 'tcl_rayneo_x_two':
         return require('../assets/glasses/tcl_rayneo_x_two.png');
-      case 'vuzix_shield':
+      case 'Vuzix_shield':
         return require('../assets/glasses/vuzix_shield.png');
       case 'virtual-wearable':
       case 'Audio Wearable':
@@ -105,40 +121,60 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   };
 
   const getBatteryIcon = (level: number) => {
-    if (level > 75) { return 'battery-full'; }
-    if (level > 50) { return 'battery-three-quarters'; }
-    if (level > 25) { return 'battery-half'; }
-    if (level > 10) { return 'battery-quarter'; }
+    if (level > 75) return 'battery-full';
+    if (level > 50) return 'battery-three-quarters';
+    if (level > 25) return 'battery-half';
+    if (level > 10) return 'battery-quarter';
     return 'battery-empty';
   };
 
   const getBatteryColor = (level: number) => {
-    if (level > 60) { return '#4CAF50'; } // Green
-    if (level > 20) { return '#FFB300'; } // Darker Yellow for better contrast
-    return '#FF5722'; // Red
+    if (level > 60) return '#4CAF50';
+    if (level > 20) return '#FFB300';
+    return '#FF5722';
   };
 
-  const batteryIcon = getBatteryIcon(batteryLevel);
-  const batteryColor = getBatteryColor(batteryLevel);
+  const handleDisconnect = () => {
+    setIsConnected(false);
+    setConnectedGlasses('');
+  };
+  
+  function setIsConnected(arg0: boolean) {
+    throw new Error('Function not implemented.');
+  }
+  
+  const formatGlassesTitle = (title: string) =>
+    title.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 
+
+  const batteryIcon = getBatteryIcon(simulateConnected ? 85 : effectiveStatus.glasses_info?.battery_life ?? 0);
+  const batteryColor = getBatteryColor(simulateConnected ? 85 : effectiveStatus.glasses_info?.battery_life ?? 0);
   return (
     <View style={[styles.deviceInfoContainer, { backgroundColor: themeStyles.backgroundColor }]}>
-      {status.puck_connected ? (
+      {effectiveStatus.puck_connected ? (
         <>
-          {status.glasses_info?.model_name ? (
-            <>
+          {effectiveStatus.glasses_info?.model_name ? (
+            <View style={styles.connectedContent}>
               <Animated.Image
-                source={getGlassesImage(status.glasses_info.model_name)}
+                source={getGlassesImage(effectiveStatus.glasses_info.model_name)}
                 style={[styles.glassesImage, { opacity: fadeAnim, transform: [{ scale: scaleAnim }] }]}
               />
-              <Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]} />
-
+<Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]}>
+  <Text style={[styles.connectedDot, { color: themeStyles.connectedDotColor }]}>●</Text>
+  <Text style={styles.connectedTextGreen}>Connected</Text>
+  <Text style={styles.separator}>|</Text>
+  <Text style={[styles.connectedTextTitle, { color: themeStyles.textColor }]}>
+    {formatGlassesTitle(connectedGlasses)} {effectiveStatus.glasses_info.model_name}
+  </Text>
+</Animated.View>
               <Animated.View style={[styles.statusBar, { opacity: fadeAnim }]}>
                 <View style={styles.statusInfo}>
                   <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Battery</Text>
                   <View style={styles.batteryContainer}>
-                    <Icon name={batteryIcon} size={20} color={batteryColor} style={styles.batteryIcon} />
-                    <Text style={[styles.batteryValue, { color: batteryColor }]}>{batteryLevel}%</Text>
+                    <Icon name={batteryIcon} size={16} color={batteryColor} style={styles.batteryIcon} />
+                    <Text style={[styles.batteryValue, { color: batteryColor }]}>
+                      {simulateConnected ? '85' : effectiveStatus.glasses_info.battery_life}%
+                    </Text>
                   </View>
                 </View>
 
@@ -146,62 +182,108 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                   <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
                   <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>87%</Text>
                 </View>
+                <TouchableOpacity style={styles.disconnectButton} onPress={handleDisconnect}>
+              <Icon name="power-off" size={18} color="white" style={styles.icon} />
+              <Text style={styles.disconnectText}>Disconnect</Text>
+            </TouchableOpacity>
               </Animated.View>
-            </>
+           
+            </View>
           ) : (
-            <>
-              <Animated.View style={[styles.deviceInfoContainer, { transform: [{ translateX: slideAnim }] }]}>
-                <Text style={styles.noGlassesText}>No Glasses Connected</Text>
-                <TouchableOpacity style={[styles.connectButton, { }]} onPress={connectGlasses}>
-                  <Icon name="wifi" size={18} color="white" style={styles.icon} />
-                  <Text style={styles.buttonText}>Connect Glasses</Text>
-                </TouchableOpacity>
-              </Animated.View>
-            </>
+            <View style={styles.noGlassesContent}>
+              <Text style={styles.noGlassesText}>No Glasses Connected</Text>
+              <TouchableOpacity style={styles.connectButton} onPress={connectGlasses}>
+                <Icon name="wifi" size={16} color="white" style={styles.icon} />
+                <Text style={styles.buttonText}>Connect Glasses</Text>
+              </TouchableOpacity>
+            </View>
           )}
         </>
       ) : (
-        <>
+        <View style={styles.disconnectedContent}>
           <Text style={[styles.connectText, { color: themeStyles.textColor }]}>
             {isSearching ? 'Connecting...' : 'No device connected'}
           </Text>
           {isSearching ? (
-            <ActivityIndicator size="large" color="#2196F3" />
+            <ActivityIndicator size="small" color="#2196F3" />
           ) : (
             <TouchableOpacity style={styles.connectButton} onPress={handleConnect}>
-              <Icon name="wifi" size={18} color="white" style={styles.icon} />
+              <Icon name="wifi" size={16} color="white" style={styles.icon} />
               <Text style={styles.buttonText}>Connect</Text>
             </TouchableOpacity>
           )}
-        </>
+        </View>
       )}
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   deviceInfoContainer: {
-    padding: 20,
-    marginTop: 20,
+    padding: 10,
     borderRadius: 10,
-    marginBottom: 20,
-    alignItems: 'center',
     width: '100%',
+    minHeight: 250, // Set a minimum height
+    justifyContent: 'center',
+  },
+  connectedContent: {
+    flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  noGlassesContent: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  disconnectedContent: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   glassesImage: {
-    width: '100%',
-    height: 150,
+    width: '80%',
+    height: '50%',
     resizeMode: 'contain',
   },
-  noGlassesText: {
-    color: 'black',
-    textAlign: 'center',
-    fontSize: 18,
-    marginBottom: 10,
+  statusBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderRadius: 12,
+    padding: 10,
+    width: '100%',
+    backgroundColor: '#6750A414',
+    flexWrap: 'wrap', // Allow wrapping to avoid overflow
+  },
+  statusInfo: {
+    alignItems: 'center',
+    flex: 1,
+    marginRight: 20,
+  },
+  batteryContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  batteryIcon: {
+    marginRight: 4,
+  },
+  batteryValue: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
+  },
+  statusValue: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
   },
   connectedStatus: {
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 10,
+    marginRight: 45,
+
   },
   connectedDot: {
     fontSize: 14,
@@ -227,66 +309,40 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'Montserrat-Bold',
   },
-  statusBar: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderRadius: 12,
-    padding: 15,
-    width: '100%',
-    marginTop: 10,
-    backgroundColor: '#6750A414',
-  },
-  statusInfo: {
-    alignItems: 'center',
-    flex: 1,
-  },
-  batteryContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  batteryIcon: {
-    marginRight: 5,
-  },
-  batteryValue: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    fontFamily: 'Montserrat-Bold',
-  },
-  statusValue: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    fontFamily: 'Montserrat-Bold',
-  },
   statusLabel: {
-    fontSize: 13,
-    lineHeight: 18,
+    fontSize: 12,
+    lineHeight: 16,
     fontWeight: '500',
     letterSpacing: -0.08,
     fontFamily: 'SF Pro',
   },
   connectText: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 10,
     fontFamily: 'Montserrat-Bold',
+  },
+  noGlassesText: {
+    color: 'black',
+    textAlign: 'center',
+    fontSize: 14,
+    marginBottom: 10,
   },
   connectButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    textAlign: 'center',
     backgroundColor: '#2196F3',
-    padding: 15,
-    borderRadius: 10,
-    width: '100%',
+    padding: 10,
+    borderRadius: 8,
+    width: '80%',
   },
   icon: {
-    marginRight: 6,
+    marginRight: 4,
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     fontFamily: 'Montserrat-Bold',
   },
@@ -294,11 +350,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#E24A24',
     alignItems: 'center',
-    paddingHorizontal: 12,
+    paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: 12,
     justifyContent: 'center',
-    marginLeft: 10,
+    marginRight: 5,
+    width: '40%',
   },
   disconnectText: {
     color: '#fff',
@@ -309,3 +366,4 @@ const styles = StyleSheet.create({
 });
 
 export default ConnectedDeviceInfo;
+
