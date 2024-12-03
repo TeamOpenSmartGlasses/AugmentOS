@@ -4,7 +4,7 @@ import { AppInfo } from '../AugmentOSStatusParser';
 
 interface AppIconProps {
     app: AppInfo;
-    isMainApp?: boolean;
+    isForegroundApp?: boolean;
     onClick?: () => void;
     style?: object;
     isDarkTheme?: boolean; // Add theme prop
@@ -12,7 +12,7 @@ interface AppIconProps {
 
 const AppIcon: React.FC<AppIconProps> = ({ 
     app, 
-    isMainApp = false, 
+    isForegroundApp = false, 
     onClick, 
     style,
     isDarkTheme = false 
@@ -35,16 +35,6 @@ const AppIcon: React.FC<AppIconProps> = ({
         []
     );
 
-    // For main apps, just return the ImageBackground
-    if (isMainApp) {
-        return (
-            <ImageBackground
-                source={getAppImage(app.package_name)}
-                style={[styles.mainAppIcon, style]}
-                imageStyle={styles.appIconRounded}
-            />
-        );
-    }
 
     // For other apps
     return (
@@ -73,7 +63,8 @@ const AppIcon: React.FC<AppIconProps> = ({
 const styles = StyleSheet.create({
     appWrapper: {
         alignItems: 'center',
-        width: 65,
+        height:'100%',
+        width:'100%',
     },
     appIconWrapper: {
         width: 65,

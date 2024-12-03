@@ -22,6 +22,7 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
     : ['#56CCFE', '#FF8DF6', '#FFD04E'];
 
   const stopApp = async (packageName: string) => {
+    console.log("STOP APP");
     setIsLoading(true);
     try {
       await bluetoothService.stopAppByPackageName(packageName);
@@ -60,7 +61,7 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
                                     app={app}
                                     style={styles.mainAppIcon}
                                     onClick={() => stopApp(app.package_name)}
-                                    isMainApp
+                                    isForegroundApp={true}
                                     isDarkTheme={isDarkTheme}
                                 />
                             </View>
@@ -147,6 +148,7 @@ mainAppIcon: {
     width: '100%',
     height: '100%',
     borderRadius: 17,
+    zIndex:20
 },
   appName: {
     marginTop: 5,

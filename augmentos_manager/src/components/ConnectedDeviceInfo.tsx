@@ -72,6 +72,12 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     }
   };
 
+  const sendDisconnectWearable = async () => {
+    try {
+      await bluetoothService.sendDisconnectWearable();
+    } catch (error) { }
+  }
+
   const themeStyles = {
     backgroundColor: isDarkTheme ? '#333333' : '#F2F2F7',
     textColor: isDarkTheme ? '#FFFFFF' : '#333333',
@@ -109,8 +115,8 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   };
 
   const getBatteryColor = (level: number) => {
-    if (level > 60) {return '#4CAF50';}
-    if (level > 20) {return '#FFB300';}
+    if (level > 60) { return '#4CAF50'; }
+    if (level > 20) { return '#FFB300'; }
     return '#FF5722';
   };
 
@@ -153,7 +159,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                   <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
                   <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>87%</Text>
                 </View>
-                <TouchableOpacity style={styles.disconnectButton} onPress={bluetoothService.sendDisconnectWearable}>
+                <TouchableOpacity style={styles.disconnectButton} onPress={sendDisconnectWearable}>
                   <Icon name="power-off" size={18} color="white" style={styles.icon} />
                   <Text style={styles.disconnectText}>Disconnect</Text>
                 </TouchableOpacity>

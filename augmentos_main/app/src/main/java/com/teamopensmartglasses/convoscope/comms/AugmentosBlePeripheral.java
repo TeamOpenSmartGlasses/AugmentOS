@@ -540,24 +540,18 @@ public class AugmentosBlePeripheral {
             final String action = intent.getAction();
             if (BluetoothDevice.ACTION_PAIRING_REQUEST.equals(action)) {
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                int pairingVariant = intent.getIntExtra(BluetoothDevice.EXTRA_PAIRING_VARIANT, BluetoothDevice.ERROR);
+                int pairingVariant = intent.getIntExtra(BluetoothDevice.EXTRA_PAIRING_VARIANT, -1);
 
-//                if (pairingVariant == BluetoothDevice.PAIRING_VARIANT_PIN ||
-//                        pairingVariant == BluetoothDevice.PAIRING_VARIANT_PASSKEY_CONFIRMATION) {
-//                    Log.d(TAG, "Automatically confirming pairing...");
-//                    if (ActivityCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-//                        // TODO: Consider calling
-//                        //    ActivityCompat#requestPermissions
-//                        // here to request the missing permissions, and then overriding
-//                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//                        //                                          int[] grantResults)
-//                        // to handle the case where the user grants the permission. See the documentation
-//                        // for ActivityCompat#requestPermissions for more details.
-//                        return;
-//                    }
-//                    //device.setPairingConfirmation(true);
-//                    //abortBroadcast();  // Prevents the system dialog from showing
-//                }
+                if (device == null){
+                    Log.d(TAG, "PAIRING: DEVICE IS NULL");
+                    return;
+                }
+                Log.d(TAG, "Pairing request from device: " + device.getAddress());
+                Log.d(TAG, "Pairing variant: " + pairingVariant);
+
+                if (pairingVariant == BluetoothDevice.PAIRING_VARIANT_PIN || pairingVariant == BluetoothDevice.PAIRING_VARIANT_PASSKEY_CONFIRMATION) {
+                    Log.d(TAG, "Rejecting or ignoring pairing request as 'Just Works' pairing should apply.");
+                }
             }
         }
     };
