@@ -19,7 +19,7 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
     const refreshStatus = useCallback((data: any) => {
         console.log('Raw data received for parsing:', data);
 
-        if (!(data && 'status' in data)) return;
+        if (!(data && 'status' in data)) {return;}
 
         const parsedStatus = AugmentOSParser.parseStatus(data);
         console.log('Parsed status:', parsedStatus);

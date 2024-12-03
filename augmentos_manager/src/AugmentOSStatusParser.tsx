@@ -1,4 +1,4 @@
-import { MOCK_CONNECTION } from "./consts";
+import { MOCK_CONNECTION } from './consts';
 
 interface Glasses {
   model_name: string;
@@ -56,7 +56,7 @@ export class AugmentOSParser {
     glasses_info: {
       model_name: 'Vuzix Z100',
       battery_life: 60,
-      is_searching: false
+      is_searching: false,
     },
     wifi: { is_connected: true, ssid: 'TP-LINK69', signal_strength: 100 },
     gsm: { is_connected: false, carrier: '', signal_strength: 0 },
@@ -72,7 +72,7 @@ export class AugmentOSParser {
       {
         name: "Netflix",
         package_name: "com.netflix.mediaclient",
-        icon: require('./assets/app-icons/adhd-rectangle.png'),
+        icon: require('./assets/app-icons/translator-rectangle.png'),
         description: "Movie and TV streaming",
         is_running: true,
         is_foreground: false,
@@ -100,13 +100,45 @@ export class AugmentOSParser {
         description: "Placeholder app",
         is_running: false,
         is_foreground: false
-      }
+      },
+      {
+        name: "Placeholder",
+        package_name: "com.example.placeholder",
+        icon: "placeholder",
+        description: "Placeholder app",
+        is_running: false,
+        is_foreground: false
+      },
+      {
+        name: "Placeholder",
+        package_name: "com.example.placeholder",
+        icon: "placeholder",
+        description: "Placeholder app",
+        is_running: false,
+        is_foreground: false
+      },
+      {
+        name: "Placeholder",
+        package_name: "com.example.placeholder",
+        icon: "placeholder",
+        description: "Placeholder app",
+        is_running: false,
+        is_foreground: false
+      },
+      {
+        name: "Placeholder",
+        package_name: "com.example.placeholder",
+        icon: "placeholder",
+        description: "Placeholder app",
+        is_running: false,
+        is_foreground: false,
+      },
     ],
   };
-  
+
 
   static parseStatus(data: any): AugmentOSMainStatus {
-    if (MOCK_CONNECTION) return AugmentOSParser.mockStatus;
+    if (MOCK_CONNECTION) {return AugmentOSParser.mockStatus;}
     // console.log('checking dat');
     if (data && 'status' in data) {
       console.log('data good?');

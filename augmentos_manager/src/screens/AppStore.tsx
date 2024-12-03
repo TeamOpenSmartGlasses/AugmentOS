@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View,
+  Animated, View, 
   Text,
   FlatList,
   TouchableOpacity,
@@ -213,13 +213,36 @@ export const AppStoreData: AppStoreItem[] = [
     },
   ];
 
-  const AppStore: React.FC = () => {
-    const navigation =
+
+  // Add props interface
+interface AppStoreProps {
+  isDarkTheme: boolean;
+}
+
+
+
+const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
+  const navigation =
       useNavigation<NativeStackNavigationProp<RootStackParamList, 'AppStore'>>();
 
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredApps, setFilteredApps] = useState(AppStoreData);
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+     // Theme colors
+  const theme = {
+    backgroundColor: isDarkTheme ? '#1c1c1c' : '#f9f9f9',
+    headerBg: isDarkTheme ? '#333333' : '#fff',
+    textColor: isDarkTheme ? '#FFFFFF' : '#333333',
+    subTextColor: isDarkTheme ? '#999999' : '#666666',
+    cardBg: isDarkTheme ? '#333333' : '#fff',
+    borderColor: isDarkTheme ? '#444444' : '#e0e0e0',
+    searchBg: isDarkTheme ? '#2c2c2c' : '#f5f5f5',
+    categoryChipBg: isDarkTheme ? '#444444' : '#e9e9e9',
+    categoryChipText: isDarkTheme ? '#FFFFFF' : '#555555',
+    selectedChipBg: isDarkTheme ? '#666666' : '#333333',
+    selectedChipText: isDarkTheme ? '#FFFFFF' : '#FFFFFF',
+  };
 
     const handleSearch = (text: string) => {
       setSearchQuery(text);
@@ -248,127 +271,151 @@ export const AppStoreData: AppStoreItem[] = [
       filterApps(searchQuery, newCategory);
     };
 
-    const renderItem = ({ item }: { item: AppStoreItem }) => (
-      <TouchableOpacity
-        style={styles.card}
-        onPress={() => navigation.navigate('AppDetails', { app: item })}
-        activeOpacity={0.9}
-      >
-        <Image source={{ uri: item.icon_image_url }} style={styles.icon} />
-        <View style={styles.cardContent}>
-          <Text style={styles.appName}>{item.name}</Text>
-          <Text style={styles.description} numberOfLines={2}>
-            {item.description}
+
+const renderItem = ({ item }: { item: AppStoreItem }) => (
+  <TouchableOpacity
+    style={[styles.card, { 
+      backgroundColor: theme.cardBg,
+      borderColor: theme.borderColor 
+    }]}
+    onPress={() => navigation.navigate('AppDetails', { app: item })}
+    activeOpacity={0.9}
+  >
+    <Image source={{ uri: item.icon_image_url }} style={styles.icon} />
+    <View style={styles.cardContent}>
+      <Text style={[styles.appName, { color: theme.textColor }]}>{item.name}</Text>
+      <Text style={[styles.description, { color: theme.subTextColor }]} numberOfLines={2}>
+        {item.description}
+      </Text>
+      <View style={styles.badges}>
+        <View style={styles.badge}>
+          <MaterialCommunityIcons name="star" size={16} color="#FFD700" />
+          <Text style={[styles.ratingBadge, { color: theme.textColor }]}>
+            {item.rating.toFixed(1)}
           </Text>
-          <View style={styles.badges}>
-            <View style={styles.badge}>
-              <MaterialCommunityIcons name="star" size={16} color="#FFD700" />
-              <Text style={styles.ratingBadge}>{item.rating.toFixed(1)}</Text>
-            </View>
-            <View style={styles.badge}>
-              <MaterialCommunityIcons name="download" size={16} color="#444" />
-              <Text style={styles.downloadBadge}>
-                {item.downloads.toLocaleString()} downloads
-              </Text>
-            </View>
-          </View>
         </View>
-      </TouchableOpacity>
-    );
-
-    const renderRecommendedItem = ({ item }: { item: AppStoreItem }) => (
-      <TouchableOpacity
-        style={styles.recommendCard}
-        onPress={() => navigation.navigate('AppDetails', { app: item })}
-      >
-        <Image source={{ uri: item.icon_image_url }} style={styles.recommendIcon} />
-        <Text style={styles.recommendAppName} numberOfLines={1}>
-          {item.name}
-        </Text>
-      </TouchableOpacity>
-    );
-
-    return (
-      <View style={styles.container}>
-        {/* Header Section */}
-        <View style={styles.headerContainer}>
-          <Text style={styles.header}>App Store</Text>
-          <View style={styles.searchContainer}>
-            <MaterialCommunityIcons name="magnify" size={20} color="#aaa" style={styles.searchIcon} />
-            <TextInput
-              style={styles.searchInput}
-              placeholder="Search for apps..."
-              placeholderTextColor="#aaa"
-              value={searchQuery}
-              onChangeText={handleSearch}
-            />
-          </View>
-        </View>
-
-        {/* Categories Section */}
-        <View style={styles.categoriesSection}>
-          <FlatList
-            data={[
-              'All',
-              'Productivity',
-              'Tools',
-              'Health',
-              'Photography',
-              'Education',
-              'Finance',
-              'Lifestyle',
-              'Utilities',
-            ]}
-            horizontal
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                style={[
-                  styles.categoryChip,
-                  selectedCategory === item && styles.selectedCategoryChip,
-                ]}
-                onPress={() => handleCategoryPress(item)}
-              >
-                <Text
-                  style={[
-                    styles.categoryText,
-                    selectedCategory === item && styles.selectedCategoryText,
-                  ]}
-                >
-                  {item}
-                </Text>
-              </TouchableOpacity>
-            )}
-            keyExtractor={(item, index) => index.toString()}
-            contentContainerStyle={styles.categoriesList}
+        <View style={styles.badge}>
+          <MaterialCommunityIcons 
+            name="download" 
+            size={16} 
+            color={isDarkTheme ? '#FFFFFF' : '#444444'} 
           />
-        </View>
-
-        {/* Recommended Section */}
-        <View style={styles.recommendSection}>
-          <Text style={styles.recommendHeader}>Recommended for You</Text>
-          <FlatList
-            data={AppStoreData}
-            horizontal
-            renderItem={renderRecommendedItem}
-            keyExtractor={(item) => item.identifier_code}
-            contentContainerStyle={styles.recommendList}
-          />
-        </View>
-
-        {/* App List */}
-        <FlatList
-          data={filteredApps}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.identifier_code}
-          contentContainerStyle={styles.listContent}
-        />
-
-        {/* Bottom Navigation Bar */}
-        <View style={styles.navigationBarContainer}>
-          <NavigationBar toggleTheme={() => {}} isDarkTheme={false} />
+          <Text style={[styles.downloadBadge, { color: theme.textColor }]}>
+            {item.downloads.toLocaleString()} downloads
+          </Text>
         </View>
       </View>
-    );
+    </View>
+  </TouchableOpacity>
+);
+
+const renderRecommendedItem = ({ item }: { item: AppStoreItem }) => (
+  <TouchableOpacity
+    style={styles.recommendCard}  // Remove the backgroundColor theme
+    onPress={() => navigation.navigate('AppDetails', { app: item })}
+  >
+    <Image source={{ uri: item.icon_image_url }} style={styles.recommendIcon} />
+    <Text style={[styles.recommendAppName, { color: theme.textColor }]} numberOfLines={1}>
+      {item.name}
+    </Text>
+  </TouchableOpacity>
+);
+
+return (
+  <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
+    {/* Header Section */}
+    <View style={[styles.headerContainer, { 
+      backgroundColor: theme.headerBg,
+      borderBottomColor: theme.borderColor 
+    }]}>
+      <Text style={[styles.header, { color: theme.textColor }]}>App Store</Text>
+      <View style={[styles.searchContainer, { backgroundColor: theme.searchBg }]}>
+        <MaterialCommunityIcons 
+          name="magnify" 
+          size={20} 
+          color={isDarkTheme ? '#FFFFFF' : '#aaaaaa'} 
+          style={styles.searchIcon} 
+        />
+        <TextInput
+          style={[styles.searchInput, { color: theme.textColor }]}
+          placeholder="Search for apps..."
+          placeholderTextColor={isDarkTheme ? '#999999' : '#aaaaaa'}
+          value={searchQuery}
+          onChangeText={handleSearch}
+        />
+      </View>
+    </View>
+
+    {/* Categories Section */}
+    <View style={styles.categoriesSection}>
+      <FlatList
+        data={[
+          'All',
+          'Productivity',
+          'Tools',
+          'Health',
+          'Photography',
+          'Education',
+          'Finance',
+          'Lifestyle',
+          'Utilities',
+        ]}
+        horizontal
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={[
+              styles.categoryChip,
+              { backgroundColor: theme.categoryChipBg },
+              selectedCategory === item && { backgroundColor: theme.selectedChipBg }
+            ]}
+            onPress={() => handleCategoryPress(item)}
+          >
+            <Text style={[
+              styles.categoryText,
+              { color: theme.categoryChipText },
+              selectedCategory === item && { color: theme.selectedChipText }
+            ]}>
+              {item}
+            </Text>
+          </TouchableOpacity>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+        contentContainerStyle={styles.categoriesList}
+      />
+    </View>
+
+    {/* Recommended Section */}
+    <View style={styles.recommendSection}>
+      <Text style={[styles.recommendHeader, { color: theme.textColor }]}>
+        Recommended for You
+      </Text>
+      <FlatList
+        data={AppStoreData}
+        horizontal
+        renderItem={renderRecommendedItem}
+        keyExtractor={(item) => item.identifier_code}
+        contentContainerStyle={styles.recommendList}
+      />
+    </View>
+
+    {/* App List */}
+    <FlatList
+      data={filteredApps}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.identifier_code}
+      contentContainerStyle={styles.listContent}
+    />
+
+    {/* Bottom Navigation Bar */}
+    <View style={[styles.navigationBarContainer, { 
+      backgroundColor: theme.headerBg,
+      borderTopColor: theme.borderColor 
+    }]}>
+      <NavigationBar toggleTheme={() => {}} isDarkTheme={isDarkTheme} />
+    </View>
+  </View>
+);
+
   };
 
   const styles = StyleSheet.create({
@@ -447,13 +494,13 @@ export const AppStoreData: AppStoreItem[] = [
       paddingHorizontal: 5,
     },
     recommendCard: {
-      width: 120,
-      marginRight: 15,
+      width: 80,
+      marginRight: 10,
       alignItems: 'center',
     },
     recommendIcon: {
-      width: 60,
-      height: 60,
+      width: 50,
+      height: 50,
       borderRadius: 8,
       marginBottom: 5,
     },
@@ -523,4 +570,3 @@ export const AppStoreData: AppStoreItem[] = [
   });
 
   export default AppStore;
-  

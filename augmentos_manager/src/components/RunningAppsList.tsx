@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -17,7 +17,6 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
   const [_isLoading, setIsLoading] = useState(false);
 
   const textColor = isDarkTheme ? '#FFFFFF' : '#000000';
-  const borderColor = isDarkTheme ? '#FFFFFF' : '#CCCCCC';
   const gradientColors = isDarkTheme
     ? ['#4a3cb5', '#7856FE', '#9a7dff']
     : ['#56CCFE', '#FF8DF6', '#FFD04E'];
@@ -38,64 +37,64 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
 
   return (
     <View style={styles.appsContainer}>
-      <Text style={[styles.sectionTitle, { color: textColor }]}>Running Apps</Text>
-      <LinearGradient
-        colors={gradientColors}
-        style={styles.gradientBackground}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-      >
+        <Text style={[styles.sectionTitle, { color: textColor }]}>Running Apps</Text>
+        <LinearGradient
+            colors={gradientColors}
+            style={styles.gradientBackground}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+        >
+            <View style={styles.appIconsContainer}>
+                {/* Main/Highlighted Apps */}
+                {foregroundApps.map((app, index) => (
+                    <View key={index} style={styles.appWrapper}>
+                        <View style={styles.mainAppIconWrapper}>
+                            <LinearGradient
+                                colors={['#ADE7FF', '#FFB2F9', '#FFE396']}
+                                style={styles.gradientBorder}
+                                start={{ x: 0, y: 0 }}
+                                end={{ x: 1, y: 1 }}
+                            />
+                            <View style={styles.mainIconContainer}>
+                                <AppIcon
+                                    app={app}
+                                    style={styles.mainAppIcon}
+                                    onClick={() => stopApp(app.package_name)}
+                                    isMainApp
+                                    isDarkTheme={isDarkTheme}
+                                />
+                            </View>
+                            <View style={styles.squareBadge}>
+                                <FontAwesome name="star" size={12} color="#FFFFFF" />
+                            </View>
+                        </View>
+                        <Text style={[styles.appName, { color: textColor }]} numberOfLines={1}>
+                            {app.name}
+                        </Text>
+                    </View>
+                ))}
 
-
-        <View style={styles.appIconsContainer}>
-          {/* Main/Highlighted Apps */}
-          {foregroundApps.map((app, index) => (
-            <View key={index}>
-              <View style={[styles.mainAppIconWrapper, { borderColor }]}>
-                <LinearGradient
-                  colors={['#ADE7FF', '#FFB2F9', '#FFE396']}
-                  style={styles.overlayRing}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 1 }}
-                />
-                  <AppIcon
-                    app={app}
-                    key={index}
-                    style={styles.mainAppIcon} // Pass style for round icons
-                    onClick={() => {
-                      stopApp(app.package_name);
-                    }}
-                  />
-                <View style={styles.squareBadge}>
-                  <FontAwesome name="star" size={12} color="#FFFFFF" />
-                </View>
-              </View>
+                {/* Other Running Apps */}
+                {runningApps.map((app, index) => (
+                    <AppIcon
+                        key={index}
+                        app={app}
+                        onClick={() => stopApp(app.package_name)}
+                        style={styles.otherAppIcon}
+                        isDarkTheme={isDarkTheme}
+                    />
+                ))}
             </View>
-          ))}
-
-          {/* Other Running Apps */}
-          {runningApps.map((app, index) => (
-            <AppIcon
-              app={app}
-              key={index}
-              style={styles.otherAppIcon} // Pass style for round icons
-              onClick={() => {
-                stopApp(app.package_name);
-              }}
-            />
-          ))}
-        </View>
-      </LinearGradient>
+        </LinearGradient>
     </View>
-  );
+);
 };
 
 const styles = StyleSheet.create({
   appsContainer: {
     height: height * 0.2,
-    justifyContent: 'space-between',
-    marginBottom: 10,
-    marginTop: 58,
+    justifyContent: 'flex-start',
+    marginTop: 10,
   },
   sectionTitle: {
     fontSize: 18,
@@ -103,24 +102,24 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     lineHeight: 22,
     letterSpacing: 0.38,
-    marginBottom: 8,
+    marginBottom: 10,
   },
   gradientBackground: {
     flex: 1,
-    paddingVertical: 4,
     paddingHorizontal: 10,
     borderRadius: 20,
-    justifyContent: 'center',
   },
   appIconsContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'space-around',
     width: '100%',
+    marginTop: 20,
   },
   appWrapper: {
     alignItems: 'center',
     width: 65,
+    height: 85,
   },
   mainAppIconWrapper: {
     width: 65,
@@ -128,25 +127,34 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
-    borderWidth: 0.5,
-    borderRadius: 15,
-    backgroundColor: '#FFFFFF',
   },
-  overlayRing: {
-    position: 'absolute',
-    width: '110%',
-    height: '110%',
+  gradientBorder: {
+    width: 71,
+    height: 71,
     borderRadius: 20,
+    position: 'absolute',
+    top: -3,
+    left: -3,
     zIndex: 1,
   },
-  mainAppIcon: {
+  mainIconContainer: {
+    width: 65,
+    height: 65,
+    position: 'absolute',
+    zIndex: 2,
+},
+mainAppIcon: {
     width: '100%',
     height: '100%',
-    borderRadius: 20,
-    zIndex: 2,
-    backgroundColor: '#FFFFFF',
-    alignItems: 'center',
-    justifyContent: 'center',
+    borderRadius: 17,
+},
+  appName: {
+    marginTop: 5,
+    fontSize: 11,
+    fontWeight: '600',
+    fontFamily: 'Montserrat-Bold',
+    lineHeight: 16,
+    textAlign: 'center',
   },
   squareBadge: {
     position: 'absolute',
@@ -160,25 +168,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     zIndex: 3,
   },
-  appName: {
-    marginTop: 8,
-    fontSize: 11,
-    fontWeight: '600',
-    fontFamily: 'Montserrat-Bold',
-    lineHeight: 14,
-    textAlign: 'center',
-  },
   otherAppIcon: {
     width: 65,
     height: 65,
     borderWidth: 1,
     borderColor: '#FFFFFF',
-    borderRadius: 23, // Perfect circle
-    backgroundColor: 'transparent',
-    alignItems: 'center',
-    justifyContent: 'center',
+    borderRadius: 23,
     overflow: 'hidden',
-  },
+},
 });
 
 export default RunningAppsList;

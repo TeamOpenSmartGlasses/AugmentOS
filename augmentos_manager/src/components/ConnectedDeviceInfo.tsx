@@ -101,16 +101,16 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   };
 
   const getBatteryIcon = (level: number) => {
-    if (level > 75) return 'battery-full';
-    if (level > 50) return 'battery-three-quarters';
-    if (level > 25) return 'battery-half';
-    if (level > 10) return 'battery-quarter';
+    if (level > 75) { return 'battery-full'; }
+    if (level > 50) { return 'battery-three-quarters'; }
+    if (level > 25) { return 'battery-half'; }
+    if (level > 10) { return 'battery-quarter'; }
     return 'battery-empty';
   };
 
   const getBatteryColor = (level: number) => {
-    if (level > 60) return '#4CAF50';
-    if (level > 20) return '#FFB300';
+    if (level > 60) {return '#4CAF50';}
+    if (level > 20) {return '#FFB300';}
     return '#FF5722';
   };
 
@@ -196,6 +196,7 @@ const styles = StyleSheet.create({
     width: '100%',
     minHeight: 250, // Set a minimum height
     justifyContent: 'center',
+    marginTop: 15,
   },
   connectedContent: {
     flex: 1,
@@ -253,7 +254,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 10,
-    marginRight: 45,
 
   },
   connectedDot: {
@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
   connectedTextGreen: {
     color: '#28a745',
     marginLeft: 4,
-    marginRight: 2, // Increased space to the right of "Connected"
+    marginRight: 2,
     fontSize: 16,
     fontWeight: 'bold',
     fontFamily: 'Montserrat-Bold',
@@ -326,11 +326,11 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     justifyContent: 'center',
     marginRight: 5,
-    width: '40%',
+    width: '35%',
   },
   disconnectText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: '500',
     fontFamily: 'Montserrat-Regular',
   },

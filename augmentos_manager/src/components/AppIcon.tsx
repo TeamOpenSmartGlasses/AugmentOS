@@ -7,9 +7,16 @@ interface AppIconProps {
     isMainApp?: boolean;
     onClick?: () => void;
     style?: object;
+    isDarkTheme?: boolean; // Add theme prop
 }
 
-const AppIcon: React.FC<AppIconProps> = ({ app, isMainApp = false, onClick, style }) => {
+const AppIcon: React.FC<AppIconProps> = ({ 
+    app, 
+    isMainApp = false, 
+    onClick, 
+    style,
+    isDarkTheme = false 
+}) => {
     const getAppImage = useMemo(
         () => (packageName: string) => {
             switch (packageName) {
@@ -28,18 +35,35 @@ const AppIcon: React.FC<AppIconProps> = ({ app, isMainApp = false, onClick, styl
         []
     );
 
+    // For main apps, just return the ImageBackground
+    if (isMainApp) {
+        return (
+            <ImageBackground
+                source={getAppImage(app.package_name)}
+                style={[styles.mainAppIcon, style]}
+                imageStyle={styles.appIconRounded}
+            />
+        );
+    }
+
+    // For other apps
     return (
-        <View>
-            <View style={[styles.appWrapper, style]} onTouchEnd={onClick}>
-                <View style={isMainApp ? styles.mainAppIconWrapper : styles.appIconWrapper}>
-                    <ImageBackground
-                        source={getAppImage(app.package_name)}
-                        style={isMainApp ? styles.mainAppIcon : styles.appIcon}
-                        imageStyle={styles.appIconRounded} // Add rounded corners
-                    />
-                </View>
+        <View style={[styles.appWrapper]} onTouchEnd={onClick}>
+            <View style={[
+                styles.appIconWrapper, 
+                isDarkTheme ? styles.appIconWrapperDark : styles.appIconWrapperLight,
+                style
+            ]}>
+                <ImageBackground
+                    source={getAppImage(app.package_name)}
+                    style={styles.appIcon}
+                    imageStyle={styles.appIconRounded}
+                />
             </View>
-            <Text style={styles.appName} numberOfLines={1}>
+            <Text style={[
+                styles.appName,
+                isDarkTheme ? styles.appNameDark : styles.appNameLight
+            ]} numberOfLines={1}>
                 {app.name}
             </Text>
         </View>
@@ -49,44 +73,48 @@ const AppIcon: React.FC<AppIconProps> = ({ app, isMainApp = false, onClick, styl
 const styles = StyleSheet.create({
     appWrapper: {
         alignItems: 'center',
-        width: 75,
-        marginLeft: 10,
+        width: 65,
     },
     appIconWrapper: {
         width: 65,
         height: 65,
         alignItems: 'center',
         justifyContent: 'center',
+        borderRadius: 23,
+        overflow: 'hidden',
         borderWidth: 1,
-        borderColor: 'transparent',
-        borderRadius: 15, // Apply border radius to the wrapper
-        overflow: 'hidden', // Ensure the child respects the border radius
     },
-    mainAppIconWrapper: {
-        width: 75,
-        height: 75,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderWidth: 1,
-        borderColor: '#000',
-        borderRadius: 15, // Apply border radius to the wrapper
-        overflow: 'hidden', // Ensure the child respects the border radius
+    appIconWrapperLight: {
+        borderColor: '#E5E5EA', // Light theme border color
+    },
+    appIconWrapperDark: {
+        borderColor: '#333333', // Dark theme border color
     },
     appIcon: {
         width: '100%',
         height: '100%',
+        resizeMode: 'cover',
+    },
+    mainAppIcon: {
+        width: '100%',
+        height: '100%',
     },
     appIconRounded: {
-        borderRadius: 15, // Round the corners of the ImageBackground
+        borderRadius: 15,
     },
     appName: {
-        marginTop: 15,
-        marginLeft: 7,
+        marginTop: 5,
         fontSize: 11,
         fontWeight: '600',
         fontFamily: 'Montserrat-Bold',
         lineHeight: 16,
         textAlign: 'center',
+    },
+    appNameLight: {
+        color: '#000000', // Light theme text color
+    },
+    appNameDark: {
+        color: '#FFFFFF', // Dark theme text color
     },
 });
 

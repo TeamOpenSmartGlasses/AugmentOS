@@ -4,13 +4,28 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList, AppStoreItem } from '../components/types';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-type AppDetailsProps = NativeStackScreenProps<RootStackParamList, 'AppDetails'>;
+type AppDetailsProps = NativeStackScreenProps<RootStackParamList, 'AppDetails'> & {
+  isDarkTheme: boolean;
+};
 
-const AppDetails: React.FC<AppDetailsProps> = ({ route, navigation }) => {
+const AppDetails: React.FC<AppDetailsProps> = ({ route, navigation, isDarkTheme  }) => {
   const { app } = route.params as { app: AppStoreItem };
   const [installState, setInstallState] = useState<'Install' | 'Installing...' | 'Start'>(
     'Install'
   );
+
+  // Theme colors
+  const theme = {
+    backgroundColor: isDarkTheme ? '#1c1c1c' : '#f9f9f9',
+    textColor: isDarkTheme ? '#FFFFFF' : '#333333',
+    subTextColor: isDarkTheme ? '#999999' : '#666666',
+    borderColor: isDarkTheme ? '#444444' : '#dddddd',
+    cardBg: isDarkTheme ? '#333333' : '#f0f0f0',
+    iconBorder: isDarkTheme ? '#444444' : '#dddddd',
+    metaTextColor: isDarkTheme ? '#CCCCCC' : '#555555',
+    requirementBg: isDarkTheme ? '#444444' : '#f0f0f0',
+    requirementText: isDarkTheme ? '#FFFFFF' : '#444444',
+  };
 
   const sendInstallAppFromStore = (identifier_code: string) => {
     if (installState === 'Install') {
@@ -31,59 +46,75 @@ const AppDetails: React.FC<AppDetailsProps> = ({ route, navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      {/* App Icon */}
-      <Image source={{ uri: app.icon_image_url }} style={styles.icon} />
+    <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
+      <Image 
+        source={{ uri: app.icon_image_url }} 
+        style={[styles.icon, { borderColor: theme.iconBorder }]} 
+      />
 
-      {/* App Title Section */}
-      <Text style={styles.appName}>{app.name}</Text>
-      <Text style={styles.packageName}>{app.packagename}</Text>
+      <Text style={[styles.appName, { color: theme.textColor }]}>{app.name}</Text>
+      <Text style={[styles.packageName, { color: theme.subTextColor }]}>{app.packagename}</Text>
 
-      {/* Meta Information */}
       <View style={styles.metaContainer}>
         <View style={styles.metaItem}>
           <MaterialCommunityIcons name="star" size={16} color="#FFD700" />
-          <Text style={styles.rating}> {app.rating.toFixed(1)}</Text>
+          <Text style={[styles.rating, { color: theme.metaTextColor }]}>
+            {app.rating.toFixed(1)}
+          </Text>
         </View>
         <View style={styles.metaItem}>
-          <MaterialCommunityIcons name="download" size={16} color="#444" />
-          <Text style={styles.downloads}>{app.downloads.toLocaleString()} Downloads</Text>
+          <MaterialCommunityIcons 
+            name="download" 
+            size={16} 
+            color={isDarkTheme ? '#FFFFFF' : '#444444'} 
+          />
+          <Text style={[styles.downloads, { color: theme.metaTextColor }]}>
+            {app.downloads.toLocaleString()} Downloads
+          </Text>
         </View>
-        {/* Reviews Icon */}
         <TouchableOpacity style={styles.reviewsIcon} onPress={navigateToReviews}>
           <MaterialCommunityIcons name="comment-text" size={24} color="#3a86ff" />
           <Text style={styles.reviewsText}>Reviews</Text>
         </TouchableOpacity>
       </View>
 
-      {/* App Description */}
-      <Text style={styles.description}>{app.description}</Text>
+      <Text style={[styles.description, { color: theme.subTextColor }]}>
+        {app.description}
+      </Text>
 
-      {/* Screenshots Section */}
       {app.screenshots && app.screenshots.length > 0 && (
         <View style={styles.screenshotsContainer}>
-          <Text style={styles.sectionHeader}>Screenshots</Text>
+          <Text style={[styles.sectionHeader, { color: theme.textColor }]}>
+            Screenshots
+          </Text>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <View style={styles.screenshotsList}>
               {app.screenshots.map((screenshotUrl, index) => (
-                <Image key={index} source={{ uri: screenshotUrl }} style={styles.screenshot} />
+                <Image 
+                  key={index} 
+                  source={{ uri: screenshotUrl }} 
+                  style={[styles.screenshot, { borderColor: theme.borderColor }]} 
+                />
               ))}
             </View>
           </ScrollView>
         </View>
       )}
 
-      {/* Requirements Section */}
-      <Text style={styles.sectionHeader}>Requirements</Text>
+      <Text style={[styles.sectionHeader, { color: theme.textColor }]}>Requirements</Text>
       <View style={styles.requirementsGrid}>
         {app.requirements.map((requirement: string, index: number) => (
-          <View key={index} style={styles.requirementItem}>
-            <Text style={styles.requirementText}>{requirement}</Text>
+          <View 
+            key={index} 
+            style={[styles.requirementItem, { backgroundColor: theme.requirementBg }]}
+          >
+            <Text style={[styles.requirementText, { color: theme.requirementText }]}>
+              {requirement}
+            </Text>
           </View>
         ))}
       </View>
 
-      {/* Install Button */}
       <TouchableOpacity
         style={[
           styles.installButton,
@@ -98,35 +129,33 @@ const AppDetails: React.FC<AppDetailsProps> = ({ route, navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f9f9f9',
-    justifyContent: 'flex-start',
-    padding: 10,
-  },
-  icon: {
-    width: 100,
-    height: 100,
-    borderRadius: 28,
-    marginBottom: 10,
-    borderWidth: 2,
-    borderColor: '#ddd',
-    alignSelf: 'center',
-  },
-  appName: {
-    fontSize: 24,
-    fontWeight: '700',
-    textAlign: 'center',
-    color: '#333',
-    marginBottom: 5,
-  },
-  packageName: {
-    fontSize: 14,
-    color: '#888',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
+
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'flex-start',
+      padding: 10,
+    },
+    icon: {
+      width: 100,
+      height: 100,
+      borderRadius: 28,
+      marginBottom: 10,
+      borderWidth: 2,
+      alignSelf: 'center',
+    },
+    appName: {
+      fontSize: 24,
+      fontWeight: '700',
+      textAlign: 'center',
+      marginBottom: 5,
+    },
+    packageName: {
+      fontSize: 14,
+      textAlign: 'center',
+      marginBottom: 20,
+    },
   metaContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',

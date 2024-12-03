@@ -13,15 +13,33 @@ interface SearchWithFiltersProps {
   placeholder?: string;
   onSearch: (query: string, filters: string[]) => void;
   filters: string[];
+  isDarkTheme: boolean;
 }
 
 const SearchWithFilters: React.FC<SearchWithFiltersProps> = ({
   placeholder = 'Search...',
   onSearch,
   filters,
+  isDarkTheme,
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+
+  // Theme colors
+  const themeColors = {
+    background: isDarkTheme ? '#1a1a1a' : '#f9f9f9',
+    searchBarBg: isDarkTheme ? '#2d2d2d' : '#ffffff',
+    searchBarBorder: isDarkTheme ? '#404040' : '#cccccc',
+    inputText: isDarkTheme ? '#ffffff' : '#333333',
+    placeholder: isDarkTheme ? '#888888' : '#888888',
+    icon: isDarkTheme ? '#888888' : '#888888',
+    filterBg: isDarkTheme ? '#2d2d2d' : '#f9f9f9',
+    filterBorder: isDarkTheme ? '#404040' : '#cccccc',
+    filterText: isDarkTheme ? '#ffffff' : '#333333',
+    activeFilterBg: isDarkTheme ? '#3b82f6' : '#007BFF',
+    activeFilterBorder: isDarkTheme ? '#3b82f6' : '#007BFF',
+    activeFilterText: '#ffffff',
+  };
 
   const handleSearchChange = (query: string) => {
     setSearchQuery(query);
@@ -37,13 +55,25 @@ const SearchWithFilters: React.FC<SearchWithFiltersProps> = ({
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: themeColors.background }]}>
       {/* Search Bar */}
-      <View style={styles.searchBar}>
-        <MaterialCommunityIcons name="magnify" size={20} color="#888" style={styles.icon} />
+      <View style={[
+        styles.searchBar,
+        {
+          backgroundColor: themeColors.searchBarBg,
+          borderColor: themeColors.searchBarBorder,
+        }
+      ]}>
+        <MaterialCommunityIcons 
+          name="magnify" 
+          size={20} 
+          color={themeColors.icon} 
+          style={styles.icon} 
+        />
         <TextInput
-          style={styles.input}
+          style={[styles.input, { color: themeColors.inputText }]}
           placeholder={placeholder}
+          placeholderTextColor={themeColors.placeholder}
           value={searchQuery}
           onChangeText={handleSearchChange}
         />
@@ -60,14 +90,25 @@ const SearchWithFilters: React.FC<SearchWithFiltersProps> = ({
             key={filter}
             style={[
               styles.filterButton,
-              selectedFilters.includes(filter) && styles.activeFilterButton,
+              {
+                backgroundColor: selectedFilters.includes(filter)
+                  ? themeColors.activeFilterBg
+                  : themeColors.filterBg,
+                borderColor: selectedFilters.includes(filter)
+                  ? themeColors.activeFilterBorder
+                  : themeColors.filterBorder,
+              },
             ]}
             onPress={() => toggleFilter(filter)}
           >
             <Text
               style={[
                 styles.filterText,
-                selectedFilters.includes(filter) && styles.activeFilterText,
+                {
+                  color: selectedFilters.includes(filter)
+                    ? themeColors.activeFilterText
+                    : themeColors.filterText,
+                },
               ]}
             >
               {filter} Star
@@ -80,57 +121,51 @@ const SearchWithFilters: React.FC<SearchWithFiltersProps> = ({
 };
 
 const styles = StyleSheet.create({
-    container: {
-      marginBottom: 20,
-      paddingHorizontal: 15, // Added padding around the entire container
+  container: {
+    marginBottom: 20,
+    paddingHorizontal: 15,
+  },
+  searchBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    marginBottom: 10,
+    marginTop: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
     },
-    searchBar: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      backgroundColor: '#fff',
-      borderWidth: 1,
-      borderColor: '#ccc',
-      borderRadius: 8,
-      paddingHorizontal: 10,
-      paddingVertical: 5, // Adjust vertical padding for better appearance
-      marginBottom: 10,
-      marginTop: 10, // Add margin top to separate search bar from filters
-    },
-    icon: {
-      marginRight: 10,
-    },
-    input: {
-      flex: 1,
-      height: 40,
-      fontSize: 16,
-      color: '#333',
-    },
-    filterContainer: {
-      flexDirection: 'row',
-      marginTop: 10,
-      paddingHorizontal: 5, // Add padding to align filters better
-    },
-    filterButton: {
-      paddingVertical: 8,
-      paddingHorizontal: 15,
-      borderWidth: 1,
-      borderColor: '#ccc',
-      borderRadius: 20,
-      marginRight: 10,
-      backgroundColor: '#f9f9f9',
-    },
-    activeFilterButton: {
-      backgroundColor: '#007BFF',
-      borderColor: '#007BFF',
-    },
-    filterText: {
-      fontSize: 14,
-      color: '#333',
-    },
-    activeFilterText: {
-      color: '#fff',
-    },
-  });
-
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 2,
+  },
+  icon: {
+    marginRight: 10,
+  },
+  input: {
+    flex: 1,
+    height: 40,
+    fontSize: 16,
+  },
+  filterContainer: {
+    flexDirection: 'row',
+    marginTop: 10,
+    paddingHorizontal: 5,
+  },
+  filterButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+    borderWidth: 1,
+    borderRadius: 20,
+    marginRight: 10,
+  },
+  filterText: {
+    fontSize: 14,
+  },
+});
 
 export default SearchWithFilters;
