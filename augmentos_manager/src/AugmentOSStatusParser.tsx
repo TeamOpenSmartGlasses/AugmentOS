@@ -32,6 +32,7 @@ export interface AugmentOSMainStatus {
   puck_connected: boolean;
   puck_battery_life: number | null;
   puck_charging_status: boolean;
+  default_wearable: string | null,
   glasses_info: Glasses | null;
   wifi: WifiConnection | null;
   gsm: GSMConnection | null;
@@ -43,6 +44,7 @@ export class AugmentOSParser {
     puck_connected: false,
     puck_battery_life: null,
     puck_charging_status: false,
+    default_wearable: null,
     glasses_info: null,
     wifi: { is_connected: false, ssid: '', signal_strength: 0 },
     gsm: { is_connected: false, carrier: '', signal_strength: 0 },
@@ -53,6 +55,7 @@ export class AugmentOSParser {
     puck_connected: true,
     puck_battery_life: 88,
     puck_charging_status: true,
+    default_wearable: 'Vuzix Z100',
     glasses_info: {
       model_name: 'Vuzix Z100',
       battery_life: 60,
@@ -147,6 +150,7 @@ export class AugmentOSParser {
         puck_connected: true,
         puck_battery_life: status.puck_battery_life ?? null,
         puck_charging_status: status.charging_status ?? false,
+        default_wearable: status.default_wearable ?? null,
         glasses_info: status.connected_glasses
           ? {
               model_name: status.connected_glasses.model_name,

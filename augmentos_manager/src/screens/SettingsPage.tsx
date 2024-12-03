@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Switch, TouchableOpacity, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useStatus } from '../AugmentOSStatusProvider';
+import { bluetoothService } from '../BluetoothService';
 
 const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> = ({ isDarkTheme, toggleTheme }) => {
   const [isDoNotDisturbEnabled, setDoNotDisturbEnabled] = React.useState(false);
   const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] = React.useState(false);
   const navigation = useNavigation();
+  const { status } = useStatus();
+  let isUsingAudioWearable = status.glasses_info?.model_name == "Audio Wearable";
 
   const switchColors = {
     trackColor: {
@@ -19,8 +23,22 @@ const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> 
     ios_backgroundColor: isDarkTheme ? '#666666' : '#D1D1D6',
   };
 
+  const toggleVirtualWearable = async (arg0: boolean) => {
+    await bluetoothService.sendToggleVirtualWearable(arg0);
+  }
+
+  const sendDisconnectWearable = async () => {
+    throw new Error('Function not implemented.');
+  }
+
+  const sendDisconnectPuck = async () => {
+    throw new Error('Function not implemented.');
+  }
+
   return (
     <View style={[styles.container, isDarkTheme ? styles.darkBackground : styles.lightBackground]}>
+
+
       <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
         <Icon name="arrow-left" size={24} color={isDarkTheme ? styles.lightText.color : styles.darkText.color} />
         <Text style={[styles.backButtonText, isDarkTheme ? styles.lightText : styles.darkText]}>
@@ -38,6 +56,23 @@ const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> 
         <Switch
           value={isDarkTheme}
           onValueChange={toggleTheme}
+          trackColor={switchColors.trackColor}
+          thumbColor={switchColors.thumbColor}
+          ios_backgroundColor={switchColors.ios_backgroundColor}
+        />
+      </View>
+
+      <View style={styles.settingItem}>
+        <View style={styles.settingTextContainer}>
+          <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>
+          Use Virtual Wearable
+          </Text>
+          <Text style={[styles.value, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
+          Puck will use a simulated smart glasses instead of real smart glasses.</Text>
+        </View>
+        <Switch
+        disabled={!status.puck_connected}
+          value={isUsingAudioWearable} onValueChange={() => toggleVirtualWearable(!isUsingAudioWearable)}
           trackColor={switchColors.trackColor}
           thumbColor={switchColors.thumbColor}
           ios_backgroundColor={switchColors.ios_backgroundColor}
