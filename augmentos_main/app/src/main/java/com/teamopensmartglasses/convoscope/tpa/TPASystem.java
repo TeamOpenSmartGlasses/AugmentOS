@@ -29,8 +29,6 @@ import com.teamopensmartglasses.augmentoslib.events.RegisterTpaRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStartRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStopRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
-import com.teamopensmartglasses.augmentoslib.events.SpeechRecFinalOutputEvent;
-import com.teamopensmartglasses.augmentoslib.events.SpeechRecIntermediateOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
@@ -208,26 +206,26 @@ public class TPASystem {
         augmentOsLibBroadcastSender.sendEventToTPAs(KillTpaEvent.eventId, killTpaEvent);
     }
 
-    @Subscribe
-    public void onIntermediateTranscript(SpeechRecIntermediateOutputEvent event){
-        boolean tpaIsSubscribed = true; //TODO: Hash out implementation
-        if(tpaIsSubscribed){
-            augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecIntermediateOutputEvent.eventId, event);
-        }
-    }
-
 //    @Subscribe
-//    public void onFocusChanged(FocusChangedEvent receivedEvent) {
-//        augmentOsLibBroadcastSender.sendEventToTPAs(FocusChangedEvent.eventId, receivedEvent, receivedEvent.appPackage);
+//    public void onIntermediateTranscript(SpeechRecIntermediateOutputEvent event){
+//        boolean tpaIsSubscribed = true; //TODO: Hash out implementation
+//        if(tpaIsSubscribed){
+//            augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecIntermediateOutputEvent.eventId, event);
+//        }
 //    }
-
-    @Subscribe
-    public void onFinalTranscript(SpeechRecFinalOutputEvent event){
-        boolean tpaIsSubscribed = true; //TODO: Hash out implementation
-        if(tpaIsSubscribed){
-            augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecFinalOutputEvent.eventId, event);
-        }
-    }
+//
+////    @Subscribe
+////    public void onFocusChanged(FocusChangedEvent receivedEvent) {
+////        augmentOsLibBroadcastSender.sendEventToTPAs(FocusChangedEvent.eventId, receivedEvent, receivedEvent.appPackage);
+////    }
+//
+//    @Subscribe
+//    public void onFinalTranscript(SpeechRecFinalOutputEvent event){
+//        boolean tpaIsSubscribed = true; //TODO: Hash out implementation
+//        if(tpaIsSubscribed){
+//            augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecFinalOutputEvent.eventId, event);
+//        }
+//    }
 
     @Subscribe
     public void onTranscript(SpeechRecOutputEvent event){

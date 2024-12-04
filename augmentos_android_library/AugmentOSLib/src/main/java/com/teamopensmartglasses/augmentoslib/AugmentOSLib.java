@@ -11,8 +11,8 @@ import com.teamopensmartglasses.augmentoslib.events.DisplayCustomContentRequestE
 import com.teamopensmartglasses.augmentoslib.events.DoubleTextWallViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FinalScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FocusChangedEvent;
-import com.teamopensmartglasses.augmentoslib.events.FocusRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.HomeScreenEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardImageViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardSimpleViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.RegisterCommandRequestEvent;
@@ -22,16 +22,13 @@ import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStartReques
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStopRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SendBitmapViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
-import com.teamopensmartglasses.augmentoslib.events.SpeechRecFinalOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
-import com.teamopensmartglasses.augmentoslib.events.SpeechRecIntermediateOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AugmentOSLib {
@@ -156,7 +153,17 @@ public class AugmentOSLib {
         EventBus.getDefault().post(new SendBitmapViewRequestEvent(bmp));
     }
 
+    public void sendHomeScreen(){
+        EventBus.getDefault().post(new HomeScreenEvent());
+    }
 
+    public void getSelectedLiveCaptionsTranslation(){
+        EventBus.getDefault().post(new HomeScreenEvent());
+    }
+
+    public void getChosenTranscribeLanguage(){
+        EventBus.getDefault().post(new HomeScreenEvent());
+    }
 
     @Subscribe
     public void onCommandTriggeredEvent(CommandTriggeredEvent receivedEvent){
@@ -177,26 +184,10 @@ public class AugmentOSLib {
     @Subscribe
     public void onTranscript(SpeechRecOutputEvent event) {
         String text = event.text;
+        String languageCode = event.languageCode;
         long time = event.timestamp;
         if (subscribedDataStreams.containsKey(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM)) {
-            ((TranscriptCallback)subscribedDataStreams.get(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM)).call(text, time, true);
-        }
-    }
-    @Subscribe
-    public void onIntermediateTranscript(SpeechRecIntermediateOutputEvent event) {
-        String text = event.text;
-        long time = event.timestamp;
-        if (subscribedDataStreams.containsKey(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM)) {
-            ((TranscriptCallback)subscribedDataStreams.get(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM)).call(text, time, false);
-        }
-    }
-
-    @Subscribe
-    public void onFinalTranscript(SpeechRecFinalOutputEvent event) {
-        String text = event.text;
-        long time = event.timestamp;
-        if (subscribedDataStreams.containsKey(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM)) {
-            ((TranscriptCallback)subscribedDataStreams.get(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM)).call(text, time, true);
+            ((TranscriptCallback)subscribedDataStreams.get(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM)).call(text, languageCode, time, event.isFinal);
         }
     }
 

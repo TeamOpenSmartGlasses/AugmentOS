@@ -83,9 +83,9 @@ public class SpeechRecGoogle extends SpeechRecFramework {
                 //post the event bus event
                 if (updateType == TranscriptionResultUpdatePublisher.UpdateType.TRANSCRIPT_FINALIZED){
 //                    Log.d(TAG, "GOT FINAL TRANSCRIPT: " + formattedTranscript.toString());
-                    EventBus.getDefault().post(new SpeechRecOutputEvent(formattedTranscript.toString(), System.currentTimeMillis(), true));
+                    EventBus.getDefault().post(new SpeechRecOutputEvent(formattedTranscript.toString(), currentLanguageCode, System.currentTimeMillis(), true));
                 } else {
-                    EventBus.getDefault().post(new SpeechRecOutputEvent(formattedTranscript.toString(), System.currentTimeMillis(), false));
+                    EventBus.getDefault().post(new SpeechRecOutputEvent(formattedTranscript.toString(), currentLanguageCode, System.currentTimeMillis(), false));
                 }
             };
 
