@@ -21,6 +21,7 @@ export class BluetoothService extends EventEmitter {
   devices: Device[] = [];
   connectedDevice: Device | null = null;
   isScanning: boolean = false;
+  isConnecting: boolean = false;
   mtuSize = 23;
   chunks: any = {};
   expectedChunks: any = {};
@@ -103,6 +104,11 @@ export class BluetoothService extends EventEmitter {
       return;
     }
 
+    if (this.isConnecting) {
+      console.log('Already in progress of connecting to a device');
+      return;
+    }
+
     this.isScanning = true;
     this.devices = [];
     this.emit('scanStarted');
@@ -142,23 +148,6 @@ export class BluetoothService extends EventEmitter {
     }, 30000); // Scan every 30 seconds
   }
 
-
-  handleDiscoveredPeripheral(peripheral: any) {
-    console.log('Discovered peripheral:', peripheral); // Log all discovered peripherals
-    if (peripheral.name === 'AugOS') {
-      if(this.connectedDevice) {
-        console.log("HandleDiscoverPeripheral BUT WE ARE ALREADY CONNECTED UHHH??")
-      }
-      console.log('Found an AugOS device... Stop scan and connect');
-      BleManager.stopScan();
-      this.connectToDevice(peripheral);
-    } else {
-      this.devices.push(peripheral);
-      this.emit('deviceFound', peripheral);
-    }
-  }
-
-
   handleStopScan() {
     if (this.isScanning) {
       this.isScanning = false;
@@ -178,15 +167,31 @@ export class BluetoothService extends EventEmitter {
     }
   }
 
-
   // Handle bonded peripherals
   handleBondedPeripheral(data: any) {
     console.log('Bonding successful with:', data);
     Alert.alert('Bonded', `Successfully bonded with ${data.peripheral}`);
   }
 
+  handleDiscoveredPeripheral(peripheral: any) {
+    console.log('Discovered peripheral:', peripheral); // Log all discovered peripherals
+    if (peripheral.name === 'AugOS') {
+      if(this.connectedDevice) {
+        console.log("HandleDiscoverPeripheral BUT WE ARE ALREADY CONNECTED UHHH??")
+      }
+      console.log('Found an AugOS device... Stop scan and connect');
+      BleManager.stopScan();
+      this.connectToDevice(peripheral);
+    } else {
+      this.devices.push(peripheral);
+      this.emit('deviceFound', peripheral);
+    }
+  }
 
   async connectToDevice(device: Device) {
+    this.isConnecting = true;
+    this.emit('connectingStatusChanged', { isConnecting: true });
+
     try {
       console.log('Connecting to Puck:', device.id);
       await BleManager.connect(device.id);
@@ -240,6 +245,9 @@ export class BluetoothService extends EventEmitter {
     } catch (error) {
       console.error('Error connecting to puck:', error);
     }
+
+    this.isConnecting = false;
+    this.emit('connectingStatusChanged', { isConnecting: false });
   }
 
 
