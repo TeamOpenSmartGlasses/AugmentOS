@@ -1,5 +1,5 @@
 // BluetoothService.tsx
-import { NativeEventEmitter, NativeModules, Alert } from 'react-native';
+import { NativeEventEmitter, NativeModules, Alert, Platform } from 'react-native';
 import BleManager from 'react-native-ble-manager';
 import { EventEmitter } from 'events';
 import { TextDecoder } from 'text-encoding';
@@ -34,7 +34,7 @@ export class BluetoothService extends EventEmitter {
   constructor() {
     super();
 
-    if(MOCK_CONNECTION) return;
+    if (MOCK_CONNECTION) return;
 
     this.initializeBleManager();
     this.startReconnectionScan();
@@ -118,7 +118,7 @@ export class BluetoothService extends EventEmitter {
 
     try {
       console.log('Scanning for BLE devices...');
-      await BleManager.scan([this.SERVICE_UUID], MAX_SCAN_SECONDS, true);
+      await BleManager.scan([this.SERVICE_UUID], 0, true);
       console.log('BLE scan started');
     } catch (error) {
       console.error('Error during scanning:', error);
@@ -146,6 +146,9 @@ export class BluetoothService extends EventEmitter {
   handleDiscoveredPeripheral(peripheral: any) {
     console.log('Discovered peripheral:', peripheral); // Log all discovered peripherals
     if (peripheral.name === 'AugOS') {
+      if(this.connectedDevice) {
+        console.log("HandleDiscoverPeripheral BUT WE ARE ALREADY CONNECTED UHHH??")
+      }
       console.log('Found an AugOS device... Stop scan and connect');
       BleManager.stopScan();
       this.connectToDevice(peripheral);
@@ -168,12 +171,12 @@ export class BluetoothService extends EventEmitter {
 
   handleDisconnectedPeripheral(data: any) {
     if (this.connectedDevice?.id === data.peripheral) {
-        this.isLocked = false;
-        console.log('Puck disconnected:', data.peripheral);
-        this.connectedDevice = null;
-        this.emit('deviceDisconnected')
+      this.isLocked = false;
+      console.log('Puck disconnected:', data.peripheral);
+      this.connectedDevice = null;
+      this.emit('deviceDisconnected')
     }
-}
+  }
 
 
   // Handle bonded peripherals
@@ -185,55 +188,59 @@ export class BluetoothService extends EventEmitter {
 
   async connectToDevice(device: Device) {
     try {
-        console.log('Connecting to Puck:', device.id);
-        await BleManager.connect(device.id);
+      console.log('Connecting to Puck:', device.id);
+      await BleManager.connect(device.id);
 
-        let isConnected = await BleManager.isPeripheralConnected(device.id, []);
-        for (let i = 0; i < 5 && !isConnected; i++) {
-            await new Promise(resolve => setTimeout(resolve, 500));
-            isConnected = await BleManager.isPeripheralConnected(device.id, []);
-        }
+      let isConnected = await BleManager.isPeripheralConnected(device.id, []);
+      for (let i = 0; i < 5 && !isConnected; i++) {
+        await new Promise(resolve => setTimeout(resolve, 500));
+        isConnected = await BleManager.isPeripheralConnected(device.id, []);
+      }
 
-        if (!isConnected) {
-            throw new Error('Failed to connect after retries.');
-        }
+      if (!isConnected) {
+        throw new Error('Failed to connect after retries.');
+      }
 
-        console.log('Puck connected successfully:', device.id);
+      console.log('Puck connected successfully:', device.id);
 
+      if (Platform.OS === 'android') {
         const bondedDevices = await BleManager.getBondedPeripherals();
         const isBonded = bondedDevices.some(bonded => bonded.id === device.id);
         if (!isBonded) {
-            const randomInt = Math.floor(Math.random() * 1000);
-            
-            console.log(`[${randomInt}] Bonding with device...`);
-            await BleManager.createBond(device.id, '000000');
-            console.log(`[${randomInt}] bonding ended`);
+          const randomInt = Math.floor(Math.random() * 1000);
+
+          console.log(`[${randomInt}] Bonding with device...`);
+          await BleManager.createBond(device.id);
+          console.log(`[${randomInt}] bonding ended`);
         }
+      }
 
-        const services = await BleManager.retrieveServices(device.id);
-console.log('Retrieved services and characteristics:', JSON.stringify(services, null, 2));
+      const services = await BleManager.retrieveServices(device.id);
+      console.log('Retrieved services and characteristics:', JSON.stringify(services, null, 2));
 
+      if (Platform.OS === 'android') {
         try {
-            this.mtuSize = 23;
-            const mtu = await BleManager.requestMTU(device.id, 251);
-            this.mtuSize = mtu;
-            console.log(`MTU set to ${mtu}`);
+          this.mtuSize = 23;
+          const mtu = await BleManager.requestMTU(device.id, 251);
+          this.mtuSize = mtu;
+          console.log(`MTU set to ${mtu}`);
         } catch {
-            console.warn('MTU negotiation failed. Using default 23.');
+          console.warn('MTU negotiation failed. Using default 23.');
         }
+      }
 
-        await new Promise(resolve => setTimeout(resolve, 500));
-        console.log('\n\nENABLING NOTIFICATIONS\n\n');
-        await this.enableNotifications(device.id);
+      await new Promise(resolve => setTimeout(resolve, 500));
+      console.log('\n\nENABLING NOTIFICATIONS\n\n');
+      await this.enableNotifications(device.id);
 
-        this.connectedDevice = device;
-        this.emit('deviceConnected', device);
+      this.connectedDevice = device;
+      this.emit('deviceConnected', device);
 
-        await this.sendRequestStatus();
+      await this.sendRequestStatus();
     } catch (error) {
-        console.error('Error connecting to puck:', error);
+      console.error('Error connecting to puck:', error);
     }
-}
+  }
 
 
   async enableNotifications(deviceId: string) {
@@ -279,7 +286,7 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
   }
 
   handleCharacteristicUpdate(data: any) {
-    console.log('Characteristic update received:', data);
+    // console.log('Characteristic update received:', data);
 
     if (data.peripheral === this.connectedDevice?.id && data.characteristic === this.CHARACTERISTIC_UUID) {
       const deviceId = data.peripheral;
@@ -315,9 +322,10 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
 
         // Process the JSON data
         try {
+          console.log('Received raw data:', jsonString);
           const jsonData = JSON.parse(jsonString);
-          console.log('Received JSON data:', jsonData);
           this.emit('dataReceived', jsonData);
+          this.parseDataFromAugmentOsCore(jsonData);
         } catch (error) {
           console.log("(ERROR) RAW DATA RECEIVED:", jsonString);
           console.error('Error parsing JSON data:', error);
@@ -340,6 +348,17 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
       offset += chunk.length;
     }
     return result;
+  }
+
+  parseDataFromAugmentOsCore(jsonData: Object){
+    if(!jsonData) return;
+    if('status' in jsonData) {
+      this.emit('statusUpdateReceived', jsonData);
+    } else if ('glasses_display_data' in jsonData) {
+      // Handle screen mirror status
+    } else if ('ping' in jsonData) {
+      // Do nothing?
+    }
   }
 
   async writeCharacteristic(data: number[]) {
@@ -400,16 +419,16 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
       for (let i = 0; i < byteData.length; i += maxChunkSize) {
         const chunk = byteData.slice(i, i + maxChunkSize);
 
-        setTimeout(async ()=>{
-        // Send each chunk
-        await BleManager.write(
-          //@ts-ignore
-          this.connectedDevice.id,
-          this.SERVICE_UUID,
-          this.CHARACTERISTIC_UUID,
-          chunk,
-          maxChunkSize
-        );
+        setTimeout(async () => {
+          // Send each chunk
+          await BleManager.write(
+            //@ts-ignore
+            this.connectedDevice.id,
+            this.SERVICE_UUID,
+            this.CHARACTERISTIC_UUID,
+            chunk,
+            maxChunkSize
+          );
         }, 250 * i)
       }
 
@@ -431,11 +450,11 @@ console.log('Retrieved services and characteristics:', JSON.stringify(services, 
           But at the same time we're literally only accepting status objects right now
           so it doesn't really matter
           */
-            responseReceived = true;
-            this.isLocked = false;
-            clearTimeout(timeout);
-            console.log('GOT A RESPONSE FROM THE THING SO ALL GOOD CUZ');
-            resolve(null);
+          responseReceived = true;
+          this.isLocked = false;
+          clearTimeout(timeout);
+          // console.log('GOT A RESPONSE FROM THE THING SO ALL GOOD CUZ');
+          resolve(null);
         });
       });
     } catch (error) {

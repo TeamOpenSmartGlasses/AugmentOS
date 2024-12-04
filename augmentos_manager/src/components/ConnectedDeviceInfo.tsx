@@ -72,6 +72,12 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     }
   };
 
+  const sendDisconnectWearable = async () => {
+    try {
+      await bluetoothService.sendDisconnectWearable();
+    } catch (error) { }
+  }
+
   const themeStyles = {
     backgroundColor: isDarkTheme ? '#333333' : '#F2F2F7',
     textColor: isDarkTheme ? '#FFFFFF' : '#333333',
@@ -101,16 +107,16 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   };
 
   const getBatteryIcon = (level: number) => {
-    if (level > 75) return 'battery-full';
-    if (level > 50) return 'battery-three-quarters';
-    if (level > 25) return 'battery-half';
-    if (level > 10) return 'battery-quarter';
+    if (level > 75) { return 'battery-full'; }
+    if (level > 50) { return 'battery-three-quarters'; }
+    if (level > 25) { return 'battery-half'; }
+    if (level > 10) { return 'battery-quarter'; }
     return 'battery-empty';
   };
 
   const getBatteryColor = (level: number) => {
-    if (level > 60) return '#4CAF50';
-    if (level > 20) return '#FFB300';
+    if (level > 60) { return '#4CAF50'; }
+    if (level > 20) { return '#FFB300'; }
     return '#FF5722';
   };
 
@@ -153,7 +159,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                   <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
                   <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>87%</Text>
                 </View>
-                <TouchableOpacity style={styles.disconnectButton} onPress={bluetoothService.sendDisconnectWearable}>
+                <TouchableOpacity style={styles.disconnectButton} onPress={sendDisconnectWearable}>
                   <Icon name="power-off" size={18} color="white" style={styles.icon} />
                   <Text style={styles.disconnectText}>Disconnect</Text>
                 </TouchableOpacity>
@@ -196,6 +202,7 @@ const styles = StyleSheet.create({
     width: '100%',
     minHeight: 250, // Set a minimum height
     justifyContent: 'center',
+    marginTop: 15,
   },
   connectedContent: {
     flex: 1,
@@ -253,7 +260,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 10,
-    marginRight: 45,
 
   },
   connectedDot: {
@@ -270,7 +276,7 @@ const styles = StyleSheet.create({
   connectedTextGreen: {
     color: '#28a745',
     marginLeft: 4,
-    marginRight: 2, // Increased space to the right of "Connected"
+    marginRight: 2,
     fontSize: 16,
     fontWeight: 'bold',
     fontFamily: 'Montserrat-Bold',
@@ -326,11 +332,11 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     justifyContent: 'center',
     marginRight: 5,
-    width: '40%',
+    width: '35%',
   },
   disconnectText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: '500',
     fontFamily: 'Montserrat-Regular',
   },

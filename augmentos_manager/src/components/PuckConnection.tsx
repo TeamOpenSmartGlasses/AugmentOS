@@ -17,18 +17,18 @@ const PuckConnection: React.FC<PuckConnectionProps> = ({ isDarkTheme }) => {
   }, [status]);
 
   const getBatteryIcon = (level: number | null) => {
-    if (level === null) return 'question-circle';
-    if (level > 75) return 'battery-full';
-    if (level > 50) return 'battery-three-quarters';
-    if (level > 25) return 'battery-half';
-    if (level > 10) return 'battery-quarter';
+    if (level === null) {return 'question-circle';}
+    if (level > 75) {return 'battery-full';}
+    if (level > 50) {return 'battery-three-quarters';}
+    if (level > 25) {return 'battery-half';}
+    if (level > 10) {return 'battery-quarter';}
     return 'battery-empty';
   };
 
   const getBatteryColor = (level: number | null) => {
-    if (level === null) return '#9E9E9E';
-    if (level > 50) return '#4CAF50';
-    if (level > 10) return '#FFC107';
+    if (level === null) {return '#9E9E9E';}
+    if (level > 50) {return '#4CAF50';}
+    if (level > 10) {return '#FFC107';}
     return '#FF5722';
   };
 

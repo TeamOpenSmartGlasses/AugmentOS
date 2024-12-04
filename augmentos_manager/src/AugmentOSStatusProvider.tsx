@@ -7,6 +7,7 @@ interface AugmentOSStatusContextType {
     status: AugmentOSMainStatus;
     isSearching: boolean;
     refreshStatus: (data: any) => void;
+    screenMirrorItems: []
 }
 
 const AugmentOSStatusContext = createContext<AugmentOSStatusContextType | undefined>(undefined);
@@ -14,12 +15,10 @@ const AugmentOSStatusContext = createContext<AugmentOSStatusContextType | undefi
 export const StatusProvider = ({ children }: { children: ReactNode }) => {
     const [status, setStatus] = useState(AugmentOSParser.parseStatus({}));
     const [isSearching, setIsSearching] = useState(false);
+    const [screenMirrorItems, setScreenMirrorItems] = useState([]);
 
-    // Existing refreshStatus logic
     const refreshStatus = useCallback((data: any) => {
-        console.log('Raw data received for parsing:', data);
-
-        if (!(data && 'status' in data)) return;
+        if (!(data && 'status' in data)) {return;}
 
         const parsedStatus = AugmentOSParser.parseStatus(data);
         console.log('Parsed status:', parsedStatus);
@@ -27,8 +26,7 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
     }, []);
 
     useEffect(() => {
-        // Existing logic for handling data received
-        const handleDataReceived = (data: any) => {
+        const handleStatusUpdateReceived = (data: any) => {
             console.log('Handling received data.. refreshing status..');
             refreshStatus(data);
         };
@@ -42,16 +40,15 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
         const handleScanStopped = () => setIsSearching(false);
 
         if (!MOCK_CONNECTION) {
-            bluetoothService.on('dataReceived', handleDataReceived);
+            bluetoothService.on('statusUpdateReceived', handleStatusUpdateReceived);
             bluetoothService.on('scanStarted', handleScanStarted);
             bluetoothService.on('scanStopped', handleScanStopped);
             bluetoothService.on('deviceDisconnected', handleDeviceDisconnected);
         }
 
-        // Cleanup all event listeners
         return () => {
             if (!MOCK_CONNECTION) {
-                bluetoothService.removeListener('dataReceived', handleDataReceived);
+                bluetoothService.removeListener('statusUpdateReceived', handleStatusUpdateReceived);
                 bluetoothService.removeListener('scanStarted', handleScanStarted);
                 bluetoothService.removeListener('scanStopped', handleScanStopped);
                 bluetoothService.removeListener('deviceDisconnected', handleDeviceDisconnected);

@@ -58,29 +58,43 @@ const App: React.FC = () => {
                 name="SettingsPage"
                 options={{ headerShown: false }}
               >
-                {(props) => <SettingsPage {...props} isDarkTheme={isDarkTheme} />}
+                {(props) => <SettingsPage {...props} isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />}
               </Stack.Screen>
-              <Stack.Screen
-                name="AppStore"
-                component={AppStore}
-                options={{ title: 'App Store', headerShown: false }}
-              />
-                <Stack.Screen
+            <Stack.Screen
+              name="AppStore"
+              options={{ title: 'App Store', headerShown: false }}
+            >
+              {(props) => <AppStore {...props} isDarkTheme={isDarkTheme} />}
+            </Stack.Screen>
+            <Stack.Screen
   name="Reviews"
-  component={Reviews}
   options={({ route }) => ({
     title: route.params.appName ? `Reviews for ${route.params.appName}` : 'Reviews',
+    headerStyle: {
+      backgroundColor: isDarkTheme ? '#333333' : '#FFFFFF',
+    },
+    headerTintColor: isDarkTheme ? '#FFFFFF' : '#000000',
   })}
-/>
+>
+  {(props) => <Reviews {...props} isDarkTheme={isDarkTheme} />}
+</Stack.Screen>
 
 
-              <Stack.Screen
-                name="AppDetails"
-                component={AppDetails}
-                options={({ route }) => ({
-                  title: route.params.app.name || 'App Details',
-                })}
-              />
+<Stack.Screen
+  name="AppDetails"
+  options={({ route }) => ({
+    title: route.params.app.name || 'App Details',
+    headerStyle: {
+      backgroundColor: isDarkTheme ? '#333333' : '#FFFFFF',
+    },
+    headerTintColor: isDarkTheme ? '#FFFFFF' : '#000000', 
+    headerTitleStyle: {
+      color: isDarkTheme ? '#FFFFFF' : '#000000',
+    },
+  })}
+>
+  {(props) => <AppDetails {...props} isDarkTheme={isDarkTheme} />}
+</Stack.Screen>
               <Stack.Screen
                 name="ProfileSettings"
                 options={{

@@ -2070,6 +2070,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             // Adding puck battery life and charging status
             status.put("puck_battery_life", batteryStatusHelper.getBatteryLevel());
             status.put("charging_status", batteryStatusHelper.isBatteryCharging());
+            status.put("default_wearable", AugmentosSmartGlassesService.getPreferredWearable(this));
 
             // Adding connected glasses object
             JSONObject connectedGlasses = new JSONObject();
@@ -2176,7 +2177,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         else
             AugmentosSmartGlassesService.savePreferredWearable(this, "");
 
-        if (isSmartGlassesServiceBound) restartSmartGlassesService();
+        // if (isSmartGlassesServiceBound) restartSmartGlassesService();
 
         sendStatusToAugmentOsManager();
     }

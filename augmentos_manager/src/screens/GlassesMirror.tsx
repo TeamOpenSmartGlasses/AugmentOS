@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Animated, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import NavigationBar from '../components/NavigationBar.tsx';
 
@@ -53,12 +53,14 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
   const indicatorScrollViewRef = useRef<ScrollView>(null);
   const [showScrollDownButton, setShowScrollDownButton] = useState(false);
   const pulseAnimation = useRef(new Animated.Value(1)).current;
+  const [filteredCards, setFilteredCards] = useState<Card[]>(cards);
+  const [searchQuery, setSearchQuery] = useState('');
 
  // Change the initial values
-const [fadeAnims] = useState(() => 
+const [fadeAnims] = useState(() =>
   cards.map(() => new Animated.Value(1)) // Start visible
 );
-const [slideAnims] = useState(() => 
+const [slideAnims] = useState(() =>
   cards.map(() => new Animated.Value(0)) // Start at final position
 );
   useEffect(() => {
@@ -86,7 +88,7 @@ const [slideAnims] = useState(() =>
     // First set initial values instantly
     fadeAnims.forEach(anim => anim.setValue(0));
     slideAnims.forEach(anim => anim.setValue(50));
-  
+
     // Small delay before starting animations
     setTimeout(() => {
       // Reverse the animation order - start from the last card
@@ -137,6 +139,20 @@ const [slideAnims] = useState(() =>
     });
   };
 
+  const handleSearch = (text: string) => {
+    setSearchQuery(text);
+    if (text.trim() === '') {
+      setFilteredCards(cards);
+    } else {
+      const lowercaseQuery = text.toLowerCase();
+      const filtered = cards.filter(card =>
+        card.name.toLowerCase().includes(lowercaseQuery) ||
+        card.content.toLowerCase().includes(lowercaseQuery)
+      );
+      setFilteredCards(filtered);
+    }
+  };
+
   const handleScrollToBottom = () => {
     scrollViewRef.current?.scrollToEnd({ animated: true });
   };
@@ -161,6 +177,42 @@ const [slideAnims] = useState(() =>
         return '#CCCCCC';
     }
   };
+
+  const titleFadeAnim = useRef(new Animated.Value(0)).current;
+  const titleSlideAnim = useRef(new Animated.Value(-20)).current;
+  const searchFadeAnim = useRef(new Animated.Value(0)).current;
+  const searchSlideAnim = useRef(new Animated.Value(-20)).current;
+
+
+  // Add a new useEffect for the header animations
+  useEffect(() => {
+    Animated.stagger(200, [
+      Animated.parallel([
+        Animated.timing(titleFadeAnim, {
+          toValue: 1,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+        Animated.timing(titleSlideAnim, {
+          toValue: 0,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+      ]),
+      Animated.parallel([
+        Animated.timing(searchFadeAnim, {
+          toValue: 1,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+        Animated.timing(searchSlideAnim, {
+          toValue: 0,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+      ]),
+    ]).start();
+  }, [searchFadeAnim, searchSlideAnim, titleFadeAnim, titleSlideAnim]);
 
   const renderCard = (card: Card, index: number) => {
     const cardColor = getAppColor(card.name);
@@ -229,67 +281,116 @@ const [slideAnims] = useState(() =>
   return (
     <View style={[styles.container, isDarkTheme ? styles.darkContainer : styles.lightContainer]}>
       <View style={styles.titleContainer}>
-        <Text style={[styles.title, isDarkTheme ? styles.darkText : styles.lightText]}>
-          AugmentOS Glasses Mirror
-        </Text>
+        <Animated.Text 
+          style={[
+            styles.title, 
+            isDarkTheme ? styles.darkText : styles.lightText,
+            {
+              opacity: titleFadeAnim,
+              transform: [{ translateY: titleSlideAnim }],
+            }
+          ]}
+        >
+          Glasses Mirror
+        </Animated.Text>
+        
+        <Animated.View
+          style={[
+            styles.searchContainer,
+            isDarkTheme ? styles.searchContainerDark : styles.searchContainerLight,
+            {
+              opacity: searchFadeAnim,
+              transform: [{ translateY: searchSlideAnim }],
+            }
+          ]}
+        >
+          <Icon 
+            name="search" 
+            size={16} 
+            color={isDarkTheme ? '#999999' : '#666666'} 
+            style={styles.searchIcon}
+          />
+          <TextInput
+            style={[
+              styles.searchInput,
+              isDarkTheme ? styles.searchInputDark : styles.searchInputLight
+            ]}
+            placeholder="Search mirrored apps..."
+            placeholderTextColor={isDarkTheme ? '#999999' : '#666666'}
+            value={searchQuery}
+            onChangeText={handleSearch}
+          />
+          {searchQuery.length > 0 && (
+            <TouchableOpacity 
+              onPress={() => handleSearch('')}
+              style={styles.clearButton}
+            >
+              <Icon 
+                name="times-circle" 
+                size={16} 
+                color={isDarkTheme ? '#999999' : '#666666'} 
+              />
+            </TouchableOpacity>
+          )}
+        </Animated.View>
       </View>
+      
 
-      <View style={styles.contentContainer}>
+    <View style={styles.contentContainer}>
       <View style={styles.indicatorColumn}>
-  <ScrollView
-    ref={indicatorScrollViewRef}
-    showsVerticalScrollIndicator={false}
-    style={styles.indicatorScrollView}
-    contentContainerStyle={styles.indicatorContainer}
-    scrollEnabled={true}
-    scrollEventThrottle={16}
-  >
-    {[...cards].map((card, index) => (
-      <TouchableOpacity
-        key={card.id}
-        style={styles.indicatorTouchable}
-        onPress={() => {
-          const cardHeight = 200; // Height of card + margin
-          scrollViewRef.current?.scrollTo({
-            y: index * cardHeight,  // Now this matches the visual order
-            animated: true,
-          });
-        }}
-      >
-        <View style={[styles.indicatorBox, { backgroundColor: getAppColor(card.name) }]} />
-      </TouchableOpacity>
-    ))}
-  </ScrollView>
-</View>
-
-        <View style={styles.cardsColumn}>
-          <ScrollView
-            ref={scrollViewRef}
-            style={styles.scrollView}
-            contentContainerStyle={styles.scrollViewContent}
-            showsVerticalScrollIndicator={false}
-            onScroll={handleScroll}
-            scrollEventThrottle={16}
-            onMomentumScrollEnd={(event) => handleScroll(event)}
-          >
-            <View style={styles.cardsContainer}>
-              {cards.map(renderCard)}
-            </View>
-          </ScrollView>
-        </View>
+        <ScrollView
+          ref={indicatorScrollViewRef}
+          showsVerticalScrollIndicator={false}
+          style={styles.indicatorScrollView}
+          contentContainerStyle={styles.indicatorContainer}
+          scrollEnabled={true}
+          scrollEventThrottle={16}
+        >
+          {filteredCards.map((card, index) => (
+            <TouchableOpacity
+              key={card.id}
+              style={styles.indicatorTouchable}
+              onPress={() => {
+                const cardHeight = 200;
+                scrollViewRef.current?.scrollTo({
+                  y: index * cardHeight,
+                  animated: true,
+                });
+              }}
+            >
+              <View style={[styles.indicatorBox, { backgroundColor: getAppColor(card.name) }]} />
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
       </View>
 
-      {showScrollDownButton && (
-        <TouchableOpacity style={styles.focusedScrollDownButton} onPress={handleScrollToBottom}>
-          <Icon name="arrow-down" size={24} color="white" />
-        </TouchableOpacity>
-      )}
-
-      <NavigationBar isDarkTheme={isDarkTheme} toggleTheme={() => {}} />
+      <View style={styles.cardsColumn}>
+        <ScrollView
+          ref={scrollViewRef}
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollViewContent}
+          showsVerticalScrollIndicator={false}
+          onScroll={handleScroll}
+          scrollEventThrottle={16}
+          onMomentumScrollEnd={(event) => handleScroll(event)}
+        >
+          <View style={styles.cardsContainer}>
+            {filteredCards.map(renderCard)}
+          </View>
+        </ScrollView>
+      </View>
     </View>
-  );
-};
 
+    {showScrollDownButton && (
+      <TouchableOpacity style={styles.focusedScrollDownButton} onPress={handleScrollToBottom}>
+        <Icon name="arrow-down" size={24} color="white" />
+      </TouchableOpacity>
+    )}
+
+    <NavigationBar isDarkTheme={isDarkTheme} toggleTheme={() => {}} />
+  </View>
+);
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -428,6 +529,43 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.6,
     shadowRadius: 10,
     elevation: 15,
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    height: 40,
+  },
+  searchContainerLight: {
+    backgroundColor: '#f0f0f0',
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+  },
+  searchContainerDark: {
+    backgroundColor: '#2d2d2d',
+    borderWidth: 1,
+    borderColor: '#404040',
+  },
+  searchIcon: {
+    marginRight: 8,
+  },
+  searchInput: {
+    flex: 1,
+    fontSize: 16,
+    height: '100%',
+    padding: 0,
+    fontFamily: 'Montserrat-Regular',
+  },
+  searchInputLight: {
+    color: '#000000',
+  },
+  searchInputDark: {
+    color: '#ffffff',
+  },
+  clearButton: {
+    padding: 4,
   },
 });
 

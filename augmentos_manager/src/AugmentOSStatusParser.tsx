@@ -1,4 +1,4 @@
-import { MOCK_CONNECTION } from "./consts";
+import { MOCK_CONNECTION } from './consts';
 
 interface Glasses {
   model_name: string;
@@ -32,6 +32,7 @@ export interface AugmentOSMainStatus {
   puck_connected: boolean;
   puck_battery_life: number | null;
   puck_charging_status: boolean;
+  default_wearable: string | null,
   glasses_info: Glasses | null;
   wifi: WifiConnection | null;
   gsm: GSMConnection | null;
@@ -43,6 +44,7 @@ export class AugmentOSParser {
     puck_connected: false,
     puck_battery_life: null,
     puck_charging_status: false,
+    default_wearable: null,
     glasses_info: null,
     wifi: { is_connected: false, ssid: '', signal_strength: 0 },
     gsm: { is_connected: false, carrier: '', signal_strength: 0 },
@@ -53,10 +55,11 @@ export class AugmentOSParser {
     puck_connected: true,
     puck_battery_life: 88,
     puck_charging_status: true,
+    default_wearable: 'Vuzix Z100',
     glasses_info: {
       model_name: 'Vuzix Z100',
       battery_life: 60,
-      is_searching: false
+      is_searching: false,
     },
     wifi: { is_connected: true, ssid: 'TP-LINK69', signal_strength: 100 },
     gsm: { is_connected: false, carrier: '', signal_strength: 0 },
@@ -72,7 +75,7 @@ export class AugmentOSParser {
       {
         name: "Netflix",
         package_name: "com.netflix.mediaclient",
-        icon: require('./assets/app-icons/adhd-rectangle.png'),
+        icon: require('./assets/app-icons/translator-rectangle.png'),
         description: "Movie and TV streaming",
         is_running: true,
         is_foreground: false,
@@ -100,13 +103,45 @@ export class AugmentOSParser {
         description: "Placeholder app",
         is_running: false,
         is_foreground: false
-      }
+      },
+      {
+        name: "Placeholder",
+        package_name: "com.example.placeholder",
+        icon: "placeholder",
+        description: "Placeholder app",
+        is_running: false,
+        is_foreground: false
+      },
+      {
+        name: "Placeholder",
+        package_name: "com.example.placeholder",
+        icon: "placeholder",
+        description: "Placeholder app",
+        is_running: false,
+        is_foreground: false
+      },
+      {
+        name: "Placeholder",
+        package_name: "com.example.placeholder",
+        icon: "placeholder",
+        description: "Placeholder app",
+        is_running: false,
+        is_foreground: false
+      },
+      {
+        name: "Placeholder",
+        package_name: "com.example.placeholder",
+        icon: "placeholder",
+        description: "Placeholder app",
+        is_running: false,
+        is_foreground: false,
+      },
     ],
   };
-  
+
 
   static parseStatus(data: any): AugmentOSMainStatus {
-    if (MOCK_CONNECTION) return AugmentOSParser.mockStatus;
+    if (MOCK_CONNECTION) {return AugmentOSParser.mockStatus;}
     // console.log('checking dat');
     if (data && 'status' in data) {
       console.log('data good?');
@@ -115,6 +150,7 @@ export class AugmentOSParser {
         puck_connected: true,
         puck_battery_life: status.puck_battery_life ?? null,
         puck_charging_status: status.charging_status ?? false,
+        default_wearable: status.default_wearable ?? null,
         glasses_info: status.connected_glasses
           ? {
               model_name: status.connected_glasses.model_name,

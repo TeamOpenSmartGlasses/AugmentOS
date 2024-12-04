@@ -1,1 +1,1 @@
-export const MOCK_CONNECTION: boolean = true;
+export const MOCK_CONNECTION: boolean = false;

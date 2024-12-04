@@ -8,7 +8,12 @@ import ReviewModal from '../components/AppReview/ReviewModal.tsx';
 import ReviewDetailsModal from '../components/AppReview/ReviewDetailsModal.tsx';
 import AnimatedChatBubble from '../components/AppReview/AnimatedChatBubble.tsx';
 
-const ReviewSection = ({ route }: any) => {
+interface ReviewSectionProps {
+  route: any;
+  isDarkTheme: boolean;
+}
+
+const ReviewSection: React.FC<ReviewSectionProps> = ({ route, isDarkTheme }) => {
   const { appId } = route.params;
 
   const app = AppStoreData.find((item: { identifier_code: string }) => item.identifier_code === appId);
@@ -21,13 +26,22 @@ const ReviewSection = ({ route }: any) => {
   const [newRating, setNewRating] = useState(0);
   const [newComment, setNewComment] = useState('');
 
+  // Theme-based colors
+  const themeColors = {
+    background: isDarkTheme ? '#1a1a1a' : '#f9f9f9',
+    text: isDarkTheme ? '#ffffff' : '#000000',
+    card: isDarkTheme ? '#2d2d2d' : '#ffffff',
+    accent: isDarkTheme ? '#3b82f6' : '#007BFF',
+    border: isDarkTheme ? '#404040' : '#e0e0e0',
+  };
+
   const handleSearch = (query: string, filters: string[]) => {
     const filtered = reviews.filter((review) => {
       const matchesQuery =
         review.user.toLowerCase().includes(query.toLowerCase()) ||
         review.comment.toLowerCase().includes(query.toLowerCase());
       const matchesFilters =
-        filters.length === 0 || filters.includes(review.rating.toString()); // Filter by rating
+        filters.length === 0 || filters.includes(review.rating.toString());
       return matchesQuery && matchesFilters;
     });
     setFilteredReviews(filtered);
@@ -52,24 +66,32 @@ const ReviewSection = ({ route }: any) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: themeColors.background }]}>
       {/* SearchWithFilters Component */}
       <SearchWithFilters
         placeholder="Search reviews..."
         onSearch={handleSearch}
-        filters={['1', '2', '3', '4', '5']} // Filters for ratings 1 to 5
+        filters={['1', '2', '3', '4', '5']}
+        isDarkTheme={isDarkTheme}
       />
 
       {/* Scrollable Review List */}
-      <ScrollView style={styles.scrollContainer}>
-        <ReviewList reviews={filteredReviews} onReviewPress={handleReviewPress} />
+      <ScrollView style={[styles.scrollContainer, { borderColor: themeColors.border }]}>
+        <ReviewList 
+          reviews={filteredReviews} 
+          onReviewPress={handleReviewPress}
+          isDarkTheme={isDarkTheme}
+        />
       </ScrollView>
 
       {/* Animated Chat Bubble */}
-      <AnimatedChatBubble />
+      <AnimatedChatBubble isDarkTheme={isDarkTheme} />
 
       {/* Floating Action Button */}
-      <TouchableOpacity style={styles.reviewBubble} onPress={() => setModalVisible(true)}>
+      <TouchableOpacity 
+        style={[styles.reviewBubble, { backgroundColor: themeColors.accent }]} 
+        onPress={() => setModalVisible(true)}
+      >
         <MaterialCommunityIcons name="message-reply-text" size={24} color="#fff" />
       </TouchableOpacity>
 
@@ -82,6 +104,7 @@ const ReviewSection = ({ route }: any) => {
         setComment={setNewComment}
         onSubmit={handleSubmitReview}
         onClose={() => setModalVisible(false)}
+        isDarkTheme={isDarkTheme}
       />
 
       {/* Review Details Modal */}
@@ -89,6 +112,7 @@ const ReviewSection = ({ route }: any) => {
         isVisible={isDetailsModalVisible}
         review={selectedReview}
         onClose={() => setDetailsModalVisible(false)}
+        isDarkTheme={isDarkTheme}
       />
     </View>
   );
@@ -97,24 +121,29 @@ const ReviewSection = ({ route }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f9f9',
   },
   scrollContainer: {
     flex: 1,
     paddingHorizontal: 20,
-    marginBottom: 60, // Adjust to avoid overlapping with Floating Action Button
+    marginBottom: 60,
   },
   reviewBubble: {
     position: 'absolute',
     bottom: 20,
     right: 20,
-    backgroundColor: '#007BFF',
     width: 60,
     height: 60,
     borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 5,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
 });
 
