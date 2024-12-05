@@ -7,35 +7,42 @@ interface AppIconProps {
     isMainApp?: boolean;
     onClick?: () => void;
     style?: object;
-    isDarkTheme?: boolean; // Add theme prop
+    isDarkTheme?: boolean;
 }
 
-const AppIcon: React.FC<AppIconProps> = ({ 
-    app, 
-    isMainApp = false, 
-    onClick, 
+const AppIcon: React.FC<AppIconProps> = ({
+    app,
+    isMainApp = false,
+    onClick,
     style,
-    isDarkTheme = false 
+    isDarkTheme = false,
 }) => {
     const getAppImage = useMemo(
         () => (packageName: string) => {
             switch (packageName) {
-                case 'Convoscope':
-                    return require('../assets/app-icons/convo-rectangle.png');
-                case 'ADHD Aid':
-                    return require('../assets/app-icons/adhd-rectangle.png');
-                case 'Translator':
-                    return require('../assets/app-icons/translator-rectangle.png');
-                case 'Placeholder':
-                    return require('../assets/app-icons/ARGlassees-rectangle.png');
+                case 'com.example.convoscope':
+                    return require('../assets/app-icons/convoscope.png');
+                case 'com.example.adhdaid':
+                    return require('../assets/app-icons/ADHD-aid.png');
+                case 'com.translator.app':
+                    return require('../assets/app-icons/translation.png');
+                case 'com.example.placeholder':
+                    return require('../assets/app-icons/screen-mirror.png');
+                case 'com.example.screenmirror':
+                    return require('../assets/app-icons/screen-mirror.png');
+                case 'com.example.livecaptions':
+                    return require('../assets/app-icons/captions.png');
+                case 'com.example.miraai':
+                    return require('../assets/app-icons/mira-ai.png');
+                case 'com.google.android.apps.maps':
+                    return require('../assets/app-icons/navigation.png');
                 default:
-                    return require('../assets/app-icons/ARGlassees-rectangle.png');
+                    return require('../assets/app-icons/navigation.png');
             }
         },
         []
     );
 
-    // For main apps, just return the ImageBackground
     if (isMainApp) {
         return (
             <ImageBackground
@@ -46,13 +53,12 @@ const AppIcon: React.FC<AppIconProps> = ({
         );
     }
 
-    // For other apps
     return (
         <View style={[styles.appWrapper]} onTouchEnd={onClick}>
             <View style={[
-                styles.appIconWrapper, 
+                styles.appIconWrapper,
                 isDarkTheme ? styles.appIconWrapperDark : styles.appIconWrapperLight,
-                style
+                style,
             ]}>
                 <ImageBackground
                     source={getAppImage(app.package_name)}
@@ -62,7 +68,7 @@ const AppIcon: React.FC<AppIconProps> = ({
             </View>
             <Text style={[
                 styles.appName,
-                isDarkTheme ? styles.appNameDark : styles.appNameLight
+                isDarkTheme ? styles.appNameDark : styles.appNameLight,
             ]} numberOfLines={1}>
                 {app.name}
             </Text>
@@ -85,10 +91,10 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     appIconWrapperLight: {
-        borderColor: '#E5E5EA', // Light theme border color
+        borderColor: '#E5E5EA',
     },
     appIconWrapperDark: {
-        borderColor: '#333333', // Dark theme border color
+        borderColor: '#333333',
     },
     appIcon: {
         width: '100%',
@@ -111,10 +117,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     appNameLight: {
-        color: '#000000', // Light theme text color
+        color: '#000000',
     },
     appNameDark: {
-        color: '#FFFFFF', // Dark theme text color
+        color: '#FFFFFF',
     },
 });
 

@@ -24,9 +24,8 @@ export interface AppInfo {
   is_running: boolean;
   is_foreground: boolean;
   package_name: string;
-  icon: string; // Added this line to include the icon property
+  icon: string;
 }
-
 
 export interface AugmentOSMainStatus {
   puck_connected: boolean;
@@ -62,84 +61,74 @@ export class AugmentOSParser {
     gsm: { is_connected: false, carrier: '', signal_strength: 0 },
     apps: [
       {
-        name: "YouTube",
-        package_name: "com.google.android.youtube",
-        icon: "youtube_icon",
-        description: "Video streaming platform",
+        name: 'Convsoscope',
+        package_name: 'com.example.convoscope',
+        icon: '/assets/app-icons/convoscope.png',
+        description: 'Video streaming platform',
         is_running: true,
         is_foreground: true,
       },
       {
-        name: "Netflix",
-        package_name: "com.netflix.mediaclient",
-        icon: require('./assets/app-icons/translator-rectangle.png'),
-        description: "Movie and TV streaming",
+        name: 'Translator',
+        package_name: 'com.translator.app',
+        icon: '/assets/app-icons/translation.png',
+        description: 'Movie and TV streaming',
         is_running: true,
         is_foreground: false,
       },
       {
-        name: "Chrome",
-        package_name: "com.android.chrome",
-        icon: "placeholder",
-        description: "Web browser",
+        name: 'Navigation',
+        package_name: 'com.google.android.apps.maps',
+        icon: '/assets/icons/navigation.png',
+        description: 'Navigation app',
         is_running: true,
         is_foreground: false,
       },
       {
-        name: "Maps",
-        package_name: "com.google.android.apps.maps",
-        icon: "placeholder",
-        description: "Navigation app",
+        name: 'Mira AI',
+        package_name: 'com.example.miraai',
+        icon: '/assets/icons/mira-ai.png',
+        description: 'AI assistant',
         is_running: true,
         is_foreground: false,
       },
       {
-        name: "Placeholder",
-        package_name: "com.example.placeholder",
-        icon: "placeholder",
-        description: "Placeholder app",
+        name: 'Mirror',
+        package_name: 'com.example.screenmirror',
+        icon: '/assets/icons/screen-mirror.png',
+        description: 'Screen mirroring app',
         is_running: false,
-        is_foreground: false
+        is_foreground: false,
       },
       {
-        name: "Placeholder",
-        package_name: "com.example.placeholder",
-        icon: "placeholder",
-        description: "Placeholder app",
+        name: 'Captions',
+        package_name: 'com.example.livecaptions',
+        icon: '/assets/icons/captions.png',
+        description: 'Live captioning app',
         is_running: false,
-        is_foreground: false
+        is_foreground: false,
       },
       {
-        name: "Placeholder",
-        package_name: "com.example.placeholder",
-        icon: "placeholder",
-        description: "Placeholder app",
+        name: 'ADHD Aid',
+        package_name: 'com.example.adhdaid',
+        icon: '/assets/icons/adhd-aid.png',
+        description: 'ADHD aid app',
         is_running: false,
-        is_foreground: false
+        is_foreground: false,
       },
       {
-        name: "Placeholder",
-        package_name: "com.example.placeholder",
-        icon: "placeholder",
-        description: "Placeholder app",
-        is_running: false,
-        is_foreground: false
-      },
-      {
-        name: "Placeholder",
-        package_name: "com.example.placeholder",
-        icon: "placeholder",
-        description: "Placeholder app",
+        name: 'Language Learning',
+        package_name: 'com.example.languagelearning',
+        icon: '/assets/icons/language-learning.png',
+        description: 'Language learning app',
         is_running: false,
         is_foreground: false,
       },
     ],
   };
 
-
   static parseStatus(data: any): AugmentOSMainStatus {
     if (MOCK_CONNECTION) {return AugmentOSParser.mockStatus;}
-    // console.log('checking dat');
     if (data && 'status' in data) {
       console.log('data good?');
       const status = data.status;
@@ -162,7 +151,7 @@ export class AugmentOSParser {
           is_running: !!app.is_running,
           is_foreground: !!app.is_foreground,
           package_name: app.package_name || 'unknown.package',
-          icon: app.icon || 'default-icon-path',
+          icon: app.icon || '/assets/icons/default-app.png',
         })) || [],
       };
     }

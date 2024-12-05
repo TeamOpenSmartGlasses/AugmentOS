@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated, Alert, PermissionsAndroid, Platform } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { bluetoothService } from '../BluetoothService';
 import { useStatus } from '../AugmentOSStatusProvider';
@@ -16,44 +17,54 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
 
   const { status, isSearching, refreshStatus } = useStatus();
 
-  useEffect(() => {
-    if (Platform.OS === 'android' && Platform.Version >= 23) {
-      PermissionsAndroid.requestMultiple([
-        PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
-        PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-      ]).then((result) => {
-        console.log('Permissions granted:', result);
-      });
-    }
-  }, [refreshStatus]);
-
-  useEffect(() => {
-    if (status.puck_connected) {
-      Animated.parallel([
-        Animated.timing(fadeAnim, {
-          toValue: 1,
-          duration: 1200,
-          useNativeDriver: true,
-        }),
-        Animated.spring(scaleAnim, {
-          toValue: 1,
-          friction: 8,
-          tension: 60,
-          useNativeDriver: true,
-        }),
-        Animated.timing(slideAnim, {
-          toValue: 0,
-          duration: 700,
-          useNativeDriver: true,
-        }),
-      ]).start();
-    } else {
+  useFocusEffect(
+    React.useCallback(() => {
+      // Reset animations to initial values
       fadeAnim.setValue(0);
       scaleAnim.setValue(0.8);
       slideAnim.setValue(-50);
-    }
-  }, [status, fadeAnim, scaleAnim, slideAnim]);
+
+      // Start animations if device is connected
+      if (status.puck_connected) {
+        Animated.parallel([
+          Animated.timing(fadeAnim, {
+            toValue: 1,
+            duration: 1200,
+            useNativeDriver: true,
+          }),
+          Animated.spring(scaleAnim, {
+            toValue: 1,
+            friction: 8,
+            tension: 60,
+            useNativeDriver: true,
+          }),
+          Animated.timing(slideAnim, {
+            toValue: 0,
+            duration: 700,
+            useNativeDriver: true,
+          }),
+        ]).start();
+      }
+
+      // Request permissions on Android
+      if (Platform.OS === 'android' && Platform.Version >= 23) {
+        PermissionsAndroid.requestMultiple([
+          PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
+          PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        ]).then((result) => {
+          console.log('Permissions granted:', result);
+        });
+      }
+
+      // Cleanup function
+      return () => {
+        fadeAnim.stopAnimation();
+        scaleAnim.stopAnimation();
+        slideAnim.stopAnimation();
+      };
+    }, [status.puck_connected, fadeAnim, scaleAnim, slideAnim])
+  );
 
   const handleConnect = async () => {
     try {
@@ -78,6 +89,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     statusLabelColor: isDarkTheme ? '#CCCCCC' : '#666666',
     statusValueColor: isDarkTheme ? '#FFFFFF' : '#333333',
     connectedDotColor: '#28a745',
+    separatorColor: isDarkTheme ? '#666666' : '#999999',
   };
 
   const getGlassesImage = (glasses: string | null) => {
@@ -117,9 +129,9 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   const formatGlassesTitle = (title: string) =>
     title.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 
-
   const batteryIcon = getBatteryIcon(status.glasses_info?.battery_life ?? 0);
   const batteryColor = getBatteryColor(status.glasses_info?.battery_life ?? 0);
+
   return (
     <View style={[styles.deviceInfoContainer, { backgroundColor: themeStyles.backgroundColor }]}>
       {status.puck_connected ? (
@@ -133,7 +145,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
               <Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]}>
                 <Text style={[styles.connectedDot, { color: themeStyles.connectedDotColor }]}>●</Text>
                 <Text style={styles.connectedTextGreen}>Connected</Text>
-                <Text style={styles.separator}>|</Text>
+                <Text style={[styles.separator, { color: themeStyles.separatorColor }]}>|</Text>
                 <Text style={[styles.connectedTextTitle, { color: themeStyles.textColor }]}>
                   {formatGlassesTitle(connectedGlasses)} {status.glasses_info.model_name}
                 </Text>
@@ -153,12 +165,14 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                   <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
                   <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>87%</Text>
                 </View>
-                <TouchableOpacity style={styles.disconnectButton} onPress={bluetoothService.sendDisconnectWearable}>
+                <TouchableOpacity 
+                  style={styles.disconnectButton} 
+                  onPress={bluetoothService.sendDisconnectWearable}
+                >
                   <Icon name="power-off" size={18} color="white" style={styles.icon} />
                   <Text style={styles.disconnectText}>Disconnect</Text>
                 </TouchableOpacity>
               </Animated.View>
-
             </View>
           ) : (
             <View style={styles.noGlassesContent}>
@@ -194,7 +208,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     width: '100%',
-    minHeight: 250, // Set a minimum height
+    minHeight: 250,
     justifyContent: 'center',
     marginTop: 15,
   },
@@ -226,7 +240,7 @@ const styles = StyleSheet.create({
     padding: 10,
     width: '100%',
     backgroundColor: '#6750A414',
-    flexWrap: 'wrap', // Allow wrapping to avoid overflow
+    flexWrap: 'wrap',
   },
   statusInfo: {
     alignItems: 'center',
@@ -254,7 +268,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 10,
-
   },
   connectedDot: {
     fontSize: 14,
@@ -262,7 +275,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
   },
   separator: {
-    marginHorizontal: 10, // Adjust this to control the space around the "|"
+    marginHorizontal: 10,
     fontSize: 16,
     fontWeight: 'bold',
     fontFamily: 'Montserrat-Bold',
@@ -337,4 +350,3 @@ const styles = StyleSheet.create({
 });
 
 export default ConnectedDeviceInfo;
-
