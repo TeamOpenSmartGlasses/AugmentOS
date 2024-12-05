@@ -101,6 +101,7 @@ public class SpeechRecAzure extends SpeechRecFramework {
 
     @Override
     public void ingestAudioChunk(byte[] audioChunk) {
+//        Log.d(TAG, "Injesting audio chunk");
         if (isTranslation && translationRecognizer != null) {
             AzureAudioInputStream.getInstance().push(audioChunk);
         } else if (!isTranslation && speechRecognizer != null) {
@@ -131,6 +132,7 @@ public class SpeechRecAzure extends SpeechRecFramework {
         speechRecognizer.recognized.addEventListener((o, e) -> {
             String finalResult = e.getResult().getText();
             BigInteger offset = e.getResult().getOffset();
+            Log.d(TAG, "GOT transcript: " + finalResult);
             if (finalResult != null && !finalResult.trim().isEmpty()) {
                 EventBus.getDefault().post(new SpeechRecOutputEvent(finalResult, currentLanguageCode, offset.longValue(), true));
             }

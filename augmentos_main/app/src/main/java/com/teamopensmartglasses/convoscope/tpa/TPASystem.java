@@ -18,6 +18,7 @@ import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.CommandTriggeredEvent;
 import com.teamopensmartglasses.augmentoslib.events.DisplayCustomContentRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.DoubleTextWallViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FinalScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.IntermediateScrollingTextRequestEvent;
@@ -375,15 +376,18 @@ public class TPASystem {
         }
 
         // Check if this TPA should even be running
-        if (!checkIsThirdPartyAppRunningByPackageName(receivedEvent.sendingPackage)) {
-            Log.d(TAG, "Unknown app '" + receivedEvent.serializedEvent + "' attempting request... weird... bye felicia");
-            stopThirdPartyAppByPackageName(receivedEvent.sendingPackage);
-            return;
-        }
+//        if (!checkIsThirdPartyAppRunningByPackageName(receivedEvent.sendingPackage)) {
+//            Log.d(TAG, "Unknown app '" + receivedEvent.serializedEvent + "' attempting request... weird... bye felicia");
+//            stopThirdPartyAppByPackageName(receivedEvent.sendingPackage);
+//            return;
+//        }
 
         switch (receivedEvent.eventId) {
             case ReferenceCardSimpleViewRequestEvent.eventId:
                 EventBus.getDefault().post((ReferenceCardSimpleViewRequestEvent) receivedEvent.serializedEvent);
+                break;
+            case DoubleTextWallViewRequestEvent.eventId:
+                EventBus.getDefault().post((DoubleTextWallViewRequestEvent) receivedEvent.serializedEvent);
                 break;
             case ReferenceCardImageViewRequestEvent.eventId:
                 EventBus.getDefault().post((ReferenceCardImageViewRequestEvent) receivedEvent.serializedEvent);

@@ -118,7 +118,7 @@ public class MicrophoneLocalAndBluetooth {
 
     public MicrophoneLocalAndBluetooth(Context context, boolean useBluetoothSco, AudioChunkCallback chunkCallback) {
         this(context, chunkCallback);
-        this.shouldUseHearItBleMicrophone = false;
+        this.shouldUseHearItBleMicrophone = true;
         useBluetoothMic(useBluetoothSco);
     }
 
@@ -209,7 +209,7 @@ public class MicrophoneLocalAndBluetooth {
 
                 @Override
                 public void onPcmDataAvailable(byte[] pcmData) {
-//                    Log.d(TAG, "GOT AUDIO DATA");
+//                    Log.d(TAG, "GOT HEAR IT AUDIO DATA");
                     ByteBuffer b_buffer = ByteBuffer.allocate(pcmData.length);
                     b_buffer.put(pcmData);
                     mChunkCallback.onSuccess(b_buffer);
@@ -287,7 +287,7 @@ public class MicrophoneLocalAndBluetooth {
                 if (result < 0) {
                     Log.d(TAG, "ERROR");
                 }
-//                Log.d(TAG, "GOT AUDIO DATA");
+//                Log.d(TAG, "GOT MAIN AUDIO DATA");
                 b_buffer.order(ByteOrder.LITTLE_ENDIAN);
                 b_buffer.asShortBuffer().put(short_buffer);
                 if (hearItBleMicrophone != null && !hearItBleMicrophone.isConnected()) {
