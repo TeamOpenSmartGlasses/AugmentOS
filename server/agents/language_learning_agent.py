@@ -18,18 +18,17 @@ from pypinyin import pinyin, Style
 
 from Modules.LangchainSetup import *
 
-language_learning_agent_prompt_blueprint = """You are listening to a user's conversation right now. You help the language learner user by identifying vocabulary/words from the conversation transcript (Input Text) that the user might not understand and then translate just those words into the Ouput language. You output 0 to 3 words. If the learner's fluency level is less than 50, they will need about 1/5 words define. 50-75 fluency level might need 1 word per sentence. If fluency level is >75, only choose and translate very rare words.
+language_learning_agent_prompt_blueprint = """You are listening to a language learner's conversation. You help them by identifying words from the conversation transcript (Input Text) that the user might not understand and then translate just those words into the opposite. You output 0 to 1 words. If the learner's fluency level is less than 50, they will need about 1/5 words define. 50-75 fluency level might need 1 word per sentence. If fluency level is >75, only choose and translate very rare words.
 
 Input Text Language: {transcribe_language}
 Output (translated) Language: {output_language}
 Fluency Level: {fluency_level}
 
 Process:
-0. Consider the fluency level of the user, which is {fluency_level}, where 0<=fluency_level<=100, with 0 being complete beginner, 50 being conversational, 75 intermediate and 100 being native speaker.
-1. Skim through the Input Text and identify 0 to 3 words that may unfamiliar to someone with a fluency level of {fluency_level} AND that have not been previously defined.
-2. Consider how common a word is (the word frequency percentile) to determine how likely the user knows that word.
-3. For each of the zero to three identified words in the Input Text, provide a translation in {output_language}. Make translations short. Use context from the conversation to inform translation of homonyms.
-4. If the Input Text is in the Output Language consider translating some words back to the Input Language. Do not provide a definition for the words simply translate them back to the Input Language.
+0. Consider the fluency level of the user: {fluency_level}, with 0 being complete beginner, 50 being intermediate, 75 advanced, and 100 being native speaker.
+1. Read the Input Text and identify 0 to 1 words that may unfamiliar to someone with a fluency level of {fluency_level} AND that have not been previously defined.
+2. Consider how common a word is (the word frequency percentile) to determine how likely the user knows that word. The lower the number, the more common the word.
+3. For each of the zero to three identified words in the Input Text, provide a translation of those words into the opposite language. Make translations short.
 5. Output response using the format instructions below, provide words in the order they appear in the text. Don't redefine any words that are in the "Recently Translated" list of words.
 
 Examples:
@@ -50,15 +49,13 @@ Output 3: {{}}
 
 Input Text: `{conversation_context}`
 
-Frequency Ranking: The frequency percentile of each word tells you how common it is in daily speech (~0.1 is very common, >1.2 is rare, >13.5 is very rare). The frequency ranking of the words in the "Input Text" are: `{word_rank}`
+Frequency Ranking: The frequency percentile of each word tells you how common it is in daily speech (~0.1 is very common, >5 is rare, >15 is very rare). The higher the number, the more rare a word is. The frequency ranking of the words in the "Input Text" are: `{word_rank}`
 
 Recently Translated: `{live_translate_word_history}`
 
-Output Format: {format_instructions}
+Output Format: {format_instructions}. If no output, just return an empty list.
 
-Always translate at least 1 word.
-
-Don't output punctuation or periods! Output all lowercase! Define 1/5 of the words in the input text (never define all of the words in the input, never define highly common words like "the", "a", "it", etc.). Now provide the output:"""
+Don't output punctuation or periods! Output all lowercase! Define 1/5 of the words in the input text (never define all of the words in the input, never define highly common words like "the", "a", "it", "mother", "work", etc.). Now provide the output:"""
 
 #opposite language (either {source_language} or {target_language}, whatever is
 
@@ -67,6 +64,8 @@ Don't output punctuation or periods! Output all lowercase! Define 1/5 of the wor
 #   - 50-74 (Conversational): Translate approximately one word per sentence, selecting words that are somewhat common but might still pose challenges.
 #   - 75-99 (Intermediate): Only translate rare or complex words that an intermediate learner might not encounter frequently.
 #   - 100 (Native Speaker): No translation is necessary unless extremely rare or technical terms are used.
+
+#  Use context from the conversation to inform translation of homonyms.
 
 #A word with frequency percentile 1.5 is a little uncommon, a word with percentile 0.15 is very common, a word with percentile >=30 is super rare. Use the percentile to determine words that the user might not know, where higer number is more rare.
 
@@ -83,6 +82,9 @@ Don't output punctuation or periods! Output all lowercase! Define 1/5 of the wor
 #Source Language 4: English
 #Target Language 4: Chinese (Pinyin)
 #Output 4: {{"museum" : "bówùguǎn", "architecture" : "jiànzhú", "beautiful" : "měilì"}}
+
+# Always translate at least 1 word.
+
 
 
 #Preface Rule:
@@ -110,13 +112,18 @@ def format_list_data(data: dict) -> str:
 
 @time_function()
 async def run_language_learning_agent(conversation_context: str, word_rank: dict, target_language="Russian", transcribe_language="English", source_language="English", live_translate_word_history=""):
+    print("Running LL agent")
+    print("input convo context:")
+    print(conversation_context)
+
     # start up GPT4o connection
-    llm = get_langchain_gpt4o(temperature=0.2, max_tokens=80)
+    #llm = get_langchain_gpt4o_mini(temperature=0.2, max_tokens=80, timeout=2.0)
+    llm = get_langchain_gpt4o(temperature=0.2, max_tokens=80, timeout=1.5)
     #llm = get_langchain_gpt35(temperature=0.2, max_tokens=80)
 
     # remove punctuation
     conversation_context = conversation_context
-    fluency_level = 15  # hardcoded Example fluency level
+    fluency_level = 27  # hardcoded Example fluency level
     remove_pinyin = " (Pinyin)"
     remove_hanzi = " (Hanzi)"
     output_language = source_language.replace(remove_pinyin, "").replace(remove_hanzi, "")
@@ -155,7 +162,8 @@ async def run_language_learning_agent(conversation_context: str, word_rank: dict
     ).to_string()
 
     response = await llm.ainvoke(
-        [HumanMessage(content=language_learning_agent_query_prompt_string)])
+            [HumanMessage(content=language_learning_agent_query_prompt_string)], 
+        )
 
     try:
         translated_words = language_learning_agent_query_parser.parse(
@@ -177,13 +185,16 @@ async def run_language_learning_agent(conversation_context: str, word_rank: dict
             return pinyin_output
 
         # Apply Pinyin conversion if needed
+        print("should convert to pinyin?")
         if "Pinyin" in target_language or "Pinyin" in source_language:
+            print("--- YES!")
             translated_words_pinyin = {chinese_to_pinyin(word): chinese_to_pinyin(translated_words_rare[word]) if isinstance(translated_words_rare[word], str) and any('\u4e00' <= char <= '\u9fff' for char in translated_words_rare[word]) else translated_words_rare[word] for word in translated_words_rare}
 
             # Convert input words to Pinyin if the source language contains Pinyin
             if "Pinyin" in source_language:
                 translated_words_pinyin = {chinese_to_pinyin(word): translation for word, translation in translated_words_pinyin.items()}
         else:
+            print("--- NO!")
             translated_words_pinyin = translated_words_rare
 
         # Drop any repeats and then pack into list
@@ -192,6 +203,9 @@ async def run_language_learning_agent(conversation_context: str, word_rank: dict
         for word, translation in translated_words_pinyin.items():
             if word not in live_translate_word_history_set:  # Check if word is not in the already translated words
                 translated_words_obj.append({"in_word": word, "in_word_translation": translation})
+
+        print("GOT RESPONSE")
+        print(translated_words_obj)
 
         return translated_words_obj
     except OutputParserException as e:

@@ -98,10 +98,10 @@ async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank
     source_language.replace(remove_pinyin, "")
     target_language.replace(remove_pinyin, "")
 
-    print("target_language")
-    print(target_language)
-    print("source language")
-    print(source_language)
+#    print("target_language")
+#    print(target_language)
+#    print("source language")
+#    print(source_language)
 
     class LLWordSuggestUpgradeAgentQuery(BaseModel):
         """

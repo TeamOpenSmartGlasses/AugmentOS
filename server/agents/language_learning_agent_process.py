@@ -11,7 +11,7 @@ from constants import LANGUAGE_LEARNING_AGENT
 
 db_handler = DatabaseHandler(parent_handler=False)
 
-time_between_iterations = 0.5
+time_between_iterations = 1.2
 timelength_of_usable_transcripts = time_between_iterations * 20
 
 def start_language_learning_agent_processing_loop():
@@ -66,9 +66,10 @@ async def process_transcript(transcript: str):
 
     #get word frequencies to represent how common words are
     word_frequency_percentiles = get_word_frequency_percentiles(transcript['text'], transcribe_language)
+    print(word_frequency_percentiles)
 
     #get previous word definitons for last few minutes
-    live_translate_word_history = db_handler.get_recent_language_learning_words_defined_history_for_user(transcript['user_id'], n_seconds=30)
+    live_translate_word_history = db_handler.get_recent_language_learning_words_defined_history_for_user(transcript['user_id'], n_seconds=60)
 
     #run the language learning agent
     words_to_show = await run_language_learning_agent(transcript['text'], word_frequency_percentiles, target_language, transcribe_language, source_language, live_translate_word_history)

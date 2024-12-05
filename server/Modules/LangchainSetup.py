@@ -21,7 +21,7 @@ def get_langchain_gpt4(temperature=GPT_TEMPERATURE, model=GPT_4_MODEL, max_token
         return ChatOpenAI(temperature=temperature, openai_api_key=openai_api_key, model=model, max_tokens=max_tokens)
 
 
-def get_langchain_gpt4o(temperature=GPT_TEMPERATURE, model=GPT_4O_MODEL, max_tokens=GPT_4_MAX_TOKENS):
+def get_langchain_gpt4o(temperature=GPT_TEMPERATURE, model=GPT_4O_MODEL, max_tokens=GPT_4_MAX_TOKENS, timeout=None):
     if use_azure_openai:
         return AzureChatOpenAI(openai_api_key=azure_openai_api_key,
                                azure_endpoint=azure_openai_api_base,
@@ -29,11 +29,13 @@ def get_langchain_gpt4o(temperature=GPT_TEMPERATURE, model=GPT_4O_MODEL, max_tok
                                deployment_name=azure_openai_api_gpt4o_deployment,
                                temperature=temperature,
                                max_tokens=max_tokens,
+                               timeout=timeout,
+                               max_retries=0
                                )
     else:
         return ChatOpenAI(temperature=temperature, openai_api_key=openai_api_key, model=model, max_tokens=max_tokens)
 
-def get_langchain_gpt4o_mini(temperature=GPT_TEMPERATURE, model=GPT_4O_MINI_MODEL, max_tokens=GPT_4_MAX_TOKENS):
+def get_langchain_gpt4o_mini(temperature=GPT_TEMPERATURE, model=GPT_4O_MINI_MODEL, max_tokens=GPT_4_MAX_TOKENS, timeout=None):
     if use_azure_openai:
         return AzureChatOpenAI(openai_api_key=azure_openai_api_key,
                                azure_endpoint=azure_openai_api_base,
@@ -41,6 +43,8 @@ def get_langchain_gpt4o_mini(temperature=GPT_TEMPERATURE, model=GPT_4O_MINI_MODE
                                deployment_name=azure_openai_api_gpt4omini_deployment,
                                temperature=temperature,
                                max_tokens=max_tokens,
+                               timeout=timeout,
+                               max_retries=0
                                )
     else:
         return ChatOpenAI(temperature=temperature, openai_api_key=openai_api_key, model=model, max_tokens=max_tokens)
