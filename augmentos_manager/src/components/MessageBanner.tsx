@@ -4,8 +4,8 @@ import { bluetoothService } from "../BluetoothService";
 import { MOCK_CONNECTION } from "../consts";
 
 export default function MessageBanner() {
-    const [message, setMessage] = useState<string | null>('This is a success banner! (We also have error banners and those are pretty dope too)');
-    const [type, setType] = useState<string | null>('success');
+    const [message, setMessage] = useState<string | null>(null);
+    const [type, setType] = useState<string | null>(null);
     const slideAnim = new Animated.Value(-100);
 
   useEffect(() => {
