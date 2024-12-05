@@ -139,11 +139,11 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private final long adhdSummaryShowTime = 10 * 60 * 1000; // define in milliseconds
     private final long llUpgradeShowTime = 5 * 60 * 1000; // define in milliseconds
     private final long llCombineShowTime = 5 * 60 * 1000; // define in milliseconds
-    private final int maxDefinedWordsShow = 4;
-    private final int maxLLCombineShow = 5;
+    private final int maxDefinedWordsShow = 2;
+    private final int maxLLCombineShow = 2;
     private final int maxAdhdStmbShowNum = 3;
     private final int maxContextConvoResponsesShow = 2;
-    private final int maxLLUpgradeResponsesShow = 2;
+    private final int maxLLUpgradeResponsesShow = 1;
     private final int charsPerTranscript = 90;
     private final int charsPerHanziTranscript = 36;
 
@@ -216,7 +216,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
 //        startNotificationService();
 
         // load pinyin converter in the background
-        new Thread(this::loadSegmenter).start();
+//        new Thread(this::loadSegmenter).start();
 //        if (
 //            (super.getSelectedLiveCaptionsTranslation(this) == 1 && getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)")) ||
 //            (super.getSelectedLiveCaptionsTranslation(this) == 2 && (getChosenSourceLanguage(this).equals("Chinese (Pinyin)") ||
@@ -613,7 +613,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     }
 
     private long lastSentTime = 0;
-    private final long DEBOUNCE_DELAY = 250; // in milliseconds
+    private final long DEBOUNCE_DELAY = 125; // in milliseconds
     private void debounceAndSendTranscript(String transcript, boolean isFinal) {
         debounceHandler.removeCallbacks(debounceRunnable);
         long currentTime = System.currentTimeMillis();
@@ -1186,6 +1186,8 @@ public class AugmentosService extends SmartGlassesAndroidService {
 //            }
             String [] llCombineResults = calculateLLCombineResponseFormatted(getLLCombineResponse());
             String newLineSeparator = isLiveCaptionsChecked ? "\n" : "\n\n";
+            Log.d(TAG, "GOT NEW LL RESULTS:");
+            Log.d(TAG, llCombineResults[0]);
             if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
                 String textWallString = Arrays.stream(llCombineResults)
                         .reduce((a, b) -> b + newLineSeparator + a)
@@ -1215,7 +1217,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
                 if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString, false);
                 else {
-                    displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), false, true, false));
+                    displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), true, true, false));
                 }
             }
             List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
@@ -1231,7 +1233,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
                 String language = toTTS.getString("language");
 //                Log.d(TAG, "Text: " + text + ", Language: " + language);
                 //sendTextToSpeech(text, language);
-                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextToSpeech(text, language), false, false, false));
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextToSpeech(text, language), true, false, false));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
