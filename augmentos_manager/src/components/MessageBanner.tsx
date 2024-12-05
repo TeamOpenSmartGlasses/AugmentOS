@@ -37,7 +37,7 @@ export default function MessageBanner() {
 
     useEffect(() => {
     if (message) {
-            const timer = setTimeout(() => setMessage(null), 15000);
+            const timer = setTimeout(() => setMessage(null), 10000);
             return () => clearTimeout(timer);
     }
   }, [message]);
