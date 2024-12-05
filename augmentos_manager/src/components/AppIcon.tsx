@@ -45,16 +45,6 @@ const AppIcon: React.FC<AppIconProps> = ({
         []
     );
 
-    if (isForegroundApp) {
-        return (
-            <ImageBackground
-                source={getAppImage(app.package_name)}
-                style={[styles.mainAppIcon, style]}
-                imageStyle={styles.appIconRounded}
-            />
-        );
-    }
-
     return (
         <View style={[styles.appWrapper]} onTouchEnd={onClick}>
             <View style={[
@@ -71,7 +61,7 @@ const AppIcon: React.FC<AppIconProps> = ({
             <Text style={[
                 styles.appName,
                 isDarkTheme ? styles.appNameDark : styles.appNameLight,
-            ]} numberOfLines={1}>
+            ]} numberOfLines={2}>
                 {app.name}
             </Text>
         </View>
