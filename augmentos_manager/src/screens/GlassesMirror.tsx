@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Animated, TextInput } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { useFocusEffect } from '@react-navigation/native';
 import NavigationBar from '../components/NavigationBar.tsx';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface Card {
   id: number;
@@ -56,83 +57,140 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
   const [filteredCards, setFilteredCards] = useState<Card[]>(cards);
   const [searchQuery, setSearchQuery] = useState('');
 
- // Change the initial values
-const [fadeAnims] = useState(() =>
-  cards.map(() => new Animated.Value(1)) // Start visible
-);
-const [slideAnims] = useState(() =>
-  cards.map(() => new Animated.Value(0)) // Start at final position
-);
-  useEffect(() => {
-    scrollViewRef.current?.scrollToEnd({ animated: false });
-  }, []);
+  // Animation refs
+  const titleFadeAnim = useRef(new Animated.Value(0)).current;
+  const titleSlideAnim = useRef(new Animated.Value(-20)).current;
+  const searchFadeAnim = useRef(new Animated.Value(0)).current;
+  const searchSlideAnim = useRef(new Animated.Value(-20)).current;
+  const [fadeAnims] = useState(() => cards.map(() => new Animated.Value(0)));
+  const [slideAnims] = useState(() => cards.map(() => new Animated.Value(50)));
 
-  useEffect(() => {
+  // Animation Functions
+  const startPulseAnimation = React.useCallback(() => {
+    pulseAnimation.setValue(1);
     Animated.loop(
       Animated.sequence([
         Animated.timing(pulseAnimation, {
           toValue: 1.0308,
           duration: 2000,
-          useNativeDriver: true,  // Changed to true
+          useNativeDriver: true,
         }),
         Animated.timing(pulseAnimation, {
           toValue: 1,
           duration: 2000,
-          useNativeDriver: true,  // Changed to true
+          useNativeDriver: true,
         }),
       ])
     ).start();
   }, [pulseAnimation]);
 
-  useEffect(() => {
-    // First set initial values instantly
-    fadeAnims.forEach(anim => anim.setValue(0));
-    slideAnims.forEach(anim => anim.setValue(50));
+  const resetAndStartHeaderAnimations = React.useCallback(() => {
+    titleFadeAnim.setValue(0);
+    titleSlideAnim.setValue(-20);
+    searchFadeAnim.setValue(0);
+    searchSlideAnim.setValue(-20);
 
-    // Small delay before starting animations
-    setTimeout(() => {
-      // Reverse the animation order - start from the last card
-      const animations = [...cards]
-        .reverse()
-        .map((_, index) => {
-          const delay = index * 50;
-          return Animated.parallel([
-            Animated.timing(fadeAnims[cards.length - 1 - index], {
-              toValue: 1,
-              duration: 500,
-              delay,
-              useNativeDriver: true,
-            }),
-            Animated.timing(slideAnims[cards.length - 1 - index], {
-              toValue: 0,
-              duration: 500,
-              delay,
-              useNativeDriver: true,
-            }),
-          ]);
-        });
+    Animated.stagger(200, [
+      Animated.parallel([
+        Animated.timing(titleFadeAnim, {
+          toValue: 1,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+        Animated.timing(titleSlideAnim, {
+          toValue: 0,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+      ]),
+      Animated.parallel([
+        Animated.timing(searchFadeAnim, {
+          toValue: 1,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+        Animated.timing(searchSlideAnim, {
+          toValue: 0,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+      ]),
+    ]).start();
+  }, [titleFadeAnim, titleSlideAnim, searchFadeAnim, searchSlideAnim]);
 
-      Animated.stagger(50, animations).start();
-    }, 100);
-  }, [cards, fadeAnims, slideAnims]);
+  useFocusEffect(
+    React.useCallback(() => {
+      const resetAndStartCardAnimations = () => {
+        fadeAnims.forEach(anim => anim.setValue(0));
+        slideAnims.forEach(anim => anim.setValue(50));
+
+        setTimeout(() => {
+          const animations = [...cards]
+            .reverse()
+            .map((_, index) => {
+              const delay = index * 50;
+              return Animated.parallel([
+                Animated.timing(fadeAnims[cards.length - 1 - index], {
+                  toValue: 1,
+                  duration: 500,
+                  delay,
+                  useNativeDriver: true,
+                }),
+                Animated.timing(slideAnims[cards.length - 1 - index], {
+                  toValue: 0,
+                  duration: 500,
+                  delay,
+                  useNativeDriver: true,
+                }),
+              ]);
+            });
+
+          Animated.stagger(50, animations).start();
+        }, 100);
+      };
+
+      resetAndStartHeaderAnimations();
+      resetAndStartCardAnimations();
+      startPulseAnimation();
+      scrollViewRef.current?.scrollToEnd({ animated: false });
+
+      return () => {
+        pulseAnimation.stopAnimation();
+        titleFadeAnim.stopAnimation();
+        titleSlideAnim.stopAnimation();
+        searchFadeAnim.stopAnimation();
+        searchSlideAnim.stopAnimation();
+        fadeAnims.forEach(anim => anim.stopAnimation());
+        slideAnims.forEach(anim => anim.stopAnimation());
+      };
+    }, [
+      cards,
+      fadeAnims,
+      slideAnims,
+      pulseAnimation,
+      titleFadeAnim,
+      titleSlideAnim,
+      searchFadeAnim,
+      searchSlideAnim,
+      resetAndStartHeaderAnimations,
+      startPulseAnimation,
+    ])
+  );
 
   const handleScroll = (event: any) => {
     const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
     const isAtBottom = layoutMeasurement.height + contentOffset.y >= contentSize.height - 20;
     setShowScrollDownButton(!isAtBottom);
 
-    // Calculate the relative position of indicators
-    const cardHeight = 200; // Card height + margin
+    const cardHeight = 200;
     const totalIndicators = cards.length;
     const maxScroll = (totalIndicators * cardHeight) - layoutMeasurement.height;
     const scrollPercent = Math.min(Math.max(contentOffset.y / maxScroll, 0), 1);
 
-    // Get indicator ScrollView max scroll height
-    const indicatorTotalHeight = totalIndicators * 46; // indicatorTouchable height
+    const indicatorTotalHeight = totalIndicators * 46;
     const indicatorVisibleHeight = layoutMeasurement.height;
     const indicatorMaxScroll = indicatorTotalHeight - indicatorVisibleHeight;
 
-    // Sync indicator position
     indicatorScrollViewRef.current?.scrollTo({
       y: scrollPercent * indicatorMaxScroll,
       animated: false,
@@ -178,45 +236,9 @@ const [slideAnims] = useState(() =>
     }
   };
 
-  const titleFadeAnim = useRef(new Animated.Value(0)).current;
-  const titleSlideAnim = useRef(new Animated.Value(-20)).current;
-  const searchFadeAnim = useRef(new Animated.Value(0)).current;
-  const searchSlideAnim = useRef(new Animated.Value(-20)).current;
-
-
-  // Add a new useEffect for the header animations
-  useEffect(() => {
-    Animated.stagger(200, [
-      Animated.parallel([
-        Animated.timing(titleFadeAnim, {
-          toValue: 1,
-          duration: 500,
-          useNativeDriver: true,
-        }),
-        Animated.timing(titleSlideAnim, {
-          toValue: 0,
-          duration: 500,
-          useNativeDriver: true,
-        }),
-      ]),
-      Animated.parallel([
-        Animated.timing(searchFadeAnim, {
-          toValue: 1,
-          duration: 500,
-          useNativeDriver: true,
-        }),
-        Animated.timing(searchSlideAnim, {
-          toValue: 0,
-          duration: 500,
-          useNativeDriver: true,
-        }),
-      ]),
-    ]).start();
-  }, [searchFadeAnim, searchSlideAnim, titleFadeAnim, titleSlideAnim]);
-
-  const renderCard = (card: Card, index: number) => {
+  const renderCard = React.useCallback((card: Card, index: number) => {
     const cardColor = getAppColor(card.name);
-    const isLastCard = index === cards.length - 1;
+    const isLastCard = index === filteredCards.length - 1;
 
     const cardStyleVariant = [
       styles.card,
@@ -276,24 +298,27 @@ const [slideAnims] = useState(() =>
         )}
       </Animated.View>
     );
-  };
+  }, [fadeAnims, filteredCards.length, isDarkTheme, pulseAnimation, slideAnims]);
 
   return (
     <View style={[styles.container, isDarkTheme ? styles.darkContainer : styles.lightContainer]}>
-      <View style={styles.titleContainer}>
-        <Animated.Text 
+      <View style={[
+        styles.titleContainer,
+        isDarkTheme ? styles.titleContainerDark : styles.titleContainerLight,
+      ]}>
+        <Animated.Text
           style={[
-            styles.title, 
+            styles.title,
             isDarkTheme ? styles.darkText : styles.lightText,
             {
               opacity: titleFadeAnim,
               transform: [{ translateY: titleSlideAnim }],
-            }
+            },
           ]}
         >
           Glasses Mirror
         </Animated.Text>
-        
+
         <Animated.View
           style={[
             styles.searchContainer,
@@ -301,19 +326,19 @@ const [slideAnims] = useState(() =>
             {
               opacity: searchFadeAnim,
               transform: [{ translateY: searchSlideAnim }],
-            }
+            },
           ]}
         >
-          <Icon 
-            name="search" 
-            size={16} 
-            color={isDarkTheme ? '#999999' : '#666666'} 
+          <MaterialCommunityIcons
+            name="magnify"
+            size={16}
+            color={isDarkTheme ? '#FFFFFF' : '#666666'}
             style={styles.searchIcon}
           />
           <TextInput
             style={[
               styles.searchInput,
-              isDarkTheme ? styles.searchInputDark : styles.searchInputLight
+              isDarkTheme ? styles.searchInputDark : styles.searchInputLight,
             ]}
             placeholder="Search mirrored apps..."
             placeholderTextColor={isDarkTheme ? '#999999' : '#666666'}
@@ -321,76 +346,76 @@ const [slideAnims] = useState(() =>
             onChangeText={handleSearch}
           />
           {searchQuery.length > 0 && (
-            <TouchableOpacity 
+            <TouchableOpacity
               onPress={() => handleSearch('')}
               style={styles.clearButton}
             >
-              <Icon 
-                name="times-circle" 
-                size={16} 
-                color={isDarkTheme ? '#999999' : '#666666'} 
+              <MaterialCommunityIcons
+                name="close-circle"
+                size={18}
+                color={isDarkTheme ? '#FFFFFF' : '#666666'}
               />
             </TouchableOpacity>
           )}
         </Animated.View>
       </View>
-      
 
-    <View style={styles.contentContainer}>
-      <View style={styles.indicatorColumn}>
-        <ScrollView
-          ref={indicatorScrollViewRef}
-          showsVerticalScrollIndicator={false}
-          style={styles.indicatorScrollView}
-          contentContainerStyle={styles.indicatorContainer}
-          scrollEnabled={true}
-          scrollEventThrottle={16}
-        >
-          {filteredCards.map((card, index) => (
-            <TouchableOpacity
-              key={card.id}
-              style={styles.indicatorTouchable}
-              onPress={() => {
-                const cardHeight = 200;
-                scrollViewRef.current?.scrollTo({
-                  y: index * cardHeight,
-                  animated: true,
-                });
-              }}
-            >
-              <View style={[styles.indicatorBox, { backgroundColor: getAppColor(card.name) }]} />
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
+      <View style={styles.contentContainer}>
+        <View style={styles.indicatorColumn}>
+          <ScrollView
+            ref={indicatorScrollViewRef}
+            showsVerticalScrollIndicator={false}
+            style={styles.indicatorScrollView}
+            contentContainerStyle={styles.indicatorContainer}
+            scrollEnabled={true}
+            scrollEventThrottle={16}
+          >
+            {filteredCards.map((card, index) => (
+              <TouchableOpacity
+                key={card.id}
+                style={styles.indicatorTouchable}
+                onPress={() => {
+                  const cardHeight = 200;
+                  scrollViewRef.current?.scrollTo({
+                    y: index * cardHeight,
+                    animated: true,
+                  });
+                }}
+              >
+                <View style={[styles.indicatorBox, { backgroundColor: getAppColor(card.name) }]} />
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </View>
+
+        <View style={styles.cardsColumn}>
+          <ScrollView
+            ref={scrollViewRef}
+            style={styles.scrollView}
+            contentContainerStyle={styles.scrollViewContent}
+            showsVerticalScrollIndicator={false}
+            onScroll={handleScroll}
+            scrollEventThrottle={16}
+            onMomentumScrollEnd={(event) => handleScroll(event)}
+          >
+            <View style={styles.cardsContainer}>
+              {filteredCards.map(renderCard)}
+            </View>
+          </ScrollView>
+        </View>
       </View>
 
-      <View style={styles.cardsColumn}>
-        <ScrollView
-          ref={scrollViewRef}
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollViewContent}
-          showsVerticalScrollIndicator={false}
-          onScroll={handleScroll}
-          scrollEventThrottle={16}
-          onMomentumScrollEnd={(event) => handleScroll(event)}
-        >
-          <View style={styles.cardsContainer}>
-            {filteredCards.map(renderCard)}
-          </View>
-        </ScrollView>
-      </View>
+      {showScrollDownButton && (
+        <TouchableOpacity style={styles.focusedScrollDownButton} onPress={handleScrollToBottom}>
+          <MaterialCommunityIcons name="arrow-down" size={24} color="white" />
+        </TouchableOpacity>
+      )}
+
+      <NavigationBar isDarkTheme={isDarkTheme} toggleTheme={() => {}} />
     </View>
-
-    {showScrollDownButton && (
-      <TouchableOpacity style={styles.focusedScrollDownButton} onPress={handleScrollToBottom}>
-        <Icon name="arrow-down" size={24} color="white" />
-      </TouchableOpacity>
-    )}
-
-    <NavigationBar isDarkTheme={isDarkTheme} toggleTheme={() => {}} />
-  </View>
-);
+  );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -403,14 +428,25 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f9fa',
   },
   titleContainer: {
-    paddingBottom: 10,
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    marginHorizontal: -20,
+    marginTop: -20,
     marginBottom: 10,
+  },
+  titleContainerDark: {
+    backgroundColor: '#333333',
+  },
+  titleContainerLight: {
+    backgroundColor: '#ffffff',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     fontFamily: 'Montserrat-Bold',
     textAlign: 'left',
+    color: '#FFFFFF',
+    marginBottom: 5,
   },
   darkText: {
     color: '#ffffff',
@@ -445,9 +481,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   indicatorBox: {
-    width: 10,  // Changed from 6 to 10
+    width: 10,
     height: 38,
-    borderRadius: 5, // Also increasing border radius to match wider width
+    borderRadius: 5,
     marginVertical: 4,
   },
   scrollView: {
@@ -469,16 +505,15 @@ const styles = StyleSheet.create({
   lastCardWrapper: {
     marginBottom: 0,
   },
-
   lastCardAnimation: {
     margin: 2,
     transformOrigin: 'center',
   },
   card: {
-    minHeight: 180, // Changed from fixed height to minHeight
+    minHeight: 180,
     borderRadius: 15,
     overflow: 'hidden',
-    flexDirection: 'column', // Ensure proper flex layout
+    flexDirection: 'column',
   },
   normalCard: {
     borderWidth: 1,
@@ -494,26 +529,24 @@ const styles = StyleSheet.create({
   },
   cardHeader: {
     width: '100%',
-    paddingVertical: 8, // Reduced from 12 to 8
+    paddingVertical: 8,
     paddingHorizontal: 16,
     justifyContent: 'center',
     alignItems: 'flex-start',
-    borderBottomWidth: 1,
-    borderBottomColor: '#dddddd',
-    flexShrink: 0, // Prevent header from shrinking
+    flexShrink: 0,
   },
   cardName: {
-    fontSize: 18, // Reduced from 20 to 18 for better fit
+    fontSize: 18,
     fontWeight: 'bold',
     fontFamily: 'Montserrat-Bold',
-    lineHeight: 24, // Added lineHeight to ensure consistent text height
+    lineHeight: 24,
   },
   cardContent: {
     fontSize: 16,
     fontFamily: 'Montserrat-Regular',
     padding: 16,
     textAlign: 'left',
-    flex: 1, // Allow content to expand
+    flex: 1,
   },
   focusedScrollDownButton: {
     position: 'absolute',
@@ -534,38 +567,37 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 10,
-    borderRadius: 10,
-    paddingHorizontal: 12,
+    paddingHorizontal: 15,
     height: 40,
+    borderRadius: 8,
   },
   searchContainerLight: {
-    backgroundColor: '#f0f0f0',
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
+    backgroundColor: '#f5f5f5',
+    borderWidth: 0,
   },
   searchContainerDark: {
-    backgroundColor: '#2d2d2d',
-    borderWidth: 1,
-    borderColor: '#404040',
+    backgroundColor: '#2c2c2c',
+    borderWidth: 0,
   },
   searchIcon: {
-    marginRight: 8,
+    marginRight: 10,
   },
   searchInput: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 14,
     height: '100%',
     padding: 0,
     fontFamily: 'Montserrat-Regular',
   },
   searchInputLight: {
-    color: '#000000',
+    color: '#333333',
   },
   searchInputDark: {
     color: '#ffffff',
   },
   clearButton: {
     padding: 4,
+    marginLeft: 10,
   },
 });
 

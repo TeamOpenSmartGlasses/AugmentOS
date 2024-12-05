@@ -160,8 +160,8 @@ mainAppIcon: {
   },
   squareBadge: {
     position: 'absolute',
-    top: -10,
-    right: -10,
+    top: -8,
+    right: -6,
     width: 20,
     height: 20,
     borderRadius: 6,

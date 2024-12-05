@@ -1,235 +1,196 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, memo } from 'react';
 import {
-  Animated, View, 
+  View,
   Text,
   FlatList,
   TouchableOpacity,
   StyleSheet,
   Image,
   TextInput,
+  Animated,
+  Easing,
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+
 import { RootStackParamList, AppStoreItem } from '../components/types';
 import NavigationBar from '../components/NavigationBar';
+import { AppStoreData } from '../data/appStoreData.ts';
 
-export const AppStoreData: AppStoreItem[] = [
-    {
-      name: 'Open Browser',
-      packagename: 'org.open.browser',
-      description:
-        'A lightweight, open-source browser that allows users to surf the web quickly and efficiently, featuring a clean interface and essential tools for a seamless browsing experience.',
-      icon_image_url:
-        'https://augmentos.org/wp-content/uploads/2024/11/output-007-2048x2048.png',
-      identifier_code: 'BROWSER1',
-      rating: 4.5,
-      downloads: 5000,
-      requirements: ['Display', 'Network Access'],
-      category: 'Tools',
-      screenshots: [
-        'https://picsum.photos/400?random=1',
-        'https://picsum.photos/400?random=2',
-        'https://picsum.photos/400?random=3',
-      ],
-      reviews: [
-        {
-          id: '1',
-          user: 'Alice',
-          avatar: 'https://i.pravatar.cc/150?img=1',
-          rating: 5,
-          comment: 'Amazing browser! Fast and reliable.',
-        },
-        {
-          id: '2',
-          user: 'Bob',
-          avatar: 'https://i.pravatar.cc/150?img=2',
-          rating: 4,
-          comment: 'Good, but needs better ad-blocking.',
-        },
-        {
-          id: '3',
-          user: 'Charlie',
-          avatar: 'https://i.pravatar.cc/150?img=3',
-          rating: 3,
-          comment: 'Could be faster.',
-        },
-        {
-          id: '4',
-          user: 'David',
-          avatar: 'https://i.pravatar.cc/150?img=4',
-          rating: 5,
-          comment: 'Best browser I\'ve ever used!',
-        },
-        {
-          id: '5',
-          user: 'Eve',
-          avatar: 'https://i.pravatar.cc/150?img=5',
-          rating: 5,
-          comment: 'I love this browser! It\'s fast and has a clean interface.',
-        },
-        {
-          id: '6',
-          user: 'Frank',
-          avatar: 'https://i.pravatar.cc/150?img=6',
-          rating: 4,
-          comment: 'This browser is great for basic browsing. It\'s fast and reliable.',
-        },
-        {
-          id: '7',
-          user: 'Grace',
-          avatar: 'https://i.pravatar.cc/150?img=7',
-          rating: 5,
-          comment: 'This browser is amazing! It\'s fast and has a clean interface.',
-        },
-        {
-          id: '8',
-          user: 'Hannah',
-          avatar: 'https://i.pravatar.cc/150?img=8',
-          rating: 5,
-          comment: 'This browser is amazing! It\'s fast and has a clean interface.',
-        },
-        {
-          id: '9',
-          user: 'Isaac',
-          avatar: 'https://i.pravatar.cc/150?img=9',
-          rating: 5,
-          comment: 'This browser is amazing! It\'s fast and has a clean interface.',
-        },
-        {
-          id: '10',
-          user: 'Jack',
-          avatar: 'https://i.pravatar.cc/150?img=10',
-          rating: 5,
-          comment: 'This browser is amazing! It\'s fast and has a clean interface.',
-        },
-        {
-          id: '11',
-          user: 'Kate',
-          avatar: 'https://i.pravatar.cc/150?img=11',
-          rating: 5,
-          comment: 'This browser is amazing! It\'s fast and has a clean interface.',
-        },
-      ],
-    },
-    {
-      name: 'Simple Notes',
-      packagename: 'org.simple.notes',
-      description:
-        'A minimalist note-taking app designed for users who prefer simplicity and efficiency, allowing them to jot down thoughts and ideas quickly without distractions.',
-      icon_image_url:
-        'https://augmentos.org/wp-content/uploads/2024/11/output-006-768x768.png',
-      identifier_code: 'NOTES1',
-      rating: 4.8,
-      downloads: 3000,
-      requirements: ['Display', 'Storage'],
-      category: 'Productivity',
-      screenshots: [
-        'https://picsum.photos/400?random=4',
-        'https://picsum.photos/400?random=5',
-      ],
-      reviews: [
-        {
-          id: '1',
-          user: 'Charlie',
-          avatar: 'https://i.pravatar.cc/150?img=3',
-          rating: 5,
-          comment: 'Perfect for quick notes.',
-        },
-        {
-          id: '2',
-          user: 'Diana',
-          avatar: 'https://i.pravatar.cc/150?img=4',
-          rating: 4,
-          comment: 'Great, but needs more customization.',
-        },
-      ],
-    },
-    {
-      name: 'Fitness Tracker',
-      packagename: 'org.fit.tracker',
-      description:
-        'Track your fitness goals with ease using this comprehensive app that monitors your workouts, progress, and health metrics, helping you stay motivated and on track.',
-      icon_image_url:
-        'https://augmentos.org/wp-content/uploads/2024/11/output-004-768x768.png',
-      identifier_code: 'FITNESS1',
-      rating: 4.9,
-      downloads: 10000,
-      requirements: ['Display', 'GPS', 'Network Access'],
-      category: 'Health',
-      screenshots: [
-        'https://picsum.photos/400?random=6',
-        'https://picsum.photos/400?random=7',
-      ],
-      reviews: [
-        {
-          id: '1',
-          user: 'Eve',
-          avatar: 'https://i.pravatar.cc/150?img=5',
-          rating: 5,
-          comment: 'Keeps me on track with my fitness goals!',
-        },
-        {
-          id: '2',
-          user: 'Frank',
-          avatar: 'https://i.pravatar.cc/150?img=6',
-          rating: 5,
-          comment: 'Best fitness tracker I’ve used.',
-        },
-      ],
-    },
-    {
-      name: 'Photo Editor',
-      packagename: 'org.photo.editor',
-      description:
-        'Edit your photos with advanced filters and tools that allow for professional-grade enhancements, making it easy to create stunning visuals for sharing or personal use.',
-      icon_image_url:
-        'https://augmentos.org/wp-content/uploads/2024/11/output-009-768x768.png',
-      identifier_code: 'PHOTO1',
-      rating: 4.7,
-      downloads: 7500,
-      requirements: ['Display', 'Storage', 'Network Access', 'Camera', 'Audio'],
-      category: 'Photography',
-      screenshots: [
-        'https://picsum.photos/400?random=8',
-        'https://picsum.photos/400?random=9',
-      ],
-      reviews: [
-        {
-          id: '1',
-          user: 'Grace',
-          avatar: 'https://i.pravatar.cc/150?img=7',
-          rating: 5,
-          comment: 'Professional-level photo editing tools!',
-        },
-        {
-          id: '2',
-          user: 'Henry',
-          avatar: 'https://i.pravatar.cc/150?img=8',
-          rating: 4,
-          comment: 'Needs more filters, but great overall.',
-        },
-      ],
-    },
-  ];
-
-
-  // Add props interface
 interface AppStoreProps {
   isDarkTheme: boolean;
 }
 
+// Custom hook for item animations
+const useItemAnimation = (index: number) => {
+  const translateY = useRef(new Animated.Value(100)).current;
+  const opacity = useRef(new Animated.Value(0)).current;
+
+  useFocusEffect(
+    React.useCallback(() => {
+      // Reset values
+      translateY.setValue(100);
+      opacity.setValue(0);
+
+      const animation = Animated.parallel([
+        Animated.timing(translateY, {
+          toValue: 0,
+          duration: 600,
+          delay: index * 150,
+          useNativeDriver: true,
+          easing: Easing.out(Easing.ease),
+        }),
+        Animated.timing(opacity, {
+          toValue: 1,
+          duration: 600,
+          delay: index * 150,
+          useNativeDriver: true,
+          easing: Easing.ease,
+        }),
+      ]);
+
+      animation.start();
+
+      return () => {
+        animation.stop();
+      };
+    }, [index, opacity, translateY])
+  );
+
+  return { translateY, opacity };
+};
+
+// Memoized App Item Component
+const AppItem = memo(({ item, index, theme, onPress }: {
+  item: AppStoreItem;
+  index: number;
+  theme: any;
+  onPress: () => void;
+}) => {
+  const { translateY, opacity } = useItemAnimation(index);
+
+  return (
+    <Animated.View
+      style={{
+        transform: [{ translateY }],
+        opacity,
+        zIndex: -index,
+
+      }}
+    >
+      <TouchableOpacity
+        style={[styles.card, {
+          backgroundColor: theme.cardBg,
+          borderColor: theme.borderColor,
+        }]}
+        onPress={onPress}
+        activeOpacity={0.9}
+      >
+        <Image source={{ uri: item.icon_image_url }} style={styles.icon} />
+        <View style={styles.cardContent}>
+          <Text style={[styles.appName, { color: theme.textColor }]}>{item.name}</Text>
+          <Text style={[styles.description, { color: theme.subTextColor }]} numberOfLines={2}>
+            {item.description}
+          </Text>
+          <View style={styles.badges}>
+            <View style={styles.badge}>
+              <MaterialCommunityIcons name="star" size={16} color="#FFD700" />
+              <Text style={[styles.ratingBadge, { color: theme.textColor }]}>
+                {item.rating.toFixed(1)}
+              </Text>
+            </View>
+            <View style={styles.badge}>
+              <MaterialCommunityIcons
+                name="download"
+                size={16}
+                color={theme.textColor}
+              />
+              <Text style={[styles.downloadBadge, { color: theme.textColor }]}>
+                {item.downloads.toLocaleString()} downloads
+              </Text>
+            </View>
+          </View>
+        </View>
+      </TouchableOpacity>
+    </Animated.View>
+  );
+});
+
+const RecommendedItem = memo(({ item, theme, onPress }: {
+  item: AppStoreItem;
+  theme: any;
+  onPress: () => void;
+}) => {
+  const scale = useRef(new Animated.Value(0.5)).current;
+  const opacity = useRef(new Animated.Value(0)).current;
+
+  useFocusEffect(
+    React.useCallback(() => {
+      // Reset values
+      scale.setValue(0.5);
+      opacity.setValue(0);
+
+      const animation = Animated.parallel([
+        Animated.spring(scale, {
+          toValue: 1,
+          tension: 50,
+          friction: 7,
+          useNativeDriver: true,
+        }),
+        Animated.timing(opacity, {
+          toValue: 1,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+      ]);
+
+      animation.start();
+
+      return () => {
+        animation.stop();
+      };
+    }, [opacity, scale])
+  );
+
+  return (
+    <Animated.View
+      style={{
+        transform: [{ scale }],
+        opacity,
+      }}
+    >
+      <TouchableOpacity
+        style={styles.recommendCard}
+        onPress={onPress}
+      >
+        <Image source={{ uri: item.icon_image_url }} style={styles.recommendIcon} />
+        <Text style={[styles.recommendAppName, { color: theme.textColor }]} numberOfLines={1}>
+          {item.name}
+        </Text>
+      </TouchableOpacity>
+    </Animated.View>
+  );
+});
 
 
 const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
   const navigation =
-      useNavigation<NativeStackNavigationProp<RootStackParamList, 'AppStore'>>();
+    useNavigation<NativeStackNavigationProp<RootStackParamList, 'AppStore'>>();
 
-    const [searchQuery, setSearchQuery] = useState('');
-    const [filteredApps, setFilteredApps] = useState(AppStoreData);
-    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredApps, setFilteredApps] = useState(AppStoreData);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-     // Theme colors
+  // Animation values for main layout
+  const headerAnimation = useRef(new Animated.Value(0)).current;
+  const searchAnimation = useRef(new Animated.Value(0)).current;
+  const categoryAnimation = useRef(new Animated.Value(-100)).current;
+  const recommendedAnimation = useRef(new Animated.Value(0)).current;
+  const listAnimation = useRef(new Animated.Value(50)).current;
+  const fadeAnimation = useRef(new Animated.Value(0)).current;
+
+  // Theme colors
   const theme = {
     backgroundColor: isDarkTheme ? '#1c1c1c' : '#f9f9f9',
     headerBg: isDarkTheme ? '#333333' : '#fff',
@@ -244,329 +205,458 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
     selectedChipText: isDarkTheme ? '#FFFFFF' : '#FFFFFF',
   };
 
-    const handleSearch = (text: string) => {
-      setSearchQuery(text);
-      filterApps(text, selectedCategory);
-    };
+  // Replace the useEffect with useFocusEffect
+  useFocusEffect(
+    React.useCallback(() => {
+      // Reset animation values when screen comes into focus
+      headerAnimation.setValue(0);
+      searchAnimation.setValue(0);
+      categoryAnimation.setValue(-100);
+      recommendedAnimation.setValue(0);
+      listAnimation.setValue(50);
+      fadeAnimation.setValue(0);
 
-    const filterApps = (query: string, category: string | null) => {
-      let apps = AppStoreData;
+      // Start animations
+      const animation = Animated.parallel([
+        Animated.timing(headerAnimation, {
+          toValue: 1,
+          duration: 800,
+          useNativeDriver: true,
+          easing: Easing.out(Easing.back(1.5)),
+        }),
+        Animated.timing(searchAnimation, {
+          toValue: 1,
+          duration: 800,
+          delay: 200,
+          useNativeDriver: true,
+          easing: Easing.out(Easing.ease),
+        }),
+        Animated.spring(categoryAnimation, {
+          toValue: 0,
+          delay: 400,
+          useNativeDriver: true,
+          bounciness: 8,
+        }),
+        Animated.timing(recommendedAnimation, {
+          toValue: 1,
+          duration: 800,
+          delay: 600,
+          useNativeDriver: true,
+        }),
+        Animated.spring(listAnimation, {
+          toValue: 0,
+          delay: 800,
+          useNativeDriver: true,
+          tension: 50,
+          friction: 7,
+        }),
+        Animated.timing(fadeAnimation, {
+          toValue: 1,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+      ]);
 
-      if (category) {
-        apps = apps.filter((app) => app.category === category);
-      }
+      animation.start();
 
-      if (query) {
-        apps = apps.filter((app) =>
-          app.name.toLowerCase().includes(query.toLowerCase())
-        );
-      }
+      return () => {
+        animation.stop();
+      };
+    }, [categoryAnimation, fadeAnimation, headerAnimation, listAnimation, recommendedAnimation, searchAnimation])
+  );
+  const handleSearch = (text: string) => {
+    setSearchQuery(text);
+    filterApps(text, selectedCategory);
+  };
 
-      setFilteredApps(apps);
-    };
+  const filterApps = (query: string, category: string | null) => {
+    let apps = AppStoreData;
 
-    const handleCategoryPress = (category: string) => {
+    if (category) {
+      apps = apps.filter((app) => app.category === category);
+    }
+
+    if (query) {
+      apps = apps.filter((app) =>
+        app.name.toLowerCase().includes(query.toLowerCase())
+      );
+    }
+
+    setFilteredApps(apps);
+  };
+
+  const handleCategoryPress = (category: string) => {
+    Animated.sequence([
+      Animated.spring(listAnimation, {
+        toValue: 20,
+        tension: 100,
+        friction: 10,
+        useNativeDriver: true,
+      }),
+      Animated.spring(listAnimation, {
+        toValue: 0,
+        tension: 50,
+        friction: 7,
+        useNativeDriver: true,
+      }),
+    ]).start();
+
+    if (category === 'All') {
+      setSelectedCategory(null);
+      filterApps(searchQuery, null);
+    } else {
       const newCategory = selectedCategory === category ? null : category;
       setSelectedCategory(newCategory);
       filterApps(searchQuery, newCategory);
-    };
-
-
-const renderItem = ({ item }: { item: AppStoreItem }) => (
-  <TouchableOpacity
-    style={[styles.card, { 
-      backgroundColor: theme.cardBg,
-      borderColor: theme.borderColor 
-    }]}
-    onPress={() => navigation.navigate('AppDetails', { app: item })}
-    activeOpacity={0.9}
-  >
-    <Image source={{ uri: item.icon_image_url }} style={styles.icon} />
-    <View style={styles.cardContent}>
-      <Text style={[styles.appName, { color: theme.textColor }]}>{item.name}</Text>
-      <Text style={[styles.description, { color: theme.subTextColor }]} numberOfLines={2}>
-        {item.description}
-      </Text>
-      <View style={styles.badges}>
-        <View style={styles.badge}>
-          <MaterialCommunityIcons name="star" size={16} color="#FFD700" />
-          <Text style={[styles.ratingBadge, { color: theme.textColor }]}>
-            {item.rating.toFixed(1)}
-          </Text>
-        </View>
-        <View style={styles.badge}>
-          <MaterialCommunityIcons 
-            name="download" 
-            size={16} 
-            color={isDarkTheme ? '#FFFFFF' : '#444444'} 
-          />
-          <Text style={[styles.downloadBadge, { color: theme.textColor }]}>
-            {item.downloads.toLocaleString()} downloads
-          </Text>
-        </View>
-      </View>
-    </View>
-  </TouchableOpacity>
-);
-
-const renderRecommendedItem = ({ item }: { item: AppStoreItem }) => (
-  <TouchableOpacity
-    style={styles.recommendCard}  // Remove the backgroundColor theme
-    onPress={() => navigation.navigate('AppDetails', { app: item })}
-  >
-    <Image source={{ uri: item.icon_image_url }} style={styles.recommendIcon} />
-    <Text style={[styles.recommendAppName, { color: theme.textColor }]} numberOfLines={1}>
-      {item.name}
-    </Text>
-  </TouchableOpacity>
-);
-
-return (
-  <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
-    {/* Header Section */}
-    <View style={[styles.headerContainer, { 
-      backgroundColor: theme.headerBg,
-      borderBottomColor: theme.borderColor 
-    }]}>
-      <Text style={[styles.header, { color: theme.textColor }]}>App Store</Text>
-      <View style={[styles.searchContainer, { backgroundColor: theme.searchBg }]}>
-        <MaterialCommunityIcons 
-          name="magnify" 
-          size={20} 
-          color={isDarkTheme ? '#FFFFFF' : '#aaaaaa'} 
-          style={styles.searchIcon} 
-        />
-        <TextInput
-          style={[styles.searchInput, { color: theme.textColor }]}
-          placeholder="Search for apps..."
-          placeholderTextColor={isDarkTheme ? '#999999' : '#aaaaaa'}
-          value={searchQuery}
-          onChangeText={handleSearch}
-        />
-      </View>
-    </View>
-
-    {/* Categories Section */}
-    <View style={styles.categoriesSection}>
-      <FlatList
-        data={[
-          'All',
-          'Productivity',
-          'Tools',
-          'Health',
-          'Photography',
-          'Education',
-          'Finance',
-          'Lifestyle',
-          'Utilities',
-        ]}
-        horizontal
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            style={[
-              styles.categoryChip,
-              { backgroundColor: theme.categoryChipBg },
-              selectedCategory === item && { backgroundColor: theme.selectedChipBg }
-            ]}
-            onPress={() => handleCategoryPress(item)}
-          >
-            <Text style={[
-              styles.categoryText,
-              { color: theme.categoryChipText },
-              selectedCategory === item && { color: theme.selectedChipText }
-            ]}>
-              {item}
-            </Text>
-          </TouchableOpacity>
-        )}
-        keyExtractor={(item, index) => index.toString()}
-        contentContainerStyle={styles.categoriesList}
-      />
-    </View>
-
-    {/* Recommended Section */}
-    <View style={styles.recommendSection}>
-      <Text style={[styles.recommendHeader, { color: theme.textColor }]}>
-        Recommended for You
-      </Text>
-      <FlatList
-        data={AppStoreData}
-        horizontal
-        renderItem={renderRecommendedItem}
-        keyExtractor={(item) => item.identifier_code}
-        contentContainerStyle={styles.recommendList}
-      />
-    </View>
-
-    {/* App List */}
-    <FlatList
-      data={filteredApps}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.identifier_code}
-      contentContainerStyle={styles.listContent}
-    />
-
-    {/* Bottom Navigation Bar */}
-    <View style={[styles.navigationBarContainer, { 
-      backgroundColor: theme.headerBg,
-      borderTopColor: theme.borderColor 
-    }]}>
-      <NavigationBar toggleTheme={() => {}} isDarkTheme={isDarkTheme} />
-    </View>
-  </View>
-);
-
+    }
   };
 
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#f9f9f9',
-    },
-    headerContainer: {
-      backgroundColor: '#fff',
-      paddingVertical: 15,
-      paddingHorizontal: 15,
-      borderBottomWidth: 1,
-      borderBottomColor: '#e0e0e0',
-    },
-    header: {
-      fontSize: 22,
-      fontWeight: '600',
-      color: '#333',
-      textAlign: 'center',
-    },
-    searchContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      marginTop: 10,
-      backgroundColor: '#f5f5f5',
-      borderRadius: 8,
-      paddingHorizontal: 15,
-    },
-    searchIcon: {
-      marginRight: 10,
-    },
-    searchInput: {
-      height: 40,
-      flex: 1,
-      fontSize: 16,
-      color: '#333',
-    },
-    categoriesSection: {
-      marginTop: 15,
-      paddingHorizontal: 15,
-    },
-    categoriesList: {
-      flexDirection: 'row',
-      gap: 8,
-    },
-    categoryChip: {
-      paddingVertical: 8,
-      paddingHorizontal: 15,
-      backgroundColor: '#e9e9e9',
-      borderRadius: 20,
-      marginRight: 10,
-    },
-    selectedCategoryChip: {
-      backgroundColor: '#333',
-    },
-    categoryText: {
-      fontSize: 14,
-      fontWeight: '500',
-      color: '#555',
-    },
-    selectedCategoryText: {
-      color: '#fff',
-    },
-    recommendSection: {
-      marginTop: 20,
-      paddingHorizontal: 15,
-      marginBottom: 15,
-    },
-    recommendHeader: {
-      fontSize: 18,
-      fontWeight: '500',
-      color: '#444',
-      marginBottom: 10,
-    },
-    recommendList: {
-      paddingHorizontal: 5,
-    },
-    recommendCard: {
-      width: 80,
-      marginRight: 10,
-      alignItems: 'center',
-    },
-    recommendIcon: {
-      width: 50,
-      height: 50,
-      borderRadius: 8,
-      marginBottom: 5,
-    },
-    recommendAppName: {
-      fontSize: 12,
-      fontWeight: '600',
-      color: '#333',
-      textAlign: 'center',
-    },
-    listContent: {
-      paddingHorizontal: 15,
-      paddingBottom: 80,
-    },
-    card: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      marginBottom: 10,
-      padding: 10,
-      backgroundColor: '#fff',
-      borderRadius: 8,
-      borderWidth: 1,
-      borderColor: '#e0e0e0',
-    },
-    icon: {
-      width: 50,
-      height: 50,
-      borderRadius: 4,
-      marginRight: 10,
-    },
-    cardContent: {
-      flex: 1,
-    },
-    appName: {
-      fontSize: 14,
-      fontWeight: 'bold',
-      color: '#333',
-    },
-    description: {
-      fontSize: 12,
-      color: '#666',
-    },
-    badges: {
-      flexDirection: 'row',
-      marginTop: 5,
-    },
-    badge: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      marginRight: 10,
-    },
-    ratingBadge: {
-      fontSize: 12,
-      color: '#444',
-    },
-    downloadBadge: {
-      fontSize: 12,
-      color: '#444',
-    },
-    navigationBarContainer: {
-      position: 'absolute',
-      bottom: 0,
-      width: '100%',
-      backgroundColor: '#fff',
-      borderTopWidth: 1,
-      borderTopColor: '#e0e0e0',
-    },
-  });
+  const renderItem = ({ item, index }: { item: AppStoreItem; index: number }) => (
+    <AppItem
+      item={item}
+      index={index}
+      theme={theme}
+      onPress={() => navigation.navigate('AppDetails', { app: item })}
+    />
+  );
 
-  export default AppStore;
+  const renderRecommendedItem = ({ item }: { item: AppStoreItem }) => (
+    <RecommendedItem
+      item={item}
+      theme={theme}
+      onPress={() => navigation.navigate('AppDetails', { app: item })}
+    />
+  );
+
+  const renderCategory = ({ item }: { item: string }) => (
+    <TouchableOpacity
+      style={[
+        styles.categoryChip,
+        { backgroundColor: theme.categoryChipBg },
+        selectedCategory === item && { backgroundColor: theme.selectedChipBg },
+      ]}
+      onPress={() => handleCategoryPress(item)}
+    >
+      <Text
+        style={[
+          styles.categoryText,
+          { color: theme.categoryChipText },
+          selectedCategory === item && { color: theme.selectedChipText },
+        ]}
+      >
+        {item}
+      </Text>
+    </TouchableOpacity>
+  );
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
+      <Animated.View
+        style={[
+          styles.headerContainer,
+          {
+            backgroundColor: theme.headerBg,
+            borderBottomColor: theme.borderColor,
+            transform: [{ translateY: headerAnimation.interpolate({
+              inputRange: [0, 1],
+              outputRange: [-50, 0],
+            }) }],
+            opacity: headerAnimation,
+          },
+        ]}
+      >
+        <Text style={[styles.header, { color: theme.textColor }]}>App Store</Text>
+        <Animated.View
+  style={[
+    styles.searchContainer,
+    {
+      backgroundColor: theme.searchBg,
+      transform: [{ scale: searchAnimation }],
+      opacity: searchAnimation,
+    },
+  ]}
+>
+  <MaterialCommunityIcons
+    name="magnify"
+    size={20}
+    color={isDarkTheme ? '#FFFFFF' : '#aaaaaa'}
+    style={styles.searchIcon}
+  />
+  <TextInput
+    style={[styles.searchInput, { color: theme.textColor }]}
+    placeholder="Search for apps..."
+    placeholderTextColor={isDarkTheme ? '#999999' : '#aaaaaa'}
+    value={searchQuery}
+    onChangeText={handleSearch}
+  />
+  {searchQuery.length > 0 && (
+    <TouchableOpacity
+      onPress={() => handleSearch('')}
+      style={styles.clearButton}
+    >
+      <MaterialCommunityIcons
+        name="close-circle"
+        size={18}
+        color={isDarkTheme ? '#999999' : '#aaaaaa'}
+      />
+    </TouchableOpacity>
+  )}
+</Animated.View>
+      </Animated.View>
+
+      <Animated.View
+        style={[
+          styles.categoriesSection,
+          {
+            transform: [{ translateX: categoryAnimation }],
+          },
+        ]}
+      >
+        <FlatList
+          data={[
+            'All',
+            'Social',
+            'Productivity',
+            'Navigation',
+            'Artificial Intelligence',
+            'Utilities',
+            'Accessibility',
+            'Health',
+          ]}
+          horizontal
+          renderItem={renderCategory}
+          keyExtractor={(item) => item}
+          contentContainerStyle={styles.categoriesList}
+          showsHorizontalScrollIndicator={false}
+        />
+      </Animated.View>
+
+      <Animated.View
+        style={[
+          styles.recommendSection,
+          {
+            opacity: recommendedAnimation,
+          },
+        ]}
+      >
+        <Text style={[styles.recommendHeader, { color: theme.textColor }]}>
+          Recommended for You
+        </Text>
+        <FlatList
+          data={AppStoreData.slice(0, 5)}
+          horizontal
+          renderItem={renderRecommendedItem}
+          keyExtractor={(item) => item.identifier_code}
+          contentContainerStyle={styles.recommendList}
+          showsHorizontalScrollIndicator={false}
+        />
+      </Animated.View>
+
+      <Animated.View
+        style={[
+          styles.animatedList,
+          {
+            transform: [{ translateY: listAnimation }],
+            opacity: fadeAnimation,
+          },
+        ]}
+      >
+        <FlatList
+  data={filteredApps}
+  renderItem={renderItem}
+  keyExtractor={(item) => item.identifier_code}
+  contentContainerStyle={styles.listContent}
+  showsVerticalScrollIndicator={false}
+  windowSize={5} // Add this to optimize performance
+  maxToRenderPerBatch={5} // Add this to optimize performance
+  removeClippedSubviews={true} // Add this to optimize performance
+/>
+      </Animated.View>
+
+      <Animated.View
+        style={[
+          styles.navigationBarContainer,
+          {
+            backgroundColor: theme.headerBg,
+            borderTopColor: theme.borderColor,
+            opacity: fadeAnimation,
+          },
+        ]}
+      >
+        <NavigationBar toggleTheme={() => {}} isDarkTheme={isDarkTheme} />
+      </Animated.View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f9f9f9',
+  },
+  headerContainer: {
+    backgroundColor: '#fff',
+    paddingVertical: 15,
+    paddingHorizontal: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: '600',
+    color: '#333',
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
+    backgroundColor: '#f5f5f5',
+    borderRadius: 8,
+    paddingHorizontal: 15,
+  },
+  searchIcon: {
+    marginRight: 10,
+  },
+  searchInput: {
+    height: 40,
+    flex: 1,
+    fontSize: 14,
+    color: '#333',
+  },
+  categoriesSection: {
+    marginTop: 15,
+    paddingHorizontal: 15,
+  },
+  categoriesList: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  categoryChip: {
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+    backgroundColor: '#e9e9e9',
+    borderRadius: 20,
+    marginRight: 10,
+  },
+  categoryText: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#555',
+  },
+  recommendSection: {
+    marginTop: 15,
+    paddingHorizontal: 15,
+    marginBottom: 20,
+  },
+  recommendHeader: {
+    fontSize: 22,
+    fontWeight: '700',
+    color: '#444',
+    marginBottom: 15},
+  recommendList: {
+  },
+  recommendCard: {
+    width: 85,
+    marginRight: 15,
+    alignItems: 'center',
+  },
+  recommendIcon: {
+    width: 60,
+    height: 60,
+    borderRadius: 12,
+    marginBottom: 8,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 3,
+  },
+  recommendAppName: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#333',
+    textAlign: 'center',
+    width: '100%',
+  },
+  listContent: {
+    paddingHorizontal: 15,
+    paddingBottom: 80,
+  },
+  card: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+    padding: 10,
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  clearButton: {
+    padding: 8,
+    marginLeft: 4,
+    marginRight: -4,
+  },
+  icon: {
+    width: 50,
+    height: 50,
+    borderRadius: 4,
+    marginRight: 10,
+  },
+  cardContent: {
+    flex: 1,
+  },
+  appName: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#333',
+  },
+  description: {
+    fontSize: 12,
+    color: '#666',
+    marginTop: 4,
+  },
+  badges: {
+    flexDirection: 'row',
+    marginTop: 5,
+  },
+  badge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginRight: 10,
+  },
+  ratingBadge: {
+    fontSize: 12,
+    color: '#444',
+    marginLeft: 4,
+  },
+  downloadBadge: {
+    fontSize: 12,
+    color: '#444',
+  },
+  animatedList: {
+    flex: 1,
+  },
+  navigationBarContainer: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    backgroundColor: '#fff',
+    borderTopWidth: 1,
+    borderTopColor: '#e0e0e0',
+    paddingBottom: 20, // Add padding for safe area
+  },
+});
+
+export default AppStore;

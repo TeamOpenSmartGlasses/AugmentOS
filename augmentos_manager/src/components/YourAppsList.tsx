@@ -8,7 +8,7 @@ import { bluetoothService } from '../BluetoothService';
 const { width } = Dimensions.get('window');
 const ITEMS_PER_PAGE = 4;
 const PAGE_WIDTH = width;
-const HORIZONTAL_PADDING = 10;
+const HORIZONTAL_PADDING = 11;
 const ITEM_GAP = 20;
 const ANIMATION_DELAY = 200;
 const ANIMATION_DURATION = 700;
@@ -133,9 +133,19 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
 
   return (
     <View style={styles.appsContainer}>
-      <Text style={[styles.sectionTitle, { color: textColor }]}>
-        Your Apps
-      </Text>
+      <View style={styles.titleContainer}>
+        <Text 
+          style={[
+            styles.sectionTitle, 
+            { color: textColor },
+            styles.adjustableText
+          ]} 
+          numberOfLines={1} 
+          adjustsFontSizeToFit
+        >
+          Your Apps
+        </Text>
+      </View>
       
       <View style={styles.contentContainer}>
         <ScrollView
@@ -190,6 +200,14 @@ const styles = StyleSheet.create({
   appsContainer: {
     marginTop: 0,
     marginBottom: 0,
+    width: '100%',
+  },
+  titleContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginLeft: 0,
+    paddingLeft: 0,
   },
   contentContainer: {
     paddingHorizontal: HORIZONTAL_PADDING,
@@ -202,6 +220,12 @@ const styles = StyleSheet.create({
     letterSpacing: 0.38,
     marginBottom: 10,
     marginTop: 10,
+    marginLeft: 0,
+    paddingLeft: 0,
+    flexShrink: 1,
+  },
+  adjustableText: {
+    minHeight: 30,
   },
   page: {
     flex: 1,

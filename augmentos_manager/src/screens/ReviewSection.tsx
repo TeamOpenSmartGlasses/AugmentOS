@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { AppStoreData } from './AppStore.tsx';
+import { AppStoreData } from '../data/appStoreData.ts';
 import SearchWithFilters from '../components/AppReview/SearchBar.tsx';
 import ReviewList from '../components/AppReview/ReviewList.tsx';
 import ReviewModal from '../components/AppReview/ReviewModal.tsx';
@@ -36,7 +36,7 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ route, isDarkTheme }) => 
   };
 
   const handleSearch = (query: string, filters: string[]) => {
-    const filtered = reviews.filter((review) => {
+    const filtered = reviews.filter((review: { user: string; comment: string; rating: number }) => {
       const matchesQuery =
         review.user.toLowerCase().includes(query.toLowerCase()) ||
         review.comment.toLowerCase().includes(query.toLowerCase());
@@ -56,7 +56,7 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ route, isDarkTheme }) => 
       comment,
     };
 
-    setFilteredReviews((prevReviews) => [...prevReviews, newReview]);
+    setFilteredReviews((prevReviews: typeof reviews) => [...prevReviews, newReview]);
     setModalVisible(false);
   };
 
@@ -77,8 +77,8 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ route, isDarkTheme }) => 
 
       {/* Scrollable Review List */}
       <ScrollView style={[styles.scrollContainer, { borderColor: themeColors.border }]}>
-        <ReviewList 
-          reviews={filteredReviews} 
+        <ReviewList
+          reviews={filteredReviews}
           onReviewPress={handleReviewPress}
           isDarkTheme={isDarkTheme}
         />
@@ -88,8 +88,8 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ route, isDarkTheme }) => 
       <AnimatedChatBubble isDarkTheme={isDarkTheme} />
 
       {/* Floating Action Button */}
-      <TouchableOpacity 
-        style={[styles.reviewBubble, { backgroundColor: themeColors.accent }]} 
+      <TouchableOpacity
+        style={[styles.reviewBubble, { backgroundColor: themeColors.accent }]}
         onPress={() => setModalVisible(true)}
       >
         <MaterialCommunityIcons name="message-reply-text" size={24} color="#fff" />
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 5,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
