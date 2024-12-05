@@ -172,7 +172,7 @@ export class BluetoothService extends EventEmitter {
   handleBondedPeripheral(data: any) {
     console.log('Bonding successful with:', data);
     // Alert.alert('Bonded', `Successfully bonded with ${data.peripheral}`);
-    this.emit('SHOW_BANNER', { message:  `Successfully bonded with ${data.peripheral}`, type: 'success' })
+    // this.emit('SHOW_BANNER', { message:  `Successfully bonded with ${data.peripheral}`, type: 'success' })
   }
 
   handleDiscoveredPeripheral(peripheral: any) {

@@ -174,7 +174,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                 </View>
                 <TouchableOpacity 
                   style={styles.disconnectButton} 
-                  onPress={bluetoothService.sendDisconnectWearable}
+                  onPress={sendDisconnectWearable}
                 >
                   <Icon name="power-off" size={18} color="white" style={styles.icon} />
                   <Text style={styles.disconnectText}>Disconnect</Text>
