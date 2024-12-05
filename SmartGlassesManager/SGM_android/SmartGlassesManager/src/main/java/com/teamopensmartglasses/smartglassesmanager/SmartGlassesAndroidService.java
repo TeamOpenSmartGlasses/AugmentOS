@@ -43,6 +43,7 @@ import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.TextToSpeec
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.EvenRealitiesG1;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.InmoAirOne;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
@@ -442,6 +443,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     // Setup for aioConnectSmartGlasses
     ArrayList<SmartGlassesDevice> smartGlassesDevices = new ArrayList<>();
     Handler aioRetryHandler = new Handler();
+    Handler connectedCheckerHandler = new Handler(); // Handler for the connected checker
     Runnable aioRetryConnectionTask = new Runnable() {
         @Override
         public void run() {
@@ -458,7 +460,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
                     connectToSmartGlasses(smartGlassesDevices.get(0));
                     smartGlassesDevices.add(smartGlassesDevices.remove(0));
-                    aioRetryHandler.postDelayed(this, 5000); // Schedule another retry if needed
+                    aioRetryHandler.postDelayed(this, 25000); // Schedule another retry if needed
                 }
                 else
                 {
@@ -473,6 +475,25 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             }
         }
     };
+
+    // Connected checker
+    Runnable connectedCheckerTask = new Runnable() {
+        @Override
+        public void run() {
+            if (smartGlassesRepresentative != null && smartGlassesRepresentative.getConnectionState() == 2) { // Check if connected
+                Toast.makeText(getApplicationContext(), "Connected to " + smartGlassesRepresentative.smartGlassesDevice.deviceModelName, Toast.LENGTH_LONG).show();
+                Log.d(TAG, "Connected to: " + smartGlassesRepresentative.smartGlassesDevice.deviceModelName);
+
+                // Stop all retries and connected checker
+                aioRetryHandler.removeCallbacks(aioRetryConnectionTask);
+                connectedCheckerHandler.removeCallbacks(this);
+            } else {
+                // Schedule the next check
+                connectedCheckerHandler.postDelayed(this, 1500);
+            }
+        }
+    };
+
     public void aioConnectSmartGlasses(){
         if (getChosenAsrFramework(this) == ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK) {
             String apiKey = getApiKey(getApplicationContext());
@@ -483,7 +504,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         }
 
         String preferred = getPreferredWearable(this.getApplicationContext());
-        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
+        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new EvenRealitiesG1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
         for (int i = 0; i < smartGlassesDevices.size(); i++){
             if (smartGlassesDevices.get(i).deviceModelName.equals(preferred)){
                 // Move to start for earliest search priority
@@ -498,6 +519,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
         //start loop
         aioRetryConnectionTask.run();
+        connectedCheckerHandler.post(connectedCheckerTask); // Start connected checker
     }
 
     public void showNoGoogleAsrDialog(){

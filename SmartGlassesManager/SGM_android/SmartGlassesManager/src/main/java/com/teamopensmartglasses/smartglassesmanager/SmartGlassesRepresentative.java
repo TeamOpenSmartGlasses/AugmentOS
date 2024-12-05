@@ -21,6 +21,7 @@ import com.teamopensmartglasses.augmentoslib.events.SendBitmapViewRequestEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetFontSizeEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
 import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.AudioWearableSGC;
+import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC;
 import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.UltraliteSGC;
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.CenteredTextViewRequestEvent;
@@ -95,8 +96,8 @@ class SmartGlassesRepresentative {
             case ULTRALITE_MCU_OS_GLASSES:
                 smartGlassesCommunicator = new UltraliteSGC(context, lifecycleOwner);
                 break;
-            case EVENREALITIES_G1_MCU_OS_GLASSES:
-                // smartGlassesCommunicator = new EvenRealitiesG1SGC(context, lifecycleOwner);
+            case EVEN_REALITIES_G1_MCU_OS_GLASSES:
+                smartGlassesCommunicator = new EvenRealitiesG1SGC(context);
                 break;
         }
 
