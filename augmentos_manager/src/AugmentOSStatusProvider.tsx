@@ -6,8 +6,9 @@ import { MOCK_CONNECTION } from './consts';
 interface AugmentOSStatusContextType {
     status: AugmentOSMainStatus;
     isSearching: boolean;
+    isConnecting: boolean;
     refreshStatus: (data: any) => void;
-    screenMirrorItems: []
+    screenMirrorItems: { id: string; name: string }[]
 }
 
 const AugmentOSStatusContext = createContext<AugmentOSStatusContextType | undefined>(undefined);
@@ -15,7 +16,8 @@ const AugmentOSStatusContext = createContext<AugmentOSStatusContextType | undefi
 export const StatusProvider = ({ children }: { children: ReactNode }) => {
     const [status, setStatus] = useState(AugmentOSParser.parseStatus({}));
     const [isSearching, setIsSearching] = useState(false);
-    const [screenMirrorItems, setScreenMirrorItems] = useState([]);
+    const [isConnecting, setIsConnecting] = useState(false);
+    const [screenMirrorItems, setScreenMirrorItems] = useState<{ id: string; name: string }[]>([]);
 
     const refreshStatus = useCallback((data: any) => {
         if (!(data && 'status' in data)) {return;}
@@ -38,12 +40,14 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
 
         const handleScanStarted = () => setIsSearching(true);
         const handleScanStopped = () => setIsSearching(false);
+        const handleConnectingStatusChanged = ({ isConnecting }: { isConnecting: boolean }) => setIsConnecting(isConnecting);
 
         if (!MOCK_CONNECTION) {
             bluetoothService.on('statusUpdateReceived', handleStatusUpdateReceived);
             bluetoothService.on('scanStarted', handleScanStarted);
             bluetoothService.on('scanStopped', handleScanStopped);
             bluetoothService.on('deviceDisconnected', handleDeviceDisconnected);
+            bluetoothService.on('connectingStatusChanged', handleConnectingStatusChanged)
         }
 
         return () => {
@@ -52,12 +56,13 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
                 bluetoothService.removeListener('scanStarted', handleScanStarted);
                 bluetoothService.removeListener('scanStopped', handleScanStopped);
                 bluetoothService.removeListener('deviceDisconnected', handleDeviceDisconnected);
+                bluetoothService.removeListener('connectingStatusChanged', handleConnectingStatusChanged);
             }
         };
     }, [refreshStatus]);
 
     return (
-        <AugmentOSStatusContext.Provider value={{ status, isSearching, refreshStatus }}>
+        <AugmentOSStatusContext.Provider value={{ isConnecting, screenMirrorItems, status, isSearching, refreshStatus }}>
             {children}
         </AugmentOSStatusContext.Provider>
     );

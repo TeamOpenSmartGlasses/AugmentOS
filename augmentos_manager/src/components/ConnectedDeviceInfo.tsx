@@ -14,7 +14,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   const slideAnim = useRef(new Animated.Value(-50)).current;
   const [connectedGlasses, setConnectedGlasses] = useState('');
 
-  const { status, isSearching, refreshStatus } = useStatus();
+  const { status, isSearching, isConnecting, refreshStatus } = useStatus();
 
   useEffect(() => {
     if (Platform.OS === 'android' && Platform.Version >= 23) {
@@ -179,9 +179,9 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
       ) : (
         <View style={styles.disconnectedContent}>
           <Text style={[styles.connectText, { color: themeStyles.textColor }]}>
-            {isSearching ? 'Connecting...' : 'No device connected'}
+            {isSearching ? 'Searching for Puck...' : isConnecting ? 'Connecting to Puck...' : 'No device connected'}
           </Text>
-          {isSearching ? (
+          {isSearching || isConnecting ? (
             <ActivityIndicator size="small" color="#2196F3" />
           ) : (
             <TouchableOpacity style={styles.connectButton} onPress={handleConnect}>
