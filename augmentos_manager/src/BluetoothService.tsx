@@ -160,6 +160,7 @@ export class BluetoothService extends EventEmitter {
 
   handleDisconnectedPeripheral(data: any) {
     if (this.connectedDevice?.id === data.peripheral) {
+      this.emit('SHOW_BANNER', { message: 'Puck disconnected', type: 'error' })
       this.isLocked = false;
       console.log('Puck disconnected:', data.peripheral);
       this.connectedDevice = null;
@@ -170,7 +171,8 @@ export class BluetoothService extends EventEmitter {
   // Handle bonded peripherals
   handleBondedPeripheral(data: any) {
     console.log('Bonding successful with:', data);
-    Alert.alert('Bonded', `Successfully bonded with ${data.peripheral}`);
+    // Alert.alert('Bonded', `Successfully bonded with ${data.peripheral}`);
+    this.emit('SHOW_BANNER', { message:  `Successfully bonded with ${data.peripheral}`, type: 'success' })
   }
 
   handleDiscoveredPeripheral(peripheral: any) {
@@ -221,7 +223,7 @@ export class BluetoothService extends EventEmitter {
       }
 
       const services = await BleManager.retrieveServices(device.id);
-      console.log('Retrieved services and characteristics:', JSON.stringify(services, null, 2));
+      // console.log('Retrieved services and characteristics:', JSON.stringify(services, null, 2));
 
       if (Platform.OS === 'android') {
         try {
@@ -243,7 +245,8 @@ export class BluetoothService extends EventEmitter {
 
       await this.sendRequestStatus();
     } catch (error) {
-      console.error('Error connecting to puck:', error);
+      // console.error('Error connecting to puck:', error);
+      this.emit('SHOW_BANNER', { message: 'Error connecting to Puck: ' + error, type: 'error' });
     }
 
     this.isConnecting = false;
@@ -256,7 +259,8 @@ export class BluetoothService extends EventEmitter {
       await BleManager.startNotification(deviceId, this.SERVICE_UUID, this.CHARACTERISTIC_UUID);
       console.log('Notifications enabled');
     } catch (error) {
-      console.error('Failed to enable notifications:', error);
+      // console.error('Failed to enable notifications:', error);
+      this.emit('SHOW_BANNER', { message: 'Failed to enable notifications: ' + error, type: 'error' });
     }
   }
 
@@ -288,8 +292,9 @@ export class BluetoothService extends EventEmitter {
       console.log('\n\nRECEIVED DATA FROM AUGMENTOS_MAIN:\n' + data + '\n\n');
       return data;
     } catch (error) {
-      console.error('Error reading characteristic:', error);
-      Alert.alert('Read Error', 'Failed to read data from device');
+      // console.error('Error reading characteristic:', error);
+      // Alert.alert('Read Error', 'Failed to read data from device');
+      this.emit('SHOW_BANNER', { message:  'Read Error - Failed to read data from device', type: 'error' })
     }
   }
 
@@ -379,8 +384,8 @@ export class BluetoothService extends EventEmitter {
       await BleManager.write(this.connectedDevice.id, this.SERVICE_UUID, this.CHARACTERISTIC_UUID, data);
       console.log('Data written successfully');
     } catch (error) {
-      console.error('Error writing characteristic:', error);
-      Alert.alert('Write Error', 'Failed to write data to device');
+      // console.error('Error writing characteristic:', error);
+      this.emit('SHOW_BANNER', { message: 'Failed to write data to device', type: 'error' })
     }
   }
 
@@ -394,8 +399,9 @@ export class BluetoothService extends EventEmitter {
       await BleManager.writeWithoutResponse(this.connectedDevice.id, this.SERVICE_UUID, this.CHARACTERISTIC_UUID, data);
       console.log('Data written without response');
     } catch (error) {
-      console.error('Error writing without response:', error);
-      Alert.alert('Write Error', 'Failed to write data without response to device');
+      //console.error('Error writing without response:', error);
+      //Alert.alert('Write Error', 'Failed to write data without response to device');
+      this.emit('SHOW_BANNER', { message: 'Failed to write data without response to device', type: 'error' })
     }
   }
 
@@ -467,7 +473,8 @@ export class BluetoothService extends EventEmitter {
       });
     } catch (error) {
       // console.error('Error writing data:', error);
-      Alert.alert('Write Error', 'Failed to write data to device: ' + error);
+      // Alert.alert('Write Error', 'Failed to write data to device: ' + error);
+      this.emit('SHOW_BANNER', { message: 'Write Error - Failed to write data to device: ' + error, type: 'error' })
       this.disconnectFromDevice();
     }
   }

@@ -16,6 +16,7 @@ import AppDetails from './screens/AppDetails';
 import Reviews from './screens/ReviewSection.tsx';
 import { StyleSheet } from 'react-native';
 import { RootStackParamList } from './components/types'; // Update path as needed
+import MessageBanner from './components/MessageBanner.tsx';
 
 // Assign the RootStackParamList to the navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -31,6 +32,7 @@ const App: React.FC = () => {
     <GestureHandlerRootView style={styles.container}>
       <NotificationListener>
         <StatusProvider>
+          <MessageBanner />
           <NavigationContainer>
             <Stack.Navigator initialRouteName="Intro">
               <Stack.Screen
@@ -60,41 +62,41 @@ const App: React.FC = () => {
               >
                 {(props) => <SettingsPage {...props} isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />}
               </Stack.Screen>
-            <Stack.Screen
-              name="AppStore"
-              options={{ title: 'App Store', headerShown: false }}
-            >
-              {(props) => <AppStore {...props} isDarkTheme={isDarkTheme} />}
-            </Stack.Screen>
-            <Stack.Screen
-  name="Reviews"
-  options={({ route }) => ({
-    title: route.params.appName ? `Reviews for ${route.params.appName}` : 'Reviews',
-    headerStyle: {
-      backgroundColor: isDarkTheme ? '#333333' : '#FFFFFF',
-    },
-    headerTintColor: isDarkTheme ? '#FFFFFF' : '#000000',
-  })}
->
-  {(props) => <Reviews {...props} isDarkTheme={isDarkTheme} />}
-</Stack.Screen>
+              <Stack.Screen
+                name="AppStore"
+                options={{ title: 'App Store', headerShown: false }}
+              >
+                {(props) => <AppStore {...props} isDarkTheme={isDarkTheme} />}
+              </Stack.Screen>
+              <Stack.Screen
+                name="Reviews"
+                options={({ route }) => ({
+                  title: route.params.appName ? `Reviews for ${route.params.appName}` : 'Reviews',
+                  headerStyle: {
+                    backgroundColor: isDarkTheme ? '#333333' : '#FFFFFF',
+                  },
+                  headerTintColor: isDarkTheme ? '#FFFFFF' : '#000000',
+                })}
+              >
+                {(props) => <Reviews {...props} isDarkTheme={isDarkTheme} />}
+              </Stack.Screen>
 
 
-<Stack.Screen
-  name="AppDetails"
-  options={({ route }) => ({
-    title: route.params.app.name || 'App Details',
-    headerStyle: {
-      backgroundColor: isDarkTheme ? '#333333' : '#FFFFFF',
-    },
-    headerTintColor: isDarkTheme ? '#FFFFFF' : '#000000', 
-    headerTitleStyle: {
-      color: isDarkTheme ? '#FFFFFF' : '#000000',
-    },
-  })}
->
-  {(props) => <AppDetails {...props} isDarkTheme={isDarkTheme} />}
-</Stack.Screen>
+              <Stack.Screen
+                name="AppDetails"
+                options={({ route }) => ({
+                  title: route.params.app.name || 'App Details',
+                  headerStyle: {
+                    backgroundColor: isDarkTheme ? '#333333' : '#FFFFFF',
+                  },
+                  headerTintColor: isDarkTheme ? '#FFFFFF' : '#000000',
+                  headerTitleStyle: {
+                    color: isDarkTheme ? '#FFFFFF' : '#000000',
+                  },
+                })}
+              >
+                {(props) => <AppDetails {...props} isDarkTheme={isDarkTheme} />}
+              </Stack.Screen>
               <Stack.Screen
                 name="ProfileSettings"
                 options={{

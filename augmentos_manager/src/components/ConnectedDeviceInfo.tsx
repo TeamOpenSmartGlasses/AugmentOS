@@ -70,8 +70,9 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     try {
       await bluetoothService.scanForDevices();
     } catch (error) {
-      Alert.alert('Error', 'Failed to start scanning for devices');
-      console.error('Scanning error:', error);
+      // Alert.alert('Error', 'Failed to start scanning for devices');
+      // console.error('Scanning error:', error);
+      bluetoothService.emit('SHOW_BANNER', { message: 'Failed to start scanning for devices', type: 'error' })
     }
   };
 
