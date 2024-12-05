@@ -11,7 +11,10 @@ const PAGE_WIDTH = width;
 const HORIZONTAL_PADDING = 11;
 const ITEM_GAP = 20;
 const ANIMATION_DELAY = 200;
-const ANIMATION_DURATION = 700;
+
+// Temporarily disable this by setting to 0; previously 700
+// TODO: This should only play once on boot. Let's solve this at a later date.
+const ANIMATION_DURATION = 0;
 
 interface AnimatedAppIconProps {
   app: any;
