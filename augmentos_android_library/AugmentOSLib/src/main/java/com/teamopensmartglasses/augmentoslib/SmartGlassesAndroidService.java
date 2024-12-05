@@ -17,14 +17,15 @@ import androidx.lifecycle.LifecycleService;
 
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-
 import java.util.UUID;
 
 //a service provided for third party apps to extend, that make it easier to create a service in Android that will continually run in the background
 public abstract class SmartGlassesAndroidService extends LifecycleService {
     // Service Binder given to clients
     private final IBinder binder = new LocalBinder();
+    public static final String TAG = "SmartGlassesAndroidService_AugmentOS";
     public static final String INTENT_ACTION = "AUGMENTOS_INTENT";
     public static final String TPA_ACTION = "tpaAction";
     public static final String ACTION_START_FOREGROUND_SERVICE = "AugmentOSLIB_ACTION_START_FOREGROUND_SERVICE";
@@ -107,9 +108,28 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     @Subscribe
     public void onKillTpaEvent(KillTpaEvent receivedEvent){
         //if(receivedEvent.uuid == this.appUUID) //TODO: Figure out implementation here...
+        Log.d(TAG, "TPA KILLING SELF");
         if(true)
         {
+            Log.d(TAG, "TPA KILLING SELF received");
+            stopForeground(true);
+            Log.d(TAG, "Foreground stopped");
             stopSelf();
+            Log.d(TAG, "Self stopped, service should end.");
         }
+    }
+
+    @Override
+    public void onCreate(){
+        super.onCreate();
+        EventBus.getDefault().register(this);
+    }
+    
+    @Override
+    public void onDestroy(){
+        Log.d(TAG, "running onDestroy");
+        EventBus.getDefault().unregister(this);
+        super.onDestroy();
+        Log.d(TAG, "ran onDestroy");
     }
 }

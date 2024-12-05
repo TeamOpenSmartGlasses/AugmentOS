@@ -118,7 +118,7 @@ public class MicrophoneLocalAndBluetooth {
 
     public MicrophoneLocalAndBluetooth(Context context, boolean useBluetoothSco, AudioChunkCallback chunkCallback) {
         this(context, chunkCallback);
-        this.shouldUseHearItBleMicrophone = true;
+        this.shouldUseHearItBleMicrophone = false;
         useBluetoothMic(useBluetoothSco);
     }
 
@@ -175,6 +175,7 @@ public class MicrophoneLocalAndBluetooth {
     }
 
     private void startRecording() {
+        Log.d(TAG, "Starting recording...");
         if (recorder != null) {
             stopRecording();
         }
@@ -208,6 +209,7 @@ public class MicrophoneLocalAndBluetooth {
 
                 @Override
                 public void onPcmDataAvailable(byte[] pcmData) {
+//                    Log.d(TAG, "GOT AUDIO DATA");
                     ByteBuffer b_buffer = ByteBuffer.allocate(pcmData.length);
                     b_buffer.put(pcmData);
                     mChunkCallback.onSuccess(b_buffer);
@@ -262,6 +264,7 @@ public class MicrophoneLocalAndBluetooth {
     private void bluetoothStateChanged(BluetoothState state) {
         if (BluetoothState.UNAVAILABLE == state && recordingInProgress.get()) {
             bluetoothAudio = false;
+            Log.d(TAG, "");
             stopRecording();
             deactivateBluetoothSco();
         } else if (BluetoothState.AVAILABLE == state && !recordingInProgress.get()) {
@@ -284,6 +287,7 @@ public class MicrophoneLocalAndBluetooth {
                 if (result < 0) {
                     Log.d(TAG, "ERROR");
                 }
+//                Log.d(TAG, "GOT AUDIO DATA");
                 b_buffer.order(ByteOrder.LITTLE_ENDIAN);
                 b_buffer.asShortBuffer().put(short_buffer);
                 if (hearItBleMicrophone != null && !hearItBleMicrophone.isConnected()) {
@@ -330,6 +334,7 @@ public class MicrophoneLocalAndBluetooth {
     };
 
     public void destroy() {
+        Log.d(TAG, "Destroying local microphone...");
         stopRecording();
 
         if (hearItBleMicrophone != null) {

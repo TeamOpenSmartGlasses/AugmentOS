@@ -51,7 +51,7 @@ public class AugmentosBlePeripheral {
     private Context context;
     private BluetoothDevice connectedDevice;
     private AdvertiseCallback advertiseCallback;
-    private Integer currentMtuSize = 23;  // Default MTU size
+    private Integer currentMtuSize = 251;  // Default MTU size
     private Map<BluetoothDevice, ByteArrayOutputStream> deviceBuffers = new HashMap<>();
     private Map<BluetoothDevice, Integer> expectedDataLength = new HashMap<>();
 
