@@ -1,5 +1,9 @@
 package com.teamopensmartglasses.augmentoslib.events;
 
-public class HomeScreenEvent {
+import java.io.Serializable;
+
+public class HomeScreenEvent  implements Serializable {
+    public static final String eventId = "homeScreenEvent";
+
     public HomeScreenEvent(){}
 }

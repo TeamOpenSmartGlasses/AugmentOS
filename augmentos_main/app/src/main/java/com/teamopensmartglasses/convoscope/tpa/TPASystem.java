@@ -21,6 +21,7 @@ import com.teamopensmartglasses.augmentoslib.events.DisplayCustomContentRequestE
 import com.teamopensmartglasses.augmentoslib.events.DoubleTextWallViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FinalScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.HomeScreenEvent;
 import com.teamopensmartglasses.augmentoslib.events.IntermediateScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardImageViewRequestEvent;
@@ -388,6 +389,9 @@ public class TPASystem {
                 break;
             case DoubleTextWallViewRequestEvent.eventId:
                 EventBus.getDefault().post((DoubleTextWallViewRequestEvent) receivedEvent.serializedEvent);
+                break;
+            case HomeScreenEvent.eventId:
+                EventBus.getDefault().post((HomeScreenEvent) receivedEvent.serializedEvent);
                 break;
             case ReferenceCardImageViewRequestEvent.eventId:
                 EventBus.getDefault().post((ReferenceCardImageViewRequestEvent) receivedEvent.serializedEvent);
