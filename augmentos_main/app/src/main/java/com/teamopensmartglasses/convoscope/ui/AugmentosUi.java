@@ -269,9 +269,10 @@ public class AugmentosUi extends Fragment {
         convoscopeModeSelector.check(R.id.radioButtonADHDGlasses);
       } else if (currentModeString.equals("Screen Mirror")) {
         convoscopeModeSelector.check(R.id.radioButtonScreenMirror);
-        if (!((MainActivity) getActivity()).isScreenCaptureServiceRunning()) {
-          ((MainActivity) getActivity()).requestScreenCapturePermission();
-        }
+        //TODO
+//        if (!((MainActivity) getActivity()).isScreenCaptureServiceRunning()) {
+//          ((MainActivity) getActivity()).requestScreenCapturePermission();
+//        }
       }
 
       Context mContext = this.getContext();
@@ -322,10 +323,11 @@ public class AugmentosUi extends Fragment {
               screenMirrorImageToggle.setEnabled(false);
               saveMode(mContext, "Screen Mirror");
 
-              // Request screen capture permission only if it's not already running
-              if (!((MainActivity) getActivity()).isScreenCaptureServiceRunning()) {
-                ((MainActivity) getActivity()).requestScreenCapturePermission();
-              }
+              //TODO
+//              // Request screen capture permission only if it's not already running
+//              if (!((MainActivity) getActivity()).isScreenCaptureServiceRunning()) {
+//                ((MainActivity) getActivity()).requestScreenCapturePermission();
+//              }
               break;
           }
         }

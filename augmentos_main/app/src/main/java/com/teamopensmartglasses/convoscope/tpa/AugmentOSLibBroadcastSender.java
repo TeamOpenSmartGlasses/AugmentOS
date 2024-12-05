@@ -14,6 +14,7 @@ import com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants;
 import com.teamopensmartglasses.augmentoslib.SmartGlassesAndroidService;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.events.CommandTriggeredEvent;
+import com.teamopensmartglasses.augmentoslib.events.HomeScreenEvent;
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -76,6 +77,9 @@ public class AugmentOSLibBroadcastSender {
 
     public void killThirdPartyApp(ThirdPartyApp tpa){
         EventBus.getDefault().post(new KillTpaEvent(tpa));
+
+        //clear the screen after killing
+        EventBus.getDefault().post(new HomeScreenEvent());
 
         // KILL IT WITH FIRE
         Intent intent = new Intent();

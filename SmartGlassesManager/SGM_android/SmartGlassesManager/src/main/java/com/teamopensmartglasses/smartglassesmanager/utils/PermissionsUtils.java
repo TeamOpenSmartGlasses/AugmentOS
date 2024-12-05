@@ -166,12 +166,13 @@ public class PermissionsUtils {
                         android.Manifest.permission.READ_PHONE_STATE
                 }, REQUEST_PERMISSION_CODE);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(mCallingActivity)) {
-            Log.d(TAG, "Requesting overlay permission");
-            Intent overlayIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                    Uri.parse("package:" + mCallingActivity));
-            overlayIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            mCallingActivity.startActivity(overlayIntent);
-        }
+        //TODO
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(mCallingActivity)) {
+//            Log.d(TAG, "Requesting overlay permission");
+//            Intent overlayIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+//                    Uri.parse("package:" + mCallingActivity));
+//            overlayIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            mCallingActivity.startActivity(overlayIntent);
+//        }
     }
 }

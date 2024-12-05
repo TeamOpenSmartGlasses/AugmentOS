@@ -18,8 +18,10 @@ import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.CommandTriggeredEvent;
 import com.teamopensmartglasses.augmentoslib.events.DisplayCustomContentRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.DoubleTextWallViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FinalScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.HomeScreenEvent;
 import com.teamopensmartglasses.augmentoslib.events.IntermediateScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardImageViewRequestEvent;
@@ -29,8 +31,6 @@ import com.teamopensmartglasses.augmentoslib.events.RegisterTpaRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStartRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStopRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
-import com.teamopensmartglasses.augmentoslib.events.SpeechRecFinalOutputEvent;
-import com.teamopensmartglasses.augmentoslib.events.SpeechRecIntermediateOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
@@ -208,26 +208,26 @@ public class TPASystem {
         augmentOsLibBroadcastSender.sendEventToTPAs(KillTpaEvent.eventId, killTpaEvent);
     }
 
-    @Subscribe
-    public void onIntermediateTranscript(SpeechRecIntermediateOutputEvent event){
-        boolean tpaIsSubscribed = true; //TODO: Hash out implementation
-        if(tpaIsSubscribed){
-            augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecIntermediateOutputEvent.eventId, event);
-        }
-    }
-
 //    @Subscribe
-//    public void onFocusChanged(FocusChangedEvent receivedEvent) {
-//        augmentOsLibBroadcastSender.sendEventToTPAs(FocusChangedEvent.eventId, receivedEvent, receivedEvent.appPackage);
+//    public void onIntermediateTranscript(SpeechRecIntermediateOutputEvent event){
+//        boolean tpaIsSubscribed = true; //TODO: Hash out implementation
+//        if(tpaIsSubscribed){
+//            augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecIntermediateOutputEvent.eventId, event);
+//        }
 //    }
-
-    @Subscribe
-    public void onFinalTranscript(SpeechRecFinalOutputEvent event){
-        boolean tpaIsSubscribed = true; //TODO: Hash out implementation
-        if(tpaIsSubscribed){
-            augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecFinalOutputEvent.eventId, event);
-        }
-    }
+//
+////    @Subscribe
+////    public void onFocusChanged(FocusChangedEvent receivedEvent) {
+////        augmentOsLibBroadcastSender.sendEventToTPAs(FocusChangedEvent.eventId, receivedEvent, receivedEvent.appPackage);
+////    }
+//
+//    @Subscribe
+//    public void onFinalTranscript(SpeechRecFinalOutputEvent event){
+//        boolean tpaIsSubscribed = true; //TODO: Hash out implementation
+//        if(tpaIsSubscribed){
+//            augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecFinalOutputEvent.eventId, event);
+//        }
+//    }
 
     @Subscribe
     public void onTranscript(SpeechRecOutputEvent event){
@@ -377,15 +377,21 @@ public class TPASystem {
         }
 
         // Check if this TPA should even be running
-        if (!checkIsThirdPartyAppRunningByPackageName(receivedEvent.sendingPackage)) {
-            Log.d(TAG, "Unknown app '" + receivedEvent.serializedEvent + "' attempting request... weird... bye felicia");
-            stopThirdPartyAppByPackageName(receivedEvent.sendingPackage);
-            return;
-        }
+//        if (!checkIsThirdPartyAppRunningByPackageName(receivedEvent.sendingPackage)) {
+//            Log.d(TAG, "Unknown app '" + receivedEvent.serializedEvent + "' attempting request... weird... bye felicia");
+//            stopThirdPartyAppByPackageName(receivedEvent.sendingPackage);
+//            return;
+//        }
 
         switch (receivedEvent.eventId) {
             case ReferenceCardSimpleViewRequestEvent.eventId:
                 EventBus.getDefault().post((ReferenceCardSimpleViewRequestEvent) receivedEvent.serializedEvent);
+                break;
+            case DoubleTextWallViewRequestEvent.eventId:
+                EventBus.getDefault().post((DoubleTextWallViewRequestEvent) receivedEvent.serializedEvent);
+                break;
+            case HomeScreenEvent.eventId:
+                EventBus.getDefault().post((HomeScreenEvent) receivedEvent.serializedEvent);
                 break;
             case ReferenceCardImageViewRequestEvent.eventId:
                 EventBus.getDefault().post((ReferenceCardImageViewRequestEvent) receivedEvent.serializedEvent);

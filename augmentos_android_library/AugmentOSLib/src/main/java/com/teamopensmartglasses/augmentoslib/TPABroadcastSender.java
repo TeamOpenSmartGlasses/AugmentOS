@@ -14,6 +14,7 @@ import com.teamopensmartglasses.augmentoslib.events.CenteredTextViewRequestEvent
 import com.teamopensmartglasses.augmentoslib.events.DoubleTextWallViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FinalScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FocusRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.HomeScreenEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardImageViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardSimpleViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.RegisterCommandRequestEvent;
@@ -114,6 +115,11 @@ public class TPABroadcastSender {
         sendEventToAugmentOS(e.eventId, e);
     }
 
+
+    @Subscribe
+    public void onSendHomeScreen(HomeScreenEvent e){
+        sendEventToAugmentOS(e.eventId, e);
+    }
 
     @Subscribe
     public void onFinalScrollingTextEvent(FinalScrollingTextRequestEvent receivedEvent){
