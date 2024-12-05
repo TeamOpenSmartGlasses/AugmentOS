@@ -38,57 +38,65 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
 
   return (
     <View style={styles.appsContainer}>
-        <Text style={[styles.sectionTitle, { color: textColor }]}>Running Apps</Text>
-        <LinearGradient
-            colors={gradientColors}
-            style={styles.gradientBackground}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-        >
-            <View style={styles.appIconsContainer}>
-                {/* Main/Highlighted Apps */}
-                {foregroundApps.map((app, index) => (
-                    <View key={index} style={styles.appWrapper}>
-                        <View style={styles.mainAppIconWrapper}>
-                            <LinearGradient
-                                colors={['#ADE7FF', '#FFB2F9', '#FFE396']}
-                                style={styles.gradientBorder}
-                                start={{ x: 0, y: 0 }}
-                                end={{ x: 1, y: 1 }}
-                            />
-                            <View style={styles.mainIconContainer}>
-                                <AppIcon
-                                    app={app}
-                                    style={styles.mainAppIcon}
-                                    onClick={() => stopApp(app.package_name)}
-                                    isForegroundApp={true}
-                                    isDarkTheme={isDarkTheme}
-                                />
-                            </View>
-                            <View style={styles.squareBadge}>
-                                <FontAwesome name="star" size={12} color="#FFFFFF" />
-                            </View>
-                        </View>
-                        <Text style={[styles.appName, { color: textColor }]} numberOfLines={1}>
-                            {app.name}
-                        </Text>
-                    </View>
-                ))}
+      <Text style={[styles.sectionTitle, { color: textColor }]}>Running Apps</Text>
+      <LinearGradient
+        colors={gradientColors}
+        style={styles.gradientBackground}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      >
 
-                {/* Other Running Apps */}
-                {runningApps.map((app, index) => (
+        {runningApps.length + foregroundApps.length > 0 ? (
+
+          <View style={styles.appIconsContainer}>
+
+            {/* Main/Highlighted Apps */}
+            {foregroundApps.map((app, index) => (
+              <View key={index} style={styles.appWrapper}>
+                <View style={styles.mainAppIconWrapper}>
+                  <LinearGradient
+                    colors={['#ADE7FF', '#FFB2F9', '#FFE396']}
+                    style={styles.gradientBorder}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 1 }}
+                  />
+                  <View style={styles.mainIconContainer}>
                     <AppIcon
-                        key={index}
-                        app={app}
-                        onClick={() => stopApp(app.package_name)}
-                        style={styles.otherAppIcon}
-                        isDarkTheme={isDarkTheme}
+                      app={app}
+                      style={styles.mainAppIcon}
+                      onClick={() => stopApp(app.package_name)}
+                      isForegroundApp={true}
+                      isDarkTheme={isDarkTheme}
                     />
-                ))}
-            </View>
-        </LinearGradient>
+                  </View>
+                  <View style={styles.squareBadge}>
+                    <FontAwesome name="star" size={12} color="#FFFFFF" />
+                  </View>
+                </View>
+              </View>
+            ))}
+
+            {/* Other Running Apps */}
+            {runningApps.map((app, index) => (
+              <AppIcon
+                key={index}
+                app={app}
+                onClick={() => stopApp(app.package_name)}
+                style={styles.otherAppIcon}
+                isDarkTheme={isDarkTheme}
+              />
+            ))}
+          </View>
+        ) : (
+          <View style={{ flex: 1, justifyContent: 'center', height: '100%' }}>
+            <Text style={{ color: textColor, textAlign: 'center'}}>
+              No running apps available
+            </Text>
+          </View>
+        )}
+      </LinearGradient>
     </View>
-);
+  );
 };
 
 const styles = StyleSheet.create({
@@ -143,13 +151,13 @@ const styles = StyleSheet.create({
     height: 65,
     position: 'absolute',
     zIndex: 2,
-},
-mainAppIcon: {
+  },
+  mainAppIcon: {
     width: '100%',
     height: '100%',
     borderRadius: 17,
-    zIndex:20
-},
+    zIndex: 20
+  },
   appName: {
     marginTop: 5,
     fontSize: 11,
@@ -177,7 +185,7 @@ mainAppIcon: {
     borderColor: '#FFFFFF',
     borderRadius: 23,
     overflow: 'hidden',
-},
+  },
 });
 
 export default RunningAppsList;
