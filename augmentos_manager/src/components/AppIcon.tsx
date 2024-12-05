@@ -20,8 +20,10 @@ const AppIcon: React.FC<AppIconProps> = ({
     const getAppImage = useMemo(
         () => (packageName: string) => {
             switch (packageName) {
-                case 'com.example.convoscope':
-                    return require('../assets/app-icons/convoscope.png');
+                case 'com.mentra.merge':
+                    return require('../assets/app-icons/mentra-merge.png');
+                case 'com.mentra.link':
+                    return require('../assets/app-icons/mentra-link.png');
                 case 'com.example.adhdaid':
                     return require('../assets/app-icons/ADHD-aid.png');
                 case 'com.translator.app':

@@ -16,36 +16,36 @@ interface GlassesMirrorProps {
 
 const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
   const [cards] = useState<Card[]>([
-    { id: 1, name: 'Convoscope', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
+    { id: 1, name: 'Mentra Merge', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
     { id: 2, name: 'ADHD Assist', content: 'Reminder to take a 10-minute break. Stretch and reset your focus.' },
     { id: 3, name: 'Translator', content: 'Currently translating your conversation from English to French in real-time.' },
     { id: 4, name: 'WeatherLens', content: 'Local forecast: Sunny, high of 75°F. Minimal rain expected today.' },
     { id: 5, name: 'Health Tracker', content: 'Youve been sitting for over 45 minutes. Time to stand up and stretch!' },
-    { id: 6, name: 'Convoscope', content: 'Important conversations saved. Topics flagged for easy navigation.' },
+    { id: 6, name: 'Mentra Merge', content: 'Important conversations saved. Topics flagged for easy navigation.' },
     { id: 7, name: 'Mindful Moments', content: 'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.' },
     { id: 8, name: 'Workout Buddy', content: 'Next exercise: 15 push-ups. Keep up the good work!' },
-    { id: 10, name: 'Convoscope', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
+    { id: 10, name: 'Mentra Merge', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
     { id: 21, name: 'ADHD Assist', content: 'Reminder to take a 10-minute break. Stretch and reset your focus.' },
     { id: 32, name: 'Translator', content: 'Currently translating your conversation from English to French in real-time.' },
     { id: 43, name: 'WeatherLens', content: 'Local forecast: Sunny, high of 75°F. Minimal rain expected today.' },
     { id: 54, name: 'Health Tracker', content: 'Youve been sitting for over 45 minutes. Time to stand up and stretch!' },
-    { id: 65, name: 'Convoscope', content: 'Important conversations saved. Topics flagged for easy navigation.' },
+    { id: 65, name: 'Mentra Merge', content: 'Important conversations saved. Topics flagged for easy navigation.' },
     { id: 76, name: 'Mindful Moments', content: 'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.' },
     { id: 87, name: 'Workout Buddy', content: 'Next exercise: 15 push-ups. Keep up the good work!' },
-    { id: 100, name: 'Convoscope', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate..' },
+    { id: 100, name: 'Mentra Merge', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate..' },
     { id: 211, name: 'ADHD Assist', content: 'Reminder to take a 10-minute break. Stretch and reset your focus.' },
     { id: 322, name: 'Translator', content: 'Currently translating your conversation from English to French in real-time.' },
     { id: 433, name: 'WeatherLens', content: 'Local forecast: Sunny, high of 75°F. Minimal rain expected today.' },
     { id: 544, name: 'Health Tracker', content: 'Youve been sitting for over 45 minutes. Time to stand up and stretch!' },
-    { id: 655, name: 'Convoscope', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
+    { id: 655, name: 'Mentra Merge', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
     { id: 766, name: 'Mindful Moments', content: 'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.' },
     { id: 877, name: 'Workout Buddy', content: 'Next exercise: 15 push-ups. Keep up the good work!' },
-    { id: 1000, name: 'Convoscope', content: 'Last 10 minutes of conversation displayed with highlights on key phrases.' },
+    { id: 1000, name: 'Mentra Merge', content: 'Last 10 minutes of conversation displayed with highlights on key phrases.' },
     { id: 2111, name: 'ADHD Assist', content: 'Reminder to take a 10-minute break. Stretch and reset your focus.' },
     { id: 3222, name: 'Translator', content: 'Currently translating your conversation from English to French in real-time.' },
     { id: 4333, name: 'WeatherLens', content: 'Local forecast: Sunny, high of 75°F. Minimal rain expected today.' },
     { id: 5444, name: 'Health Tracker', content: 'Youve been sitting for over 45 minutes. Time to stand up and stretch!' },
-    { id: 6555, name: 'Convoscope', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
+    { id: 6555, name: 'Mentra Merge', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
     { id: 7666, name: 'Mindful Moments', content: 'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.' },
     { id: 8777, name: 'Workout Buddy', content: 'Next exercise: 15 push-ups. Keep up the good work!' },
   ]);
@@ -217,7 +217,7 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
 
   const getAppColor = (name: string) => {
     switch (name) {
-      case 'Convoscope':
+      case 'Mentra Merge':
         return '#4A90E2';
       case 'ADHD Assist':
         return '#FF7F50';

@@ -2,13 +2,13 @@ import { AppStoreItem } from '../data/appstore-types.ts';
 
 export const AppStoreData: AppStoreItem[] = [
   {
-    name: 'Convoscope',
-    packagename: 'org.convoscope',
+    name: 'Mentra Merge',
+    packagename: 'com.mentra.merge',
     description:
       'Enhance your conversations with real-time social cues, emotion detection, and contextual information. Perfect for those who want to better understand and navigate social interactions.',
     icon_image_url:
       'https://augmentos.org/wp-content/uploads/2024/11/output-010-300x300.png',
-    identifier_code: 'CONVOSCOPE1',
+    identifier_code: 'MENTRAMERGE1',
     rating: 4.7,
     downloads: 7500,
     requirements: ['Display', 'Camera', 'Audio', 'Network Access'],

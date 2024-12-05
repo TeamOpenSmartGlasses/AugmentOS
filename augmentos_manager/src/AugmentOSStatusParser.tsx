@@ -64,10 +64,10 @@ export class AugmentOSParser {
     gsm: { is_connected: false, carrier: '', signal_strength: 0 },
     apps: [
       {
-        name: 'Convsoscope',
-        package_name: 'com.example.convoscope',
-        icon: '/assets/app-icons/convoscope.png',
-        description: 'Video streaming platform',
+        name: 'Mentra Merge',
+        package_name: 'com.mentra.merge',
+        icon: '/assets/app-icons/mentra-merge.png',
+        description: 'AI executive functioning aid',
         is_running: true,
         is_foreground: true,
       },
@@ -120,9 +120,9 @@ export class AugmentOSParser {
         is_foreground: false,
       },
       {
-        name: 'Language Learning',
-        package_name: 'com.example.languagelearning',
-        icon: '/assets/icons/language-learning.png',
+        name: 'Mentra Link',
+        package_name: 'com.mentra.link',
+        icon: '/assets/icons/mentra-link.png',
         description: 'Language learning app',
         is_running: false,
         is_foreground: false,
