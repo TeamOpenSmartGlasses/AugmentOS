@@ -3,16 +3,16 @@ package com.teamopensmartglasses.smartglassesmanager.supportedglasses;
 public class EvenRealitiesG1 extends SmartGlassesDevice {
     public EvenRealitiesG1() {
         deviceModelName = "Even Realities G1";
-        deviceIconName = "evenrealities_g1";
-        anySupport = false;
-        fullSupport = false;
-        glassesOs = SmartGlassesOperatingSystem.EVENREALITIES_G1_MCU_OS_GLASSES;
+        deviceIconName = "er_g1";
+        anySupport = true;
+        fullSupport = true;
+        glassesOs = SmartGlassesOperatingSystem.EVEN_REALITIES_G1_MCU_OS_GLASSES;
         hasDisplay = true;
         hasSpeakers = false;
         hasCamera = false;
-        hasInMic = true;
+        hasInMic = false;
         hasOutMic = false;
-        useScoMic = false;
-        weight = 38;
+        useScoMic = true;
+        weight = 37;
     }
 }
