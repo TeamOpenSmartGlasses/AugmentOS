@@ -35,11 +35,11 @@ const App: React.FC = () => {
           <MessageBanner />
           <NavigationContainer>
             <Stack.Navigator initialRouteName="Intro">
-              <Stack.Screen
+              {/* <Stack.Screen
                 name="Intro"
                 component={IntroScreen}
                 options={{ headerShown: false }}
-              />
+              /> */}
               <Stack.Screen
                 name="Home"
                 options={{ headerShown: false }}
