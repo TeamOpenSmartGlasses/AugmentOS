@@ -37,7 +37,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
         slideAnim.setValue(-50);
 
         // Prevent multiple animation starts
-        if (animationState.isAnimating) {return;}
+        if (animationState.isAnimating) { return; }
         animationState.isAnimating = true;
 
         Animated.parallel([
@@ -82,16 +82,16 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
           <ConnectedDeviceInfo isDarkTheme={isDarkTheme} />
         </Animated.View>
 
-        {getRunningApps().length > 0 && (
-          <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
-            <RunningAppsList isDarkTheme={isDarkTheme} />
-          </Animated.View>
-        )}
-
         {status?.apps.length > 0 ? (
-          <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
-            <YourAppsList isDarkTheme={isDarkTheme} key={Math.random()} />
-          </Animated.View>
+          <>
+            <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
+              <RunningAppsList isDarkTheme={isDarkTheme} />
+            </Animated.View>
+
+            <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
+              <YourAppsList isDarkTheme={isDarkTheme} key={Math.random()} />
+            </Animated.View>
+          </>
         ) : (
           <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
             <Text>No apps found. Visit the AugmentOS App Store to explore and download apps for your device.</Text>
