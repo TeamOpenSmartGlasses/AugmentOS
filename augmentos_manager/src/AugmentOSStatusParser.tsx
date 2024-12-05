@@ -136,10 +136,6 @@ export class AugmentOSParser {
       console.log('data good?');
       let status = data.status;
 
-      // Hacky, can remove this later
-      if (status.connected_glasses?.model_name == "Vuzix Ultralite")
-        status.connected_glasses.model_name = "Mentra Mach1";
-
       return {
         puck_connected: true,
         puck_battery_life: status.puck_battery_life ?? null,
