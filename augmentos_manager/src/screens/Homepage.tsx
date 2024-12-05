@@ -69,7 +69,8 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
 
   return (
     <View style={currentThemeStyles.container}>
-      <ScrollView>
+       {/* Margin bottom is 60 as super quick ugly hack for navbar */}
+      <ScrollView style={{marginBottom:60}}>
         <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
           <Header isDarkTheme={isDarkTheme} navigation={navigation} />
         </Animated.View>
