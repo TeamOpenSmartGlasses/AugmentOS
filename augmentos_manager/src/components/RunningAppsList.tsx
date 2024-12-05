@@ -33,8 +33,7 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
     }
   };
 
-  const runningApps = useMemo(() => status.apps.filter((app) => app.is_running && !app.is_foreground), [status]);
-  const foregroundApps = useMemo(() => status.apps.filter((app) => app.is_foreground), [status]);
+  const runningApps = useMemo(() => status.apps.filter((app) => app.is_running), [status]);
 
   return (
     <View style={styles.appsContainer}>
@@ -45,51 +44,22 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
       >
-
-        {runningApps.length + foregroundApps.length > 0 ? (
-
+        {runningApps.length > 0 ? (
           <View style={styles.appIconsContainer}>
-
-            {/* Main/Highlighted Apps */}
-            {foregroundApps.map((app, index) => (
-              <View key={index} style={styles.appWrapper}>
-                <View style={styles.mainAppIconWrapper}>
-                  <LinearGradient
-                    colors={['#ADE7FF', '#FFB2F9', '#FFE396']}
-                    style={styles.gradientBorder}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 1, y: 1 }}
-                  />
-                  <View style={styles.mainIconContainer}>
-                    <AppIcon
-                      app={app}
-                      style={styles.mainAppIcon}
-                      onClick={() => stopApp(app.package_name)}
-                      isForegroundApp={true}
-                      isDarkTheme={isDarkTheme}
-                    />
-                  </View>
-                  <View style={styles.squareBadge}>
-                    <FontAwesome name="star" size={12} color="#FFFFFF" />
-                  </View>
-                </View>
-              </View>
-            ))}
-
-            {/* Other Running Apps */}
             {runningApps.map((app, index) => (
-              <AppIcon
-                key={index}
-                app={app}
-                onClick={() => stopApp(app.package_name)}
-                style={styles.otherAppIcon}
-                isDarkTheme={isDarkTheme}
-              />
+              <View key={index}>
+                <AppIcon
+                  app={app}
+                  onClick={() => stopApp(app.package_name)}
+                  isForegroundApp={app.is_foreground}
+                  isDarkTheme={isDarkTheme}
+                />
+              </View>
             ))}
           </View>
         ) : (
           <View style={{ flex: 1, justifyContent: 'center', height: '100%' }}>
-            <Text style={{ color: textColor, textAlign: 'center'}}>
+            <Text style={{ color: textColor, textAlign: 'center' }}>
               No running apps available
             </Text>
           </View>
@@ -101,7 +71,6 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
 
 const styles = StyleSheet.create({
   appsContainer: {
-    height: height * 0.2,
     justifyContent: 'flex-start',
     marginTop: 10,
   },
@@ -117,55 +86,17 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
     borderRadius: 20,
+    paddingTop:20,
+    paddingBottom:20
   },
   appIconsContainer: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-around',
     width: '100%',
-    marginTop: 20,
+    flexWrap: 'wrap',
   },
-  appWrapper: {
-    alignItems: 'center',
-    width: 65,
-    height: 85,
-  },
-  mainAppIconWrapper: {
-    width: 65,
-    height: 65,
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'relative',
-  },
-  gradientBorder: {
-    width: 71,
-    height: 71,
-    borderRadius: 20,
-    position: 'absolute',
-    top: -3,
-    left: -3,
-    zIndex: 1,
-  },
-  mainIconContainer: {
-    width: 65,
-    height: 65,
-    position: 'absolute',
-    zIndex: 2,
-  },
-  mainAppIcon: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 17,
-    zIndex: 20
-  },
-  appName: {
-    marginTop: 5,
-    fontSize: 11,
-    fontWeight: '600',
-    fontFamily: 'Montserrat-Bold',
-    lineHeight: 16,
-    textAlign: 'center',
-  },
+
   squareBadge: {
     position: 'absolute',
     top: -8,
@@ -177,14 +108,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 3,
-  },
-  otherAppIcon: {
-    width: 65,
-    height: 65,
-    borderWidth: 1,
-    borderColor: '#FFFFFF',
-    borderRadius: 23,
-    overflow: 'hidden',
   },
 });
 

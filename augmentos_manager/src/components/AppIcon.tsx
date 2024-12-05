@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react';
 import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 import { AppInfo } from '../AugmentOSStatusParser';
+import LinearGradient from 'react-native-linear-gradient';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 interface AppIconProps {
     app: AppInfo;
@@ -10,10 +12,10 @@ interface AppIconProps {
     isDarkTheme?: boolean;
 }
 
-const AppIcon: React.FC<AppIconProps> = ({ 
-    app, 
-    isForegroundApp = false, 
-    onClick, 
+const AppIcon: React.FC<AppIconProps> = ({
+    app,
+    isForegroundApp = false,
+    onClick,
     style,
     isDarkTheme = false,
 }) => {
@@ -47,17 +49,30 @@ const AppIcon: React.FC<AppIconProps> = ({
 
     return (
         <View style={[styles.appWrapper]} onTouchEnd={onClick}>
-            <View style={[
-                styles.appIconWrapper,
-                isDarkTheme ? styles.appIconWrapperDark : styles.appIconWrapperLight,
-                style,
-            ]}>
-                <ImageBackground
-                    source={getAppImage(app.package_name)}
-                    style={styles.appIcon}
-                    imageStyle={styles.appIconRounded}
-                />
-            </View>
+            <LinearGradient colors={isForegroundApp ? ['#ADE7FF', '#FFB2F9', '#FFE396'] : ['transparent', 'transparent']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={styles.linearGradient}
+            >
+                <View style={[
+                    styles.appIconWrapper,
+                    isDarkTheme ? styles.appIconWrapperDark : styles.appIconWrapperLight,
+                    style,
+                ]}>
+                    <ImageBackground
+                        source={getAppImage(app.package_name)}
+                        style={styles.appIcon}
+                        imageStyle={styles.appIconRounded}
+                    />
+                </View>
+            </LinearGradient>
+            
+            {isForegroundApp && (
+                <View style={styles.squareBadge}>
+                    <FontAwesome name="star" size={12} color="#FFFFFF" />
+                </View>
+            )}
+
             <Text style={[
                 styles.appName,
                 isDarkTheme ? styles.appNameDark : styles.appNameLight,
@@ -69,10 +84,14 @@ const AppIcon: React.FC<AppIconProps> = ({
 };
 
 const styles = StyleSheet.create({
+    linearGradient: {
+        borderRadius: 23,
+        padding: 2,
+    },
     appWrapper: {
         alignItems: 'center',
-        height:'100%',
-        width:'100%',
+        height: '100%',
+        width: '100%',
     },
     appIconWrapper: {
         width: 65,
@@ -114,6 +133,18 @@ const styles = StyleSheet.create({
     },
     appNameDark: {
         color: '#FFFFFF',
+    },
+    squareBadge: {
+        position: 'absolute',
+        top: -8,
+        right: -6,
+        width: 20,
+        height: 20,
+        borderRadius: 6,
+        backgroundColor: '#FF438B',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 3,
     },
 });
 
