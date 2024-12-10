@@ -55,7 +55,7 @@ Recently Translated: `{live_translate_word_history}`
 
 Output Format: {format_instructions}. If no output, just return an empty list.
 
-Don't output punctuation or periods! Output all lowercase! Define 1/5 of the words in the input text (never define all of the words in the input, never define highly common words like "the", "a", "it", "mother", "work", etc.). Now provide the output:"""
+Don't output punctuation or periods! Output all lowercase! Define 1/5 of the words in the input text (never define all of the words in the input, never define highly common words like "the", "a", "it", "mother", "work", etc.). Now provide the output (DEBUG: OUTPUT AT LEAST ONE WORD FOR THIS RUN):"""
 
 #opposite language (either {source_language} or {target_language}, whatever is
 
@@ -123,11 +123,14 @@ async def run_language_learning_agent(conversation_context: str, word_rank: dict
 
     # remove punctuation
     conversation_context = conversation_context
-    fluency_level = 27  # hardcoded Example fluency level
+    fluency_level = 14  # hardcoded Example fluency level
     remove_pinyin = " (Pinyin)"
     remove_hanzi = " (Hanzi)"
     output_language = source_language.replace(remove_pinyin, "").replace(remove_hanzi, "")
     transcribe_language = transcribe_language.replace(remove_pinyin, "").replace(remove_hanzi, "")
+
+    if transcribe_language == "zh-CN":
+        transcribe_language = "Chinese"
     
     if transcribe_language == source_language:
         output_language = target_language.replace(remove_pinyin, "").replace(remove_hanzi, "")
@@ -151,6 +154,7 @@ async def run_language_learning_agent(conversation_context: str, word_rank: dict
 
     word_rank_string = format_list_data(word_rank)
 
+
     language_learning_agent_query_prompt_string = extract_language_learning_agent_query_prompt.format_prompt(
         conversation_context=conversation_context,
         source_language=source_language,
@@ -160,6 +164,8 @@ async def run_language_learning_agent(conversation_context: str, word_rank: dict
         transcribe_language=transcribe_language,
         live_translate_word_history=live_translate_word_history,
     ).to_string()
+
+    print(language_learning_agent_query_prompt_string)
 
     response = await llm.ainvoke(
             [HumanMessage(content=language_learning_agent_query_prompt_string)], 
@@ -196,6 +202,9 @@ async def run_language_learning_agent(conversation_context: str, word_rank: dict
         else:
             print("--- NO!")
             translated_words_pinyin = translated_words_rare
+
+        print("AAA - GOT RESPONSE")
+        print(translated_words_pinyin)
 
         # Drop any repeats and then pack into list
         translated_words_obj = []

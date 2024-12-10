@@ -5,11 +5,17 @@ import jieba
 # Mapping of incoming language codes to the FrequencyWords repository's folder names
 language_code_map = {
     "English": "en",
+    "en": "en",
+    "en-US": "en",
     "Spanish": "es",
     "Russian": "ru",
     # "Japanese": "ja",
     "French": "fr",
     "Chinese": "zh_cn",  # Assuming simplified Chinese; adjust if necessary for traditional
+    "zh": "zh_cn",  # Assuming simplified Chinese; adjust if necessary for traditional
+    "zh_cn": "zh_cn",  # Assuming simplified Chinese; adjust if necessary for traditional
+    "zh-CN": "zh_cn",  # Assuming simplified Chinese; adjust if necessary for traditional
+    "cn": "zh_cn",  # Assuming simplified Chinese; adjust if necessary for traditional
     "Chinese (Hanzi)": "zh_cn", # Assuming simplified Chinese; adjust if necessary for traditional
     "Chinese (Pinyin)": "zh_cn", # Assuming simplified Chinese; adjust if necessary for traditional
     "German": "de",
@@ -60,7 +66,7 @@ def get_word_frequency_percentiles(transcript: str, language_code: str) -> dict:
     total_words = len(words_dict)  # Get total words from the selected dictionary
 
     # Tokenize the transcript based on the language
-    if language_code == "Chinese" or language_code == "Chinese (Pinyin)" or language_code == "Chinese (Hanzi)":
+    if language_code == "zh-CN" or language_code == "Chinese" or language_code == "Chinese (Pinyin)":
         words = list(jieba.cut(transcript))
     else:
         words = transcript.split()
