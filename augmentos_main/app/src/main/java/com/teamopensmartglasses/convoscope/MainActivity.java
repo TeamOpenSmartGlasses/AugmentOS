@@ -137,32 +137,31 @@ public class MainActivity extends AppCompatActivity {
 
   @Override
   public void onRequestPermissionsResult(
-      int requestCode, String[] permissions, int[] grantResults) {
-    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    switch (requestCode) {
-      case PERMISSIONS_REQUEST_RECORD_AUDIO:
-        // If request is cancelled, the result arrays are empty.
-        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//          showAPIKeyDialog();
-        } else {
-          // This should nag user again if they launch without the permissions.
-          Toast.makeText(
-                  this,
-                  "This app does not work without the Microphone permission.",
-                  Toast.LENGTH_SHORT)
-              .show();
-          finish();
-        }
-        return;
-      case READ_CONTACTS_PERMISSIONS_REQUEST:
-        if (grantResults.length > 0 &&
-                grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-          //pickContact();
-        } else {
-          Toast.makeText(this, "Permission to read contacts denied", Toast.LENGTH_SHORT).show();
-        }
-      default: // Should not happen. Something we did not request.
-    }
+          int requestCode, String[] permissions, int[] grantResults) {
+      super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+      switch (requestCode) {
+          case PERMISSIONS_REQUEST_RECORD_AUDIO:
+              // If request is cancelled, the result arrays are empty.
+              if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                  // Permission granted, proceed with app initialization
+              } else {
+                  // Show toast but don't force close
+                  Toast.makeText(
+                                  this,
+                                  "This app requires Microphone permission to function properly.",
+                                  Toast.LENGTH_LONG)
+                          .show();
+              }
+              return;
+          case READ_CONTACTS_PERMISSIONS_REQUEST:
+              if (grantResults.length > 0 &&
+                      grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                  //pickContact();
+              } else {
+                  Toast.makeText(this, "Permission to read contacts denied", Toast.LENGTH_SHORT).show();
+              }
+          default: // Should not happen. Something we did not request.
+      }
   }
 
   @Override
