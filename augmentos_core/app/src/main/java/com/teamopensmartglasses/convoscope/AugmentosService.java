@@ -519,7 +519,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 //        stopNotificationService();
 
         if (blePeripheral != null) {
-            blePeripheral.stop();
+            blePeripheral.destroy();
         }
 
         if (isSmartGlassesServiceBound) {

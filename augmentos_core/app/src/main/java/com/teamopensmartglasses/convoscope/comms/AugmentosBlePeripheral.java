@@ -69,6 +69,8 @@ public class AugmentosBlePeripheral {
         this.callback = callback;  // Store callback to delegate commands
         this.parser = new AugmentOsManagerMessageParser(callback);  // Initialize the parser with callback
 
+        EventBus.getDefault().register(this);
+
         if (!context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
             Log.e(TAG, "Device does not support Bluetooth Low Energy");
             return;
@@ -189,7 +191,7 @@ public class AugmentosBlePeripheral {
 
     private void handlePairingDenied(BluetoothDevice device) {
         Log.e(TAG, "Pairing denied for device: " + device.getAddress());
-        stop();
+        stopBle();
         new Handler(Looper.getMainLooper()).postDelayed(this::start, 2000);
     }
 
@@ -533,7 +535,7 @@ public class AugmentosBlePeripheral {
 
     // Stop BLE services
     @SuppressLint("MissingPermission")
-    public void stop() {
+    public void stopBle() {
         try {
             context.unregisterReceiver(pairingRequestReceiver);
         } catch (IllegalArgumentException e) {
@@ -587,5 +589,14 @@ public class AugmentosBlePeripheral {
             }
         }
     };
+
+    public void destroy(){
+        stopBle();
+        try {
+            EventBus.getDefault().unregister(this);  // Unregister EventBus
+        } catch (IllegalArgumentException e) {
+            Log.w(TAG, "EventBus was not registered or already unregistered.");
+        }
+    }
 
 }
