@@ -1,4 +1,4 @@
-package com.augmentos_manager
+package com.teamopensmartglasses.augmentos_manager
 
 import android.app.Application
 import android.content.Context
@@ -11,7 +11,6 @@ import com.facebook.react.bridge.ReactContext
 import com.facebook.react.ReactInstanceEventListener
 import com.facebook.react.shell.MainReactPackage
 import com.facebook.soloader.SoLoader
-import com.augmentos_manager.IntentSenderPackage
 import kjd.reactnative.bluetooth.RNBluetoothClassicPackage
 import it.innove.BleManagerPackage
 import com.swmansion.reanimated.ReanimatedPackage
@@ -19,8 +18,10 @@ import com.swmansion.rnscreens.RNScreensPackage
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage
 import com.BV.LinearGradient.LinearGradientPackage
 import com.swmansion.gesturehandler.RNGestureHandlerPackage
-import com.augmentos_manager.NotificationReceiver
 import com.zoontek.rnpermissions.RNPermissionsPackage
+import com.teamopensmartglasses.augmentos_manager.NotificationReceiver
+import com.teamopensmartglasses.augmentos_manager.ManagerCoreCommsServicePackage
+import com.teamopensmartglasses.augmentos_manager.CoreServiceStarterPackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -32,7 +33,6 @@ class MainApplication : Application(), ReactApplication {
         override fun getPackages(): List<ReactPackage> {
             return listOf(
                 MainReactPackage(),
-                IntentSenderPackage(),
                 RNBluetoothClassicPackage(),
                 BleManagerPackage(),
                 ReanimatedPackage(),
@@ -40,7 +40,9 @@ class MainApplication : Application(), ReactApplication {
                 SafeAreaContextPackage(),
                 LinearGradientPackage(),
                 RNGestureHandlerPackage(),
-                RNPermissionsPackage()
+                RNPermissionsPackage(),
+                ManagerCoreCommsServicePackage(),
+                CoreServiceStarterPackage()
             )
         }
 

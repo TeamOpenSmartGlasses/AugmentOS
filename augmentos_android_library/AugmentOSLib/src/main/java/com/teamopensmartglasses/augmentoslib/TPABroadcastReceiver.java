@@ -1,5 +1,6 @@
 package com.teamopensmartglasses.augmentoslib;
 
+import static android.content.Context.RECEIVER_EXPORTED;
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.EVENT_BUNDLE;
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.EVENT_ID;
 
@@ -9,7 +10,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 
 import com.teamopensmartglasses.augmentoslib.events.CommandTriggeredEvent;
+import com.teamopensmartglasses.augmentoslib.events.CoreToManagerOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.FocusChangedEvent;
+import com.teamopensmartglasses.augmentoslib.events.GlassesPovImageEvent;
 import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
@@ -28,7 +31,7 @@ public class TPABroadcastReceiver extends BroadcastReceiver {
         this.context = myContext;
         this.filterPkg = AugmentOSGlobalConstants.TO_TPA_FILTER;
         IntentFilter intentFilter = new IntentFilter(this.filterPkg);
-        this.context.registerReceiver(this, intentFilter);
+        this.context.registerReceiver(this, intentFilter, RECEIVER_EXPORTED);
     }
 
     public void onReceive(Context context, Intent intent) {
@@ -54,6 +57,12 @@ public class TPABroadcastReceiver extends BroadcastReceiver {
                 break;
             case FocusChangedEvent.eventId:
                 EventBus.getDefault().post((FocusChangedEvent) serializedEvent);
+                break;
+            case GlassesPovImageEvent.eventId:
+                EventBus.getDefault().post((GlassesPovImageEvent) serializedEvent);
+                break;
+            case CoreToManagerOutputEvent.eventId:
+                EventBus.getDefault().post((CoreToManagerOutputEvent) serializedEvent);
                 break;
         }
     }

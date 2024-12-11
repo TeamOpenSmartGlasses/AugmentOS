@@ -1,4 +1,4 @@
-package com.augmentos_manager
+package com.teamopensmartglasses.augmentos_manager
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

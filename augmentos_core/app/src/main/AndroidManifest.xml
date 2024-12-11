@@ -93,8 +93,7 @@
 <!--          <action android:name="AUGMENTOS_INTENT" />-->
 <!--        </intent-filter>-->
         <intent-filter>
-          <action android:name="com.augmentos_manager.ACTION_SEND_JSON" />  <!-- Must match the action used in the Manager -->
-          <category android:name="android.intent.category.DEFAULT" />
+          <action android:name="ACTION_START_CORE" />  <!-- Must match the action used in the Manager -->
         </intent-filter>
     </service>
     <service android:name="com.teamopensmartglasses.convoscope.AugmentosSmartGlassesService"

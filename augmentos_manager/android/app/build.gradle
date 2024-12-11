@@ -31,9 +31,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.augmentos_manager"
+    namespace "com.teamopensmartglasses.augmentos_manager"
     defaultConfig {
-        applicationId "com.augmentos_manager"
+        applicationId "com.teamopensmartglasses.augmentos_manager"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -86,7 +86,12 @@ dependencies {
 
     // Support libraries
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
+
+    implementation project(path: ':AugmentOSLib')
+    implementation "androidx.lifecycle:lifecycle-service:2.6.1"
+    implementation("org.greenrobot:eventbus:3.3.1")
+
 }
 
 // Include custom vector icons fonts from react-native-vector-icons

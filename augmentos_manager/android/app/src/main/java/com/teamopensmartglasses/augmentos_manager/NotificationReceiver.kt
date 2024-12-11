@@ -1,4 +1,4 @@
-package com.augmentos_manager
+package com.teamopensmartglasses.augmentos_manager
 
 import android.content.BroadcastReceiver
 import android.content.Context

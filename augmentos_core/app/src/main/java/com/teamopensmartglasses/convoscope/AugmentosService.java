@@ -112,6 +112,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private final String notificationAppName = "AugmentOS_Main";
     private final String notificationDescription = "AugmentOS_Main Description";
     private final String myChannelId = "augmentos_main";
+    public static final String ACTION_START_CORE = "ACTION_START_CORE";
 
     public static final String ACTION_START_FOREGROUND_SERVICE = "MY_ACTION_START_FOREGROUND_SERVICE";
     public static final String ACTION_STOP_FOREGROUND_SERVICE = "MY_ACTION_STOP_FOREGROUND_SERVICE";
@@ -325,10 +326,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             Bundle extras = intent.getExtras();
 
             switch (action) {
+                case ACTION_START_CORE:
                 case ACTION_START_FOREGROUND_SERVICE:
                     // start the service in the foreground
                     Log.d("TEST", "starting foreground");
-                    // startForeground(myNotificationId, updateNotification());
+                    startForeground(augmentOsMainServiceNotificationId, updateNotification());
                     break;
                 case ACTION_STOP_FOREGROUND_SERVICE:
                     stopForeground(true);

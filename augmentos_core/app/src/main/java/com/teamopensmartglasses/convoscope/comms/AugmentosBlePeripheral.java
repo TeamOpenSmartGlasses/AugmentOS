@@ -20,6 +20,11 @@ import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 
+import com.teamopensmartglasses.augmentoslib.events.CoreToManagerOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.ManagerToCoreRequestEvent;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,7 +42,7 @@ public class AugmentosBlePeripheral {
 
     private static final String TAG = "AugmentOS_BLE";
     private final AugmentOsActionsCallback callback;  // Store the callback reference
-    private final AugmentOsManagerMessageParser parser;  // Store the parser instance
+    public final AugmentOsManagerMessageParser parser;  // Store the parser instance
 
     // Define custom Service and Characteristic UUIDs
     private static final UUID SERVICE_UUID = UUID.fromString("12345678-1234-5678-1234-56789abcdef0");
@@ -57,6 +62,7 @@ public class AugmentosBlePeripheral {
 
     // Declare this at the class level
     private ByteArrayOutputStream mPartialWriteBuffer = new ByteArrayOutputStream();
+    private boolean isSimulatedPuck = false;
 
     public AugmentosBlePeripheral(Context context, AugmentOsActionsCallback callback) {
         this.context = context;
@@ -78,6 +84,24 @@ public class AugmentosBlePeripheral {
         if (bluetoothAdapter == null) {
             Log.e(TAG, "BluetoothAdapter is not available");
             return;
+        }
+    }
+
+    // Specifically for Simulated Pucks
+    // Tracking this here is a little spaghetti, but that's OK for now
+    @Subscribe
+    public void onManagerToCoreRequestEvent(ManagerToCoreRequestEvent event) {
+        try {
+            Log.d(TAG,"Received ManagerToCoreRequestEvent: " + event.jsonData);
+            this.parser.parseMessage(event.jsonData);
+
+            if (!isSimulatedPuck) {
+                // this.stop();
+                this.isSimulatedPuck = true;
+            }
+        }
+        catch (Exception e){
+            Log.e(TAG, "Failed to parse ManagerToCoreRequestEvent", e);
         }
     }
 
@@ -251,6 +275,7 @@ public class AugmentosBlePeripheral {
                     // Process the complete data
                     try {
                         parser.parseMessage(completeData);
+                        isSimulatedPuck=false;
                     } catch (JSONException e) {
                         Log.e(TAG, "Invalid JSON command: " + e.getMessage());
                     }
@@ -275,6 +300,7 @@ public class AugmentosBlePeripheral {
 
                         // Process the complete data (e.g., parse JSON)
                         parser.parseMessage(completeData);
+                        isSimulatedPuck=false;
 
                         // Send a success response
                         gattServer.sendResponse(device, requestId, BluetoothGatt.GATT_SUCCESS, 0, null);
@@ -358,7 +384,13 @@ public class AugmentosBlePeripheral {
 
     @SuppressLint("MissingPermission")
     public void sendDataToAugmentOsManager(String jsonData) {
-        Log.d(TAG, "Sending data to augmentos manager");
+        if(isSimulatedPuck){
+            Log.d(TAG, "Simulated puck is active, sending data to AugmentOS Manager: " + jsonData);
+            EventBus.getDefault().post(new CoreToManagerOutputEvent(jsonData));
+            return;
+        }
+
+        Log.d(TAG, "Attempt to send data to AugmentOS_Manager via BLE");
         if (characteristic == null) {
             Log.e(TAG, "Characteristic not initialized");
             return;

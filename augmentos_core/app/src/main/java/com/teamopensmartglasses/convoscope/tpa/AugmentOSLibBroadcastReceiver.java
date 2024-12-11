@@ -1,5 +1,6 @@
 package com.teamopensmartglasses.convoscope.tpa;
 
+import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.EVENT_ID;
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.APP_PKG_NAME;
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.EVENT_BUNDLE;
@@ -18,6 +19,7 @@ import com.teamopensmartglasses.augmentoslib.events.DoubleTextWallViewRequestEve
 import com.teamopensmartglasses.augmentoslib.events.FinalScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FocusRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.HomeScreenEvent;
+import com.teamopensmartglasses.augmentoslib.events.ManagerToCoreRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardImageViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardSimpleViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.RegisterCommandRequestEvent;
@@ -84,6 +86,15 @@ public class AugmentOSLibBroadcastReceiver extends BroadcastReceiver {
                 Log.d(TAG, "Resending subscribe to data stream request event");
                 EventBus.getDefault().post((SubscribeDataStreamRequestEvent) serializedEvent);
                 break;
+            case ManagerToCoreRequestEvent.eventId:
+                Log.d(TAG, "Got a manager to core request event");
+                if(sendingPackage != null && sendingPackage.equals(AugmentOSManagerPackageName)){
+                    Log.d(TAG, "Got a command from AugmentOS_Manager");
+                    EventBus.getDefault().post((ManagerToCoreRequestEvent) serializedEvent);
+                }
+                else {
+                    Log.d(TAG, "Unauthorized package tried to send ManagerToCoreRequest: " + sendingPackage);
+                }
         }
     }
 

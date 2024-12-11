@@ -1,5 +1,7 @@
 package com.teamopensmartglasses.convoscope.tpa;
 
+import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +19,7 @@ import com.teamopensmartglasses.augmentoslib.AugmentOSCommand;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.CommandTriggeredEvent;
+import com.teamopensmartglasses.augmentoslib.events.CoreToManagerOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.DisplayCustomContentRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.DoubleTextWallViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FinalScrollingTextRequestEvent;
@@ -110,14 +113,19 @@ public class TPASystem {
                             && !serviceInfo.metaData.getString("com.augmentos.tpa.description", "").isEmpty()) {
                         Log.d(TAG, "AugmentOS TPA detected: " + packageName);
 
-                        // Build the new ThirdPartyApp
-                        return new ThirdPartyApp(
+                        ThirdPartyApp newTpa = new ThirdPartyApp(
                                 serviceInfo.metaData.getString("com.augmentos.tpa.name"),
                                 serviceInfo.metaData.getString("com.augmentos.tpa.description"),
                                 packageInfo.packageName,
                                 serviceInfo.name,
                                 new AugmentOSCommand[]{}
                         );
+
+                        // EDGE CASE: If this is the Manager, automatically start it
+                        if (packageInfo.packageName.equals(AugmentOSManagerPackageName))
+                            augmentOsLibBroadcastSender.startThirdPartyApp(newTpa);
+
+                        return newTpa;
                     }
                 }
             }
@@ -228,6 +236,11 @@ public class TPASystem {
 //            augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecFinalOutputEvent.eventId, event);
 //        }
 //    }
+
+    @Subscribe
+    public void onCoreToManagerOutputEvent(CoreToManagerOutputEvent event){
+        augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecOutputEvent.eventId, event, AugmentOSManagerPackageName);
+    }
 
     @Subscribe
     public void onTranscript(SpeechRecOutputEvent event){

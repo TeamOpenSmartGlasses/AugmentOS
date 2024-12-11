@@ -7,6 +7,7 @@ public class AugmentOSGlobalConstants {
     public static final String EVENT_ID = "EVENT_ID";
     public static final String APP_PKG_NAME = "APP_PKG_NAME";
 
+    public static final String AugmentOSManagerPackageName = "com.teamopensmartglasses.augmentos_manager";
     public static final String AugmentOSPkgName = "com.teamopensmartglasses.augmentoslib";
     public static final String FROM_TPA_FILTER = "com.teamopensmartglasses.fromtpa";
     public static final String TO_TPA_FILTER = "com.teamopensmartglasses.totpa";

@@ -15,6 +15,7 @@ import com.teamopensmartglasses.augmentoslib.events.DoubleTextWallViewRequestEve
 import com.teamopensmartglasses.augmentoslib.events.FinalScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FocusRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.HomeScreenEvent;
+import com.teamopensmartglasses.augmentoslib.events.ManagerToCoreRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardImageViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardSimpleViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.RegisterCommandRequestEvent;
@@ -112,6 +113,11 @@ public class TPABroadcastSender {
 
     @Subscribe
     public void onSendBitmap(SendBitmapViewRequestEvent e){
+        sendEventToAugmentOS(e.eventId, e);
+    }
+
+    @Subscribe
+    public void onSendDataFromManagerToCore(ManagerToCoreRequestEvent e){
         sendEventToAugmentOS(e.eventId, e);
     }
 

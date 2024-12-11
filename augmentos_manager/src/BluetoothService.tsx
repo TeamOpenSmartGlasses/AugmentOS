@@ -7,6 +7,9 @@ import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { AppState } from 'react-native';
 import { RotateInDownLeft } from 'react-native-reanimated';
 import { MOCK_CONNECTION } from './consts';
+import { loadSetting } from './augmentos_core_comms/SettingsHelper';
+const { ManagerCoreCommsService } = NativeModules;
+const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
 
 const BleManagerModule = NativeModules.BleManager;
 const bleManagerEmitter = new NativeEventEmitter(BleManagerModule);
@@ -32,15 +35,23 @@ export class BluetoothService extends EventEmitter {
 
   isLocked: boolean = false;
 
+  simulatedPuck: boolean = false;
+
   constructor() {
     super();
+  }
 
+  async initialize(){
     if (MOCK_CONNECTION) return;
+
+    this.simulatedPuck = await loadSetting('simulatedPuck', true);
 
     this.initializeBleManager();
     this.startReconnectionScan();
 
     AppState.addEventListener('change', this.handleAppStateChange.bind(this));
+
+    this.initializeCoreMessageIntentReader();
   }
 
   async initializeBleManager() {
@@ -51,6 +62,26 @@ export class BluetoothService extends EventEmitter {
     } catch (error) {
       console.error('Failed to initialize BLE Manager:', error);
     }
+  }
+
+  initializeCoreMessageIntentReader() {
+    eventEmitter.addListener('CoreMessageIntentEvent', (jsonString) => {
+      console.log('Received message from core:', jsonString);
+      try {
+        let data = JSON.parse(jsonString);
+        if (!this.connectedDevice) {
+          this.connectedDevice = {
+            id: 'fake-device-id',
+            name: 'Fake Device',
+            rssi: -50,
+          };
+        }
+
+        this.parseDataFromAugmentOsCore(data);
+      } catch (e){
+        console.error('Failed to parse JSON from core message:', e)
+      }
+    });
   }
 
   addListeners() {
@@ -89,6 +120,11 @@ export class BluetoothService extends EventEmitter {
   }
 
   async scanForDevices() {
+    if (this.simulatedPuck) {
+      this.sendConnectionCheck();
+      return;
+    }
+
     if (!(await this.isBluetoothEnabled())) {
       console.log('Bluetooth is not enabled');
       return;
@@ -138,7 +174,7 @@ export class BluetoothService extends EventEmitter {
 
   startReconnectionScan() {
     setInterval(() => {
-      if (!this.connectedDevice) {
+      if (!this.connectedDevice && !this.simulatedPuck) {
         console.log('No device connected. Starting reconnection scan...');
         this.scanForDevices();
       }
@@ -178,7 +214,7 @@ export class BluetoothService extends EventEmitter {
   handleDiscoveredPeripheral(peripheral: any) {
     console.log('Discovered peripheral:', peripheral); // Log all discovered peripherals
     if (peripheral.name === 'AugOS') {
-      if(this.connectedDevice) {
+      if (this.connectedDevice) {
         console.log("HandleDiscoverPeripheral BUT WE ARE ALREADY CONNECTED UHHH??")
       }
       console.log('Found an AugOS device... Stop scan and connect');
@@ -294,7 +330,7 @@ export class BluetoothService extends EventEmitter {
     } catch (error) {
       // console.error('Error reading characteristic:', error);
       // Alert.alert('Read Error', 'Failed to read data from device');
-      this.emit('SHOW_BANNER', { message:  'Read Error - Failed to read data from device', type: 'error' })
+      this.emit('SHOW_BANNER', { message: 'Read Error - Failed to read data from device', type: 'error' })
     }
   }
 
@@ -363,9 +399,9 @@ export class BluetoothService extends EventEmitter {
     return result;
   }
 
-  parseDataFromAugmentOsCore(jsonData: Object){
-    if(!jsonData) return;
-    if('status' in jsonData) {
+  parseDataFromAugmentOsCore(jsonData: Object) {
+    if (!jsonData) return;
+    if ('status' in jsonData) {
       this.emit('statusUpdateReceived', jsonData);
     } else if ('glasses_display_data' in jsonData) {
       // Handle screen mirror status
@@ -406,6 +442,12 @@ export class BluetoothService extends EventEmitter {
   }
 
   async sendDataToAugmentOs(dataObj: any) {
+    if(this.simulatedPuck){
+      console.log("Sending command to simulated puck/core...")
+      ManagerCoreCommsService.sendCommandToCore(JSON.stringify(dataObj));
+      return;
+    }
+
     if (!this.connectedDevice) {
       console.log('SendDataToAugmentOs: No connected device to write to');
       this.emit('deviceDisconnected');
@@ -578,3 +620,4 @@ export class BluetoothService extends EventEmitter {
 }
 
 export const bluetoothService = new BluetoothService();
+bluetoothService.initialize();

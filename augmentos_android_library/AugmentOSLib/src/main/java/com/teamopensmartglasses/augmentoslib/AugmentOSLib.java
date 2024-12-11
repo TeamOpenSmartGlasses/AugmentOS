@@ -1,5 +1,7 @@
 package com.teamopensmartglasses.augmentoslib;
 
+import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
@@ -7,12 +9,15 @@ import android.util.Log;
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.CenteredTextViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.CommandTriggeredEvent;
+import com.teamopensmartglasses.augmentoslib.events.CoreToManagerOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.DisplayCustomContentRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.DoubleTextWallViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FinalScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.FocusChangedEvent;
+import com.teamopensmartglasses.augmentoslib.events.GlassesPovImageEvent;
 import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.HomeScreenEvent;
+import com.teamopensmartglasses.augmentoslib.events.ManagerToCoreRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardImageViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardSimpleViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.RegisterCommandRequestEvent;
@@ -80,6 +85,15 @@ public class AugmentOSLib {
         }
     }
 
+    public void subscribeCoreToManagerMessages(CoreToManagerCallback callback){
+        if (!mContext.getPackageName().equals(AugmentOSManagerPackageName)) {
+            Log.d(TAG, "Attempted to subscribe to CoreToManagerMessages from a non-manager package");
+            return;
+        };
+
+        subscribedDataStreams.put(DataStreamType.CORE_SYSTEM_MESSAGE, callback);
+    }
+
     public void subscribe(DataStreamType dataStreamType, TranscriptCallback callback){
         subscribedDataStreams.put(dataStreamType, callback);
     }
@@ -89,6 +103,10 @@ public class AugmentOSLib {
     }
 
     public void subscribe(DataStreamType dataStreamType, TapCallback callback){
+        subscribedDataStreams.put(dataStreamType, callback);
+    }
+
+    public void subscribe(DataStreamType dataStreamType, GlassesPovImageCallback callback){
         subscribedDataStreams.put(dataStreamType, callback);
     }
 
@@ -165,6 +183,10 @@ public class AugmentOSLib {
         EventBus.getDefault().post(new HomeScreenEvent());
     }
 
+    public void sendDataFromManagerToCore(String jsonData) {
+        EventBus.getDefault().post(new ManagerToCoreRequestEvent(jsonData));
+    }
+
     @Subscribe
     public void onCommandTriggeredEvent(CommandTriggeredEvent receivedEvent){
         AugmentOSCommand command = receivedEvent.command;
@@ -216,6 +238,22 @@ public class AugmentOSLib {
             focusCallback.runFocusChange(event.focusState);
         }
     }
+
+    @Subscribe
+    public void onCoreToManagerEvent(CoreToManagerOutputEvent event) {
+        if (subscribedDataStreams.containsKey(DataStreamType.CORE_SYSTEM_MESSAGE)) {
+            ((CoreToManagerCallback)subscribedDataStreams.get(DataStreamType.CORE_SYSTEM_MESSAGE)).call(event.jsonData);
+        }
+    }
+
+
+    @Subscribe
+    public void onGlassesPovImageEvent(GlassesPovImageEvent event) {
+        if (subscribedDataStreams.containsKey(DataStreamType.GLASSES_POV_IMAGE)) {
+            ((GlassesPovImageCallback)subscribedDataStreams.get(DataStreamType.GLASSES_POV_IMAGE)).call(event.encodedImgString);
+        }
+    }
+
 
     public void deinit(){
         EventBus.getDefault().unregister(this);

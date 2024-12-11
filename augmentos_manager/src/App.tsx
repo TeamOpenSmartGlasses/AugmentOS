@@ -17,6 +17,7 @@ import Reviews from './screens/ReviewSection.tsx';
 import { StyleSheet } from 'react-native';
 import { RootStackParamList } from './components/types'; // Update path as needed
 import MessageBanner from './components/MessageBanner.tsx';
+import { startExternalService } from './augmentos_core_comms/CoreServiceStarter.tsx';
 
 // Assign the RootStackParamList to the navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -27,6 +28,8 @@ const App: React.FC = () => {
   const toggleTheme = () => {
     setIsDarkTheme((prevTheme) => !prevTheme);
   };
+
+  startExternalService();
 
   return (
     <GestureHandlerRootView style={styles.container}>
