@@ -8,9 +8,7 @@ android {
 
     defaultConfig {
         minSdk 30
-        targetSdk 32
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        targetSdk 33
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -23,6 +21,14 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude "com/teamopensmartglasses/augmentoslibdebugapp/BuildConfig.class"
+    }
+
+    buildFeatures {
+        buildConfig = false
     }
 }
 
