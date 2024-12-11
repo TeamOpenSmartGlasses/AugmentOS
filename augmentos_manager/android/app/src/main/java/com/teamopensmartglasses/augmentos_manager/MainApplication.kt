@@ -22,6 +22,7 @@ import com.zoontek.rnpermissions.RNPermissionsPackage
 import com.teamopensmartglasses.augmentos_manager.NotificationReceiver
 import com.teamopensmartglasses.augmentos_manager.ManagerCoreCommsServicePackage
 import com.teamopensmartglasses.augmentos_manager.CoreServiceStarterPackage
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -42,7 +43,8 @@ class MainApplication : Application(), ReactApplication {
                 RNGestureHandlerPackage(),
                 RNPermissionsPackage(),
                 ManagerCoreCommsServicePackage(),
-                CoreServiceStarterPackage()
+                CoreServiceStarterPackage(),
+                AsyncStoragePackage()
             )
         }
 
