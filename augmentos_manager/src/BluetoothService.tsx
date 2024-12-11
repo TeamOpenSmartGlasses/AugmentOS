@@ -44,7 +44,7 @@ export class BluetoothService extends EventEmitter {
   async initialize(){
     if (MOCK_CONNECTION) return;
 
-    this.simulatedPuck = await loadSetting('simulatedPuck', true);
+    this.simulatedPuck = await loadSetting('simulatedPuck', false);
 
     this.initializeBleManager();
     this.startReconnectionScan();

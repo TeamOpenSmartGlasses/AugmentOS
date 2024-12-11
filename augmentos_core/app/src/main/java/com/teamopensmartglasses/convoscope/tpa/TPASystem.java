@@ -239,7 +239,7 @@ public class TPASystem {
 
     @Subscribe
     public void onCoreToManagerOutputEvent(CoreToManagerOutputEvent event){
-        augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecOutputEvent.eventId, event, AugmentOSManagerPackageName);
+        augmentOsLibBroadcastSender.sendEventToTPAs(CoreToManagerOutputEvent.eventId, event, AugmentOSManagerPackageName);
     }
 
     @Subscribe
