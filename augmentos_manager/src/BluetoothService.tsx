@@ -9,7 +9,9 @@ import { RotateInDownLeft } from 'react-native-reanimated';
 import { MOCK_CONNECTION } from './consts';
 import { loadSetting } from './augmentos_core_comms/SettingsHelper';
 import { startExternalService } from './augmentos_core_comms/CoreServiceStarter';
-const { ManagerCoreCommsService } = NativeModules;
+//const { ManagerCoreCommsService } = NativeModules;
+//const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
+import ManagerCoreCommsService from './augmentos_core_comms/ManagerCoreCommsService';
 const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
 
 const BleManagerModule = NativeModules.BleManager;

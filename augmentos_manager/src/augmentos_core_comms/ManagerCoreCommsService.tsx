@@ -1,8 +1,10 @@
-import { NativeModules } from 'react-native';
+import { NativeModule, NativeModules } from 'react-native';
 
-interface ManagerCoreCommsServiceInterface {
+interface ManagerCoreCommsServiceInterface extends NativeModule {
   // startService: () => void;
   // stopService: () => void;
+  addListener: (eventName: string) => void;
+  removeListeners: (count: number) => void;
   sendCommandToCore: (jsonString: string) => void;
 }
 

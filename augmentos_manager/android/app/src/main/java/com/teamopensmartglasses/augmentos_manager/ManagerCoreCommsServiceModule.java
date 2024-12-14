@@ -38,9 +38,10 @@ public class ManagerCoreCommsServiceModule extends ReactContextBaseJavaModule {
         try {
             Context context = getReactApplicationContext();
             Intent serviceIntent = new Intent(context, ManagerCoreCommsService.class);
-            //serviceIntent.setAction("AugmentOSLIB_ACTION_START_FOREGROUND_SERVICE");
+            // serviceIntent.setAction("AugmentOSLIB_ACTION_START_FOREGROUND_SERVICE");
             serviceIntent.setAction("AugmentOSLIB_ACTION_START_FOREGROUND_SERVICE");
-            //serviceIntent.putExtra("tpaAction", "AugmentOSLIB_ACTION_START_FOREGROUND_SERVICE");
+            // serviceIntent.putExtra("tpaAction",
+            // "AugmentOSLIB_ACTION_START_FOREGROUND_SERVICE");
             context.startForegroundService(serviceIntent);
             Log.d(TAG, "ManagerCoreCommsService started as foreground service");
         } catch (Exception e) {
@@ -75,19 +76,21 @@ public class ManagerCoreCommsServiceModule extends ReactContextBaseJavaModule {
     public void emitMessageToJS(String eventName, String message) {
         if (reactContext.hasActiveCatalystInstance()) {
             reactContext
-                .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                .emit(eventName, message);
+                    .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                    .emit(eventName, message);
         }
     }
 
-        // AddListener Implementation
-        public void addListener(String eventName) {
-            Log.d(TAG, "addListener: Event listener added for " + eventName);
-            // No additional setup required for basic event listeners
-        }
-    
-        public void removeListeners(int count) {
-            Log.d(TAG, "removeListeners: Removed " + count + " listeners");
-            // No additional teardown required for basic event listeners
-        }
+    // AddListener Implementation
+    @ReactMethod
+    public void addListener(String eventName) {
+        Log.d(TAG, "addListener: Event listener added for " + eventName);
+        // No additional setup required for basic event listeners
+    }
+
+    @ReactMethod
+    public void removeListeners(int count) {
+        Log.d(TAG, "removeListeners: Removed " + count + " listeners");
+        // No additional teardown required for basic event listeners
+    }
 }
