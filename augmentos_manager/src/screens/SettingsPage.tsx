@@ -8,6 +8,7 @@ import { bluetoothService } from '../BluetoothService';
 const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> = ({ isDarkTheme, toggleTheme }) => {
   const [isDoNotDisturbEnabled, setDoNotDisturbEnabled] = React.useState(false);
   const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] = React.useState(false);
+  const [isSimulatedPuck, setIsSimulatedPuck] = React.useState(false);
   const navigation = useNavigation();
   const { status } = useStatus();
   let isUsingAudioWearable = status.glasses_info?.model_name == "Audio Wearable";
@@ -65,19 +66,35 @@ const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> 
       <View style={styles.settingItem}>
         <View style={styles.settingTextContainer}>
           <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>
-          Use Virtual Wearable
+            Use Virtual Wearable
           </Text>
           <Text style={[styles.value, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
-          Puck will use a simulated smart glasses instead of real smart glasses.</Text>
+            Puck will use a simulated smart glasses instead of real smart glasses.</Text>
         </View>
         <Switch
-        disabled={!status.puck_connected}
+          disabled={!status.puck_connected}
           value={isUsingAudioWearable} onValueChange={() => toggleVirtualWearable(!isUsingAudioWearable)}
           trackColor={switchColors.trackColor}
           thumbColor={switchColors.thumbColor}
           ios_backgroundColor={switchColors.ios_backgroundColor}
         />
       </View>
+
+      {/* Temporary until we make a proper page for thsi */}
+      {Platform.OS == 'android' && (
+        <TouchableOpacity style={styles.settingItem} onPress={()=>{
+          //navigation.navigate('SimulatedPuckSettings')
+        }}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>Simulated Puck</Text>
+          </View>
+          <Icon
+            name="angle-right"
+            size={20}
+            color={isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color}
+          />
+        </TouchableOpacity>
+      )}
 
       <TouchableOpacity style={styles.settingItem}>
         <View style={styles.settingTextContainer}>
@@ -91,19 +108,6 @@ const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> 
         />
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem}>
-        <View style={styles.settingTextContainer}>
-          <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>App List</Text>
-          <Text style={[styles.value, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
-            Adjust the order of the Glasses app list
-          </Text>
-        </View>
-        <Icon
-          name="angle-right"
-          size={20}
-          color={isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color}
-        />
-      </TouchableOpacity>
 
       <TouchableOpacity style={styles.settingItem}>
         <View style={styles.settingTextContainer}>

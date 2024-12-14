@@ -17,6 +17,7 @@ import Reviews from './screens/ReviewSection.tsx';
 import { StyleSheet } from 'react-native';
 import { RootStackParamList } from './components/types'; // Update path as needed
 import MessageBanner from './components/MessageBanner.tsx';
+import SimulatedPuckSettings from './screens/LoginScreen.tsx';
 
 // Assign the RootStackParamList to the navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -123,6 +124,7 @@ const App: React.FC = () => {
               >
                 {() => <GlassesMirror isDarkTheme={isDarkTheme} />}
               </Stack.Screen>
+              <Stack.Screen name="SimulatedPuckSettings" component={SimulatedPuckSettings} />
             </Stack.Navigator>
           </NavigationContainer>
         </StatusProvider>
