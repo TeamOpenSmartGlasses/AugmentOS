@@ -248,90 +248,90 @@ public class AugmentosUi extends Fragment {
 //        });
 
       //setup mode switcher
-      RadioGroup convoscopeModeSelector = view.findViewById(R.id.radioGroupOptions);
-
-      String currentModeString = ((MainActivity)getActivity()).getCurrentMode(this.getContext());
-
-      RadioButton radioButtonProactiveAgents = view.findViewById(R.id.radioButtonProactiveAgents);
-      RadioButton radioButtonLanguageLearning = view.findViewById(R.id.radioButtonLanguageLearning);
-      RadioButton radioButtonADHDGlasses = view.findViewById(R.id.radioButtonADHDGlasses);
-      RadioButton radioButtonWalkNGrok = view.findViewById(R.id.radioButtonWalkNGrok);
-      RadioButton radioButtonScreenMirror = view.findViewById(R.id.radioButtonScreenMirror);
-
-      // Set the radio button as active based on the saved mode string
-      if (currentModeString.equals("Proactive Agents")) {
-        convoscopeModeSelector.check(R.id.radioButtonProactiveAgents);
-      } else if (currentModeString.equals("Language Learning")) {
-        convoscopeModeSelector.check(R.id.radioButtonLanguageLearning);
-      } else if (currentModeString.equals("Walk'n'Grok")) {
-        convoscopeModeSelector.check(R.id.radioButtonWalkNGrok);
-      } else if (currentModeString.equals("ADHD Glasses")) {
-        convoscopeModeSelector.check(R.id.radioButtonADHDGlasses);
-      } else if (currentModeString.equals("Screen Mirror")) {
-        convoscopeModeSelector.check(R.id.radioButtonScreenMirror);
-        //TODO
-//        if (!((MainActivity) getActivity()).isScreenCaptureServiceRunning()) {
-//          ((MainActivity) getActivity()).requestScreenCapturePermission();
-//        }
-      }
+//      RadioGroup convoscopeModeSelector = view.findViewById(R.id.radioGroupOptions);
+//
+//      String currentModeString = ((MainActivity)getActivity()).getCurrentMode(this.getContext());
+//
+//      RadioButton radioButtonProactiveAgents = view.findViewById(R.id.radioButtonProactiveAgents);
+//      RadioButton radioButtonLanguageLearning = view.findViewById(R.id.radioButtonLanguageLearning);
+//      RadioButton radioButtonADHDGlasses = view.findViewById(R.id.radioButtonADHDGlasses);
+//      RadioButton radioButtonWalkNGrok = view.findViewById(R.id.radioButtonWalkNGrok);
+//      RadioButton radioButtonScreenMirror = view.findViewById(R.id.radioButtonScreenMirror);
+//
+//      // Set the radio button as active based on the saved mode string
+//      if (currentModeString.equals("Proactive Agents")) {
+//        convoscopeModeSelector.check(R.id.radioButtonProactiveAgents);
+//      } else if (currentModeString.equals("Language Learning")) {
+//        convoscopeModeSelector.check(R.id.radioButtonLanguageLearning);
+//      } else if (currentModeString.equals("Walk'n'Grok")) {
+//        convoscopeModeSelector.check(R.id.radioButtonWalkNGrok);
+//      } else if (currentModeString.equals("ADHD Glasses")) {
+//        convoscopeModeSelector.check(R.id.radioButtonADHDGlasses);
+//      } else if (currentModeString.equals("Screen Mirror")) {
+//        convoscopeModeSelector.check(R.id.radioButtonScreenMirror);
+//        //TODO
+////        if (!((MainActivity) getActivity()).isScreenCaptureServiceRunning()) {
+////          ((MainActivity) getActivity()).requestScreenCapturePermission();
+////        }
+//      }
 
       Context mContext = this.getContext();
 
-      final Switch screenMirrorImageToggle = view.findViewById(R.id.word_upgrade_toggle);
-      screenMirrorImageToggle.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("screen_mirror_image", false));
-      screenMirrorImageToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-          ((MainActivity)getActivity()).stopScreenCapture();
-          PreferenceManager.getDefaultSharedPreferences(getContext())
-                  .edit()
-                  .putBoolean("screen_mirror_image", isChecked)
-                  .apply();
-        }
-      });
-
-      convoscopeModeSelector.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(RadioGroup group, int checkedId) {
-          // Stop screen capture only if it's running and we're not selecting Screen Mirror mode
-          if (((MainActivity) getActivity()).isScreenCaptureServiceRunning() && checkedId != R.id.radioButtonScreenMirror) {
-            ((MainActivity) getActivity()).stopScreenCapture();
-          }
-
-          // Enable screenMirrorImageToggle by default unless screen mirror is selected
-          screenMirrorImageToggle.setEnabled(true);
-
-          switch (checkedId) {
-            case R.id.radioButtonProactiveAgents:
-              Log.d(TAG, "PROACTIVE AGENTS MODE SELECTED");
-              saveMode(mContext, "Proactive Agents");
-              break;
-            case R.id.radioButtonLanguageLearning:
-              Log.d(TAG, "LLSG MODE SELECTED");
-              saveMode(mContext, "Language Learning");
-              break;
-            case R.id.radioButtonWalkNGrok:
-              Log.d(TAG, "WALK_GROK MODE SELECTED");
-              saveMode(mContext, "Walk'n'Grok");
-              break;
-            case R.id.radioButtonADHDGlasses:
-              Log.d(TAG, "ADHD MODE SELECTED");
-              saveMode(mContext, "ADHD Glasses");
-              break;
-            case R.id.radioButtonScreenMirror:
-              Log.d(TAG, "SCREEN MIRROR SELECTED");
-              screenMirrorImageToggle.setEnabled(false);
-              saveMode(mContext, "Screen Mirror");
-
-              //TODO
-//              // Request screen capture permission only if it's not already running
-//              if (!((MainActivity) getActivity()).isScreenCaptureServiceRunning()) {
-//                ((MainActivity) getActivity()).requestScreenCapturePermission();
-//              }
-              break;
-          }
-        }
-      });
+//      final Switch screenMirrorImageToggle = view.findViewById(R.id.word_upgrade_toggle);
+//      screenMirrorImageToggle.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("screen_mirror_image", false));
+//      screenMirrorImageToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//        @Override
+//        public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+//          ((MainActivity)getActivity()).stopScreenCapture();
+//          PreferenceManager.getDefaultSharedPreferences(getContext())
+//                  .edit()
+//                  .putBoolean("screen_mirror_image", isChecked)
+//                  .apply();
+//        }
+//      });
+//
+//      convoscopeModeSelector.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//        @Override
+//        public void onCheckedChanged(RadioGroup group, int checkedId) {
+//          // Stop screen capture only if it's running and we're not selecting Screen Mirror mode
+//          if (((MainActivity) getActivity()).isScreenCaptureServiceRunning() && checkedId != R.id.radioButtonScreenMirror) {
+//            ((MainActivity) getActivity()).stopScreenCapture();
+//          }
+//
+//          // Enable screenMirrorImageToggle by default unless screen mirror is selected
+//          screenMirrorImageToggle.setEnabled(true);
+//
+//          switch (checkedId) {
+//            case R.id.radioButtonProactiveAgents:
+//              Log.d(TAG, "PROACTIVE AGENTS MODE SELECTED");
+//              saveMode(mContext, "Proactive Agents");
+//              break;
+//            case R.id.radioButtonLanguageLearning:
+//              Log.d(TAG, "LLSG MODE SELECTED");
+//              saveMode(mContext, "Language Learning");
+//              break;
+//            case R.id.radioButtonWalkNGrok:
+//              Log.d(TAG, "WALK_GROK MODE SELECTED");
+//              saveMode(mContext, "Walk'n'Grok");
+//              break;
+//            case R.id.radioButtonADHDGlasses:
+//              Log.d(TAG, "ADHD MODE SELECTED");
+//              saveMode(mContext, "ADHD Glasses");
+//              break;
+//            case R.id.radioButtonScreenMirror:
+//              Log.d(TAG, "SCREEN MIRROR SELECTED");
+//              screenMirrorImageToggle.setEnabled(false);
+//              saveMode(mContext, "Screen Mirror");
+//
+//              //TODO
+////              // Request screen capture permission only if it's not already running
+////              if (!((MainActivity) getActivity()).isScreenCaptureServiceRunning()) {
+////                ((MainActivity) getActivity()).requestScreenCapturePermission();
+////              }
+//              break;
+//          }
+//        }
+//      });
 
 //      if (!isNotificationServiceEnabled(getContext())) {
 //        Toast.makeText(getContext(), "Please enable Notification Access for this app", Toast.LENGTH_LONG).show();

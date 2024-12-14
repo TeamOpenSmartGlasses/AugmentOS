@@ -38,6 +38,7 @@ import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
 import com.teamopensmartglasses.convoscope.tpa.eventbusmessages.TPARequestEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -405,6 +406,9 @@ public class TPASystem {
         switch (receivedEvent.eventId) {
             case ReferenceCardSimpleViewRequestEvent.eventId:
                 EventBus.getDefault().post((ReferenceCardSimpleViewRequestEvent) receivedEvent.serializedEvent);
+                break;
+            case TextWallViewRequestEvent.eventId:
+                EventBus.getDefault().post((TextWallViewRequestEvent) receivedEvent.serializedEvent);
                 break;
             case DoubleTextWallViewRequestEvent.eventId:
                 EventBus.getDefault().post((DoubleTextWallViewRequestEvent) receivedEvent.serializedEvent);
