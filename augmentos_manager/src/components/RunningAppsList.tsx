@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useStatus } from '../AugmentOSStatusProvider';
 import AppIcon from './AppIcon';
-import { bluetoothService } from '../BluetoothService';
+import { BluetoothService } from '../BluetoothService';
 
 const { height } = Dimensions.get('window');
 
@@ -15,7 +15,7 @@ interface RunningAppsListProps {
 const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
   const { status } = useStatus();
   const [_isLoading, setIsLoading] = useState(false);
-
+  const bluetoothService = BluetoothService.getInstance();
   const textColor = isDarkTheme ? '#FFFFFF' : '#000000';
   const gradientColors = isDarkTheme
     ? ['#4a3cb5', '#7856FE', '#9a7dff']

@@ -1,149 +1,243 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, KeyboardAvoidingView, Platform, ImageBackground } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { View, Text, StyleSheet, Switch, TouchableOpacity, Platform, Linking } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { NavigationProps } from '../components/types'; // Adjust the path as needed
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { useStatus } from '../AugmentOSStatusProvider';
+import BluetoothService from '../BluetoothService';
+import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
 
-const SimulatedPuckSettings: React.FC = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const navigation = useNavigation<NavigationProps>();
+interface SimulatedPuckSettingsProps {
+  isDarkTheme: boolean;
+  toggleTheme: () => void;
+  navigation: any;
+}
 
-  const handleLogin = () => {
-    if (!email || !password) {
-      Alert.alert('Error', 'Please fill in all fields');
-      return;
-    }
-    // Handle login logic here
-    Alert.alert('Success', 'You have successfully logged in!', [
-      {
-        text: 'OK',
-        onPress: () => navigation.navigate('Home'),
-      },
-    ]);
+const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({ isDarkTheme, toggleTheme, navigation }) => {
+  const [isSimulatedPuck, setIsSimulatedPuck] = React.useState(false);
+  const { status } = useStatus();
+  let n = navigation;
+  const bluetoothService = BluetoothService.getInstance();
+  
+  const switchColors = {
+    trackColor: {
+      false: isDarkTheme ? '#666666' : '#D1D1D6',
+      true: '#2196F3',
+    },
+    thumbColor: Platform.OS === 'ios'
+      ? undefined
+      : (isDarkTheme ? '#FFFFFF' : '#FFFFFF'),
+    ios_backgroundColor: isDarkTheme ? '#666666' : '#D1D1D6',
   };
 
+  const handleInstallLink = () => {
+    // Replace with the actual link to install AugmentOS_Core
+    const url = 'https://example.com/augmentos_core';
+    Linking.openURL(url).catch((err) =>
+      console.error("Failed to open URL:", err)
+    );
+  };
+
+  const toggleSimulatePuck = async () => {
+    console.log("TEST")
+    setIsSimulatedPuck(!isSimulatedPuck)
+    await saveSetting('simulatedPuck', true);
+    await BluetoothService.resetInstance();
+    BluetoothService.getInstance();
+  }
+
+    React.useEffect(() => {
+      const loadSimulatedPuckSetting = async () => {
+        const simulatedPuck = await loadSetting('simulatedPuck', false);
+        setIsSimulatedPuck(simulatedPuck);
+      };
+
+      loadSimulatedPuckSetting();
+    }, []);
+
+
+
   return (
-    // eslint-disable-next-line react-native/no-inline-styles
-    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
-      <ImageBackground
-        source={{ uri: 'https://cdn.wallpapersafari.com/96/40/MwOixn.jpg' }} // Example background image
-        style={styles.backgroundImage}
-      >
-        <View style={styles.container}>
-          <Text style={styles.title}>Welcome Back!</Text>
-          <Text style={styles.subtitle}>Log in to your account</Text>
-          <View style={styles.inputContainer}>
-            <Icon name="envelope" size={20} color="#fff" style={styles.icon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-              placeholderTextColor="#fff"
-              value={email}
-              onChangeText={setEmail}
-              keyboardType="email-address"
-              autoCapitalize="none"
-            />
-          </View>
+    <View style={[styles.container, isDarkTheme ? styles.darkBackground : styles.lightBackground]}>
 
-          <View style={styles.inputContainer}>
-            <Icon name="lock" size={20} color="#fff" style={styles.icon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Password"
-              placeholderTextColor="#fff"
-              value={password}
-              onChangeText={setPassword}
-              secureTextEntry
-            />
-          </View>
+      <View style={styles.settingItem}>
+        <View style={styles.settingTextContainer}>
+          <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>
+            Use Simulated Puck
+          </Text>
+          <Text style={[styles.value, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
+            Puck will use a simulated smart glasses instead of real smart glasses. (For developers)</Text>
+        </View>
+        <Switch
+          disabled={false}
+          value={isSimulatedPuck} 
+          onValueChange={() => toggleSimulatePuck()}
+          trackColor={switchColors.trackColor}
+          thumbColor={switchColors.thumbColor}
+          ios_backgroundColor={switchColors.ios_backgroundColor}
+        />
+      </View>
 
-          <TouchableOpacity style={styles.button} onPress={handleLogin}>
-            <View style={styles.buttonGradient}>
-              <Text style={styles.buttonText}>Login</Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-            <Text style={styles.registerRedirectText}>
-              Don't have an account? <Text style={styles.registerText}>Sign up here</Text>
+      {isSimulatedPuck && (
+        <View style={{ marginTop: 20 }}>
+        <Text style={[styles.title, isDarkTheme ? styles.lightText : styles.darkText]}>
+          Simulated Puck
+        </Text>
+        <Text style={[styles.description, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
+          On some Android devices, you can use AugmentOS without a dedicated Puck.
+        </Text>
+        <Text style={[styles.notice, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
+          Please note that this feature is primarily intended for development purposes. Not all features will work, some things may break, and using this will increase battery usage.
+        </Text>
+      
+        <Text style={[styles.subtitle, isDarkTheme ? styles.lightText : styles.darkText]}>
+          Simulated Puck Setup
+        </Text>
+        
+        <View style={styles.step}>
+          <Text style={[styles.stepNumber, isDarkTheme ? styles.lightText : styles.darkText]}>1.</Text>
+          <TouchableOpacity onPress={handleInstallLink}>
+            <Text style={[styles.link, isDarkTheme ? styles.lightText : styles.darkText]}>
+              Install AugmentOS_Core
             </Text>
           </TouchableOpacity>
         </View>
-      </ImageBackground>
-    </KeyboardAvoidingView>
+      
+        <View style={styles.step}>
+          <Text style={[styles.stepNumber, isDarkTheme ? styles.lightText : styles.darkText]}>2.</Text>
+          <Text style={[styles.stepText, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
+            Launch AugmentOS_Core, and make sure to accept all permissions, and disable all battery optimizations when prompted.
+          </Text>
+        </View>
+      
+        <View style={styles.step}>
+          <Text style={[styles.stepNumber, isDarkTheme ? styles.lightText : styles.darkText]}>3.</Text>
+          <Text style={[styles.stepText, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
+            Check below to see if the simulated puck has been connected...
+          </Text>
+        </View>
+
+        <View style={styles.step}>
+          <Text style={[styles.stepNumber, isDarkTheme ? styles.lightText : styles.darkText]}>3.</Text>
+          <Text style={[styles.stepText, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
+            Check below to see if the simulated puck has been connected...
+          </Text>
+        </View>
+
+            
+        <Text style={[styles.subtitle, isDarkTheme ? styles.lightText : styles.darkText]}>
+              Simulated puck connection status: {status.glasses_info?.model_name ? "\nConnected" : "\nNot Connected"}
+            </Text>
+
+
+      </View>
+      
+      )}
+
+      
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
-  },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 20,
+    padding: 20,
+  },
+  link: {
+    fontSize: 16,
+    color: '#007AFF',
+    textDecorationLine: 'underline',
   },
   title: {
-    fontSize: 36,
+    fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff',
     marginBottom: 10,
     textAlign: 'center',
   },
+  description: {
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  notice: {
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#888',
+    marginBottom: 30,
+  },
   subtitle: {
     fontSize: 18,
-    color: '#ccc',
-    marginBottom: 30,
-    textAlign: 'center',
+    fontWeight: 'bold',
+    marginBottom: 15,
   },
-  inputContainer: {
+  step: {
     flexDirection: 'row',
-    alignItems: 'center',
-    borderColor: '#fff',
-    borderWidth: 1,
-    borderRadius: 25,
-    marginBottom: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    paddingHorizontal: 15,
-    width: '100%',
+    alignItems: 'flex-start',
+    marginBottom: 15,
   },
-  icon: {
+  stepNumber: {
+    fontSize: 18,
+    fontWeight: 'bold',
     marginRight: 10,
   },
-  input: {
-    flex: 1,
-    height: 50,
+  stepText: {
     fontSize: 16,
-    color: '#fff',
+    flex: 1,
   },
-  button: {
-    marginTop: 20,
-    borderRadius: 25,
-    overflow: 'hidden',
-    width: '100%',
+  darkBackground: {
+    backgroundColor: '#1c1c1c',
   },
-  buttonGradient: {
-    paddingVertical: 15,
-    justifyContent: 'center',
+  lightBackground: {
+    backgroundColor: '#f0f0f0',
+  },
+  darkText: {
+    color: 'black',
+  },
+  lightText: {
+    color: 'white',
+  },
+  darkSubtext: {
+    color: '#666666',
+  },
+  lightSubtext: {
+    color: '#999999',
+  },
+  darkIcon: {
+    color: '#333333',
+  },
+  lightIcon: {
+    color: '#666666',
+  },
+  backButton: {
+    flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'black',
+    marginBottom: 20,
   },
-  buttonText: {
-    color: '#fff',
+  backButtonText: {
+    marginLeft: 10,
     fontSize: 18,
     fontWeight: 'bold',
   },
-  registerRedirectText: {
-    marginTop: 20,
-    color: '#ccc',
-    textAlign: 'center',
+  settingItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 20,
+    borderBottomColor: '#333',
+    borderBottomWidth: 1,
   },
-  registerText: {
-    color: '#00bcd4',
-    fontWeight: 'bold',
+  settingTextContainer: {
+    flex: 1,
+    paddingRight: 10,
+  },
+  label: {
+    fontSize: 16,
+    flexWrap: 'wrap',
+  },
+  value: {
+    fontSize: 12,
+    marginTop: 5,
+    flexWrap: 'wrap',
   },
 });
 

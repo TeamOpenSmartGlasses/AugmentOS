@@ -3,13 +3,17 @@ import { View, Text, StyleSheet, Switch, TouchableOpacity, Platform } from 'reac
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useStatus } from '../AugmentOSStatusProvider';
-import { bluetoothService } from '../BluetoothService';
+import { BluetoothService } from '../BluetoothService';
+interface SettingsPageProps {
+  isDarkTheme: boolean;
+  toggleTheme: () => void;
+  navigation: any; 
+}
 
-const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> = ({ isDarkTheme, toggleTheme }) => {
+const SettingsPage: React.FC<SettingsPageProps> = ({ isDarkTheme, toggleTheme, navigation }) => {
   const [isDoNotDisturbEnabled, setDoNotDisturbEnabled] = React.useState(false);
   const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] = React.useState(false);
   const [isSimulatedPuck, setIsSimulatedPuck] = React.useState(false);
-  const navigation = useNavigation();
   const { status } = useStatus();
   let isUsingAudioWearable = status.glasses_info?.model_name == "Audio Wearable";
 
@@ -25,7 +29,7 @@ const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> 
   };
 
   const toggleVirtualWearable = async (arg0: boolean) => {
-    await bluetoothService.sendToggleVirtualWearable(arg0);
+    BluetoothService.getInstance().sendToggleVirtualWearable(arg0);
   }
 
   const sendDisconnectWearable = async () => {
@@ -83,7 +87,7 @@ const SettingsPage: React.FC<{ isDarkTheme: boolean; toggleTheme: () => void }> 
       {/* Temporary until we make a proper page for thsi */}
       {Platform.OS == 'android' && (
         <TouchableOpacity style={styles.settingItem} onPress={()=>{
-          //navigation.navigate('SimulatedPuckSettings')
+          navigation.navigate('SimulatedPuckSettings')
         }}>
           <View style={styles.settingTextContainer}>
             <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>Simulated Puck</Text>

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView, NativeSyntheticEvent, NativeScrollE
 import { useFocusEffect } from '@react-navigation/native';
 import { useStatus } from '../AugmentOSStatusProvider';
 import AppIcon from './AppIcon';
-import { bluetoothService } from '../BluetoothService';
+import { BluetoothService } from '../BluetoothService';
 
 const { width } = Dimensions.get('window');
 const ITEMS_PER_PAGE = 4;
@@ -59,7 +59,7 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [lastActiveIndex, setLastActiveIndex] = useState(0);
-
+  const bluetoothService = BluetoothService.getInstance();
   const fadeAnims = useRef(status.apps.map(() => new Animated.Value(0))).current;
   const translateAnims = useRef(status.apps.map(() => new Animated.Value(50))).current;
   const animationState = useRef({ isAnimating: false }).current;

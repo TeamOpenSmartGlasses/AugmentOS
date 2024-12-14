@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode, useCallback, useEffect } from 'react';
 import { AugmentOSParser, AugmentOSMainStatus } from './AugmentOSStatusParser';
-import { bluetoothService } from './BluetoothService';
+import { BluetoothService } from './BluetoothService';
 import { MOCK_CONNECTION } from './consts';
 
 interface AugmentOSStatusContextType {
@@ -18,6 +18,7 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
     const [isSearching, setIsSearching] = useState(false);
     const [isConnecting, setIsConnecting] = useState(false);
     const [screenMirrorItems, setScreenMirrorItems] = useState<{ id: string; name: string }[]>([]);
+    const bluetoothService = BluetoothService.getInstance();
 
     const refreshStatus = useCallback((data: any) => {
         if (!(data && 'status' in data)) {return;}

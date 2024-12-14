@@ -7,7 +7,7 @@ import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { AppState } from 'react-native';
 import { RotateInDownLeft } from 'react-native-reanimated';
 import { MOCK_CONNECTION } from './consts';
-import { loadSetting } from './augmentos_core_comms/SettingsHelper';
+import { loadSetting, saveSetting } from './augmentos_core_comms/SettingsHelper';
 import { startExternalService } from './augmentos_core_comms/CoreServiceStarter';
 //const { ManagerCoreCommsService } = NativeModules;
 //const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
@@ -47,6 +47,7 @@ export class BluetoothService extends EventEmitter {
   async initialize(){
     if (MOCK_CONNECTION) return;
 
+    saveSetting('simulatedPuck', false); // TODO: Temporarily disable this feature
     this.simulatedPuck = await loadSetting('simulatedPuck', false);
 
     if (this.simulatedPuck){
@@ -633,7 +634,22 @@ export class BluetoothService extends EventEmitter {
     );
   }
 
-}
+  private static bluetoothService: BluetoothService | null = null;
+  public static getInstance() : BluetoothService {
+    if (!BluetoothService.bluetoothService) {
+      BluetoothService.bluetoothService = new BluetoothService();
+      BluetoothService.bluetoothService.initialize();
+    }
+    return BluetoothService.bluetoothService;
+  }
 
-export const bluetoothService = new BluetoothService();
-bluetoothService.initialize();
+  public static resetInstance = async () => {
+    if (BluetoothService.bluetoothService) {
+      await BluetoothService.bluetoothService.disconnectFromDevice();
+      BluetoothService.bluetoothService = null;
+    }
+  }
+}
+export default BluetoothService;
+
+const bluetoothService = BluetoothService.getInstance();

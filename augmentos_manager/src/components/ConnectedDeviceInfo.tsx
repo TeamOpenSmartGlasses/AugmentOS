@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated, Alert, PermissionsAndroid, Platform } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { bluetoothService } from '../BluetoothService';
+import { BluetoothService } from '../BluetoothService';
 import { useStatus } from '../AugmentOSStatusProvider';
 
 interface ConnectedDeviceInfoProps {
@@ -14,7 +14,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   const scaleAnim = useRef(new Animated.Value(0.8)).current;
   const slideAnim = useRef(new Animated.Value(-50)).current;
   const [connectedGlasses, setConnectedGlasses] = useState('');
-
+  const bluetoothService = BluetoothService.getInstance();
   const { status, isSearching, isConnecting, refreshStatus } = useStatus();
 
   useFocusEffect(

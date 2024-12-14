@@ -124,7 +124,9 @@ const App: React.FC = () => {
               >
                 {() => <GlassesMirror isDarkTheme={isDarkTheme} />}
               </Stack.Screen>
-              <Stack.Screen name="SimulatedPuckSettings" component={SimulatedPuckSettings} />
+              <Stack.Screen name="SimulatedPuckSettings">
+              {(props) => <SimulatedPuckSettings {...props} toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />}
+                </Stack.Screen>
             </Stack.Navigator>
           </NavigationContainer>
         </StatusProvider>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Animated } from "react-native";
-import { bluetoothService } from "../BluetoothService";
+import { BluetoothService } from "../BluetoothService";
 import { MOCK_CONNECTION } from "../consts";
 
 export default function MessageBanner() {
@@ -13,6 +13,7 @@ export default function MessageBanner() {
       setMessage(message);
       setType(type);
     }
+    const bluetoothService = BluetoothService.getInstance();
 
     if (!MOCK_CONNECTION) {
             bluetoothService.on('SHOW_BANNER', handleMessageChanged);
