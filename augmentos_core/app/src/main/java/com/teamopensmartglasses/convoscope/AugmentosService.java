@@ -2109,7 +2109,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             JSONArray apps = new JSONArray();
 
             for (ThirdPartyApp tpa : tpaSystem.getThirdPartyApps()) {
-                if(tpa.appType == ThirdPartyAppType.CORE_SYSTEM) continue;
+                if(tpa.appType != ThirdPartyAppType.APP) continue;
 
                 JSONObject tpaObj = new JSONObject();
                 tpaObj.put("name", tpa.appName);

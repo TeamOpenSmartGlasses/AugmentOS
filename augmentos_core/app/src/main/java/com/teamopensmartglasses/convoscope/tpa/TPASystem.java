@@ -323,26 +323,32 @@ public class TPASystem {
     public void loadThirdPartyAppsFromStorage() {
         ArrayList<ThirdPartyApp> newThirdPartyAppList = new ArrayList<ThirdPartyApp>();
 
-        // First, pull from sharedpreferences
-        String json = sharedPreferences.getString(APPS_KEY, null);
-        if (json != null) {
-            Type type = new TypeToken<ArrayList<ThirdPartyApp>>() {}.getType();
-            ArrayList<ThirdPartyApp> loadedApps = gson.fromJson(json, type);
-
-            // Filter out uninstalled/invalid apps
-            for (ThirdPartyApp app : loadedApps) {
-                if (getThirdPartyAppIfAppIsAugmentOsThirdPartyApp(app.packageName, mContext) != null) {
-                    newThirdPartyAppList.add(app);
-                } else {
-                    Log.d(TAG, "TPA from sharedpreferences not actually installed: " + app.packageName + "... omitting it.");
-                }
-            }
-        }
+        /*
+        TODO: The commented code was designed when we thought AugmentOS would have more info about
+        TODO: registered TPAs after they had been run once. We have now moved away from manual TPA
+        TODO: registration, so it's 50/50 whether we will need this in the future.
+        TODO: Don't delete this yet, but maybe in the future.
+         */
+//        // First, pull from sharedpreferences
+//        String json = sharedPreferences.getString(APPS_KEY, null);
+//        if (json != null) {
+//            Type type = new TypeToken<ArrayList<ThirdPartyApp>>() {}.getType();
+//            ArrayList<ThirdPartyApp> loadedApps = gson.fromJson(json, type);
+//
+//            // Filter out uninstalled/invalid apps
+//            for (ThirdPartyApp app : loadedApps) {
+//                if (getThirdPartyAppIfAppIsAugmentOsThirdPartyApp(app.packageName, mContext) != null) {
+//                    newThirdPartyAppList.add(app);
+//                } else {
+//                    Log.d(TAG, "TPA from sharedpreferences not actually installed: " + app.packageName + "... omitting it.");
+//                }
+//            }
+//        }
 
         HashSet<String> existingPackageNames = new HashSet<>();
-        for (ThirdPartyApp app : newThirdPartyAppList) {
-            existingPackageNames.add(app.packageName);
-        }
+        //        for (ThirdPartyApp app : newThirdPartyAppList) {
+//            existingPackageNames.add(app.packageName);
+//         }
 
         // Second, check if there are any installed TPAs that were missing from sharedpreferences
         ArrayList<String> preinstalledPackageNames = getAllInstalledPackageNames(mContext);
