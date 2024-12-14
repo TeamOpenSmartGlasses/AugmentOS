@@ -59,25 +59,9 @@ const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({ isDarkThe
   return (
     <View style={[styles.container, isDarkTheme ? styles.darkBackground : styles.lightBackground]}>
 
-      <View style={styles.settingItem}>
-        <View style={styles.settingTextContainer}>
-          <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>
-            Use Simulated Puck
-          </Text>
-          <Text style={[styles.value, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
-            Puck will use a simulated smart glasses instead of real smart glasses. (For developers)</Text>
-        </View>
-        <Switch
-          disabled={false}
-          value={isSimulatedPuck} 
-          onValueChange={() => toggleSimulatePuck()}
-          trackColor={switchColors.trackColor}
-          thumbColor={switchColors.thumbColor}
-          ios_backgroundColor={switchColors.ios_backgroundColor}
-        />
-      </View>
+ 
 
-      {isSimulatedPuck && (
+ 
         <View style={{ marginTop: 20 }}>
         <Text style={[styles.title, isDarkTheme ? styles.lightText : styles.darkText]}>
           Simulated Puck
@@ -89,6 +73,25 @@ const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({ isDarkThe
           Please note that this feature is primarily intended for development purposes. Not all features will work, some things may break, and using this will increase battery usage.
         </Text>
       
+        <View style={styles.settingItem}>
+        <View style={styles.settingTextContainer}>
+          <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>
+            Use Simulated Puck
+          </Text>
+        </View>
+        <Switch
+          disabled={false}
+          value={isSimulatedPuck} 
+          onValueChange={() => toggleSimulatePuck()}
+          trackColor={switchColors.trackColor}
+          thumbColor={switchColors.thumbColor}
+          ios_backgroundColor={switchColors.ios_backgroundColor}
+        />
+      </View>
+      </View>
+      {isSimulatedPuck && (
+      <View style={{ marginTop: 20 }}>
+
         <Text style={[styles.subtitle, isDarkTheme ? styles.lightText : styles.darkText]}>
           Simulated Puck Setup
         </Text>
@@ -125,7 +128,7 @@ const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({ isDarkThe
 
             
         <Text style={[styles.subtitle, isDarkTheme ? styles.lightText : styles.darkText]}>
-              Simulated puck connection status: {status.glasses_info?.model_name ? "\nConnected" : "\nNot Connected"}
+              Simulated puck connection status: {status.puck_connected ? "\nConnected" : "\nNot Connected"}
             </Text>
 
 

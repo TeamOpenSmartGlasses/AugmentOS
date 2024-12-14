@@ -335,7 +335,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                     startForeground(augmentOsMainServiceNotificationId, updateNotification());
 
                     // Send out the status once AugmentOS_Core is ready :)
-                    tpaSystem.stopThirdPartyAppByPackageName(AugmentOSManagerPackageName);
+                    // tpaSystem.stopThirdPartyAppByPackageName(AugmentOSManagerPackageName);
                     tpaSystem.startThirdPartyAppByPackageName(AugmentOSManagerPackageName);
 
                     break;

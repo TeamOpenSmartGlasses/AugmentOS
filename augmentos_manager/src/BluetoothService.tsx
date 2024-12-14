@@ -47,7 +47,7 @@ export class BluetoothService extends EventEmitter {
   async initialize(){
     if (MOCK_CONNECTION) return;
 
-    saveSetting('simulatedPuck', false); // TODO: Temporarily disable this feature
+    // saveSetting('simulatedPuck', false); // TODO: Temporarily disable this feature
     this.simulatedPuck = await loadSetting('simulatedPuck', false);
 
     if (this.simulatedPuck){
