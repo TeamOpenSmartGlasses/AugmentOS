@@ -115,7 +115,7 @@ public class TPASystem {
                                 && !serviceInfo.metaData.getString("com.augmentos.tpa.description", "").isEmpty()) {
                             Log.d(TAG, "AugmentOS TPA detected: " + packageName);
 
-                            ThirdPartyApp newTpa = new ThirdPartyApp(
+                            return new ThirdPartyApp(
                                     serviceInfo.metaData.getString("com.augmentos.tpa.name"),
                                     serviceInfo.metaData.getString("com.augmentos.tpa.description"),
                                     packageInfo.packageName,
@@ -123,13 +123,6 @@ public class TPASystem {
                                     packageInfo.packageName.equals(AugmentOSManagerPackageName) ? ThirdPartyAppType.CORE_SYSTEM : ThirdPartyAppType.APP,
                                     new AugmentOSCommand[]{}
                             );
-
-                            // EDGE CASE: If this is the Manager, automatically start it
-                            if (packageInfo.packageName.equals(AugmentOSManagerPackageName)) {
-                                augmentOsLibBroadcastSender.startThirdPartyApp(newTpa);
-                            }
-
-                            return newTpa;
                         }
                     } catch (Exception e){
                         Log.e(TAG, "Error processing service metadata for package: " + packageName, e);

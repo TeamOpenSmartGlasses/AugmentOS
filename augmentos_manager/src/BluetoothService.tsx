@@ -180,20 +180,24 @@ export class BluetoothService extends EventEmitter {
   }
 
   startReconnectionScan() {
-    setInterval(() => {
-      if (!this.connectedDevice && !this.simulatedPuck) {
-        console.log('No device connected. Starting reconnection scan...');
-        this.scanForDevices();
+    const performScan = () => {
+      if(this.simulatedPuck) {
+        this.sendRequestStatus();
+        setTimeout(performScan, this.connectedDevice ? 30000 : 500);
       }
-      else {
-        if(this.simulatedPuck) {
-          this.sendRequestStatus();
+
+      if(!this.simulatedPuck) {
+        if(this.connectedDevice) {
+          this.sendHeartbeat();
+        } else {
+          console.log('No device connected. Starting reconnection scan...');
+          this.scanForDevices();
         }
-        else{
-          this.sendConnectionCheck();
-        }
+        setTimeout(performScan, 30000);
       }
-    }, 30000); // Scan every 30 seconds
+    };
+
+    performScan();
   }
 
   handleStopScan() {
@@ -535,7 +539,7 @@ export class BluetoothService extends EventEmitter {
 
   /* AugmentOS Comms Methods (call these to do things) */
 
-  async sendConnectionCheck() {
+  async sendHeartbeat() {
     console.log('Send Connection Check');
     return await this.sendDataToAugmentOs(
       { 'command': 'ping' }

@@ -1,5 +1,6 @@
 package com.teamopensmartglasses.convoscope;
 
+import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
 import static com.teamopensmartglasses.convoscope.BatteryOptimizationHelper.handleBatteryOptimization;
 import static com.teamopensmartglasses.convoscope.BatteryOptimizationHelper.isSystemApp;
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
@@ -332,6 +333,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                     // start the service in the foreground
                     Log.d("TEST", "starting foreground");
                     startForeground(augmentOsMainServiceNotificationId, updateNotification());
+
+                    // Send out the status once AugmentOS_Core is ready :)
+                    tpaSystem.stopThirdPartyAppByPackageName(AugmentOSManagerPackageName);
+                    tpaSystem.startThirdPartyAppByPackageName(AugmentOSManagerPackageName);
+
                     break;
                 case ACTION_STOP_FOREGROUND_SERVICE:
                     stopForeground(true);

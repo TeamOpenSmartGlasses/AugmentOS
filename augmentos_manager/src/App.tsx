@@ -17,7 +17,7 @@ import Reviews from './screens/ReviewSection.tsx';
 import { StyleSheet } from 'react-native';
 import { RootStackParamList } from './components/types'; // Update path as needed
 import MessageBanner from './components/MessageBanner.tsx';
-import SimulatedPuckSettings from './screens/LoginScreen.tsx';
+import SimulatedPuckSettings from './screens/SimulatedPuckSettings.tsx';
 
 // Assign the RootStackParamList to the navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
