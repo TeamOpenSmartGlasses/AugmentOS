@@ -58,7 +58,7 @@ public class ManagerCoreCommsServiceModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void sendCommandToCore(String jsonString) {
         if (managerServiceInstance == null) {
-        //    startService();
+            startService();
         }
 
         if (managerServiceInstance != null) {

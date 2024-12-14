@@ -70,20 +70,20 @@ public class AugmentOSLib {
     }
 
     //register our app with the AugmentOS
-    public void registerApp(String appName, String appDescription) {
-        registerApp(appName, appDescription, new AugmentOSCommand[]{});
-    }
-
-    public void registerApp(String appName, String appDescription, AugmentOSCommand[] commandList) {
-        String packageName = mContext.getPackageName();
-        String serviceName = mContext.getClass().getName();
-        ThirdPartyApp tpa = new ThirdPartyApp(appName, appDescription, packageName, serviceName, commandList);
-        EventBus.getDefault().post(new RegisterTpaRequestEvent(tpa));
-
-        for (AugmentOSCommand command : commandList) {
-
-        }
-    }
+//    public void registerApp(String appName, String appDescription) {
+//        registerApp(appName, appDescription, new AugmentOSCommand[]{});
+//    }
+//
+//    public void registerApp(String appName, String appDescription, AugmentOSCommand[] commandList) {
+//        String packageName = mContext.getPackageName();
+//        String serviceName = mContext.getClass().getName();
+//        ThirdPartyApp tpa = new ThirdPartyApp(appName, appDescription, packageName, serviceName, commandList);
+//        EventBus.getDefault().post(new RegisterTpaRequestEvent(tpa));
+//
+//        for (AugmentOSCommand command : commandList) {
+//
+//        }
+//    }
 
     public void subscribeCoreToManagerMessages(CoreToManagerCallback callback){
         if (!mContext.getPackageName().equals(AugmentOSManagerPackageName)) {

@@ -13,14 +13,16 @@ public class ThirdPartyApp implements Serializable {
     public String packageName;
 
     public String serviceName;
+    public ThirdPartyAppType appType;
 
     public AugmentOSCommand[] commandList;
 
-    public ThirdPartyApp(String appName, String appDescription, String packageName, String serviceName, AugmentOSCommand[] commandList){
+    public ThirdPartyApp(String appName, String appDescription, String packageName, String serviceName, ThirdPartyAppType appType, AugmentOSCommand[] commandList){
         this.appName = appName;
         this.appDescription = appDescription;
         this.packageName = packageName;
         this.serviceName = serviceName;
+        this.appType = appType;
         this.commandList = commandList;
     }
 }

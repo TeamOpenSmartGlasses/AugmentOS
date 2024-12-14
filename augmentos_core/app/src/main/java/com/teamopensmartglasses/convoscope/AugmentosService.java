@@ -53,6 +53,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
+import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
 import com.teamopensmartglasses.convoscope.comms.AugmentOsActionsCallback;
 import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
@@ -2108,6 +2109,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             JSONArray apps = new JSONArray();
 
             for (ThirdPartyApp tpa : tpaSystem.getThirdPartyApps()) {
+                if(tpa.appType == ThirdPartyAppType.CORE_SYSTEM) continue;
+
                 JSONObject tpaObj = new JSONObject();
                 tpaObj.put("name", tpa.appName);
                 tpaObj.put("description", tpa.appDescription);

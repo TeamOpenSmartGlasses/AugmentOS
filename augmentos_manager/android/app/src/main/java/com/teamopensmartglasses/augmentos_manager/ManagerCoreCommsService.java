@@ -29,6 +29,8 @@ public class ManagerCoreCommsService extends SmartGlassesAndroidService {
 
         // Set the service instance for the module
         ManagerCoreCommsServiceModule.setManagerServiceInstance(this);
+
+        sendCommandToCore("{ 'command': 'request_status' }");
     }
 
 

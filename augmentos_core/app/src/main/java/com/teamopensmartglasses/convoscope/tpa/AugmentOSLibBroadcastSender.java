@@ -1,5 +1,6 @@
 package com.teamopensmartglasses.convoscope.tpa;
 
+import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.EVENT_BUNDLE;
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.EVENT_ID;
 
@@ -13,6 +14,7 @@ import com.teamopensmartglasses.augmentoslib.AugmentOSCommand;
 import com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants;
 import com.teamopensmartglasses.augmentoslib.SmartGlassesAndroidService;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
+import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
 import com.teamopensmartglasses.augmentoslib.events.CommandTriggeredEvent;
 import com.teamopensmartglasses.augmentoslib.events.HomeScreenEvent;
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
@@ -76,6 +78,11 @@ public class AugmentOSLibBroadcastSender {
     }
 
     public void killThirdPartyApp(ThirdPartyApp tpa){
+        Log.d(TAG, "Attempting to kill third-party app: " + tpa.packageName);
+        if (tpa.appType == ThirdPartyAppType.CORE_SYSTEM) {
+            Log.d(TAG, "Cannot kill a core system app: " + tpa.packageName);
+        };
+
         EventBus.getDefault().post(new KillTpaEvent(tpa));
 
         //clear the screen after killing

@@ -48,14 +48,16 @@
                 <action android:name="AUGMENTOS_INTENT" />
             </intent-filter>
         </receiver> -->
-         <receiver
+    
+    
+         <!-- <receiver
         android:name="com.teamopensmartglasses.augmentoslib.TPABroadcastReceiver"
         android:enabled="true"
         android:exported="true" >
       <intent-filter>
         <action android:name="com.teamopensmartglasses.totpa" />
       </intent-filter>
-    </receiver>
+    </receiver> -->
     </application>
 
     <queries>

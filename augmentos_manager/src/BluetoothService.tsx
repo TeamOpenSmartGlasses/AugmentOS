@@ -8,6 +8,7 @@ import { AppState } from 'react-native';
 import { RotateInDownLeft } from 'react-native-reanimated';
 import { MOCK_CONNECTION } from './consts';
 import { loadSetting } from './augmentos_core_comms/SettingsHelper';
+import { startExternalService } from './augmentos_core_comms/CoreServiceStarter';
 const { ManagerCoreCommsService } = NativeModules;
 const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
 
@@ -46,12 +47,16 @@ export class BluetoothService extends EventEmitter {
 
     this.simulatedPuck = await loadSetting('simulatedPuck', false);
 
-    this.initializeBleManager();
+    if (this.simulatedPuck){
+      startExternalService();
+      this.initializeCoreMessageIntentReader();
+    } else {
+      this.initializeBleManager();
+    }
+
     this.startReconnectionScan();
 
     AppState.addEventListener('change', this.handleAppStateChange.bind(this));
-
-    this.initializeCoreMessageIntentReader();
   }
 
   async initializeBleManager() {
@@ -121,7 +126,7 @@ export class BluetoothService extends EventEmitter {
 
   async scanForDevices() {
     if (this.simulatedPuck) {
-      this.sendConnectionCheck();
+      this.sendRequestStatus();
       return;
     }
 
@@ -179,7 +184,12 @@ export class BluetoothService extends EventEmitter {
         this.scanForDevices();
       }
       else {
-        this.sendConnectionCheck();
+        if(this.simulatedPuck) {
+          this.sendRequestStatus();
+        }
+        else{
+          this.sendConnectionCheck();
+        }
       }
     }, 30000); // Scan every 30 seconds
   }

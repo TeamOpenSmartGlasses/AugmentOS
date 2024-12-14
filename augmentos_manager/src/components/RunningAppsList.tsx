@@ -33,6 +33,15 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
     }
   };
 
+  const fakeApp = {
+    name: "invisible",
+    description: "invisible",
+    is_running: false,
+    is_foreground: false,
+    package_name: "invisible",
+    icon: "invisible",
+  }
+
   const runningApps = useMemo(() => status.apps.filter((app) => app.is_running), [status]);
 
   return (
@@ -86,8 +95,8 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
     borderRadius: 20,
-    paddingTop:20,
-    paddingBottom:20
+    paddingTop: 20,
+    paddingBottom: 20
   },
   appIconsContainer: {
     flexDirection: 'row',
