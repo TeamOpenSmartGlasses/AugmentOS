@@ -86,7 +86,9 @@ public class AugmentOSLibBroadcastSender {
         EventBus.getDefault().post(new KillTpaEvent(tpa));
 
         //clear the screen after killing
-        EventBus.getDefault().post(new HomeScreenEvent());
+        // TODO: Comment out because this was causing errors (no subscribers found- who would have thunk?)
+        // TODO: Develop an AWESOME dashboard system
+        // EventBus.getDefault().post(new HomeScreenEvent());
 
         // KILL IT WITH FIRE
         Intent intent = new Intent();
