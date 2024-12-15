@@ -1,1 +1,6 @@
 export const MOCK_CONNECTION: boolean = false;
+
+export const SETTINGS_KEYS = {
+    SIMULATED_PUCK: 'SIMULATED_PUCK',
+    PREVIOUSLY_BONDED_PUCK: 'PREVIOUSLY_BONDED_PUCK'
+}
