@@ -1,16 +1,12 @@
-// BluetoothService.tsx
 import { NativeEventEmitter, NativeModules, Alert, Platform } from 'react-native';
 import BleManager from 'react-native-ble-manager';
 import { EventEmitter } from 'events';
 import { TextDecoder } from 'text-encoding';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { AppState } from 'react-native';
-import { RotateInDownLeft } from 'react-native-reanimated';
-import { MOCK_CONNECTION } from './consts';
+import { MOCK_CONNECTION, SETTINGS_KEYS } from './consts';
 import { loadSetting, saveSetting } from './augmentos_core_comms/SettingsHelper';
 import { startExternalService } from './augmentos_core_comms/CoreServiceStarter';
-//const { ManagerCoreCommsService } = NativeModules;
-//const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
 import ManagerCoreCommsService from './augmentos_core_comms/ManagerCoreCommsService';
 const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
 
@@ -40,6 +36,8 @@ export class BluetoothService extends EventEmitter {
 
   simulatedPuck: boolean = false;
 
+  private appStateSubscription: { remove: () => void } | null = null;
+
   constructor() {
     super();
   }
@@ -47,8 +45,8 @@ export class BluetoothService extends EventEmitter {
   async initialize(){
     if (MOCK_CONNECTION) return;
 
-    // saveSetting('simulatedPuck', false); // TODO: Temporarily disable this feature
-    this.simulatedPuck = await loadSetting('simulatedPuck', false);
+    // saveSetting('SETTINGS_KEYS.SIMULATED_PUCK', false); // TODO: Temporarily disable this feature
+    this.simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, false);
 
     if (this.simulatedPuck){
       startExternalService();
@@ -59,7 +57,7 @@ export class BluetoothService extends EventEmitter {
 
     this.startReconnectionScan();
 
-    AppState.addEventListener('change', this.handleAppStateChange.bind(this));
+    this.appStateSubscription = AppState.addEventListener('change', this.handleAppStateChange.bind(this));
   }
 
   async initializeBleManager() {
@@ -111,7 +109,7 @@ export class BluetoothService extends EventEmitter {
   handleAppStateChange(nextAppState: string) {
     if (nextAppState === 'active') {
       console.log('App became active. Checking connection...');
-      if (!this.connectedDevice) {
+      if (!this.connectedDevice && !this.simulatedPuck) {
         this.scanForDevices();
       }
     }
@@ -325,9 +323,11 @@ export class BluetoothService extends EventEmitter {
 
     this.isLocked = false;
     try {
-      await BleManager.disconnect(this.connectedDevice.id);
-      this.connectedDevice = null;
+      if (await BleManager.isPeripheralConnected(this.connectedDevice.id, [])){
+        await BleManager.disconnect(this.connectedDevice.id);
+      }
       this.emit('deviceDisconnected')
+      this.connectedDevice = null;
     } catch (error) {
       console.error('Error during disconnect:', error);
     }
@@ -392,6 +392,8 @@ export class BluetoothService extends EventEmitter {
           const jsonData = JSON.parse(jsonString);
           this.emit('dataReceived', jsonData);
           this.parseDataFromAugmentOsCore(jsonData);
+
+          saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, true).then().catch();
         } catch (error) {
           console.log("(ERROR) RAW DATA RECEIVED:", jsonString);
           console.error('Error parsing JSON data:', error);
@@ -645,10 +647,31 @@ export class BluetoothService extends EventEmitter {
 
   public static resetInstance = async () => {
     if (BluetoothService.bluetoothService) {
-      await BluetoothService.bluetoothService.disconnectFromDevice();
-      BluetoothService.bluetoothService = null;
+        // Disconnect from any connected device
+        await BluetoothService.bluetoothService.disconnectFromDevice();
+
+        // Remove all event listeners
+        BluetoothService.bluetoothService.removeListeners();
+
+        // Remove AppState listeners
+        BluetoothService.bluetoothService.appStateSubscription?.remove();
+
+        // Reset instance variables
+        BluetoothService.bluetoothService.devices = [];
+        BluetoothService.bluetoothService.connectedDevice = null;
+        BluetoothService.bluetoothService.isScanning = false;
+        BluetoothService.bluetoothService.isConnecting = false;
+        BluetoothService.bluetoothService.chunks = {};
+        BluetoothService.bluetoothService.expectedChunks = {};
+        BluetoothService.bluetoothService.isLocked = false;
+
+        // Nullify the instance
+        BluetoothService.bluetoothService = null;
+
+        console.log('BluetoothService instance has been reset.');
     }
-  }
+}
+
 }
 export default BluetoothService;
 

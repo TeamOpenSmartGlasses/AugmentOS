@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Switch, TouchableOpacity, Platform, Linking } from 'react-native';
+import { View, Text, StyleSheet, Switch, TouchableOpacity, Platform, Linking, Alert, BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useStatus } from '../AugmentOSStatusProvider';
 import BluetoothService from '../BluetoothService';
 import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
+import { SETTINGS_KEYS } from '../consts';
 
 interface SimulatedPuckSettingsProps {
   isDarkTheme: boolean;
@@ -17,7 +18,7 @@ const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({ isDarkThe
   const { status } = useStatus();
   let n = navigation;
   const bluetoothService = BluetoothService.getInstance();
-  
+
   const switchColors = {
     trackColor: {
       false: isDarkTheme ? '#666666' : '#D1D1D6',
@@ -30,8 +31,7 @@ const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({ isDarkThe
   };
 
   const handleInstallLink = () => {
-    // Replace with the actual link to install AugmentOS_Core
-    const url = 'https://example.com/augmentos_core';
+    const url = 'https://augmentos.org/install-augmentos-core';
     Linking.openURL(url).catch((err) =>
       console.error("Failed to open URL:", err)
     );
@@ -39,30 +39,47 @@ const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({ isDarkThe
 
   const toggleSimulatePuck = async () => {
     console.log("TEST")
+    await saveSetting(SETTINGS_KEYS.SIMULATED_PUCK, !isSimulatedPuck);
     setIsSimulatedPuck(!isSimulatedPuck)
-    await saveSetting('simulatedPuck', true);
     await BluetoothService.resetInstance();
     BluetoothService.getInstance();
+
+    let textToShow = isSimulatedPuck ? "Please restart the app and return to this screen for instructions." : "Please restart the app";
+    Alert.alert(
+      "App Restart Required",
+      textToShow,
+      [
+        {
+          text: "OK",
+          onPress: () => {
+            if (Platform.OS === 'android') {
+              BackHandler.exitApp(); // Exit app on Android
+            }
+          },
+        },
+      ],
+      { cancelable: false }
+    );
   }
 
-    React.useEffect(() => {
-      const loadSimulatedPuckSetting = async () => {
-        const simulatedPuck = await loadSetting('simulatedPuck', false);
-        setIsSimulatedPuck(simulatedPuck);
-      };
+  React.useEffect(() => {
+    const loadSimulatedPuckSetting = async () => {
+      const simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, false);
+      setIsSimulatedPuck(simulatedPuck);
+    };
 
-      loadSimulatedPuckSetting();
-    }, []);
+    loadSimulatedPuckSetting();
+  }, []);
 
 
 
   return (
     <View style={[styles.container, isDarkTheme ? styles.darkBackground : styles.lightBackground]}>
 
- 
 
- 
-        <View style={{ marginTop: 20 }}>
+
+
+      <View style={{ marginTop: 20 }}>
         <Text style={[styles.title, isDarkTheme ? styles.lightText : styles.darkText]}>
           Simulated Puck
         </Text>
@@ -72,71 +89,71 @@ const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({ isDarkThe
         <Text style={[styles.notice, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
           Please note that this feature is primarily intended for development purposes. Not all features will work, some things may break, and using this will increase battery usage.
         </Text>
-      
+
         <View style={styles.settingItem}>
-        <View style={styles.settingTextContainer}>
-          <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>
-            Use Simulated Puck
-          </Text>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>
+              Use Simulated Puck
+            </Text>
+          </View>
+          <Switch
+            disabled={false}
+            value={isSimulatedPuck}
+            onValueChange={() => toggleSimulatePuck()}
+            trackColor={switchColors.trackColor}
+            thumbColor={switchColors.thumbColor}
+            ios_backgroundColor={switchColors.ios_backgroundColor}
+          />
         </View>
-        <Switch
-          disabled={false}
-          value={isSimulatedPuck} 
-          onValueChange={() => toggleSimulatePuck()}
-          trackColor={switchColors.trackColor}
-          thumbColor={switchColors.thumbColor}
-          ios_backgroundColor={switchColors.ios_backgroundColor}
-        />
-      </View>
       </View>
       {isSimulatedPuck && (
-      <View style={{ marginTop: 20 }}>
+        <View style={{ marginTop: 20 }}>
 
-        <Text style={[styles.subtitle, isDarkTheme ? styles.lightText : styles.darkText]}>
-          Simulated Puck Setup
-        </Text>
-        
-        <View style={styles.step}>
-          <Text style={[styles.stepNumber, isDarkTheme ? styles.lightText : styles.darkText]}>1.</Text>
-          <TouchableOpacity onPress={handleInstallLink}>
-            <Text style={[styles.link, isDarkTheme ? styles.lightText : styles.darkText]}>
-              Install AugmentOS_Core
+          <Text style={[styles.subtitle, isDarkTheme ? styles.lightText : styles.darkText]}>
+            Simulated Puck Setup
+          </Text>
+
+          <View style={styles.step}>
+            <Text style={[styles.stepNumber, isDarkTheme ? styles.lightText : styles.darkText]}>1.</Text>
+            <TouchableOpacity onPress={handleInstallLink}>
+              <Text style={[styles.link, isDarkTheme ? styles.lightText : styles.darkText]}>
+                Install AugmentOS_Core
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.step}>
+            <Text style={[styles.stepNumber, isDarkTheme ? styles.lightText : styles.darkText]}>2.</Text>
+            <Text style={[styles.stepText, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
+              Launch AugmentOS_Core, and make sure to accept all permissions, and disable all battery optimizations when prompted.
             </Text>
-          </TouchableOpacity>
-        </View>
-      
-        <View style={styles.step}>
-          <Text style={[styles.stepNumber, isDarkTheme ? styles.lightText : styles.darkText]}>2.</Text>
-          <Text style={[styles.stepText, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
-            Launch AugmentOS_Core, and make sure to accept all permissions, and disable all battery optimizations when prompted.
-          </Text>
-        </View>
-      
-        <View style={styles.step}>
-          <Text style={[styles.stepNumber, isDarkTheme ? styles.lightText : styles.darkText]}>3.</Text>
-          <Text style={[styles.stepText, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
-            Check below to see if the simulated puck has been connected...
-          </Text>
-        </View>
+          </View>
 
-        <View style={styles.step}>
-          <Text style={[styles.stepNumber, isDarkTheme ? styles.lightText : styles.darkText]}>3.</Text>
-          <Text style={[styles.stepText, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
-            Check below to see if the simulated puck has been connected...
-          </Text>
-        </View>
-
-            
-        <Text style={[styles.subtitle, isDarkTheme ? styles.lightText : styles.darkText]}>
-              Simulated puck connection status: {status.puck_connected ? "\nConnected" : "\nNot Connected"}
+          <View style={styles.step}>
+            <Text style={[styles.stepNumber, isDarkTheme ? styles.lightText : styles.darkText]}>3.</Text>
+            <Text style={[styles.stepText, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
+              Check below to see if the simulated puck has been connected...
             </Text>
+          </View>
+
+          <View style={styles.step}>
+            <Text style={[styles.stepNumber, isDarkTheme ? styles.lightText : styles.darkText]}>3.</Text>
+            <Text style={[styles.stepText, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
+              Check below to see if the simulated puck has been connected...
+            </Text>
+          </View>
 
 
-      </View>
-      
+          <Text style={[styles.subtitle, isDarkTheme ? styles.lightText : styles.darkText]}>
+            Simulated puck connection status: {status.puck_connected ? "\nConnected" : "\nNot Connected"}
+          </Text>
+
+
+        </View>
+
       )}
 
-      
+
     </View>
   );
 };
