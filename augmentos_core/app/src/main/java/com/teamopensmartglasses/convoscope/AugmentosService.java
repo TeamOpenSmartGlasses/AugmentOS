@@ -768,7 +768,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     private long lastSentTime = 0;
-    private final long DEBOUNCE_DELAY = 250; // in milliseconds
+    private final long DEBOUNCE_DELAY = 333; // in milliseconds
     private void debounceAndSendTranscript(String transcript, boolean isFinal) {
         debounceHandler.removeCallbacks(debounceRunnable);
         long currentTime = System.currentTimeMillis();

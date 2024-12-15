@@ -59,12 +59,11 @@
     <Button
         android:id="@+id/connect_button"
         android:layout_width="wrap_content"
-        android:minWidth="115dp"
         android:layout_height="45dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="16dp"
+        android:minWidth="115dp"
         android:text="Connect"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,77 +78,6 @@
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/connect_button" />
-
-    <RadioGroup
-        android:id="@+id/radioGroupOptions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settings_button">
-
-      <RadioButton
-          android:id="@+id/radioButtonProactiveAgents"
-          android:layout_width="match_parent"
-          android:layout_height="32dp"
-          android:enabled="true"
-          android:buttonTint="@color/colorAccent"
-          android:text="Convoscope Agents" />
-
-      <RadioButton
-          android:id="@+id/radioButtonLanguageLearning"
-          android:layout_width="match_parent"
-          android:layout_height="32dp"
-          android:enabled="true"
-          android:buttonTint="@color/colorAccent"
-          android:text="Language Learning" />
-
-        <RadioButton
-          android:id="@+id/radioButtonScreenMirror"
-          android:layout_width="match_parent"
-          android:layout_height="32dp"
-          android:enabled="true"
-          android:buttonTint="@color/colorAccent"
-          android:text="Screen Mirror" />
-
-
-    <Switch
-        android:id="@+id/word_upgrade_toggle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:text="                Images"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-      <RadioButton
-          android:id="@+id/radioButtonADHDGlasses"
-          android:layout_width="match_parent"
-          android:layout_height="32dp"
-          android:enabled="true"
-          android:buttonTint="@color/colorAccent"
-          android:text="ADHD Live Memory Aid" />
-
-      <RadioButton
-          android:id="@+id/radioButtonWalkNGrok"
-          android:layout_width="match_parent"
-          android:layout_height="32dp"
-          android:enabled="false"
-          android:buttonTint="@color/colorLightGray"
-          android:text="Live Captions" />
-
-      <RadioButton
-          android:id="@+id/radioButtonWalkNGrok"
-          android:layout_width="match_parent"
-          android:layout_height="32dp"
-          android:enabled="false"
-          android:buttonTint="@color/colorLightGray"
-          android:text="Translation" />
-
-    </RadioGroup>
-
 
 
     <!--    <Button-->
