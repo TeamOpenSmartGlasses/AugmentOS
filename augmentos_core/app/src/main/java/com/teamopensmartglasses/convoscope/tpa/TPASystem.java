@@ -14,7 +14,6 @@ import android.content.pm.PackageManager;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.teamopensmartglasses.augmentoslib.AugmentOSCommand;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
@@ -43,11 +42,9 @@ import com.teamopensmartglasses.convoscope.tpa.eventbusmessages.TPARequestEvent;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 public class TPASystem {
@@ -213,7 +210,7 @@ public class TPASystem {
     @Subscribe
     public void onKillTpaEvent(KillTpaEvent killTpaEvent)
     {
-        augmentOsLibBroadcastSender.sendEventToTPAs(KillTpaEvent.eventId, killTpaEvent);
+        augmentOsLibBroadcastSender.sendEventToTPAs(KillTpaEvent.eventId, killTpaEvent, killTpaEvent.tpa.packageName);
     }
 
 //    @Subscribe
@@ -246,7 +243,7 @@ public class TPASystem {
     public void onTranscript(SpeechRecOutputEvent event){
         boolean tpaIsSubscribed = true;
         if(tpaIsSubscribed){
-            augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecOutputEvent.eventId, event);
+            augmentOsLibBroadcastSender.sendEventToAllTPAs(SpeechRecOutputEvent.eventId, event);
         }
     }
 
@@ -254,7 +251,7 @@ public class TPASystem {
     public void onSmartRingButtonEvent(SmartRingButtonOutputEvent event){
         boolean tpaIsSubscribed = true; //TODO: Hash out implementation
         if(tpaIsSubscribed){
-            augmentOsLibBroadcastSender.sendEventToTPAs(SmartRingButtonOutputEvent.eventId, event);
+            augmentOsLibBroadcastSender.sendEventToAllTPAs(SmartRingButtonOutputEvent.eventId, event);
         }
     }
 
@@ -262,7 +259,7 @@ public class TPASystem {
     public void onGlassesTapEvent(GlassesTapOutputEvent event){
         boolean tpaIsSubscribed = true; //TODO: Hash out implementation
         if(tpaIsSubscribed){
-            augmentOsLibBroadcastSender.sendEventToTPAs(GlassesTapOutputEvent.eventId, event);
+            augmentOsLibBroadcastSender.sendEventToAllTPAs(GlassesTapOutputEvent.eventId, event);
         }
     }
 
@@ -395,12 +392,12 @@ public class TPASystem {
                 return;
         }
 
-        // Check if this TPA should even be running
-//        if (!checkIsThirdPartyAppRunningByPackageName(receivedEvent.sendingPackage)) {
-//            Log.d(TAG, "Unknown app '" + receivedEvent.serializedEvent + "' attempting request... weird... bye felicia");
-//            stopThirdPartyAppByPackageName(receivedEvent.sendingPackage);
-//            return;
-//        }
+        //  Check if this TPA should even be running
+        if (!checkIsThirdPartyAppRunningByPackageName(receivedEvent.sendingPackage)) {
+            Log.d(TAG, "Non-running app '" + receivedEvent.serializedEvent + "' attempting request... weird");
+            stopThirdPartyAppByPackageName(receivedEvent.sendingPackage);
+            return;
+        }
 
         switch (receivedEvent.eventId) {
             case ReferenceCardSimpleViewRequestEvent.eventId:

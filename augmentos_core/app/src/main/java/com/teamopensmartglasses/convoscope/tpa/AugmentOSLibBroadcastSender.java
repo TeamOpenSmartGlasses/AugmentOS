@@ -1,10 +1,8 @@
 package com.teamopensmartglasses.convoscope.tpa;
 
-import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.EVENT_BUNDLE;
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.EVENT_ID;
 
-import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +14,6 @@ import com.teamopensmartglasses.augmentoslib.SmartGlassesAndroidService;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
 import com.teamopensmartglasses.augmentoslib.events.CommandTriggeredEvent;
-import com.teamopensmartglasses.augmentoslib.events.HomeScreenEvent;
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -34,7 +31,7 @@ public class AugmentOSLibBroadcastSender {
         this.intentPkg = AugmentOSGlobalConstants.TO_TPA_FILTER;
     }
 
-    public void sendEventToTPAs(String eventId, Serializable eventBundle) {
+    public void sendEventToAllTPAs(String eventId, Serializable eventBundle) {
         sendEventToTPAs(eventId, eventBundle, null);
     }
     public void sendEventToTPAs(String eventId, Serializable eventBundle, String tpaPackageName) {
@@ -83,6 +80,7 @@ public class AugmentOSLibBroadcastSender {
             Log.d(TAG, "Cannot kill a core system app: " + tpa.packageName);
         };
 
+        // KINDLY ask the TPA to kill itself
         EventBus.getDefault().post(new KillTpaEvent(tpa));
 
         //clear the screen after killing
@@ -90,7 +88,7 @@ public class AugmentOSLibBroadcastSender {
         // TODO: Develop an AWESOME dashboard system
         // EventBus.getDefault().post(new HomeScreenEvent());
 
-        // KILL IT WITH FIRE
+        // Just in case it did not, KILL IT WITH FIRE
         Intent intent = new Intent();
         intent.setComponent(new ComponentName(tpa.packageName, tpa.serviceName));
         context.stopService(intent);
