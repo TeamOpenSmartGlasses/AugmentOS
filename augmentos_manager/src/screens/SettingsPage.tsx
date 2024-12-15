@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Switch, TouchableOpacity, Platform } from 'react-native';
+import { View, Text, StyleSheet, Switch, TouchableOpacity, Platform, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useStatus } from '../AugmentOSStatusProvider';
 import { BluetoothService } from '../BluetoothService';
+import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
+import { SETTINGS_KEYS } from '../consts';
+
 interface SettingsPageProps {
   isDarkTheme: boolean;
   toggleTheme: () => void;
@@ -13,9 +16,17 @@ interface SettingsPageProps {
 const SettingsPage: React.FC<SettingsPageProps> = ({ isDarkTheme, toggleTheme, navigation }) => {
   const [isDoNotDisturbEnabled, setDoNotDisturbEnabled] = React.useState(false);
   const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] = React.useState(false);
-  const [isSimulatedPuck, setIsSimulatedPuck] = React.useState(false);
   const { status } = useStatus();
-  let isUsingAudioWearable = status.glasses_info?.model_name == "Audio Wearable";
+  const [isUsingAudioWearable, setIsUsingAudioWearable] = React.useState(status.default_wearable == "Audio Wearable");
+
+    React.useEffect(() => {
+      const loadInitialSettings = async () => {
+
+      };
+
+      loadInitialSettings();
+    }, []);
+  
 
   const switchColors = {
     trackColor: {
@@ -28,20 +39,23 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ isDarkTheme, toggleTheme, n
     ios_backgroundColor: isDarkTheme ? '#666666' : '#D1D1D6',
   };
 
-  const toggleVirtualWearable = async (arg0: boolean) => {
-    BluetoothService.getInstance().sendToggleVirtualWearable(arg0);
+  const toggleVirtualWearable = async () => {
+    let isUsingAudio = status.default_wearable == "Audio Wearable";
+    BluetoothService.getInstance().sendToggleVirtualWearable(!isUsingAudio);
+    setIsUsingAudioWearable(!isUsingAudio);
   }
 
   const sendDisconnectWearable = async () => {
     throw new Error('Function not implemented.');
   }
 
-  const sendDisconnectPuck = async () => {
-    throw new Error('Function not implemented.');
+  const forgetPuck = async () => {
+    await BluetoothService.getInstance().disconnectFromDevice();
+    await saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, null);
   }
 
   return (
-    <View style={[styles.container, isDarkTheme ? styles.darkBackground : styles.lightBackground]}>
+    <ScrollView style={[styles.container, isDarkTheme ? styles.darkBackground : styles.lightBackground]}>
 
 
       <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
@@ -77,7 +91,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ isDarkTheme, toggleTheme, n
         </View>
         <Switch
           disabled={!status.puck_connected}
-          value={isUsingAudioWearable} onValueChange={() => toggleVirtualWearable(!isUsingAudioWearable)}
+          value={isUsingAudioWearable} onValueChange={() => toggleVirtualWearable()}
           trackColor={switchColors.trackColor}
           thumbColor={switchColors.thumbColor}
           ios_backgroundColor={switchColors.ios_backgroundColor}
@@ -188,7 +202,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ isDarkTheme, toggleTheme, n
           color={isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color}
         />
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 
