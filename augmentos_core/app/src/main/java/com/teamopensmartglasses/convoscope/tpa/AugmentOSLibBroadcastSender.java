@@ -78,6 +78,7 @@ public class AugmentOSLibBroadcastSender {
         Log.d(TAG, "Attempting to kill third-party app: " + tpa.packageName);
         if (tpa.appType == ThirdPartyAppType.CORE_SYSTEM) {
             Log.d(TAG, "Cannot kill a core system app: " + tpa.packageName);
+            return; // Initially forgetting to add this return statement has cost me hours of my fleeting life
         };
 
         // KINDLY ask the TPA to kill itself
