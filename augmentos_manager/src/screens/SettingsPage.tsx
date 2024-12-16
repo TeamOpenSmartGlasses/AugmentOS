@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Switch, TouchableOpacity, Platform, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Switch, TouchableOpacity, Platform, ScrollView, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useStatus } from '../AugmentOSStatusProvider';
 import { BluetoothService } from '../BluetoothService';
 import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
 import { SETTINGS_KEYS } from '../consts';
+import NavigationBar from '../components/NavigationBar';
 
 interface SettingsPageProps {
   isDarkTheme: boolean;
   toggleTheme: () => void;
-  navigation: any; 
+  navigation: any;
 }
 
 const SettingsPage: React.FC<SettingsPageProps> = ({ isDarkTheme, toggleTheme, navigation }) => {
@@ -19,14 +20,14 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ isDarkTheme, toggleTheme, n
   const { status } = useStatus();
   const [isUsingAudioWearable, setIsUsingAudioWearable] = React.useState(status.default_wearable == "Audio Wearable");
 
-    React.useEffect(() => {
-      const loadInitialSettings = async () => {
+  React.useEffect(() => {
+    const loadInitialSettings = async () => {
 
-      };
+    };
 
-      loadInitialSettings();
-    }, []);
-  
+    loadInitialSettings();
+  }, []);
+
 
   const switchColors = {
     trackColor: {
@@ -54,67 +55,92 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ isDarkTheme, toggleTheme, n
     await saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, null);
   }
 
+  // Theme colors
+  const theme = {
+    backgroundColor: isDarkTheme ? '#1c1c1c' : '#f9f9f9',
+    headerBg: isDarkTheme ? '#333333' : '#fff',
+    textColor: isDarkTheme ? '#FFFFFF' : '#333333',
+    subTextColor: isDarkTheme ? '#999999' : '#666666',
+    cardBg: isDarkTheme ? '#333333' : '#fff',
+    borderColor: isDarkTheme ? '#444444' : '#e0e0e0',
+    searchBg: isDarkTheme ? '#2c2c2c' : '#f5f5f5',
+    categoryChipBg: isDarkTheme ? '#444444' : '#e9e9e9',
+    categoryChipText: isDarkTheme ? '#FFFFFF' : '#555555',
+    selectedChipBg: isDarkTheme ? '#666666' : '#333333',
+    selectedChipText: isDarkTheme ? '#FFFFFF' : '#FFFFFF',
+  };
+
   return (
-    <ScrollView style={[styles.container, isDarkTheme ? styles.darkBackground : styles.lightBackground]}>
-
-
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-        <Icon name="arrow-left" size={24} color={isDarkTheme ? styles.lightText.color : styles.darkText.color} />
-        <Text style={[styles.backButtonText, isDarkTheme ? styles.lightText : styles.darkText]}>
-          Settings for Glasses
+    <View style={[styles.container, isDarkTheme ? styles.darkBackground : styles.lightBackground]}>
+      <View style={[
+        styles.titleContainer,
+        isDarkTheme ? styles.titleContainerDark : styles.titleContainerLight,
+      ]}>
+        <Text
+          style={[
+            styles.title,
+            isDarkTheme ? styles.lightText : styles.darkText,
+            {
+            },
+          ]}
+        >
+          Settings
         </Text>
-      </TouchableOpacity>
 
-      <View style={styles.settingItem}>
-        <View style={styles.settingTextContainer}>
-          <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>Dark Mode</Text>
-          <Text style={[styles.value, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
-            Toggle between light and dark mode
-          </Text>
-        </View>
-        <Switch
-          value={isDarkTheme}
-          onValueChange={toggleTheme}
-          trackColor={switchColors.trackColor}
-          thumbColor={switchColors.thumbColor}
-          ios_backgroundColor={switchColors.ios_backgroundColor}
-        />
       </View>
+      {/* Margin bottom is 60 as super quick ugly hack for navbar */}
+      <ScrollView style={{ marginBottom: 60 }}>
 
-      <View style={styles.settingItem}>
-        <View style={styles.settingTextContainer}>
-          <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>
-            Use Virtual Wearable
-          </Text>
-          <Text style={[styles.value, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
-            Puck will use a simulated smart glasses instead of real smart glasses.</Text>
-        </View>
-        <Switch
-          disabled={!status.puck_connected}
-          value={isUsingAudioWearable} onValueChange={() => toggleVirtualWearable()}
-          trackColor={switchColors.trackColor}
-          thumbColor={switchColors.thumbColor}
-          ios_backgroundColor={switchColors.ios_backgroundColor}
-        />
-      </View>
-
-      {/* Temporary until we make a proper page for thsi */}
-      {Platform.OS == 'android' && (
-        <TouchableOpacity style={styles.settingItem} onPress={()=>{
-          navigation.navigate('SimulatedPuckSettings')
-        }}>
+        <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
-            <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>Simulated Puck</Text>
+            <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>Dark Mode</Text>
+            <Text style={[styles.value, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
+              Toggle between light and dark mode
+            </Text>
           </View>
-          <Icon
-            name="angle-right"
-            size={20}
-            color={isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color}
+          <Switch
+            value={isDarkTheme}
+            onValueChange={toggleTheme}
+            trackColor={switchColors.trackColor}
+            thumbColor={switchColors.thumbColor}
+            ios_backgroundColor={switchColors.ios_backgroundColor}
           />
-        </TouchableOpacity>
-      )}
+        </View>
 
-      <TouchableOpacity style={styles.settingItem}>
+        <View style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>
+              Use Virtual Wearable
+            </Text>
+            <Text style={[styles.value, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
+              Puck will use a simulated smart glasses instead of real smart glasses.</Text>
+          </View>
+          <Switch
+            disabled={!status.puck_connected}
+            value={isUsingAudioWearable} onValueChange={() => toggleVirtualWearable()}
+            trackColor={switchColors.trackColor}
+            thumbColor={switchColors.thumbColor}
+            ios_backgroundColor={switchColors.ios_backgroundColor}
+          />
+        </View>
+
+        {/* Temporary until we make a proper page for thsi */}
+        {Platform.OS == 'android' && (
+          <TouchableOpacity style={styles.settingItem} onPress={() => {
+            navigation.navigate('SimulatedPuckSettings')
+          }}>
+            <View style={styles.settingTextContainer}>
+              <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>Simulated Puck</Text>
+            </View>
+            <Icon
+              name="angle-right"
+              size={20}
+              color={isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color}
+            />
+          </TouchableOpacity>
+        )}
+
+        {/* <TouchableOpacity style={styles.settingItem}>
         <View style={styles.settingTextContainer}>
           <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>Name of Glasses</Text>
           <Text style={[styles.value, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>MYVU B0OC</Text>
@@ -201,8 +227,10 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ isDarkTheme, toggleTheme, n
           size={20}
           color={isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color}
         />
-      </TouchableOpacity>
-    </ScrollView>
+      </TouchableOpacity> */}
+      </ScrollView>
+      <NavigationBar toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
+    </View>
   );
 };
 
@@ -210,6 +238,27 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+  },
+  titleContainer: {
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    marginHorizontal: -20,
+    marginTop: -20,
+    marginBottom: 10,
+  },
+  titleContainerDark: {
+    backgroundColor: '#333333',
+  },
+  titleContainerLight: {
+    backgroundColor: '#ffffff',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
+    textAlign: 'left',
+    color: '#FFFFFF',
+    marginBottom: 5,
   },
   darkBackground: {
     backgroundColor: '#1c1c1c',
@@ -265,6 +314,18 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 5,
     flexWrap: 'wrap',
+  },
+  headerContainer: {
+    backgroundColor: '#fff',
+    paddingVertical: 15,
+    paddingHorizontal: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: '600',
+    color: '#333',
   },
 });
 
