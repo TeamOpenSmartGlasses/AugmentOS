@@ -53,8 +53,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
+import com.teamopensmartglasses.augmentoslib.DataStreamType;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
+import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.convoscope.comms.AugmentOsActionsCallback;
 import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
@@ -405,6 +407,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void onGlassesConnnected(SmartGlassesConnectedEvent event) {
         Log.d(TAG, "Got even for onGlassesConnected....");
         sendStatusToAugmentOsManager();
+
+        smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS");
     }
 
     public void handleSignOut(){
@@ -585,6 +589,50 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 //            sendReferenceCard("Convoscope", "Sending result(s) via SMS to " + phoneNumName);
 //        }
 //    }
+
+    @Subscribe
+    public void onSubscribeDataStreamRequestEvent(SubscribeDataStreamRequestEvent event){
+        Log.d(TAG, "Got a request to subscribe to data stream");
+
+        if (event.dataStreamType == DataStreamType.TRANSCRIPTION_DEFAULT_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN DEFAULT LANGUAGE");
+            if (smartGlassesService != null) {
+                smartGlassesService.switchRunningTranscribeLanguage("English");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_ENGLISH_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN ENGLISH");
+            if (smartGlassesService != null) {
+                smartGlassesService.switchRunningTranscribeLanguage("English");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_CHINESE_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN CHINESE");
+            if (smartGlassesService != null) {
+                smartGlassesService.switchRunningTranscribeLanguage("Chinese");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_RUSSIAN_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN RUSSIAN");
+            if (smartGlassesService != null) {
+                smartGlassesService.switchRunningTranscribeLanguage("Russian");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_FRENCH_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN FRENCH");
+            if (smartGlassesService != null) {
+                smartGlassesService.switchRunningTranscribeLanguage("French");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_SPANISH_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN SPANISH");
+            if (smartGlassesService != null) {
+                smartGlassesService.switchRunningTranscribeLanguage("Spanish");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_JAPANESE_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN JAPANESE");
+            if (smartGlassesService != null) {
+                smartGlassesService.switchRunningTranscribeLanguage("Japanese");
+            }
+        } else {
+            Log.d(TAG, "UNKNOWN DATA STREAM TYPE REQUESTED");
+        }
+    }
 
     private Handler debounceHandler = new Handler(Looper.getMainLooper());
     private Runnable debounceRunnable;

@@ -24,6 +24,7 @@ import com.teamopensmartglasses.augmentoslib.events.RowsCardViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStartRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStopRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SendBitmapViewRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
 
@@ -103,6 +104,11 @@ public class TPABroadcastSender {
 
     @Subscribe
     public void onSendDoubleTextWall(DoubleTextWallViewRequestEvent e){
+        sendEventToAugmentOS(e.eventId, e);
+    }
+
+    @Subscribe
+    public void onSendSubscribeDataStream(SubscribeDataStreamRequestEvent e){
         sendEventToAugmentOS(e.eventId, e);
     }
 

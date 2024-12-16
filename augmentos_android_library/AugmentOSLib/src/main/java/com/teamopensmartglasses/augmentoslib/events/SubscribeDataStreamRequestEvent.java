@@ -1,14 +1,15 @@
 package com.teamopensmartglasses.augmentoslib.events;
 
 import com.teamopensmartglasses.augmentoslib.AugmentOSCommand;
+import com.teamopensmartglasses.augmentoslib.DataStreamType;
 
 import java.io.Serializable;
 
 public class SubscribeDataStreamRequestEvent implements Serializable {
-    public String dataStreamType;
+    public DataStreamType dataStreamType;
     public static final String eventId = "subscribeDataStreamRequestEvent";
 
-    public SubscribeDataStreamRequestEvent(String dataStreamType){
+    public SubscribeDataStreamRequestEvent(DataStreamType dataStreamType){
         this.dataStreamType = dataStreamType;
     }
 

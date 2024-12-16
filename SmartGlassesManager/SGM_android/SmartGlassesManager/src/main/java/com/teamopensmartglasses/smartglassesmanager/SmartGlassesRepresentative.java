@@ -240,6 +240,7 @@ class SmartGlassesRepresentative {
 
     @Subscribe
     public void onReferenceCardSimpleViewEvent(ReferenceCardSimpleViewRequestEvent receivedEvent){
+        Log.d(TAG, "SHOWING REFERENCE CARD");
         if (smartGlassesCommunicator != null) {
             smartGlassesCommunicator.displayReferenceCardSimple(receivedEvent.title, receivedEvent.body);
 //            homeUiAfterDelay(referenceCardDelayTime);
