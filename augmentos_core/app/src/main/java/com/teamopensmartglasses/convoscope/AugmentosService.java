@@ -53,8 +53,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
+import com.teamopensmartglasses.augmentoslib.DataStreamType;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
+import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.convoscope.comms.AugmentOsActionsCallback;
 import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
@@ -403,6 +405,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void onGlassesConnnected(SmartGlassesConnectedEvent event) {
         Log.d(TAG, "Got even for onGlassesConnected....");
         sendStatusToAugmentOsManager();
+
+        smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS");
     }
 
     public void handleSignOut(){
@@ -583,6 +587,16 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 //            sendReferenceCard("Convoscope", "Sending result(s) via SMS to " + phoneNumName);
 //        }
 //    }
+
+    @Subscribe
+    public void onSubscribeDataStreamRequestEvent(SubscribeDataStreamRequestEvent event){
+        Log.d(TAG, "Got a request to subscribe to data stream");
+
+        if (event.dataStreamType == DataStreamType.TRANSCRIPTION_CHINESE_STREAM){
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN CHINESE");
+            smartGlassesService.switchRunningTranscribeLanguage("Chinese");
+        }
+    }
 
     private Handler debounceHandler = new Handler(Looper.getMainLooper());
     private Runnable debounceRunnable;

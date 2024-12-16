@@ -28,6 +28,7 @@ import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStopRequest
 import com.teamopensmartglasses.augmentoslib.events.SendBitmapViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
 
@@ -96,6 +97,9 @@ public class AugmentOSLib {
 
     public void subscribe(DataStreamType dataStreamType, TranscriptCallback callback){
         subscribedDataStreams.put(dataStreamType, callback);
+
+        //trigger event to change language if needed
+        EventBus.getDefault().post(new SubscribeDataStreamRequestEvent(dataStreamType));
     }
 
     public void subscribe(DataStreamType dataStreamType, ButtonCallback callback){
@@ -208,8 +212,12 @@ public class AugmentOSLib {
         String text = event.text;
         String languageCode = event.languageCode;
         long time = event.timestamp;
-        if (subscribedDataStreams.containsKey(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM)) {
+//        ((TranscriptCallback)subscribedDataStreams.get(subscribedDataStreams.get)).call(text, languageCode, time, event.isFinal);
+        if (subscribedDataStreams.containsKey(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM) && (languageCode.equals("en-US"))) {
             ((TranscriptCallback)subscribedDataStreams.get(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM)).call(text, languageCode, time, event.isFinal);
+        }
+        if (subscribedDataStreams.containsKey(DataStreamType.TRANSCRIPTION_CHINESE_STREAM) && (languageCode.equals("zh"))) {
+            ((TranscriptCallback)subscribedDataStreams.get(DataStreamType.TRANSCRIPTION_CHINESE_STREAM)).call(text, languageCode, time, event.isFinal);
         }
     }
 
@@ -264,4 +272,6 @@ public class AugmentOSLib {
             augmentosSender.destroy();
         }
     }
+
+    public void switchRunningTranscribeLanguage(String language){}
 }

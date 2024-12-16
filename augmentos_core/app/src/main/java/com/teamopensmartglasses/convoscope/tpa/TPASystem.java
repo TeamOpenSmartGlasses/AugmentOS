@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.teamopensmartglasses.augmentoslib.AugmentOSCommand;
+import com.teamopensmartglasses.augmentoslib.DataStreamType;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
@@ -262,16 +263,6 @@ public class TPASystem {
         if(tpaIsSubscribed){
             augmentOsLibBroadcastSender.sendEventToAllTPAs(GlassesTapOutputEvent.eventId, event);
         }
-    }
-
-    @Subscribe
-    public void onSubscribeDataStreamRequestEvent(SubscribeDataStreamRequestEvent event){
-        Log.d(TAG, "Got a request to subscribe to data stream");
-        /*
-            TODO: Hash out implementation
-            Should data stream subscriptions use an SGMCommand for its callback function,
-            or something else?
-        */
     }
 
     public void registerThirdPartyApp(ThirdPartyApp app) {
