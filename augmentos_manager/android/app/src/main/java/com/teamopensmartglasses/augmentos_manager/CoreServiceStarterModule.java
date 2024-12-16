@@ -44,5 +44,21 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
             Log.e(TAG, "Failed to start service", e);
         }
     }
+    @ReactMethod
+    public void stopService() {
+        try {
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName(
+                    "com.teamopensmartglasses.convoscope",
+                    "com.teamopensmartglasses.convoscope.AugmentosService"));
+            intent.setAction("ACTION_STOP_CORE");
+
+            Log.d(TAG, "Stopping service with intent: " + intent.toString());
+
+            getReactApplicationContext().stopService(intent);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to stop service", e);
+        }
+    }
 
 }

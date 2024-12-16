@@ -94,6 +94,7 @@
 <!--        </intent-filter>-->
         <intent-filter>
           <action android:name="ACTION_START_CORE" />  <!-- Must match the action used in the Manager -->
+          <action android:name="ACTION_STOP_CORE" />  <!-- Must match the action used in the Manager -->
         </intent-filter>
     </service>
     <service android:name="com.teamopensmartglasses.convoscope.AugmentosSmartGlassesService"

@@ -2,6 +2,8 @@ interface ManagerCoreCommsServiceInterface {
     sendCommandToCore: (jsonString: string) => void;
     addListener: (eventName: string) => void,
     removeListeners: (count: number) => void,
+    startService: () => void;
+    stopService: () => void;
   }
   
   const ManagerCoreCommsService: ManagerCoreCommsServiceInterface = {
@@ -14,7 +16,9 @@ interface ManagerCoreCommsServiceInterface {
     },
     removeListeners: (count: number) => {
       console.warn("ManagerCoreCommsService is not available on iOS");
-    }
+    },
+    startService: () => {},
+    stopService: () => {}
   };
   
   export default ManagerCoreCommsService;

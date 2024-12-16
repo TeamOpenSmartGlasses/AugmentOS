@@ -115,6 +115,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private final String notificationDescription = "AugmentOS_Main Description";
     private final String myChannelId = "augmentos_main";
     public static final String ACTION_START_CORE = "ACTION_START_CORE";
+    public static final String ACTION_STOP_CORE = "ACTION_STOP_CORE";
 
     public static final String ACTION_START_FOREGROUND_SERVICE = "MY_ACTION_START_FOREGROUND_SERVICE";
     public static final String ACTION_STOP_FOREGROUND_SERVICE = "MY_ACTION_STOP_FOREGROUND_SERVICE";
@@ -339,6 +340,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                     tpaSystem.startThirdPartyAppByPackageName(AugmentOSManagerPackageName);
 
                     break;
+                case ACTION_STOP_CORE:
                 case ACTION_STOP_FOREGROUND_SERVICE:
                     stopForeground(true);
                     stopSelf();

@@ -37,18 +37,20 @@ export class BluetoothService extends EventEmitter {
   simulatedPuck: boolean = false;
 
   private appStateSubscription: { remove: () => void } | null = null;
+  private reconnectionTimer: NodeJS.Timeout | null = null;
 
   constructor() {
     super();
   }
 
-  async initialize(){
+  async initialize() {
     if (MOCK_CONNECTION) return;
 
     // saveSetting('SETTINGS_KEYS.SIMULATED_PUCK', false); // TODO: Temporarily disable this feature
     this.simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, false);
 
-    if (this.simulatedPuck){
+    if (this.simulatedPuck) {
+      ManagerCoreCommsService.startService();
       startExternalService();
       this.initializeCoreMessageIntentReader();
     } else {
@@ -84,7 +86,7 @@ export class BluetoothService extends EventEmitter {
         }
 
         this.parseDataFromAugmentOsCore(data);
-      } catch (e){
+      } catch (e) {
         console.error('Failed to parse JSON from core message:', e)
       }
     });
@@ -180,23 +182,31 @@ export class BluetoothService extends EventEmitter {
 
   startReconnectionScan() {
     const performScan = () => {
-      if(this.simulatedPuck) {
+      if (this.simulatedPuck) {
         this.sendRequestStatus();
-        setTimeout(performScan, this.connectedDevice ? 30000 : 500);
+        this.reconnectionTimer = setTimeout(performScan, this.connectedDevice ? 30000 : 500);
       }
 
-      if(!this.simulatedPuck) {
-        if(this.connectedDevice) {
+      if (!this.simulatedPuck) {
+        if (this.connectedDevice) {
           this.sendHeartbeat();
         } else {
           console.log('No device connected. Starting reconnection scan...');
           this.scanForDevices();
         }
-        setTimeout(performScan, 30000);
+        this.reconnectionTimer = setTimeout(performScan, 30000);
       }
     };
 
     performScan();
+  }
+
+  stopReconnectionScan() {
+    if (this.reconnectionTimer) {
+      clearTimeout(this.reconnectionTimer);
+      this.reconnectionTimer = null;
+      console.log("Reconnection scan stopped.");
+    }
   }
 
   handleStopScan() {
@@ -323,7 +333,7 @@ export class BluetoothService extends EventEmitter {
 
     this.isLocked = false;
     try {
-      if (await BleManager.isPeripheralConnected(this.connectedDevice.id, [])){
+      if (await BleManager.isPeripheralConnected(this.connectedDevice.id, [])) {
         await BleManager.disconnect(this.connectedDevice.id);
       }
       this.emit('deviceDisconnected')
@@ -461,7 +471,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   async sendDataToAugmentOs(dataObj: any) {
-    if(this.simulatedPuck){
+    if (this.simulatedPuck) {
       console.log("Sending command to simulated puck/core...")
       ManagerCoreCommsService.sendCommandToCore(JSON.stringify(dataObj));
       return;
@@ -637,7 +647,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   private static bluetoothService: BluetoothService | null = null;
-  public static getInstance() : BluetoothService {
+  public static getInstance(): BluetoothService {
     if (!BluetoothService.bluetoothService) {
       BluetoothService.bluetoothService = new BluetoothService();
       BluetoothService.bluetoothService.initialize();
@@ -647,30 +657,32 @@ export class BluetoothService extends EventEmitter {
 
   public static resetInstance = async () => {
     if (BluetoothService.bluetoothService) {
-        // Disconnect from any connected device
-        await BluetoothService.bluetoothService.disconnectFromDevice();
 
-        // Remove all event listeners
-        BluetoothService.bluetoothService.removeListeners();
+      BluetoothService.bluetoothService.stopReconnectionScan();
+      // Disconnect from any connected device
+      await BluetoothService.bluetoothService.disconnectFromDevice();
 
-        // Remove AppState listeners
-        BluetoothService.bluetoothService.appStateSubscription?.remove();
+      // Remove all event listeners
+      BluetoothService.bluetoothService.removeListeners();
 
-        // Reset instance variables
-        BluetoothService.bluetoothService.devices = [];
-        BluetoothService.bluetoothService.connectedDevice = null;
-        BluetoothService.bluetoothService.isScanning = false;
-        BluetoothService.bluetoothService.isConnecting = false;
-        BluetoothService.bluetoothService.chunks = {};
-        BluetoothService.bluetoothService.expectedChunks = {};
-        BluetoothService.bluetoothService.isLocked = false;
+      // Remove AppState listeners
+      BluetoothService.bluetoothService.appStateSubscription?.remove();
 
-        // Nullify the instance
-        BluetoothService.bluetoothService = null;
+      // Reset instance variables
+      BluetoothService.bluetoothService.devices = [];
+      BluetoothService.bluetoothService.connectedDevice = null;
+      BluetoothService.bluetoothService.isScanning = false;
+      BluetoothService.bluetoothService.isConnecting = false;
+      BluetoothService.bluetoothService.chunks = {};
+      BluetoothService.bluetoothService.expectedChunks = {};
+      BluetoothService.bluetoothService.isLocked = false;
 
-        console.log('BluetoothService instance has been reset.');
+      // Nullify the instance
+      BluetoothService.bluetoothService = null;
+
+      console.log('BluetoothService instance has been reset.');
     }
-}
+  }
 
 }
 export default BluetoothService;

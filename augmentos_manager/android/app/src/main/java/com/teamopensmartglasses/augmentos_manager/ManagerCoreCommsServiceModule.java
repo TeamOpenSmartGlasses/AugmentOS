@@ -51,9 +51,14 @@ public class ManagerCoreCommsServiceModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void stopService() {
+        // Context context = getReactApplicationContext();
+        // Intent serviceIntent = new Intent(context, ManagerCoreCommsService.class);
+        // context.stopService(serviceIntent);
+
         Context context = getReactApplicationContext();
         Intent serviceIntent = new Intent(context, ManagerCoreCommsService.class);
-        context.stopService(serviceIntent);
+        serviceIntent.setAction("AugmentOSLIB_ACTION_STOP_FOREGROUND_SERVICE");
+        context.startService(serviceIntent);
     }
 
     @ReactMethod
