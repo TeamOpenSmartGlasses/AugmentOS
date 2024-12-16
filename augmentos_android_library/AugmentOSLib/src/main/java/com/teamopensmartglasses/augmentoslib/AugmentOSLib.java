@@ -272,6 +272,4 @@ public class AugmentOSLib {
             augmentosSender.destroy();
         }
     }
-
-    public void switchRunningTranscribeLanguage(String language){}
 }
