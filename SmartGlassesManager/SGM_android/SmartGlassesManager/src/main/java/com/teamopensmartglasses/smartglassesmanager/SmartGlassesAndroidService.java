@@ -301,10 +301,10 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     public static String getChosenTranscribeLanguage(Context context) {
         String transcribeLanguageString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_TRANSCRIBE_LANGUAGE), "");
         if (transcribeLanguageString.equals("")){
-//            saveChosenTranscribeLanguage(context, "English");
-//            transcribeLanguageString = "English";
-            saveChosenTranscribeLanguage(context, "Chinese");
-            transcribeLanguageString = "Chinese";
+            saveChosenTranscribeLanguage(context, "English");
+            transcribeLanguageString = "English";
+//            saveChosenTranscribeLanguage(context, "Chinese");
+//            transcribeLanguageString = "Chinese";
         }
         return transcribeLanguageString;
     }
