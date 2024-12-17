@@ -302,7 +302,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     public void completeInitialization(){
         Log.d(TAG, "COMPLETE CONVOSCOPE INITIALIZATION");
-        setUpUiPolling();
+//        setUpUiPolling();
         setUpLocationSending();
 
         getCurrentMode(this);
@@ -679,13 +679,15 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         if(!isSmartGlassesServiceBound) return;
 
-        //debounce and then send to backend
-        if (!isTranslated && smartGlassesService.getSelectedLiveCaptionsTranslation(this) != 2) debounceAndSendTranscript(text, isFinal);
-//        getSettings();
-        // Send transcript to user if live captions are enabled
-        if (Objects.equals(getCurrentMode(this), "Language Learning") && smartGlassesService.getSelectedLiveCaptionsTranslation(this) != 0) { // 0 is language learning mode
-//            showTranscriptsToUser(text, isFinal);
-            debounceAndShowTranscriptOnGlasses(text, isFinal, isTranslated);
+        if (Objects.equals(getCurrentMode(this), "Language Learning")) {
+            //debounce and then send to backend
+            if (!isTranslated && smartGlassesService.getSelectedLiveCaptionsTranslation(this) != 2) debounceAndSendTranscript(text, isFinal);
+    //        getSettings();
+            // Send transcript to user if live captions are enabled
+            if (smartGlassesService.getSelectedLiveCaptionsTranslation(this) != 0) { // 0 is language learning mode
+    //            showTranscriptsToUser(text, isFinal);
+                debounceAndShowTranscriptOnGlasses(text, isFinal, isTranslated);
+            }
         }
     }
 
@@ -1731,7 +1733,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         //     currentModeString = "Proactive Agents";
         //     saveCurrentMode(context, currentModeString);
         // }
-        return currentModeString;
+//        return currentModeString;
+        return "Hard Coded Mode"; // TODO: hard coded mode
     }
 
     public void updateVocabularyUpgradeOnBackend(Context context){
