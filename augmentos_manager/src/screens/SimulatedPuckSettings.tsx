@@ -7,7 +7,7 @@ import BluetoothService from '../BluetoothService';
 import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
 import { SETTINGS_KEYS } from '../consts';
 import ManagerCoreCommsService from '../augmentos_core_comms/ManagerCoreCommsService';
-import { stopExternalService } from '../augmentos_core_comms/CoreServiceStarter';
+import { openCorePermissionsActivity, stopExternalService } from '../augmentos_core_comms/CoreServiceStarter';
 
 interface SimulatedPuckSettingsProps {
   isDarkTheme: boolean;
@@ -40,15 +40,18 @@ const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({ isDarkThe
   };
 
   const toggleSimulatePuck = async () => {
-    console.log("TEST")
+    let newSimulatedPuck = !isSimulatedPuck;
+    if(newSimulatedPuck) {
+    //  openCorePermissionsActivity();
+    }
     ManagerCoreCommsService.stopService();
     stopExternalService();
-    await saveSetting(SETTINGS_KEYS.SIMULATED_PUCK, !isSimulatedPuck);
-    setIsSimulatedPuck(!isSimulatedPuck)
+    await saveSetting(SETTINGS_KEYS.SIMULATED_PUCK, newSimulatedPuck);
+    setIsSimulatedPuck(newSimulatedPuck)
     await BluetoothService.resetInstance();
     BluetoothService.getInstance();
 
-    let textToShow = isSimulatedPuck ? "Please restart the app and return to this screen for instructions." : "Please restart the app";
+    let textToShow = newSimulatedPuck ? "Please restart the app" : "Please restart the app and return to this screen for instructions.";
     Alert.alert(
       "App Restart Required",
       textToShow,
