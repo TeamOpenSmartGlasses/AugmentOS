@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {NavigationProps} from '../components/types';
+import { NavigationProps } from '../components/types';
 
 interface NavigationBarProps {
   toggleTheme: () => void;
@@ -11,9 +11,9 @@ interface NavigationBarProps {
   variant?: 'v1' | 'v2' | 'v3' | 'v4';
 }
 
-const NavigationBar: React.FC<NavigationBarProps> = ({
-  isDarkTheme,
-  variant = 'v1',
+const NavigationBar: React.FC<NavigationBarProps> = ({ 
+  isDarkTheme, 
+  variant = 'v1' 
 }) => {
   const navigation = useNavigation<NavigationProps>();
   const iconColor = isDarkTheme ? '#FFFFFF' : '#000000';
@@ -23,77 +23,69 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
   // Different icon sets
   const iconSets = {
     v1: {
-      home: 'home-minus-outline',
-      mirror: 'mirror',
-      apps: 'grid-large',
-      settings: 'cog-outline',
+      home: 'home-variant-outline',
+      mirror: 'cast-variant',
+      apps: 'grid',
+      settings: 'cog-outline'
     },
     v2: {
       home: 'home-minus-outline',
       mirror: 'monitor-screenshot',
       apps: 'apps',
-      settings: 'settings-helper',
+      settings: 'settings-helper'
     },
     v3: {
       home: 'home-outline',
       mirror: 'glasses',
       apps: 'view-grid-outline',
-      settings: 'tune-variant',
+      settings: 'tune-variant'
     },
     v4: {
       home: 'home-modern',
       mirror: 'mirror',
       apps: 'grid-large',
-      settings: 'dots-horizontal',
-    },
+      settings: 'dots-horizontal'
+    }
   };
 
   // Get current icon set
   const icons = iconSets[variant];
 
   return (
-    <View style={[styles.navBarContainer, {backgroundColor}]}>
+    <View style={[styles.navBarContainer, { backgroundColor }]}>
       {/* Home Icon */}
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Home')}
-        style={styles.iconWrapper}>
-        <MaterialCommunityIcons
+      <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.iconWrapper}>
+        <MaterialCommunityIcons 
           name={icons.home}
-          size={iconSize}
-          color={iconColor}
+          size={iconSize} 
+          color={iconColor} 
         />
       </TouchableOpacity>
 
       {/* Glasses Mirror Icon */}
-      <TouchableOpacity
-        onPress={() => navigation.navigate('GlassesMirror')}
-        style={styles.iconWrapper}>
-        <MaterialCommunityIcons
+      <TouchableOpacity onPress={() => navigation.navigate('GlassesMirror')} style={styles.iconWrapper}>
+        <MaterialCommunityIcons 
           name={icons.mirror}
-          size={iconSize}
-          color={iconColor}
+          size={iconSize} 
+          color={iconColor} 
         />
       </TouchableOpacity>
 
       {/* App Store Icon */}
-      <TouchableOpacity
-        onPress={() => navigation.navigate('AppStore')}
-        style={styles.iconWrapper}>
-        <MaterialCommunityIcons
+      <TouchableOpacity onPress={() => navigation.navigate('AppStore')} style={styles.iconWrapper}>
+        <MaterialCommunityIcons 
           name={icons.apps}
-          size={iconSize}
-          color={iconColor}
+          size={iconSize} 
+          color={iconColor} 
         />
       </TouchableOpacity>
 
       {/* Settings Icon */}
-      <TouchableOpacity
-        onPress={() => navigation.navigate('SettingsPage')}
-        style={styles.iconWrapper}>
-        <MaterialCommunityIcons
+      <TouchableOpacity onPress={() => navigation.navigate('SettingsPage')} style={styles.iconWrapper}>
+        <MaterialCommunityIcons 
           name={icons.settings}
-          size={iconSize}
-          color={iconColor}
+          size={iconSize} 
+          color={iconColor} 
         />
       </TouchableOpacity>
     </View>
