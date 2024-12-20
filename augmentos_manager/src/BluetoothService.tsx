@@ -1,12 +1,12 @@
-import { NativeEventEmitter, NativeModules, Alert, Platform } from 'react-native';
+import {NativeEventEmitter, NativeModules, Alert, Platform} from 'react-native';
 import BleManager from 'react-native-ble-manager';
-import { EventEmitter } from 'events';
-import { TextDecoder } from 'text-encoding';
-import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
-import { AppState } from 'react-native';
-import { MOCK_CONNECTION, SETTINGS_KEYS } from './consts';
-import { loadSetting, saveSetting } from './augmentos_core_comms/SettingsHelper';
-import { startExternalService } from './augmentos_core_comms/CoreServiceStarter';
+import {EventEmitter} from 'events';
+import {TextDecoder} from 'text-encoding';
+import {check, PERMISSIONS, RESULTS} from 'react-native-permissions';
+import {AppState} from 'react-native';
+import {MOCK_CONNECTION, SETTINGS_KEYS} from './consts';
+import {loadSetting, saveSetting} from './augmentos_core_comms/SettingsHelper';
+import {startExternalService} from './augmentos_core_comms/CoreServiceStarter';
 import ManagerCoreCommsService from './augmentos_core_comms/ManagerCoreCommsService';
 const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
 
@@ -36,7 +36,7 @@ export class BluetoothService extends EventEmitter {
 
   simulatedPuck: boolean = false;
 
-  private appStateSubscription: { remove: () => void } | null = null;
+  private appStateSubscription: {remove: () => void} | null = null;
   private reconnectionTimer: NodeJS.Timeout | null = null;
 
   constructor() {
@@ -59,12 +59,15 @@ export class BluetoothService extends EventEmitter {
 
     this.startReconnectionScan();
 
-    this.appStateSubscription = AppState.addEventListener('change', this.handleAppStateChange.bind(this));
+    this.appStateSubscription = AppState.addEventListener(
+      'change',
+      this.handleAppStateChange.bind(this),
+    );
   }
 
   async initializeBleManager() {
     try {
-      await BleManager.start({ showAlert: false });
+      await BleManager.start({showAlert: false});
       console.log('BLE Manager initialized');
       this.addListeners();
     } catch (error) {
@@ -73,7 +76,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   initializeCoreMessageIntentReader() {
-    eventEmitter.addListener('CoreMessageIntentEvent', (jsonString) => {
+    eventEmitter.addListener('CoreMessageIntentEvent', jsonString => {
       console.log('Received message from core:', jsonString);
       try {
         let data = JSON.parse(jsonString);
@@ -87,17 +90,31 @@ export class BluetoothService extends EventEmitter {
 
         this.parseDataFromAugmentOsCore(data);
       } catch (e) {
-        console.error('Failed to parse JSON from core message:', e)
+        console.error('Failed to parse JSON from core message:', e);
       }
     });
   }
 
   addListeners() {
-    bleManagerEmitter.addListener('BleManagerDiscoverPeripheral', this.handleDiscoveredPeripheral.bind(this));
-    bleManagerEmitter.addListener('BleManagerStopScan', this.handleStopScan.bind(this));
-    bleManagerEmitter.addListener('BleManagerDisconnectPeripheral', this.handleDisconnectedPeripheral.bind(this));
-    bleManagerEmitter.addListener('BleManagerBondedPeripheral', this.handleBondedPeripheral.bind(this));
-    bleManagerEmitter.addListener('BleManagerDidUpdateValueForCharacteristic', this.handleCharacteristicUpdate.bind(this)
+    bleManagerEmitter.addListener(
+      'BleManagerDiscoverPeripheral',
+      this.handleDiscoveredPeripheral.bind(this),
+    );
+    bleManagerEmitter.addListener(
+      'BleManagerStopScan',
+      this.handleStopScan.bind(this),
+    );
+    bleManagerEmitter.addListener(
+      'BleManagerDisconnectPeripheral',
+      this.handleDisconnectedPeripheral.bind(this),
+    );
+    bleManagerEmitter.addListener(
+      'BleManagerBondedPeripheral',
+      this.handleBondedPeripheral.bind(this),
+    );
+    bleManagerEmitter.addListener(
+      'BleManagerDidUpdateValueForCharacteristic',
+      this.handleCharacteristicUpdate.bind(this),
     );
   }
 
@@ -184,7 +201,10 @@ export class BluetoothService extends EventEmitter {
     const performScan = () => {
       if (this.simulatedPuck) {
         this.sendRequestStatus();
-        this.reconnectionTimer = setTimeout(performScan, this.connectedDevice ? 30000 : 500);
+        this.reconnectionTimer = setTimeout(
+          performScan,
+          this.connectedDevice ? 30000 : 500,
+        );
       }
 
       if (!this.simulatedPuck) {
@@ -205,7 +225,7 @@ export class BluetoothService extends EventEmitter {
     if (this.reconnectionTimer) {
       clearTimeout(this.reconnectionTimer);
       this.reconnectionTimer = null;
-      console.log("Reconnection scan stopped.");
+      console.log('Reconnection scan stopped.');
     }
   }
 
@@ -221,11 +241,11 @@ export class BluetoothService extends EventEmitter {
 
   handleDisconnectedPeripheral(data: any) {
     if (this.connectedDevice?.id === data.peripheral) {
-      this.emit('SHOW_BANNER', { message: 'Puck disconnected', type: 'error' })
+      this.emit('SHOW_BANNER', {message: 'Puck disconnected', type: 'error'});
       this.isLocked = false;
       console.log('Puck disconnected:', data.peripheral);
       this.connectedDevice = null;
-      this.emit('deviceDisconnected')
+      this.emit('deviceDisconnected');
     }
   }
 
@@ -240,7 +260,9 @@ export class BluetoothService extends EventEmitter {
     console.log('Discovered peripheral:', peripheral); // Log all discovered peripherals
     if (peripheral.name === 'AugOS') {
       if (this.connectedDevice) {
-        console.log("HandleDiscoverPeripheral BUT WE ARE ALREADY CONNECTED UHHH??")
+        console.log(
+          'HandleDiscoverPeripheral BUT WE ARE ALREADY CONNECTED UHHH??',
+        );
       }
       console.log('Found an AugOS device... Stop scan and connect');
       BleManager.stopScan();
@@ -253,7 +275,7 @@ export class BluetoothService extends EventEmitter {
 
   async connectToDevice(device: Device) {
     this.isConnecting = true;
-    this.emit('connectingStatusChanged', { isConnecting: true });
+    this.emit('connectingStatusChanged', {isConnecting: true});
 
     try {
       console.log('Connecting to Puck:', device.id);
@@ -307,21 +329,30 @@ export class BluetoothService extends EventEmitter {
       await this.sendRequestStatus();
     } catch (error) {
       // console.error('Error connecting to puck:', error);
-      this.emit('SHOW_BANNER', { message: 'Error connecting to Puck: ' + error, type: 'error' });
+      this.emit('SHOW_BANNER', {
+        message: 'Error connecting to Puck: ' + error,
+        type: 'error',
+      });
     }
 
     this.isConnecting = false;
-    this.emit('connectingStatusChanged', { isConnecting: false });
+    this.emit('connectingStatusChanged', {isConnecting: false});
   }
-
 
   async enableNotifications(deviceId: string) {
     try {
-      await BleManager.startNotification(deviceId, this.SERVICE_UUID, this.CHARACTERISTIC_UUID);
+      await BleManager.startNotification(
+        deviceId,
+        this.SERVICE_UUID,
+        this.CHARACTERISTIC_UUID,
+      );
       console.log('Notifications enabled');
     } catch (error) {
       // console.error('Failed to enable notifications:', error);
-      this.emit('SHOW_BANNER', { message: 'Failed to enable notifications: ' + error, type: 'error' });
+      this.emit('SHOW_BANNER', {
+        message: 'Failed to enable notifications: ' + error,
+        type: 'error',
+      });
     }
   }
 
@@ -336,7 +367,7 @@ export class BluetoothService extends EventEmitter {
       if (await BleManager.isPeripheralConnected(this.connectedDevice.id, [])) {
         await BleManager.disconnect(this.connectedDevice.id);
       }
-      this.emit('deviceDisconnected')
+      this.emit('deviceDisconnected');
       this.connectedDevice = null;
     } catch (error) {
       console.error('Error during disconnect:', error);
@@ -350,21 +381,86 @@ export class BluetoothService extends EventEmitter {
     }
 
     try {
-      const data = await BleManager.read(this.connectedDevice.id, this.SERVICE_UUID, this.CHARACTERISTIC_UUID);
+      const data = await BleManager.read(
+        this.connectedDevice.id,
+        this.SERVICE_UUID,
+        this.CHARACTERISTIC_UUID,
+      );
       this.emit('dataReceived', data);
       console.log('\n\nRECEIVED DATA FROM AUGMENTOS_MAIN:\n' + data + '\n\n');
       return data;
     } catch (error) {
       // console.error('Error reading characteristic:', error);
       // Alert.alert('Read Error', 'Failed to read data from device');
-      this.emit('SHOW_BANNER', { message: 'Read Error - Failed to read data from device', type: 'error' })
+      this.emit('SHOW_BANNER', {
+        message: 'Read Error - Failed to read data from device',
+        type: 'error',
+      });
     }
   }
+//** issue with data being set in this function */
+  // handleCharacteristicUpdate(data: any) {
+  //   // console.log('Characteristic update received:', data);
 
+  //   if (data.peripheral === this.connectedDevice?.id && data.characteristic === this.CHARACTERISTIC_UUID) {
+  //     const deviceId = data.peripheral;
+  //     const value = data.value; // This is an array of bytes (number[])
+
+  //     // Convert value array to Uint8Array
+  //     const byteArray = Uint8Array.from(value);
+
+  //     // Read sequence number and total chunks
+  //     const sequenceNumber = byteArray[0];
+  //     const totalChunks = byteArray[1];
+
+  //     const chunkData = byteArray.slice(2);
+
+  //     // Initialize storage for this device if necessary
+  //     if (!this.chunks[deviceId]) {
+  //       this.chunks[deviceId] = [];
+  //       this.expectedChunks[deviceId] = totalChunks;
+  //     }
+
+  //     // Store the chunk at the correct position
+  //     this.chunks[deviceId][sequenceNumber] = chunkData;
+
+  //     // Check if all chunks have been received
+  //     const receivedChunks = this.chunks[deviceId].filter((chunk: any) => chunk !== undefined).length;
+  //     if (receivedChunks === this.expectedChunks[deviceId]) {
+  //       // All chunks received, reconstruct the data
+  //       const completeData = this.concatenateUint8Arrays(this.chunks[deviceId]);
+
+  //       // Decode Uint8Array to string
+  //       const textDecoder = new TextDecoder('utf-8');
+  //       const jsonString = textDecoder.decode(completeData);
+
+  //       // Process the JSON data
+  //       try {
+  //         console.log('Received raw data:', jsonString);
+  //         const jsonData = JSON.parse(jsonString);
+  //         this.emit('dataReceived', jsonData);
+  //         this.parseDataFromAugmentOsCore(jsonData);
+
+  //         saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, true).then().catch();
+  //       } catch (error) {
+  //         console.log('(ERROR) RAW DATA RECEIVED:', jsonString);
+  //         console.error('Error parsing JSON data:', error);
+  //       }
+
+  //       // Clear stored data
+  //       delete this.chunks[deviceId];
+  //       delete this.expectedChunks[deviceId];
+  //     }
+  //   }
+  // }
+
+  //**** Fix for vitural wearbale****///
+  //Updated handleCharacteristicUpdate function
   handleCharacteristicUpdate(data: any) {
-    // console.log('Characteristic update received:', data);
-
-    if (data.peripheral === this.connectedDevice?.id && data.characteristic === this.CHARACTERISTIC_UUID) {
+    if (
+      data.peripheral === this.connectedDevice?.id &&
+      data.characteristic === this.CHARACTERISTIC_UUID
+    ) {
       const deviceId = data.peripheral;
       const value = data.value; // This is an array of bytes (number[])
 
@@ -374,7 +470,6 @@ export class BluetoothService extends EventEmitter {
       // Read sequence number and total chunks
       const sequenceNumber = byteArray[0];
       const totalChunks = byteArray[1];
-
       const chunkData = byteArray.slice(2);
 
       // Initialize storage for this device if necessary
@@ -387,25 +482,33 @@ export class BluetoothService extends EventEmitter {
       this.chunks[deviceId][sequenceNumber] = chunkData;
 
       // Check if all chunks have been received
-      const receivedChunks = this.chunks[deviceId].filter((chunk: any) => chunk !== undefined).length;
+      const receivedChunks = this.chunks[deviceId].filter(
+        (chunk: any) => chunk !== undefined,
+      ).length;
       if (receivedChunks === this.expectedChunks[deviceId]) {
         // All chunks received, reconstruct the data
         const completeData = this.concatenateUint8Arrays(this.chunks[deviceId]);
 
         // Decode Uint8Array to string
         const textDecoder = new TextDecoder('utf-8');
-        const jsonString = textDecoder.decode(completeData);
+        let jsonString = textDecoder.decode(completeData);
 
-        // Process the JSON data
+        // Preprocess JSON to fix known issues
+        jsonString = jsonString
+          .replace(/"carrier"Unknown"/g, '"carrier":"Unknown"')
+          .replace(/"is_connected":ue/g, '"is_connected":true');
+
         try {
           console.log('Received raw data:', jsonString);
           const jsonData = JSON.parse(jsonString);
           this.emit('dataReceived', jsonData);
           this.parseDataFromAugmentOsCore(jsonData);
 
-          saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, true).then().catch();
+          saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, true)
+            .then()
+            .catch();
         } catch (error) {
-          console.log("(ERROR) RAW DATA RECEIVED:", jsonString);
+          console.error('(ERROR) RAW DATA RECEIVED:', jsonString);
           console.error('Error parsing JSON data:', error);
         }
 
@@ -429,7 +532,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   parseDataFromAugmentOsCore(jsonData: Object) {
-    if (!jsonData) return;
+    if (!jsonData) {return;}
     if ('status' in jsonData) {
       this.emit('statusUpdateReceived', jsonData);
     } else if ('glasses_display_data' in jsonData) {
@@ -446,11 +549,19 @@ export class BluetoothService extends EventEmitter {
     }
 
     try {
-      await BleManager.write(this.connectedDevice.id, this.SERVICE_UUID, this.CHARACTERISTIC_UUID, data);
+      await BleManager.write(
+        this.connectedDevice.id,
+        this.SERVICE_UUID,
+        this.CHARACTERISTIC_UUID,
+        data,
+      );
       console.log('Data written successfully');
     } catch (error) {
       // console.error('Error writing characteristic:', error);
-      this.emit('SHOW_BANNER', { message: 'Failed to write data to device', type: 'error' })
+      this.emit('SHOW_BANNER', {
+        message: 'Failed to write data to device',
+        type: 'error',
+      });
     }
   }
 
@@ -461,18 +572,26 @@ export class BluetoothService extends EventEmitter {
     }
 
     try {
-      await BleManager.writeWithoutResponse(this.connectedDevice.id, this.SERVICE_UUID, this.CHARACTERISTIC_UUID, data);
+      await BleManager.writeWithoutResponse(
+        this.connectedDevice.id,
+        this.SERVICE_UUID,
+        this.CHARACTERISTIC_UUID,
+        data,
+      );
       console.log('Data written without response');
     } catch (error) {
       //console.error('Error writing without response:', error);
       //Alert.alert('Write Error', 'Failed to write data without response to device');
-      this.emit('SHOW_BANNER', { message: 'Failed to write data without response to device', type: 'error' })
+      this.emit('SHOW_BANNER', {
+        message: 'Failed to write data without response to device',
+        type: 'error',
+      });
     }
   }
 
   async sendDataToAugmentOs(dataObj: any) {
     if (this.simulatedPuck) {
-      console.log("Sending command to simulated puck/core...")
+      console.log('Sending command to simulated puck/core...');
       ManagerCoreCommsService.sendCommandToCore(JSON.stringify(dataObj));
       return;
     }
@@ -493,7 +612,7 @@ export class BluetoothService extends EventEmitter {
     try {
       // Convert data to byte array
       const data = JSON.stringify(dataObj);
-      const byteData = Array.from(data).map((char) => char.charCodeAt(0));
+      const byteData = Array.from(data).map(char => char.charCodeAt(0));
 
       const mtuSize = this.mtuSize || 23; // Use negotiated MTU size, or default to 23
       const maxChunkSize = mtuSize - 3; // Subtract 3 bytes for ATT protocol overhead
@@ -512,9 +631,9 @@ export class BluetoothService extends EventEmitter {
             this.SERVICE_UUID,
             this.CHARACTERISTIC_UUID,
             chunk,
-            maxChunkSize
+            maxChunkSize,
           );
-        }, 250 * i)
+        }, 250 * i);
       }
 
       console.log('Data chunk written, waiting for response...');
@@ -523,13 +642,21 @@ export class BluetoothService extends EventEmitter {
       await new Promise((resolve, reject) => {
         const timeout = setTimeout(() => {
           if (!responseReceived) {
-            console.log('No response received within timeout. Triggering reconnection...');
-            this.handleDisconnectedPeripheral({ peripheral: this.connectedDevice?.id });
-            reject(new Error('Response timeout for data: ' + JSON.stringify(dataObj)));
+            console.log(
+              'No response received within timeout. Triggering reconnection...',
+            );
+            this.handleDisconnectedPeripheral({
+              peripheral: this.connectedDevice?.id,
+            });
+            reject(
+              new Error(
+                'Response timeout for data: ' + JSON.stringify(dataObj),
+              ),
+            );
           }
         }, 6000); // Timeout after 5 seconds
 
-        this.once('dataReceived', (data) => {
+        this.once('dataReceived', data => {
           /*
           TODO: This does not validate that the response we got pertains to the command we sent
           But at the same time we're literally only accepting status objects right now
@@ -545,7 +672,10 @@ export class BluetoothService extends EventEmitter {
     } catch (error) {
       // console.error('Error writing data:', error);
       // Alert.alert('Write Error', 'Failed to write data to device: ' + error);
-      this.emit('SHOW_BANNER', { message: 'Write Error - Failed to write data to device: ' + error, type: 'error' })
+      this.emit('SHOW_BANNER', {
+        message: 'Write Error - Failed to write data to device: ' + error,
+        type: 'error',
+      });
       this.disconnectFromDevice();
     }
   }
@@ -554,96 +684,76 @@ export class BluetoothService extends EventEmitter {
 
   async sendHeartbeat() {
     console.log('Send Connection Check');
-    return await this.sendDataToAugmentOs(
-      { 'command': 'ping' }
-    );
+    return await this.sendDataToAugmentOs({command: 'ping'});
   }
 
   async sendRequestStatus() {
     console.log('Send Request Status');
-    return await this.sendDataToAugmentOs(
-      { 'command': 'request_status' }
-    );
+    return await this.sendDataToAugmentOs({command: 'request_status'});
   }
 
   async sendConnectWearable() {
     console.log('sendConnectWearable');
-    return await this.sendDataToAugmentOs(
-      { 'command': 'connect_wearable' }
-    );
+    return await this.sendDataToAugmentOs({command: 'connect_wearable'});
   }
 
   async sendDisconnectWearable() {
     console.log('sendDisconnectWearable');
-    return await this.sendDataToAugmentOs(
-      { 'command': 'disconnect_wearable' }
-    );
+    return await this.sendDataToAugmentOs({command: 'disconnect_wearable'});
   }
 
   async sendToggleVirtualWearable(enabled: boolean) {
     console.log('sendToggleVirtualWearable');
-    return await this.sendDataToAugmentOs(
-      {
-        'command': 'enable_virtual_wearable',
-        'params': {
-          'enabled': enabled,
-        },
-      }
-    );
+    return await this.sendDataToAugmentOs({
+      command: 'enable_virtual_wearable',
+      params: {
+        enabled: enabled,
+      },
+    });
   }
 
   async startAppByPackageName(packageName: string) {
     console.log('startAppByPackageName');
-    return await this.sendDataToAugmentOs(
-      {
-        'command': 'start_app',
-        'params': {
-          'target': packageName,
-        },
-      }
-    );
+    return await this.sendDataToAugmentOs({
+      command: 'start_app',
+      params: {
+        target: packageName,
+      },
+    });
   }
 
   async stopAppByPackageName(packageName: string) {
     console.log('stopAppByPackageName');
-    return await this.sendDataToAugmentOs(
-      {
-        'command': 'stop_app',
-        'params': {
-          'target': packageName,
-        },
-      }
-    );
+    return await this.sendDataToAugmentOs({
+      command: 'stop_app',
+      params: {
+        target: packageName,
+      },
+    });
   }
 
   async setAuthenticationSecretKey(authSecretKey: string) {
     console.log('setAuthenticationSecretKey');
-    return await this.sendDataToAugmentOs(
-      {
-        'command': 'set_auth_secret_key',
-        'params': {
-          'authSecretKey': authSecretKey,
-        },
-      }
-    );
+    return await this.sendDataToAugmentOs({
+      command: 'set_auth_secret_key',
+      params: {
+        authSecretKey: authSecretKey,
+      },
+    });
   }
 
   async verifyAuthenticationSecretKey() {
     console.log('verifyAuthenticationSecretKey');
-    return await this.sendDataToAugmentOs(
-      {
-        'command': 'verify_auth_secret_key',
-      }
-    );
+    return await this.sendDataToAugmentOs({
+      command: 'verify_auth_secret_key',
+    });
   }
 
   async deleteAuthenticationSecretKey() {
     console.log('deleteAuthenticationSecretKey');
-    return await this.sendDataToAugmentOs(
-      {
-        'command': 'delete_auth_secret_key',
-      }
-    );
+    return await this.sendDataToAugmentOs({
+      command: 'delete_auth_secret_key',
+    });
   }
 
   private static bluetoothService: BluetoothService | null = null;
@@ -657,7 +767,6 @@ export class BluetoothService extends EventEmitter {
 
   public static resetInstance = async () => {
     if (BluetoothService.bluetoothService) {
-
       BluetoothService.bluetoothService.stopReconnectionScan();
       // Disconnect from any connected device
       await BluetoothService.bluetoothService.disconnectFromDevice();
@@ -682,8 +791,7 @@ export class BluetoothService extends EventEmitter {
 
       console.log('BluetoothService instance has been reset.');
     }
-  }
-
+  };
 }
 export default BluetoothService;
 

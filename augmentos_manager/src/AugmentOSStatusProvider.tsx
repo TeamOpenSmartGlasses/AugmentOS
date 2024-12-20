@@ -41,14 +41,14 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
 
         const handleScanStarted = () => setIsSearching(true);
         const handleScanStopped = () => setIsSearching(false);
-        const handleConnectingStatusChanged = ({ isConnecting }: { isConnecting: boolean }) => setIsConnecting(isConnecting);
+        const handleConnectingStatusChanged = ({ isConnecting: connecting }: { isConnecting: boolean }) => setIsConnecting(connecting);
 
         if (!MOCK_CONNECTION) {
             bluetoothService.on('statusUpdateReceived', handleStatusUpdateReceived);
             bluetoothService.on('scanStarted', handleScanStarted);
             bluetoothService.on('scanStopped', handleScanStopped);
             bluetoothService.on('deviceDisconnected', handleDeviceDisconnected);
-            bluetoothService.on('connectingStatusChanged', handleConnectingStatusChanged)
+            bluetoothService.on('connectingStatusChanged', handleConnectingStatusChanged);
         }
 
         return () => {
@@ -60,7 +60,7 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
                 bluetoothService.removeListener('connectingStatusChanged', handleConnectingStatusChanged);
             }
         };
-    }, [refreshStatus]);
+    }, [bluetoothService, refreshStatus]);
 
     return (
         <AugmentOSStatusContext.Provider value={{ isConnecting, screenMirrorItems, status, isSearching, refreshStatus }}>

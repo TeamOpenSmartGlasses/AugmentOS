@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusProvider } from './AugmentOSStatusProvider';
+import React, {useState} from 'react';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {StatusProvider} from './AugmentOSStatusProvider';
 import Homepage from './screens/Homepage';
 import SettingsPage from './screens/SettingsPage';
-import IntroScreen from './screens/IntroScreen';
+// import IntroScreen from './screens/IntroScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
 import ProfileSettingsPage from './screens/ProfileSettingsPage';
@@ -14,8 +14,8 @@ import NotificationListener from './components/NotificationListener';
 import AppStore from './screens/AppStore';
 import AppDetails from './screens/AppDetails';
 import Reviews from './screens/ReviewSection.tsx';
-import { StyleSheet } from 'react-native';
-import { RootStackParamList } from './components/types'; // Update path as needed
+import {StyleSheet} from 'react-native';
+import {RootStackParamList} from './components/types'; // Update path as needed
 import MessageBanner from './components/MessageBanner.tsx';
 import SimulatedPuckSettings from './screens/SimulatedPuckSettings.tsx';
 
@@ -26,7 +26,7 @@ const App: React.FC = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const toggleTheme = () => {
-    setIsDarkTheme((prevTheme) => !prevTheme);
+    setIsDarkTheme(prevTheme => !prevTheme);
   };
 
   return (
@@ -41,51 +41,58 @@ const App: React.FC = () => {
                 component={IntroScreen}
                 options={{ headerShown: false }}
               /> */}
-              <Stack.Screen
-                name="Home"
-                options={{ headerShown: false }}
-              >
-                {() => <Homepage isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />}
+              <Stack.Screen name="Home" options={{headerShown: false}}>
+                {() => (
+                  <Homepage
+                    isDarkTheme={isDarkTheme}
+                    toggleTheme={toggleTheme}
+                  />
+                )}
               </Stack.Screen>
               <Stack.Screen
                 name="Register"
                 component={RegisterScreen}
-                options={{ headerShown: false }}
+                options={{headerShown: false}}
               />
               <Stack.Screen
                 name="Login"
                 component={LoginScreen}
-                options={{ headerShown: false }}
+                options={{headerShown: false}}
               />
-              <Stack.Screen
-                name="SettingsPage"
-                options={{ headerShown: false }}
-              >
-                {(props) => <SettingsPage {...props} isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />}
+              <Stack.Screen name="SettingsPage" options={{headerShown: false}}>
+                {props => (
+                  <SettingsPage
+                    {...props}
+                    isDarkTheme={isDarkTheme}
+                    toggleTheme={toggleTheme}
+                  />
+                )}
               </Stack.Screen>
               <Stack.Screen
                 name="AppStore"
-                options={{ title: 'App Store', headerShown: false }}
-              >
-                {(props) => <AppStore {...props} isDarkTheme={isDarkTheme} />}
+                options={{title: 'App Store', headerShown: false}}>
+                {props => <AppStore {...props} isDarkTheme={isDarkTheme} />}
               </Stack.Screen>
               <Stack.Screen
                 name="Reviews"
-                options={({ route }) => ({
-                  title: route.params.appName ? `Reviews for ${route.params.appName}` : 'Reviews',
+                options={({route}) => ({
+                  headerShown: false,
+
+                  title: route.params.appName
+                    ? `Reviews for ${route.params.appName}`
+                    : 'Reviews',
                   headerStyle: {
                     backgroundColor: isDarkTheme ? '#333333' : '#FFFFFF',
                   },
                   headerTintColor: isDarkTheme ? '#FFFFFF' : '#000000',
-                })}
-              >
-                {(props) => <Reviews {...props} isDarkTheme={isDarkTheme} />}
+                })}>
+                {props => <Reviews {...props} isDarkTheme={isDarkTheme} />}
               </Stack.Screen>
-
 
               <Stack.Screen
                 name="AppDetails"
-                options={({ route }) => ({
+                options={({route}) => ({
+                  headerShown: false,
                   title: route.params.app.name || 'App Details',
                   headerStyle: {
                     backgroundColor: isDarkTheme ? '#333333' : '#FFFFFF',
@@ -94,9 +101,10 @@ const App: React.FC = () => {
                   headerTitleStyle: {
                     color: isDarkTheme ? '#FFFFFF' : '#000000',
                   },
-                })}
-              >
-                {(props) => <AppDetails {...props} isDarkTheme={isDarkTheme} />}
+                })}>
+                {props => <AppDetails toggleTheme={function (): void {
+                  throw new Error('Function not implemented.');
+                } } {...props} isDarkTheme={isDarkTheme} />}
               </Stack.Screen>
               <Stack.Screen
                 name="ProfileSettings"
@@ -107,9 +115,10 @@ const App: React.FC = () => {
                     backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
                   },
                   headerTintColor: isDarkTheme ? '#ffffff' : '#000000',
-                }}
-              >
-                {(props) => <ProfileSettingsPage {...props} isDarkTheme={isDarkTheme} />}
+                }}>
+                {props => (
+                  <ProfileSettingsPage {...props} isDarkTheme={isDarkTheme} />
+                )}
               </Stack.Screen>
               <Stack.Screen
                 name="GlassesMirror"
@@ -120,13 +129,18 @@ const App: React.FC = () => {
                     backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
                   },
                   headerTintColor: isDarkTheme ? '#ffffff' : '#000000',
-                }}
-              >
+                }}>
                 {() => <GlassesMirror isDarkTheme={isDarkTheme} />}
               </Stack.Screen>
               <Stack.Screen name="SimulatedPuckSettings">
-              {(props) => <SimulatedPuckSettings {...props} toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />}
-                </Stack.Screen>
+                {props => (
+                  <SimulatedPuckSettings
+                    {...props}
+                    toggleTheme={toggleTheme}
+                    isDarkTheme={isDarkTheme}
+                  />
+                )}
+              </Stack.Screen>
             </Stack.Navigator>
           </NavigationContainer>
         </StatusProvider>

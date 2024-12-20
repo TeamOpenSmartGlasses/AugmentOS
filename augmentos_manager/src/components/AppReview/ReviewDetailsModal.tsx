@@ -117,6 +117,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
+    fontFamily: 'Montserrat-Bold',
   },
   ratingContainer: {
     flexDirection: 'row',
@@ -127,6 +128,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
     lineHeight: 22,
+    fontFamily: 'Montserrat-Regular',
   },
 });
 
