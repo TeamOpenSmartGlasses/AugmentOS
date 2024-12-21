@@ -634,6 +634,36 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             if (smartGlassesService != null) {
                 smartGlassesService.switchRunningTranscribeLanguage("Japanese");
             }
+        } else if (event.dataStreamType == DataStreamType.TRANSLATION_ENGLISH_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSLATING TO ENGLISH");
+            if (smartGlassesService != null) {
+                smartGlassesService.startTranslationStream("English");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSLATION_CHINESE_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSLATING TO CHINESE");
+            if (smartGlassesService != null) {
+                smartGlassesService.startTranslationStream("Chinese");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSLATION_RUSSIAN_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSLATING TO RUSSIAN");
+            if (smartGlassesService != null) {
+                smartGlassesService.startTranslationStream("Russian");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSLATION_FRENCH_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSLATING TO FRENCH");
+            if (smartGlassesService != null) {
+                smartGlassesService.startTranslationStream("French");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSLATION_SPANISH_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSLATING TO SPANISH");
+            if (smartGlassesService != null) {
+                smartGlassesService.startTranslationStream("Spanish");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSLATION_JAPANESE_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSLATING TO JAPANESE");
+            if (smartGlassesService != null) {
+                smartGlassesService.startTranslationStream("Japanese");
+            }
         } else {
             Log.d(TAG, "UNKNOWN DATA STREAM TYPE REQUESTED");
         }

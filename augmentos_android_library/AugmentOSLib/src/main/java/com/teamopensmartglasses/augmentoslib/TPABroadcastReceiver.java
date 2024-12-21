@@ -17,6 +17,7 @@ import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.TranslateOutputEvent;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -48,6 +49,9 @@ public class TPABroadcastReceiver extends BroadcastReceiver {
                 break;
             case SpeechRecOutputEvent.eventId:
                 EventBus.getDefault().post((SpeechRecOutputEvent) serializedEvent);
+                break;
+            case TranslateOutputEvent.eventId:
+                EventBus.getDefault().post((TranslateOutputEvent) serializedEvent);
                 break;
             case SmartRingButtonOutputEvent.eventId:
                 EventBus.getDefault().post((SmartRingButtonOutputEvent) serializedEvent);

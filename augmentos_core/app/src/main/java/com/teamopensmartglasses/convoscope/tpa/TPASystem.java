@@ -39,6 +39,7 @@ import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.TranslateOutputEvent;
 import com.teamopensmartglasses.convoscope.tpa.eventbusmessages.TPARequestEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -246,6 +247,14 @@ public class TPASystem {
         boolean tpaIsSubscribed = true;
         if(tpaIsSubscribed){
             augmentOsLibBroadcastSender.sendEventToAllTPAs(SpeechRecOutputEvent.eventId, event);
+        }
+    }
+
+    @Subscribe
+    public void onTranslateTranscript(TranslateOutputEvent event){
+        boolean tpaIsSubscribed = true;
+        if(tpaIsSubscribed){
+            augmentOsLibBroadcastSender.sendEventToAllTPAs(TranslateOutputEvent.eventId, event);
         }
     }
 

@@ -31,6 +31,7 @@ import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.TranslateOutputEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -96,6 +97,13 @@ public class AugmentOSLib {
     }
 
     public void subscribe(DataStreamType dataStreamType, TranscriptCallback callback){
+        subscribedDataStreams.put(dataStreamType, callback);
+
+        //trigger event to change language if needed
+        EventBus.getDefault().post(new SubscribeDataStreamRequestEvent(dataStreamType));
+    }
+
+    public void subscribe(DataStreamType dataStreamType, TranslateCallback callback){
         subscribedDataStreams.put(dataStreamType, callback);
 
         //trigger event to change language if needed
@@ -218,6 +226,17 @@ public class AugmentOSLib {
         }
         if (subscribedDataStreams.containsKey(DataStreamType.TRANSCRIPTION_CHINESE_STREAM) && (languageCode.equals("zh"))) {
             ((TranscriptCallback)subscribedDataStreams.get(DataStreamType.TRANSCRIPTION_CHINESE_STREAM)).call(text, languageCode, time, event.isFinal);
+        }
+    }
+
+    @Subscribe
+    public void onTranslateTranscript(TranslateOutputEvent event) {
+        String text = event.text;
+        String languageCode = event.languageCode;
+        long time = event.timestamp;
+
+        if (subscribedDataStreams.containsKey(DataStreamType.TRANSLATION_ENGLISH_STREAM) && (languageCode.equals("zh"))) {
+            ((TranslateCallback)subscribedDataStreams.get(DataStreamType.TRANSLATION_ENGLISH_STREAM)).call(text, languageCode, time, event.isFinal, true);
         }
     }
 
