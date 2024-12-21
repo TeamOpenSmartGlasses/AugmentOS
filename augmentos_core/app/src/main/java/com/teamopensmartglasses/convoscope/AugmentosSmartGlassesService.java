@@ -4,12 +4,11 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
-import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
-import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
+
+import com.teamopensmartglasses.convoscope.events.AugmentosSmartGlassesDisconnectedEvent;
 import com.teamopensmartglasses.convoscope.ui.AugmentosUi;
 import com.teamopensmartglasses.augmentoslib.events.DiarizationOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
-import com.teamopensmartglasses.augmentoslib.events.SmartGlassesConnectedEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 
@@ -20,9 +19,7 @@ import java.util.ArrayList;
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
-import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
-import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
 public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
     public final String TAG = "AugmentOS_AugmentOSService";
@@ -80,6 +77,7 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
 
     @Override
     public void onDestroy(){
+        EventBus.getDefault().post(new AugmentosSmartGlassesDisconnectedEvent());
         EventBus.getDefault().unregister(this);
 
         if (displayQueue != null) displayQueue.stopQueue();
