@@ -145,18 +145,23 @@ public class TPASystem {
         return new HashSet<>(runningApps);
     }
 
-    public void startThirdPartyAppByPackageName(String packageName){
+    public boolean startThirdPartyAppByPackageName(String packageName){
+        if(runningApps.contains(packageName))
+            return false;
+
         if (isAppInstalled(packageName)) {
             for (ThirdPartyApp tpa : thirdPartyApps) {
                 if (tpa.packageName.equals(packageName)) {
                     augmentOsLibBroadcastSender.startThirdPartyApp(tpa);
                     runningApps.add(packageName);
+                    return true;
                 }
             }
         } else {
             Log.d(TAG, "App " + packageName + " is not installed. Removing from list.");
             unregisterThirdPartyAppByPackageName(packageName);
         }
+        return false;
     }
 
     public void stopThirdPartyAppByPackageName(String packageName){
@@ -178,7 +183,8 @@ public class TPASystem {
     }
 
     public void stopAllThirdPartyApps(){
-        for (ThirdPartyApp tpa : thirdPartyApps) augmentOsLibBroadcastSender.killThirdPartyApp(tpa);
+        // for (ThirdPartyApp tpa : thirdPartyApps) augmentOsLibBroadcastSender.killThirdPartyApp(tpa);
+        for (ThirdPartyApp tpa : thirdPartyApps) stopThirdPartyAppByPackageName(tpa.packageName);
     }
 
     public boolean isAppInstalled(String packageName) {

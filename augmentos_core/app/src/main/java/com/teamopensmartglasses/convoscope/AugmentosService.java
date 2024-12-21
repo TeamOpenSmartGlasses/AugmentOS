@@ -2297,8 +2297,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         
         // Only allow starting apps if glasses are connected
         if(isSmartGlassesServiceBound && smartGlassesService.getConnectedSmartGlasses() != null) {
-            // Only one TPA permitted for now
-            tpaSystem.stopAllThirdPartyApps();
             tpaSystem.startThirdPartyAppByPackageName(packageName);
             sendStatusToAugmentOsManager();
         } else {
