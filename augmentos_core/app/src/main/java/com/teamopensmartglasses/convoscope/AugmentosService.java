@@ -231,6 +231,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         public void onServiceDisconnected(ComponentName name) {
             Log.d(TAG,"SMART GLASSES SERVICE DISCONNECTED!!!!");
             isSmartGlassesServiceBound = false;
+
+            // TODO: For now, stop all apps on disconnection
+            // TODO: Future: Make this nicer
+            tpaSystem.stopAllThirdPartyApps();
+
             sendStatusToAugmentOsManager();
         }
     };
@@ -2253,12 +2258,16 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void startApp(String packageName) {
         Log.d("AugmentOsService", "Starting app: " + packageName);
         // Logic to start the app by package name
-
-        // Only one TPA permitted for now
-        tpaSystem.stopAllThirdPartyApps();
-
-        tpaSystem.startThirdPartyAppByPackageName(packageName);
-        sendStatusToAugmentOsManager();
+        
+        // Only allow starting apps if glasses are connected
+        if(isSmartGlassesServiceBound && smartGlassesService.getConnectedSmartGlasses() != null) {
+            // Only one TPA permitted for now
+            tpaSystem.stopAllThirdPartyApps();
+            tpaSystem.startThirdPartyAppByPackageName(packageName);
+            sendStatusToAugmentOsManager();
+        } else {
+            blePeripheral.sendNotifyManager("Must connect glasses to start an app", "error");
+        }
     }
 
     @Override

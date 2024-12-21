@@ -8,6 +8,8 @@ import { MOCK_CONNECTION, SETTINGS_KEYS } from './consts';
 import { loadSetting, saveSetting } from './augmentos_core_comms/SettingsHelper';
 import { startExternalService } from './augmentos_core_comms/CoreServiceStarter';
 import ManagerCoreCommsService from './augmentos_core_comms/ManagerCoreCommsService';
+import GlobalEventEmitter from './logic/GlobalEventEmitter';
+
 const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
 
 const BleManagerModule = NativeModules.BleManager;
@@ -221,7 +223,7 @@ export class BluetoothService extends EventEmitter {
 
   handleDisconnectedPeripheral(data: any) {
     if (this.connectedDevice?.id === data.peripheral) {
-      this.emit('SHOW_BANNER', { message: 'Puck disconnected', type: 'error' })
+      GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Puck disconnected', type: 'error' })
       this.isLocked = false;
       console.log('Puck disconnected:', data.peripheral);
       this.connectedDevice = null;
@@ -233,7 +235,7 @@ export class BluetoothService extends EventEmitter {
   handleBondedPeripheral(data: any) {
     console.log('Bonding successful with:', data);
     // Alert.alert('Bonded', `Successfully bonded with ${data.peripheral}`);
-    // this.emit('SHOW_BANNER', { message:  `Successfully bonded with ${data.peripheral}`, type: 'success' })
+    // GlobalEventEmitter.emit('SHOW_BANNER', { message:  `Successfully bonded with ${data.peripheral}`, type: 'success' })
   }
 
   handleDiscoveredPeripheral(peripheral: any) {
@@ -307,7 +309,7 @@ export class BluetoothService extends EventEmitter {
       await this.sendRequestStatus();
     } catch (error) {
       // console.error('Error connecting to puck:', error);
-      this.emit('SHOW_BANNER', { message: 'Error connecting to Puck: ' + error, type: 'error' });
+      GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Error connecting to Puck: ' + error, type: 'error' });
     }
 
     this.isConnecting = false;
@@ -321,7 +323,7 @@ export class BluetoothService extends EventEmitter {
       console.log('Notifications enabled');
     } catch (error) {
       // console.error('Failed to enable notifications:', error);
-      this.emit('SHOW_BANNER', { message: 'Failed to enable notifications: ' + error, type: 'error' });
+      GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Failed to enable notifications: ' + error, type: 'error' });
     }
   }
 
@@ -357,7 +359,7 @@ export class BluetoothService extends EventEmitter {
     } catch (error) {
       // console.error('Error reading characteristic:', error);
       // Alert.alert('Read Error', 'Failed to read data from device');
-      this.emit('SHOW_BANNER', { message: 'Read Error - Failed to read data from device', type: 'error' })
+      GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Read Error - Failed to read data from device', type: 'error' })
     }
   }
 
@@ -430,12 +432,19 @@ export class BluetoothService extends EventEmitter {
 
   parseDataFromAugmentOsCore(jsonData: Object) {
     if (!jsonData) return;
-    if ('status' in jsonData) {
-      this.emit('statusUpdateReceived', jsonData);
-    } else if ('glasses_display_data' in jsonData) {
-      // Handle screen mirror status
-    } else if ('ping' in jsonData) {
-      // Do nothing?
+    try {
+      if ('status' in jsonData) {
+        this.emit('statusUpdateReceived', jsonData);
+      } else if ('glasses_display_data' in jsonData) {
+        // Handle screen mirror status
+      } else if ('ping' in jsonData) {
+        // Do nothing?
+      } else if ('notify_manager' in jsonData) {
+        let notify_manager = (jsonData as any).notify_manager;
+        GlobalEventEmitter.emit('SHOW_BANNER', { message: notify_manager.message, type: notify_manager.type })
+      }
+    } catch (e) {
+      console.log('Some error parsing data from AugmentOS_Core...');
     }
   }
 
@@ -450,7 +459,7 @@ export class BluetoothService extends EventEmitter {
       console.log('Data written successfully');
     } catch (error) {
       // console.error('Error writing characteristic:', error);
-      this.emit('SHOW_BANNER', { message: 'Failed to write data to device', type: 'error' })
+      GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Failed to write data to device', type: 'error' })
     }
   }
 
@@ -466,7 +475,7 @@ export class BluetoothService extends EventEmitter {
     } catch (error) {
       //console.error('Error writing without response:', error);
       //Alert.alert('Write Error', 'Failed to write data without response to device');
-      this.emit('SHOW_BANNER', { message: 'Failed to write data without response to device', type: 'error' })
+      GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Failed to write data without response to device', type: 'error' })
     }
   }
 
@@ -545,7 +554,7 @@ export class BluetoothService extends EventEmitter {
     } catch (error) {
       // console.error('Error writing data:', error);
       // Alert.alert('Write Error', 'Failed to write data to device: ' + error);
-      this.emit('SHOW_BANNER', { message: 'Write Error - Failed to write data to device: ' + error, type: 'error' })
+      GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Write Error - Failed to write data to device: ' + error, type: 'error' })
       this.disconnectFromDevice();
     }
   }

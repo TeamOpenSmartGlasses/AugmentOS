@@ -384,6 +384,20 @@ public class AugmentosBlePeripheral {
         Log.d(TAG, "GATT server setup complete");
     }
 
+    public void sendNotifyManager(String message, String type) {
+        Log.d(TAG, "sendNotifyManager");
+        JSONObject data = new JSONObject();
+        JSONObject messageObj = new JSONObject();
+        try{
+            messageObj.put("message", message);
+            messageObj.put("type", type);
+            data.put("notify_manager", messageObj);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        sendDataToAugmentOsManager(data.toString());
+    }
+
     @SuppressLint("MissingPermission")
     public void sendDataToAugmentOsManager(String jsonData) {
         if(isSimulatedPuck){
