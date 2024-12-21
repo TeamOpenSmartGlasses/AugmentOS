@@ -642,6 +642,46 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             if (smartGlassesService != null) {
                 smartGlassesService.switchRunningTranscribeLanguage("Japanese");
             }
+        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_GERMAN_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN GERMAN");
+            if (smartGlassesService != null) {
+                smartGlassesService.switchRunningTranscribeLanguage("German");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_ARABIC_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN ARABIC");
+            if (smartGlassesService != null) {
+                smartGlassesService.switchRunningTranscribeLanguage("Arabic");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_KOREAN_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN KOREAN");
+            if (smartGlassesService != null) {
+                smartGlassesService.switchRunningTranscribeLanguage("Korean");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_ITALIAN_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN ITALIAN");
+            if (smartGlassesService != null) {
+                smartGlassesService.switchRunningTranscribeLanguage("Italian");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_TURKISH_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN TURKISH");
+            if (smartGlassesService != null) {
+                smartGlassesService.switchRunningTranscribeLanguage("Turkish");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_PORTUGUESE_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN PORTUGUESE");
+            if (smartGlassesService != null) {
+                smartGlassesService.switchRunningTranscribeLanguage("Portuguese");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_DUTCH_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSCRIBING IN DUTCH");
+            if (smartGlassesService != null) {
+                smartGlassesService.switchRunningTranscribeLanguage("Dutch");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSLATION_DEFAULT_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSLATING TO DEFAULT LANGUAGE");
+            if (smartGlassesService != null) {
+                smartGlassesService.startTranslationStream("Default");
+            }
         } else if (event.dataStreamType == DataStreamType.TRANSLATION_ENGLISH_STREAM) {
             Log.d(TAG, "REQUESTED START TRANSLATING TO ENGLISH");
             if (smartGlassesService != null) {
@@ -671,6 +711,41 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             Log.d(TAG, "REQUESTED START TRANSLATING TO JAPANESE");
             if (smartGlassesService != null) {
                 smartGlassesService.startTranslationStream("Japanese");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSLATION_GERMAN_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSLATING TO GERMAN");
+            if (smartGlassesService != null) {
+                smartGlassesService.startTranslationStream("German");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSLATION_ARABIC_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSLATING TO ARABIC");
+            if (smartGlassesService != null) {
+                smartGlassesService.startTranslationStream("Arabic");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSLATION_KOREAN_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSLATING TO KOREAN");
+            if (smartGlassesService != null) {
+                smartGlassesService.startTranslationStream("Korean");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSLATION_ITALIAN_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSLATING TO ITALIAN");
+            if (smartGlassesService != null) {
+                smartGlassesService.startTranslationStream("Italian");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSLATION_TURKISH_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSLATING TO TURKISH");
+            if (smartGlassesService != null) {
+                smartGlassesService.startTranslationStream("Turkish");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSLATION_PORTUGUESE_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSLATING TO PORTUGUESE");
+            if (smartGlassesService != null) {
+                smartGlassesService.startTranslationStream("Portuguese");
+            }
+        } else if (event.dataStreamType == DataStreamType.TRANSLATION_DUTCH_STREAM) {
+            Log.d(TAG, "REQUESTED START TRANSLATING TO DUTCH");
+            if (smartGlassesService != null) {
+                smartGlassesService.startTranslationStream("Dutch");
             }
         } else {
             Log.d(TAG, "UNKNOWN DATA STREAM TYPE REQUESTED");
