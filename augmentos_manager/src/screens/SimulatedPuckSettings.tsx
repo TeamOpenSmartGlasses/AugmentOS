@@ -71,7 +71,7 @@ const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({ isDarkThe
 
   React.useEffect(() => {
     const loadSimulatedPuckSetting = async () => {
-      const simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, false);
+      const simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, true);
       setIsSimulatedPuck(simulatedPuck);
     };
 
