@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
-import { View, StyleSheet, Animated, ScrollView, Text } from 'react-native';
+import React, { useRef, useCallback, PropsWithChildren } from 'react';
+import { View, StyleSheet, Animated, Text } from 'react-native';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import type { NavigationProp } from '@react-navigation/native';
 import Header from '../components/Header';
 import ConnectedDeviceInfo from '../components/ConnectedDeviceInfo';
 import RunningAppsList from '../components/RunningAppsList';
@@ -8,119 +9,147 @@ import YourAppsList from '../components/YourAppsList';
 import NavigationBar from '../components/NavigationBar';
 import PuckConnection from '../components/PuckConnection';
 import { useStatus } from '../AugmentOSStatusProvider';
-import { AppInfo } from '../AugmentOSStatusParser';
 
 interface HomepageProps {
   isDarkTheme: boolean;
   toggleTheme: () => void;
 }
 
+interface AnimatedSectionProps extends PropsWithChildren {
+  delay?: number;
+}
+
 const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<any>>();
   const { status } = useStatus();
 
+  // Initialize animations with starting values
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(-50)).current;
-  const animationState = useRef({ isAnimating: false }).current;
 
-  const getRunningApps = (): AppInfo[] => {
-    return status.apps.filter(app => app.is_running);
-  };
+  // Create a single AnimatedView component to reduce code duplication
+  const AnimatedSection: React.FC<AnimatedSectionProps> = useCallback(
+    ({ children }) => (
+      <Animated.View
+        style={{
+          opacity: fadeAnim,
+          transform: [{ translateY: slideAnim }],
+        }}>
+        {children}
+      </Animated.View>
+    ),
+    [fadeAnim, slideAnim],
+  );
 
-  // Use useFocusEffect instead of useEffect
   useFocusEffect(
-    React.useCallback(() => {
-      // Animation logic moved inside useCallback
-      const startAnimations = () => {
-        // Reset animations
-        fadeAnim.setValue(0);
-        slideAnim.setValue(-50);
+    useCallback(() => {
+      // Reset animations immediately when screen is about to focus
+      fadeAnim.setValue(0);
+      slideAnim.setValue(-50);
 
-        // Prevent multiple animation starts
-        if (animationState.isAnimating) { return; }
-        animationState.isAnimating = true;
-
+      // Start animations after a brief delay to ensure layout is ready
+      const animationTimeout = setTimeout(() => {
         Animated.parallel([
           Animated.timing(fadeAnim, {
             toValue: 1,
-            duration: 1000,
+            duration: 500,
             useNativeDriver: true,
           }),
           Animated.timing(slideAnim, {
             toValue: 0,
-            duration: 1000,
+            duration: 500,
             useNativeDriver: true,
           }),
-        ]).start(() => {
-          animationState.isAnimating = false;
-        });
-      };
-
-      startAnimations();
+        ]).start();
+      }, 50);
 
       return () => {
-        // Optional cleanup
-        animationState.isAnimating = false;
+        clearTimeout(animationTimeout);
+        // Reset animations on cleanup
+        fadeAnim.setValue(0);
+        slideAnim.setValue(-50);
       };
-    }, [animationState, fadeAnim, slideAnim]) // Only depend on the animation values
+    }, [fadeAnim, slideAnim]),
   );
 
   const currentThemeStyles = isDarkTheme ? darkThemeStyles : lightThemeStyles;
 
   return (
     <View style={currentThemeStyles.container}>
-       {/* Margin bottom is 60 as super quick ugly hack for navbar */}
-      <ScrollView style={{marginBottom:60}}>
-        <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
+      <View style={currentThemeStyles.contentContainer}>
+        <AnimatedSection>
           <Header isDarkTheme={isDarkTheme} navigation={navigation} />
-        </Animated.View>
+        </AnimatedSection>
 
-        <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
+        <AnimatedSection>
           <PuckConnection isDarkTheme={isDarkTheme} />
-        </Animated.View>
+        </AnimatedSection>
 
-        <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
+        <AnimatedSection>
           <ConnectedDeviceInfo isDarkTheme={isDarkTheme} />
-        </Animated.View>
+        </AnimatedSection>
 
-        {status?.apps.length > 0 ? (
+        {status.puck_connected &&
           <>
-            <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
-              <RunningAppsList isDarkTheme={isDarkTheme} />
-            </Animated.View>
+            {status?.apps.length > 0 ? (
+              <>
+                <AnimatedSection>
+                  <RunningAppsList isDarkTheme={isDarkTheme} />
+                </AnimatedSection>
 
-            <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
-              <YourAppsList isDarkTheme={isDarkTheme} key={Math.random()} />
-            </Animated.View>
+                <AnimatedSection>
+                  <YourAppsList
+                    isDarkTheme={isDarkTheme}
+                    key={`apps-list-${status.apps.length}`}
+                  />
+                </AnimatedSection>
+              </>
+            ) : (
+              <AnimatedSection>
+                <Text style={currentThemeStyles.noAppsText}>
+                  No apps found. Visit the AugmentOS App Store to explore and
+                  download apps for your device.
+                </Text>
+              </AnimatedSection>
+            )}
           </>
-        ) : (
-          <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
-            <Text>No apps found. Visit the AugmentOS App Store to explore and download apps for your device.</Text>
-          </Animated.View>
-        )}
-      </ScrollView>
+        }
+      </View>
       <NavigationBar toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
     </View>
   );
 };
 
-// Light theme styles
 const lightThemeStyles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
-    justifyContent: 'center',
     backgroundColor: '#ffffff',
+  },
+  contentContainer: {
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingBottom: 60,
+  },
+  noAppsText: {
+    marginTop:10,
+    color: '#000000',
+    fontFamily: 'Montserrat-Regular',
   },
 });
 
-// Dark theme styles
 const darkThemeStyles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
-    justifyContent: 'center',
     backgroundColor: '#000000',
+  },
+  contentContainer: {
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingBottom: 60,
+  },
+  noAppsText: {
+    color: '#ffffff',
+    fontFamily: 'Montserrat-Regular',
   },
 });
 

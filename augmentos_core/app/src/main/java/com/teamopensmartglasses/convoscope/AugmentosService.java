@@ -339,28 +339,35 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
-        if (intent != null) {
-            String action = intent.getAction();
-            Bundle extras = intent.getExtras();
 
-            switch (action) {
-                case ACTION_START_CORE:
-                case ACTION_START_FOREGROUND_SERVICE:
-                    // start the service in the foreground
-                    Log.d("TEST", "starting foreground");
-                    startForeground(augmentOsMainServiceNotificationId, updateNotification());
+        if (intent == null || intent.getAction() == null) {
+            Log.e(TAG, "Received null intent or null action");
+            return Service.START_STICKY; // Or handle this scenario appropriately
+        }
 
-                    // Send out the status once AugmentOS_Core is ready :)
-                    // tpaSystem.stopThirdPartyAppByPackageName(AugmentOSManagerPackageName);
-                    tpaSystem.startThirdPartyAppByPackageName(AugmentOSManagerPackageName);
+        String action = intent.getAction();
+        Bundle extras = intent.getExtras();
 
-                    break;
-                case ACTION_STOP_CORE:
-                case ACTION_STOP_FOREGROUND_SERVICE:
-                    stopForeground(true);
-                    stopSelf();
-                    break;
-            }
+        switch (action) {
+            case ACTION_START_CORE:
+            case ACTION_START_FOREGROUND_SERVICE:
+                // start the service in the foreground
+                Log.d("TEST", "starting foreground");
+                startForeground(augmentOsMainServiceNotificationId, updateNotification());
+
+                // Send out the status once AugmentOS_Core is ready :)
+                // tpaSystem.stopThirdPartyAppByPackageName(AugmentOSManagerPackageName);
+                tpaSystem.startThirdPartyAppByPackageName(AugmentOSManagerPackageName);
+
+                break;
+            case ACTION_STOP_CORE:
+            case ACTION_STOP_FOREGROUND_SERVICE:
+                stopForeground(true);
+                stopSelf();
+                break;
+            default:
+                Log.d(TAG, "Unknown action received in onStartCommand");
+                Log.d(TAG, action);
         }
         return Service.START_STICKY;
     }
@@ -2260,10 +2267,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             if(isSmartGlassesServiceBound && smartGlassesService.getConnectedSmartGlasses() != null) {
                 connectedGlasses.put("model_name", smartGlassesService.getConnectedSmartGlasses().deviceModelName);
                 connectedGlasses.put("battery_life", 80);
+                connectedGlasses.put("brightness", 80);
             }
             else {
-                connectedGlasses.put("model_name", null);
-                connectedGlasses.put("battery_life", null);
                 connectedGlasses.put("is_searching", getIsSearchingForGlasses());
             }
             status.put("connected_glasses", connectedGlasses);
@@ -2355,12 +2361,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void enableVirtualWearable(boolean enabled) {
         Log.d("AugmentOsService", "Virtual wearable enabled: " + enabled);
         // Logic to enable/disable virtual wearable
-        if (enabled)
+        if (enabled) {
             AugmentosSmartGlassesService.savePreferredWearable(this, new AudioWearable().deviceModelName);
-        else
+            if (isSmartGlassesServiceBound) {
+                restartSmartGlassesService();
+            }
+        } else {
             AugmentosSmartGlassesService.savePreferredWearable(this, "");
-
-        // if (isSmartGlassesServiceBound) restartSmartGlassesService();
+        }
 
         sendStatusToAugmentOsManager();
     }

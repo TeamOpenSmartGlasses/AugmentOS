@@ -5,8 +5,8 @@ import { MOCK_CONNECTION } from './consts';
 
 interface AugmentOSStatusContextType {
     status: AugmentOSMainStatus;
-    isSearching: boolean;
-    isConnecting: boolean;
+    isSearchingForPuck: boolean;
+    isConnectingToPuck: boolean;
     refreshStatus: (data: any) => void;
     screenMirrorItems: { id: string; name: string }[]
 }
@@ -15,8 +15,8 @@ const AugmentOSStatusContext = createContext<AugmentOSStatusContextType | undefi
 
 export const StatusProvider = ({ children }: { children: ReactNode }) => {
     const [status, setStatus] = useState(AugmentOSParser.parseStatus({}));
-    const [isSearching, setIsSearching] = useState(false);
-    const [isConnecting, setIsConnecting] = useState(false);
+    const [isSearchingForPuck, setIsSearching] = useState(false);
+    const [isConnectingToPuck, setIsConnecting] = useState(false);
     const [screenMirrorItems, setScreenMirrorItems] = useState<{ id: string; name: string }[]>([]);
     const bluetoothService = BluetoothService.getInstance();
 
@@ -41,14 +41,14 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
 
         const handleScanStarted = () => setIsSearching(true);
         const handleScanStopped = () => setIsSearching(false);
-        const handleConnectingStatusChanged = ({ isConnecting }: { isConnecting: boolean }) => setIsConnecting(isConnecting);
+        const handleConnectingStatusChanged = ({ isConnecting: connecting }: { isConnecting: boolean }) => setIsConnecting(connecting);
 
         if (!MOCK_CONNECTION) {
             bluetoothService.on('statusUpdateReceived', handleStatusUpdateReceived);
             bluetoothService.on('scanStarted', handleScanStarted);
             bluetoothService.on('scanStopped', handleScanStopped);
             bluetoothService.on('deviceDisconnected', handleDeviceDisconnected);
-            bluetoothService.on('connectingStatusChanged', handleConnectingStatusChanged)
+            bluetoothService.on('connectingStatusChanged', handleConnectingStatusChanged);
         }
 
         return () => {
@@ -60,10 +60,10 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
                 bluetoothService.removeListener('connectingStatusChanged', handleConnectingStatusChanged);
             }
         };
-    }, [refreshStatus]);
+    }, [bluetoothService, refreshStatus]);
 
     return (
-        <AugmentOSStatusContext.Provider value={{ isConnecting, screenMirrorItems, status, isSearching, refreshStatus }}>
+        <AugmentOSStatusContext.Provider value={{ isConnectingToPuck, screenMirrorItems, status, isSearchingForPuck, refreshStatus }}>
             {children}
         </AugmentOSStatusContext.Provider>
     );

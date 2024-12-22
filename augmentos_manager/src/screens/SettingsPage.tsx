@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, Switch, TouchableOpacity, Platform, ScrollView, Animated } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Switch,
+  TouchableOpacity,
+  Platform,
+  ScrollView,
+  Animated,
+} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { useStatus } from '../AugmentOSStatusProvider';
-import { BluetoothService } from '../BluetoothService';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
-import { SETTINGS_KEYS } from '../consts';
+import {useStatus} from '../AugmentOSStatusProvider';
+import {BluetoothService} from '../BluetoothService';
+import {loadSetting, saveSetting} from '../augmentos_core_comms/SettingsHelper';
+import {SETTINGS_KEYS} from '../consts';
 import NavigationBar from '../components/NavigationBar';
 
 interface SettingsPageProps {
@@ -14,46 +23,49 @@ interface SettingsPageProps {
   navigation: any;
 }
 
-const SettingsPage: React.FC<SettingsPageProps> = ({ isDarkTheme, toggleTheme, navigation }) => {
+const SettingsPage: React.FC<SettingsPageProps> = ({
+  isDarkTheme,
+  toggleTheme,
+  navigation,
+}) => {
   const [isDoNotDisturbEnabled, setDoNotDisturbEnabled] = React.useState(false);
-  const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] = React.useState(false);
-  const { status } = useStatus();
-  const [isUsingAudioWearable, setIsUsingAudioWearable] = React.useState(status.default_wearable == "Audio Wearable");
+  const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] =
+    React.useState(false);
+  const {status} = useStatus();
+  const [isUsingAudioWearable, setIsUsingAudioWearable] = React.useState(
+    status.default_wearable == 'Audio Wearable',
+  );
 
   React.useEffect(() => {
-    const loadInitialSettings = async () => {
-
-    };
+    const loadInitialSettings = async () => {};
 
     loadInitialSettings();
   }, []);
-
 
   const switchColors = {
     trackColor: {
       false: isDarkTheme ? '#666666' : '#D1D1D6',
       true: '#2196F3',
     },
-    thumbColor: Platform.OS === 'ios'
-      ? undefined
-      : (isDarkTheme ? '#FFFFFF' : '#FFFFFF'),
+    thumbColor:
+      Platform.OS === 'ios' ? undefined : isDarkTheme ? '#FFFFFF' : '#FFFFFF',
     ios_backgroundColor: isDarkTheme ? '#666666' : '#D1D1D6',
   };
 
   const toggleVirtualWearable = async () => {
-    let isUsingAudio = status.default_wearable == "Audio Wearable";
+    let isUsingAudio = status.default_wearable == 'Audio Wearable';
     BluetoothService.getInstance().sendToggleVirtualWearable(!isUsingAudio);
     setIsUsingAudioWearable(!isUsingAudio);
-  }
+  };
 
   const sendDisconnectWearable = async () => {
     throw new Error('Function not implemented.');
-  }
+  };
 
   const forgetPuck = async () => {
     await BluetoothService.getInstance().disconnectFromDevice();
     await saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, null);
-  }
+  };
 
   // Theme colors
   const theme = {
@@ -71,30 +83,41 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ isDarkTheme, toggleTheme, n
   };
 
   return (
-    <View style={[styles.container, isDarkTheme ? styles.darkBackground : styles.lightBackground]}>
-      <View style={[
-        styles.titleContainer,
-        isDarkTheme ? styles.titleContainerDark : styles.titleContainerLight,
+    <View
+      style={[
+        styles.container,
+        isDarkTheme ? styles.darkBackground : styles.lightBackground,
       ]}>
+      <View
+        style={[
+          styles.titleContainer,
+          isDarkTheme ? styles.titleContainerDark : styles.titleContainerLight,
+        ]}>
         <Text
           style={[
             styles.title,
             isDarkTheme ? styles.lightText : styles.darkText,
-            {
-            },
-          ]}
-        >
+            {},
+          ]}>
           Settings
         </Text>
-
       </View>
       {/* Margin bottom is 60 as super quick ugly hack for navbar */}
-      <ScrollView style={{ marginBottom: 60 }}>
-
+      <ScrollView style={styles.scrollViewContainer}>
         <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
-            <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>Dark Mode</Text>
-            <Text style={[styles.value, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
+            <Text
+              style={[
+                styles.label,
+                isDarkTheme ? styles.lightText : styles.darkText,
+              ]}>
+              Dark Mode
+            </Text>
+            <Text
+              style={[
+                styles.value,
+                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
+              ]}>
               Toggle between light and dark mode
             </Text>
           </View>
@@ -109,15 +132,26 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ isDarkTheme, toggleTheme, n
 
         <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
-            <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>
+            <Text
+              style={[
+                styles.label,
+                isDarkTheme ? styles.lightText : styles.darkText,
+              ]}>
               Use Virtual Wearable
             </Text>
-            <Text style={[styles.value, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
-              Puck will use a simulated smart glasses instead of real smart glasses.</Text>
+            <Text
+              style={[
+                styles.value,
+                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
+              ]}>
+              Puck will use a simulated smart glasses instead of real smart
+              glasses.
+            </Text>
           </View>
           <Switch
             disabled={!status.puck_connected}
-            value={isUsingAudioWearable} onValueChange={() => toggleVirtualWearable()}
+            value={isUsingAudioWearable}
+            onValueChange={() => toggleVirtualWearable()}
             trackColor={switchColors.trackColor}
             thumbColor={switchColors.thumbColor}
             ios_backgroundColor={switchColors.ios_backgroundColor}
@@ -126,16 +160,26 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ isDarkTheme, toggleTheme, n
 
         {/* Temporary until we make a proper page for thsi */}
         {Platform.OS == 'android' && (
-          <TouchableOpacity style={styles.settingItem} onPress={() => {
-            navigation.navigate('SimulatedPuckSettings')
-          }}>
+          <TouchableOpacity
+            style={styles.settingItem}
+            onPress={() => {
+              navigation.navigate('SimulatedPuckSettings');
+            }}>
             <View style={styles.settingTextContainer}>
-              <Text style={[styles.label, isDarkTheme ? styles.lightText : styles.darkText]}>Simulated Puck</Text>
+              <Text
+                style={[
+                  styles.label,
+                  isDarkTheme ? styles.lightText : styles.darkText,
+                ]}>
+                Simulated Puck
+              </Text>
             </View>
             <Icon
               name="angle-right"
               size={20}
-              color={isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color}
+              color={
+                isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color
+              }
             />
           </TouchableOpacity>
         )}
@@ -235,6 +279,9 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ isDarkTheme, toggleTheme, n
 };
 
 const styles = StyleSheet.create({
+  scrollViewContainer: {
+    marginBottom: 60,
+  },
   container: {
     flex: 1,
     padding: 20,

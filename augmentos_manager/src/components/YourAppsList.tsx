@@ -1,123 +1,114 @@
-import React, { useState, useRef } from 'react';
-import { View, Text, StyleSheet, ScrollView, NativeSyntheticEvent, NativeScrollEvent, Dimensions, Animated } from 'react-native';
-import { useFocusEffect } from '@react-navigation/native';
-import { useStatus } from '../AugmentOSStatusProvider';
+import React, {useState, useRef, useEffect} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
+  Dimensions,
+  Animated,
+} from 'react-native';
+import {useStatus} from '../AugmentOSStatusProvider';
 import AppIcon from './AppIcon';
-import { BluetoothService } from '../BluetoothService';
+import {BluetoothService} from '../BluetoothService';
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 const ITEMS_PER_PAGE = 4;
-const PAGE_WIDTH = width;
-const HORIZONTAL_PADDING = 11;
 const ITEM_GAP = 20;
+const DOT_SIZE = 8;
+const DOT_SPACING = 4;
+const ANIMATION_DELAY = 150;
 
-// Temporarily disable this
-const ANIMATION_DELAY = 0;//200;
+// Simplified width calculations to ensure 4 icons fit
+const PAGE_WIDTH = width;
 
-// Temporarily disable this by setting to 0; previously 700
-// TODO: This should only play once on boot. Let's solve this at a later date.
-const ANIMATION_DURATION = 0;
-
-interface AnimatedAppIconProps {
+interface AppIconWrapperProps {
   app: any;
-  index: number;
-  fadeAnim: Animated.Value;
-  translateAnim: Animated.Value;
   onAppStart: (packageName: string) => void;
   isDarkTheme: boolean;
+  index: number;
+  pageIndex: number;
+  activePageIndex: number;
 }
 
-const AnimatedAppIcon: React.FC<AnimatedAppIconProps> = ({
+const AppIconWrapper: React.FC<AppIconWrapperProps> = ({
   app,
-  fadeAnim,
-  translateAnim,
   onAppStart,
-  isDarkTheme
-}) => (
-  <Animated.View
-    style={{
-      opacity: fadeAnim,
-      transform: [{
-        translateX: translateAnim,
-      }],
-    }}
-  >
-    <AppIcon
-      app={app}
-      onClick={() => onAppStart(app.package_name)}
-      isDarkTheme={isDarkTheme}
-    />
-  </Animated.View>
-);
+  isDarkTheme,
+  index,
+  pageIndex,
+  activePageIndex,
+}) => {
+  const translateX = useRef(new Animated.Value(50)).current;
+  const opacity = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    if (pageIndex === activePageIndex) {
+      translateX.setValue(50);
+      opacity.setValue(0);
+      Animated.sequence([
+        Animated.delay(index * ANIMATION_DELAY),
+        Animated.parallel([
+          Animated.timing(translateX, {
+            toValue: 0,
+            duration: 300,
+            useNativeDriver: true,
+          }),
+          Animated.timing(opacity, {
+            toValue: 1,
+            duration: 300,
+            useNativeDriver: true,
+          }),
+        ]),
+      ]).start();
+    }
+  }, [pageIndex, activePageIndex, index, translateX, opacity]);
+
+  return (
+    <Animated.View
+      style={{
+        transform: [{translateX}],
+        opacity,
+      }}>
+      <AppIcon
+        app={app}
+        onClick={() => onAppStart(app.package_name)}
+        isDarkTheme={isDarkTheme}
+      />
+    </Animated.View>
+  );
+};
 
 interface YourAppsListProps {
   isDarkTheme: boolean;
 }
 
-const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
-  const { status } = useStatus();
-  const [isLoading, setIsLoading] = useState(false);
+const YourAppsList: React.FC<YourAppsListProps> = ({isDarkTheme}) => {
+  const {status} = useStatus();
+  const [_isLoading, setIsLoading] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [lastActiveIndex, setLastActiveIndex] = useState(0);
+  const scrollViewRef = useRef<ScrollView>(null);
   const bluetoothService = BluetoothService.getInstance();
-  const fadeAnims = useRef(status.apps.map(() => new Animated.Value(0))).current;
-  const translateAnims = useRef(status.apps.map(() => new Animated.Value(50))).current;
-  const animationState = useRef({ isAnimating: false }).current;
 
   const totalPages = Math.ceil(status.apps.length / ITEMS_PER_PAGE);
-  const pages = Array.from({ length: totalPages }, (_, pageIndex) => {
+  const pages = Array.from({length: totalPages}, (_, pageIndex) => {
     const startIndex = pageIndex * ITEMS_PER_PAGE;
     return status.apps.slice(startIndex, startIndex + ITEMS_PER_PAGE);
   });
 
-  useFocusEffect(
-    React.useCallback(() => {
-      const animateAppsInView = (startIndex: number, endIndex: number) => {
-        if (animationState.isAnimating) return;
-        animationState.isAnimating = true;
-
-        const visibleApps = status.apps.slice(startIndex, endIndex);
-        visibleApps.forEach((_, index) => {
-          fadeAnims[startIndex + index].setValue(0);
-          translateAnims[startIndex + index].setValue(30);
-        });
-
-        Animated.stagger(ANIMATION_DELAY,
-          visibleApps.map((_, index) =>
-            Animated.parallel([
-              Animated.timing(fadeAnims[startIndex + index], {
-                toValue: 1,
-                duration: ANIMATION_DURATION,
-                useNativeDriver: true,
-              }),
-              Animated.timing(translateAnims[startIndex + index], {
-                toValue: 0,
-                duration: ANIMATION_DURATION,
-                useNativeDriver: true,
-              }),
-            ])
-          )
-        ).start(() => {
-          animationState.isAnimating = false;
-        });
-      };
-
-      const startIndex = activeIndex * ITEMS_PER_PAGE;
-      const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, status.apps.length);
-      animateAppsInView(startIndex, endIndex);
-
-      return () => {
-        animationState.isAnimating = false;
-      };
-    }, [activeIndex, animationState, fadeAnims, status.apps, translateAnims])
-  );
-
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const scrollPosition = event.nativeEvent.contentOffset.x;
     const newActiveIndex = Math.round(scrollPosition / PAGE_WIDTH);
-
     if (newActiveIndex !== activeIndex) {
-      setLastActiveIndex(activeIndex);
+      setActiveIndex(newActiveIndex);
+    }
+  };
+
+  const handleMomentumScrollEnd = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const scrollPosition = event.nativeEvent.contentOffset.x;
+    const newActiveIndex = Math.round(scrollPosition / PAGE_WIDTH);
+    if (newActiveIndex !== activeIndex) {
       setActiveIndex(newActiveIndex);
     }
   };
@@ -134,67 +125,78 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
   };
 
   const textColor = isDarkTheme ? '#FFFFFF' : '#000000';
-  const dotColor = isDarkTheme ? '#FFFFFF' : '#000000';
 
   return (
     <View style={styles.appsContainer}>
       <View style={styles.titleContainer}>
-        <Text 
+        <Text
           style={[
-            styles.sectionTitle, 
-            { color: textColor },
-            styles.adjustableText
-          ]} 
-          numberOfLines={1} 
-          adjustsFontSizeToFit
-        >
+            styles.sectionTitle,
+            {color: textColor},
+            styles.adjustableText,
+          ]}
+          numberOfLines={1}
+          adjustsFontSizeToFit>
           Your Apps
         </Text>
       </View>
-      
-      <View style={styles.contentContainer}>
-        <ScrollView
-          horizontal
-          pagingEnabled
-          snapToInterval={PAGE_WIDTH}
-          decelerationRate="fast"
-          onScroll={handleScroll}
-          showsHorizontalScrollIndicator={false}
-        >
-          {pages.map((pageApps, pageIndex) => (
-            <View
-              key={pageIndex}
-              style={[styles.page, { width: PAGE_WIDTH }]}
-            >
-              <View style={styles.appsList}>
-                {pageApps.map((app, index) => (
-                  <AnimatedAppIcon
-                    key={pageIndex * ITEMS_PER_PAGE + index}
-                    app={app}
-                    index={pageIndex * ITEMS_PER_PAGE + index}
-                    fadeAnim={fadeAnims[pageIndex * ITEMS_PER_PAGE + index]}
-                    translateAnim={translateAnims[pageIndex * ITEMS_PER_PAGE + index]}
-                    onAppStart={startApp}
-                    isDarkTheme={isDarkTheme}
-                  />
-                ))}
-              </View>
-            </View>
-          ))}
-        </ScrollView>
 
-        <View style={styles.pagination}>
-          {[...Array(totalPages)].map((_, index) => (
-            <View
-              key={index}
-              style={[
-                styles.dot,
-                index === 0 && styles.elongatedDot,
-                activeIndex === index && styles.activeDot,
-                { backgroundColor: dotColor },
-              ]}
-            />
-          ))}
+      <View style={styles.contentContainer}>
+        <View style={styles.scrollViewWrapper}>
+          <View style={styles.scrollContent}>
+            <ScrollView
+              ref={scrollViewRef}
+              horizontal
+              pagingEnabled
+              snapToInterval={PAGE_WIDTH}
+              snapToAlignment="start"
+              decelerationRate="fast"
+              onScroll={handleScroll}
+              onMomentumScrollEnd={handleMomentumScrollEnd}
+              showsHorizontalScrollIndicator={false}>
+              {pages.map((pageApps, pageIndex) => (
+                <View 
+                  key={pageIndex} 
+                  style={[
+                    styles.page,
+                    {width: PAGE_WIDTH},
+                  ]}>
+                  <View style={styles.appsList}>
+                    {pageApps.map((app, index) => (
+                      <AppIconWrapper
+                        key={pageIndex * ITEMS_PER_PAGE + index}
+                        app={app}
+                        onAppStart={startApp}
+                        isDarkTheme={isDarkTheme}
+                        index={index}
+                        pageIndex={pageIndex}
+                        activePageIndex={activeIndex}
+                      />
+                    ))}
+                  </View>
+                </View>
+              ))}
+            </ScrollView>
+          </View>
+
+          {totalPages > 1 && (
+            <View style={styles.paginationContainer}>
+              {Array.from({length: totalPages}).map((_, index) => (
+                <View
+                  key={index}
+                  style={[
+                    styles.paginationDot,
+                    index === activeIndex
+                      ? styles.paginationDotActive
+                      : styles.paginationDotInactive,
+                    isDarkTheme
+                      ? styles.paginationDotLight
+                      : styles.paginationDotDark,
+                  ]}
+                />
+              ))}
+            </View>
+          )}
         </View>
       </View>
     </View>
@@ -203,7 +205,7 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
 
 const styles = StyleSheet.create({
   appsContainer: {
-    marginTop: 0,
+    marginTop: -10,
     marginBottom: 0,
     width: '100%',
   },
@@ -215,7 +217,13 @@ const styles = StyleSheet.create({
     paddingLeft: 0,
   },
   contentContainer: {
-    paddingHorizontal: HORIZONTAL_PADDING,
+  },
+  scrollViewWrapper: {
+    height: 100,
+    position: 'relative',
+  },
+  scrollContent: {
+    height: 160,
   },
   sectionTitle: {
     fontSize: 18,
@@ -230,34 +238,52 @@ const styles = StyleSheet.create({
     flexShrink: 1,
   },
   adjustableText: {
-    minHeight: 30,
+    minHeight: 0,
   },
   page: {
-    flex: 1,
+    height: '100%',
+    justifyContent: 'center',
+    width: PAGE_WIDTH, // Ensure full width
   },
   appsList: {
     flexDirection: 'row',
     gap: ITEM_GAP,
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-start', // Change from flex-start to space-evenly
+    alignItems: 'center',
+    height: '100%',
+    paddingRight:40,
   },
-  pagination: {
+  paginationContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 20,
+    alignItems: 'center',
+    height: 24,
+    width: '100%',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    paddingBottom: 10,
   },
-  dot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginHorizontal: 4,
+  paginationDot: {
+    marginTop: 45,
+    height: DOT_SIZE,
+    borderRadius: DOT_SIZE / 2,
+    marginHorizontal: DOT_SPACING,
+    minWidth: DOT_SIZE,
+  },
+  paginationDotActive: {
+    width: DOT_SIZE * 2,
+    opacity: 1,
+  },
+  paginationDotInactive: {
+    width: DOT_SIZE,
     opacity: 0.3,
   },
-  elongatedDot: {
-    width: 18,
-    borderRadius: 10,
+  paginationDotLight: {
+    backgroundColor: '#FFFFFF',
   },
-  activeDot: {
-    opacity: 1,
+  paginationDotDark: {
+    backgroundColor: '#000000',
   },
 });
 

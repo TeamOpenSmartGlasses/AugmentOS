@@ -63,15 +63,14 @@ android {
         pickFirst '**/libc++_shared.so'
     }
 }
-
 dependencies {
     // React Native core dependencies
     implementation("com.facebook.react:react-android")
 
-    // Hermes disabled, so only JSC is used
+    // JavaScriptCore as Hermes is disabled
     implementation jscFlavor
 
-    // Add react-native dependencies
+    // Existing dependencies
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-screens')
     implementation project(':react-native-reanimated')
@@ -81,17 +80,20 @@ dependencies {
     implementation project(':react-native-linear-gradient')
     implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
 
+    // Add react-native-svg
+    implementation project(':react-native-svg')  // Add this line
+
     // Kotlin dependencies
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
-    // Support libraries
+    // AndroidX libraries
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.core:core-ktx:1.10.1'
 
+    // AugmentOSLib project dependency
     implementation project(path: ':AugmentOSLib')
     implementation "androidx.lifecycle:lifecycle-service:2.6.1"
     implementation("org.greenrobot:eventbus:3.3.1")
-
 }
 
 // Include custom vector icons fonts from react-native-vector-icons

@@ -33,16 +33,16 @@ export default function MessageBanner() {
         useNativeDriver: true,
       }).start();
     }
-  }, [message]);
+  }, [message, slideAnim]);
 
   useEffect(() => {
     if (message) {
-      const timer = setTimeout(() => setMessage(null), 10000); // Adjusted duration for readability
+      const timer = setTimeout(() => setMessage(null), 10000);
       return () => clearTimeout(timer);
     }
   }, [message]);
 
-  if (!message) return null;
+  if (!message) {return null;}
 
   let backgroundColor;
   switch (type) {
@@ -61,9 +61,11 @@ export default function MessageBanner() {
     <Animated.View
       style={[
         styles.container,
-        { transform: [{ translateY: slideAnim }], backgroundColor: backgroundColor },
-      ]}
-    >
+        {
+          transform: [{translateY: slideAnim}],
+          backgroundColor: backgroundColor,
+        },
+      ]}>
       <Text style={styles.text}>{message}</Text>
       <TouchableOpacity onPress={() => setMessage(null)}>
         <Text style={styles.dismiss}>Dismiss</Text>
@@ -74,15 +76,15 @@ export default function MessageBanner() {
 
 const styles = StyleSheet.create({
   container: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
     paddingVertical: 10,
     paddingHorizontal: 15,
-    flexDirection: "row",
-    flexWrap: 'wrap', // Allow wrapping for long text
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
     alignItems: 'flex-start',
     zIndex: 1000,
   },
@@ -92,9 +94,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginRight: 10,
     flexWrap: 'wrap',
+    fontFamily: 'Montserrat-Regular',
   },
   dismiss: {
-    color: "white",
-    fontWeight: "bold",
+    color: 'white',
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
   },
 });
+

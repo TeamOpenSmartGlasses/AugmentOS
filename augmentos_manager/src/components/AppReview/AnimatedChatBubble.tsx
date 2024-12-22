@@ -12,7 +12,7 @@ const AnimatedChatBubble: React.FC<AnimatedChatBubbleProps> = ({ isDarkTheme }) 
     Animated.sequence([
       Animated.timing(bubbleOpacity, {
         toValue: 1,
-        duration: 500,
+        duration: 800,
         useNativeDriver: true,
       }),
       Animated.delay(3000),
@@ -40,7 +40,7 @@ const AnimatedChatBubble: React.FC<AnimatedChatBubbleProps> = ({ isDarkTheme }) 
 const styles = StyleSheet.create({
   chatBubble: {
     position: 'absolute',
-    bottom: 100,
+    bottom: 150,
     right: 20,
     paddingHorizontal: 15,
     paddingVertical: 10,

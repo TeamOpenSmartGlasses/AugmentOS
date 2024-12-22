@@ -23,6 +23,7 @@ import com.teamopensmartglasses.augmentos_manager.NotificationReceiver
 import com.teamopensmartglasses.augmentos_manager.ManagerCoreCommsServicePackage
 import com.teamopensmartglasses.augmentos_manager.CoreServiceStarterPackage
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage
+import com.horcrux.svg.SvgPackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -44,7 +45,8 @@ class MainApplication : Application(), ReactApplication {
                 RNPermissionsPackage(),
                 ManagerCoreCommsServicePackage(),
                 CoreServiceStarterPackage(),
-                AsyncStoragePackage()
+                AsyncStoragePackage(),
+                SvgPackage()
             )
         }
 
@@ -58,12 +60,15 @@ class MainApplication : Application(), ReactApplication {
         SoLoader.init(this, /* native exopackage */ false)
 
         // Register a listener to set up notificationReceiver once React context is available
-        reactNativeHost.reactInstanceManager.addReactInstanceEventListener(object : ReactInstanceEventListener {
-            override fun onReactContextInitialized(reactContext: ReactContext) {
-                val notificationReceiver = NotificationReceiver(reactContext)
-                val filter = IntentFilter("NOTIFICATION_LISTENER")
-                LocalBroadcastManager.getInstance(this@MainApplication).registerReceiver(notificationReceiver, filter)
+        reactNativeHost.reactInstanceManager.addReactInstanceEventListener(
+            object : ReactInstanceEventListener {
+                override fun onReactContextInitialized(reactContext: ReactContext) {
+                    val notificationReceiver = NotificationReceiver(reactContext)
+                    val filter = IntentFilter("NOTIFICATION_LISTENER")
+                    LocalBroadcastManager.getInstance(this@MainApplication)
+                        .registerReceiver(notificationReceiver, filter)
+                }
             }
-        })
+        )
     }
 }

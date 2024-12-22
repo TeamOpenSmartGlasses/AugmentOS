@@ -8,6 +8,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
+import android.content.ComponentName;
 
 public class ManagerCoreCommsServiceModule extends ReactContextBaseJavaModule {
     private static final String TAG = "ManagerCoreCommsServiceModule";
@@ -50,6 +51,22 @@ public class ManagerCoreCommsServiceModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void startAugmentosCoreService() {
+        try {
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName(
+                    "com.teamopensmartglasses.convoscope",
+                    "com.teamopensmartglasses.convoscope.AugmentosService"));
+            intent.setAction("ACTION_START_CORE");
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                getReactApplicationContext().startService(intent);
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "mc: Failed to start core service", e);
+        }
+    }
+
+    @ReactMethod
     public void stopService() {
         // Context context = getReactApplicationContext();
         // Intent serviceIntent = new Intent(context, ManagerCoreCommsService.class);
@@ -65,6 +82,7 @@ public class ManagerCoreCommsServiceModule extends ReactContextBaseJavaModule {
     public void sendCommandToCore(String jsonString) {
         if (managerServiceInstance == null) {
             startService();
+            startAugmentosCoreService();
         }
 
         if (managerServiceInstance != null) {
