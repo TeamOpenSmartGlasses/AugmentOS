@@ -316,7 +316,7 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
             },
           ]}
         >
-          Glasses Mirror
+          Glasses Mirror (mockup)
         </Animated.Text>
 
         <Animated.View

@@ -365,7 +365,7 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
           },
         ]}
       >
-        <Text style={[styles.header, { color: theme.textColor }]}>App Store</Text>
+        <Text style={[styles.header, { color: theme.textColor }]}>App Store (mockup)</Text>
         <Animated.View
   style={[
     styles.searchContainer,
