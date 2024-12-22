@@ -91,6 +91,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
     //connection handler
     public Handler connectHandler;
+    String translationLanguage;
 
     public SmartGlassesAndroidService(Class mainActivityClass, String myChannelId, int myNotificationId, String notificationAppName, String notificationDescription, int notificationDrawable){
         this.myNotificationId = myNotificationId;
@@ -371,12 +372,16 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
                 speechRecSwitchSystem = new SpeechRecSwitchSystem(context);
                 ASR_FRAMEWORKS asrFramework = getChosenAsrFramework(context);
                 speechRecSwitchSystem.startAsrFramework(asrFramework, language);
+                if (translationLanguage != null) {
+                    startTranslationStream(translationLanguage);
+                }
             }
         }, 250);
     }
     //switches the currently running transcribe language without changing the default/saved language
     public void startTranslationStream(String toTranslateLanguage){
         String language = speechRecSwitchSystem.currentLanguage;
+        translationLanguage = toTranslateLanguage;
 
         //kill previous speech rec
         speechRecSwitchSystem.destroy();
