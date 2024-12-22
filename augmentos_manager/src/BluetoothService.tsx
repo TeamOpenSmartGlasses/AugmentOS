@@ -48,8 +48,8 @@ export class BluetoothService extends EventEmitter {
   async initialize() {
     if (MOCK_CONNECTION) return;
 
-    // saveSetting('SETTINGS_KEYS.SIMULATED_PUCK', false); // TODO: Temporarily disable this feature
-    this.simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, false);
+    // TODO: Temporarily default this to be true
+    this.simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, true);
 
     if (this.simulatedPuck) {
       ManagerCoreCommsService.startService();
