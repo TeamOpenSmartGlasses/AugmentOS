@@ -15,7 +15,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   const slideAnim = useRef(new Animated.Value(-50)).current;
   const [connectedGlasses, setConnectedGlasses] = useState('');
   const bluetoothService = BluetoothService.getInstance();
-  const { status, isSearching, isConnecting, refreshStatus } = useStatus();
+  const { status, isSearchingForPuck, isConnectingToPuck, refreshStatus } = useStatus();
 
   useFocusEffect(
     React.useCallback(() => {
@@ -119,9 +119,9 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
         return require('../assets/glasses/g1.png');
       case 'virtual-wearable':
       case 'Audio Wearable':
-        return require('../assets/glasses/virtual_wearable.png');
+        return require('../assets/glasses/audio_wearable.png');
       default:
-        return null;
+        return require('../assets/glasses/unknown_wearable.png');
     }
   };
 
@@ -165,21 +165,29 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
               </Animated.View>
               <Animated.View style={[styles.statusBar, { opacity: fadeAnim }]}>
                 <View style={styles.statusInfo}>
-                  <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Battery</Text>
-                  <View style={styles.batteryContainer}>
-                    <Icon name={batteryIcon} size={16} color={batteryColor} style={styles.batteryIcon} />
-                    <Text style={[styles.batteryValue, { color: batteryColor }]}>
-                      {status.glasses_info.battery_life}%
-                    </Text>
-                  </View>
+                  {status.glasses_info?.battery_life &&
+                    <>
+                      <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Battery</Text>
+                      <View style={styles.batteryContainer}>
+                        <Icon name={batteryIcon} size={16} color={batteryColor} style={styles.batteryIcon} />
+                        <Text style={[styles.batteryValue, { color: batteryColor }]}>
+                          {status.glasses_info.battery_life}%
+                        </Text>
+                      </View>
+                    </>
+                  }
                 </View>
 
                 <View style={styles.statusInfo}>
-                  <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
-                  <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>87%</Text>
+                  {status.glasses_info?.brightness &&
+                    <>
+                      <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
+                      <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>{status.glasses_info?.brightness}%</Text>
+                    </>
+                  }
                 </View>
-                <TouchableOpacity 
-                  style={styles.disconnectButton} 
+                <TouchableOpacity
+                  style={styles.disconnectButton}
                   onPress={sendDisconnectWearable}
                 >
                   <Icon name="power-off" size={18} color="white" style={styles.icon} />
@@ -188,21 +196,32 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
               </Animated.View>
             </View>
           ) : (
-            <View style={styles.noGlassesContent}>
-              <Text style={styles.noGlassesText}>No Glasses Connected</Text>
-              <TouchableOpacity style={styles.connectButton} onPress={connectGlasses}>
-                <Icon name="wifi" size={16} color="white" style={styles.icon} />
-                <Text style={styles.buttonText}>Connect Glasses</Text>
-              </TouchableOpacity>
-            </View>
+            <>
+              {status.glasses_info?.is_searching ? (
+                <View style={styles.disconnectedContent}>
+                  <Text style={[styles.connectText, { color: themeStyles.textColor }]}>
+                    Searching for glasses
+                  </Text>
+                  <ActivityIndicator size="small" color="#2196F3" />
+                </View>
+              ) : (
+                <View style={styles.noGlassesContent}>
+                  <Text style={styles.noGlassesText}>No Glasses Connected</Text>
+                  <TouchableOpacity style={styles.connectButton} onPress={connectGlasses}>
+                    <Icon name="wifi" size={16} color="white" style={styles.icon} />
+                    <Text style={styles.buttonText}>Connect Glasses</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+            </>
           )}
         </>
       ) : (
         <View style={styles.disconnectedContent}>
           <Text style={[styles.connectText, { color: themeStyles.textColor }]}>
-            {isSearching ? 'Searching for Puck...' : isConnecting ? 'Connecting to Puck...' : 'No device connected'}
+            {isSearchingForPuck ? 'Searching for Puck...' : isConnectingToPuck ? 'Connecting to Puck...' : 'No device connected'}
           </Text>
-          {isSearching || isConnecting ? (
+          {isSearchingForPuck || isConnectingToPuck ? (
             <ActivityIndicator size="small" color="#2196F3" />
           ) : (
             <TouchableOpacity style={styles.connectButton} onPress={handleConnect}>

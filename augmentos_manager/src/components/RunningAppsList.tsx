@@ -1,19 +1,16 @@
-import React, { useMemo, useState } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import React, {useMemo, useState} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { useStatus } from '../AugmentOSStatusProvider';
+import {useStatus} from '../AugmentOSStatusProvider';
 import AppIcon from './AppIcon';
-import { BluetoothService } from '../BluetoothService';
-
-const { height } = Dimensions.get('window');
+import {BluetoothService} from '../BluetoothService';
 
 interface RunningAppsListProps {
   isDarkTheme: boolean;
 }
 
-const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
-  const { status } = useStatus();
+const RunningAppsList: React.FC<RunningAppsListProps> = ({isDarkTheme}) => {
+  const {status} = useStatus();
   const [_isLoading, setIsLoading] = useState(false);
   const bluetoothService = BluetoothService.getInstance();
   const textColor = isDarkTheme ? '#FFFFFF' : '#000000';
@@ -22,7 +19,7 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
     : ['#56CCFE', '#FF8DF6', '#FFD04E'];
 
   const stopApp = async (packageName: string) => {
-    console.log("STOP APP");
+    console.log('STOP APP');
     setIsLoading(true);
     try {
       await bluetoothService.stopAppByPackageName(packageName);
@@ -33,30 +30,25 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
     }
   };
 
-  const fakeApp = {
-    name: "invisible",
-    description: "invisible",
-    is_running: false,
-    is_foreground: false,
-    package_name: "invisible",
-    icon: "invisible",
-  }
-
-  const runningApps = useMemo(() => status.apps.filter((app) => app.is_running), [status]);
+  const runningApps = useMemo(
+    () => status.apps.filter(app => app.is_running),
+    [status],
+  );
 
   return (
     <View style={styles.appsContainer}>
-      <Text style={[styles.sectionTitle, { color: textColor }]}>Running Apps</Text>
+      <Text style={[styles.sectionTitle, {color: textColor}]}>
+        Running Apps
+      </Text>
       <LinearGradient
         colors={gradientColors}
         style={styles.gradientBackground}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-      >
+        start={{x: 0, y: 0}}
+        end={{x: 1, y: 1}}>
         {runningApps.length > 0 ? (
           <View style={styles.appIconsContainer}>
             {runningApps.map((app, index) => (
-              <View key={index}>
+              <View key={index} style={styles.iconWrapper}>
                 <AppIcon
                   app={app}
                   onClick={() => stopApp(app.package_name)}
@@ -67,9 +59,9 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({ isDarkTheme }) => {
             ))}
           </View>
         ) : (
-          <View style={{ flex: 1, justifyContent: 'center', height: '100%' }}>
-            <Text style={{ color: textColor, textAlign: 'center' }}>
-              No running apps available
+          <View style={styles.noAppsContainer}>
+            <Text style={[styles.noAppsText, {color: textColor}]}>
+              No apps, start apps below.
             </Text>
           </View>
         )}
@@ -82,6 +74,8 @@ const styles = StyleSheet.create({
   appsContainer: {
     justifyContent: 'flex-start',
     marginTop: 10,
+    marginBottom: 10,
+    height: 160,
   },
   sectionTitle: {
     fontSize: 18,
@@ -92,11 +86,10 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   gradientBackground: {
-    flex: 1,
-    paddingHorizontal: 10,
+    height: 120,
+    paddingHorizontal: 15,
     borderRadius: 20,
-    paddingTop: 20,
-    paddingBottom: 20
+    paddingVertical: 15,
   },
   appIconsContainer: {
     flexDirection: 'row',
@@ -105,18 +98,16 @@ const styles = StyleSheet.create({
     width: '100%',
     flexWrap: 'wrap',
   },
-
-  squareBadge: {
-    position: 'absolute',
-    top: -8,
-    right: -6,
-    width: 20,
-    height: 20,
-    borderRadius: 6,
-    backgroundColor: '#FF438B',
+  iconWrapper: {
     alignItems: 'center',
+  },
+  noAppsContainer: {
+    flex: 1,
     justifyContent: 'center',
-    zIndex: 3,
+    alignItems: 'center',
+  },
+  noAppsText: {
+    textAlign: 'center',
   },
 });
 

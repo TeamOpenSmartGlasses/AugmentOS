@@ -1,6 +1,14 @@
-import React, { useState, useRef } from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Animated, TextInput } from 'react-native';
-import { useFocusEffect } from '@react-navigation/native';
+import React, {useState, useRef} from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  Animated,
+  TextInput,
+} from 'react-native';
+import {useFocusEffect} from '@react-navigation/native';
 import NavigationBar from '../components/NavigationBar.tsx';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -14,40 +22,191 @@ interface GlassesMirrorProps {
   isDarkTheme: boolean;
 }
 
-const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
+const GlassesMirror: React.FC<GlassesMirrorProps> = ({isDarkTheme}) => {
   const [cards] = useState<Card[]>([
-    { id: 1, name: 'Mentra Merge', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
-    { id: 2, name: 'ADHD Assist', content: 'Reminder to take a 10-minute break. Stretch and reset your focus.' },
-    { id: 3, name: 'Translator', content: 'Currently translating your conversation from English to French in real-time.' },
-    { id: 4, name: 'WeatherLens', content: 'Local forecast: Sunny, high of 75°F. Minimal rain expected today.' },
-    { id: 5, name: 'Health Tracker', content: 'Youve been sitting for over 45 minutes. Time to stand up and stretch!' },
-    { id: 6, name: 'Mentra Merge', content: 'Important conversations saved. Topics flagged for easy navigation.' },
-    { id: 7, name: 'Mindful Moments', content: 'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.' },
-    { id: 8, name: 'Workout Buddy', content: 'Next exercise: 15 push-ups. Keep up the good work!' },
-    { id: 10, name: 'Mentra Merge', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
-    { id: 21, name: 'ADHD Assist', content: 'Reminder to take a 10-minute break. Stretch and reset your focus.' },
-    { id: 32, name: 'Translator', content: 'Currently translating your conversation from English to French in real-time.' },
-    { id: 43, name: 'WeatherLens', content: 'Local forecast: Sunny, high of 75°F. Minimal rain expected today.' },
-    { id: 54, name: 'Health Tracker', content: 'Youve been sitting for over 45 minutes. Time to stand up and stretch!' },
-    { id: 65, name: 'Mentra Merge', content: 'Important conversations saved. Topics flagged for easy navigation.' },
-    { id: 76, name: 'Mindful Moments', content: 'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.' },
-    { id: 87, name: 'Workout Buddy', content: 'Next exercise: 15 push-ups. Keep up the good work!' },
-    { id: 100, name: 'Mentra Merge', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate..' },
-    { id: 211, name: 'ADHD Assist', content: 'Reminder to take a 10-minute break. Stretch and reset your focus.' },
-    { id: 322, name: 'Translator', content: 'Currently translating your conversation from English to French in real-time.' },
-    { id: 433, name: 'WeatherLens', content: 'Local forecast: Sunny, high of 75°F. Minimal rain expected today.' },
-    { id: 544, name: 'Health Tracker', content: 'Youve been sitting for over 45 minutes. Time to stand up and stretch!' },
-    { id: 655, name: 'Mentra Merge', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
-    { id: 766, name: 'Mindful Moments', content: 'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.' },
-    { id: 877, name: 'Workout Buddy', content: 'Next exercise: 15 push-ups. Keep up the good work!' },
-    { id: 1000, name: 'Mentra Merge', content: 'Last 10 minutes of conversation displayed with highlights on key phrases.' },
-    { id: 2111, name: 'ADHD Assist', content: 'Reminder to take a 10-minute break. Stretch and reset your focus.' },
-    { id: 3222, name: 'Translator', content: 'Currently translating your conversation from English to French in real-time.' },
-    { id: 4333, name: 'WeatherLens', content: 'Local forecast: Sunny, high of 75°F. Minimal rain expected today.' },
-    { id: 5444, name: 'Health Tracker', content: 'Youve been sitting for over 45 minutes. Time to stand up and stretch!' },
-    { id: 6555, name: 'Mentra Merge', content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.' },
-    { id: 7666, name: 'Mindful Moments', content: 'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.' },
-    { id: 8777, name: 'Workout Buddy', content: 'Next exercise: 15 push-ups. Keep up the good work!' },
+    {
+      id: 1,
+      name: 'Mentra Merge',
+      content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.',
+    },
+    {
+      id: 2,
+      name: 'ADHD Assist',
+      content:
+        'Reminder to take a 10-minute break. Stretch and reset your focus.',
+    },
+    {
+      id: 3,
+      name: 'Translator',
+      content:
+        'Currently translating your conversation from English to French in real-time.',
+    },
+    {
+      id: 4,
+      name: 'WeatherLens',
+      content:
+        'Local forecast: Sunny, high of 75°F. Minimal rain expected today.',
+    },
+    {
+      id: 5,
+      name: 'Health Tracker',
+      content:
+        'Youve been sitting for over 45 minutes. Time to stand up and stretch!',
+    },
+    {
+      id: 6,
+      name: 'Mentra Merge',
+      content:
+        'Important conversations saved. Topics flagged for easy navigation.',
+    },
+    {
+      id: 7,
+      name: 'Mindful Moments',
+      content:
+        'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.',
+    },
+    {
+      id: 8,
+      name: 'Workout Buddy',
+      content: 'Next exercise: 15 push-ups. Keep up the good work!',
+    },
+    {
+      id: 10,
+      name: 'Mentra Merge',
+      content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.',
+    },
+    {
+      id: 21,
+      name: 'ADHD Assist',
+      content:
+        'Reminder to take a 10-minute break. Stretch and reset your focus.',
+    },
+    {
+      id: 32,
+      name: 'Translator',
+      content:
+        'Currently translating your conversation from English to French in real-time.',
+    },
+    {
+      id: 43,
+      name: 'WeatherLens',
+      content:
+        'Local forecast: Sunny, high of 75°F. Minimal rain expected today.',
+    },
+    {
+      id: 54,
+      name: 'Health Tracker',
+      content:
+        'Youve been sitting for over 45 minutes. Time to stand up and stretch!',
+    },
+    {
+      id: 65,
+      name: 'Mentra Merge',
+      content:
+        'Important conversations saved. Topics flagged for easy navigation.',
+    },
+    {
+      id: 76,
+      name: 'Mindful Moments',
+      content:
+        'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.',
+    },
+    {
+      id: 87,
+      name: 'Workout Buddy',
+      content: 'Next exercise: 15 push-ups. Keep up the good work!',
+    },
+    {
+      id: 100,
+      name: 'Mentra Merge',
+      content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate..',
+    },
+    {
+      id: 211,
+      name: 'ADHD Assist',
+      content:
+        'Reminder to take a 10-minute break. Stretch and reset your focus.',
+    },
+    {
+      id: 322,
+      name: 'Translator',
+      content:
+        'Currently translating your conversation from English to French in real-time.',
+    },
+    {
+      id: 433,
+      name: 'WeatherLens',
+      content:
+        'Local forecast: Sunny, high of 75°F. Minimal rain expected today.',
+    },
+    {
+      id: 544,
+      name: 'Health Tracker',
+      content:
+        'Youve been sitting for over 45 minutes. Time to stand up and stretch!',
+    },
+    {
+      id: 655,
+      name: 'Mentra Merge',
+      content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.',
+    },
+    {
+      id: 766,
+      name: 'Mindful Moments',
+      content:
+        'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.',
+    },
+    {
+      id: 877,
+      name: 'Workout Buddy',
+      content: 'Next exercise: 15 push-ups. Keep up the good work!',
+    },
+    {
+      id: 1000,
+      name: 'Mentra Merge',
+      content:
+        'Last 10 minutes of conversation displayed with highlights on key phrases.',
+    },
+    {
+      id: 2111,
+      name: 'ADHD Assist',
+      content:
+        'Reminder to take a 10-minute break. Stretch and reset your focus.',
+    },
+    {
+      id: 3222,
+      name: 'Translator',
+      content:
+        'Currently translating your conversation from English to French in real-time.',
+    },
+    {
+      id: 4333,
+      name: 'WeatherLens',
+      content:
+        'Local forecast: Sunny, high of 75°F. Minimal rain expected today.',
+    },
+    {
+      id: 5444,
+      name: 'Health Tracker',
+      content:
+        'Youve been sitting for over 45 minutes. Time to stand up and stretch!',
+    },
+    {
+      id: 6555,
+      name: 'Mentra Merge',
+      content: 'QuestionAnswerer: 25-50mg caffeine per piece dark chocolate.',
+    },
+    {
+      id: 7666,
+      name: 'Mindful Moments',
+      content:
+        'Guided breathing exercise: inhale for 4 seconds, exhale for 6 seconds.',
+    },
+    {
+      id: 8777,
+      name: 'Workout Buddy',
+      content: 'Next exercise: 15 push-ups. Keep up the good work!',
+    },
   ]);
 
   const scrollViewRef = useRef<ScrollView>(null);
@@ -80,7 +239,7 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
           duration: 2000,
           useNativeDriver: true,
         }),
-      ])
+      ]),
     ).start();
   }, [pulseAnimation]);
 
@@ -125,25 +284,23 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
         slideAnims.forEach(anim => anim.setValue(50));
 
         setTimeout(() => {
-          const animations = [...cards]
-            .reverse()
-            .map((_, index) => {
-              const delay = index * 50;
-              return Animated.parallel([
-                Animated.timing(fadeAnims[cards.length - 1 - index], {
-                  toValue: 1,
-                  duration: 500,
-                  delay,
-                  useNativeDriver: true,
-                }),
-                Animated.timing(slideAnims[cards.length - 1 - index], {
-                  toValue: 0,
-                  duration: 500,
-                  delay,
-                  useNativeDriver: true,
-                }),
-              ]);
-            });
+          const animations = [...cards].reverse().map((_, index) => {
+            const delay = index * 50;
+            return Animated.parallel([
+              Animated.timing(fadeAnims[cards.length - 1 - index], {
+                toValue: 1,
+                duration: 500,
+                delay,
+                useNativeDriver: true,
+              }),
+              Animated.timing(slideAnims[cards.length - 1 - index], {
+                toValue: 0,
+                duration: 500,
+                delay,
+                useNativeDriver: true,
+              }),
+            ]);
+          });
 
           Animated.stagger(50, animations).start();
         }, 100);
@@ -152,7 +309,7 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
       resetAndStartHeaderAnimations();
       resetAndStartCardAnimations();
       startPulseAnimation();
-      scrollViewRef.current?.scrollToEnd({ animated: false });
+      scrollViewRef.current?.scrollToEnd({animated: false});
 
       return () => {
         pulseAnimation.stopAnimation();
@@ -174,17 +331,18 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
       searchSlideAnim,
       resetAndStartHeaderAnimations,
       startPulseAnimation,
-    ])
+    ]),
   );
 
   const handleScroll = (event: any) => {
-    const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
-    const isAtBottom = layoutMeasurement.height + contentOffset.y >= contentSize.height - 20;
+    const {layoutMeasurement, contentOffset, contentSize} = event.nativeEvent;
+    const isAtBottom =
+      layoutMeasurement.height + contentOffset.y >= contentSize.height - 20;
     setShowScrollDownButton(!isAtBottom);
 
     const cardHeight = 200;
     const totalIndicators = cards.length;
-    const maxScroll = (totalIndicators * cardHeight) - layoutMeasurement.height;
+    const maxScroll = totalIndicators * cardHeight - layoutMeasurement.height;
     const scrollPercent = Math.min(Math.max(contentOffset.y / maxScroll, 0), 1);
 
     const indicatorTotalHeight = totalIndicators * 46;
@@ -203,16 +361,17 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
       setFilteredCards(cards);
     } else {
       const lowercaseQuery = text.toLowerCase();
-      const filtered = cards.filter(card =>
-        card.name.toLowerCase().includes(lowercaseQuery) ||
-        card.content.toLowerCase().includes(lowercaseQuery)
+      const filtered = cards.filter(
+        card =>
+          card.name.toLowerCase().includes(lowercaseQuery) ||
+          card.content.toLowerCase().includes(lowercaseQuery),
       );
       setFilteredCards(filtered);
     }
   };
 
   const handleScrollToBottom = () => {
-    scrollViewRef.current?.scrollToEnd({ animated: true });
+    scrollViewRef.current?.scrollToEnd({animated: true});
   };
 
   const getAppColor = (name: string) => {
@@ -236,99 +395,125 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
     }
   };
 
-  const renderCard = React.useCallback((card: Card, index: number) => {
-    const cardColor = getAppColor(card.name);
-    const isLastCard = index === filteredCards.length - 1;
+  const renderCard = React.useCallback(
+    (card: Card, index: number) => {
+      const cardColor = getAppColor(card.name);
+      const isLastCard = index === filteredCards.length - 1;
 
-    const cardStyleVariant = [
-      styles.card,
-      isDarkTheme ? styles.cardDark : styles.cardLight,
-      isLastCard ? styles.lastCard : styles.normalCard,
-      {
-        borderColor: cardColor,
-        backgroundColor: isLastCard
-          ? (isDarkTheme ? `${cardColor}25` : `${cardColor}25`)
-          : (isDarkTheme ? styles.cardDark.backgroundColor : styles.cardLight.backgroundColor),
-      },
-    ];
+      const cardStyleVariant = [
+        styles.card,
+        isDarkTheme ? styles.cardDark : styles.cardLight,
+        isLastCard ? styles.lastCard : styles.normalCard,
+        {
+          borderColor: cardColor,
+          backgroundColor: isLastCard
+            ? isDarkTheme
+              ? `${cardColor}25`
+              : `${cardColor}25`
+            : isDarkTheme
+            ? styles.cardDark.backgroundColor
+            : styles.cardLight.backgroundColor,
+        },
+      ];
 
-    return (
-      <Animated.View
-        key={card.id}
-        style={[
-          styles.cardWrapper,
-          {
-            opacity: fadeAnims[index],
-            transform: [{ translateY: slideAnims[index] }],
-          },
-        ]}
-      >
-        {isLastCard ? (
-          <Animated.View
-            style={[
-              styles.lastCardWrapper,
-              styles.lastCardAnimation,
-              {
-                transform: [{ scale: pulseAnimation }],
-              },
-            ]}
-          >
+      return (
+        <Animated.View
+          key={card.id}
+          style={[
+            styles.cardWrapper,
+            {
+              opacity: fadeAnims[index],
+              transform: [{translateY: slideAnims[index]}],
+            },
+          ]}>
+          {isLastCard ? (
+            <Animated.View
+              style={[
+                styles.lastCardWrapper,
+                styles.lastCardAnimation,
+                {
+                  transform: [{scale: pulseAnimation}],
+                },
+              ]}>
+              <View style={cardStyleVariant}>
+                <View style={[styles.cardHeader, {backgroundColor: cardColor}]}>
+                  <Text
+                    style={[
+                      styles.cardName,
+                      isDarkTheme ? styles.darkText : styles.lightText,
+                    ]}>
+                    {card.name}
+                  </Text>
+                </View>
+                <Text
+                  style={[
+                    styles.cardContent,
+                    isDarkTheme ? styles.darkText : styles.lightText,
+                  ]}>
+                  {card.content}
+                </Text>
+              </View>
+            </Animated.View>
+          ) : (
             <View style={cardStyleVariant}>
-              <View style={[styles.cardHeader, { backgroundColor: cardColor }]}>
-                <Text style={[styles.cardName, isDarkTheme ? styles.darkText : styles.lightText]}>
+              <View style={[styles.cardHeader, {backgroundColor: cardColor}]}>
+                <Text
+                  style={[
+                    styles.cardName,
+                    isDarkTheme ? styles.darkText : styles.lightText,
+                  ]}>
                   {card.name}
                 </Text>
               </View>
-              <Text style={[styles.cardContent, isDarkTheme ? styles.darkText : styles.lightText]}>
+              <Text
+                style={[
+                  styles.cardContent,
+                  isDarkTheme ? styles.darkText : styles.lightText,
+                ]}>
                 {card.content}
               </Text>
             </View>
-          </Animated.View>
-        ) : (
-          <View style={cardStyleVariant}>
-            <View style={[styles.cardHeader, { backgroundColor: cardColor }]}>
-              <Text style={[styles.cardName, isDarkTheme ? styles.darkText : styles.lightText]}>
-                {card.name}
-              </Text>
-            </View>
-            <Text style={[styles.cardContent, isDarkTheme ? styles.darkText : styles.lightText]}>
-              {card.content}
-            </Text>
-          </View>
-        )}
-      </Animated.View>
-    );
-  }, [fadeAnims, filteredCards.length, isDarkTheme, pulseAnimation, slideAnims]);
+          )}
+        </Animated.View>
+      );
+    },
+    [fadeAnims, filteredCards.length, isDarkTheme, pulseAnimation, slideAnims],
+  );
 
   return (
-    <View style={[styles.container, isDarkTheme ? styles.darkContainer : styles.lightContainer]}>
-      <View style={[
-        styles.titleContainer,
-        isDarkTheme ? styles.titleContainerDark : styles.titleContainerLight,
+    <View
+      style={[
+        styles.container,
+        isDarkTheme ? styles.darkContainer : styles.lightContainer,
       ]}>
+      <View
+        style={[
+          styles.titleContainer,
+          isDarkTheme ? styles.titleContainerDark : styles.titleContainerLight,
+        ]}>
         <Animated.Text
           style={[
             styles.title,
-            isDarkTheme ? styles.darkText : styles.lightText,
+            isDarkTheme ? styles.titleTextDark : styles.titleTextLight,
             {
               opacity: titleFadeAnim,
-              transform: [{ translateY: titleSlideAnim }],
+              transform: [{translateY: titleSlideAnim}],
             },
-          ]}
-        >
-          Glasses Mirror (mockup)
+          ]}>
+          Glasses Mirror Mockup
         </Animated.Text>
 
         <Animated.View
           style={[
             styles.searchContainer,
-            isDarkTheme ? styles.searchContainerDark : styles.searchContainerLight,
+            isDarkTheme
+              ? styles.searchContainerDark
+              : styles.searchContainerLight,
             {
               opacity: searchFadeAnim,
-              transform: [{ translateY: searchSlideAnim }],
+              transform: [{translateY: searchSlideAnim}],
             },
-          ]}
-        >
+          ]}>
           <MaterialCommunityIcons
             name="magnify"
             size={16}
@@ -348,8 +533,7 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
           {searchQuery.length > 0 && (
             <TouchableOpacity
               onPress={() => handleSearch('')}
-              style={styles.clearButton}
-            >
+              style={styles.clearButton}>
               <MaterialCommunityIcons
                 name="close-circle"
                 size={18}
@@ -368,8 +552,7 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
             style={styles.indicatorScrollView}
             contentContainerStyle={styles.indicatorContainer}
             scrollEnabled={true}
-            scrollEventThrottle={16}
-          >
+            scrollEventThrottle={16}>
             {filteredCards.map((card, index) => (
               <TouchableOpacity
                 key={card.id}
@@ -380,9 +563,13 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
                     y: index * cardHeight,
                     animated: true,
                   });
-                }}
-              >
-                <View style={[styles.indicatorBox, { backgroundColor: getAppColor(card.name) }]} />
+                }}>
+                <View
+                  style={[
+                    styles.indicatorBox,
+                    {backgroundColor: getAppColor(card.name)},
+                  ]}
+                />
               </TouchableOpacity>
             ))}
           </ScrollView>
@@ -396,8 +583,7 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
             showsVerticalScrollIndicator={false}
             onScroll={handleScroll}
             scrollEventThrottle={16}
-            onMomentumScrollEnd={(event) => handleScroll(event)}
-          >
+            onMomentumScrollEnd={event => handleScroll(event)}>
             <View style={styles.cardsContainer}>
               {filteredCards.map(renderCard)}
             </View>
@@ -406,7 +592,9 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
       </View>
 
       {showScrollDownButton && (
-        <TouchableOpacity style={styles.focusedScrollDownButton} onPress={handleScrollToBottom}>
+        <TouchableOpacity
+          style={styles.focusedScrollDownButton}
+          onPress={handleScrollToBottom}>
           <MaterialCommunityIcons name="arrow-down" size={24} color="white" />
         </TouchableOpacity>
       )}
@@ -415,7 +603,6 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({ isDarkTheme }) => {
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -445,14 +632,26 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'Montserrat-Bold',
     textAlign: 'left',
-    color: '#FFFFFF',
     marginBottom: 5,
+  },
+  titleTextDark: {
+    color: '#ffffff',
+    fontFamily: 'Montserrat-Bold',
+
+  },
+  titleTextLight: {
+    color: '#000000',
+    fontFamily: 'Montserrat-Bold',
+
   },
   darkText: {
     color: '#ffffff',
+    fontFamily: 'Montserrat-Regular',
   },
   lightText: {
     color: '#000000',
+
+    fontFamily: 'Montserrat-Regular',
   },
   contentContainer: {
     flex: 1,
@@ -500,7 +699,7 @@ const styles = StyleSheet.create({
   cardWrapper: {
     paddingHorizontal: 2,
     marginBottom: 20,
-    transform: [{ translateY: 0 }],
+    transform: [{translateY: 0}],
   },
   lastCardWrapper: {
     marginBottom: 0,
@@ -537,7 +736,6 @@ const styles = StyleSheet.create({
   },
   cardName: {
     fontSize: 18,
-    fontWeight: 'bold',
     fontFamily: 'Montserrat-Bold',
     lineHeight: 24,
   },
@@ -558,7 +756,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: '#007AFF',
-    shadowOffset: { width: 0, height: 6 },
+    shadowOffset: {width: 0, height: 6},
     shadowOpacity: 0.6,
     shadowRadius: 10,
     elevation: 15,

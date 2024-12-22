@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface Review {
@@ -16,7 +16,11 @@ interface ReviewListProps {
   isDarkTheme: boolean;
 }
 
-const ReviewList: React.FC<ReviewListProps> = ({ reviews, onReviewPress, isDarkTheme }) => {
+const ReviewList: React.FC<ReviewListProps> = ({
+  reviews,
+  onReviewPress,
+  isDarkTheme,
+}) => {
   // Theme colors
   const themeColors = {
     cardBackground: isDarkTheme ? '#2d2d2d' : '#ffffff',
@@ -29,7 +33,7 @@ const ReviewList: React.FC<ReviewListProps> = ({ reviews, onReviewPress, isDarkT
 
   return (
     <View>
-      {reviews.map((review) => (
+      {reviews.map(review => (
         <TouchableOpacity
           key={review.id}
           style={[
@@ -39,27 +43,30 @@ const ReviewList: React.FC<ReviewListProps> = ({ reviews, onReviewPress, isDarkT
               shadowColor: themeColors.cardShadow,
             },
           ]}
-          onPress={() => onReviewPress(review)}
-        >
+          onPress={() => onReviewPress(review)}>
           {/* Avatar and User Info */}
           <View style={styles.avatarContainer}>
-            <Image 
-              source={{ uri: review.avatar || 'https://i.pravatar.cc/150' }} 
-              style={styles.avatar} 
+            <Image
+              source={{uri: review.avatar || 'https://i.pravatar.cc/150'}}
+              style={styles.avatar}
             />
-            <Text style={[styles.userName, { color: themeColors.text }]}>
+            <Text style={[styles.userName, {color: themeColors.text}]}>
               {review.user}
             </Text>
           </View>
 
           {/* Star Rating */}
           <View style={styles.ratingContainer}>
-            {Array.from({ length: 5 }, (_, index) => (
+            {Array.from({length: 5}, (_, index) => (
               <MaterialCommunityIcons
                 key={index}
                 name={index < review.rating ? 'star' : 'star-outline'}
                 size={16}
-                color={index < review.rating ? themeColors.starFilled : themeColors.starEmpty}
+                color={
+                  index < review.rating
+                    ? themeColors.starFilled
+                    : themeColors.starEmpty
+                }
               />
             ))}
           </View>
@@ -67,8 +74,7 @@ const ReviewList: React.FC<ReviewListProps> = ({ reviews, onReviewPress, isDarkT
           {/* Comment Preview */}
           <Text
             numberOfLines={1}
-            style={[styles.reviewComment, { color: themeColors.subText }]}
-          >
+            style={[styles.reviewComment, {color: themeColors.subText}]}>
             {review.comment}
           </Text>
         </TouchableOpacity>
@@ -104,6 +110,7 @@ const styles = StyleSheet.create({
   userName: {
     fontWeight: 'bold',
     fontSize: 16,
+    fontFamily: 'Montserrat-Bold',
   },
   ratingContainer: {
     flexDirection: 'row',
@@ -111,6 +118,7 @@ const styles = StyleSheet.create({
   },
   reviewComment: {
     marginTop: 5,
+    fontFamily: 'Montserrat-Regular',
   },
 });
 

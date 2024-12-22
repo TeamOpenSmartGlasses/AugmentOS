@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   View,
   TextInput,
@@ -8,6 +8,21 @@ import {
   ScrollView,
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+interface ThemeColors {
+  background: string;
+  searchBarBg: string;
+  searchBarBorder: string;
+  inputText: string;
+  placeholder: string;
+  icon: string;
+  filterBg: string;
+  filterBorder: string;
+  filterText: string;
+  activeFilterBg: string;
+  activeFilterBorder: string;
+  activeFilterText: string;
+}
 
 interface SearchWithFiltersProps {
   placeholder?: string;
@@ -26,7 +41,7 @@ const SearchWithFilters: React.FC<SearchWithFiltersProps> = ({
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   // Theme colors
-  const themeColors = {
+  const themeColors: ThemeColors = {
     background: isDarkTheme ? '#1a1a1a' : '#f9f9f9',
     searchBarBg: isDarkTheme ? '#2d2d2d' : '#ffffff',
     searchBarBorder: isDarkTheme ? '#404040' : '#cccccc',
@@ -48,30 +63,35 @@ const SearchWithFilters: React.FC<SearchWithFiltersProps> = ({
 
   const toggleFilter = (filter: string) => {
     const updatedFilters = selectedFilters.includes(filter)
-      ? selectedFilters.filter((f) => f !== filter)
+      ? selectedFilters.filter(f => f !== filter)
       : [...selectedFilters, filter];
     setSelectedFilters(updatedFilters);
     onSearch(searchQuery, updatedFilters);
   };
 
   return (
-    <View style={[styles.container, { backgroundColor: themeColors.background }]}>
+    <View style={[styles.container, {backgroundColor: themeColors.background}]}>
       {/* Search Bar */}
-      <View style={[
-        styles.searchBar,
-        {
-          backgroundColor: themeColors.searchBarBg,
-          borderColor: themeColors.searchBarBorder,
-        }
-      ]}>
-        <MaterialCommunityIcons 
-          name="magnify" 
-          size={20} 
-          color={themeColors.icon} 
-          style={styles.icon} 
+      <View
+        style={[
+          styles.searchBar,
+          {
+            backgroundColor: themeColors.searchBarBg,
+            borderColor: themeColors.searchBarBorder,
+          },
+        ]}>
+        <MaterialCommunityIcons
+          name="magnify"
+          size={20}
+          color={themeColors.icon}
+          style={styles.icon}
         />
         <TextInput
-          style={[styles.input, { color: themeColors.inputText }]}
+          style={[
+            styles.input,
+            styles.inputFont,
+            {color: themeColors.inputText},
+          ]}
           placeholder={placeholder}
           placeholderTextColor={themeColors.placeholder}
           value={searchQuery}
@@ -83,9 +103,8 @@ const SearchWithFilters: React.FC<SearchWithFiltersProps> = ({
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        style={styles.filterContainer}
-      >
-        {filters.map((filter) => (
+        style={styles.filterContainer}>
+        {filters.map(filter => (
           <TouchableOpacity
             key={filter}
             style={[
@@ -99,8 +118,7 @@ const SearchWithFilters: React.FC<SearchWithFiltersProps> = ({
                   : themeColors.filterBorder,
               },
             ]}
-            onPress={() => toggleFilter(filter)}
-          >
+            onPress={() => toggleFilter(filter)}>
             <Text
               style={[
                 styles.filterText,
@@ -109,8 +127,7 @@ const SearchWithFilters: React.FC<SearchWithFiltersProps> = ({
                     ? themeColors.activeFilterText
                     : themeColors.filterText,
                 },
-              ]}
-            >
+              ]}>
               {filter} Star
             </Text>
           </TouchableOpacity>
@@ -151,6 +168,9 @@ const styles = StyleSheet.create({
     height: 40,
     fontSize: 16,
   },
+  inputFont: {
+    fontFamily: 'Montserrat-Regular',
+  },
   filterContainer: {
     flexDirection: 'row',
     marginTop: 10,
@@ -165,6 +185,7 @@ const styles = StyleSheet.create({
   },
   filterText: {
     fontSize: 14,
+    fontFamily: 'Montserrat-Regular',
   },
 });
 

@@ -2,7 +2,7 @@ package com.teamopensmartglasses.smartglassesmanager.supportedglasses;
 
 public class VuzixUltralite extends SmartGlassesDevice {
     public VuzixUltralite() {
-        deviceModelName = "Vuzix Ultralite";
+        deviceModelName = "Vuzix Z100";
         deviceIconName = "vuzix_ultralite";
         anySupport = true;
         fullSupport = true;

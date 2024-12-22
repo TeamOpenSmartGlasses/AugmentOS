@@ -91,6 +91,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
     //connection handler
     public Handler connectHandler;
+    String translationLanguage;
 
     public SmartGlassesAndroidService(Class mainActivityClass, String myChannelId, int myNotificationId, String notificationAppName, String notificationDescription, int notificationDrawable){
         this.myNotificationId = myNotificationId;
@@ -371,12 +372,16 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
                 speechRecSwitchSystem = new SpeechRecSwitchSystem(context);
                 ASR_FRAMEWORKS asrFramework = getChosenAsrFramework(context);
                 speechRecSwitchSystem.startAsrFramework(asrFramework, language);
+                if (translationLanguage != null) {
+                    startTranslationStream(translationLanguage);
+                }
             }
         }, 250);
     }
     //switches the currently running transcribe language without changing the default/saved language
     public void startTranslationStream(String toTranslateLanguage){
         String language = speechRecSwitchSystem.currentLanguage;
+        translationLanguage = toTranslateLanguage;
 
         //kill previous speech rec
         speechRecSwitchSystem.destroy();
@@ -524,7 +529,8 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         }
 
         String preferred = getPreferredWearable(this.getApplicationContext());
-        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new EvenRealitiesG1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
+        //smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new EvenRealitiesG1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
+        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
         for (int i = 0; i < smartGlassesDevices.size(); i++){
             if (smartGlassesDevices.get(i).deviceModelName.equals(preferred)){
                 // Move to start for earliest search priority

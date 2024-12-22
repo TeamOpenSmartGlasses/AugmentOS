@@ -1,6 +1,6 @@
 <resources>
   <!-- The application name. -->
-  <string name="app_name">AugmentOS</string>
+  <string name="app_name">AugmentOS Core</string>
   <!-- Selecting language message. -->
   <string name="say_something">Say something!</string>
   <string name="key">TEMPORARYKEY_CHANGETHISKEY</string>
