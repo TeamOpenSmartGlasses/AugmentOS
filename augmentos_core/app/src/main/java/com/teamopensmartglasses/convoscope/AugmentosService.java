@@ -2410,14 +2410,22 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Override
     public void handleNotificationData(JSONObject notificationData){
-        if (notificationData != null) {
-            String jsonString = notificationData.toString();
-            System.out.println("Notification Data: " + jsonString);
+        try {
+            if (notificationData != null) {
+                String jsonString = notificationData.toString();
+                System.out.println("Notification Data: " + jsonString);
 
-            //TODO: Actually finish implementing notifications
-            //TODO: Also pull navigation data from this?
-        } else {
-            System.out.println("Notification Data is null");
+                String appName = notificationData.getString("appName");
+                String title = notificationData.getString("title");
+                String text = notificationData.getString("text");
+
+                //TODO: Actually finish implementing notifications
+                //TODO: Also pull navigation data from this?
+            } else {
+                System.out.println("Notification Data is null");
+            }
+        } catch (JSONException e) {
+            Log.d(TAG, "JSONException occurred while handling notification data: " + e.getMessage());
         }
     }
 

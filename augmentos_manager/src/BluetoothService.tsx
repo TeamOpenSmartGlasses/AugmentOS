@@ -1,14 +1,20 @@
-import {NativeEventEmitter, NativeModules, Alert, Platform} from 'react-native';
+import { NativeEventEmitter, NativeModules, Alert, Platform } from 'react-native';
 import BleManager from 'react-native-ble-manager';
-import {EventEmitter} from 'events';
-import {TextDecoder} from 'text-encoding';
-import {check, PERMISSIONS, RESULTS} from 'react-native-permissions';
-import {AppState} from 'react-native';
-import {MOCK_CONNECTION, SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT} from './consts';
-import {loadSetting, saveSetting} from './augmentos_core_comms/SettingsHelper';
-import {startExternalService} from './augmentos_core_comms/CoreServiceStarter';
+import { EventEmitter } from 'events';
+import { TextDecoder } from 'text-encoding';
+import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
+import { AppState } from 'react-native';
+import { MOCK_CONNECTION, SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from './consts';
+import { loadSetting, saveSetting } from './augmentos_core_comms/SettingsHelper';
+import { startExternalService } from './augmentos_core_comms/CoreServiceStarter';
 import ManagerCoreCommsService from './augmentos_core_comms/ManagerCoreCommsService';
 import GlobalEventEmitter from './logic/GlobalEventEmitter';
+import {
+  isNotificationListenerEnabled,
+  startNotificationListenerService,
+  stopNotificationListenerService,
+  listenForNotifications,
+} from './augmentos_core_comms/NotificationServiceUtils';
 
 const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
 
@@ -38,7 +44,7 @@ export class BluetoothService extends EventEmitter {
 
   simulatedPuck: boolean = false;
 
-  private appStateSubscription: {remove: () => void} | null = null;
+  private appStateSubscription: { remove: () => void } | null = null;
   private reconnectionTimer: NodeJS.Timeout | null = null;
 
   constructor() {
@@ -69,7 +75,7 @@ export class BluetoothService extends EventEmitter {
 
   async initializeBleManager() {
     try {
-      await BleManager.start({showAlert: false});
+      await BleManager.start({ showAlert: false });
       console.log('BLE Manager initialized');
       this.addListeners();
     } catch (error) {
@@ -142,8 +148,15 @@ export class BluetoothService extends EventEmitter {
   }
 
   async isLocationEnabled(): Promise<boolean> {
-    const result = await check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
-    return result === RESULTS.GRANTED;
+    if (Platform.OS === 'android') {
+      const result = await check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
+      return result === RESULTS.GRANTED;
+    } else if (Platform.OS === 'ios') {
+      console.log("FIGURE THIS OUT FOR IOS");
+      return true;
+    }
+    console.log("Checking for location on a non-mobile device?");
+    return false;
   }
 
   async scanForDevices() {
@@ -277,7 +290,7 @@ export class BluetoothService extends EventEmitter {
 
   async connectToDevice(device: Device) {
     this.isConnecting = true;
-    this.emit('connectingStatusChanged', {isConnecting: true});
+    this.emit('connectingStatusChanged', { isConnecting: true });
 
     try {
       console.log('Connecting to Puck:', device.id);
@@ -335,7 +348,7 @@ export class BluetoothService extends EventEmitter {
     }
 
     this.isConnecting = false;
-    this.emit('connectingStatusChanged', {isConnecting: false});
+    this.emit('connectingStatusChanged', { isConnecting: false });
   }
 
   async enableNotifications(deviceId: string) {
@@ -391,7 +404,7 @@ export class BluetoothService extends EventEmitter {
       GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Read Error - Failed to read data from device', type: 'error' })
     }
   }
-//** issue with data being set in this function */
+  //** issue with data being set in this function */
   // handleCharacteristicUpdate(data: any) {
   //   // console.log('Characteristic update received:', data);
 
@@ -675,22 +688,22 @@ export class BluetoothService extends EventEmitter {
 
   async sendHeartbeat() {
     console.log('Send Connection Check');
-    return await this.sendDataToAugmentOs({command: 'ping'});
+    return await this.sendDataToAugmentOs({ command: 'ping' });
   }
 
   async sendRequestStatus() {
     console.log('Send Request Status');
-    return await this.sendDataToAugmentOs({command: 'request_status'});
+    return await this.sendDataToAugmentOs({ command: 'request_status' });
   }
 
   async sendConnectWearable() {
     console.log('sendConnectWearable');
-    return await this.sendDataToAugmentOs({command: 'connect_wearable'});
+    return await this.sendDataToAugmentOs({ command: 'connect_wearable' });
   }
 
   async sendDisconnectWearable() {
     console.log('sendDisconnectWearable');
-    return await this.sendDataToAugmentOs({command: 'disconnect_wearable'});
+    return await this.sendDataToAugmentOs({ command: 'disconnect_wearable' });
   }
 
   async sendToggleVirtualWearable(enabled: boolean) {

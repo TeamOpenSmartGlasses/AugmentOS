@@ -57,6 +57,8 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
         });
       }
 
+      checkAndRequestNotificationPermission();
+
       // Cleanup function
       return () => {
         fadeAnim.stopAnimation();
@@ -65,6 +67,36 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
       };
     }, [status.puck_connected, fadeAnim, scaleAnim, slideAnim])
   );
+
+  function checkAndRequestNotificationPermission() {
+    if (Platform.OS === 'android' && Platform.Version >= 33) {
+      PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS)
+        .then((hasPermission) => {
+          if (hasPermission) {
+            console.log('Notification permission already granted.');
+          } else {
+            PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS)
+              .then((requestResult) => {
+                if (requestResult === PermissionsAndroid.RESULTS.GRANTED) {
+                  console.log('Notification permission granted.');
+                } else if (requestResult === PermissionsAndroid.RESULTS.DENIED) {
+                  console.log('Notification permission denied.');
+                } else if (requestResult === PermissionsAndroid.RESULTS.NEVER_ASK_AGAIN) {
+                  console.log('Notification permission set to never ask again.');
+                }
+              })
+              .catch((error) => {
+                console.error('Error requesting notification permission:', error);
+              });
+          }
+        })
+        .catch((error) => {
+          console.error('Error checking notification permission:', error);
+        });
+    } else {
+      console.log('Notification permissions are not required for this platform or version.');
+    }
+  }
 
   const handleConnect = async () => {
     try {
