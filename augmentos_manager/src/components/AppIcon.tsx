@@ -26,15 +26,15 @@ const AppIcon: React.FC<AppIconProps> = ({
                     return require('../assets/app-icons/mentra-merge.png');
                 case 'com.mentra.link':
                     return require('../assets/app-icons/mentra-link.png');
-                case 'com.example.adhdaid':
+                case 'com.mentra.adhdaid':
                     return require('../assets/app-icons/ADHD-aid.png');
-                case 'com.translator.app':
+                case 'com.mentra.livetranslation':
                     return require('../assets/app-icons/translation.png');
                 case 'com.example.placeholder':
                     return require('../assets/app-icons/screen-mirror.png');
                 case 'com.example.screenmirror':
                     return require('../assets/app-icons/screen-mirror.png');
-                case 'com.example.livecaptions':
+                case 'com.mentra.livecaptions':
                     return require('../assets/app-icons/captions.png');
                 case 'com.example.miraai':
                     return require('../assets/app-icons/mira-ai.png');
@@ -66,7 +66,7 @@ const AppIcon: React.FC<AppIconProps> = ({
                     />
                 </View>
             </LinearGradient>
-            
+
             {isForegroundApp && (
                 <View style={styles.squareBadge}>
                     <FontAwesome name="star" size={12} color="#FFFFFF" />
