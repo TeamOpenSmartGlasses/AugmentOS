@@ -76,6 +76,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private boolean notifysStarted = false;
     private int notificationNum = 10;
 
+    //text wall periodic sender
+    private Handler textWallHandler = new Handler();
+    private Runnable textWallRunnable;
+    private boolean textWallsStarted = false;
+    private int textWallNum = 10;
+
     //pairing logic
     private boolean isLeftPairing = false;
     private boolean isRightPairing = false;
@@ -159,13 +165,16 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
                         //below has odd staggered times so they don't happen in sync
                         // Start MIC streaming
-                        setMicEnabled(true, 993); // Enable the MIC
+                        //setMicEnabled(true, 993); // Enable the MIC
 
                         //enable our AugmentOS notification key
                         sendWhiteListCommand(2038);
 
-                        //start sending notifications
-                        startPeriodicNotifications(302);
+                        //start sending debug notifications
+//                        startPeriodicNotifications(302);
+
+                        //start sending debug notifications
+//                        startPeriodicTextWall(302);
 
                         //start heartbeat
                         startHeartbeat(411);
@@ -296,6 +305,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
         //check if G1 arm
         if (name == null || !name.contains("G1")) {
+            return;
+        }
+
+        //DEBUG check if Cayden's smart glasses
+        if (name == null || !name.contains("91")) {
             return;
         }
 
@@ -533,61 +547,14 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     }
 
     public void displayReferenceCardSimple(String title, String body, int lingerTime) {
-//        if (!isConnected()) {
-//            Log.d(TAG, "Not connected to glasses");
-//            return;
-//        }
-//        if (debugStopper){
-//            return;
-//        }
-//        debugStopper = true;
-//
-//        // Create JSON and chunks
-////        String json = createNotificationJson("org.telegram.messenger", "Title", "This is sick", "and this is good too");
-//        String json = createNotificationJson("org.telegram.messenger", "Test", "message", "Short message");
-//        Log.d(TAG, "G1 Generated JSON: " + json);
-//        List<byte[]> chunks = createNotificationChunks(json);
-//
-//        // Log chunks for debugging
-//        for (byte[] chunk : chunks) {
-//            Log.d(TAG, "Chunk: " + Arrays.toString(chunk));
-//        }
-//
-//        // Send each chunk sequentially
-//        for (byte[] chunk : chunks) {
-//            sendDataSequentially(chunk);
-//        }
-
         if (!isConnected()) {
-            Log.d(TAG, "Cannot send notification: Not connected to glasses");
+            Log.d(TAG, "Not connected to glasses");
             return;
         }
 
-        // Example notification data (replace with your actual data)
-//        String json = createNotificationJson("com.augment.os", "QuestionAnswerer", "How much caffeine in dark chocolate?", "25 to 50 grams per piece");
-        String json = createNotificationJson("com.augment.os", title, "...", body);
-        Log.d(TAG, "the JSON to send: " + json);
-        List<byte[]> chunks = createNotificationChunks(json);
-//        Log.d(TAG, "THE CHUNKS:");
-//        Log.d(TAG, chunks.get(0).toString());
-//        Log.d(TAG, chunks.get(1).toString());
-        for (byte[] chunk : chunks) {
-            Log.d(TAG, "Sent chunk to glasses: " + bytesToUtf8(chunk));
-        }
-
-        // Send each chunk with a short sleep between each send
-        for (byte[] chunk : chunks) {
-            sendDataSequentially(chunk);
-
-            // Sleep for 100 milliseconds between sending each chunk
-            try {
-                Thread.sleep(150);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
-        Log.d(TAG, "Sent simple reference card");
+        List<byte[]> chunks = createTextWallChunks(title + "\n\n" + body);
+        sendChunks(chunks);
+        Log.d(TAG, "Send simple reference card");
     }
 
     @Override
@@ -649,7 +616,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     public void blankScreen() {}
 
-    public void displayDoubleTextWall(String textTop, String textBottom) {}
+    public void displayDoubleTextWall(String textTop, String textBottom) {
+        List<byte[]> chunks = createTextWallChunks(textTop + "\n\n" + textBottom);
+        sendChunks(chunks);
+        Log.d(TAG, "Send double text wall");
+    }
 
     public void showHomeScreen() {}
 
@@ -662,7 +633,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     public void displayReferenceCardImage(String title, String body, String imgUrl) {}
 
-    public void displayTextWall(String a) {}
+    public void displayTextWall(String a) {
+        List<byte[]> chunks = createTextWallChunks(a);
+        sendChunks(chunks);
+        Log.d(TAG, "Sent text wall");
+    }
 
     public void setFontSizes() {}
 
@@ -827,6 +802,154 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         Log.d(TAG, "Sent periodic notification");
     }
 
+    //text wall debug
+    private void startPeriodicTextWall(int delay) {
+        if (textWallsStarted){
+            return;
+        }
+        textWallsStarted = true;
+
+        textWallRunnable = new Runnable() {
+            @Override
+            public void run() {
+                // Send notification
+                sendPeriodicTextWall();
+
+                // Schedule the next notification
+                textWallHandler.postDelayed(this, 12000);
+            }
+        };
+
+        // Start the first text wall send after 5 seconds
+        textWallHandler.postDelayed(textWallRunnable, delay);
+    }
+
+    // Constants for text wall display
+    private static final int TEXT_COMMAND = 0x4E;  // Text command
+    private static final int DISPLAY_WIDTH = 488;  // Display width in pixels
+    private static final int FONT_SIZE = 16;      // Font size
+    private static final int LINES_PER_SCREEN = 9; // Lines per screen
+    private static final int MAX_CHUNK_SIZE = 176; // Maximum chunk size for BLE packets
+
+    private int textSeqNum = 0; // Sequence number for text packets
+
+    private List<byte[]> createTextWallChunks(String text) {
+        // Split text into lines based on display width and font size
+        List<String> lines = splitIntoLines(text);
+
+        // Calculate total pages
+        int totalPages = (int) Math.ceil((double) lines.size() / LINES_PER_SCREEN);
+        List<byte[]> allChunks = new ArrayList<>();
+
+        // Process each page
+        for (int page = 0; page < totalPages; page++) {
+            // Get lines for current page
+            int startLine = page * LINES_PER_SCREEN;
+            int endLine = Math.min(startLine + LINES_PER_SCREEN, lines.size());
+            List<String> pageLines = lines.subList(startLine, endLine);
+
+            // Combine lines for this page
+            StringBuilder pageText = new StringBuilder();
+            for (String line : pageLines) {
+                pageText.append(line).append("\n");
+            }
+
+            byte[] textBytes = pageText.toString().getBytes(StandardCharsets.UTF_8);
+            int totalChunks = (int) Math.ceil((double) textBytes.length / MAX_CHUNK_SIZE);
+
+            // Create chunks for this page
+            for (int i = 0; i < totalChunks; i++) {
+                int start = i * MAX_CHUNK_SIZE;
+                int end = Math.min(start + MAX_CHUNK_SIZE, textBytes.length);
+                byte[] payloadChunk = Arrays.copyOfRange(textBytes, start, end);
+
+                // Create header with protocol specifications
+                byte screenStatus = 0x71; // New content (0x01) + Text Show (0x70)
+                byte[] header = new byte[] {
+                        (byte) TEXT_COMMAND,    // Command type
+                        (byte) textSeqNum,      // Sequence number
+                        (byte) totalChunks,     // Total packages
+                        (byte) i,               // Current package number
+                        screenStatus,           // Screen status
+                        0x00,                   // new_char_pos0 (high)
+                        0x00,                   // new_char_pos1 (low)
+                        (byte) page,            // Current page number
+                        (byte) totalPages       // Max page number
+                };
+
+                // Combine header and payload
+                ByteBuffer chunk = ByteBuffer.allocate(header.length + payloadChunk.length);
+                chunk.put(header);
+                chunk.put(payloadChunk);
+
+                allChunks.add(chunk.array());
+            }
+
+            // Increment sequence number for next page
+            textSeqNum = (textSeqNum + 1) % 256;
+        }
+
+        return allChunks;
+    }
+
+    private List<String> splitIntoLines(String text) {
+        List<String> lines = new ArrayList<>();
+        String[] words = text.split("\\s+");
+        StringBuilder currentLine = new StringBuilder();
+
+        // Simple line splitting based on character count
+        // In a real implementation, you'd want to use proper text measurement
+        int charsPerLine = DISPLAY_WIDTH / (FONT_SIZE / 2); // Rough estimate
+
+        for (String word : words) {
+            if (currentLine.length() + word.length() + 1 > charsPerLine) {
+                lines.add(currentLine.toString());
+                currentLine = new StringBuilder(word);
+            } else {
+                if (currentLine.length() > 0) {
+                    currentLine.append(" ");
+                }
+                currentLine.append(word);
+            }
+        }
+
+        if (currentLine.length() > 0) {
+            lines.add(currentLine.toString());
+        }
+
+        return lines;
+    }
+
+    private void sendPeriodicTextWall() {
+        if (!isConnected()) {
+            Log.d(TAG, "Cannot send text wall: Not connected to glasses");
+            return;
+        }
+
+        Log.d(TAG, "^^^^^^^^^^^^^ SENDING DEBUG TEXT WALL");
+
+        // Example text wall content - replace with your actual text content
+        String sampleText = "This is an example of a text wall that will be displayed on the glasses. " +
+                "It demonstrates how text can be split into multiple pages and displayed sequentially. " +
+                "Each page contains multiple lines, and each line is carefully formatted to fit the display width. " +
+                "The text continues across multiple pages, showing how longer content can be handled effectively.";
+
+        List<byte[]> chunks = createTextWallChunks(sampleText);
+
+        // Send each chunk with a delay between sends
+        for (byte[] chunk : chunks) {
+            sendDataSequentially(chunk);
+
+            try {
+                Thread.sleep(150); // 150ms delay between chunks
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        Log.d(TAG, "Sent text wall");
+    }
+
     private static String bytesToUtf8(byte[] bytes) {
         return new String(bytes, StandardCharsets.UTF_8);
     }
@@ -929,5 +1052,18 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     @Override
     public void displayCustomContent(String content){
         Log.d(TAG, "DISPLAY CUSTOM CONTENT");
+    }
+
+    private void sendChunks(List<byte[]> chunks){
+        // Send each chunk with a delay between sends
+        for (byte[] chunk : chunks) {
+            sendDataSequentially(chunk);
+
+            try {
+                Thread.sleep(150); // 150ms delay between chunks
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

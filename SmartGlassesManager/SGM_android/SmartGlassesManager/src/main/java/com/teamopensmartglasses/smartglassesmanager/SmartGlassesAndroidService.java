@@ -529,8 +529,8 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         }
 
         String preferred = getPreferredWearable(this.getApplicationContext());
-        //smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new EvenRealitiesG1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
-        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
+        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new EvenRealitiesG1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
+//        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
         for (int i = 0; i < smartGlassesDevices.size(); i++){
             if (smartGlassesDevices.get(i).deviceModelName.equals(preferred)){
                 // Move to start for earliest search priority
