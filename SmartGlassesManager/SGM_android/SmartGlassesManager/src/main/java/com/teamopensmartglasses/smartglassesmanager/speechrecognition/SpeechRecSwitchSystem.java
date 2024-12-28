@@ -49,6 +49,9 @@ public class SpeechRecSwitchSystem {
             speechRecFramework = new SpeechRecDeepgram(mContext, language);
         } else if (this.asrFramework == ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK){
             speechRecFramework = new SpeechRecAzure(mContext, language);
+        } else {
+            Log.e(TAG, "Falling back to Azure ASR Framework, as the selected ASR framework is not supported.");
+            speechRecFramework = new SpeechRecAzure(mContext, language);
         }
 
         //start asr
