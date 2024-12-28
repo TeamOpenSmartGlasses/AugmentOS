@@ -18,6 +18,7 @@ import android.os.Looper;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.teamopensmartglasses.smartglassesmanager.cpp.L3cCpp;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -165,7 +166,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
                         //below has odd staggered times so they don't happen in sync
                         // Start MIC streaming
-                        //setMicEnabled(true, 993); // Enable the MIC
+//                        setMicEnabled(true, 993); // Enable the MIC
 
                         //enable our AugmentOS notification key
                         sendWhiteListCommand(2038);
@@ -204,6 +205,13 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             int seq = data[1] & 0xFF; // Sequence number
                             byte[] audioData = Arrays.copyOfRange(data, 2, data.length); // Extract audio data
                             Log.d(TAG, "Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(audioData) + ", from: " + gatt.getDevice().getName());
+                            // eg. LC3 to PCM
+                            byte[] lc3 = Arrays.copyOfRange(audioData, 2, 202);
+                            byte[] pcmData = L3cCpp.decodeLC3(lc3);
+                            if (pcmData == null) {
+                                throw new IllegalStateException("Failed to decode LC3 data");
+                            }
+                            Log.d(this.getClass().getSimpleName(), "============Lc3 data = " + Arrays.toString(lc3) + ", Pcm = " + Arrays.toString(pcmData));
                         } else {
                             Log.d(TAG, "Received non-audio response: " + bytesToHex(data) + ", from: " + gatt.getDevice().getName());
                         }
