@@ -18,20 +18,16 @@
 - Language Learning
 - ADHD Tools
 
-AugmentOS is the *the* way to build apps for smart glasses. For developers, it's a no-brainer, because the AugmentOS SDK is the best way to write a smart glasses app:
-- Your app immediately runs on any pair of smart glasses.
+AugmentOS is the *the* way to build apps for smart glasses. For developers, it's a no-brainer, because AugmentOS-SDK enables:
+- Your app to immediately runs on any pair of smart glasses.
 - Simple + fast dev - focus on building a great experience.
 - Continuously access smart glasses I/O.
 - Run always - run your app for days straight, guaranteed.
 - Get seen - get your app in front of everyone using smart glasses.
 
-AugmentOS enables you to run multiple apps *at the same time* - enabling you to truly take advantage of AI-first wearables apps that run proactively based on context.
+AugmentOS enables you to run multiple apps *at the same time* so you can truly take advantage of AI-first wearables apps. Apps that run proactively based on context.
 
 *Launching January 2025 on iOS and Android, supporting all common smart glasses.*  
-
-[Google Play Link (Coming Soon)](#)
-
-[App Store Link (Coming Soon)](#)
 
 ## Apps
 
@@ -132,7 +128,7 @@ To get started, check out our [Example App](https://github.com/TeamOpenSmartGlas
 
 ### Puck
 
-The Puck is a small, wearable device that acts as a bridge between your smart glasses and smartphone, enabling seamless connectivity and enhanced functionality. You can buy one from our [official website](https://augmentos.org/) or authorized retailers.
+The Puck is a small, wearable device that acts as a bridge between your smart glasses and smartphone, enabling seamless connectivity and enhanced functionality. You can buy one from any of the companies that builds a compatible puck listed on the [AugmentOS website](https://AugmentOS.org/).
 
 ## Authors / Team
 
