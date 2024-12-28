@@ -10,9 +10,9 @@ import { startExternalService } from './augmentos_core_comms/CoreServiceStarter'
 import ManagerCoreCommsService from './augmentos_core_comms/ManagerCoreCommsService';
 import GlobalEventEmitter from './logic/GlobalEventEmitter';
 import {
-  isNotificationListenerEnabled,
-  startNotificationListenerService,
-  stopNotificationListenerService,
+  isAndroidNotificationListenerEnabled,
+  startAndroidNotificationListenerService,
+  stopAndroidNotificationListenerService,
   listenForNotifications,
 } from './augmentos_core_comms/NotificationServiceUtils';
 

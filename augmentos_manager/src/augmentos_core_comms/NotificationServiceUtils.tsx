@@ -2,15 +2,15 @@ import { NativeModules, NativeEventEmitter } from 'react-native';
 
 const { NotificationServiceUtils } = NativeModules;
 
-export const isNotificationListenerEnabled = async (): Promise<boolean> => {
+export const isAndroidNotificationListenerEnabled = async (): Promise<boolean> => {
   return await NotificationServiceUtils.isNotificationListenerEnabled();
 };
 
-export const startNotificationListenerService = async (): Promise<string> => {
+export const startAndroidNotificationListenerService = async (): Promise<string> => {
   return await NotificationServiceUtils.startNotificationListenerService();
 };
 
-export const stopNotificationListenerService = async (): Promise<string> => {
+export const stopAndroidNotificationListenerService = async (): Promise<string> => {
   return await NotificationServiceUtils.stopNotificationListenerService();
 };
 
