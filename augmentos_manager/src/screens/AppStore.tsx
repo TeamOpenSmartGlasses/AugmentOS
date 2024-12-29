@@ -1,4 +1,4 @@
-import React, { useState, useRef, memo } from 'react';
+import React, {useState, useRef, memo} from 'react';
 import {
   View,
   Text,
@@ -11,170 +11,81 @@ import {
   Easing,
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useNavigation, useFocusEffect} from '@react-navigation/native';
 
-import { RootStackParamList, AppStoreItem } from '../components/types';
+import {RootStackParamList, AppStoreItem} from '../components/types';
 import NavigationBar from '../components/NavigationBar';
-import { AppStoreData } from '../data/appStoreData.ts';
+import {AppStoreData} from '../data/appStoreData';
+import AppItem from '../components/AppStore/AppItem.tsx';
 
 interface AppStoreProps {
   isDarkTheme: boolean;
 }
 
-// Custom hook for item animations
-const useItemAnimation = (index: number) => {
-  const translateY = useRef(new Animated.Value(100)).current;
-  const opacity = useRef(new Animated.Value(0)).current;
+const RecommendedItem = memo(
+  ({
+    item,
+    theme,
+    onPress,
+  }: {
+    item: AppStoreItem;
+    theme: any;
+    onPress: () => void;
+  }) => {
+    const scale = useRef(new Animated.Value(0.5)).current;
+    const opacity = useRef(new Animated.Value(0)).current;
 
-  useFocusEffect(
-    React.useCallback(() => {
-      // Reset values
-      translateY.setValue(100);
-      opacity.setValue(0);
+    useFocusEffect(
+      React.useCallback(() => {
+        scale.setValue(0.5);
+        opacity.setValue(0);
 
-      const animation = Animated.parallel([
-        Animated.timing(translateY, {
-          toValue: 0,
-          duration: 600,
-          delay: index * 150,
-          useNativeDriver: true,
-          easing: Easing.out(Easing.ease),
-        }),
-        Animated.timing(opacity, {
-          toValue: 1,
-          duration: 600,
-          delay: index * 150,
-          useNativeDriver: true,
-          easing: Easing.ease,
-        }),
-      ]);
+        const animation = Animated.parallel([
+          Animated.spring(scale, {
+            toValue: 1,
+            tension: 50,
+            friction: 7,
+            useNativeDriver: true,
+          }),
+          Animated.timing(opacity, {
+            toValue: 1,
+            duration: 500,
+            useNativeDriver: true,
+          }),
+        ]);
 
-      animation.start();
+        animation.start();
 
-      return () => {
-        animation.stop();
-      };
-    }, [index, opacity, translateY])
-  );
+        return () => {
+          animation.stop();
+        };
+      }, [opacity, scale]),
+    );
 
-  return { translateY, opacity };
-};
-
-// Memoized App Item Component
-const AppItem = memo(({ item, index, theme, onPress }: {
-  item: AppStoreItem;
-  index: number;
-  theme: any;
-  onPress: () => void;
-}) => {
-  const { translateY, opacity } = useItemAnimation(index);
-
-  return (
-    <Animated.View
-      style={{
-        transform: [{ translateY }],
-        opacity,
-        zIndex: -index,
-
-      }}
-    >
-      <TouchableOpacity
-        style={[styles.card, {
-          backgroundColor: theme.cardBg,
-          borderColor: theme.borderColor,
-        }]}
-        onPress={onPress}
-        activeOpacity={0.9}
-      >
-        <Image source={{ uri: item.icon_image_url }} style={styles.icon} />
-        <View style={styles.cardContent}>
-          <Text style={[styles.appName, { color: theme.textColor }]}>{item.name}</Text>
-          <Text style={[styles.description, { color: theme.subTextColor }]} numberOfLines={2}>
-            {item.description}
+    return (
+      <Animated.View
+        style={{
+          transform: [{scale}],
+          opacity,
+        }}>
+        <TouchableOpacity style={styles.recommendCard} onPress={onPress}>
+          <Image
+            source={{uri: item.icon_image_url}}
+            style={styles.recommendIcon}
+          />
+          <Text
+            style={[styles.recommendAppName, {color: theme.textColor}]}
+            numberOfLines={1}>
+            {item.name}
           </Text>
-          <View style={styles.badges}>
-            <View style={styles.badge}>
-              <MaterialCommunityIcons name="star" size={16} color="#FFD700" />
-              <Text style={[styles.ratingBadge, { color: theme.textColor }]}>
-                {item.rating.toFixed(1)}
-              </Text>
-            </View>
-            <View style={styles.badge}>
-              <MaterialCommunityIcons
-                name="download"
-                size={16}
-                color={theme.textColor}
-              />
-              <Text style={[styles.downloadBadge, { color: theme.textColor }]}>
-                {item.downloads.toLocaleString()} downloads
-              </Text>
-            </View>
-          </View>
-        </View>
-      </TouchableOpacity>
-    </Animated.View>
-  );
-});
+        </TouchableOpacity>
+      </Animated.View>
+    );
+  },
+);
 
-const RecommendedItem = memo(({ item, theme, onPress }: {
-  item: AppStoreItem;
-  theme: any;
-  onPress: () => void;
-}) => {
-  const scale = useRef(new Animated.Value(0.5)).current;
-  const opacity = useRef(new Animated.Value(0)).current;
-
-  useFocusEffect(
-    React.useCallback(() => {
-      // Reset values
-      scale.setValue(0.5);
-      opacity.setValue(0);
-
-      const animation = Animated.parallel([
-        Animated.spring(scale, {
-          toValue: 1,
-          tension: 50,
-          friction: 7,
-          useNativeDriver: true,
-        }),
-        Animated.timing(opacity, {
-          toValue: 1,
-          duration: 500,
-          useNativeDriver: true,
-        }),
-      ]);
-
-      animation.start();
-
-      return () => {
-        animation.stop();
-      };
-    }, [opacity, scale])
-  );
-
-  return (
-    <Animated.View
-      style={{
-        transform: [{ scale }],
-        opacity,
-      }}
-    >
-      <TouchableOpacity
-        style={styles.recommendCard}
-        onPress={onPress}
-      >
-        <Image source={{ uri: item.icon_image_url }} style={styles.recommendIcon} />
-        <Text style={[styles.recommendAppName, { color: theme.textColor }]} numberOfLines={1}>
-          {item.name}
-        </Text>
-      </TouchableOpacity>
-    </Animated.View>
-  );
-});
-
-
-const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
+const AppStore: React.FC<AppStoreProps> = ({isDarkTheme}) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList, 'AppStore'>>();
 
@@ -182,12 +93,11 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
   const [filteredApps, setFilteredApps] = useState(AppStoreData);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  // Animation values for main layout
+  // Animation values for main layout (keeping all except list animations)
   const headerAnimation = useRef(new Animated.Value(0)).current;
   const searchAnimation = useRef(new Animated.Value(0)).current;
   const categoryAnimation = useRef(new Animated.Value(-100)).current;
   const recommendedAnimation = useRef(new Animated.Value(0)).current;
-  const listAnimation = useRef(new Animated.Value(50)).current;
   const fadeAnimation = useRef(new Animated.Value(0)).current;
 
   // Theme colors
@@ -205,15 +115,13 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
     selectedChipText: isDarkTheme ? '#FFFFFF' : '#FFFFFF',
   };
 
-  // Replace the useEffect with useFocusEffect
   useFocusEffect(
     React.useCallback(() => {
-      // Reset animation values when screen comes into focus
+      // Reset animation values
       headerAnimation.setValue(0);
       searchAnimation.setValue(0);
       categoryAnimation.setValue(-100);
       recommendedAnimation.setValue(0);
-      listAnimation.setValue(50);
       fadeAnimation.setValue(0);
 
       // Start animations
@@ -243,13 +151,6 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
           delay: 600,
           useNativeDriver: true,
         }),
-        Animated.spring(listAnimation, {
-          toValue: 0,
-          delay: 800,
-          useNativeDriver: true,
-          tension: 50,
-          friction: 7,
-        }),
         Animated.timing(fadeAnimation, {
           toValue: 1,
           duration: 1000,
@@ -262,8 +163,15 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
       return () => {
         animation.stop();
       };
-    }, [categoryAnimation, fadeAnimation, headerAnimation, listAnimation, recommendedAnimation, searchAnimation])
+    }, [
+      categoryAnimation,
+      fadeAnimation,
+      headerAnimation,
+      recommendedAnimation,
+      searchAnimation,
+    ]),
   );
+
   const handleSearch = (text: string) => {
     setSearchQuery(text);
     filterApps(text, selectedCategory);
@@ -273,12 +181,12 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
     let apps = AppStoreData;
 
     if (category) {
-      apps = apps.filter((app) => app.category === category);
+      apps = apps.filter(app => app.category === category);
     }
 
     if (query) {
-      apps = apps.filter((app) =>
-        app.name.toLowerCase().includes(query.toLowerCase())
+      apps = apps.filter(app =>
+        app.name.toLowerCase().includes(query.toLowerCase()),
       );
     }
 
@@ -286,21 +194,6 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
   };
 
   const handleCategoryPress = (category: string) => {
-    Animated.sequence([
-      Animated.spring(listAnimation, {
-        toValue: 20,
-        tension: 100,
-        friction: 10,
-        useNativeDriver: true,
-      }),
-      Animated.spring(listAnimation, {
-        toValue: 0,
-        tension: 50,
-        friction: 7,
-        useNativeDriver: true,
-      }),
-    ]).start();
-
     if (category === 'All') {
       setSelectedCategory(null);
       filterApps(searchQuery, null);
@@ -311,107 +204,111 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
     }
   };
 
-  const renderItem = ({ item, index }: { item: AppStoreItem; index: number }) => (
+  const renderItem = ({item, index}: {item: AppStoreItem; index: number}) => (
     <AppItem
       item={item}
       index={index}
       theme={theme}
-      onPress={() => navigation.navigate('AppDetails', { app: item })}
+      onPress={() => navigation.navigate('AppDetails', {app: item})}
     />
   );
 
-  const renderRecommendedItem = ({ item }: { item: AppStoreItem }) => (
+  const renderRecommendedItem = ({item}: {item: AppStoreItem}) => (
     <RecommendedItem
       item={item}
       theme={theme}
-      onPress={() => navigation.navigate('AppDetails', { app: item })}
+      onPress={() => navigation.navigate('AppDetails', {app: item})}
     />
   );
 
-  const renderCategory = ({ item }: { item: string }) => (
+  const renderCategory = ({item}: {item: string}) => (
     <TouchableOpacity
       style={[
         styles.categoryChip,
-        { backgroundColor: theme.categoryChipBg },
-        selectedCategory === item && { backgroundColor: theme.selectedChipBg },
+        {backgroundColor: theme.categoryChipBg},
+        selectedCategory === item && {backgroundColor: theme.selectedChipBg},
       ]}
-      onPress={() => handleCategoryPress(item)}
-    >
+      onPress={() => handleCategoryPress(item)}>
       <Text
         style={[
           styles.categoryText,
-          { color: theme.categoryChipText },
-          selectedCategory === item && { color: theme.selectedChipText },
-        ]}
-      >
+          {color: theme.categoryChipText},
+          selectedCategory === item && {color: theme.selectedChipText},
+        ]}>
         {item}
       </Text>
     </TouchableOpacity>
   );
 
   return (
-    <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
+    <View style={[styles.container, {backgroundColor: theme.backgroundColor}]}>
       <Animated.View
         style={[
           styles.headerContainer,
           {
             backgroundColor: theme.headerBg,
             borderBottomColor: theme.borderColor,
-            transform: [{ translateY: headerAnimation.interpolate({
-              inputRange: [0, 1],
-              outputRange: [-50, 0],
-            }) }],
+            transform: [
+              {
+                translateY: headerAnimation.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [-50, 0],
+                }),
+              },
+            ],
             opacity: headerAnimation,
           },
-        ]}
-      >
-        <Text style={[styles.header, { color: theme.textColor }]}>App Store (mockup)</Text>
+        ]}>
+        <Text
+          style={[
+            styles.header,
+            isDarkTheme ? styles.headerTextDark : styles.headerTextLight,
+          ]}>
+          App Store Mockup
+        </Text>
         <Animated.View
-  style={[
-    styles.searchContainer,
-    {
-      backgroundColor: theme.searchBg,
-      transform: [{ scale: searchAnimation }],
-      opacity: searchAnimation,
-    },
-  ]}
->
-  <MaterialCommunityIcons
-    name="magnify"
-    size={20}
-    color={isDarkTheme ? '#FFFFFF' : '#aaaaaa'}
-    style={styles.searchIcon}
-  />
-  <TextInput
-    style={[styles.searchInput, { color: theme.textColor }]}
-    placeholder="Search for apps..."
-    placeholderTextColor={isDarkTheme ? '#999999' : '#aaaaaa'}
-    value={searchQuery}
-    onChangeText={handleSearch}
-  />
-  {searchQuery.length > 0 && (
-    <TouchableOpacity
-      onPress={() => handleSearch('')}
-      style={styles.clearButton}
-    >
-      <MaterialCommunityIcons
-        name="close-circle"
-        size={18}
-        color={isDarkTheme ? '#999999' : '#aaaaaa'}
-      />
-    </TouchableOpacity>
-  )}
-</Animated.View>
+          style={[
+            styles.searchContainer,
+            {
+              backgroundColor: theme.searchBg,
+              transform: [{scale: searchAnimation}],
+              opacity: searchAnimation,
+            },
+          ]}>
+          <MaterialCommunityIcons
+            name="magnify"
+            size={20}
+            color={isDarkTheme ? '#FFFFFF' : '#aaaaaa'}
+            style={styles.searchIcon}
+          />
+          <TextInput
+            style={[styles.searchInput, {color: theme.textColor}]}
+            placeholder="Search for apps..."
+            placeholderTextColor={isDarkTheme ? '#999999' : '#aaaaaa'}
+            value={searchQuery}
+            onChangeText={handleSearch}
+          />
+          {searchQuery.length > 0 && (
+            <TouchableOpacity
+              onPress={() => handleSearch('')}
+              style={styles.clearButton}>
+              <MaterialCommunityIcons
+                name="close-circle"
+                size={18}
+                color={isDarkTheme ? '#999999' : '#aaaaaa'}
+              />
+            </TouchableOpacity>
+          )}
+        </Animated.View>
       </Animated.View>
 
       <Animated.View
         style={[
           styles.categoriesSection,
           {
-            transform: [{ translateX: categoryAnimation }],
+            transform: [{translateX: categoryAnimation}],
           },
-        ]}
-      >
+        ]}>
         <FlatList
           data={[
             'All',
@@ -425,7 +322,7 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
           ]}
           horizontal
           renderItem={renderCategory}
-          keyExtractor={(item) => item}
+          keyExtractor={item => item}
           contentContainerStyle={styles.categoriesList}
           showsHorizontalScrollIndicator={false}
         />
@@ -437,41 +334,32 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
           {
             opacity: recommendedAnimation,
           },
-        ]}
-      >
-        <Text style={[styles.recommendHeader, { color: theme.textColor }]}>
+        ]}>
+        <Text style={[styles.recommendHeader, {color: theme.textColor}]}>
           Recommended for You
         </Text>
         <FlatList
           data={AppStoreData.slice(0, 5)}
           horizontal
           renderItem={renderRecommendedItem}
-          keyExtractor={(item) => item.identifier_code}
+          keyExtractor={item => item.identifier_code}
           contentContainerStyle={styles.recommendList}
           showsHorizontalScrollIndicator={false}
         />
       </Animated.View>
 
-      <Animated.View
-        style={[
-          styles.animatedList,
-          {
-            transform: [{ translateY: listAnimation }],
-            opacity: fadeAnimation,
-          },
-        ]}
-      >
+      <View style={styles.listContainer}>
         <FlatList
-  data={filteredApps}
-  renderItem={renderItem}
-  keyExtractor={(item) => item.identifier_code}
-  contentContainerStyle={styles.listContent}
-  showsVerticalScrollIndicator={false}
-  windowSize={5} // Add this to optimize performance
-  maxToRenderPerBatch={5} // Add this to optimize performance
-  removeClippedSubviews={true} // Add this to optimize performance
-/>
-      </Animated.View>
+          data={filteredApps}
+          renderItem={renderItem}
+          keyExtractor={item => item.identifier_code}
+          contentContainerStyle={styles.listContent}
+          showsVerticalScrollIndicator={false}
+          windowSize={5}
+          maxToRenderPerBatch={5}
+          removeClippedSubviews={true}
+        />
+      </View>
 
       <Animated.View
         style={[
@@ -481,8 +369,7 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
             borderTopColor: theme.borderColor,
             opacity: fadeAnimation,
           },
-        ]}
-      >
+        ]}>
         <NavigationBar toggleTheme={() => {}} isDarkTheme={isDarkTheme} />
       </Animated.View>
     </View>
@@ -503,8 +390,15 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 24,
-    fontWeight: '600',
-    color: '#333',
+    fontFamily: 'Montserrat-Bold',
+    fontWeight: 'bold',
+    textAlign: 'left',
+  },
+  headerTextDark: {
+    color: '#ffffff',
+  },
+  headerTextLight: {
+    color: '#000000',
   },
   searchContainer: {
     flexDirection: 'row',
@@ -522,6 +416,12 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     color: '#333',
+    fontFamily: 'Montserrat-Regular',
+  },
+  clearButton: {
+    padding: 8,
+    marginLeft: 4,
+    marginRight: -4,
   },
   categoriesSection: {
     marginTop: 15,
@@ -542,6 +442,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '500',
     color: '#555',
+    fontFamily: 'Montserrat-Medium',
   },
   recommendSection: {
     marginTop: 15,
@@ -552,9 +453,10 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '700',
     color: '#444',
-    marginBottom: 15},
-  recommendList: {
+    marginBottom: 15,
+    fontFamily: 'Montserrat-Bold',
   },
+  recommendList: {},
   recommendCard: {
     width: 85,
     marginRight: 15,
@@ -580,73 +482,14 @@ const styles = StyleSheet.create({
     color: '#333',
     textAlign: 'center',
     width: '100%',
+    fontFamily: 'Montserrat-SemiBold',
+  },
+  listContainer: {
+    flex: 1,
   },
   listContent: {
     paddingHorizontal: 15,
     paddingBottom: 80,
-  },
-  card: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-    padding: 10,
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  clearButton: {
-    padding: 8,
-    marginLeft: 4,
-    marginRight: -4,
-  },
-  icon: {
-    width: 50,
-    height: 50,
-    borderRadius: 4,
-    marginRight: 10,
-  },
-  cardContent: {
-    flex: 1,
-  },
-  appName: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  description: {
-    fontSize: 12,
-    color: '#666',
-    marginTop: 4,
-  },
-  badges: {
-    flexDirection: 'row',
-    marginTop: 5,
-  },
-  badge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginRight: 10,
-  },
-  ratingBadge: {
-    fontSize: 12,
-    color: '#444',
-    marginLeft: 4,
-  },
-  downloadBadge: {
-    fontSize: 12,
-    color: '#444',
-  },
-  animatedList: {
-    flex: 1,
   },
   navigationBarContainer: {
     position: 'absolute',
@@ -655,7 +498,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderTopWidth: 1,
     borderTopColor: '#e0e0e0',
-    paddingBottom: 20, // Add padding for safe area
+    paddingBottom: 20,
   },
 });
 

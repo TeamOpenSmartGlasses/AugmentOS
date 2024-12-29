@@ -2,6 +2,20 @@ import React from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Modal } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+interface ThemeColors {
+  modalBackground: string;
+  text: string;
+  inputBackground: string;
+  inputBorder: string;
+  inputText: string;
+  placeholderText: string;
+  starColor: string;
+  submitButton: string;
+  cancelButton: string;
+  buttonText: string;
+  overlay: string;
+}
+
 interface ReviewModalProps {
   isVisible: boolean;
   rating: number;
@@ -24,7 +38,7 @@ const ReviewModal: React.FC<ReviewModalProps> = ({
   isDarkTheme,
 }) => {
   // Theme colors
-  const themeColors = {
+  const themeColors: ThemeColors = {
     modalBackground: isDarkTheme ? '#2d2d2d' : '#ffffff',
     text: isDarkTheme ? '#ffffff' : '#000000',
     inputBackground: isDarkTheme ? '#404040' : '#ffffff',
@@ -67,6 +81,7 @@ const ReviewModal: React.FC<ReviewModalProps> = ({
           <TextInput
             style={[
               styles.input,
+              styles.inputFont,
               {
                 backgroundColor: themeColors.inputBackground,
                 borderColor: themeColors.inputBorder,
@@ -86,13 +101,13 @@ const ReviewModal: React.FC<ReviewModalProps> = ({
               style={[styles.cancelButton, { backgroundColor: themeColors.cancelButton }]}
               onPress={onClose}
             >
-              <Text style={styles.buttonText}>Cancel</Text>
+              <Text style={styles.buttonTextStyle}>Cancel</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={[styles.submitButton, { backgroundColor: themeColors.submitButton }]}
               onPress={() => onSubmit(rating, comment)}
             >
-              <Text style={styles.buttonText}>Submit</Text>
+              <Text style={styles.buttonTextStyle}>Submit</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -125,6 +140,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+    fontFamily: 'Montserrat-Bold',
   },
   ratingContainer: {
     flexDirection: 'row',
@@ -141,6 +157,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     height: 80,
     textAlignVertical: 'top',
+  },
+  inputFont: {
+    fontFamily: 'Montserrat-Regular',
   },
   modalActions: {
     flexDirection: 'row',
@@ -159,9 +178,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  buttonText: {
+  buttonTextStyle: {
     color: '#fff',
     fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
   },
 });
 

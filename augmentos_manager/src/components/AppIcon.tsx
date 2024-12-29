@@ -66,7 +66,7 @@ const AppIcon: React.FC<AppIconProps> = ({
                     />
                 </View>
             </LinearGradient>
-            
+
             {isForegroundApp && (
                 <View style={styles.squareBadge}>
                     <FontAwesome name="star" size={12} color="#FFFFFF" />
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     squareBadge: {
         position: 'absolute',
         top: -8,
-        right: -6,
+        right: 3,
         width: 20,
         height: 20,
         borderRadius: 6,

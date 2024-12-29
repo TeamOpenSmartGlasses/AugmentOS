@@ -4,6 +4,7 @@ interface Glasses {
   model_name: string;
   battery_life: number;
   is_searching: boolean;
+  brightness: number | null; // 0-100
 }
 
 interface WifiConnection {
@@ -59,6 +60,7 @@ export class AugmentOSParser {
       model_name: 'Vuzix Z100',
       battery_life: 60,
       is_searching: false,
+      brightness: 87,
     },
     wifi: { is_connected: true, ssid: 'TP-LINK69', signal_strength: 100 },
     gsm: { is_connected: false, carrier: '', signal_strength: 0 },
@@ -146,6 +148,7 @@ export class AugmentOSParser {
               model_name: status.connected_glasses.model_name,
               battery_life: status.connected_glasses.battery_life,
               is_searching: status.connected_glasses.is_searching ?? false,
+              brightness: status.connected_glasses.brightness,
             }
           : null,
         wifi: status.wifi ?? AugmentOSParser.defaultStatus.wifi,
