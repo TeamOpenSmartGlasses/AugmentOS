@@ -355,12 +355,14 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
     //switches the currently running transcribe language without changing the default/saved language
     public void switchRunningTranscribeLanguage(String language){
-        if (speechRecSwitchSystem.currentLanguage.equals(language)){
-            return;
+        if (speechRecSwitchSystem != null) {
+            if (speechRecSwitchSystem.currentLanguage.equals(language)) {
+                return;
+            }
+            speechRecSwitchSystem.destroy();
         }
 
         //kill previous speech rec
-        speechRecSwitchSystem.destroy();
         speechRecSwitchSystem = null;
 
         //start speech rec after small delay
@@ -380,11 +382,19 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     }
     //switches the currently running transcribe language without changing the default/saved language
     public void startTranslationStream(String toTranslateLanguage){
-        String language = speechRecSwitchSystem.currentLanguage;
+        String language;
+
+        if (speechRecSwitchSystem == null) {
+            language = getChosenTranscribeLanguage(this.getApplicationContext());
+        } else {
+            language = speechRecSwitchSystem.currentLanguage;
+            speechRecSwitchSystem.destroy();
+        }
+
+        Log.d(TAG, "TRANSLATION STREAM STARTED" + language);
         translationLanguage = toTranslateLanguage;
 
         //kill previous speech rec
-        speechRecSwitchSystem.destroy();
         speechRecSwitchSystem = null;
 
         //start speech rec after small delay
@@ -398,6 +408,13 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
                 speechRecSwitchSystem.startAsrFramework(ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK, language, toTranslateLanguage); //force azure because translation
             }
         }, 250);
+    }
+
+    public void killTranslationStream(){
+        translationLanguage = null;
+        speechRecSwitchSystem.destroy();
+        speechRecSwitchSystem = null;
+        switchRunningTranscribeLanguage(getChosenTranscribeLanguage(this.getApplicationContext()));
     }
 
     //service stuff
@@ -529,8 +546,8 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         }
 
         String preferred = getPreferredWearable(this.getApplicationContext());
-        //smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new EvenRealitiesG1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
-        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
+        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new EvenRealitiesG1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
+//        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
         for (int i = 0; i < smartGlassesDevices.size(); i++){
             if (smartGlassesDevices.get(i).deviceModelName.equals(preferred)){
                 // Move to start for earliest search priority
