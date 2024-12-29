@@ -9,6 +9,7 @@ import YourAppsList from '../components/YourAppsList';
 import NavigationBar from '../components/NavigationBar';
 import PuckConnection from '../components/PuckConnection';
 import { useStatus } from '../AugmentOSStatusProvider';
+import { ScrollView } from 'react-native-gesture-handler';
 
 interface HomepageProps {
   isDarkTheme: boolean;
@@ -76,7 +77,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
 
   return (
     <View style={currentThemeStyles.container}>
-      <View style={currentThemeStyles.contentContainer}>
+      <ScrollView style={currentThemeStyles.contentContainer}>
         <AnimatedSection>
           <Header isDarkTheme={isDarkTheme} navigation={navigation} />
         </AnimatedSection>
@@ -114,7 +115,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
             )}
           </>
         }
-      </View>
+      </ScrollView>
       <NavigationBar toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
     </View>
   );
@@ -124,11 +125,12 @@ const lightThemeStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffffff',
+    paddingBottom:55,
   },
   contentContainer: {
     flex: 1,
     paddingHorizontal: 20,
-    paddingBottom: 60,
+    paddingBottom: 55,
   },
   noAppsText: {
     marginTop:10,
@@ -141,11 +143,12 @@ const darkThemeStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000000',
+    paddingBottom:55,
   },
   contentContainer: {
     flex: 1,
     paddingHorizontal: 20,
-    paddingBottom: 60,
+    paddingBottom: 55,
   },
   noAppsText: {
     color: '#ffffff',

@@ -10,6 +10,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.ServiceInfo;
+import android.os.Handler;
 import android.util.Log;
 import android.content.pm.PackageManager;
 import android.widget.Toast;
@@ -70,6 +71,10 @@ public class TPASystem {
     private Map<String, ThirdPartyApp> thirdPartyApps;
     private Set<String> runningApps;
 
+    private static final int HEALTH_CHECK_INTERVAL_MS = 5000;  // 5 seconds
+    private Handler healthCheckHandler;
+    private Runnable healthCheckRunnable;
+
     public TPASystem(Context context){
         mContext = context;
         augmentOsLibBroadcastSender = new AugmentOSLibBroadcastSender(mContext);
@@ -84,6 +89,18 @@ public class TPASystem {
         thirdPartyApps = new HashMap<>();
         loadThirdPartyAppsFromStorage();
         setupPackageInstallReceiver();
+
+        healthCheckHandler = new Handler();
+        healthCheckRunnable = new Runnable() {
+            @Override
+            public void run() {
+                performHealthCheck();
+                healthCheckHandler.postDelayed(this, HEALTH_CHECK_INTERVAL_MS);
+            }
+        };
+
+        // TODO: Complete the healthCheck system..
+        // healthCheckHandler.post(healthCheckRunnable);
     }
 
     private void setupPackageInstallReceiver() {
@@ -404,13 +421,21 @@ public class TPASystem {
         }
     }
 
-    // TODO: RUN THIS AUTOMATICALLY?
     public void performHealthCheck() {
         boolean deltaFound = false;
+        Log.d(TAG, "Performing health check") ;
         for (ThirdPartyApp tpa : thirdPartyApps.values()) {
-            if (runningApps.contains(tpa.packageName) != isThirdPartyAppServiceRunning(tpa)) {
-                Log.d(TAG, "Health Check: TPA " + tpa.packageName + " not matching expected state... expected: " + runningApps.contains(tpa.packageName) + ". Killing TPA to repair state...");
+            if (runningApps.contains(tpa.packageName) && !isThirdPartyAppServiceRunning(tpa)) {
+                Log.d(TAG, "Health Check: TPA " + tpa.packageName + " not matching expected state... " +
+                        "expected: " + runningApps.contains(tpa.packageName) + ". " +
+                        "Removing TPA from running list to repair state...");
+                //startThirdPartyAppByPackageName(tpa.packageName);
                 runningApps.remove(tpa.packageName);
+                deltaFound = true;
+            } else if (!runningApps.contains(tpa.packageName) && isThirdPartyAppServiceRunning(tpa)) {
+                Log.d(TAG, "Health Check: TPA " + tpa.packageName + " not matching " +
+                        "expected state... expected: " + runningApps.contains(tpa.packageName) + ". " +
+                        "Killing TPA to repair state...");
                 stopThirdPartyAppByPackageName(tpa.packageName);
                 deltaFound = true;
             }
@@ -434,11 +459,13 @@ public class TPASystem {
         return false;
     }
 
-
-
     public void destroy(){
         augmentOsLibBroadcastReceiver.unregister();
         mContext.unregisterReceiver(packageInstallReceiver);
         EventBus.getDefault().unregister(this);
+        if (healthCheckHandler != null) {
+            healthCheckHandler.removeCallbacks(healthCheckRunnable);
+        }
+        Log.d(TAG, "TPASystem destroyed.");
     }
 }

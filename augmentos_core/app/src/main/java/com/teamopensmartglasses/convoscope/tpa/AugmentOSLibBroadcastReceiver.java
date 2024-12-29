@@ -6,12 +6,16 @@ import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.APP
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.EVENT_BUNDLE;
 
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import android.util.Log;
 
 import com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants;
+import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.CenteredTextViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.DisplayCustomContentRequestEvent;

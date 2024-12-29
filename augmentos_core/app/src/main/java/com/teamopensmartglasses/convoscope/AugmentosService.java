@@ -560,6 +560,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             isSmartGlassesServiceBound = false;
         }
 
+        if(tpaSystem != null) {
+            tpaSystem.destroy();
+        }
+
         super.onDestroy();
     }
 
@@ -2319,7 +2323,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     // AugmentOS_Manager Comms Callbacks
     public void sendStatusToAugmentOsManager(){
         // Build status obj, send to aosmanager
-        tpaSystem.performHealthCheck();
         JSONObject status = generateStatusJson();
         blePeripheral.sendDataToAugmentOsManager(status.toString());
     }

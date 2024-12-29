@@ -280,7 +280,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
 
 const styles = StyleSheet.create({
   scrollViewContainer: {
-    marginBottom: 60,
+    marginBottom: 55,
   },
   container: {
     flex: 1,
