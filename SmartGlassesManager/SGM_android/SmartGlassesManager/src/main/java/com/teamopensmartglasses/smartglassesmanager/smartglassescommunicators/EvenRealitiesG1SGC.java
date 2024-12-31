@@ -12,6 +12,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Looper;
@@ -32,9 +33,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.Semaphore;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final String TAG = "WearableAi_EvenRealitiesG1SGC";
+    public static final String SHARED_PREFS_NAME = "EvenRealitiesPrefs";
+    public static final String LEFT_DEVICE_KEY = "SavedG1LeftName";
+    public static final String RIGHT_DEVICE_KEY = "SavedG1RightName";
+
 
     private static final UUID UART_SERVICE_UUID = UUID.fromString("6E400001-B5A3-F393-E0A9-E50E24DCCA9E");
     private static final UUID UART_TX_CHAR_UUID = UUID.fromString("6E400002-B5A3-F393-E0A9-E50E24DCCA9E");
@@ -90,11 +97,17 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private boolean isRightBonded = false;
     private BluetoothDevice leftDevice = null;
     private BluetoothDevice rightDevice = null;
+    private String preferredG1Id = null;
+    private String pendingSavedG1LeftName = null;
+    private String pendingSavedG1RightName = null;
+    private String savedG1LeftName = null;
+    private String savedG1RightName = null;
 
     public EvenRealitiesG1SGC(Context context) {
         super();
         this.context = context;
         mConnectState = 0;
+        loadPairedDeviceNames();
     }
 
     private final BluetoothGattCallback leftGattCallback = createGattCallback("Left");
@@ -273,17 +286,22 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     if (device.getName().contains("_L_")) {
                         isLeftBonded = true;
                         isLeftPairing = false;
+                        pendingSavedG1LeftName = device.getName();
                     } else if (device.getName().contains("_R_")) {
                         isRightBonded = true;
                         isRightPairing = false;
+                        pendingSavedG1RightName = device.getName();
                     }
 
                     // Restart scan for the next device
-                    if (!isLeftBonded || !isRightBonded) {
+                    if (!(isLeftBonded && !isRightBonded) || !doPendingPairingIdsMatch()) {
                         Log.d(TAG, "Restarting scan to find remaining device...");
                         startScan(BluetoothAdapter.getDefaultAdapter());
                     } else {
                         Log.d(TAG, "Both devices bonded. Proceeding with connections...");
+                        savedG1LeftName = pendingSavedG1LeftName;
+                        savedG1RightName = pendingSavedG1RightName;
+                        savePairedDeviceNames();
                         stopScan(BluetoothAdapter.getDefaultAdapter());
                         connectToGatt(leftDevice);
                         connectToGatt(rightDevice);
@@ -299,6 +317,48 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             }
         }
     };
+
+    public boolean doPendingPairingIdsMatch() {
+        String leftId = parsePairingIdFromDeviceName(pendingSavedG1LeftName);
+        String rightId = parsePairingIdFromDeviceName(pendingSavedG1RightName);
+        return leftId != null && leftId.equals(rightId);
+    }
+    public String parsePairingIdFromDeviceName(String input) {
+        if (input == null || input.isEmpty()) return null;
+        // Regular expression to match the number after "G1_"
+        Pattern pattern = Pattern.compile("G1_(\\d+)_");
+        Matcher matcher = pattern.matcher(input);
+
+        if (matcher.find()) {
+            return matcher.group(1); // Group 1 contains the number
+        }
+        return null; // Return null if no match is found
+    }
+
+    private void savePairedDeviceNames() {
+        if (savedG1LeftName != null && savedG1RightName != null) {
+            context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
+                    .edit()
+                    .putString(LEFT_DEVICE_KEY, savedG1LeftName)
+                    .putString(RIGHT_DEVICE_KEY, savedG1RightName)
+                    .apply();
+            Log.d(TAG, "Saved paired device names: Left=" + savedG1LeftName + ", Right=" + savedG1RightName);
+        }
+    }
+
+    private void loadPairedDeviceNames() {
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE);
+        savedG1LeftName = prefs.getString(LEFT_DEVICE_KEY, null);
+        savedG1RightName = prefs.getString(RIGHT_DEVICE_KEY, null);
+        Log.d(TAG, "Loaded paired device names: Left=" + savedG1LeftName + ", Right=" + savedG1RightName);
+    }
+
+    public static void deleteEvenSharedPreferences(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE);
+        prefs.edit().clear().apply();
+        Log.d(TAG, "Nuked EvenRealities SharedPreferences");
+    }
+
 
     private void connectToGatt(BluetoothDevice device) {
         if (device.getName().contains("_L_") && leftGlassGatt == null) {
@@ -316,13 +376,22 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             return;
         }
 
-        //DEBUG check if Cayden's smart glasses
-        if (name == null || !name.contains("91")) {
+        //DEBUG check if ALEX's smart glasses
+        if (name == null || !name.contains("59")) {
+            Log.d(TAG, "NOT ALEX'S GLASSES");
             return;
+        }
+        boolean isLeft = name.contains("_L_");
+
+        // Check if it's the correct G1, IF we've previously paired a G1
+        if ((savedG1LeftName != null && savedG1RightName != null)) {
+            if(!(name.contains(savedG1LeftName) || name.contains(savedG1RightName))){
+                // it is not either
+                return;
+            }
         }
 
         //figure out which G1 arm it is
-        boolean isLeft = name.contains("_L_");
         if (isLeft){
             leftDevice = device;
         } else{
