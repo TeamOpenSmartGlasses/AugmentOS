@@ -15,6 +15,7 @@ import android.util.Log;
 import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.LifecycleService;
 
+import com.teamopensmartglasses.augmentoslib.events.HomeScreenEvent;
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -117,6 +118,9 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             stopSelf();
             Log.d(TAG, "Self stopped, service should end.");
         }
+
+        //blank the screen
+        EventBus.getDefault().post(new HomeScreenEvent());
     }
 
     @Override

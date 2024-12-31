@@ -630,7 +630,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         Log.d(TAG, "Send double text wall");
     }
 
-    public void showHomeScreen() {}
+    public void showHomeScreen() {
+        Log.d(TAG, "EVEN SHOWING HOME SCREEN");
+        displayTextWall("HOME SCREEN");
+    }
 
     @Override
     public void setFontSize(SmartGlassesFontSize fontSize) {}
@@ -1095,7 +1098,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             sendDataSequentially(chunk);
 
             try {
-                Thread.sleep(150); // 150ms delay between chunks
+                Thread.sleep(25); // 150ms delay between chunks
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
