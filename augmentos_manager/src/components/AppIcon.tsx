@@ -32,13 +32,14 @@ const AppIcon: React.FC<AppIconProps> = ({
                 case 'com.mentra.livetranslation':
                     return require('../assets/app-icons/translation.png');
                 case 'com.example.placeholder':
-                case 'com.example.screenmirror':
+                case 'com.mentra.screenmirror':
                     return require('../assets/app-icons/screen-mirror.png');
                 case 'com.mentra.livecaptions':
                     return require('../assets/app-icons/captions.png');
-                case 'com.example.miraai':
+                case 'com.mentra.miraai':
                     return require('../assets/app-icons/mira-ai.png');
                 case 'com.google.android.apps.maps':
+                case 'com.mentra.navigation':
                     return require('../assets/app-icons/navigation.png');
                 default:
                     return require('../assets/app-icons/navigation.png');
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
     },
     appWrapper: {
         alignItems: 'center',
-        width: 80, 
+        width: 70, 
         height: 100, 
         borderColor: '#E5E5EA',
     },
