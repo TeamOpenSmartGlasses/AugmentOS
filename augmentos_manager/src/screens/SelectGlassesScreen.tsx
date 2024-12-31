@@ -30,59 +30,28 @@ const SelectGlassesScreen: React.FC<SelectGlassesScreenProps> = ({
     toggleTheme,
     navigation,
 }) => {
-    const [isDoNotDisturbEnabled, setDoNotDisturbEnabled] = React.useState(false);
-    const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] = React.useState(false);
     const { status } = useStatus();
-    const [isUsingAudioWearable, setIsUsingAudioWearable] = React.useState(
-        status.default_wearable == 'Audio Wearable',
-    );
+    const [glassesModelNameToPair, setGlassesModelNameToPair] = useState<string | null>(null);
 
-    // Example list of glasses to display:
     const glassesOptions = [
         { modelName: 'Vuzix Z100', key: 'vuzix-z100' },
         { modelName: 'Mentra Mach1', key: 'mentra_mach1' },
-        // { modelName: 'Inmo Air', key: 'inmo_air' },
-        // { modelName: 'TCL Rayneo X2', key: 'tcl_rayneo_x_two' },
-        // { modelName: 'Vuzix Shield', key: 'Vuzix_shield' },
         { modelName: 'Even Realities G1', key: 'evenrealities_g1' },
         { modelName: 'Audio Wearable', key: 'Audio Wearable' },
     ];
 
     React.useEffect(() => {
-        const loadInitialSettings = async () => {
-            // Any async calls to load settings can happen here
-        };
-        loadInitialSettings();
-    }, []);
+        if (glassesModelNameToPair && status.glasses_info?.is_searching) {
+            navigation.navigate('GlassesPairingGuideScreen', {
+                glassesModelName: glassesModelNameToPair,
+            });
+        }
+    }, [status]);
 
-    const switchColors = {
-        trackColor: {
-            false: isDarkTheme ? '#666666' : '#D1D1D6',
-            true: '#2196F3',
-        },
-        thumbColor:
-            Platform.OS === 'ios' ? undefined : isDarkTheme ? '#FFFFFF' : '#FFFFFF',
-        ios_backgroundColor: isDarkTheme ? '#666666' : '#D1D1D6',
-    };
-
-    const toggleVirtualWearable = async () => {
-        let isUsingAudio = status.default_wearable == 'Audio Wearable';
-        BluetoothService.getInstance().sendToggleVirtualWearable(!isUsingAudio);
-        setIsUsingAudioWearable(!isUsingAudio);
-    };
-
-    const sendDisconnectWearable = async () => {
-        throw new Error('Function not implemented.');
-    };
-
-    const forgetPuck = async () => {
-        await BluetoothService.getInstance().disconnectFromDevice();
-        await saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, null);
-    };
-
-    const forgetGlasses = async () => {
-        await BluetoothService.getInstance().sendForgetSmartGlasses();
-    };
+    const triggerGlassesPairingGuide = (glassesModelName: string) => {
+        setGlassesModelNameToPair(glassesModelName);
+        BluetoothService.getInstance().sendConnectWearable(glassesModelName);
+    }
 
     // Theme colors
     const theme = {
@@ -106,17 +75,17 @@ const SelectGlassesScreen: React.FC<SelectGlassesScreenProps> = ({
                 isDarkTheme ? styles.darkBackground : styles.lightBackground,
             ]}
         >
-
             <ScrollView style={styles.scrollViewContainer}>
                 {/** RENDER EACH GLASSES OPTION */}
                 {glassesOptions.map((glasses) => (
                     <TouchableOpacity
                         key={glasses.key}
-                        style={styles.settingItem}
+                        style={[
+                            styles.settingItem,
+                            { backgroundColor: theme.cardBg, borderColor: theme.borderColor },
+                        ]}
                         onPress={() => {
-                            navigation.navigate('GlassesPairingGuideScreen', {
-                                glassesModelName: glasses.modelName,
-                              });
+                            triggerGlassesPairingGuide(glasses.modelName)
                         }}
                     >
                         <Image
@@ -127,7 +96,9 @@ const SelectGlassesScreen: React.FC<SelectGlassesScreenProps> = ({
                             <Text
                                 style={[
                                     styles.label,
-                                    isDarkTheme ? styles.lightText : styles.darkText,
+                                    {
+                                        color: theme.textColor,
+                                    },
                                 ]}
                             >
                                 {glasses.modelName}
@@ -135,10 +106,8 @@ const SelectGlassesScreen: React.FC<SelectGlassesScreenProps> = ({
                         </View>
                         <Icon
                             name="angle-right"
-                            size={20}
-                            color={
-                                isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color
-                            }
+                            size={24}
+                            color={theme.textColor}
                         />
                     </TouchableOpacity>
                 ))}
@@ -153,7 +122,8 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        paddingHorizontal:20,
+        paddingHorizontal: 20,
+        paddingTop: 10,
     },
     titleContainer: {
         paddingVertical: 15,
@@ -210,20 +180,40 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
     },
+    /**
+     * BIG AND SEXY CARD
+     */
     settingItem: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingVertical: 20,
-        borderBottomColor: '#333',
-        borderBottomWidth: 1,
+        // Increased padding to give it a "bigger" look
+        paddingVertical: 25,
+        paddingHorizontal: 15,
+
+        // Larger margin to separate each card
+        marginVertical: 8,
+
+        // Rounded corners
+        borderRadius: 10,
+        borderWidth: 1,
+
+        // Shadow for iOS
+        shadowColor: '#000',
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+        shadowOffset: { width: 0, height: 2 },
+
+        // Elevation for Android
+        elevation: 3,
     },
     settingTextContainer: {
         flex: 1,
         paddingHorizontal: 10,
     },
     label: {
-        fontSize: 16,
+        fontSize: 18, // bigger text size
+        fontWeight: '600',
         flexWrap: 'wrap',
     },
     value: {
@@ -243,9 +233,12 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         color: '#333',
     },
+    /**
+     * BIGGER, SEXIER IMAGES
+     */
     glassesImage: {
-        width: 50,
-        height: 30,
+        width: 80,    // bigger width
+        height: 50,   // bigger height
         resizeMode: 'contain',
         marginRight: 10,
     },

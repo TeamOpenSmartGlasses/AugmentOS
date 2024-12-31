@@ -209,7 +209,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
 
         <TouchableOpacity
           style={styles.settingItem}
-          disabled={!status.puck_connected}
+          disabled={!status.puck_connected || status.default_wearable == ""}
           onPress={() => {
             confirmForgetGlasses();
           }}>
@@ -217,7 +217,8 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
             <Text
               style={[
                 styles.label,
-                styles.redText
+                styles.redText,
+                (!status.puck_connected || status.default_wearable === "") && styles.disabledItem
               ]}>
               Forget Glasses
             </Text>
@@ -423,6 +424,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '600',
     color: '#333',
+  },
+  disabledItem: {
+    opacity: 0.4,       // or any other styling to indicate disabled
+  },
+  disabledText: {
+    color: '#aaaaaa',   // for example, a grey color
   },
 });
 

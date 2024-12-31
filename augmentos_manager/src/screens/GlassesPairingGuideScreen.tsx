@@ -19,6 +19,7 @@ import { SETTINGS_KEYS } from '../consts';
 import { NavigationProps } from '../components/types';
 import { getGlassesImage } from '../logic/getGlassesImage';
 import PairingDeviceInfo from '../components/PairingDeviceInfo';
+import { EvenRealitiesG1PairingGuide, VuzixZ100PairingGuide } from '../components/GlassesPairingGuides';
 // import NavigationBar from '../components/NavigationBar'; // if needed
 
 interface GlassesPairingGuideScreenProps {
@@ -52,7 +53,6 @@ const GlassesPairingGuideScreen: React.FC<GlassesPairingGuideScreenProps> = ({
     
 
   React.useEffect(() => {
-    // Example: Possibly start pairing process for the selected glasses key
     console.log('Pairing guide started for: ', glassesModelName);
     bluetoothService.sendConnectWearable(glassesModelName);
   }, [glassesModelName]);
@@ -71,12 +71,23 @@ const GlassesPairingGuideScreen: React.FC<GlassesPairingGuideScreenProps> = ({
     }
   }, [status]);
 
+  const getPairingGuide = (glassesModelName: string) => {
+    switch (glassesModelName) {
+      case 'Even Realities G1':
+        return <EvenRealitiesG1PairingGuide isDarkTheme={isDarkTheme}/>;
+      case 'Vuzix Z100':
+        return <VuzixZ100PairingGuide isDarkTheme={isDarkTheme}/>;
+      default:
+        return <View />;
+    }
+  };
+
   return (
     <View style={[styles.container, isDarkTheme ? styles.darkBackground : styles.lightBackground]}>
       <ScrollView style={styles.scrollViewContainer}>
         <View style={styles.contentContainer}>
           <PairingDeviceInfo glassesModelName={glassesModelName} isDarkTheme={isDarkTheme} />
-          <Text> pairing guide text goes here.. </Text>
+          {getPairingGuide(glassesModelName)}
         </View>
       </ScrollView>
     </View>
