@@ -699,7 +699,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         Log.d(TAG, "Send double text wall");
     }
 
-    public void showHomeScreen() {}
+    public void showHomeScreen() {
+        Log.d(TAG, "EVEN SHOWING HOME SCREEN");
+        displayTextWall("HOME SCREEN");
+    }
 
     @Override
     public void setFontSize(SmartGlassesFontSize fontSize) {}
@@ -970,30 +973,57 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     }
 
     private List<String> splitIntoLines(String text) {
+        // Replace specific symbols
+        text = text.replace("⬆", "^").replace("⟶", "-");
         List<String> lines = new ArrayList<>();
-        String[] words = text.split("\\s+");
-        StringBuilder currentLine = new StringBuilder();
-
-        // Simple line splitting based on character count
-        // In a real implementation, you'd want to use proper text measurement
+        String[] rawLines = text.split("\n"); // Split by newlines first
         int charsPerLine = DISPLAY_WIDTH / (FONT_SIZE / 2); // Rough estimate
 
-        for (String word : words) {
-            if (currentLine.length() + word.length() + 1 > charsPerLine) {
-                lines.add(currentLine.toString());
-                currentLine = new StringBuilder(word);
-            } else {
-                if (currentLine.length() > 0) {
-                    currentLine.append(" ");
+//        Log.d(TAG, "Characters per line: " + Arrays.toString(rawLines));
+
+        for (String rawLine : rawLines) {
+            if (rawLine.isEmpty()) {
+                // Add an empty line for \n
+                lines.add("");
+                continue;
+            }
+
+            String[] words = rawLine.split("\\s+");
+            StringBuilder currentLine = new StringBuilder();
+
+            for (String word : words) {
+                if (currentLine.length() + word.length() + 1 > charsPerLine) {
+                    lines.add(currentLine.toString());
+                    currentLine = new StringBuilder(word);
+                } else {
+                    if (currentLine.length() > 0) {
+                        currentLine.append(" ");
+                    }
+                    currentLine.append(word);
                 }
-                currentLine.append(word);
+            }
+
+            if (currentLine.length() > 0) {
+                lines.add(currentLine.toString().strip());
+            }
+//            Log.d(TAG, "Current lines: " + lines);
+        }
+
+        // Ensure there are at least 2 lines with "-"
+        int dashLineCount = 0;
+        for (String line : lines) {
+            if (line.contains("-")) {
+                dashLineCount++;
             }
         }
 
-        if (currentLine.length() > 0) {
-            lines.add(currentLine.toString());
+        // If there are fewer than 2 lines with "-", add empty lines at the top
+        while (dashLineCount < 2) {
+            lines.add(0, ""); // Add an empty line at the top
+            dashLineCount++;
         }
 
+//        Log.d(TAG, "Final split text into " + lines.size() + " lines: " + lines);
         return lines;
     }
 
@@ -1137,7 +1167,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             sendDataSequentially(chunk);
 
             try {
-                Thread.sleep(150); // 150ms delay between chunks
+                Thread.sleep(25); // 150ms delay between chunks
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

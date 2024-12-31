@@ -291,7 +291,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         goHomeHandler.removeCallbacksAndMessages(goHomeRunnable);
 
 //        int rowsTop = 5;
-        int rowsTop = 5 - countNewLines(textTop);
+        int rowsTop = 3 - countNewLines(textTop);
 
         StringBuilder combinedText = new StringBuilder();
         combinedText.append(textTop);
