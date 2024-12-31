@@ -696,14 +696,24 @@ export class BluetoothService extends EventEmitter {
     return await this.sendDataToAugmentOs({ command: 'request_status' });
   }
 
-  async sendConnectWearable() {
-    console.log('sendConnectWearable');
-    return await this.sendDataToAugmentOs({ command: 'connect_wearable' });
+  async sendConnectWearable(modelName: string) {
+    console.log('sendConnectWearable with modelName: ' + modelName);
+    return await this.sendDataToAugmentOs({ 
+      command: 'connect_wearable',
+      params: { 
+        model_name: modelName 
+      }
+    });
   }
 
   async sendDisconnectWearable() {
     console.log('sendDisconnectWearable');
     return await this.sendDataToAugmentOs({ command: 'disconnect_wearable' });
+  }
+
+  async sendForgetSmartGlasses() {
+    console.log('sendForgetSmartGlasses');
+    return await this.sendDataToAugmentOs({ command: 'forget_smart_glasses' });
   }
 
   async sendToggleVirtualWearable(enabled: boolean) {

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -8,13 +8,14 @@ import {
   Platform,
   ScrollView,
   Animated,
+  Alert,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {useStatus} from '../AugmentOSStatusProvider';
-import {BluetoothService} from '../BluetoothService';
-import {loadSetting, saveSetting} from '../augmentos_core_comms/SettingsHelper';
-import {SETTINGS_KEYS} from '../consts';
+import { useStatus } from '../AugmentOSStatusProvider';
+import { BluetoothService } from '../BluetoothService';
+import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
+import { SETTINGS_KEYS } from '../consts';
 import NavigationBar from '../components/NavigationBar';
 
 interface SettingsPageProps {
@@ -31,13 +32,13 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   const [isDoNotDisturbEnabled, setDoNotDisturbEnabled] = React.useState(false);
   const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] =
     React.useState(false);
-  const {status} = useStatus();
+  const { status } = useStatus();
   const [isUsingAudioWearable, setIsUsingAudioWearable] = React.useState(
     status.default_wearable == 'Audio Wearable',
   );
 
   React.useEffect(() => {
-    const loadInitialSettings = async () => {};
+    const loadInitialSettings = async () => { };
 
     loadInitialSettings();
   }, []);
@@ -67,6 +68,10 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     await saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, null);
   };
 
+  const forgetGlasses = async () => {
+    await BluetoothService.getInstance().sendForgetSmartGlasses();
+  };
+
   // Theme colors
   const theme = {
     backgroundColor: isDarkTheme ? '#1c1c1c' : '#f9f9f9',
@@ -80,6 +85,24 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     categoryChipText: isDarkTheme ? '#FFFFFF' : '#555555',
     selectedChipBg: isDarkTheme ? '#666666' : '#333333',
     selectedChipText: isDarkTheme ? '#FFFFFF' : '#FFFFFF',
+  };
+
+  const confirmForgetGlasses = () => {
+    Alert.alert(
+      "Forget Glasses",
+      "Are you sure you want to forget your glasses?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Yes",
+          onPress: forgetGlasses,
+        },
+      ],
+      { cancelable: false }
+    );
   };
 
   return (
@@ -130,7 +153,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
           />
         </View>
 
-        <View style={styles.settingItem}>
+        {/* <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
             <Text
               style={[
@@ -156,7 +179,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
             thumbColor={switchColors.thumbColor}
             ios_backgroundColor={switchColors.ios_backgroundColor}
           />
-        </View>
+        </View> */}
 
         {/* Temporary until we make a proper page for thsi */}
         {Platform.OS == 'android' && (
@@ -183,6 +206,30 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
             />
           </TouchableOpacity>
         )}
+
+        <TouchableOpacity
+          style={styles.settingItem}
+          disabled={!status.puck_connected}
+          onPress={() => {
+            confirmForgetGlasses();
+          }}>
+          <View style={styles.settingTextContainer}>
+            <Text
+              style={[
+                styles.label,
+                styles.redText
+              ]}>
+              Forget Glasses
+            </Text>
+          </View>
+          {/* <Icon
+              name="angle-right"
+              size={20}
+              color={
+                isDarkTheme ? styles.lightText.color : styles.darkText.color
+              }
+            /> */}
+        </TouchableOpacity>
 
         {/* <TouchableOpacity style={styles.settingItem}>
         <View style={styles.settingTextContainer}>
@@ -312,6 +359,9 @@ const styles = StyleSheet.create({
   },
   lightBackground: {
     backgroundColor: '#f0f0f0',
+  },
+  redText: {
+    color: '#FF0F0F', // Using orange as a warning color
   },
   darkText: {
     color: 'black',

@@ -20,7 +20,6 @@ import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.LifecycleService;
 import androidx.preference.PreferenceManager;
 
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.PostGenericGlobalMessageEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartGlassesConnectedEvent;
 import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.teamopensmartglasses.smartglassesmanager.comms.MessageTypes;
@@ -159,6 +158,27 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             }
         });
     }
+
+    public boolean tryConnectToPreferredWearable() {
+        String preferredWearableName = getPreferredWearable(getApplicationContext());
+
+        if (preferredWearableName == null || preferredWearableName.trim().isEmpty()) {
+            Log.d(TAG, "No preferred wearable stored. Cannot connect.");
+            return false;
+        }
+
+        SmartGlassesDevice matchingDevice = getSmartGlassesDeviceFromModelName(preferredWearableName);
+
+        if (matchingDevice != null) {
+            Log.d(TAG, "Trying to connect to preferred wearable: " + preferredWearableName);
+            connectToSmartGlasses(matchingDevice);
+            return true;
+        } else {
+            Log.d(TAG, "Preferred wearable \"" + preferredWearableName + "\" not recognized in our known devices list.");
+            return false;
+        }
+    }
+
 
     @Override
     public void onDestroy() {
@@ -481,6 +501,27 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         return Service.START_STICKY;
     }
 
+    public static SmartGlassesDevice getSmartGlassesDeviceFromModelName(String modelName) {
+        ArrayList<SmartGlassesDevice> allDevices = new ArrayList<>(
+                Arrays.asList(
+                        new VuzixUltralite(),
+                        new EvenRealitiesG1(),
+                        new VuzixShield(),
+                        new InmoAirOne(),
+                        new TCLRayNeoXTwo(),
+                        new AudioWearable()
+                )
+        );
+
+        SmartGlassesDevice matchingDevice = null;
+        for (SmartGlassesDevice device : allDevices) {
+            if (device.deviceModelName.equals(modelName)) {
+                return device;
+            }
+        }
+
+        return null;
+    }
 
     // Setup for aioConnectSmartGlasses
     ArrayList<SmartGlassesDevice> smartGlassesDevices = new ArrayList<>();
