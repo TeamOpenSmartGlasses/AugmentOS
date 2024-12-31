@@ -29,6 +29,9 @@ export const EvenRealitiesG1PairingGuide: React.FC<GlassesPairingGuideProps> = (
         3. Place your G1 in the charging case with the lid open.
       </Text>
       <Text style={[styles.guideStep, { color: textColor }]}>
+        4. G1 may prompt your device twice to pair with your device. If this happens, select "pair" both times.
+      </Text>
+      <Text style={[styles.guideStep, { color: textColor }]}>
         4. On your device, confirm the G1 appears in the Bluetooth list, then tap to connect and follow any on-screen prompts.
       </Text>
     </View>

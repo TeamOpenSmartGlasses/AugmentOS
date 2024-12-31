@@ -372,15 +372,15 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         String name = device.getName();
 
         //check if G1 arm
-        if (name == null || !name.contains("G1")) {
+        if (name == null || !name.contains("Even G1_")) {
             return;
         }
 
         //DEBUG check if ALEX's smart glasses
-        if (name == null || !name.contains("59")) {
-            Log.d(TAG, "NOT ALEX'S GLASSES");
-            return;
-        }
+       //if (name == null || !name.contains("59")) {
+        //    Log.d(TAG, "NOT ALEX'S GLASSES");
+        //    return;
+        //}
         boolean isLeft = name.contains("_L_");
 
         // Check if it's the correct G1, IF we've previously paired a G1
