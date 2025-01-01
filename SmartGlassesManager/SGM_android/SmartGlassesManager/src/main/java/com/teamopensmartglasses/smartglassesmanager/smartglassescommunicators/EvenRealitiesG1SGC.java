@@ -237,13 +237,13 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         }
                         // Only check head movements from the right sensor
                         else if (deviceName.contains("R_")) {
-                            // Check for head up movement - initial F5 02 signal
+                            // Check for head down movement - initial F5 02 signal
                             if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x02) {
-                                Log.d(TAG, "HEAD DOWN MOVEMENT DETECTED");
-                            }
-                            // Check for head down movement - initial F5 03 signal
-                            else if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x03) {
                                 Log.d(TAG, "HEAD UP MOVEMENT DETECTED");
+                            }
+                            // Check for head up movement - initial F5 03 signal
+                            else if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x03) {
+                                Log.d(TAG, "HEAD DOWN MOVEMENT DETECTED");
                             }
                         }
                         // Handle other non-audio responses
@@ -1310,9 +1310,14 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
     }
 
+    public int DEFAULT_CARD_SHOW_TIME = 6;
     public void homeScreenInNSeconds(int n){
         if (n == -1){
             return;
+        }
+
+        if (n == 0){
+            n = DEFAULT_CARD_SHOW_TIME;
         }
 
         //disconnect after slight delay, so our above text gets a chance to show up
