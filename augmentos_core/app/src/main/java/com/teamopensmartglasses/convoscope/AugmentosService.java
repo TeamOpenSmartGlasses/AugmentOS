@@ -221,8 +221,12 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public AugmentosSmartGlassesService smartGlassesService;
     private boolean isSmartGlassesServiceBound = false;
 
-    private final Map<AsrStreamKey, Set<String>> streamToPackages = new HashMap<>();
-    private final Map<AsrStreamKey, AsrStreamInfo> activeSystems = new HashMap<>();
+    private final Map<AsrStreamKey, StreamRecord> streamRecords = new HashMap<>();
+
+    private static class StreamRecord {
+        final Set<String> packages = new HashSet<>();
+        AsrStreamInfo asrStreamInfo; // remains null until physically started
+    }
 
     public AugmentosService() {
     }
@@ -280,8 +284,12 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         wifiStatusHelper = new WifiStatusHelper(this);
         gsmStatusHelper = new GsmStatusHelper(this);
 
+        AsrStreamKey englishKey = new AsrStreamKey(AsrStreamType.TRANSCRIPTION, "English", null);
 
+        StreamRecord record = new StreamRecord();
+        streamRecords.put(englishKey, record);
 
+        startStream(englishKey, record);
 
         //startNotificationService();
 
@@ -611,21 +619,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
     }
 
-//    public void sendLatestCSEResultViaSms(){
-//        if (phoneNum == "") return;
-//
-//        if (responses.size() > 1) {
-//            //Send latest CSE result via sms;
-//            String messageToSend = responsesToShare.get(responsesToShare.size() - 1);
-//
-//            smsComms.sendSms(phoneNum, messageToSend);
-//
-//            sendReferenceCard("Convoscope", "Sending result(s) via SMS to " + phoneNumName);
-//        }
-//    }
-
     @Subscribe
-    public void onSubscribeStartAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
+    public synchronized void onSubscribeStartAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
         Log.d(TAG, "Got a request to start ASR stream");
         Log.d(TAG, "onStartAsrStreamRequest: " + event.asrStreamType
                 + " transcribe=" + event.transcribeLanguage
@@ -638,19 +633,24 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 event.translateLanguage
         );
 
-        // Add TPA’s packageName to the set
-        Set<String> packages = streamToPackages.computeIfAbsent(key, k -> new HashSet<>());
-
-        // If we weren't subscribed to this key, physically start it
-        if (packages.isEmpty()) {
-            startStream(key);
+        // 1. Fetch existing or create a new record
+        StreamRecord record = streamRecords.get(key);
+        if (record == null) {
+            record = new StreamRecord();
+            streamRecords.put(key, record);
         }
 
-        packages.add(event.packageName); // track that TPA is using this stream
+        // 2. If no packages were subscribed, physically start
+        boolean wasEmpty = record.packages.isEmpty();
+        record.packages.add(event.packageName);
+
+        if (wasEmpty) {
+            startStream(key, record);
+        }
     }
 
     @Subscribe
-    public void onSubscribeStopAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
+    public synchronized void onSubscribeStopAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
         Log.d(TAG, "onStopAsrStreamRequest: " + event.asrStreamType
                 + " transcribe=" + event.transcribeLanguage
                 + " translate=" + event.translateLanguage
@@ -662,32 +662,23 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 event.translateLanguage
         );
 
-        Set<String> packages = streamToPackages.get(key);
-        if (packages == null) {
-            Log.d(TAG, "No set found for " + key + ". Possibly never started or already stopped.");
+        StreamRecord record = streamRecords.get(key);
+        if (record == null) {
+            Log.d(TAG, "No record found for " + key + ". Possibly never started or already stopped.");
             return;
         }
 
-        // remove TPA's package
-        packages.remove(event.packageName);
+        // 1. Remove the package from the record
+        record.packages.remove(event.packageName);
 
-        // if empty, physically stop the stream
-        if (packages.isEmpty()) {
-            streamToPackages.remove(key);
-
-            // If you want to *never* stop English transcription, check it:
-            if (isAlwaysOnEnglish(key)) {
-                Log.d(TAG, "Refusing to stop always-on English");
-                // Optionally re-add the "ALWAYS_ON_ENGLISH" to keep it alive
-                packages.add("ALWAYS_ON_ENGLISH");
-                streamToPackages.put(key, packages);
-            } else {
-                stopStream(key);
-            }
+        // 2. If packages are empty, physically stop
+        if (record.packages.isEmpty()) {
+            streamRecords.remove(key);
+            stopStream(key, record);
         }
     }
 
-    private synchronized void startStream(AsrStreamKey key) {
+    private void startStream(AsrStreamKey key, StreamRecord record) {
         Log.d(TAG, "startStream -> " + key);
 
         if (key == null) {
@@ -700,12 +691,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             return;
         }
 
-        Context context = this;
-
-        // Start the ASR stream after a short delay
+        // Start the ASR stream after a short delay (non-blocking)
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            SpeechRecSwitchSystem speechRecSwitchSystem = new SpeechRecSwitchSystem(context);
-            ASR_FRAMEWORKS chosenFramework = ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK; // Get the ASR framework dynamically
+            SpeechRecSwitchSystem speechRecSwitchSystem = new SpeechRecSwitchSystem(this);
+            // We assume we select an ASR framework dynamically; for now, pick Azure:
+            ASR_FRAMEWORKS chosenFramework = ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK;
 
             if (key.asrStreamType == AsrStreamType.TRANSCRIPTION) {
                 if (key.transcribeLanguage != null) {
@@ -719,7 +709,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 if (key.transcribeLanguage != null && key.translateLanguage != null) {
                     Log.d(TAG, "Starting translation from: " + key.transcribeLanguage +
                             " to: " + key.translateLanguage);
-                    speechRecSwitchSystem.startAsrFramework(chosenFramework, key.transcribeLanguage, key.translateLanguage);
+                    speechRecSwitchSystem.startAsrFramework(chosenFramework,
+                            key.transcribeLanguage, key.translateLanguage);
                 } else {
                     Log.e(TAG, "Translation languages are null. Aborting...");
                     return;
@@ -729,16 +720,22 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 return;
             }
 
-            // Store the system and framework in the activeSystems map
-            activeSystems.put(key, new AsrStreamInfo(speechRecSwitchSystem));
+            // Update the record with the new AsrStreamInfo
+            record.asrStreamInfo = new AsrStreamInfo(speechRecSwitchSystem);
             Log.d(TAG, "Stream started and saved for key: " + key);
         }, 250);
     }
 
-    private synchronized void stopStream(AsrStreamKey key) {
+    private void stopStream(AsrStreamKey key, StreamRecord record) {
         Log.d(TAG, "stopStream -> " + key);
 
-        AsrStreamInfo streamInfo = activeSystems.get(key);
+        // For example, skip stopping if it's "English"
+        if (isEnglishKey(key)) {
+            Log.d(TAG, "Not stopping stream for English key: " + key);
+            return;
+        }
+
+        AsrStreamInfo streamInfo = record.asrStreamInfo;
         if (streamInfo == null) {
             Log.d(TAG, "No active stream found for key: " + key);
             return;
@@ -750,171 +747,16 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             system.destroy();
         }
 
-        // Remove the key from the activeSystems map
-        activeSystems.remove(key);
+        // Clear the record’s system reference
+        record.asrStreamInfo = null;
         Log.d(TAG, "Stream stopped and removed for key: " + key);
     }
 
-    private boolean isAlwaysOnEnglish(AsrStreamKey key) {
+    private boolean isEnglishKey(AsrStreamKey key) {
         return key.asrStreamType == AsrStreamType.TRANSCRIPTION
                 && "English".equalsIgnoreCase(key.transcribeLanguage)
                 && key.translateLanguage == null;
     }
-
-//    @Subscribe
-//    public void onSubscribeDataStreamRequestEvent(SubscribeDataStreamRequestEvent event){
-//        Log.d(TAG, "Got a request to subscribe to data stream");
-//
-//        if (event.dataStreamType == DataStreamType.TRANSCRIPTION_DEFAULT_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSCRIBING IN DEFAULT LANGUAGE");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.switchRunningTranscribeLanguage("English");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_ENGLISH_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSCRIBING IN ENGLISH");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.switchRunningTranscribeLanguage("English");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_CHINESE_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSCRIBING IN CHINESE");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.switchRunningTranscribeLanguage("Chinese");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_RUSSIAN_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSCRIBING IN RUSSIAN");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.switchRunningTranscribeLanguage("Russian");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_FRENCH_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSCRIBING IN FRENCH");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.switchRunningTranscribeLanguage("French");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_SPANISH_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSCRIBING IN SPANISH");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.switchRunningTranscribeLanguage("Spanish");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_JAPANESE_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSCRIBING IN JAPANESE");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.switchRunningTranscribeLanguage("Japanese");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_GERMAN_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSCRIBING IN GERMAN");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.switchRunningTranscribeLanguage("German");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_ARABIC_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSCRIBING IN ARABIC");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.switchRunningTranscribeLanguage("Arabic");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_KOREAN_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSCRIBING IN KOREAN");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.switchRunningTranscribeLanguage("Korean");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_ITALIAN_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSCRIBING IN ITALIAN");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.switchRunningTranscribeLanguage("Italian");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_TURKISH_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSCRIBING IN TURKISH");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.switchRunningTranscribeLanguage("Turkish");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_PORTUGUESE_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSCRIBING IN PORTUGUESE");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.switchRunningTranscribeLanguage("Portuguese");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSCRIPTION_DUTCH_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSCRIBING IN DUTCH");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.switchRunningTranscribeLanguage("Dutch");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSLATION_DEFAULT_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSLATING TO DEFAULT LANGUAGE");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.startTranslationStream("Default");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSLATION_ENGLISH_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSLATING TO ENGLISH");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.startTranslationStream("English");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSLATION_CHINESE_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSLATING TO CHINESE");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.startTranslationStream("Chinese");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSLATION_RUSSIAN_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSLATING TO RUSSIAN");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.startTranslationStream("Russian");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSLATION_FRENCH_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSLATING TO FRENCH");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.startTranslationStream("French");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSLATION_SPANISH_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSLATING TO SPANISH");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.startTranslationStream("Spanish");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSLATION_JAPANESE_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSLATING TO JAPANESE");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.startTranslationStream("Japanese");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSLATION_GERMAN_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSLATING TO GERMAN");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.startTranslationStream("German");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSLATION_ARABIC_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSLATING TO ARABIC");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.startTranslationStream("Arabic");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSLATION_KOREAN_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSLATING TO KOREAN");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.startTranslationStream("Korean");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSLATION_ITALIAN_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSLATING TO ITALIAN");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.startTranslationStream("Italian");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSLATION_TURKISH_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSLATING TO TURKISH");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.startTranslationStream("Turkish");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSLATION_PORTUGUESE_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSLATING TO PORTUGUESE");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.startTranslationStream("Portuguese");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.TRANSLATION_DUTCH_STREAM) {
-//            Log.d(TAG, "REQUESTED START TRANSLATING TO DUTCH");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.startTranslationStream("Dutch");
-//            }
-//        } else if (event.dataStreamType == DataStreamType.KILL_TRANSLATION_STREAM) {
-//            Log.d(TAG, "REQUESTED KILL TRANSLATION STREAM");
-//            if (smartGlassesService != null) {
-//                smartGlassesService.killTranslationStream();
-//            }
-//        } else {
-//            Log.d(TAG, "UNKNOWN DATA STREAM TYPE REQUESTED");
-//        }
-//    }
-
 
     private Handler debounceHandler = new Handler(Looper.getMainLooper());
     private Runnable debounceRunnable;
