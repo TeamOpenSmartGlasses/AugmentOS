@@ -17,6 +17,7 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.google.gson.Gson;
 import com.teamopensmartglasses.smartglassesmanager.cpp.L3cCpp;
@@ -63,8 +64,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private boolean stopper = false;
     private boolean debugStopper = false;
 
-    private static final long DELAY_BETWEEN_SENDS_MS = 20;
-    private static final long HEARTBEAT_INTERVAL_MS = 12000;
+    private static final long DELAY_BETWEEN_SENDS_MS = 25;
+    private static final long DELAY_BETWEEN_CHUNKS_SEND = 50;
+    private static final long HEARTBEAT_INTERVAL_MS = 5000;
 
     //heartbeat sender
     private Handler heartbeatHandler = new Handler();
@@ -103,11 +105,19 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private String savedG1LeftName = null;
     private String savedG1RightName = null;
 
+    //handler to turn off screen
+    Handler goHomeHandler;
+    Runnable goHomeRunnable;
+
+    //remember when we connected
+    private long lastConnectionTimestamp = 0;
+
     public EvenRealitiesG1SGC(Context context) {
         super();
         this.context = context;
         mConnectState = 0;
         loadPairedDeviceNames();
+        goHomeHandler = new Handler();
     }
 
     private final BluetoothGattCallback leftGattCallback = createGattCallback("Left");
@@ -121,9 +131,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 if (newState == BluetoothProfile.STATE_CONNECTED) {
                     Log.d(TAG, side + " glass connected, discovering services...");
                     gatt.discoverServices();
-                    if ("Left".equals(side)) isLeftConnected = true;
-                    else isRightConnected = true;
-                    updateConnectionState();
                 } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
                     if ("Left".equals(side)) isLeftConnected = false;
                     else isRightConnected = false;
@@ -175,8 +182,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         Log.d(TAG, "Requested MTU size: 251");
 
                         //no idea why but it's in the Even app - Cayden
-                        Log.d(TAG, "Sending 0xF4 Command");
-                        sendDataSequentially(new byte[] {(byte) 0xF4, (byte) 0x01});
+//                        Log.d(TAG, "Sending 0xF4 Command");
+//                        sendDataSequentially(new byte[] {(byte) 0xF4, (byte) 0x01});
 
                         //below has odd staggered times so they don't happen in sync
                         // Start MIC streaming
@@ -192,7 +199,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 //                        startPeriodicTextWall(302);
 
                         //start heartbeat
-                        startHeartbeat(411);
+                        startHeartbeat(5000);
                     } else {
                         Log.e(TAG, side + " glass UART service not found");
                     }
@@ -213,12 +220,13 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 new Handler(Looper.getMainLooper()).post(() -> {
                     if (characteristic.getUuid().equals(UART_RX_CHAR_UUID)) {
                         byte[] data = characteristic.getValue();
+                        String deviceName = gatt.getDevice().getName();
 
                         // Handle MIC audio data
                         if (data.length > 0 && (data[0] & 0xFF) == 0xF1) {
                             int seq = data[1] & 0xFF; // Sequence number
                             byte[] audioData = Arrays.copyOfRange(data, 2, data.length); // Extract audio data
-                            Log.d(TAG, "Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(audioData) + ", from: " + gatt.getDevice().getName());
+                            Log.d(TAG, "Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(audioData) + ", from: " + deviceName);
                             // eg. LC3 to PCM
                             byte[] lc3 = Arrays.copyOfRange(audioData, 2, 202);
                             byte[] pcmData = L3cCpp.decodeLC3(lc3);
@@ -226,8 +234,21 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                                 throw new IllegalStateException("Failed to decode LC3 data");
                             }
                             Log.d(this.getClass().getSimpleName(), "============Lc3 data = " + Arrays.toString(lc3) + ", Pcm = " + Arrays.toString(pcmData));
-                        } else {
-                            Log.d(TAG, "Received non-audio response: " + bytesToHex(data) + ", from: " + gatt.getDevice().getName());
+                        }
+                        // Only check head movements from the right sensor
+                        else if (deviceName.contains("R_")) {
+                            // Check for head up movement - initial F5 02 signal
+                            if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x02) {
+                                Log.d(TAG, "HEAD DOWN MOVEMENT DETECTED");
+                            }
+                            // Check for head down movement - initial F5 03 signal
+                            else if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x03) {
+                                Log.d(TAG, "HEAD UP MOVEMENT DETECTED");
+                            }
+                        }
+                        // Handle other non-audio responses
+                        else {
+                            Log.d(TAG, "Received non-audio response: " + bytesToHex(data) + ", from: " + deviceName);
                         }
 
                         // Check if it's a heartbeat response
@@ -237,7 +258,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     }
                 });
             }
-
 
         };
     }
@@ -250,6 +270,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             boolean result = gatt.writeDescriptor(descriptor);
             if (result) {
                 Log.d(TAG, side + " SIDE," + "Descriptor write successful for characteristic: " + characteristic.getUuid());
+                if ("Left".equals(side)) isLeftConnected = true;
+                else isRightConnected = true;
+                updateConnectionState();
             } else {
                 Log.e(TAG, side + " SIDE," + "Failed to write descriptor for characteristic: " + characteristic.getUuid());
             }
@@ -262,6 +285,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         if (isLeftConnected && isRightConnected) {
             mConnectState = 2;
             Log.d(TAG, "Both glasses connected");
+            lastConnectionTimestamp = System.currentTimeMillis();
             connectionEvent(2);
         } else if (isLeftConnected || isRightConnected) {
             mConnectState = 1;
@@ -389,10 +413,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
 
         //DEBUG check if ALEX's smart glasses
-       //if (name == null || !name.contains("59")) {
-        //    Log.d(TAG, "NOT ALEX'S GLASSES");
-        //    return;
-        //}
+       if (name == null || !name.contains("91")) {
+            Log.d(TAG, "NOT CAYDEN'S GLASSES");
+            return;
+        }
+
         boolean isLeft = name.contains("_L_");
 
         // Check if it's the correct G1, IF we've previously paired a G1
@@ -511,34 +536,101 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         sendDataSequentially(data, false);
     }
 
-    private void sendDataSequentially(byte[] data, boolean onlyLeft) {
-        if (stopper) return;
-        stopper = true;
+//    private void sendDataSequentially(byte[] data, boolean onlyLeft) {
+//        if (stopper) return;
+//        stopper = true;
+//
+//        new Thread(() -> {
+//            try {
+//                if (leftGlassGatt != null && leftTxChar != null) {
+//                    leftTxChar.setValue(data);
+//                    leftGlassGatt.writeCharacteristic(leftTxChar);
+//                    Thread.sleep(DELAY_BETWEEN_SENDS_MS);
+//                }
+//
+//                if (!onlyLeft && rightGlassGatt != null && rightTxChar != null) {
+//                    rightTxChar.setValue(data);
+//                    rightGlassGatt.writeCharacteristic(rightTxChar);
+//                    Thread.sleep(DELAY_BETWEEN_SENDS_MS);
+//                }
+//                stopper = false;
+//            } catch (InterruptedException e) {
+//                Log.e(TAG, "Error sending data: " + e.getMessage());
+//            }
+//        }).start();
+//    }
 
-        new Thread(() -> {
+    // Data class to represent a send request
+    private static class SendRequest {
+        final byte[] data;
+        final boolean onlyLeft;
+
+        SendRequest(byte[] data, boolean onlyLeft) {
+            this.data = data;
+            this.onlyLeft = onlyLeft;
+        }
+    }
+
+    // Queue to hold pending requests
+    private final ConcurrentLinkedQueue<SendRequest> sendQueue = new ConcurrentLinkedQueue<>();
+    private volatile boolean isWorkerRunning = false;
+
+    // Non-blocking function to add new send request
+    private void sendDataSequentially(byte[] data, boolean onlyLeft) {
+        sendQueue.offer(new SendRequest(data, onlyLeft));
+        startWorkerIfNeeded();
+    }
+
+    // Start the worker thread if it's not already running
+    private synchronized void startWorkerIfNeeded() {
+        if (!isWorkerRunning) {
+            isWorkerRunning = true;
+            new Thread(this::processQueue).start();
+        }
+    }
+
+    private static final long INITIAL_CONNECTION_DELAY_MS = 300; // Adjust this value as needed
+
+    private void processQueue() {
+        while (true) {
+            SendRequest request = sendQueue.poll();
+            if (request == null) {
+                isWorkerRunning = false;
+                break;
+            }
+
             try {
+                // Check if we need to wait after initial connection
+                long timeSinceConnection = System.currentTimeMillis() - lastConnectionTimestamp;
+                if (timeSinceConnection < INITIAL_CONNECTION_DELAY_MS) {
+                    Thread.sleep(INITIAL_CONNECTION_DELAY_MS - timeSinceConnection);
+                }
+
+                // Send to left glass if available
                 if (leftGlassGatt != null && leftTxChar != null) {
-                    leftTxChar.setValue(data);
+                    leftTxChar.setValue(request.data);
                     leftGlassGatt.writeCharacteristic(leftTxChar);
                     Thread.sleep(DELAY_BETWEEN_SENDS_MS);
                 }
 
-                if (!onlyLeft && rightGlassGatt != null && rightTxChar != null) {
-                    rightTxChar.setValue(data);
+                // Send to right glass if needed and available
+                if (!request.onlyLeft && rightGlassGatt != null && rightTxChar != null) {
+                    rightTxChar.setValue(request.data);
                     rightGlassGatt.writeCharacteristic(rightTxChar);
                     Thread.sleep(DELAY_BETWEEN_SENDS_MS);
                 }
-                stopper = false;
             } catch (InterruptedException e) {
                 Log.e(TAG, "Error sending data: " + e.getMessage());
+                // Optionally re-add the failed request to the queue
+                // sendQueue.offer(request);
             }
-        }).start();
+        }
     }
 
-    @Override
-    public void displayReferenceCardSimple(String title, String body) {
-        displayReferenceCardSimple(title, body, 20);
-    }
+//    @Override
+//    public void displayReferenceCardSimple(String title, String body, int lingerTimeMs) {
+//        displayReferenceCardSimple(title, body, lingerTimeMs);
+//    }
 
     private static final int NOTIFICATION = 0x4B; // Notification command
     private String createNotificationJson(String appIdentifier, String title, String subtitle, String message) {
@@ -635,6 +727,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         return chunks;
     }
 
+    @Override
     public void displayReferenceCardSimple(String title, String body, int lingerTime) {
         if (!isConnected()) {
             Log.d(TAG, "Not connected to glasses");
@@ -644,12 +737,25 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         List<byte[]> chunks = createTextWallChunks(title + "\n\n" + body);
         sendChunks(chunks);
         Log.d(TAG, "Send simple reference card");
+
+        homeScreenInNSeconds(lingerTime);
     }
 
     @Override
     public void destroy() {
         Log.d(TAG, "EvenRealitiesG1SGC ONDESTROY");
-        setMicEnabled(false, 0); // Disable the MIC
+        //disable the microphone
+        setMicEnabled(false, 0);
+
+        //stop sending heartbeat
+        stopHeartbeat();
+
+        // Stop periodic notifications
+        stopPeriodicNotifications();
+
+        // Stop periodic text wall
+//        stopPeriodicNotifications();
+
         if (leftGlassGatt != null) {
             leftGlassGatt.disconnect();
             leftGlassGatt.close();
@@ -661,12 +767,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             rightGlassGatt = null;
         }
 
-        // Stop periodic notifications
-        stopPeriodicNotifications();
-
         if (bondingReceiver != null) {
             context.unregisterReceiver(bondingReceiver);
         }
+
+        stopScan(BluetoothAdapter.getDefaultAdapter());
 
         if (handler != null)
             handler.removeCallbacksAndMessages(null);
@@ -680,7 +785,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             notificationHandler.removeCallbacks(notificationRunnable);
         if (textWallHandler != null)
             textWallHandler.removeCallbacks(textWallRunnable);
-        stopScan(BluetoothAdapter.getDefaultAdapter());
+        if (goHomeHandler != null)
+            goHomeHandler.removeCallbacks(goHomeRunnable);
     }
 
 
@@ -727,7 +833,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     public void showHomeScreen() {
         Log.d(TAG, "EVEN SHOWING HOME SCREEN");
-        displayTextWall("HOME SCREEN");
+        displayTextWall(" ");
     }
 
     @Override
@@ -796,24 +902,34 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }, delay);
     }
 
+    private void stopHeartbeat() {
+        if (heartbeatHandler != null) {
+            heartbeatHandler.removeCallbacksAndMessages(null);
+            heartbeatHandler.removeCallbacksAndMessages(heartbeatRunnable);
+            heartbeatHandler = null;
+        }
+    }
+
     private void sendHeartbeat() {
         byte[] heartbeatPacket = constructHeartbeat();
         Log.d(TAG, "Sending heartbeat: " + bytesToHex(heartbeatPacket));
 
-        new Thread(() -> {
-            try {
-                if (leftGlassGatt != null && leftTxChar != null) {
-                    leftTxChar.setValue(heartbeatPacket);
-                    leftGlassGatt.writeCharacteristic(leftTxChar);
-                }
-                if (rightGlassGatt != null && rightTxChar != null) {
-                    rightTxChar.setValue(heartbeatPacket);
-                    rightGlassGatt.writeCharacteristic(rightTxChar);
-                }
-            } catch (Exception e) {
-                Log.e(TAG, "Error sending heartbeat: " + e.getMessage());
-            }
-        }).start();
+        sendDataSequentially(heartbeatPacket, false);
+
+//        new Thread(() -> {
+//            try {
+//                if (leftGlassGatt != null && leftTxChar != null) {
+//                    leftTxChar.setValue(heartbeatPacket);
+//                    leftGlassGatt.writeCharacteristic(leftTxChar);
+//                }
+//                if (rightGlassGatt != null && rightTxChar != null) {
+//                    rightTxChar.setValue(heartbeatPacket);
+//                    rightGlassGatt.writeCharacteristic(rightTxChar);
+//                }
+//            } catch (Exception e) {
+//                Log.e(TAG, "Error sending heartbeat: " + e.getMessage());
+//            }
+//        }).start();
     }
 
     private static String bytesToHex(byte[] bytes) {
@@ -1186,11 +1302,28 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         for (byte[] chunk : chunks) {
             sendDataSequentially(chunk);
 
-            try {
-                Thread.sleep(25); // 150ms delay between chunks
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                Thread.sleep(DELAY_BETWEEN_CHUNKS_SEND); // delay between chunks
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
         }
     }
+
+    public void homeScreenInNSeconds(int n){
+        if (n == -1){
+            return;
+        }
+
+        //disconnect after slight delay, so our above text gets a chance to show up
+        goHomeHandler.removeCallbacksAndMessages(goHomeRunnable);
+        goHomeHandler.removeCallbacksAndMessages(null);
+        goHomeRunnable = new Runnable() {
+            @Override
+            public void run() {
+                showHomeScreen();
+            }};
+        goHomeHandler.postDelayed(goHomeRunnable, n * 1000);
+    }
+
 }

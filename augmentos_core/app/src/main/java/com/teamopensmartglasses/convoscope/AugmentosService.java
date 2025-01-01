@@ -435,10 +435,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Subscribe
     public void onGlassesConnnected(SmartGlassesConnectedEvent event) {
-        Log.d(TAG, "Got even for onGlassesConnected....");
+        Log.d(TAG, "Got event for onGlassesConnected....");
         sendStatusToAugmentOsManager();
 
-        smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS");
+        Log.d(TAG, "****************** SENDING REFERENCE CARD: CONNECTED TO AUGMENT OS");
+        smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS", 6);
     }
 
     public void handleSignOut(){
@@ -1858,8 +1859,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     public void saveCurrentMode(Context context, String currentModeString) {
-        if (isSmartGlassesServiceBound)
-            smartGlassesService.sendHomeScreen();
+//        if (isSmartGlassesServiceBound)
+//            smartGlassesService.sendHomeScreen();
 
         saveCurrentModeLocal(context, currentModeString);
 

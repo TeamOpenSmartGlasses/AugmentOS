@@ -118,9 +118,6 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             stopSelf();
             Log.d(TAG, "Self stopped, service should end.");
         }
-
-        //blank the screen
-        EventBus.getDefault().post(new HomeScreenEvent());
     }
 
     @Override
