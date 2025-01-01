@@ -68,6 +68,9 @@ const GlassesPairingGuideScreen: React.FC<GlassesPairingGuideScreenProps> = ({
     if (status.puck_connected && status.glasses_info?.model_name) {
       console.log("RETURN HOME FROM PAIR SCREEN: GOT MODEL NAME: " + status.glasses_info?.model_name);
       navigation.navigate('Home');
+    } else if (status.puck_connected && !status.glasses_info?.is_searching && !status.glasses_info?.model_name) {
+      // Stopped searching but haven't found glasses... go back...
+      navigation.goBack();
     }
   }, [status]);
 

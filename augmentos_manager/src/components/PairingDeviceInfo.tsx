@@ -115,11 +115,11 @@ const PairingDeviceInfo: React.FC<PairingDeviceInfoProps> = ({ isDarkTheme, glas
             </View>
           ) : (
             <View style={styles.noGlassesContent}>
-              <Text style={styles.noGlassesText}>No Glasses Connected</Text>
+              {/* <Text style={styles.noGlassesText}>No Glasses Connected</Text>
               <TouchableOpacity style={styles.connectButton}>
                 <Icon name="wifi" size={16} color="white" style={styles.icon} />
                 <Text style={styles.buttonText}>Connect Glasses</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           )}
         </>
