@@ -378,6 +378,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             }
         }, 250);
     }
+
     //switches the currently running transcribe language without changing the default/saved language
     public void startTranslationStream(String toTranslateLanguage){
         String language = speechRecSwitchSystem.currentLanguage;
@@ -397,7 +398,8 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
                 ASR_FRAMEWORKS asrFramework = getChosenAsrFramework(context);
                 speechRecSwitchSystem.startAsrFramework(ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK, language, toTranslateLanguage); //force azure because translation
             }
-        }, 250);
+        }, 2000);
+        Log.d(TAG, "SSTOPPING TRANSCRIBE LANGUAGE IN n seconds");
     }
 
     //service stuff
