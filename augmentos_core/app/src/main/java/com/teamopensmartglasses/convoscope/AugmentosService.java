@@ -299,7 +299,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         // Initialize BLE Peripheral
         blePeripheral = new AugmentosBlePeripheral(this, this);
-        blePeripheral.start();
+        if (!tpaSystem.isAppInstalled(AugmentOSManagerPackageName)) {
+            // TODO: While we use simulated puck, disable the BLE Peripheral for testing
+            // TODO: For now, just disable peripheral if manager is installed on same device
+            blePeripheral.start();
+        }
 
         completeInitialization();
     }
