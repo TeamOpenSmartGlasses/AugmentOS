@@ -703,7 +703,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Context context = this;
 
         // Start the ASR stream after a short delay
-        new Handler().postDelayed(() -> {
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
             SpeechRecSwitchSystem speechRecSwitchSystem = new SpeechRecSwitchSystem(context);
             ASR_FRAMEWORKS chosenFramework = ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK; // Get the ASR framework dynamically
 

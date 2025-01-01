@@ -21,19 +21,16 @@ import com.teamopensmartglasses.augmentoslib.events.ManagerToCoreRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardImageViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardSimpleViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.RegisterCommandRequestEvent;
-import com.teamopensmartglasses.augmentoslib.events.RegisterTpaRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.RowsCardViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStartRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStopRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SendBitmapViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
-import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.StartAsrStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.StopAsrStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
-import com.teamopensmartglasses.augmentoslib.events.TranslateOutputEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -225,31 +222,6 @@ public class AugmentOSLib {
 //            callback.runCommand(args, commandTriggeredTime);
 //        }
         Log.d(TAG, "Callback called");
-    }
-
-    @Subscribe
-    public void onTranscript(SpeechRecOutputEvent event) {
-        String text = event.text;
-        String languageCode = event.languageCode;
-        long time = event.timestamp;
-//        ((TranscriptCallback)subscribedDataStreams.get(subscribedDataStreams.get)).call(text, languageCode, time, event.isFinal);
-        if (subscribedDataStreams.containsKey(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM) && (languageCode.equals("en-US"))) {
-            ((TranscriptCallback)subscribedDataStreams.get(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM)).call(text, languageCode, time, event.isFinal);
-        }
-        if (subscribedDataStreams.containsKey(DataStreamType.TRANSCRIPTION_CHINESE_STREAM) && (languageCode.equals("zh"))) {
-            ((TranscriptCallback)subscribedDataStreams.get(DataStreamType.TRANSCRIPTION_CHINESE_STREAM)).call(text, languageCode, time, event.isFinal);
-        }
-    }
-
-    @Subscribe
-    public void onTranslateTranscript(TranslateOutputEvent event) {
-        String text = event.text;
-        String languageCode = event.languageCode;
-        long time = event.timestamp;
-
-        if (subscribedDataStreams.containsKey(DataStreamType.TRANSLATION_ENGLISH_STREAM) && (languageCode.equals("zh"))) {
-            ((TranslateCallback)subscribedDataStreams.get(DataStreamType.TRANSLATION_ENGLISH_STREAM)).call(text, languageCode, time, event.isFinal, true);
-        }
     }
 
     @Subscribe

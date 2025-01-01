@@ -1,6 +1,5 @@
 package com.teamopensmartglasses.augmentoslib.events;
 
-import com.teamopensmartglasses.augmentoslib.AugmentOSCommand;
 import com.teamopensmartglasses.augmentoslib.DataStreamType;
 
 import java.io.Serializable;
