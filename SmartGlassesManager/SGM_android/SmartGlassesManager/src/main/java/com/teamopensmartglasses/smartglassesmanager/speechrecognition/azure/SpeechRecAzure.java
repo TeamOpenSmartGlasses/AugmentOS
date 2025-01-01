@@ -175,7 +175,7 @@ public class SpeechRecAzure extends SpeechRecFramework {
                 String targetLanguage = translation.getKey();
                 Log.d(TAG, "Translated into " + targetLanguage + ": " + translatedText);
                 EventBus.getDefault().post(new SpeechRecOutputEvent(intermediateResult, currentLanguageCode, offset.longValue(), false, false));
-                EventBus.getDefault().post(new TranslateOutputEvent(translatedText, currentLanguageCode, offset.longValue(), false, true));
+                EventBus.getDefault().post(new TranslateOutputEvent(translatedText, targetLanguageCode, offset.longValue(), false, true));
             }
         });
 
@@ -189,7 +189,7 @@ public class SpeechRecAzure extends SpeechRecFramework {
                 String targetLanguage = translation.getKey();
                 Log.d(TAG, "Translated into " + targetLanguage + ": " + translatedText);
                 EventBus.getDefault().post(new SpeechRecOutputEvent(finalResult, currentLanguageCode, offset.longValue(), true, false));
-                EventBus.getDefault().post(new TranslateOutputEvent(translatedText, currentLanguageCode, offset.longValue(), true, true));
+                EventBus.getDefault().post(new TranslateOutputEvent(translatedText, targetLanguageCode, offset.longValue(), true, true));
             }
         });
 

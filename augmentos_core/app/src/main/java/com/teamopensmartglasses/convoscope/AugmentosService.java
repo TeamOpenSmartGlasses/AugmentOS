@@ -5,11 +5,9 @@ import static com.teamopensmartglasses.convoscope.BatteryOptimizationHelper.hand
 import static com.teamopensmartglasses.convoscope.BatteryOptimizationHelper.isSystemApp;
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.GET_USER_SETTINGS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.adhdStmbAgentKey;
 import static com.teamopensmartglasses.convoscope.Constants.entityDefinitionsKey;
 import static com.teamopensmartglasses.convoscope.Constants.explicitAgentQueriesKey;
@@ -102,14 +100,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 //SpeechRecIntermediateOutputEvent
-import net.sourceforge.pinyin4j.PinyinHelper;
-import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
-import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
-import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
-import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
-import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
-import com.huaban.analysis.jieba.JiebaSegmenter;
-import com.huaban.analysis.jieba.SegToken;
+
 
 public class AugmentosService extends Service implements AugmentOsActionsCallback {
     public final String TAG = "AugmentOS_AugmentOSService";
@@ -169,22 +160,18 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public double previousLng = 0;
 
     //language learning buffer stuff
-    private LinkedList<DefinedWord> definedWords = new LinkedList<>();
+//    private LinkedList<DefinedWord> definedWords = new LinkedList<>();
     private LinkedList<STMBSummary> adhdStmbSummaries = new LinkedList<>();
-    private LinkedList<LLUpgradeResponse> llUpgradeResponses = new LinkedList<>();
-    private LinkedList<LLCombineResponse> llCombineResponses = new LinkedList<>();
+//    private LinkedList<LLUpgradeResponse> llUpgradeResponses = new LinkedList<>();
+//    private LinkedList<LLCombineResponse> llCombineResponses = new LinkedList<>();
     private LinkedList<ContextConvoResponse> contextConvoResponses = new LinkedList<>();
-    private final long llDefinedWordsShowTime = 40 * 1000; // define in milliseconds
     private final long llContextConvoResponsesShowTime = 3 * 60 * 1000; // define in milliseconds
     private final long locationSendTime = 1000 * 10; // define in milliseconds
     private final long adhdSummaryShowTime = 10 * 60 * 1000; // define in milliseconds
-    private final long llUpgradeShowTime = 5 * 60 * 1000; // define in milliseconds
-    private final long llCombineShowTime = 5 * 60 * 1000; // define in milliseconds
-    private final int maxDefinedWordsShow = 4;
-    private final int maxLLCombineShow = 5;
+//    private final long llCombineShowTime = 5 * 60 * 1000; // define in milliseconds
+//    private final int maxLLCombineShow = 5;
     private final int maxAdhdStmbShowNum = 3;
     private final int maxContextConvoResponsesShow = 2;
-    private final int maxLLUpgradeResponsesShow = 2;
     private final int charsPerTranscript = 90;
     private final int charsPerHanziTranscript = 36;
 
@@ -211,8 +198,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private final long doublePressTimeConst = 420;
     private final long doubleTapTimeConst = 600;
     private boolean segmenterLoaded = false;
-    private boolean segmenterLoading = false;
-    private boolean hasUserBeenNotified = false;
+//    private boolean hasUserBeenNotified = false;
 
     public TPASystem tpaSystem;
 
@@ -331,16 +317,15 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     public void completeInitialization(){
         Log.d(TAG, "COMPLETE CONVOSCOPE INITIALIZATION");
-//        setUpUiPolling();
         setUpLocationSending();
 
-        getCurrentMode(this);
-
-        //update settings on backend on launch
-        updateTargetLanguageOnBackend(this);
-        updateSourceLanguageOnBackend(this);
-        updateVocabularyUpgradeOnBackend(this);
-        saveCurrentMode(this, getCurrentMode(this));
+//        getCurrentMode(this);
+//
+//        //update settings on backend on launch
+//        updateTargetLanguageOnBackend(this);
+//        updateSourceLanguageOnBackend(this);
+//        updateVocabularyUpgradeOnBackend(this);
+//        saveCurrentMode(this, getCurrentMode(this));
 
         saveCurrentMode(this, "");
         // startSmartGlassesService();
@@ -803,71 +788,71 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         if(!isSmartGlassesServiceBound) return;
 
-        if (Objects.equals(getCurrentMode(this), "Language Learning")) {
-            //debounce and then send to backend
-            if (!isTranslated && smartGlassesService.getSelectedLiveCaptionsTranslation(this) != 2) debounceAndSendTranscript(text, isFinal);
-    //        getSettings();
-            // Send transcript to user if live captions are enabled
-            if (smartGlassesService.getSelectedLiveCaptionsTranslation(this) != 0) { // 0 is language learning mode
-    //            showTranscriptsToUser(text, isFinal);
-                debounceAndShowTranscriptOnGlasses(text, isFinal, isTranslated);
-            }
-        }
+//        if (Objects.equals(getCurrentMode(this), "Language Learning")) {
+//            //debounce and then send to backend
+//            if (!isTranslated && smartGlassesService.getSelectedLiveCaptionsTranslation(this) != 2) debounceAndSendTranscript(text, isFinal);
+//    //        getSettings();
+//            // Send transcript to user if live captions are enabled
+//            if (smartGlassesService.getSelectedLiveCaptionsTranslation(this) != 0) { // 0 is language learning mode
+//    //            showTranscriptsToUser(text, isFinal);
+//                debounceAndShowTranscriptOnGlasses(text, isFinal, isTranslated);
+//            }
+//        }
     }
 
-    private Handler glassesTranscriptDebounceHandler = new Handler(Looper.getMainLooper());
-    private Runnable glassesTranscriptDebounceRunnable;
-    private long glassesTranscriptLastSentTime = 0;
-    private long glassesTranslatedTranscriptLastSentTime = 0;
-    private final long GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY = 400; // in milliseconds
-
-    private void debounceAndShowTranscriptOnGlasses(String transcript, boolean isFinal, boolean isTranslated) {
-        glassesTranscriptDebounceHandler.removeCallbacks(glassesTranscriptDebounceRunnable);
-        long currentTime = System.currentTimeMillis();
-
-        if (isFinal) {
-            showTranscriptsToUser(transcript, isTranslated, true);
-            return;
-        }
-
-        // if intermediate
-        if (isSmartGlassesServiceBound && smartGlassesService.getSelectedLiveCaptionsTranslation(this) == 2) {
-            if (isTranslated) {
-                if (currentTime - glassesTranslatedTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-                    showTranscriptsToUser(transcript, true, false);
-                    glassesTranslatedTranscriptLastSentTime = currentTime;
-                } else {
-                    glassesTranscriptDebounceRunnable = () -> {
-                        showTranscriptsToUser(transcript, true, false);
-                        glassesTranslatedTranscriptLastSentTime = System.currentTimeMillis();
-                    };
-                    glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
-                }
-            } else {
-                if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-                    showTranscriptsToUser(transcript, false, false);
-                    glassesTranscriptLastSentTime = currentTime;
-                } else {
-                    glassesTranscriptDebounceRunnable = () -> {
-                        showTranscriptsToUser(transcript, false, false);
-                        glassesTranscriptLastSentTime = System.currentTimeMillis();
-                    };
-                    glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
-                }
-            }
-        } else {
-            if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-                showTranscriptsToUser(transcript, false, false);
-                glassesTranscriptLastSentTime = currentTime;
-            } else {
-                glassesTranscriptDebounceRunnable = () -> {
-                    showTranscriptsToUser(transcript, false, false);
-                    glassesTranscriptLastSentTime = System.currentTimeMillis();
-                };
-                glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
-            }
-        }
-    }
+//    private Handler glassesTranscriptDebounceHandler = new Handler(Looper.getMainLooper());
+//    private Runnable glassesTranscriptDebounceRunnable;
+//    private long glassesTranscriptLastSentTime = 0;
+//    private long glassesTranslatedTranscriptLastSentTime = 0;
+//    private final long GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY = 400; // in milliseconds
+//
+//    private void debounceAndShowTranscriptOnGlasses(String transcript, boolean isFinal, boolean isTranslated) {
+//        glassesTranscriptDebounceHandler.removeCallbacks(glassesTranscriptDebounceRunnable);
+//        long currentTime = System.currentTimeMillis();
+//
+//        if (isFinal) {
+//            showTranscriptsToUser(transcript, isTranslated, true);
+//            return;
+//        }
+//
+//        // if intermediate
+//        if (isSmartGlassesServiceBound && smartGlassesService.getSelectedLiveCaptionsTranslation(this) == 2) {
+//            if (isTranslated) {
+//                if (currentTime - glassesTranslatedTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
+//                    showTranscriptsToUser(transcript, true, false);
+//                    glassesTranslatedTranscriptLastSentTime = currentTime;
+//                } else {
+//                    glassesTranscriptDebounceRunnable = () -> {
+//                        showTranscriptsToUser(transcript, true, false);
+//                        glassesTranslatedTranscriptLastSentTime = System.currentTimeMillis();
+//                    };
+//                    glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
+//                }
+//            } else {
+//                if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
+//                    showTranscriptsToUser(transcript, false, false);
+//                    glassesTranscriptLastSentTime = currentTime;
+//                } else {
+//                    glassesTranscriptDebounceRunnable = () -> {
+//                        showTranscriptsToUser(transcript, false, false);
+//                        glassesTranscriptLastSentTime = System.currentTimeMillis();
+//                    };
+//                    glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
+//                }
+//            }
+//        } else {
+//            if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
+//                showTranscriptsToUser(transcript, false, false);
+//                glassesTranscriptLastSentTime = currentTime;
+//            } else {
+//                glassesTranscriptDebounceRunnable = () -> {
+//                    showTranscriptsToUser(transcript, false, false);
+//                    glassesTranscriptLastSentTime = System.currentTimeMillis();
+//                };
+//                glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
+//            }
+//        }
+//    }
 
     private void showTranscriptsToUser(final String transcript, final boolean isTranslated, final boolean isFinal) {
         String processed_transcript = transcript;
@@ -895,102 +880,102 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         else sendTextWallLiveCaptionLL(processed_transcript, "", isFinal);
     }
 
-    private void loadSegmenter() {
-        segmenterLoading = true;
-        final JiebaSegmenter segmenter = new JiebaSegmenter();
-        segmenterLoaded = true;
-        segmenterLoading = false;
-//        displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Pinyin Converter Loaded!"), true, false));
-    }
+//    private void loadSegmenter() {
+//        segmenterLoading = true;
+//        final JiebaSegmenter segmenter = new JiebaSegmenter();
+//        segmenterLoaded = true;
+//        segmenterLoading = false;
+////        displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Pinyin Converter Loaded!"), true, false));
+//    }
 
-    private String convertToPinyin(final String chineseText) {
-        final JiebaSegmenter segmenter = new JiebaSegmenter();
-
-        final List<SegToken> tokens = segmenter.process(chineseText, JiebaSegmenter.SegMode.SEARCH);
-
-        final HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
-        format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
-        format.setToneType(HanyuPinyinToneType.WITH_TONE_MARK);
-        format.setVCharType(HanyuPinyinVCharType.WITH_U_UNICODE);
-
-        StringBuilder pinyinText = new StringBuilder();
-
-        for (SegToken token : tokens) {
-            StringBuilder tokenPinyin = new StringBuilder();
-            for (char character : token.word.toCharArray()) {
-                try {
-                    String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(character, format);
-                    if (pinyinArray != null) {
-                        // Use the first Pinyin representation if there are multiple
-                        tokenPinyin.append(pinyinArray[0]);
-                    } else {
-                        // If character is not a Chinese character, append it as is
-                        tokenPinyin.append(character);
-                    }
-                } catch (BadHanyuPinyinOutputFormatCombination e) {
-                    e.printStackTrace();
-                }
-            }
-            // Ensure the token is concatenated with a space only if it's not empty
-            if (tokenPinyin.length() > 0) {
-                pinyinText.append(tokenPinyin.toString()).append(" ");
-            }
-        }
-
-        // Replace multiple spaces with a single space, but preserve newlines
-        String cleanText = pinyinText.toString().trim().replaceAll("[ \\t]+", " ");  // Replace spaces and tabs only
-
-        return cleanText;
-    }
-
-    private long lastSentTime = 0;
-    private final long DEBOUNCE_DELAY = 333; // in milliseconds
-    private void debounceAndSendTranscript(String transcript, boolean isFinal) {
-        debounceHandler.removeCallbacks(debounceRunnable);
-        long currentTime = System.currentTimeMillis();
-        if (isFinal) {
-            sendTranscriptRequest(transcript, isFinal);
-        } else { //if intermediate
-            if (currentTime - lastSentTime >= DEBOUNCE_DELAY) {
-                sendTranscriptRequest(transcript, isFinal);
-                lastSentTime = currentTime;
-            } else {
-                debounceRunnable = () -> {
-                    sendTranscriptRequest(transcript, isFinal);
-                    lastSentTime = System.currentTimeMillis();
-                };
-                debounceHandler.postDelayed(debounceRunnable, DEBOUNCE_DELAY);
-            }
-        }
-    }
-
-    public void sendTranscriptRequest(String query, boolean isFinal){
-        updateLastDataSentTime();
-        try{
-            JSONObject jsonQuery = new JSONObject();
-            jsonQuery.put("text", query);
-//            jsonQuery.put("transcribe_language", AugmentosSmartGlassesService.getChosenTranscribeLanguage(this));
-            jsonQuery.put("isFinal", isFinal);
-            jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
-            backendServerComms.restRequest(LLM_QUERY_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
-                @Override
-                public void onSuccess(JSONObject result){
-                    try {
-                        parseSendTranscriptResult(result);
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-                @Override
-                public void onFailure(int code){
-                    Log.d(TAG, "SOME FAILURE HAPPENED (sendChatRequest)");
-                }
-
-            });
-        } catch (JSONException e){
-            e.printStackTrace();
-        }
-    }
+//    private String convertToPinyin(final String chineseText) {
+//        final JiebaSegmenter segmenter = new JiebaSegmenter();
+//
+//        final List<SegToken> tokens = segmenter.process(chineseText, JiebaSegmenter.SegMode.SEARCH);
+//
+//        final HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+//        format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
+//        format.setToneType(HanyuPinyinToneType.WITH_TONE_MARK);
+//        format.setVCharType(HanyuPinyinVCharType.WITH_U_UNICODE);
+//
+//        StringBuilder pinyinText = new StringBuilder();
+//
+//        for (SegToken token : tokens) {
+//            StringBuilder tokenPinyin = new StringBuilder();
+//            for (char character : token.word.toCharArray()) {
+//                try {
+//                    String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(character, format);
+//                    if (pinyinArray != null) {
+//                        // Use the first Pinyin representation if there are multiple
+//                        tokenPinyin.append(pinyinArray[0]);
+//                    } else {
+//                        // If character is not a Chinese character, append it as is
+//                        tokenPinyin.append(character);
+//                    }
+//                } catch (BadHanyuPinyinOutputFormatCombination e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            // Ensure the token is concatenated with a space only if it's not empty
+//            if (tokenPinyin.length() > 0) {
+//                pinyinText.append(tokenPinyin.toString()).append(" ");
+//            }
+//        }
+//
+//        // Replace multiple spaces with a single space, but preserve newlines
+//        String cleanText = pinyinText.toString().trim().replaceAll("[ \\t]+", " ");  // Replace spaces and tabs only
+//
+//        return cleanText;
+//    }
+//
+//    private long lastSentTime = 0;
+//    private final long DEBOUNCE_DELAY = 333; // in milliseconds
+//    private void debounceAndSendTranscript(String transcript, boolean isFinal) {
+//        debounceHandler.removeCallbacks(debounceRunnable);
+//        long currentTime = System.currentTimeMillis();
+//        if (isFinal) {
+//            sendTranscriptRequest(transcript, isFinal);
+//        } else { //if intermediate
+//            if (currentTime - lastSentTime >= DEBOUNCE_DELAY) {
+//                sendTranscriptRequest(transcript, isFinal);
+//                lastSentTime = currentTime;
+//            } else {
+//                debounceRunnable = () -> {
+//                    sendTranscriptRequest(transcript, isFinal);
+//                    lastSentTime = System.currentTimeMillis();
+//                };
+//                debounceHandler.postDelayed(debounceRunnable, DEBOUNCE_DELAY);
+//            }
+//        }
+//    }
+//
+//    public void sendTranscriptRequest(String query, boolean isFinal){
+//        updateLastDataSentTime();
+//        try{
+//            JSONObject jsonQuery = new JSONObject();
+//            jsonQuery.put("text", query);
+////            jsonQuery.put("transcribe_language", AugmentosSmartGlassesService.getChosenTranscribeLanguage(this));
+//            jsonQuery.put("isFinal", isFinal);
+//            jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
+//            backendServerComms.restRequest(LLM_QUERY_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
+//                @Override
+//                public void onSuccess(JSONObject result){
+//                    try {
+//                        parseSendTranscriptResult(result);
+//                    } catch (JSONException e) {
+//                        throw new RuntimeException(e);
+//                    }
+//                }
+//                @Override
+//                public void onFailure(int code){
+//                    Log.d(TAG, "SOME FAILURE HAPPENED (sendChatRequest)");
+//                }
+//
+//            });
+//        } catch (JSONException e){
+//            e.printStackTrace();
+//        }
+//    }
 
     public void requestUiPoll(){
         try{
@@ -1421,7 +1406,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
-        if (Objects.equals(getCurrentMode(this), "Language Learning") && AugmentosSmartGlassesService.getSelectedLiveCaptionsTranslation(this) == 2) return;
+//        if (Objects.equals(getCurrentMode(this), "Language Learning") && AugmentosSmartGlassesService.getSelectedLiveCaptionsTranslation(this) == 2) return;
 //        Log.d(TAG, "GOT CSE RESULT: " + response.toString());
         String imgKey = "image_url";
         String mapImgKey = "map_image_path";
@@ -1453,31 +1438,31 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             updateAdhdSummaries(adhdStmbResults);
             String dynamicSummary = adhdStmbResults.getJSONObject(0).getString("summary");
-            String [] adhdResults = calculateAdhdStmbStringFormatted(getAdhdStmbSummaries());
-            smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendRowsCard(adhdResults), false, true, false));
-            sendUiUpdateSingle(dynamicSummary);
-            responsesBuffer.add(dynamicSummary);
+//            String [] adhdResults = calculateAdhdStmbStringFormatted(getAdhdStmbSummaries());
+//            smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendRowsCard(adhdResults), false, true, false));
+//            sendUiUpdateSingle(dynamicSummary);
+//            responsesBuffer.add(dynamicSummary);
         }
 
-        JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
-        JSONArray llWordSuggestUpgradeResults = response.has(llWordSuggestUpgradeKey) ? response.getJSONArray(llWordSuggestUpgradeKey) : new JSONArray();
-        updateCombineResponse(languageLearningResults, llWordSuggestUpgradeResults);
-        if (Objects.equals(getCurrentMode(this), "Language Learning") && (languageLearningResults.length() != 0 || llWordSuggestUpgradeResults.length() != 0)) {
-            String [] llCombineResults = calculateLLCombineResponseFormatted(getLLCombineResponse());
-            String newLineSeparator = isLiveCaptionsChecked ? "\n" : "\n\n";
-            if (smartGlassesService.getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
-                String textWallString = Arrays.stream(llCombineResults)
-                        .reduce((a, b) -> b + newLineSeparator + a)
-                        .orElse("");
-                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString, false);
-                else {
-                    smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendTextWall(textWallString), true, true, true));
-                }
-            }
-//            Log.d(TAG, "ll combine results"+ llCombineResults.toString());
-            sendUiUpdateSingle(String.join("\n", llCombineResults));
-            responsesBuffer.add(String.join("\n", llCombineResults));
-        }
+//        JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
+//        JSONArray llWordSuggestUpgradeResults = response.has(llWordSuggestUpgradeKey) ? response.getJSONArray(llWordSuggestUpgradeKey) : new JSONArray();
+//        updateCombineResponse(languageLearningResults, llWordSuggestUpgradeResults);
+//        if (Objects.equals(getCurrentMode(this), "Language Learning") && (languageLearningResults.length() != 0 || llWordSuggestUpgradeResults.length() != 0)) {
+//            String [] llCombineResults = calculateLLCombineResponseFormatted(getLLCombineResponse());
+//            String newLineSeparator = isLiveCaptionsChecked ? "\n" : "\n\n";
+//            if (smartGlassesService.getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+//                String textWallString = Arrays.stream(llCombineResults)
+//                        .reduce((a, b) -> b + newLineSeparator + a)
+//                        .orElse("");
+//                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString, false);
+//                else {
+//                    smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendTextWall(textWallString), true, true, true));
+//                }
+//            }
+////            Log.d(TAG, "ll combine results"+ llCombineResults.toString());
+//            sendUiUpdateSingle(String.join("\n", llCombineResults));
+//            responsesBuffer.add(String.join("\n", llCombineResults));
+//        }
 
         JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
 
@@ -1775,16 +1760,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 .apply();
     }
 
-//    public Boolean isVocabularyUpgradeEnabled(Context context) {
-//        return PreferenceManager.getDefaultSharedPreferences(context)
-//                .getBoolean(context.getResources().getString(R.string.SHARED_PREF_VOCABULARY_UPGRADE), false);
-//    }
-
-    public static Boolean isVocabularyUpgradeEnabled(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-                .getBoolean(context.getResources().getString(R.string.SHARED_PREF_VOCABULARY_UPGRADE), true);
-    }
-
     public static void setVocabularyUpgradeEnabled(Context context, boolean isEnabled) {
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
@@ -1797,15 +1772,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 .edit()
                 .putString(context.getResources().getString(R.string.SHARED_PREF_SOURCE_LANGUAGE), sourceLanguageString)
                 .apply();
-    }
-
-    public static String getChosenTargetLanguage(Context context) {
-        String targetLanguageString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_TARGET_LANGUAGE), "");
-        if (targetLanguageString.equals("")){
-            saveChosenTargetLanguage(context, "Russian");
-            targetLanguageString = "Russian";
-        }
-        return targetLanguageString;
     }
 
     public static String getChosenSourceLanguage(Context context) {
@@ -1851,121 +1817,59 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
     }
 
-    public String getCurrentMode(Context context) {
-        String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
-        // if (currentModeString.equals("")){
-        //     currentModeString = "Proactive Agents";
-        //     saveCurrentMode(context, currentModeString);
-        // }
-//        return currentModeString;
-        return "Hard Coded Mode"; // TODO: hard coded mode
-    }
+//    public String getCurrentMode(Context context) {
+//        String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
+//        // if (currentModeString.equals("")){
+//        //     currentModeString = "Proactive Agents";
+//        //     saveCurrentMode(context, currentModeString);
+//        // }
+////        return currentModeString;
+//        return "Hard Coded Mode"; // TODO: hard coded mode
+//    }
 
-    public void updateVocabularyUpgradeOnBackend(Context context){
-        Boolean upgradeEnabled = isVocabularyUpgradeEnabled(context);
-        try{
-            JSONObject settingsObj = new JSONObject();
-            settingsObj.put("vocabulary_upgrade_enabled", upgradeEnabled);
-            sendSettings(settingsObj);
-        } catch (JSONException e){
-            e.printStackTrace();
-        }
-    }
-    public void updateTargetLanguageOnBackend(Context context){
-        String targetLanguage = getChosenTargetLanguage(context);
-        try{
-            JSONObject settingsObj = new JSONObject();
-            settingsObj.put("target_language", targetLanguage);
-            sendSettings(settingsObj);
-        } catch (JSONException e){
-            e.printStackTrace();
-        }
-    }
-
-
-    public void updateSourceLanguageOnBackend(Context context){
-        String sourceLanguage = getChosenSourceLanguage(context);
-        try{
-            JSONObject settingsObj = new JSONObject();
-            settingsObj.put("source_language", sourceLanguage);
-            sendSettings(settingsObj);
-        } catch (JSONException e){
-            e.printStackTrace();
-        }
-    }
-
-
-    //language learning
-    public void updateDefinedWords(JSONArray newData) {
-        long currentTime = System.currentTimeMillis();
-
-        // Add new data to the list
-        for (int i = 0; i < newData.length(); i++) {
-            try {
-                JSONObject wordData = newData.getJSONObject(i);
-                definedWords.addFirst(new DefinedWord(
-                        wordData.getString("in_word"),
-                        wordData.getString("in_word_translation"),
-                        wordData.getLong("timestamp"),
-                        wordData.getString("uuid")
-                ));
-            } catch (JSONException e){
-                e.printStackTrace();
-            }
-        }
-
-        // Remove old words based on time constraint
-        definedWords.removeIf(word -> (currentTime - (word.timestamp * 1000)) > llDefinedWordsShowTime);
-
-        // Ensure list does not exceed max size
-        while (definedWords.size() > maxDefinedWordsShow) {
-            definedWords.removeLast();
-        }
-    }
-
-    public void updateCombineResponse(JSONArray llData, JSONArray ugData) {
-        long currentTime = System.currentTimeMillis();
-        // Add new data to the list
-        for (int i = 0; i < llData.length(); i++) {
-            try {
-                JSONObject wordData = llData.getJSONObject(i);
-                llCombineResponses.addFirst(new LLCombineResponse(
-                        null,
-                        null,
-                        wordData.getString("in_word"),
-                        wordData.getString("in_word_translation"),
-                        wordData.getLong("timestamp"),
-                        wordData.getString("uuid")
-                ));
-            } catch (JSONException e){
-                e.printStackTrace();
-            }
-        }
-
-        for (int i = 0; i < ugData.length(); i++) {
-            try {
-                JSONObject resData = ugData.getJSONObject(i);
-                llCombineResponses.addFirst(new LLCombineResponse(
-                        resData.getString("in_upgrade"),
-                        resData.getString("in_upgrade_meaning"),
-                        null,
-                        null,
-                        resData.getLong("timestamp"),
-                        resData.getString("uuid")
-                ));
-            } catch (JSONException e){
-                e.printStackTrace();
-            }
-        }
-
-        // Remove old words based on time constraint
-        llCombineResponses.removeIf(word -> (currentTime - (word.timestamp * 1000)) > llCombineShowTime);
-
-        // Ensure list does not exceed max size
-        while (llCombineResponses.size() > maxLLCombineShow) {
-            llCombineResponses.removeLast();
-        }
-    }
+//    public void updateCombineResponse(JSONArray llData, JSONArray ugData) {
+//        long currentTime = System.currentTimeMillis();
+//        // Add new data to the list
+//        for (int i = 0; i < llData.length(); i++) {
+//            try {
+//                JSONObject wordData = llData.getJSONObject(i);
+//                llCombineResponses.addFirst(new LLCombineResponse(
+//                        null,
+//                        null,
+//                        wordData.getString("in_word"),
+//                        wordData.getString("in_word_translation"),
+//                        wordData.getLong("timestamp"),
+//                        wordData.getString("uuid")
+//                ));
+//            } catch (JSONException e){
+//                e.printStackTrace();
+//            }
+//        }
+//
+//        for (int i = 0; i < ugData.length(); i++) {
+//            try {
+//                JSONObject resData = ugData.getJSONObject(i);
+//                llCombineResponses.addFirst(new LLCombineResponse(
+//                        resData.getString("in_upgrade"),
+//                        resData.getString("in_upgrade_meaning"),
+//                        null,
+//                        null,
+//                        resData.getLong("timestamp"),
+//                        resData.getString("uuid")
+//                ));
+//            } catch (JSONException e){
+//                e.printStackTrace();
+//            }
+//        }
+//
+//        // Remove old words based on time constraint
+//        llCombineResponses.removeIf(word -> (currentTime - (word.timestamp * 1000)) > llCombineShowTime);
+//
+//        // Ensure list does not exceed max size
+//        while (llCombineResponses.size() > maxLLCombineShow) {
+//            llCombineResponses.removeLast();
+//        }
+//    }
 
     public void updateAdhdSummaries(JSONArray newData) {
         long currentTime = System.currentTimeMillis();
@@ -2027,21 +1931,21 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     // Getter for the list, if needed
-    public LinkedList<DefinedWord> getDefinedWords() {
-        return definedWords;
-    }
-
-    public LinkedList<STMBSummary> getAdhdStmbSummaries() {
-        return adhdStmbSummaries;
-    }
-
-    public LinkedList<LLUpgradeResponse> getLLUpgradeResponse() {
-        return llUpgradeResponses;
-    }
-
-    public LinkedList<LLCombineResponse> getLLCombineResponse() {
-        return llCombineResponses;
-    }
+//    public LinkedList<DefinedWord> getDefinedWords() {
+//        return definedWords;
+//    }
+//
+//    public LinkedList<STMBSummary> getAdhdStmbSummaries() {
+//        return adhdStmbSummaries;
+//    }
+//
+//    public LinkedList<LLUpgradeResponse> getLLUpgradeResponse() {
+//        return llUpgradeResponses;
+//    }
+//
+//    public LinkedList<LLCombineResponse> getLLCombineResponse() {
+//        return llCombineResponses;
+//    }
 
     // A simple representation of your word data
     private static class DefinedWord {
@@ -2117,30 +2021,30 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
     }
 
-    public void updateLLUpgradeResponse(JSONArray newData) {
-        long currentTime = System.currentTimeMillis();
-        // Add new data to the list
-        for (int i = 0; i < newData.length(); i++) {
-            try {
-                JSONObject resData = newData.getJSONObject(i);
-                llUpgradeResponses.addFirst(new LLUpgradeResponse(
-                        resData.getString("in_upgrade"),
-                        resData.getString("in_upgrade_meaning"),
-                        resData.getLong("timestamp"),
-                        resData.getString("uuid")
-                ));
-            } catch (JSONException e){
-                e.printStackTrace();
-            }
-        }
-
-        llUpgradeResponses.removeIf(llupgradeResponse -> (currentTime - (llupgradeResponse.timestamp * 1000)) > llUpgradeShowTime);
-
-        // Ensure list does not exceed max size
-        while (llUpgradeResponses.size() > maxLLUpgradeResponsesShow) {
-            llUpgradeResponses.removeLast();
-        }
-    }
+//    public void updateLLUpgradeResponse(JSONArray newData) {
+//        long currentTime = System.currentTimeMillis();
+//        // Add new data to the list
+//        for (int i = 0; i < newData.length(); i++) {
+//            try {
+//                JSONObject resData = newData.getJSONObject(i);
+//                llUpgradeResponses.addFirst(new LLUpgradeResponse(
+//                        resData.getString("in_upgrade"),
+//                        resData.getString("in_upgrade_meaning"),
+//                        resData.getLong("timestamp"),
+//                        resData.getString("uuid")
+//                ));
+//            } catch (JSONException e){
+//                e.printStackTrace();
+//            }
+//        }
+//
+//        llUpgradeResponses.removeIf(llupgradeResponse -> (currentTime - (llupgradeResponse.timestamp * 1000)) > llUpgradeShowTime);
+//
+//        // Ensure list does not exceed max size
+//        while (llUpgradeResponses.size() > maxLLUpgradeResponsesShow) {
+//            llUpgradeResponses.removeLast();
+//        }
+//    }
 
 
 
