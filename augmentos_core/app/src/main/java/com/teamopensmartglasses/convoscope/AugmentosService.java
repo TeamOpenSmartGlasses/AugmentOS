@@ -277,6 +277,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         startStream(englishKey, record);
 
+//        speechRecSwitchSystem.startAsrFramework(chosenFramework, "English");
         //startNotificationService();
 
         // load pinyin converter in the background
@@ -562,6 +563,24 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             isSmartGlassesServiceBound = false;
         }
 
+
+        for (StreamRecord record : streamRecords.values()) {
+            if (record.asrStreamInfo != null) {
+                SpeechRecSwitchSystem speechRecSwitchSystem = record.asrStreamInfo.getSpeechRecSwitchSystem();
+                if (speechRecSwitchSystem != null) {
+                    speechRecSwitchSystem.destroy();
+                }
+            }
+
+            record.packages.clear();
+            record.asrStreamInfo = null;
+        }
+
+        streamRecords.clear();
+
+
+
+
 //        for (AsrStreamKey key : streamToPackages.keySet()) {
 //            stopStream(key);
 //        }
@@ -605,7 +624,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Subscribe
-    public synchronized void onSubscribeStartAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
+    public void onSubscribeStartAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
         Log.d(TAG, "Got a request to start ASR stream");
         Log.d(TAG, "onStartAsrStreamRequest: " + event.asrStreamType
                 + " transcribe=" + event.transcribeLanguage
@@ -625,17 +644,25 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             streamRecords.put(key, record);
         }
 
-        // 2. If no packages were subscribed, physically start
-        boolean wasEmpty = record.packages.isEmpty();
-        record.packages.add(event.packageName);
+        if(isEnglishKey(key)){
+            Log.d(TAG, "Not starting stream for English key: " + key);
+            return;
+        }
 
-        if (wasEmpty) {
-            startStream(key, record);
+        // 2. If no packages were subscribed, physically start
+        synchronized (record) {
+            boolean wasEmpty = record.packages.isEmpty();
+            record.packages.add(event.packageName);
+
+            // Only start the stream if it was previously empty (i.e., no packages).
+            if (wasEmpty) {
+                startStream(key, record);
+            }
         }
     }
 
     @Subscribe
-    public synchronized void onSubscribeStopAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
+    public void onSubscribeStopAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
         Log.d(TAG, "onStopAsrStreamRequest: " + event.asrStreamType
                 + " transcribe=" + event.transcribeLanguage
                 + " translate=" + event.translateLanguage
@@ -648,7 +675,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         );
 
         StreamRecord record = streamRecords.get(key);
-        if (record == null) {
+        if (record.asrStreamInfo == null) {
             Log.d(TAG, "No record found for " + key + ". Possibly never started or already stopped.");
             return;
         }
@@ -656,10 +683,15 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         // 1. Remove the package from the record
         record.packages.remove(event.packageName);
 
+        if (isEnglishKey(key)) {
+            Log.d(TAG, "Not stopping stream for English key: " + key);
+            return;
+        }
+
         // 2. If packages are empty, physically stop
         if (record.packages.isEmpty()) {
-            streamRecords.remove(key);
             stopStream(key, record);
+            streamRecords.remove(key);
         }
     }
 
@@ -668,11 +700,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         if (key == null) {
             Log.e(TAG, "startStream: AsrStreamKey is null. Aborting...");
-            return;
-        }
-
-        if (smartGlassesService == null) {
-            Log.e(TAG, "startStream: SmartGlassesService is null. Aborting...");
             return;
         }
 
@@ -715,10 +742,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d(TAG, "stopStream -> " + key);
 
         // For example, skip stopping if it's "English"
-        if (isEnglishKey(key)) {
-            Log.d(TAG, "Not stopping stream for English key: " + key);
-            return;
-        }
+//        if (isEnglishKey(key)) {
+//            Log.d(TAG, "Not stopping stream for English key: " + key);
+//            return;
+//        }
 
         AsrStreamInfo streamInfo = record.asrStreamInfo;
         if (streamInfo == null) {

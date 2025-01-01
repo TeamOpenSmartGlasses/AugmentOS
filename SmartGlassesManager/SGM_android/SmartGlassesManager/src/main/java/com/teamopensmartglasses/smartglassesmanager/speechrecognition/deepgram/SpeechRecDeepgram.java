@@ -117,7 +117,7 @@ public class SpeechRecDeepgram extends SpeechRecFramework {
             boolean fromFinalize = obj.getBoolean("from_finalize");
 
             if (!transcript.equals("") && !transcript.equals(" ") && transcript != null) {
-                EventBus.getDefault().post(new SpeechRecOutputEvent(transcript, "en", (long) start, isFinal));
+                EventBus.getDefault().post(new SpeechRecOutputEvent(transcript, "en", (long) start, isFinal, false, false));
             }
         } catch (JSONException e) {
             e.printStackTrace();
