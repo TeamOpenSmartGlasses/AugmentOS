@@ -406,7 +406,8 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         String language;
 
         if (speechRecSwitchSystem == null) {
-            language = getChosenTranscribeLanguage(this.getApplicationContext());
+//            language = getChosenTranscribeLanguage(this.getApplicationContext());
+            language = "English";
         } else {
             language = speechRecSwitchSystem.currentLanguage;
             speechRecSwitchSystem.destroy();
@@ -568,6 +569,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             if (smartGlassesRepresentative != null && smartGlassesRepresentative.getConnectionState() == 2) { // Check if connected
                 Toast.makeText(getApplicationContext(), "Connected to " + smartGlassesRepresentative.smartGlassesDevice.deviceModelName, Toast.LENGTH_LONG).show();
                 Log.d(TAG, "Connected to: " + smartGlassesRepresentative.smartGlassesDevice.deviceModelName);
+//                sendReferenceCard("Connected", "Connected to AugmentOS");
 
                 // Stop all retries and connected checker
                 aioRetryHandler.removeCallbacks(aioRetryConnectionTask);
@@ -622,6 +624,11 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     //show a reference card on the smart glasses with title and body text
     public static void sendReferenceCard(String title, String body) {
         EventBus.getDefault().post(new ReferenceCardSimpleViewRequestEvent(title, body));
+    }
+
+    //show a reference card on the smart glasses with title and body text
+    public static void sendReferenceCard(String title, String body, int lingerTimeMs) {
+        EventBus.getDefault().post(new ReferenceCardSimpleViewRequestEvent(title, body, lingerTimeMs));
     }
 
     //show a text wall card on the smart glasses
