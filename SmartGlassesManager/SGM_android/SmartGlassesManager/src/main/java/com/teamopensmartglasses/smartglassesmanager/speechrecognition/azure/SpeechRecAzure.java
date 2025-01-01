@@ -249,7 +249,7 @@ public class SpeechRecAzure extends SpeechRecFramework {
     }
 
     //below is long list of languages
-    private String initLanguageLocale(String localeString) {
+    public static String initLanguageLocale(String localeString) {
         switch (localeString) {
             case "Afrikaans (South Africa)":
                 return "af-ZA";
