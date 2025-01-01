@@ -767,9 +767,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             }
         } else if (event.dataStreamType == DataStreamType.KILL_TRANSLATION_STREAM) {
             Log.d(TAG, "REQUESTED KILL TRANSLATION STREAM");
-            if (smartGlassesService != null) {
-                smartGlassesService.killTranslationStream();
-            }
+//            if (smartGlassesService != null) {
+//                smartGlassesService.killTranslationStream();
+//            }
         }
         else {
             Log.d(TAG, "UNKNOWN DATA STREAM TYPE REQUESTED");

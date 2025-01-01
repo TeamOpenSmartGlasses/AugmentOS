@@ -233,7 +233,6 @@ class SmartGlassesRepresentative {
     @Subscribe
     public void onDoubleTextWallViewEvent(DoubleTextWallViewRequestEvent receivedEvent){
         if (smartGlassesCommunicator != null) {
-            Log.d(TAG, "DOUBLE TEXT WALL BOOM");
             smartGlassesCommunicator.displayDoubleTextWall(receivedEvent.textTop, receivedEvent.textBottom);
         }
     }

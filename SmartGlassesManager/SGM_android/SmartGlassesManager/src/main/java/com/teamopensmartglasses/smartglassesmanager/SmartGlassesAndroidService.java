@@ -153,7 +153,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         connectHandler.post(new Runnable() {
             @Override
             public void run() {
-                 Log.d(TAG, "CONNECTING TO SMART GLASSES");
+                Log.d(TAG, "CONNECTING TO SMART GLASSES");
                 smartGlassesRepresentative = new SmartGlassesRepresentative(currContext, device, currContext, dataObservable);
                 smartGlassesRepresentative.connectToSmartGlasses();
             }
@@ -376,14 +376,12 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
     //switches the currently running transcribe language without changing the default/saved language
     public void switchRunningTranscribeLanguage(String language){
-        if (speechRecSwitchSystem != null) {
-            if (speechRecSwitchSystem.currentLanguage.equals(language)) {
-                return;
-            }
-            speechRecSwitchSystem.destroy();
+        if (speechRecSwitchSystem.currentLanguage.equals(language)){
+            return;
         }
 
         //kill previous speech rec
+        speechRecSwitchSystem.destroy();
         speechRecSwitchSystem = null;
 
         //start speech rec after small delay
@@ -401,22 +399,25 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             }
         }, 250);
     }
+
     //switches the currently running transcribe language without changing the default/saved language
     public void startTranslationStream(String toTranslateLanguage){
-        String language;
-
-        if (speechRecSwitchSystem == null) {
-//            language = getChosenTranscribeLanguage(this.getApplicationContext());
-            language = "English";
-        } else {
-            language = speechRecSwitchSystem.currentLanguage;
-            speechRecSwitchSystem.destroy();
-        }
-
-        Log.d(TAG, "TRANSLATION STREAM STARTED" + language);
+//        String language;
+//
+//        if (speechRecSwitchSystem == null) {
+////            language = getChosenTranscribeLanguage(this.getApplicationContext());
+//            language = "English";
+//        } else {
+//            language = speechRecSwitchSystem.currentLanguage;
+//            speechRecSwitchSystem.destroy();
+//        }
+//
+//        Log.d(TAG, "TRANSLATION STREAM STARTED" + language);
+        String language = speechRecSwitchSystem.currentLanguage;
         translationLanguage = toTranslateLanguage;
 
         //kill previous speech rec
+        speechRecSwitchSystem.destroy();
         speechRecSwitchSystem = null;
 
         //start speech rec after small delay
@@ -429,14 +430,8 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
                 ASR_FRAMEWORKS asrFramework = getChosenAsrFramework(context);
                 speechRecSwitchSystem.startAsrFramework(ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK, language, toTranslateLanguage); //force azure because translation
             }
-        }, 250);
-    }
-
-    public void killTranslationStream(){
-        translationLanguage = null;
-        speechRecSwitchSystem.destroy();
-        speechRecSwitchSystem = null;
-        switchRunningTranscribeLanguage(getChosenTranscribeLanguage(this.getApplicationContext()));
+        }, 2000);
+        Log.d(TAG, "SSTOPPING TRANSCRIBE LANGUAGE IN n seconds");
     }
 
     //service stuff

@@ -360,8 +360,6 @@ public class TPASystem {
     //respond and approve events below
     @Subscribe
     public void onTPARequestEvent(TPARequestEvent receivedEvent) {
-        Log.d(TAG, "onTPARequestEvent");
-
         //map from id to event for all events that don't need permissions
         switch (receivedEvent.eventId) {
             case RegisterCommandRequestEvent.eventId:
