@@ -117,6 +117,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         return new BluetoothGattCallback() {
             @Override
             public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
+                Log.d(TAG, "ConnectionStateChanged");
                 if (newState == BluetoothProfile.STATE_CONNECTED) {
                     Log.d(TAG, side + " glass connected, discovering services...");
                     gatt.discoverServices();
@@ -294,9 +295,16 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     }
 
                     // Restart scan for the next device
-                    if (!(isLeftBonded && !isRightBonded) || !doPendingPairingIdsMatch()) {
+                    if (!isLeftBonded || !isRightBonded) {
+                        // if (!(isLeftBonded && !isRightBonded)){// || !doPendingPairingIdsMatch()) {
                         Log.d(TAG, "Restarting scan to find remaining device...");
                         startScan(BluetoothAdapter.getDefaultAdapter());
+                    } else if (isLeftBonded && isRightBonded && !doPendingPairingIdsMatch()) {
+                        // We've connected to two different G1s...
+                        // Let's unpair the right, try to pair to a different one
+                        isRightBonded = false;
+                        pendingSavedG1RightName = null;
+                        Log.d(TAG, "Connected to two different G1s - retry right G1 arm");
                     } else {
                         Log.d(TAG, "Both devices bonded. Proceeding with connections...");
                         savedG1LeftName = pendingSavedG1LeftName;
@@ -362,9 +370,13 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     private void connectToGatt(BluetoothDevice device) {
         if (device.getName().contains("_L_") && leftGlassGatt == null) {
+            Log.d(TAG, "Connect GATT to left side");
             leftGlassGatt = device.connectGatt(context, false, leftGattCallback);
         } else if (device.getName().contains("_R_") && rightGlassGatt == null) {
+            Log.d(TAG, "Connect GATT to right side");
             rightGlassGatt = device.connectGatt(context, false, rightGattCallback);
+        } else {
+            Log.d(TAG, "Tried to connect to incorrect device: " + device.getName());
         }
     }
 
@@ -636,14 +648,17 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     @Override
     public void destroy() {
+        Log.d(TAG, "EvenRealitiesG1SGC ONDESTROY");
         setMicEnabled(false, 0); // Disable the MIC
         if (leftGlassGatt != null) {
             leftGlassGatt.disconnect();
             leftGlassGatt.close();
+            leftGlassGatt = null;
         }
         if (rightGlassGatt != null) {
             rightGlassGatt.disconnect();
             rightGlassGatt.close();
+            rightGlassGatt = null;
         }
 
         // Stop periodic notifications
@@ -653,8 +668,19 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             context.unregisterReceiver(bondingReceiver);
         }
 
-        //stop sending heartbeat
-        stopHeartbeat();
+        if (handler != null)
+            handler.removeCallbacksAndMessages(null);
+        if (heartbeatHandler != null)
+            heartbeatHandler.removeCallbacks(heartbeatRunnable);
+        if (whiteListHandler != null)
+            whiteListHandler.removeCallbacksAndMessages(null);
+        if (micEnableHandler != null)
+            micEnableHandler.removeCallbacksAndMessages(null);
+        if (notificationHandler != null)
+            notificationHandler.removeCallbacks(notificationRunnable);
+        if (textWallHandler != null)
+            textWallHandler.removeCallbacks(textWallRunnable);
+        stopScan(BluetoothAdapter.getDefaultAdapter());
     }
 
 
@@ -768,12 +794,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 }
             }
         }, delay);
-    }
-
-    private void stopHeartbeat() {
-        if (heartbeatHandler != null) {
-            heartbeatHandler.removeCallbacks(heartbeatRunnable);
-        }
     }
 
     private void sendHeartbeat() {
