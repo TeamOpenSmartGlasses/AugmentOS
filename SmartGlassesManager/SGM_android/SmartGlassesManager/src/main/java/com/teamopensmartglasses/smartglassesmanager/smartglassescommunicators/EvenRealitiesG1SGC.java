@@ -81,7 +81,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private boolean stopper = false;
     private boolean debugStopper = false;
 
-    private static final long DELAY_BETWEEN_SENDS_MS = 70;
+    private static final long DELAY_BETWEEN_SENDS_MS = 20;
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 50;
     private static final long HEARTBEAT_INTERVAL_MS = 5000;
 
