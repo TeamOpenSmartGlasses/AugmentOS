@@ -452,10 +452,7 @@ public class TPASystem {
                 EventBus.getDefault().post((StartAsrStreamRequestEvent) enrichedStartAsrEvent);
                 break;
             case StopAsrStreamRequestEvent.eventId:
-                StopAsrStreamRequestEvent oldStopAsrEvent = (StopAsrStreamRequestEvent) receivedEvent.serializedEvent;
-
-                StopAsrStreamRequestEvent enrichedStopAsrEvent = oldStopAsrEvent.withPackageName(receivedEvent.sendingPackage);
-                EventBus.getDefault().post((StopAsrStreamRequestEvent) enrichedStopAsrEvent);
+                EventBus.getDefault().post((StopAsrStreamRequestEvent) receivedEvent.serializedEvent);
                 break;
         }
     }

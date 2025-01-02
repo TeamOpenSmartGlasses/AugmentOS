@@ -55,6 +55,7 @@ import com.teamopensmartglasses.augmentoslib.AsrStreamType;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
 import com.teamopensmartglasses.augmentoslib.events.StartAsrStreamRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.StopAsrStreamRequestEvent;
 import com.teamopensmartglasses.convoscope.comms.AugmentOsActionsCallback;
 import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
 import com.teamopensmartglasses.convoscope.events.AugmentosSmartGlassesDisconnectedEvent;
@@ -206,8 +207,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     public AugmentosSmartGlassesService smartGlassesService;
     private boolean isSmartGlassesServiceBound = false;
-
-    private final Map<AsrStreamKey, StreamRecord> streamRecords = new HashMap<>();
+    private SpeechRecSwitchSystem currentSpeechRecSwitchSystem;
 
     private static class StreamRecord {
         final Set<String> packages = new HashSet<>();
@@ -270,12 +270,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         wifiStatusHelper = new WifiStatusHelper(this);
         gsmStatusHelper = new GsmStatusHelper(this);
 
-        AsrStreamKey englishKey = new AsrStreamKey(AsrStreamType.TRANSCRIPTION, "English", null);
-
-        StreamRecord record = new StreamRecord();
-        streamRecords.put(englishKey, record);
-
-        startStream(englishKey, record);
+//        startStream(AsrStreamType.TRANSCRIPTION, "English", null);
 
 //        speechRecSwitchSystem.startAsrFramework(chosenFramework, "English");
         //startNotificationService();
@@ -290,6 +285,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 //        ) {
 //            new Thread(this::loadSegmenter).start();
 //        }
+
+        startStream(AsrStreamType.TRANSCRIPTION, "English", null);
 
         // Init TPA broadcast receivers
         tpaSystem = new TPASystem(this);
@@ -563,23 +560,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             isSmartGlassesServiceBound = false;
         }
 
-
-        for (StreamRecord record : streamRecords.values()) {
-            if (record.asrStreamInfo != null) {
-                SpeechRecSwitchSystem speechRecSwitchSystem = record.asrStreamInfo.getSpeechRecSwitchSystem();
-                if (speechRecSwitchSystem != null) {
-                    speechRecSwitchSystem.destroy();
-                }
-            }
-
-            record.packages.clear();
-            record.asrStreamInfo = null;
-        }
-
-        streamRecords.clear();
-
-
-
+        stopStream();
 
 //        for (AsrStreamKey key : streamToPackages.keySet()) {
 //            stopStream(key);
@@ -631,143 +612,76 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 + " translate=" + event.translateLanguage
                 + " pkg=" + event.packageName);
 
-        AsrStreamKey key = new AsrStreamKey(
-                event.asrStreamType,
-                event.transcribeLanguage,
-                event.translateLanguage
-        );
-
-        // 1. Fetch existing or create a new record
-        StreamRecord record = streamRecords.get(key);
-        if (record == null) {
-            record = new StreamRecord();
-            streamRecords.put(key, record);
-        }
-
-        if(isEnglishKey(key)){
-            Log.d(TAG, "Not starting stream for English key: " + key);
-            return;
-        }
-
-        // 2. If no packages were subscribed, physically start
-        synchronized (record) {
-            boolean wasEmpty = record.packages.isEmpty();
-            record.packages.add(event.packageName);
-
-            // Only start the stream if it was previously empty (i.e., no packages).
-            if (wasEmpty) {
-                startStream(key, record);
-            }
-        }
+        // Simply start the stream (if we don't already have one active)
+        startStream(event.asrStreamType, event.transcribeLanguage, event.translateLanguage);
     }
 
     @Subscribe
-    public void onSubscribeStopAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
-        Log.d(TAG, "onStopAsrStreamRequest: " + event.asrStreamType
-                + " transcribe=" + event.transcribeLanguage
-                + " translate=" + event.translateLanguage
-                + " pkg=" + event.packageName);
-
-        AsrStreamKey key = new AsrStreamKey(
-                event.asrStreamType,
-                event.transcribeLanguage,
-                event.translateLanguage
-        );
-
-        StreamRecord record = streamRecords.get(key);
-        if (record.asrStreamInfo == null) {
-            Log.d(TAG, "No record found for " + key + ". Possibly never started or already stopped.");
-            return;
-        }
-
-        // 1. Remove the package from the record
-        record.packages.remove(event.packageName);
-
-        if (isEnglishKey(key)) {
-            Log.d(TAG, "Not stopping stream for English key: " + key);
-            return;
-        }
-
-        // 2. If packages are empty, physically stop
-        if (record.packages.isEmpty()) {
-            stopStream(key, record);
-            streamRecords.remove(key);
-        }
+    public void onSubscribeStopAsrStreamRequestEvent(StopAsrStreamRequestEvent event) {
+        stopStream();
     }
 
-    private void startStream(AsrStreamKey key, StreamRecord record) {
-        Log.d(TAG, "startStream -> " + key);
+    private void startStream(AsrStreamType asrStreamType, String transcribeLanguage, String translateLanguage) {
+        Log.d(TAG, "startStream -> asrStreamType=" + asrStreamType
+                + ", transcribeLanguage=" + transcribeLanguage
+                + ", translateLanguage=" + translateLanguage);
 
-        if (key == null) {
-            Log.e(TAG, "startStream: AsrStreamKey is null. Aborting...");
+        if (currentSpeechRecSwitchSystem != null && Objects.equals(currentSpeechRecSwitchSystem.currentLanguage, transcribeLanguage) && Objects.equals(currentSpeechRecSwitchSystem.translateLanguage, translateLanguage)) {
+            Log.d(TAG, "Stream already started with the same language. Aborting...");
             return;
+        } else if (currentSpeechRecSwitchSystem != null) {
+            stopStream();
         }
 
-        // Start the ASR stream after a short delay (non-blocking)
+        // Start the ASR stream after a short delay
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            SpeechRecSwitchSystem speechRecSwitchSystem = new SpeechRecSwitchSystem(this);
-            // We assume we select an ASR framework dynamically; for now, pick Azure:
+            currentSpeechRecSwitchSystem = new SpeechRecSwitchSystem(this);
             ASR_FRAMEWORKS chosenFramework = ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK;
 
-            if (key.asrStreamType == AsrStreamType.TRANSCRIPTION) {
-                if (key.transcribeLanguage != null) {
-                    Log.d(TAG, "Starting transcription for language: " + key.transcribeLanguage);
-                    speechRecSwitchSystem.startAsrFramework(chosenFramework, key.transcribeLanguage);
-                } else {
-                    Log.e(TAG, "Transcription language is null. Aborting...");
+            switch (asrStreamType) {
+                case TRANSCRIPTION:
+                    if (transcribeLanguage != null) {
+                        Log.d(TAG, "Starting transcription for language: " + transcribeLanguage);
+                        currentSpeechRecSwitchSystem.startAsrFramework(chosenFramework, transcribeLanguage);
+                    } else {
+                        Log.e(TAG, "Transcription language is null. Aborting...");
+                        // Could nullify currentSpeechRecSwitchSystem again if desired
+                        return;
+                    }
+                    break;
+
+                case TRANSLATION:
+                    if (transcribeLanguage != null && translateLanguage != null) {
+                        Log.d(TAG, "Starting translation from: " + transcribeLanguage
+                                + " to: " + translateLanguage);
+                        currentSpeechRecSwitchSystem.startAsrFramework(chosenFramework, transcribeLanguage, translateLanguage);
+                    } else {
+                        Log.e(TAG, "Translation languages are null. Aborting...");
+                        return;
+                    }
+                    break;
+
+                default:
+                    Log.e(TAG, "Unknown AsrStreamType: " + asrStreamType);
                     return;
-                }
-            } else if (key.asrStreamType == AsrStreamType.TRANSLATION) {
-                if (key.transcribeLanguage != null && key.translateLanguage != null) {
-                    Log.d(TAG, "Starting translation from: " + key.transcribeLanguage +
-                            " to: " + key.translateLanguage);
-                    speechRecSwitchSystem.startAsrFramework(chosenFramework,
-                            key.transcribeLanguage, key.translateLanguage);
-                } else {
-                    Log.e(TAG, "Translation languages are null. Aborting...");
-                    return;
-                }
-            } else {
-                Log.e(TAG, "Unknown AsrStreamType: " + key.asrStreamType);
-                return;
             }
 
-            // Update the record with the new AsrStreamInfo
-            record.asrStreamInfo = new AsrStreamInfo(speechRecSwitchSystem);
-            Log.d(TAG, "Stream started and saved for key: " + key);
-        }, 250);
+            Log.d(TAG, "Stream started.");
+        }, 300);
     }
 
-    private void stopStream(AsrStreamKey key, StreamRecord record) {
-        Log.d(TAG, "stopStream -> " + key);
+    private void stopStream() {
+        Log.d(TAG, "stopStream");
 
-        // For example, skip stopping if it's "English"
-//        if (isEnglishKey(key)) {
-//            Log.d(TAG, "Not stopping stream for English key: " + key);
-//            return;
-//        }
-
-        AsrStreamInfo streamInfo = record.asrStreamInfo;
-        if (streamInfo == null) {
-            Log.d(TAG, "No active stream found for key: " + key);
+        if (currentSpeechRecSwitchSystem == null) {
+            Log.d(TAG, "No active stream to stop.");
             return;
         }
 
-        // Destroy the SpeechRecSwitchSystem
-        SpeechRecSwitchSystem system = streamInfo.getSpeechRecSwitchSystem();
-        if (system != null) {
-            system.destroy();
-        }
-
-        // Clear the record’s system reference
-        record.asrStreamInfo = null;
-        Log.d(TAG, "Stream stopped and removed for key: " + key);
-    }
-
-    private boolean isEnglishKey(AsrStreamKey key) {
-        return key.asrStreamType == AsrStreamType.TRANSCRIPTION
-                && "English".equalsIgnoreCase(key.transcribeLanguage)
-                && key.translateLanguage == null;
+        // Destroy the active system
+        currentSpeechRecSwitchSystem.destroy();
+        currentSpeechRecSwitchSystem = null;
+        Log.d(TAG, "Stream stopped.");
     }
 
     private Handler debounceHandler = new Handler(Looper.getMainLooper());
