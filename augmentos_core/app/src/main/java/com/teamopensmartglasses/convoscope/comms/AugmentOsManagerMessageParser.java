@@ -27,21 +27,25 @@ public class AugmentOsManagerMessageParser {
                     callback.requestStatus();
                     break;
 
+                case "search_for_compatible_device_names":
+                    String modelNameToFind = commandObject.getJSONObject("params").getString("model_name");
+                    callback.searchForCompatibleDeviceNames(modelNameToFind);
+                break;
+
                 case "connect_wearable":
-                    // String wearableId = commandObject.getJSONObject("params").getString("target");
-                    String wearableId = "notImplemented";
-                    callback.connectToWearable(wearableId);
+                    String modelName = commandObject.getJSONObject("params").getString("model_name");
+                    String deviceName = commandObject.getJSONObject("params").getString("device_name");
+                    callback.connectToWearable(modelName, deviceName);
+                    break;
+
+                case "forget_smart_glasses":
+                    callback.forgetSmartGlasses();
                     break;
 
                 case "disconnect_wearable":
                     // String disconnectId = commandObject.getJSONObject("params").getString("target");
                     String disconnectId = "notImplemented";
                     callback.disconnectWearable(disconnectId);
-                    break;
-
-                case "enable_virtual_wearable":
-                    boolean enabled = commandObject.getJSONObject("params").getBoolean("enabled");
-                    callback.enableVirtualWearable(enabled);
                     break;
 
                 case "start_app":

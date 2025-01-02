@@ -7,6 +7,8 @@ import android.os.Looper;
 import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartGlassesConnectionEvent;
 
+import java.util.List;
+
 import org.greenrobot.eventbus.EventBus;
 
 public abstract class SmartGlassesCommunicator {
@@ -14,13 +16,14 @@ public abstract class SmartGlassesCommunicator {
     public int mConnectState = 0;
     protected SmartGlassesModes currentMode;
     public abstract void connectToSmartGlasses();
+    public abstract void findCompatibleDeviceNames();
     public abstract void blankScreen();
     public abstract void destroy();
     public final String commandNaturalLanguageString = "Command: ";
     public final String finishNaturalLanguageString = "'finish command' when done";
 
     //reference card
-    public abstract void displayReferenceCardSimple(String title, String body);
+    public abstract void displayReferenceCardSimple(String title, String body, int lingerTimeMs);
 
     //display text wall
     public abstract void displayTextWall(String text);
@@ -104,9 +107,9 @@ public abstract class SmartGlassesCommunicator {
             // Perform the actual connection logic
             mConnectState = connectState;
             EventBus.getDefault().post(new SmartGlassesConnectionEvent(mConnectState));
-            if (isConnected()) {
-                showHomeScreen();
-            }
+//            if (isConnected()) {
+//                showHomeScreen();
+//            }
 
             // Reset the pending flag after execution
             isPending = false;

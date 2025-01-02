@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {StatusProvider} from './AugmentOSStatusProvider';
+import React, { useState } from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StatusProvider } from './AugmentOSStatusProvider';
 import Homepage from './screens/Homepage';
 import SettingsPage from './screens/SettingsPage';
 // import IntroScreen from './screens/IntroScreen';
@@ -14,10 +14,13 @@ import NotificationListener from './components/NotificationListener';
 import AppStore from './screens/AppStore';
 import AppDetails from './screens/AppDetails';
 import Reviews from './screens/ReviewSection.tsx';
-import {StyleSheet} from 'react-native';
-import {RootStackParamList} from './components/types'; // Update path as needed
+import { StyleSheet } from 'react-native';
+import { RootStackParamList } from './components/types'; // Update path as needed
 import MessageBanner from './components/MessageBanner.tsx';
 import SimulatedPuckSettings from './screens/SimulatedPuckSettings.tsx';
+import SelectGlassesModelScreen from './screens/SelectGlassesModelScreen.tsx';
+import GlassesPairingGuideScreen from './screens/GlassesPairingGuideScreen.tsx';
+import SelectGlassesBluetoothScreen from './screens/SelectGlassesBluetoothScreen.tsx';
 
 // Assign the RootStackParamList to the navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -41,7 +44,7 @@ const App: React.FC = () => {
                 component={IntroScreen}
                 options={{ headerShown: false }}
               /> */}
-              <Stack.Screen name="Home" options={{headerShown: false}}>
+              <Stack.Screen name="Home" options={{ headerShown: false }}>
                 {() => (
                   <Homepage
                     isDarkTheme={isDarkTheme}
@@ -52,14 +55,14 @@ const App: React.FC = () => {
               <Stack.Screen
                 name="Register"
                 component={RegisterScreen}
-                options={{headerShown: false}}
+                options={{ headerShown: false }}
               />
               <Stack.Screen
                 name="Login"
                 component={LoginScreen}
-                options={{headerShown: false}}
+                options={{ headerShown: false }}
               />
-              <Stack.Screen name="SettingsPage" options={{headerShown: false}}>
+              <Stack.Screen name="SettingsPage" options={{ headerShown: false }}>
                 {props => (
                   <SettingsPage
                     {...props}
@@ -70,12 +73,12 @@ const App: React.FC = () => {
               </Stack.Screen>
               <Stack.Screen
                 name="AppStore"
-                options={{title: 'App Store', headerShown: false}}>
+                options={{ title: 'App Store', headerShown: false }}>
                 {props => <AppStore {...props} isDarkTheme={isDarkTheme} />}
               </Stack.Screen>
               <Stack.Screen
                 name="Reviews"
-                options={({route}) => ({
+                options={({ route }) => ({
                   headerShown: false,
 
                   title: route.params.appName
@@ -91,7 +94,7 @@ const App: React.FC = () => {
 
               <Stack.Screen
                 name="AppDetails"
-                options={({route}) => ({
+                options={({ route }) => ({
                   headerShown: false,
                   title: route.params.app.name || 'App Details',
                   headerStyle: {
@@ -104,7 +107,7 @@ const App: React.FC = () => {
                 })}>
                 {props => <AppDetails toggleTheme={function (): void {
                   throw new Error('Function not implemented.');
-                } } {...props} isDarkTheme={isDarkTheme} />}
+                }} {...props} isDarkTheme={isDarkTheme} />}
               </Stack.Screen>
               <Stack.Screen
                 name="ProfileSettings"
@@ -141,6 +144,40 @@ const App: React.FC = () => {
                   />
                 )}
               </Stack.Screen>
+              <Stack.Screen name="SelectGlassesModelScreen"
+                options={{ title: 'Select Glasses' }}
+              >
+                {props => (
+                  <SelectGlassesModelScreen
+                    {...props}
+                    toggleTheme={toggleTheme}
+                    isDarkTheme={isDarkTheme}
+                  />
+                )}
+              </Stack.Screen>
+              <Stack.Screen name="GlassesPairingGuideScreen"
+                options={{ title: 'Pairing Guide' }}
+              >
+                {props => (
+                  <GlassesPairingGuideScreen
+                    {...props}
+                    toggleTheme={toggleTheme}
+                    isDarkTheme={isDarkTheme}
+                  />
+                )}
+              </Stack.Screen>
+              <Stack.Screen name="SelectGlassesBluetoothScreen"
+                options={{ title: 'Finding Glasses' }}
+              >
+                {props => (
+                  <SelectGlassesBluetoothScreen
+                    {...props}
+                    toggleTheme={toggleTheme}
+                    isDarkTheme={isDarkTheme}
+                  />
+                )}
+              </Stack.Screen>
+
             </Stack.Navigator>
           </NavigationContainer>
         </StatusProvider>

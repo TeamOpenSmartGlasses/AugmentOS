@@ -14,6 +14,9 @@ export type RootStackParamList = {
   GlassesMirror: undefined;
   Reviews: { appId: string; appName: string }; // Add appName here
   SimulatedPuckSettings: undefined;
+  SelectGlassesModelScreen: undefined;
+  SelectGlassesBluetoothScreen: { glassesModelName: string };
+  GlassesPairingGuideScreen: { glassesModelName: string };
 };
 
 

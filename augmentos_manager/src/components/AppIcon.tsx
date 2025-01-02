@@ -1,5 +1,6 @@
+// AppIcon.tsx
 import React, { useMemo } from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import { AppInfo } from '../AugmentOSStatusParser';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -31,14 +32,14 @@ const AppIcon: React.FC<AppIconProps> = ({
                 case 'com.mentra.livetranslation':
                     return require('../assets/app-icons/translation.png');
                 case 'com.example.placeholder':
-                    return require('../assets/app-icons/screen-mirror.png');
-                case 'com.example.screenmirror':
+                case 'com.mentra.screenmirror':
                     return require('../assets/app-icons/screen-mirror.png');
                 case 'com.mentra.livecaptions':
                     return require('../assets/app-icons/captions.png');
-                case 'com.example.miraai':
+                case 'com.mentra.miraai':
                     return require('../assets/app-icons/mira-ai.png');
                 case 'com.google.android.apps.maps':
+                case 'com.mentra.navigation':
                     return require('../assets/app-icons/navigation.png');
                 default:
                     return require('../assets/app-icons/navigation.png');
@@ -48,17 +49,25 @@ const AppIcon: React.FC<AppIconProps> = ({
     );
 
     return (
-        <View style={[styles.appWrapper]} onTouchEnd={onClick}>
-            <LinearGradient colors={isForegroundApp ? ['#ADE7FF', '#FFB2F9', '#FFE396'] : ['transparent', 'transparent']}
+        <TouchableOpacity
+            onPress={onClick}
+            activeOpacity={0.7}
+            style={[styles.appWrapper, style]}
+            accessibilityLabel={`Launch ${app.name}`}
+            accessibilityRole="button"
+        >
+            <LinearGradient
+                colors={isForegroundApp ? ['#ADE7FF', '#FFB2F9', '#FFE396'] : ['transparent', 'transparent']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
                 style={styles.linearGradient}
             >
-                <View style={[
-                    styles.appIconWrapper,
-                    isDarkTheme ? styles.appIconWrapperDark : styles.appIconWrapperLight,
-                    style,
-                ]}>
+                <View
+                    style={[
+                        styles.appIconWrapper,
+                        isDarkTheme ? styles.appIconWrapperDark : styles.appIconWrapperLight,
+                    ]}
+                >
                     <ImageBackground
                         source={getAppImage(app.package_name)}
                         style={styles.appIcon}
@@ -73,13 +82,16 @@ const AppIcon: React.FC<AppIconProps> = ({
                 </View>
             )}
 
-            <Text style={[
-                styles.appName,
-                isDarkTheme ? styles.appNameDark : styles.appNameLight,
-            ]} numberOfLines={2}>
+            <Text
+                style={[
+                    styles.appName,
+                    isDarkTheme ? styles.appNameDark : styles.appNameLight,
+                ]}
+                numberOfLines={2}
+            >
                 {app.name}
             </Text>
-        </View>
+        </TouchableOpacity>
     );
 };
 
@@ -90,8 +102,9 @@ const styles = StyleSheet.create({
     },
     appWrapper: {
         alignItems: 'center',
-        height: '100%',
-        width: '100%',
+        width: 70, 
+        height: 100, 
+        borderColor: '#E5E5EA',
     },
     appIconWrapper: {
         width: 65,
@@ -113,10 +126,6 @@ const styles = StyleSheet.create({
         height: '100%',
         resizeMode: 'cover',
     },
-    mainAppIcon: {
-        width: '100%',
-        height: '100%',
-    },
     appIconRounded: {
         borderRadius: 15,
     },
@@ -125,7 +134,7 @@ const styles = StyleSheet.create({
         fontSize: 11,
         fontWeight: '600',
         fontFamily: 'Montserrat-Bold',
-        lineHeight: 16,
+        lineHeight: 12,
         textAlign: 'center',
     },
     appNameLight: {
@@ -148,4 +157,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default AppIcon;
+export default React.memo(AppIcon);

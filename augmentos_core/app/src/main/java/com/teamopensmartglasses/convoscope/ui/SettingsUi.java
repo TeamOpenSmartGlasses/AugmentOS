@@ -77,7 +77,7 @@ public class SettingsUi extends Fragment {
             connectSmartGlassesButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     ((MainActivity)getActivity()).mService.disconnectWearable("");
-                    ((MainActivity)getActivity()).mService.connectToWearable("");
+                    ((MainActivity)getActivity()).mService.connectToWearable("","");
                 }
         });
 
@@ -90,12 +90,12 @@ public class SettingsUi extends Fragment {
                 if (isChecked){
                     SmartGlassesAndroidService.savePreferredWearable(getContext(), new AudioWearable().deviceModelName);
                     ((MainActivity)getActivity()).mService.disconnectWearable("");
-                    ((MainActivity)getActivity()).mService.connectToWearable("");
+                    ((MainActivity)getActivity()).mService.connectToWearable("","");
                 }
                 else {
                     SmartGlassesAndroidService.savePreferredWearable(getContext(), "");
                     ((MainActivity)getActivity()).mService.disconnectWearable("");
-                    ((MainActivity)getActivity()).mService.connectToWearable("");
+                    ((MainActivity)getActivity()).mService.connectToWearable("","");
                 }
             }
         });
