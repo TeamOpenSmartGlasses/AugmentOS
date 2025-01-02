@@ -42,6 +42,8 @@ import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEv
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TranslateOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.StartAsrStreamRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.StopAsrStreamRequestEvent;
 import com.teamopensmartglasses.convoscope.tpa.eventbusmessages.TPARequestEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -415,7 +417,16 @@ public class TPASystem {
                 break;
             case DisplayCustomContentRequestEvent.eventId:
                 EventBus.getDefault().post((DisplayCustomContentRequestEvent) receivedEvent.serializedEvent);
+                break;
+            case StartAsrStreamRequestEvent.eventId:
+                StartAsrStreamRequestEvent oldStartAsrEvent = (StartAsrStreamRequestEvent) receivedEvent.serializedEvent;
 
+                StartAsrStreamRequestEvent enrichedStartAsrEvent = oldStartAsrEvent.withPackageName(receivedEvent.sendingPackage);
+                EventBus.getDefault().post((StartAsrStreamRequestEvent) enrichedStartAsrEvent);
+                break;
+            case StopAsrStreamRequestEvent.eventId:
+                EventBus.getDefault().post((StopAsrStreamRequestEvent) receivedEvent.serializedEvent);
+                break;
         }
     }
 

@@ -42,9 +42,9 @@ import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.TextToSpeec
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
-import com.teamopensmartglasses.smartglassesmanager.supportedglasses.EvenRealitiesG1;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.InmoAirOne;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.MentraMach1;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.EvenRealitiesG1;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.TCLRayNeoXTwo;
@@ -108,20 +108,6 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
         //setup connection handler
         connectHandler = new Handler();
-
-        //start speech rec
-        speechRecSwitchSystem = new SpeechRecSwitchSystem(this.getApplicationContext());
-        ASR_FRAMEWORKS asrFramework = getChosenAsrFramework(this.getApplicationContext());
-        String transcribeLanguage = getChosenTranscribeLanguage(this.getApplicationContext());
-        String targetLanguage = getChosenTargetLanguage(this.getApplicationContext());
-        String sourceLanguage = getChosenSourceLanguage(this.getApplicationContext());
-        int selectedLiveCaptionsTranslation = getSelectedLiveCaptionsTranslation(this.getApplicationContext());
-        if (selectedLiveCaptionsTranslation != 2) speechRecSwitchSystem.startAsrFramework(asrFramework, transcribeLanguage);
-        else {
-            if (transcribeLanguage.equals(sourceLanguage)) speechRecSwitchSystem.startAsrFramework(asrFramework, transcribeLanguage, targetLanguage); // If transcribe language and source language are the same translate to the target language
-            else speechRecSwitchSystem.startAsrFramework(asrFramework, transcribeLanguage, sourceLanguage);
-        }
-//        speechRecSwitchSystem.startAsrFramework(asrFramework, "Chinese (Hanzi)", "English");
 
         //setup data observable which passes information (transcripts, commands, etc. around our app using mutlicasting
         dataObservable = PublishSubject.create();
@@ -310,63 +296,6 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
                 .putString(context.getResources().getString(R.string.PREFERRED_WEARABLE), wearableName)
-                .apply();
-    }
-
-    public static void saveChosenTranscribeLanguage(Context context, String transcribeLanguageString) {
-        PreferenceManager.getDefaultSharedPreferences(context)
-                .edit()
-                .putString(context.getResources().getString(R.string.SHARED_PREF_TRANSCRIBE_LANGUAGE), transcribeLanguageString)
-                .apply();
-    }
-
-    public static String getChosenTranscribeLanguage(Context context) {
-        String transcribeLanguageString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_TRANSCRIBE_LANGUAGE), "");
-        if (transcribeLanguageString.equals("")){
-            saveChosenTranscribeLanguage(context, "English");
-            transcribeLanguageString = "English";
-//            saveChosenTranscribeLanguage(context, "Chinese");
-//            transcribeLanguageString = "Chinese";
-        }
-        return transcribeLanguageString;
-    }
-
-    public static void saveChosenTargetLanguage(Context context, String targetLanguageString) {
-        PreferenceManager.getDefaultSharedPreferences(context)
-                .edit()
-                .putString(context.getResources().getString(R.string.SHARED_PREF_TARGET_LANGUAGE), targetLanguageString)
-                .apply();
-    }
-
-    public static String getChosenTargetLanguage(Context context) {
-        String targetLanguageString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_TARGET_LANGUAGE), "");
-        if (targetLanguageString.equals("")){
-            saveChosenTargetLanguage(context, "English");
-            targetLanguageString = "English";
-        }
-        return targetLanguageString;
-    }
-
-    public static void saveChosenSourceLanguage(Context context, String sourceLanguageString) {
-        PreferenceManager.getDefaultSharedPreferences(context)
-                .edit()
-                .putString(context.getResources().getString(R.string.SHARED_PREF_SOURCE_LANGUAGE), sourceLanguageString)
-                .apply();
-    }
-
-    public static String getChosenSourceLanguage(Context context) {
-        String sourceLanguageString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_SOURCE_LANGUAGE), "");
-        if (sourceLanguageString.equals("")){
-            saveChosenSourceLanguage(context, "English");
-            sourceLanguageString = "English";
-        }
-        return sourceLanguageString;
-    }
-
-    public static void saveSelectedLiveCaptionsTranslationChecked(Context context, int liveCaptionsTranslationSelected) {
-        PreferenceManager.getDefaultSharedPreferences(context)
-                .edit()
-                .putInt(context.getResources().getString(R.string.SHARED_PREF_LIVE_CAPTIONS_TRANSLATION), liveCaptionsTranslationSelected)
                 .apply();
     }
 

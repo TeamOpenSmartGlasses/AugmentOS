@@ -20,6 +20,7 @@ public class SpeechRecSwitchSystem {
     private SpeechRecGoogle speechRecGoogle;
     private Context mContext;
     public String currentLanguage;
+    public String translateLanguage;
 
     public SpeechRecSwitchSystem(Context mContext) {
         this.mContext = mContext;
@@ -66,14 +67,9 @@ public class SpeechRecSwitchSystem {
             speechRecFramework.destroy();
         }
 
-//        if (!(this.asrFramework == ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK)) {
-//            Log.e(TAG, "startAsrFramework: This function is only for Azure ASR");
-//            return;
-//        }
-
-
         //set language
         this.currentLanguage = transcribeLanguage;
+        this.translateLanguage = sourceLanguage;
 
         //set new asr
         this.asrFramework = asrFramework;

@@ -126,7 +126,7 @@ public class SpeechRecAzure extends SpeechRecFramework {
             String intermediateResult = e.getResult().getText();
             BigInteger offset = e.getResult().getOffset();
             if (intermediateResult != null && !intermediateResult.trim().isEmpty()) {
-                EventBus.getDefault().post(new SpeechRecOutputEvent(intermediateResult, currentLanguageCode, offset.longValue(), false));
+                EventBus.getDefault().post(new SpeechRecOutputEvent(intermediateResult, currentLanguageCode, offset.longValue(), false, false, false));
             }
         });
 
@@ -135,7 +135,7 @@ public class SpeechRecAzure extends SpeechRecFramework {
             BigInteger offset = e.getResult().getOffset();
             Log.d(TAG, "GOT transcript: " + finalResult);
             if (finalResult != null && !finalResult.trim().isEmpty()) {
-                EventBus.getDefault().post(new SpeechRecOutputEvent(finalResult, currentLanguageCode, offset.longValue(), true));
+                EventBus.getDefault().post(new SpeechRecOutputEvent(finalResult, currentLanguageCode, offset.longValue(), true, false, false));
             }
         });
 
@@ -174,8 +174,8 @@ public class SpeechRecAzure extends SpeechRecFramework {
                 String translatedText = translation.getValue();
                 String targetLanguage = translation.getKey();
                 Log.d(TAG, "Translated into " + targetLanguage + ": " + translatedText);
-                EventBus.getDefault().post(new SpeechRecOutputEvent(intermediateResult, currentLanguageCode, offset.longValue(), false, false));
-                EventBus.getDefault().post(new TranslateOutputEvent(translatedText, currentLanguageCode, offset.longValue(), false, true));
+//                EventBus.getDefault().post(new SpeechRecOutputEvent(intermediateResult, currentLanguageCode, offset.longValue(), false, false, true));
+                EventBus.getDefault().post(new TranslateOutputEvent(translatedText, targetLanguageCode, offset.longValue(), false, true));
             }
         });
 
@@ -188,8 +188,8 @@ public class SpeechRecAzure extends SpeechRecFramework {
                 String translatedText = translation.getValue();
                 String targetLanguage = translation.getKey();
                 Log.d(TAG, "Translated into " + targetLanguage + ": " + translatedText);
-                EventBus.getDefault().post(new SpeechRecOutputEvent(finalResult, currentLanguageCode, offset.longValue(), true, false));
-                EventBus.getDefault().post(new TranslateOutputEvent(translatedText, currentLanguageCode, offset.longValue(), true, true));
+//                EventBus.getDefault().post(new SpeechRecOutputEvent(finalResult, currentLanguageCode, offset.longValue(), true, false, true));
+                EventBus.getDefault().post(new TranslateOutputEvent(translatedText, targetLanguageCode, offset.longValue(), true, true));
             }
         });
 
@@ -249,7 +249,7 @@ public class SpeechRecAzure extends SpeechRecFramework {
     }
 
     //below is long list of languages
-    private String initLanguageLocale(String localeString) {
+    public static String initLanguageLocale(String localeString) {
         switch (localeString) {
             case "Afrikaans (South Africa)":
                 return "af-ZA";
