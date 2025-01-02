@@ -43,6 +43,8 @@ const GlassesPairingGuideScreen: React.FC<GlassesPairingGuideScreenProps> = ({
         if (actionType === 'GO_BACK' || actionType === 'POP') {
           bluetoothService.sendForgetSmartGlasses();
           bluetoothService.sendDisconnectWearable();
+          e.preventDefault();
+          navigation.navigate('SelectGlassesModelScreen');
         } else {
           console.log('Navigation triggered by', actionType, 'so skipping disconnect logic.');
         }
@@ -53,8 +55,7 @@ const GlassesPairingGuideScreen: React.FC<GlassesPairingGuideScreenProps> = ({
     
 
   React.useEffect(() => {
-    console.log('Pairing guide started for: ', glassesModelName);
-    bluetoothService.sendConnectWearable(glassesModelName);
+
   }, [glassesModelName]);
 
   React.useEffect(() => {
@@ -70,7 +71,9 @@ const GlassesPairingGuideScreen: React.FC<GlassesPairingGuideScreenProps> = ({
       navigation.navigate('Home');
     } else if (status.puck_connected && !status.glasses_info?.is_searching && !status.glasses_info?.model_name) {
       // Stopped searching but haven't found glasses... go back...
-      navigation.goBack();
+      
+      // TODO: REENABLE? WHY DOES THIS GET TRIGGERED?
+      // navigation.navigate('Home');
     }
   }, [status]);
 

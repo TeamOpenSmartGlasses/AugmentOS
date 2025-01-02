@@ -21,7 +21,10 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.google.gson.Gson;
 import com.teamopensmartglasses.smartglassesmanager.cpp.L3cCpp;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.FoundGlassesBluetoothDeviceEvent;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 
+import org.greenrobot.eventbus.EventBus;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,6 +51,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final UUID UART_TX_CHAR_UUID = UUID.fromString("6E400002-B5A3-F393-E0A9-E50E24DCCA9E");
     private static final UUID UART_RX_CHAR_UUID = UUID.fromString("6E400003-B5A3-F393-E0A9-E50E24DCCA9E");
     private static final UUID CLIENT_CHARACTERISTIC_CONFIG_UUID = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
+    private static final String SAVED_G1_ID_KEY = "SAVED_G1_ID_KEY";
 
     private Context context;
     private BluetoothGatt leftGlassGatt;
@@ -104,6 +108,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private String pendingSavedG1RightName = null;
     private String savedG1LeftName = null;
     private String savedG1RightName = null;
+    private String preferredG1DeviceId = null;
 
     //handler to turn off screen
     Handler goHomeHandler;
@@ -111,13 +116,16 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     //remember when we connected
     private long lastConnectionTimestamp = 0;
+    private SmartGlassesDevice smartGlassesDevice;
 
-    public EvenRealitiesG1SGC(Context context) {
+    public EvenRealitiesG1SGC(Context context, SmartGlassesDevice smartGlassesDevice) {
         super();
         this.context = context;
         mConnectState = 0;
         loadPairedDeviceNames();
         goHomeHandler = new Handler();
+        this.smartGlassesDevice = smartGlassesDevice;
+        preferredG1DeviceId = getPreferredG1DeviceId(context);
     }
 
     private final BluetoothGattCallback leftGattCallback = createGattCallback("Left");
@@ -367,6 +375,18 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         return null; // Return null if no match is found
     }
 
+    public static void savePreferredG1DeviceId(Context context, String deviceName){
+            context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
+                    .edit()
+                    .putString(SAVED_G1_ID_KEY, deviceName)
+                    .apply();
+    }
+
+    public static String getPreferredG1DeviceId(Context context){
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE);
+        return prefs.getString(SAVED_G1_ID_KEY, null);
+    }
+
     private void savePairedDeviceNames() {
         if (savedG1LeftName != null && savedG1RightName != null) {
             context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
@@ -386,6 +406,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     }
 
     public static void deleteEvenSharedPreferences(Context context) {
+        savePreferredG1DeviceId(context, null);
         SharedPreferences prefs = context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE);
         prefs.edit().clear().apply();
         Log.d(TAG, "Nuked EvenRealities SharedPreferences");
@@ -412,9 +433,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             return;
         }
 
-        //DEBUG check if ALEX's smart glasses
-       if (name == null || !name.contains("91")) {
-            Log.d(TAG, "NOT CAYDEN'S GLASSES");
+        Log.d(TAG, "PREFERRED ID: " + preferredG1DeviceId);
+       if (name == null || preferredG1DeviceId == null || !name.contains(preferredG1DeviceId)) {
+            Log.d(TAG, "NOT PAIRED GLASSES");
             return;
         }
 
@@ -875,6 +896,39 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         };
         heartbeatHandler.postDelayed(heartbeatRunnable, delay);
     }
+
+    @Override
+    public void findCompatibleDeviceNames() {
+        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        List<String> foundDeviceNames = new ArrayList<>();
+
+        BluetoothAdapter.LeScanCallback tempLeScanCallback = (device, rssi, scanRecord) -> {
+            String name = device.getName();
+            if (name != null && name.contains("Even G1_") && name.contains("_L_")) {
+                synchronized (foundDeviceNames) {
+                    if (!foundDeviceNames.contains(name)) {
+                        foundDeviceNames.add(name);
+                        Log.d(TAG, "Found smart glasses: " + name);
+                        String adjustedName = parsePairingIdFromDeviceName(name);
+                        EventBus.getDefault().post(new FoundGlassesBluetoothDeviceEvent(smartGlassesDevice.deviceModelName, adjustedName));
+                    }
+                }
+            }
+        };
+
+        // Start scanning
+        bluetoothAdapter.startLeScan(tempLeScanCallback);
+        Log.d(TAG, "Started scanning for smart glasses...");
+
+        // Stop scanning after a delay (e.g., 10 seconds)
+        Handler tempHandler = new Handler(Looper.getMainLooper());
+        tempHandler.postDelayed(() -> {
+            bluetoothAdapter.stopLeScan(tempLeScanCallback);
+            Log.d(TAG, "Stopped scanning for smart glasses.");
+        }, 10000); // Adjust the timeout as needed (10 seconds here)
+    }
+
+
 
     private void sendWhiteListCommand(int delay) {
         if (whiteListedAlready){

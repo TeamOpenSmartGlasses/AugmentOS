@@ -27,9 +27,15 @@ public class AugmentOsManagerMessageParser {
                     callback.requestStatus();
                     break;
 
+                case "search_for_compatible_device_names":
+                    String modelNameToFind = commandObject.getJSONObject("params").getString("model_name");
+                    callback.searchForCompatibleDeviceNames(modelNameToFind);
+                break;
+
                 case "connect_wearable":
                     String modelName = commandObject.getJSONObject("params").getString("model_name");
-                    callback.connectToWearable(modelName);
+                    String deviceName = commandObject.getJSONObject("params").getString("device_name");
+                    callback.connectToWearable(modelName, deviceName);
                     break;
 
                 case "forget_smart_glasses":

@@ -5,7 +5,8 @@ import org.json.JSONObject;
 public interface AugmentOsActionsCallback {
     void requestPing();
     void requestStatus();
-    void connectToWearable(String modelName);
+    void searchForCompatibleDeviceNames(String modelName);
+    void connectToWearable(String modelName, String deviceName);
     void disconnectWearable(String wearableId);
     void forgetSmartGlasses();
     void startApp(String packageName);

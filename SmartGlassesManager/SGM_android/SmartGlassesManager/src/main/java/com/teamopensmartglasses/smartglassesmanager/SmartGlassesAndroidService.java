@@ -59,6 +59,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import io.reactivex.rxjava3.subjects.PublishSubject;
 
@@ -160,25 +161,31 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         });
     }
 
-    public boolean tryConnectToPreferredWearable() {
-        String preferredWearableName = getPreferredWearable(getApplicationContext());
-
-        if (preferredWearableName == null || preferredWearableName.trim().isEmpty()) {
-            Log.d(TAG, "No preferred wearable stored. Cannot connect.");
-            return false;
-        }
-
-        SmartGlassesDevice matchingDevice = getSmartGlassesDeviceFromModelName(preferredWearableName);
-
-        if (matchingDevice != null) {
-            Log.d(TAG, "Trying to connect to preferred wearable: " + preferredWearableName);
-            connectToSmartGlasses(matchingDevice);
-            return true;
-        } else {
-            Log.d(TAG, "Preferred wearable \"" + preferredWearableName + "\" not recognized in our known devices list.");
-            return false;
-        }
+    public void findCompatibleDeviceNames(SmartGlassesDevice device) {
+        LifecycleService currContext = this;
+        smartGlassesRepresentative = new SmartGlassesRepresentative(currContext, device, currContext, dataObservable);
+        smartGlassesRepresentative.findCompatibleDeviceNames();
     }
+
+//    public boolean tryConnectToPreferredWearable() {
+//        String preferredWearableName = getPreferredWearable(getApplicationContext());
+//
+//        if (preferredWearableName == null || preferredWearableName.trim().isEmpty()) {
+//            Log.d(TAG, "No preferred wearable stored. Cannot connect.");
+//            return false;
+//        }
+//
+//        SmartGlassesDevice matchingDevice = getSmartGlassesDeviceFromModelName(preferredWearableName);
+//
+//        if (matchingDevice != null) {
+//            Log.d(TAG, "Trying to connect to preferred wearable: " + preferredWearableName);
+//            connectToSmartGlasses(matchingDevice);
+//            return true;
+//        } else {
+//            Log.d(TAG, "Preferred wearable \"" + preferredWearableName + "\" not recognized in our known devices list.");
+//            return false;
+//        }
+//    }
 
 
     @Override

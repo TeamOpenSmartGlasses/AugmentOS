@@ -115,7 +115,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
 
   const connectGlasses = async () => {
     if (status.default_wearable == undefined || status.default_wearable == "") {
-      navigation.navigate('SelectGlassesScreen');
+      navigation.navigate('SelectGlassesModelScreen');
       return;
     }
 

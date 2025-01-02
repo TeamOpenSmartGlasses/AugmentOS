@@ -15,6 +15,8 @@ import androidx.lifecycle.LiveData;
 import com.teamopensmartglasses.smartglassesmanager.R;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.FoundGlassesBluetoothDeviceEvent;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.vuzix.ultralite.Anchor;
 import com.vuzix.ultralite.EventListener;
 import com.vuzix.ultralite.Layout;
@@ -23,9 +25,12 @@ import com.vuzix.ultralite.TextWrapMode;
 import com.vuzix.ultralite.UltraliteColor;
 import com.vuzix.ultralite.UltraliteSDK;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 
 //communicate with ActiveLook smart glasses
@@ -63,6 +68,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
 
     boolean hasUltraliteControl;
     boolean screenIsClear;
+    SmartGlassesDevice smartGlassesDevice;
 
     public class UltraliteListener implements EventListener{
         @Override
@@ -104,7 +110,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         }
     }
 
-    public UltraliteSGC(Context context, LifecycleOwner lifecycleOwner) {
+    public UltraliteSGC(Context context, SmartGlassesDevice smartGlassesDevice, LifecycleOwner lifecycleOwner) {
         super();
         this.lifecycleOwner = lifecycleOwner;
         this.context = context;
@@ -117,6 +123,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         killHandler = new Handler();
 
         rowTextsLiveNow = new ArrayList<Integer>();
+        this.smartGlassesDevice = smartGlassesDevice;
 
         ultraliteSdk = UltraliteSDK.get(context);
         ultraliteListener = new UltraliteListener();
@@ -173,6 +180,11 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
 
     @Override
     protected void setFontSizes(){
+    }
+
+    @Override
+    public void findCompatibleDeviceNames() {
+        EventBus.getDefault().post(new FoundGlassesBluetoothDeviceEvent(smartGlassesDevice.deviceModelName, "NOTREQUIREDSKIP"));
     }
 
     @Override

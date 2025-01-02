@@ -549,6 +549,9 @@ export class BluetoothService extends EventEmitter {
       } else if ('notify_manager' in jsonData) {
         let notify_manager = (jsonData as any).notify_manager;
         GlobalEventEmitter.emit('SHOW_BANNER', { message: notify_manager.message, type: notify_manager.type })
+      } else if ('glasses_search_result' in jsonData) {
+        let glasses_search_result = (jsonData as any).glasses_search_result;
+        GlobalEventEmitter.emit('GLASSES_SEARCH_RESULT', { modelName: glasses_search_result.model_name, deviceName: glasses_search_result.device_name })
       }
     } catch (e) {
       console.log('Some error parsing data from AugmentOS_Core...');
@@ -696,12 +699,23 @@ export class BluetoothService extends EventEmitter {
     return await this.sendDataToAugmentOs({ command: 'request_status' });
   }
 
-  async sendConnectWearable(modelName: string) {
+  async sendSearchForCompatibleDeviceNames(modelName: string) {
+    console.log('sendSearchForCompatibleDeviceNames with modelName: ' + modelName);
+    return await this.sendDataToAugmentOs({
+      command: 'search_for_compatible_device_names',
+      params: {
+        model_name: modelName
+      }
+    });
+  }
+
+  async sendConnectWearable(modelName: string, deviceName: string = "") {
     console.log('sendConnectWearable with modelName: ' + modelName);
-    return await this.sendDataToAugmentOs({ 
+    return await this.sendDataToAugmentOs({
       command: 'connect_wearable',
-      params: { 
-        model_name: modelName 
+      params: {
+        model_name: modelName,
+        device_name: deviceName
       }
     });
   }

@@ -19,13 +19,13 @@ import { SETTINGS_KEYS } from '../consts';
 import NavigationBar from '../components/NavigationBar';
 import { getGlassesImage } from '../logic/getGlassesImage';
 
-interface SelectGlassesScreenProps {
+interface SelectGlassesModelScreenProps {
     isDarkTheme: boolean;
     toggleTheme: () => void;
     navigation: any;
 }
 
-const SelectGlassesScreen: React.FC<SelectGlassesScreenProps> = ({
+const SelectGlassesModelScreen: React.FC<SelectGlassesModelScreenProps> = ({
     isDarkTheme,
     toggleTheme,
     navigation,
@@ -41,16 +41,23 @@ const SelectGlassesScreen: React.FC<SelectGlassesScreenProps> = ({
     ];
 
     React.useEffect(() => {
-        if (glassesModelNameToPair && status.glasses_info?.is_searching) {
-            navigation.navigate('GlassesPairingGuideScreen', {
-                glassesModelName: glassesModelNameToPair,
-            });
-        }
+        // if (glassesModelNameToPair && status.glasses_info?.is_searching) {
+        //     navigation.navigate('GlassesPairingGuideScreen', {
+        //         glassesModelName: glassesModelNameToPair,
+        //     });
+        // }
+
+
     }, [status]);
 
     const triggerGlassesPairingGuide = (glassesModelName: string) => {
         setGlassesModelNameToPair(glassesModelName);
-        BluetoothService.getInstance().sendConnectWearable(glassesModelName);
+        //BluetoothService.getInstance().sendConnectWearable(glassesModelName);
+        //BluetoothService.getInstance().sendSearchForCompatibleDeviceNames(glassesModelName);
+        console.log("TRIGGERING SEARCH SCREEN FOR: " + glassesModelName);
+        navigation.navigate('SelectGlassesBluetoothScreen', {
+            glassesModelName: glassesModelName,
+        });
     }
 
     // Theme colors
@@ -244,4 +251,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default SelectGlassesScreen;
+export default SelectGlassesModelScreen;

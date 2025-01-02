@@ -102,26 +102,18 @@ const PairingDeviceInfo: React.FC<PairingDeviceInfoProps> = ({ isDarkTheme, glas
         </View>
       ) : (
         <>
-          {status.glasses_info?.is_searching ? (
-            <View style={styles.disconnectedContent}>
-                      <Image
-                          source={getGlassesImage(glassesModelName)}
-                          style={styles.glassesImage}
-                        />
-              <Text style={[styles.connectText, { color: themeStyles.textColor }]}>
-                {`Searching for ${glassesModelName}`}
-              </Text>
+          <View style={styles.disconnectedContent}>
+            <Image
+              source={getGlassesImage(glassesModelName)}
+              style={styles.glassesImage}
+            />
+            <Text style={[styles.connectText, { color: themeStyles.textColor }]}>
+              {`Searching for ${glassesModelName}`}
+            </Text>
+            {status.glasses_info?.is_searching && (
               <ActivityIndicator size="small" color="#2196F3" />
-            </View>
-          ) : (
-            <View style={styles.noGlassesContent}>
-              {/* <Text style={styles.noGlassesText}>No Glasses Connected</Text>
-              <TouchableOpacity style={styles.connectButton}>
-                <Icon name="wifi" size={16} color="white" style={styles.icon} />
-                <Text style={styles.buttonText}>Connect Glasses</Text>
-              </TouchableOpacity> */}
-            </View>
-          )}
+            )}
+          </View>
         </>
       )}
     </View>

@@ -26,6 +26,7 @@ import static com.teamopensmartglasses.convoscope.Constants.augmentOsMainService
 import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.getSmartGlassesDeviceFromModelName;
 import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.savePreferredWearable;
 import static com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.deleteEvenSharedPreferences;
+import static com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.savePreferredG1DeviceId;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -76,6 +77,7 @@ import com.teamopensmartglasses.convoscope.tpa.TPASystem;
 import com.teamopensmartglasses.convoscope.ui.AugmentosUi;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.FoundGlassesBluetoothDeviceEvent;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
@@ -98,6 +100,7 @@ import java.util.Objects;
 import java.util.LinkedList;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 //SpeechRecIntermediateOutputEvent
 import net.sourceforge.pinyin4j.PinyinHelper;
@@ -218,7 +221,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     public AugmentosSmartGlassesService smartGlassesService;
     private boolean isSmartGlassesServiceBound = false;
-    private SmartGlassesDevice smartGlassesToConnectOnSmartGlassesServiceStart = null;
+    private final List<Runnable> serviceReadyListeners = new ArrayList<>();
 
 
     public AugmentosService() {
@@ -230,8 +233,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             AugmentosSmartGlassesService.LocalBinder binder = (AugmentosSmartGlassesService.LocalBinder) service;
             smartGlassesService = (AugmentosSmartGlassesService) binder.getService();
             isSmartGlassesServiceBound = true;
-            smartGlassesService.connectToSmartGlasses(smartGlassesToConnectOnSmartGlassesServiceStart);
-            sendStatusToAugmentOsManager();
+//            sendStatusToAugmentOsManager();
+            for (Runnable action : serviceReadyListeners) {
+                action.run();
+            }
+            serviceReadyListeners.clear(); // Clear the queue
         }
 
         @Override
@@ -337,7 +343,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         saveCurrentMode(this, getCurrentMode(this));
 
         saveCurrentMode(this, "");
-        // startSmartGlassesService();
 
         // Whitelist AugmentOS from battery optimization when system app
         // If not system app, bring up the settings menu
@@ -426,11 +431,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
         Intent intent = new Intent(this, AugmentosSmartGlassesService.class);
         stopService(intent);  // Stop the service
-    }
-
-    public void restartSmartGlassesService() {
-        stopSmartGlassesService();
-        startSmartGlassesService();
     }
 
     @Subscribe
@@ -2247,6 +2247,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Subscribe
+    public void onFoundGlassesBluetoothDeviceEvent(FoundGlassesBluetoothDeviceEvent event){
+        blePeripheral.sendGlassesSearchResultsToManager(event.modelName, event.deviceName);
+    }
+
+    @Subscribe
     public void onNewScreenImageEvent(NewScreenImageEvent event) {
         if (isSmartGlassesServiceBound)
             smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendBitmap(event.bmp), false, true, false));
@@ -2271,6 +2276,22 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     public boolean getIsSearchingForGlasses() {
         return isSmartGlassesServiceBound && smartGlassesService.getConnectedSmartGlasses() == null;
+    }
+
+    private void executeOnceSmartGlassesServiceReady(Context context, Runnable action) {
+        if (isSmartGlassesServiceBound && smartGlassesService != null) {
+            // If the service is already bound, execute the action immediately
+            action.run();
+            return;
+        }
+
+        // Add the action to the queue
+        serviceReadyListeners.add(action);
+
+        // Ensure the service is started and bound
+        if (!isSmartGlassesServiceBound) {
+            startSmartGlassesService();
+        }
     }
 
     public JSONObject generateStatusJson() {
@@ -2363,8 +2384,23 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Override
-    public void connectToWearable(String modelName) {
-        Log.d("AugmentOsService", "Connecting to wearable: " + modelName);
+    public void searchForCompatibleDeviceNames(String modelName) {
+        Log.d("AugmentOsService", "Searching for compatible device names for model: " + modelName);
+        SmartGlassesDevice device = getSmartGlassesDeviceFromModelName(modelName);
+        if (device == null) {
+            blePeripheral.sendNotifyManager("Incorrect model name: " + modelName, "error");
+            return;
+        }
+
+        executeOnceSmartGlassesServiceReady(this, () -> {
+            smartGlassesService.findCompatibleDeviceNames(device);
+            // blePeripheral.sendGlassesSearchResultsToManager(modelName, compatibleDeviceNames);
+        });
+    }
+
+    @Override
+    public void connectToWearable(String modelName, String deviceName) {
+        Log.d("AugmentOsService", "Connecting to wearable: " + modelName + ". DeviceName: " + deviceName + ".");
         // Logic to connect to wearable
         SmartGlassesDevice device = getSmartGlassesDeviceFromModelName(modelName);
         if (device == null) {
@@ -2372,10 +2408,15 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             return;
         }
 
-        smartGlassesToConnectOnSmartGlassesServiceStart = device;
-        startSmartGlassesService();
+        // TODO: Good lord this is hacky
+        // TODO: Find a good way to conditionally send a glasses bt device name to SGC
+        if(!deviceName.isEmpty() && modelName.contains("Even Realities"))
+            savePreferredG1DeviceId(this, deviceName);
 
-        sendStatusToAugmentOsManager();
+        executeOnceSmartGlassesServiceReady(this, () -> {
+            smartGlassesService.connectToSmartGlasses(device);
+            sendStatusToAugmentOsManager();
+        });
     }
 
     @Override

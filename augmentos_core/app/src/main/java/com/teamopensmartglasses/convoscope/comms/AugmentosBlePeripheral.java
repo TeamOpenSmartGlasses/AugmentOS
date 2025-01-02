@@ -35,6 +35,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -392,6 +393,20 @@ public class AugmentosBlePeripheral {
             messageObj.put("message", message);
             messageObj.put("type", type);
             data.put("notify_manager", messageObj);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        sendDataToAugmentOsManager(data.toString());
+    }
+
+    public void sendGlassesSearchResultsToManager(String modelName, String deviceName) {
+        Log.d(TAG, "sendGlassesSearchResultsToManager");
+        JSONObject data = new JSONObject();
+        JSONObject messageObj = new JSONObject();
+        try{
+            messageObj.put("model_name", modelName);
+            messageObj.put("device_name", deviceName);
+            data.put("glasses_search_result", messageObj);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

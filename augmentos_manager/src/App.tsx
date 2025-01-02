@@ -18,8 +18,9 @@ import { StyleSheet } from 'react-native';
 import { RootStackParamList } from './components/types'; // Update path as needed
 import MessageBanner from './components/MessageBanner.tsx';
 import SimulatedPuckSettings from './screens/SimulatedPuckSettings.tsx';
-import SelectGlassesScreen from './screens/SelectGlassesScreen.tsx';
+import SelectGlassesModelScreen from './screens/SelectGlassesModelScreen.tsx';
 import GlassesPairingGuideScreen from './screens/GlassesPairingGuideScreen.tsx';
+import SelectGlassesBluetoothScreen from './screens/SelectGlassesBluetoothScreen.tsx';
 
 // Assign the RootStackParamList to the navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -143,11 +144,11 @@ const App: React.FC = () => {
                   />
                 )}
               </Stack.Screen>
-              <Stack.Screen name="SelectGlassesScreen"
+              <Stack.Screen name="SelectGlassesModelScreen"
                 options={{ title: 'Select Glasses' }}
               >
                 {props => (
-                  <SelectGlassesScreen
+                  <SelectGlassesModelScreen
                     {...props}
                     toggleTheme={toggleTheme}
                     isDarkTheme={isDarkTheme}
@@ -165,6 +166,18 @@ const App: React.FC = () => {
                   />
                 )}
               </Stack.Screen>
+              <Stack.Screen name="SelectGlassesBluetoothScreen"
+                options={{ title: 'Finding Glasses' }}
+              >
+                {props => (
+                  <SelectGlassesBluetoothScreen
+                    {...props}
+                    toggleTheme={toggleTheme}
+                    isDarkTheme={isDarkTheme}
+                  />
+                )}
+              </Stack.Screen>
+
             </Stack.Navigator>
           </NavigationContainer>
         </StatusProvider>

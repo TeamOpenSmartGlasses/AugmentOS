@@ -13,6 +13,8 @@ import com.teamopensmartglasses.smartglassesmanager.comms.AspWebsocketServer;
 import com.teamopensmartglasses.smartglassesmanager.comms.AudioSystem;
 import com.teamopensmartglasses.smartglassesmanager.comms.MessageTypes;
 import com.teamopensmartglasses.augmentoslib.events.GlassesPovImageEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.FoundGlassesBluetoothDeviceEvent;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.utils.NetworkUtils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -29,6 +31,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -88,8 +92,9 @@ public class AndroidSGC extends SmartGlassesCommunicator {
     AudioSystem audioSystem;
 
     Context context;
+    SmartGlassesDevice smartGlassesDevice;
 
-    public AndroidSGC(Context context, PublishSubject<JSONObject> dataObservable){
+    public AndroidSGC(Context context, SmartGlassesDevice smartGlassesDevice, PublishSubject<JSONObject> dataObservable){
         super();
         this.dataObservable = dataObservable;
         this.context = context;
@@ -98,7 +103,7 @@ public class AndroidSGC extends SmartGlassesCommunicator {
         queue = new ArrayBlockingQueue<byte[]>(50);
 
         killme = false;
-
+        this.smartGlassesDevice = smartGlassesDevice;
         //state information
         mConnectState = 0;
     }
@@ -615,6 +620,11 @@ public class AndroidSGC extends SmartGlassesCommunicator {
     @Override
     public void displayBitmap(Bitmap bmp) {
 
+    }
+
+    @Override
+    public void findCompatibleDeviceNames() {
+        EventBus.getDefault().post(new FoundGlassesBluetoothDeviceEvent(smartGlassesDevice.deviceModelName,"NOTREQUIREDSKIP"));
     }
 
     public void displayBulletList(String title, String [] bullets){
