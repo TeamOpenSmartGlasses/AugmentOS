@@ -1,29 +1,26 @@
 package com.teamopensmartglasses.augmentos_manager
 
 import android.app.Application
-import android.content.Context
 import android.content.IntentFilter
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.BV.LinearGradient.LinearGradientPackage
 import com.facebook.react.ReactApplication
+import com.facebook.react.ReactInstanceEventListener
 import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.ReactContext
-import com.facebook.react.ReactInstanceEventListener
 import com.facebook.react.shell.MainReactPackage
 import com.facebook.soloader.SoLoader
-import kjd.reactnative.bluetooth.RNBluetoothClassicPackage
-import it.innove.BleManagerPackage
+import com.horcrux.svg.SvgPackage
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage
+import com.swmansion.gesturehandler.RNGestureHandlerPackage
 import com.swmansion.reanimated.ReanimatedPackage
 import com.swmansion.rnscreens.RNScreensPackage
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage
-import com.BV.LinearGradient.LinearGradientPackage
-import com.swmansion.gesturehandler.RNGestureHandlerPackage
 import com.zoontek.rnpermissions.RNPermissionsPackage
-import com.teamopensmartglasses.augmentos_manager.NotificationReceiver
-import com.teamopensmartglasses.augmentos_manager.ManagerCoreCommsServicePackage
-import com.teamopensmartglasses.augmentos_manager.CoreServiceStarterPackage
-import com.reactnativecommunity.asyncstorage.AsyncStoragePackage
-import com.horcrux.svg.SvgPackage
+import it.innove.BleManagerPackage
+import kjd.reactnative.bluetooth.RNBluetoothClassicPackage
+// import com.teamopensmartglasses.augmentos_manager.NotificationServicePackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -46,7 +43,8 @@ class MainApplication : Application(), ReactApplication {
                 ManagerCoreCommsServicePackage(),
                 CoreServiceStarterPackage(),
                 AsyncStoragePackage(),
-                SvgPackage()
+                SvgPackage(),
+                NotificationServicePackage()
             )
         }
 

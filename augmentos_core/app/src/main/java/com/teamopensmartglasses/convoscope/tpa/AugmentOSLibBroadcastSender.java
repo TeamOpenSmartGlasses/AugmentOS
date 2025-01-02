@@ -14,7 +14,9 @@ import com.teamopensmartglasses.augmentoslib.SmartGlassesAndroidService;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
 import com.teamopensmartglasses.augmentoslib.events.CommandTriggeredEvent;
+import com.teamopensmartglasses.augmentoslib.events.HomeScreenEvent;
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
+import com.teamopensmartglasses.augmentoslib.events.ReferenceCardSimpleViewRequestEvent;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -72,6 +74,8 @@ public class AugmentOSLibBroadcastSender {
         i.putExtra(SmartGlassesAndroidService.TPA_ACTION, SmartGlassesAndroidService.ACTION_START_FOREGROUND_SERVICE);
         i.setComponent(new ComponentName(tpa.packageName, tpa.serviceName));
         ComponentName c = context.startForegroundService(i);
+
+        EventBus.getDefault().post(new ReferenceCardSimpleViewRequestEvent("AugmentOS started app:", tpa.appName, 6));
     }
 
     public void killThirdPartyApp(ThirdPartyApp tpa){
@@ -83,11 +87,6 @@ public class AugmentOSLibBroadcastSender {
 
         // KINDLY ask the TPA to kill itself
         EventBus.getDefault().post(new KillTpaEvent(tpa));
-
-        //clear the screen after killing
-        // TODO: Comment out because this was causing errors (no subscribers found- who would have thunk?)
-        // TODO: Develop an AWESOME dashboard system
-        // EventBus.getDefault().post(new HomeScreenEvent());
 
         // Just in case it did not, KILL IT WITH FIRE
         Intent intent = new Intent();
@@ -103,6 +102,10 @@ public class AugmentOSLibBroadcastSender {
             // Log the error, if needed, but let it fail silently otherwise
             e.printStackTrace();
         }
+
+        //blank the screen
+        EventBus.getDefault().post(new ReferenceCardSimpleViewRequestEvent("AugmentOS stopped app:", tpa.appName, 6));
+//        EventBus.getDefault().post(new HomeScreenEvent());
     }
 
     public boolean isThirdPartyAppRunning(ThirdPartyApp tpa) {

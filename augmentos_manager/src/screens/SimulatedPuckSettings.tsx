@@ -18,6 +18,7 @@ import {loadSetting, saveSetting} from '../augmentos_core_comms/SettingsHelper';
 import {SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT} from '../consts';
 import ManagerCoreCommsService from '../augmentos_core_comms/ManagerCoreCommsService';
 import { openCorePermissionsActivity, stopExternalService } from '../augmentos_core_comms/CoreServiceStarter';
+import { ScrollView } from 'react-native-gesture-handler';
 
 interface SimulatedPuckSettingsProps {
   isDarkTheme: boolean;
@@ -95,7 +96,7 @@ const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({
   }, []);
 
   return (
-    <View
+    <ScrollView
       style={[
         styles.container,
         isDarkTheme ? styles.darkBackground : styles.lightBackground,
@@ -237,14 +238,14 @@ const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({
           </Text>
         </View>
       )}
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    paddingHorizontal: 20,
   },
   link: {
     fontSize: 16,
