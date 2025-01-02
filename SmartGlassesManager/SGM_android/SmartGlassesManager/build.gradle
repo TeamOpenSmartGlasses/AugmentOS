@@ -157,7 +157,7 @@ dependencies {
     implementation 'com.vuzix:ultralite-sdk-android:1.4.1'
 
     //Azure ASR
-    implementation "com.microsoft.cognitiveservices.speech:client-sdk:1.38.0"
+    implementation "com.microsoft.cognitiveservices.speech:client-sdk:1.42.0"
 
     implementation project(path: ':AugmentOSLib')
 }

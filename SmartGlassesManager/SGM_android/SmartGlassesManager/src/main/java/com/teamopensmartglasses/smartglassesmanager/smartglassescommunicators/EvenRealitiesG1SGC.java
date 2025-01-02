@@ -14,10 +14,23 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.os.BatteryManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.ConcurrentLinkedQueue;
+
+//BMP
+import java.util.ArrayList;
+import java.util.List;
+import java.util.zip.CRC32;
+import java.nio.ByteBuffer;
 
 import com.google.gson.Gson;
 import com.teamopensmartglasses.smartglassesmanager.cpp.L3cCpp;
@@ -68,7 +81,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private boolean stopper = false;
     private boolean debugStopper = false;
 
-    private static final long DELAY_BETWEEN_SENDS_MS = 25;
+    private static final long DELAY_BETWEEN_SENDS_MS = 70;
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 50;
     private static final long HEARTBEAT_INTERVAL_MS = 5000;
 
@@ -248,10 +261,20 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             // Check for head down movement - initial F5 02 signal
                             if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x02) {
                                 Log.d(TAG, "HEAD UP MOVEMENT DETECTED");
+                                showDashboard();
+//                                displayTextWall("AugmentOS\t\tDashboard\nBy the boys:\n- cayden\n- Israelov\n- Nicobro");
+//                                byte[] bmpData = loadBmpFromAssets();
+//                                if (bmpData != null) {
+//                                    displayBitmapImage(bmpData);
+//                                } else {
+//                                    Log.e(TAG, "Could not load BMP data");
+//                                }
                             }
                             // Check for head up movement - initial F5 03 signal
                             else if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x03) {
                                 Log.d(TAG, "HEAD DOWN MOVEMENT DETECTED");
+//                                clearBmpDisplay();
+                                showHomeScreen();
                             }
                         }
                         // Handle other non-audio responses
@@ -867,6 +890,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public void displayReferenceCardImage(String title, String body, String imgUrl) {}
 
     public void displayTextWall(String a) {
+        goHomeHandler.removeCallbacksAndMessages(goHomeRunnable);
+        goHomeHandler.removeCallbacksAndMessages(null);
         List<byte[]> chunks = createTextWallChunks(a);
         sendChunks(chunks);
         Log.d(TAG, "Sent text wall");
@@ -1096,9 +1121,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     // Constants for text wall display
     private static final int TEXT_COMMAND = 0x4E;  // Text command
-    private static final int DISPLAY_WIDTH = 488;  // Display width in pixels
-    private static final int FONT_SIZE = 16;      // Font size
-    private static final int LINES_PER_SCREEN = 9; // Lines per screen
+    private static final int DISPLAY_WIDTH = 688;  // Display width in pixels
+    private static final int FONT_SIZE = 21;      // Font size
+    private static final int LINES_PER_SCREEN = 7; // Lines per screen
     private static final int MAX_CHUNK_SIZE = 176; // Maximum chunk size for BLE packets
 
     private int textSeqNum = 0; // Sequence number for text packets
@@ -1121,8 +1146,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             // Combine lines for this page
             StringBuilder pageText = new StringBuilder();
             for (String line : pageLines) {
+                Log.d(TAG, "LINE: " + line);
                 pageText.append(line).append("\n");
             }
+            Log.d(TAG, "PAGE TEXT: " + pageText);
 
             byte[] textBytes = pageText.toString().getBytes(StandardCharsets.UTF_8);
             int totalChunks = (int) Math.ceil((double) textBytes.length / MAX_CHUNK_SIZE);
@@ -1159,17 +1186,26 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             textSeqNum = (textSeqNum + 1) % 256;
         }
 
+        Log.d(TAG, "TOTAL PAGES: " + totalPages);
+
         return allChunks;
     }
 
     private List<String> splitIntoLines(String text) {
         // Replace specific symbols
         text = text.replace("⬆", "^").replace("⟶", "-");
+
+        // Handle the specific case of " " (single space)
+        if (" ".equals(text)) {
+            List<String> lines = new ArrayList<>();
+            lines.add(" "); // Add a single space as a line
+            return lines;
+        }
+
         List<String> lines = new ArrayList<>();
         String[] rawLines = text.split("\n"); // Split by newlines first
-        int charsPerLine = DISPLAY_WIDTH / (FONT_SIZE / 2); // Rough estimate
-
-//        Log.d(TAG, "Characters per line: " + Arrays.toString(rawLines));
+        float fontDivider = 2.0f;
+        int charsPerLine = Math.round(DISPLAY_WIDTH / (FONT_SIZE / fontDivider)); // Rough estimate
 
         for (String rawLine : rawLines) {
             if (rawLine.isEmpty()) {
@@ -1178,42 +1214,27 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 continue;
             }
 
-            String[] words = rawLine.split("\\s+");
             StringBuilder currentLine = new StringBuilder();
 
-            for (String word : words) {
-                if (currentLine.length() + word.length() + 1 > charsPerLine) {
+            // Process the line character by character to preserve spaces
+            for (int i = 0; i < rawLine.length(); i++) {
+                char currentChar = rawLine.charAt(i);
+
+                // Check if adding this character exceeds the character limit
+                if (currentLine.length() + 1 > charsPerLine) {
                     lines.add(currentLine.toString());
-                    currentLine = new StringBuilder(word);
-                } else {
-                    if (currentLine.length() > 0) {
-                        currentLine.append(" ");
-                    }
-                    currentLine.append(word);
+                    currentLine = new StringBuilder(); // Start a new line
                 }
+
+                currentLine.append(currentChar); // Add the character to the current line
             }
 
+            // Add the remaining text in the current line
             if (currentLine.length() > 0) {
-                lines.add(currentLine.toString().strip());
-            }
-//            Log.d(TAG, "Current lines: " + lines);
-        }
-
-        // Ensure there are at least 2 lines with "-"
-        int dashLineCount = 0;
-        for (String line : lines) {
-            if (line.contains("-")) {
-                dashLineCount++;
+                lines.add(currentLine.toString());
             }
         }
 
-        // If there are fewer than 2 lines with "-", add empty lines at the top
-        while (dashLineCount < 2) {
-            lines.add(0, ""); // Add an empty line at the top
-            dashLineCount++;
-        }
-
-//        Log.d(TAG, "Final split text into " + lines.size() + " lines: " + lines);
         return lines;
     }
 
@@ -1383,6 +1404,165 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 showHomeScreen();
             }};
         goHomeHandler.postDelayed(goHomeRunnable, n * 1000);
+    }
+
+
+    //BMP handling
+
+    // Add these class variables
+    private static final int BMP_CHUNK_SIZE = 194;
+    private static final byte[] GLASSES_ADDRESS = new byte[]{0x00, 0x1c, 0x00, 0x00};
+    private static final byte[] END_COMMAND = new byte[]{0x20, 0x0d, 0x0e};
+
+    public void displayBitmapImage(byte[] bmpData) {
+        Log.d(TAG, "Starting BMP display process");
+
+        try {
+            if (bmpData == null || bmpData.length == 0) {
+                Log.e(TAG, "Invalid BMP data provided");
+                return;
+            }
+            Log.d(TAG, "Processing BMP data, size: " + bmpData.length + " bytes");
+
+            // Split into chunks and send
+            List<byte[]> chunks = createBmpChunks(bmpData);
+            Log.d(TAG, "Created " + chunks.size() + " chunks");
+
+            // Send all chunks
+            sendBmpChunks(chunks);
+
+            // Send end command
+            sendBmpEndCommand();
+
+            // Calculate and send CRC
+            sendBmpCRC(bmpData);
+
+        } catch (Exception e) {
+            Log.e(TAG, "Error in displayBitmapImage: " + e.getMessage());
+        }
+    }
+
+    private List<byte[]> createBmpChunks(byte[] bmpData) {
+        List<byte[]> chunks = new ArrayList<>();
+        int totalChunks = (int) Math.ceil((double) bmpData.length / BMP_CHUNK_SIZE);
+        Log.d(TAG, "Creating " + totalChunks + " chunks from " + bmpData.length + " bytes");
+
+        for (int i = 0; i < totalChunks; i++) {
+            int start = i * BMP_CHUNK_SIZE;
+            int end = Math.min(start + BMP_CHUNK_SIZE, bmpData.length);
+            byte[] chunk = Arrays.copyOfRange(bmpData, start, end);
+
+            // First chunk needs address bytes
+            if (i == 0) {
+                byte[] headerWithAddress = new byte[2 + GLASSES_ADDRESS.length + chunk.length];
+                headerWithAddress[0] = 0x15;  // Command
+                headerWithAddress[1] = (byte)(i & 0xFF);  // Sequence
+                System.arraycopy(GLASSES_ADDRESS, 0, headerWithAddress, 2, GLASSES_ADDRESS.length);
+                System.arraycopy(chunk, 0, headerWithAddress, 6, chunk.length);
+                chunks.add(headerWithAddress);
+            } else {
+                byte[] header = new byte[2 + chunk.length];
+                header[0] = 0x15;  // Command
+                header[1] = (byte)(i & 0xFF);  // Sequence
+                System.arraycopy(chunk, 0, header, 2, chunk.length);
+                chunks.add(header);
+            }
+        }
+        return chunks;
+    }
+
+    private void sendBmpChunks(List<byte[]> chunks) {
+        for (int i = 0; i < chunks.size(); i++) {
+            byte[] chunk = chunks.get(i);
+            Log.d(TAG, "Sending chunk " + i + " of " + chunks.size() + ", size: " + chunk.length);
+            sendDataSequentially(chunk);
+
+//            try {
+//                Thread.sleep(25); // Small delay between chunks
+//            } catch (InterruptedException e) {
+//                Log.e(TAG, "Sleep interrupted: " + e.getMessage());
+//            }
+        }
+    }
+
+    private void sendBmpEndCommand() {
+        Log.d(TAG, "Sending BMP end command");
+        sendDataSequentially(END_COMMAND);
+
+        try {
+            Thread.sleep(100); // Give it time to process
+        } catch (InterruptedException e) {
+            Log.e(TAG, "Sleep interrupted: " + e.getMessage());
+        }
+    }
+
+    private void sendBmpCRC(byte[] bmpData) {
+        // Create data with address for CRC calculation
+        byte[] dataWithAddress = new byte[GLASSES_ADDRESS.length + bmpData.length];
+        System.arraycopy(GLASSES_ADDRESS, 0, dataWithAddress, 0, GLASSES_ADDRESS.length);
+        System.arraycopy(bmpData, 0, dataWithAddress, GLASSES_ADDRESS.length, bmpData.length);
+
+        // Calculate CRC32
+        CRC32 crc = new CRC32();
+        crc.update(dataWithAddress);
+        long crcValue = crc.getValue();
+
+        // Create CRC command packet
+        byte[] crcCommand = new byte[5];
+        crcCommand[0] = 0x16;  // CRC command
+        crcCommand[1] = (byte)((crcValue >> 24) & 0xFF);
+        crcCommand[2] = (byte)((crcValue >> 16) & 0xFF);
+        crcCommand[3] = (byte)((crcValue >> 8) & 0xFF);
+        crcCommand[4] = (byte)(crcValue & 0xFF);
+
+        Log.d(TAG, "Sending CRC command, CRC value: " + Long.toHexString(crcValue));
+        sendDataSequentially(crcCommand);
+    }
+
+    private byte[] loadBmpFromAssets() {
+        try {
+            try (InputStream is = context.getAssets().open("image_1.bmp")) {
+                return is.readAllBytes();
+            }
+        } catch (IOException e) {
+            Log.e(TAG, "Failed to load BMP from assets: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public void clearBmpDisplay() {
+        Log.d(TAG, "Clearing BMP display with EXIT command");
+        byte[] exitCommand = new byte[]{0x18};
+        sendDataSequentially(exitCommand);
+    }
+
+    private void showDashboard() {
+        // Get current time and date
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
+        String currentTime = timeFormat.format(new Date());
+        String currentDate = dateFormat.format(new Date());
+
+        // Get battery level
+        IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        Intent batteryStatus = context.registerReceiver(null, iFilter);
+        int level = batteryStatus != null ?
+                batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) : -1;
+        int scale = batteryStatus != null ?
+                batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1) : -1;
+        float batteryPct = level * 100 / (float)scale;
+
+        // Build dashboard string with fancy formatting
+        StringBuilder dashboard = new StringBuilder();
+        dashboard.append("Dashboard - AugmentOS\n");
+        dashboard.append(String.format("│ Time      │ %s\n", currentTime));
+        dashboard.append(String.format("│ Date      │ %s\n", currentDate));
+        dashboard.append(String.format("│ Battery │ %.0f%%\n", batteryPct));
+        dashboard.append("│ BLE       │ ON\n");
+
+        // Send to text wall
+        displayTextWall(dashboard.toString());
+        Log.d(TAG, "Fancy dashboard displayed: " + dashboard.toString());
     }
 
 }
