@@ -43,11 +43,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Method;
-import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.Semaphore;
 import java.util.regex.Matcher;
@@ -87,6 +84,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     //heartbeat sender
     private Handler heartbeatHandler = new Handler();
+    private Handler findCompatibleDevicesHandler;
+    private boolean isScanningForCompatibleDevices = false;
+
     private Runnable heartbeatRunnable;
 
     //white list sender
@@ -831,6 +831,17 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             textWallHandler.removeCallbacks(textWallRunnable);
         if (goHomeHandler != null)
             goHomeHandler.removeCallbacks(goHomeRunnable);
+        if (findCompatibleDevicesHandler != null)
+            findCompatibleDevicesHandler.removeCallbacksAndMessages(null);
+
+
+        sendQueue.clear();
+        isWorkerRunning = false;
+
+        isLeftConnected = false;
+        isRightConnected = false;
+
+        Log.d(TAG, "EvenRealitiesG1SGC cleanup complete");
     }
 
 
@@ -924,8 +935,19 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     @Override
     public void findCompatibleDeviceNames() {
+        if (isScanningForCompatibleDevices) {
+            Log.d(TAG, "Scan already in progress, skipping...");
+            return;
+        }
+        isScanningForCompatibleDevices = true;
+
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         List<String> foundDeviceNames = new ArrayList<>();
+
+        // Create or reuse the handler
+        if (findCompatibleDevicesHandler == null) {
+            findCompatibleDevicesHandler = new Handler(Looper.getMainLooper());
+        }
 
         BluetoothAdapter.LeScanCallback tempLeScanCallback = (device, rssi, scanRecord) -> {
             String name = device.getName();
@@ -945,10 +967,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         bluetoothAdapter.startLeScan(tempLeScanCallback);
         Log.d(TAG, "Started scanning for smart glasses...");
 
-        // Stop scanning after a delay (e.g., 10 seconds)
-        Handler tempHandler = new Handler(Looper.getMainLooper());
-        tempHandler.postDelayed(() -> {
+        findCompatibleDevicesHandler.postDelayed(() -> {
             bluetoothAdapter.stopLeScan(tempLeScanCallback);
+            isScanningForCompatibleDevices = false;
             Log.d(TAG, "Stopped scanning for smart glasses.");
         }, 10000); // Adjust the timeout as needed (10 seconds here)
     }
