@@ -21,6 +21,9 @@ import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettings
 import static com.teamopensmartglasses.convoscope.Constants.displayRequestsKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 import static com.teamopensmartglasses.convoscope.Constants.augmentOsMainServiceNotificationId;
+import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.getSmartGlassesDeviceFromModelName;
+import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.savePreferredWearable;
+import static com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.deleteEvenSharedPreferences;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -75,6 +78,7 @@ import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
 import com.teamopensmartglasses.augmentoslib.events.DiarizationOutputEvent;
@@ -208,11 +212,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public AugmentosSmartGlassesService smartGlassesService;
     private boolean isSmartGlassesServiceBound = false;
     private SpeechRecSwitchSystem currentSpeechRecSwitchSystem;
-
-    private static class StreamRecord {
-        final Set<String> packages = new HashSet<>();
-        AsrStreamInfo asrStreamInfo; // remains null until physically started
-    }
+    private SmartGlassesDevice smartGlassesToConnectOnSmartGlassesServiceStart = null;
 
     public AugmentosService() {
     }
@@ -223,6 +223,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             AugmentosSmartGlassesService.LocalBinder binder = (AugmentosSmartGlassesService.LocalBinder) service;
             smartGlassesService = (AugmentosSmartGlassesService) binder.getService();
             isSmartGlassesServiceBound = true;
+            smartGlassesService.connectToSmartGlasses(smartGlassesToConnectOnSmartGlassesServiceStart);
             sendStatusToAugmentOsManager();
         }
 
@@ -285,8 +286,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 //        ) {
 //            new Thread(this::loadSegmenter).start();
 //        }
-
-        startStream(AsrStreamType.TRANSCRIPTION, "English", null);
 
         // Init TPA broadcast receivers
         tpaSystem = new TPASystem(this);
@@ -424,10 +423,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Subscribe
     public void onGlassesConnnected(SmartGlassesConnectedEvent event) {
-        Log.d(TAG, "Got even for onGlassesConnected....");
+        Log.d(TAG, "Got event for onGlassesConnected....");
         sendStatusToAugmentOsManager();
 
-        smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS");
+        Log.d(TAG, "****************** SENDING REFERENCE CARD: CONNECTED TO AUGMENT OS");
+        smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS", 6);
     }
 
     public void handleSignOut(){
@@ -566,6 +566,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 //            stopStream(key);
 //        }
 //        streamToPackages.clear();
+
+        if(tpaSystem != null) {
+            tpaSystem.destroy();
+        }
 
         super.onDestroy();
     }
@@ -1744,8 +1748,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     public void saveCurrentMode(Context context, String currentModeString) {
-        if (isSmartGlassesServiceBound)
-            smartGlassesService.sendHomeScreen();
+//        if (isSmartGlassesServiceBound)
+//            smartGlassesService.sendHomeScreen();
 
         saveCurrentModeLocal(context, currentModeString);
 
@@ -2186,9 +2190,16 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Override
-    public void connectToWearable(String wearableId) {
-        Log.d("AugmentOsService", "Connecting to wearable: " + wearableId);
+    public void connectToWearable(String modelName) {
+        Log.d("AugmentOsService", "Connecting to wearable: " + modelName);
         // Logic to connect to wearable
+        SmartGlassesDevice device = getSmartGlassesDeviceFromModelName(modelName);
+        if (device == null) {
+            blePeripheral.sendNotifyManager("Incorrect model name: " + modelName, "error");
+            return;
+        }
+
+        smartGlassesToConnectOnSmartGlassesServiceStart = device;
         startSmartGlassesService();
 
         sendStatusToAugmentOsManager();
@@ -2202,18 +2213,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Override
-    public void enableVirtualWearable(boolean enabled) {
-        Log.d("AugmentOsService", "Virtual wearable enabled: " + enabled);
-        // Logic to enable/disable virtual wearable
-        if (enabled) {
-            AugmentosSmartGlassesService.savePreferredWearable(this, new AudioWearable().deviceModelName);
-            if (isSmartGlassesServiceBound) {
-                restartSmartGlassesService();
-            }
-        } else {
-            AugmentosSmartGlassesService.savePreferredWearable(this, "");
-        }
-
+    public void forgetSmartGlasses() {
+        Log.d("AugmentOsService", "Forgetting wearable");
+        savePreferredWearable(this, "");
+        deleteEvenSharedPreferences(this);
+        stopSmartGlassesService();
         sendStatusToAugmentOsManager();
     }
 
@@ -2254,14 +2258,22 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Override
     public void handleNotificationData(JSONObject notificationData){
-        if (notificationData != null) {
-            String jsonString = notificationData.toString();
-            System.out.println("Notification Data: " + jsonString);
+        try {
+            if (notificationData != null) {
+                String jsonString = notificationData.toString();
+                System.out.println("Notification Data: " + jsonString);
 
-            //TODO: Actually finish implementing notifications
-            //TODO: Also pull navigation data from this?
-        } else {
-            System.out.println("Notification Data is null");
+                String appName = notificationData.getString("appName");
+                String title = notificationData.getString("title");
+                String text = notificationData.getString("text");
+
+                //TODO: Actually finish implementing notifications
+                //TODO: Also pull navigation data from this?
+            } else {
+                System.out.println("Notification Data is null");
+            }
+        } catch (JSONException e) {
+            Log.d(TAG, "JSONException occurred while handling notification data: " + e.getMessage());
         }
     }
 

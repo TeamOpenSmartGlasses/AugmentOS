@@ -43,6 +43,7 @@ import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEW
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.InmoAirOne;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.MentraMach1;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.TCLRayNeoXTwo;
@@ -137,12 +138,33 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         connectHandler.post(new Runnable() {
             @Override
             public void run() {
-                 Log.d(TAG, "CONNECTING TO SMART GLASSES");
+                Log.d(TAG, "CONNECTING TO SMART GLASSES");
                 smartGlassesRepresentative = new SmartGlassesRepresentative(currContext, device, currContext, dataObservable);
                 smartGlassesRepresentative.connectToSmartGlasses();
             }
         });
     }
+
+    public boolean tryConnectToPreferredWearable() {
+        String preferredWearableName = getPreferredWearable(getApplicationContext());
+
+        if (preferredWearableName == null || preferredWearableName.trim().isEmpty()) {
+            Log.d(TAG, "No preferred wearable stored. Cannot connect.");
+            return false;
+        }
+
+        SmartGlassesDevice matchingDevice = getSmartGlassesDeviceFromModelName(preferredWearableName);
+
+        if (matchingDevice != null) {
+            Log.d(TAG, "Trying to connect to preferred wearable: " + preferredWearableName);
+            connectToSmartGlasses(matchingDevice);
+            return true;
+        } else {
+            Log.d(TAG, "Preferred wearable \"" + preferredWearableName + "\" not recognized in our known devices list.");
+            return false;
+        }
+    }
+
 
     @Override
     public void onDestroy() {
@@ -279,6 +301,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     public static int getSelectedLiveCaptionsTranslation(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getResources().getString(R.string.SHARED_PREF_LIVE_CAPTIONS_TRANSLATION), 0);
     }
+
     //service stuff
     private Notification updateNotification() {
         Context context = getApplicationContext();
@@ -343,6 +366,28 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         return Service.START_STICKY;
     }
 
+    public static SmartGlassesDevice getSmartGlassesDeviceFromModelName(String modelName) {
+        ArrayList<SmartGlassesDevice> allDevices = new ArrayList<>(
+                Arrays.asList(
+                        new VuzixUltralite(),
+                        new MentraMach1(),
+                        new EvenRealitiesG1(),
+                        new VuzixShield(),
+                        new InmoAirOne(),
+                        new TCLRayNeoXTwo(),
+                        new AudioWearable()
+                )
+        );
+
+        SmartGlassesDevice matchingDevice = null;
+        for (SmartGlassesDevice device : allDevices) {
+            if (device.deviceModelName.equals(modelName)) {
+                return device;
+            }
+        }
+
+        return null;
+    }
 
     // Setup for aioConnectSmartGlasses
     ArrayList<SmartGlassesDevice> smartGlassesDevices = new ArrayList<>();
@@ -387,6 +432,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             if (smartGlassesRepresentative != null && smartGlassesRepresentative.getConnectionState() == 2) { // Check if connected
                 Toast.makeText(getApplicationContext(), "Connected to " + smartGlassesRepresentative.smartGlassesDevice.deviceModelName, Toast.LENGTH_LONG).show();
                 Log.d(TAG, "Connected to: " + smartGlassesRepresentative.smartGlassesDevice.deviceModelName);
+//                sendReferenceCard("Connected", "Connected to AugmentOS");
 
                 // Stop all retries and connected checker
                 aioRetryHandler.removeCallbacks(aioRetryConnectionTask);
@@ -408,8 +454,8 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         }
 
         String preferred = getPreferredWearable(this.getApplicationContext());
-        //smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new EvenRealitiesG1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
-        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
+        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new EvenRealitiesG1(), new VuzixUltralite(), new MentraMach1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
+//        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new MentraMach1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
         for (int i = 0; i < smartGlassesDevices.size(); i++){
             if (smartGlassesDevices.get(i).deviceModelName.equals(preferred)){
                 // Move to start for earliest search priority
@@ -441,6 +487,11 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     //show a reference card on the smart glasses with title and body text
     public static void sendReferenceCard(String title, String body) {
         EventBus.getDefault().post(new ReferenceCardSimpleViewRequestEvent(title, body));
+    }
+
+    //show a reference card on the smart glasses with title and body text
+    public static void sendReferenceCard(String title, String body, int lingerTimeMs) {
+        EventBus.getDefault().post(new ReferenceCardSimpleViewRequestEvent(title, body, lingerTimeMs));
     }
 
     //show a text wall card on the smart glasses

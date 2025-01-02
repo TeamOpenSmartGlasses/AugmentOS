@@ -15,6 +15,7 @@ import android.util.Log;
 import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.LifecycleService;
 
+import com.teamopensmartglasses.augmentoslib.events.HomeScreenEvent;
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
 
 import org.greenrobot.eventbus.EventBus;
