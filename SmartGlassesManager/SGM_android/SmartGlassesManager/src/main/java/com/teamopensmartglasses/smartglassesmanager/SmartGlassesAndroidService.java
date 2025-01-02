@@ -44,6 +44,7 @@ import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecS
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.InmoAirOne;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.MentraMach1;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.EvenRealitiesG1;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.TCLRayNeoXTwo;
@@ -300,6 +301,66 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
     public static int getSelectedLiveCaptionsTranslation(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getResources().getString(R.string.SHARED_PREF_LIVE_CAPTIONS_TRANSLATION), 0);
+    }
+
+    //switches the currently running transcribe language without changing the default/saved language
+    public void switchRunningTranscribeLanguage(String language){
+        if (speechRecSwitchSystem.currentLanguage.equals(language)){
+            return;
+        }
+
+        //kill previous speech rec
+        speechRecSwitchSystem.destroy();
+        speechRecSwitchSystem = null;
+
+        //start speech rec after small delay
+        Handler speechRecHandler = new Handler();
+        Context context = this;
+        speechRecHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                speechRecSwitchSystem = new SpeechRecSwitchSystem(context);
+                ASR_FRAMEWORKS asrFramework = getChosenAsrFramework(context);
+                speechRecSwitchSystem.startAsrFramework(asrFramework, language);
+                if (translationLanguage != null) {
+                    startTranslationStream(translationLanguage);
+                }
+            }
+        }, 250);
+    }
+
+    //switches the currently running transcribe language without changing the default/saved language
+    public void startTranslationStream(String toTranslateLanguage){
+//        String language;
+//
+//        if (speechRecSwitchSystem == null) {
+////            language = getChosenTranscribeLanguage(this.getApplicationContext());
+//            language = "English";
+//        } else {
+//            language = speechRecSwitchSystem.currentLanguage;
+//            speechRecSwitchSystem.destroy();
+//        }
+//
+//        Log.d(TAG, "TRANSLATION STREAM STARTED" + language);
+        String language = speechRecSwitchSystem.currentLanguage;
+        translationLanguage = toTranslateLanguage;
+
+        //kill previous speech rec
+        speechRecSwitchSystem.destroy();
+        speechRecSwitchSystem = null;
+
+        //start speech rec after small delay
+        Handler speechRecHandler = new Handler();
+        Context context = this;
+        speechRecHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                speechRecSwitchSystem = new SpeechRecSwitchSystem(context);
+                ASR_FRAMEWORKS asrFramework = getChosenAsrFramework(context);
+                speechRecSwitchSystem.startAsrFramework(ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK, language, toTranslateLanguage); //force azure because translation
+            }
+        }, 2000);
+        Log.d(TAG, "SSTOPPING TRANSCRIBE LANGUAGE IN n seconds");
     }
 
     //service stuff

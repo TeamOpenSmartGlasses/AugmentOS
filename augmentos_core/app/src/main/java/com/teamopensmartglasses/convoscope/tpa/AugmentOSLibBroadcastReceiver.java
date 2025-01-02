@@ -85,6 +85,7 @@ public class AugmentOSLibBroadcastReceiver extends BroadcastReceiver {
             case SendBitmapViewRequestEvent.eventId:
             case HomeScreenEvent.eventId:
             case DisplayCustomContentRequestEvent.eventId:
+//                Log.d(TAG, "Piping command event to ThirdPartyAppSystem for verification before broadcast.");
             case StartAsrStreamRequestEvent.eventId:
             case StopAsrStreamRequestEvent.eventId:
                 Log.d(TAG, "Piping command event to ThirdPartyAppSystem for verification before broadcast.");

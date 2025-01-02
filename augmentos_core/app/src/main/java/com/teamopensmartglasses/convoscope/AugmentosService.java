@@ -214,6 +214,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private SpeechRecSwitchSystem currentSpeechRecSwitchSystem;
     private SmartGlassesDevice smartGlassesToConnectOnSmartGlassesServiceStart = null;
 
+
     public AugmentosService() {
     }
 
