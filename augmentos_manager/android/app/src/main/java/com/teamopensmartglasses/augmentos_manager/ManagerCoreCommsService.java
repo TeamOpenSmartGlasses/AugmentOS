@@ -34,7 +34,7 @@ public class ManagerCoreCommsService extends SmartGlassesAndroidService {
 
         sendCommandToCore("{ 'command': 'request_status' }");
 
-        startNotificationService();
+        // startNotificationService();
     }
 
 
