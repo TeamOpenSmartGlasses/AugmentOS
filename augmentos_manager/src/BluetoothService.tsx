@@ -4,16 +4,15 @@ import { EventEmitter } from 'events';
 import { TextDecoder } from 'text-encoding';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { AppState } from 'react-native';
-import { MOCK_CONNECTION, SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from './consts';
+import { ENABLE_PHONE_NOTIFICATIONS_DEFAULT, MOCK_CONNECTION, SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from './consts';
 import { loadSetting, saveSetting } from './augmentos_core_comms/SettingsHelper';
 import { startExternalService } from './augmentos_core_comms/CoreServiceStarter';
 import ManagerCoreCommsService from './augmentos_core_comms/ManagerCoreCommsService';
 import GlobalEventEmitter from './logic/GlobalEventEmitter';
 import {
-  isAndroidNotificationListenerEnabled,
-  startAndroidNotificationListenerService,
-  stopAndroidNotificationListenerService,
-  listenForNotifications,
+  checkAndRequestNotificationPermission,
+  NotificationEventEmitter,
+  NotificationService,
 } from './augmentos_core_comms/NotificationServiceUtils';
 
 const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
@@ -47,6 +46,8 @@ export class BluetoothService extends EventEmitter {
   private appStateSubscription: { remove: () => void } | null = null;
   private reconnectionTimer: NodeJS.Timeout | null = null;
 
+  unsubscribePhoneNotifications: any;
+
   constructor() {
     super();
   }
@@ -64,6 +65,22 @@ export class BluetoothService extends EventEmitter {
     } else {
       this.initializeBleManager();
     }
+
+    let enablePhoneNotifications = await loadSetting(SETTINGS_KEYS.ENABLE_PHONE_NOTIFICATIONS, ENABLE_PHONE_NOTIFICATIONS_DEFAULT);
+    if(enablePhoneNotifications && await checkAndRequestNotificationPermission() && !(await NotificationService.isNotificationListenerEnabled())) {
+      await NotificationService.startNotificationListenerService();
+    }
+
+    this.unsubscribePhoneNotifications = NotificationEventEmitter.addListener('onNotificationPosted', (data) => {
+      console.log('Notification received in TS:', data);
+      try {
+        let json = JSON.parse(data);
+        this.sendPhoneNotification(json.appName, json.title, json.text);
+      } catch (e) {
+        console.log("Error parsing phone notification", e);
+      }
+
+    });
 
     this.startReconnectionScan();
 
@@ -720,6 +737,18 @@ export class BluetoothService extends EventEmitter {
     });
   }
 
+  async sendPhoneNotification(appName: string = "", title: string = "", text: string = "") {
+    console.log('sendPhoneNotification');
+    return await this.sendDataToAugmentOs({
+      command: 'phone_notification',
+      params: {
+        appName: appName,
+        title: title,
+        text: text
+      }
+    });
+  }
+
   async sendDisconnectWearable() {
     console.log('sendDisconnectWearable');
     return await this.sendDataToAugmentOs({ command: 'disconnect_wearable' });
@@ -813,6 +842,13 @@ export class BluetoothService extends EventEmitter {
       BluetoothService.bluetoothService.chunks = {};
       BluetoothService.bluetoothService.expectedChunks = {};
       BluetoothService.bluetoothService.isLocked = false;
+
+      if(await NotificationService.isNotificationListenerEnabled()) {
+        await NotificationService.stopNotificationListenerService();
+      }
+      if(BluetoothService.bluetoothService.unsubscribePhoneNotifications){
+        BluetoothService.bluetoothService.unsubscribePhoneNotifications();
+      }
 
       // Nullify the instance
       BluetoothService.bluetoothService = null;

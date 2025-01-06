@@ -7,6 +7,7 @@ import { useStatus } from '../AugmentOSStatusProvider';
 import { NavigationProps } from '../components/types';
 import { useNavigation } from '@react-navigation/native';
 import { getGlassesImage } from '../logic/getGlassesImage';
+import { checkAndRequestNotificationPermission } from '../augmentos_core_comms/NotificationServiceUtils';
 
 
 interface ConnectedDeviceInfoProps {
@@ -61,9 +62,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
           console.log('Permissions granted:', result);
         });
       }
-
-      checkAndRequestNotificationPermission();
-
+      
       // Cleanup function
       return () => {
         fadeAnim.stopAnimation();
@@ -72,36 +71,6 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
       };
     }, [status.puck_connected, fadeAnim, scaleAnim, slideAnim])
   );
-
-  function checkAndRequestNotificationPermission() {
-    if (Platform.OS === 'android' && Platform.Version >= 33) {
-      PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS)
-        .then((hasPermission) => {
-          if (hasPermission) {
-            console.log('Notification permission already granted.');
-          } else {
-            PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS)
-              .then((requestResult) => {
-                if (requestResult === PermissionsAndroid.RESULTS.GRANTED) {
-                  console.log('Notification permission granted.');
-                } else if (requestResult === PermissionsAndroid.RESULTS.DENIED) {
-                  console.log('Notification permission denied.');
-                } else if (requestResult === PermissionsAndroid.RESULTS.NEVER_ASK_AGAIN) {
-                  console.log('Notification permission set to never ask again.');
-                }
-              })
-              .catch((error) => {
-                console.error('Error requesting notification permission:', error);
-              });
-          }
-        })
-        .catch((error) => {
-          console.error('Error checking notification permission:', error);
-        });
-    } else {
-      console.log('Notification permissions are not required for this platform or version.');
-    }
-  }
 
   const handleConnectToPuck = async () => {
     try {
@@ -173,9 +142,9 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                 style={[styles.glassesImage, { opacity: fadeAnim, transform: [{ scale: scaleAnim }] }]}
               />
               <Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]}>
-                <Text style={[styles.connectedDot, { color: themeStyles.connectedDotColor }]}>●</Text>
+                {/* <Text style={[styles.connectedDot, { color: themeStyles.connectedDotColor }]}>●</Text>
                 <Text style={styles.connectedTextGreen}>Connected</Text>
-                <Text style={[styles.separator, { color: themeStyles.separatorColor }]}>|</Text>
+                <Text style={[styles.separator, { color: themeStyles.separatorColor }]}>|</Text> */}
                 <Text style={[styles.connectedTextTitle, { color: themeStyles.textColor }]}>
                   {formatGlassesTitle(connectedGlasses)} {status.glasses_info.model_name}
                 </Text>
@@ -223,10 +192,10 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                 </View>
               ) : (
                 <View style={styles.noGlassesContent}>
-                  <Text style={styles.noGlassesText}>No Glasses Connected</Text>
+                  <Text style={styles.noGlassesText}>{"No Glasses Connected"}</Text>
                   <TouchableOpacity style={styles.connectButton} onPress={connectGlasses}>
                     <Icon name="wifi" size={16} color="white" style={styles.icon} />
-                    <Text style={styles.buttonText}>Connect Glasses</Text>
+                    <Text style={styles.buttonText}>{status.default_wearable ? "Connect " + status.default_wearable : "Connect Glasses"}</Text>
                   </TouchableOpacity>
                 </View>
               )}
@@ -257,7 +226,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     width: '100%',
-    minHeight: 250,
+    minHeight: 230,
     justifyContent: 'center',
     marginTop: 15,
   },
@@ -316,7 +285,7 @@ const styles = StyleSheet.create({
   connectedStatus: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 10,
+    marginVertical: 0,
   },
   connectedDot: {
     fontSize: 14,

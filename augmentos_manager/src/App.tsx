@@ -21,6 +21,7 @@ import SimulatedPuckSettings from './screens/SimulatedPuckSettings.tsx';
 import SelectGlassesModelScreen from './screens/SelectGlassesModelScreen.tsx';
 import GlassesPairingGuideScreen from './screens/GlassesPairingGuideScreen.tsx';
 import SelectGlassesBluetoothScreen from './screens/SelectGlassesBluetoothScreen.tsx';
+import PhoneNotificationSettings from './screens/PhoneNotificationSettings.tsx';
 
 // Assign the RootStackParamList to the navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -135,9 +136,32 @@ const App: React.FC = () => {
                 }}>
                 {() => <GlassesMirror isDarkTheme={isDarkTheme} />}
               </Stack.Screen>
-              <Stack.Screen name="SimulatedPuckSettings">
+              <Stack.Screen name="SimulatedPuckSettings"
+                options={{
+                  title: 'Simulated Puck',
+                  headerStyle: {
+                    backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
+                  },
+                  headerTintColor: isDarkTheme ? '#ffffff' : '#000000',
+                }}>
                 {props => (
                   <SimulatedPuckSettings
+                    {...props}
+                    toggleTheme={toggleTheme}
+                    isDarkTheme={isDarkTheme}
+                  />
+                )}
+              </Stack.Screen>
+              <Stack.Screen name="PhoneNotificationSettings"
+                options={{
+                  title: 'Notifications',
+                  headerStyle: {
+                    backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
+                  },
+                  headerTintColor: isDarkTheme ? '#ffffff' : '#000000',
+                }}>
+                {props => (
+                  <PhoneNotificationSettings
                     {...props}
                     toggleTheme={toggleTheme}
                     isDarkTheme={isDarkTheme}
