@@ -8,6 +8,11 @@ import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothProfile;
+import android.bluetooth.le.BluetoothLeScanner;
+import android.bluetooth.le.ScanCallback;
+import android.bluetooth.le.ScanFilter;
+import android.bluetooth.le.ScanResult;
+import android.bluetooth.le.ScanSettings;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -53,6 +58,8 @@ import java.util.regex.Pattern;
 public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final String TAG = "WearableAi_EvenRealitiesG1SGC";
     public static final String SHARED_PREFS_NAME = "EvenRealitiesPrefs";
+    private BluetoothAdapter bluetoothAdapter;
+
     public static final String LEFT_DEVICE_KEY = "SavedG1LeftName";
     public static final String RIGHT_DEVICE_KEY = "SavedG1RightName";
 
@@ -132,6 +139,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     Handler goHomeHandler;
     Runnable goHomeRunnable;
 
+    //Retry handler
+    Handler retryBondHandler;
+    private static final long BOND_RETRY_DELAY_MS = 5000; // 5-second backoff
+
+
     //remember when we connected
     private long lastConnectionTimestamp = 0;
     private SmartGlassesDevice smartGlassesDevice;
@@ -144,6 +156,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         goHomeHandler = new Handler();
         this.smartGlassesDevice = smartGlassesDevice;
         preferredG1DeviceId = getPreferredG1DeviceId(context);
+        this.bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     }
 
     private final BluetoothGattCallback leftGattCallback = createGattCallback("Left");
@@ -370,11 +383,13 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     if (!isLeftBonded || !isRightBonded) {
                         // if (!(isLeftBonded && !isRightBonded)){// || !doPendingPairingIdsMatch()) {
                         Log.d(TAG, "Restarting scan to find remaining device...");
-                        startScan(BluetoothAdapter.getDefaultAdapter());
+                        startScan();
                     } else if (isLeftBonded && isRightBonded && !doPendingPairingIdsMatch()) {
                         // We've connected to two different G1s...
                         // Let's unpair the right, try to pair to a different one
                         isRightBonded = false;
+                        isRightConnected = false;
+                        isRightPairing = false;
                         pendingSavedG1RightName = null;
                         Log.d(TAG, "Connected to two different G1s - retry right G1 arm");
                     } else {
@@ -382,7 +397,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         savedG1LeftName = pendingSavedG1LeftName;
                         savedG1RightName = pendingSavedG1RightName;
                         savePairedDeviceNames();
-                        stopScan(BluetoothAdapter.getDefaultAdapter());
+                        stopScan();
                         connectToGatt(leftDevice);
                         connectToGatt(rightDevice);
                     }
@@ -392,7 +407,14 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     if (device.getName().contains("_R_")) isRightPairing = false;
 
                     // Restart scanning to retry bonding
-                    startScan(BluetoothAdapter.getDefaultAdapter());
+                    if (retryBondHandler == null) {
+                        retryBondHandler = new Handler(Looper.getMainLooper());
+                    }
+
+                    retryBondHandler.postDelayed(() -> {
+                        Log.d(TAG, "Retrying scan after bond failure...");
+                        startScan();
+                    }, BOND_RETRY_DELAY_MS);
                 }
             }
         }
@@ -401,6 +423,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public boolean doPendingPairingIdsMatch() {
         String leftId = parsePairingIdFromDeviceName(pendingSavedG1LeftName);
         String rightId = parsePairingIdFromDeviceName(pendingSavedG1RightName);
+        Log.d(TAG, "LeftID: " + leftId);
+        Log.d(TAG, "RightID: " + rightId);
         return leftId != null && leftId.equals(rightId);
     }
     public String parsePairingIdFromDeviceName(String input) {
@@ -476,87 +500,119 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
     }
 
-    private BluetoothAdapter.LeScanCallback leScanCallback = (device, rssi, scanRecord) -> {
-        String name = device.getName();
+    private final ScanCallback modernScanCallback = new ScanCallback() {
+        @Override
+        public void onScanResult(int callbackType, ScanResult result) {
+            BluetoothDevice device = result.getDevice();
+            String name = device.getName();
 
-        //check if G1 arm
-        if (name == null || !name.contains("Even G1_")) {
-            return;
-        }
-
-        Log.d(TAG, "PREFERRED ID: " + preferredG1DeviceId);
-       if (name == null || preferredG1DeviceId == null || !name.contains(preferredG1DeviceId)) {
-            Log.d(TAG, "NOT PAIRED GLASSES");
-            return;
-        }
-
-        boolean isLeft = name.contains("_L_");
-
-        // Check if it's the correct G1, IF we've previously paired a G1
-        if ((savedG1LeftName != null && savedG1RightName != null)) {
-            if(!(name.contains(savedG1LeftName) || name.contains(savedG1RightName))){
-                // it is not either
+            // Now you can reference the bluetoothAdapter field if needed:
+            if (!bluetoothAdapter.isEnabled()) {
+                Log.e(TAG, "Bluetooth is disabled");
                 return;
             }
+
+            // Check if G1 arm
+            if (name == null || !name.contains("Even G1_")) {
+                return;
+            }
+
+            Log.d(TAG, "PREFERRED ID: " + preferredG1DeviceId);
+            if (preferredG1DeviceId == null || !name.contains(preferredG1DeviceId)) {
+                Log.d(TAG, "NOT PAIRED GLASSES");
+                return;
+            }
+
+            boolean isLeft = name.contains("_L_");
+
+            // If we already have saved device names for left/right...
+            if (savedG1LeftName != null && savedG1RightName != null) {
+                if (!(name.contains(savedG1LeftName) || name.contains(savedG1RightName))) {
+                    return; // Not a matching device
+                }
+            }
+
+            // Identify which side (left/right)
+            if (isLeft) {
+                leftDevice = device;
+            } else {
+                rightDevice = device;
+            }
+
+            int bondState = device.getBondState();
+            if (bondState != BluetoothDevice.BOND_BONDED) {
+                // Stop scan before initiating bond
+                stopScan();
+
+                if (isLeft && !isLeftPairing && !isLeftBonded) {
+                    Log.d(TAG, "Bonding with Left Glass...");
+                    isLeftPairing = true;
+                    bondDevice(device);
+                } else if (isLeftBonded && !isLeft && !isRightPairing && !isRightBonded) {
+                    Log.d(TAG, "Bonding with Right Glass...");
+                    isRightPairing = true;
+                    bondDevice(device);
+                }
+            } else {
+                // Already bonded
+                if (isLeft) isLeftBonded = true; else isRightBonded = true;
+
+                // Both are bonded => connect to GATT
+                if (isLeftBonded && isRightBonded) {
+                    Log.d(TAG, "Both sides bonded. Ready to connect to GATT.");
+                    stopScan();
+                    attemptGattConnection(leftDevice);
+                    attemptGattConnection(rightDevice);
+                }
+            }
         }
 
-        //figure out which G1 arm it is
-        if (isLeft){
-            leftDevice = device;
-        } else{
-            rightDevice = device;
-        }
-
-        //check if we've already bonded/paired
-        int bondState = device.getBondState();
-        if (bondState != BluetoothDevice.BOND_BONDED) {
-            // Stop scan before initiating bond
-            stopScan(BluetoothAdapter.getDefaultAdapter());
-
-            if (isLeft && !isLeftPairing && !isLeftBonded) {
-                Log.d(TAG, "Bonding with Left Glass...");
-                isLeftPairing = true;
-                bondDevice(device);
-            } else if (!isLeft && !isRightPairing && !isRightBonded) {
-                Log.d(TAG, "Bonding with Right Glass...");
-                isRightPairing = true;
-                bondDevice(device);
-            }
-        } else { //only runs if we've already setup the bond previously
-            // Mark the device as bonded
-            if (isLeft) isLeftBonded = true;
-            if (!isLeft) isRightBonded = true;
-
-            // Attempt GATT connection only after both sides are bonded
-            if (isLeftBonded && isRightBonded) {
-                Log.d(TAG, "Both sides bonded. Ready to connect to GATT.");
-                stopScan(BluetoothAdapter.getDefaultAdapter());
-                attemptGattConnection(leftDevice);
-                attemptGattConnection(rightDevice);
-            }
+        @Override
+        public void onScanFailed(int errorCode) {
+            Log.e(TAG, "Scan failed with error: " + errorCode);
         }
     };
 
     @Override
     public void connectToSmartGlasses() {
-        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-
         // Register bonding receiver
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
         context.registerReceiver(bondingReceiver, filter);
 
         // Start scanning for devices
-        startScan(bluetoothAdapter);
+        startScan();
     }
 
-    private void startScan(BluetoothAdapter bluetoothAdapter) {
-        bluetoothAdapter.startLeScan(leScanCallback);
+    private void startScan() {
+        BluetoothLeScanner scanner = bluetoothAdapter.getBluetoothLeScanner();
+        if (scanner == null) {
+            Log.e(TAG, "BluetoothLeScanner not available.");
+            return;
+        }
+
+        // Optionally, define filters if needed
+        List<ScanFilter> filters = new ArrayList<>();
+        // For example, to filter by device name:
+        // filters.add(new ScanFilter.Builder().setDeviceName("Even G1_").build());
+
+        // Set desired scan settings
+        ScanSettings settings = new ScanSettings.Builder()
+                .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)
+                .build();
+
+        // Start scanning
+        scanner.startScan(filters, settings, modernScanCallback);
         Log.d(TAG, "Started scanning for devices...");
-        handler.postDelayed(() -> stopScan(bluetoothAdapter), 60000); // Stop scan after 60 seconds
+
+        // Stop the scan after some time (e.g., 10-15s instead of 60 to avoid throttling)
+        handler.postDelayed(() -> stopScan(), 10000);
     }
 
-    private void stopScan(BluetoothAdapter bluetoothAdapter) {
-        bluetoothAdapter.stopLeScan(leScanCallback);
+    private void stopScan() {
+        BluetoothLeScanner scanner = bluetoothAdapter.getBluetoothLeScanner();
+        if (scanner != null) {
+            scanner.stopScan(modernScanCallback);
+        }
         Log.d(TAG, "Stopped scanning for devices");
     }
 
@@ -843,7 +899,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             context.unregisterReceiver(bondingReceiver);
         }
 
-        stopScan(BluetoothAdapter.getDefaultAdapter());
+        stopScan();
 
         if (handler != null)
             handler.removeCallbacksAndMessages(null);
@@ -861,6 +917,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             goHomeHandler.removeCallbacks(goHomeRunnable);
         if (findCompatibleDevicesHandler != null)
             findCompatibleDevicesHandler.removeCallbacksAndMessages(null);
+        if (retryBondHandler != null)
+            retryBondHandler.removeCallbacksAndMessages(null);
 
 
         sendQueue.clear();
@@ -969,38 +1027,70 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
         isScanningForCompatibleDevices = true;
 
-        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        List<String> foundDeviceNames = new ArrayList<>();
+        BluetoothLeScanner scanner = bluetoothAdapter.getBluetoothLeScanner();
+        if (scanner == null) {
+            Log.e(TAG, "BluetoothLeScanner not available");
+            isScanningForCompatibleDevices = false;
+            return;
+        }
 
-        // Create or reuse the handler
+        List<String> foundDeviceNames = new ArrayList<>();
         if (findCompatibleDevicesHandler == null) {
             findCompatibleDevicesHandler = new Handler(Looper.getMainLooper());
         }
 
-        BluetoothAdapter.LeScanCallback tempLeScanCallback = (device, rssi, scanRecord) -> {
-            String name = device.getName();
-            if (name != null && name.contains("Even G1_") && name.contains("_L_")) {
-                synchronized (foundDeviceNames) {
-                    if (!foundDeviceNames.contains(name)) {
-                        foundDeviceNames.add(name);
-                        Log.d(TAG, "Found smart glasses: " + name);
-                        String adjustedName = parsePairingIdFromDeviceName(name);
-                        EventBus.getDefault().post(new FoundGlassesBluetoothDeviceEvent(smartGlassesDevice.deviceModelName, adjustedName));
+        // Optional: add filters if you want to narrow the scan
+        List<ScanFilter> filters = new ArrayList<>();
+        ScanSettings settings = new ScanSettings.Builder()
+                .setScanMode(ScanSettings.SCAN_MODE_BALANCED)
+                .build();
+
+        // Create a modern ScanCallback instead of the deprecated LeScanCallback
+        final ScanCallback bleScanCallback = new ScanCallback() {
+            @Override
+            public void onScanResult(int callbackType, ScanResult result) {
+                BluetoothDevice device = result.getDevice();
+                String name = device.getName();
+                if (name != null && name.contains("Even G1_") && name.contains("_L_")) {
+                    synchronized (foundDeviceNames) {
+                        if (!foundDeviceNames.contains(name)) {
+                            foundDeviceNames.add(name);
+                            Log.d(TAG, "Found smart glasses: " + name);
+                            String adjustedName = parsePairingIdFromDeviceName(name);
+                            EventBus.getDefault().post(
+                                    new FoundGlassesBluetoothDeviceEvent(
+                                            smartGlassesDevice.deviceModelName,
+                                            adjustedName
+                                    )
+                            );
+                        }
                     }
                 }
+            }
+
+            @Override
+            public void onBatchScanResults(List<ScanResult> results) {
+                // If needed, handle batch results here
+            }
+
+            @Override
+            public void onScanFailed(int errorCode) {
+                Log.e(TAG, "BLE scan failed with code: " + errorCode);
             }
         };
 
         // Start scanning
-        bluetoothAdapter.startLeScan(tempLeScanCallback);
-        Log.d(TAG, "Started scanning for smart glasses...");
+        scanner.startScan(filters, settings, bleScanCallback);
+        Log.d(TAG, "Started scanning for smart glasses with BluetoothLeScanner...");
 
+        // Stop scanning after 10 seconds (adjust as needed)
         findCompatibleDevicesHandler.postDelayed(() -> {
-            bluetoothAdapter.stopLeScan(tempLeScanCallback);
+            scanner.stopScan(bleScanCallback);
             isScanningForCompatibleDevices = false;
             Log.d(TAG, "Stopped scanning for smart glasses.");
-        }, 10000); // Adjust the timeout as needed (10 seconds here)
+        }, 10000);
     }
+
 
 
 
