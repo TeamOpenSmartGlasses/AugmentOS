@@ -71,6 +71,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private BluetoothGattCharacteristic leftRxChar;
     private BluetoothGattCharacteristic rightRxChar;
     private final Handler handler = new Handler();
+    private Handler reconnectHandler = new Handler(Looper.getMainLooper());
     private final Semaphore sendSemaphore = new Semaphore(1);
     private boolean isLeftConnected = false;
     private boolean isRightConnected = false;
@@ -81,6 +82,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final long DELAY_BETWEEN_SENDS_MS = 20;
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 50;
     private static final long HEARTBEAT_INTERVAL_MS = 5000;
+
+    private int reconnectAttempts = 0;  // Counts the number of reconnect attempts
+    private static final long BASE_RECONNECT_DELAY_MS = 3000;  // Start with 3 seconds
+    private static final long MAX_RECONNECT_DELAY_MS = 60000;
 
     //heartbeat sender
     private Handler heartbeatHandler = new Handler();
@@ -151,12 +156,24 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 Log.d(TAG, "ConnectionStateChanged");
                 if (newState == BluetoothProfile.STATE_CONNECTED) {
                     Log.d(TAG, side + " glass connected, discovering services...");
+                    reconnectAttempts = 0;
                     gatt.discoverServices();
                 } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
                     if ("Left".equals(side)) isLeftConnected = false;
                     else isRightConnected = false;
                     updateConnectionState();
                     Log.d(TAG, side + " glass disconnected");
+                    reconnectAttempts++;
+
+                    long delay = Math.min(BASE_RECONNECT_DELAY_MS * (1L << reconnectAttempts), MAX_RECONNECT_DELAY_MS);
+                    Log.d(TAG, "Disconnected. Attempting to reconnect in " + delay + " ms (Attempt " + reconnectAttempts + ")");
+
+                    reconnectHandler.postDelayed(() -> {
+                        if (gatt.getDevice() != null) {
+                            gatt.close();
+                            reconnectToGatt(gatt.getDevice());
+                        }
+                    }, delay);
                 }
             }
 
@@ -435,6 +452,17 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         Log.d(TAG, "Nuked EvenRealities SharedPreferences");
     }
 
+    private void reconnectToGatt(BluetoothDevice device) {
+        if (device.getName().contains("_L_")) {
+            Log.d(TAG, "Connect GATT to left side");
+            leftGlassGatt = device.connectGatt(context, false, leftGattCallback);
+        } else if (device.getName().contains("_R_")) {
+            Log.d(TAG, "Connect GATT to right side");
+            rightGlassGatt = device.connectGatt(context, false, rightGattCallback);
+        } else {
+            Log.d(TAG, "Tried to connect to incorrect device: " + device.getName());
+        }
+    }
 
     private void connectToGatt(BluetoothDevice device) {
         if (device.getName().contains("_L_") && leftGlassGatt == null) {
