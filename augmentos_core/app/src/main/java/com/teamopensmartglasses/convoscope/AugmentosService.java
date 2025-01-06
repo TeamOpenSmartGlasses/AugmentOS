@@ -2348,6 +2348,28 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             // Adding apps array to the status object
             status.put("apps", apps);
 
+            // Adding dashboards array
+            JSONArray dashboards = new JSONArray();
+
+            for (ThirdPartyApp tpa : tpaSystem.getThirdPartyApps()) {
+                if(tpa.appType != ThirdPartyAppType.DASHBOARD) continue;
+                ThirdPartyApp currentDashboard = tpaSystem.getSelectedDashboardApp();
+
+                JSONObject tpaObj = new JSONObject();
+                tpaObj.put("name", tpa.appName);
+                tpaObj.put("description", tpa.appDescription);
+                if (currentDashboard != null) {
+                    tpaObj.put("is_selected", currentDashboard.packageName.equals(tpa.packageName));
+                } else {
+                    tpaObj.put("is_selected", false);
+                }
+                tpaObj.put("package_name", tpa.packageName);
+                apps.put(tpaObj);
+            }
+
+            // Adding apps array to the status object
+            status.put("dashboards", apps);
+
             // Wrapping the status object inside a main object (as shown in your example)
             JSONObject mainObject = new JSONObject();
             mainObject.put("status", status);

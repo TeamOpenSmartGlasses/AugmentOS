@@ -63,12 +63,15 @@ public class TPASystem {
 
     private static final String PREFS_NAME = "AugmentOSPrefs";
     private static final String APPS_KEY = "thirdPartyApps";
+    private static final String DASHBOARD_APP_KEY = "dashboardApp";
+
 
     private BroadcastReceiver packageInstallReceiver;
 
     private SharedPreferences sharedPreferences;
     private Gson gson;
     private Map<String, ThirdPartyApp> thirdPartyApps;
+    private String dashboardAppPackageName;
     private Set<String> runningApps;
 
     private static final int HEALTH_CHECK_INTERVAL_MS = 5000;  // 5 seconds
@@ -158,6 +161,21 @@ public class TPASystem {
         return null;
     }
 
+    public ThirdPartyApp getDefaultDashboardApp() {
+        ThirdPartyApp defaultDashboard = new ThirdPartyApp(
+                "Default Dashboard",
+                "A default dashboard",
+                "packageName",
+                "serviceName",
+                ThirdPartyAppType.DASHBOARD,
+                new AugmentOSCommand[]{}
+        );
+        return defaultDashboard;
+    }
+
+    public ThirdPartyApp getSelectedDashboardApp() {
+        return thirdPartyApps.get(dashboardAppPackageName);
+    }
     public boolean checkIsThirdPartyAppRunningByPackageName(String packageName) {
         return runningApps.contains(packageName);
     }
@@ -320,6 +338,7 @@ public class TPASystem {
         // Convert the list to JSON and save to SharedPreferences
         String json = gson.toJson(thirdPartyApps);
         sharedPreferences.edit().putString(APPS_KEY, json).apply();
+        sharedPreferences.edit().putString(DASHBOARD_APP_KEY, dashboardAppPackageName).apply();
     }
 
     public void loadThirdPartyAppsFromStorage() {
@@ -334,6 +353,9 @@ public class TPASystem {
                 newThirdPartyAppList.put(foundTpa.packageName, foundTpa);
             }
         }
+
+        // TODO Finish dashboard system
+        //  dashboardAppPackageName = sharedPreferences.getString(DASHBOARD_APP_KEY, null);
 
         thirdPartyApps = newThirdPartyAppList;
 
