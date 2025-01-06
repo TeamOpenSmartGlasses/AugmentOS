@@ -8,6 +8,11 @@ import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothProfile;
+import android.bluetooth.le.BluetoothLeScanner;
+import android.bluetooth.le.ScanCallback;
+import android.bluetooth.le.ScanFilter;
+import android.bluetooth.le.ScanResult;
+import android.bluetooth.le.ScanSettings;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -126,6 +131,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     //handler to turn off screen
     Handler goHomeHandler;
     Runnable goHomeRunnable;
+
+    //Retry handler
+    Handler retryBondHandler;
+    private static final long BOND_RETRY_DELAY_MS = 5000; // 5-second backoff
+
 
     //remember when we connected
     private long lastConnectionTimestamp = 0;
@@ -375,7 +385,14 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     if (device.getName().contains("_R_")) isRightPairing = false;
 
                     // Restart scanning to retry bonding
-                    startScan(BluetoothAdapter.getDefaultAdapter());
+                    if (retryBondHandler == null) {
+                        retryBondHandler = new Handler(Looper.getMainLooper());
+                    }
+
+                    retryBondHandler.postDelayed(() -> {
+                        Log.d(TAG, "Retrying scan after bond failure...");
+                        startScan(BluetoothAdapter.getDefaultAdapter());
+                    }, BOND_RETRY_DELAY_MS);
                 }
             }
         }
@@ -833,6 +850,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             goHomeHandler.removeCallbacks(goHomeRunnable);
         if (findCompatibleDevicesHandler != null)
             findCompatibleDevicesHandler.removeCallbacksAndMessages(null);
+        if (retryBondHandler != null)
+            retryBondHandler.removeCallbacksAndMessages(null);
 
 
         sendQueue.clear();
@@ -942,37 +961,70 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         isScanningForCompatibleDevices = true;
 
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        List<String> foundDeviceNames = new ArrayList<>();
+        BluetoothLeScanner scanner = bluetoothAdapter.getBluetoothLeScanner();
+        if (scanner == null) {
+            Log.e(TAG, "BluetoothLeScanner not available");
+            isScanningForCompatibleDevices = false;
+            return;
+        }
 
-        // Create or reuse the handler
+        List<String> foundDeviceNames = new ArrayList<>();
         if (findCompatibleDevicesHandler == null) {
             findCompatibleDevicesHandler = new Handler(Looper.getMainLooper());
         }
 
-        BluetoothAdapter.LeScanCallback tempLeScanCallback = (device, rssi, scanRecord) -> {
-            String name = device.getName();
-            if (name != null && name.contains("Even G1_") && name.contains("_L_")) {
-                synchronized (foundDeviceNames) {
-                    if (!foundDeviceNames.contains(name)) {
-                        foundDeviceNames.add(name);
-                        Log.d(TAG, "Found smart glasses: " + name);
-                        String adjustedName = parsePairingIdFromDeviceName(name);
-                        EventBus.getDefault().post(new FoundGlassesBluetoothDeviceEvent(smartGlassesDevice.deviceModelName, adjustedName));
+        // Optional: add filters if you want to narrow the scan
+        List<ScanFilter> filters = new ArrayList<>();
+        ScanSettings settings = new ScanSettings.Builder()
+                .setScanMode(ScanSettings.SCAN_MODE_BALANCED)
+                .build();
+
+        // Create a modern ScanCallback instead of the deprecated LeScanCallback
+        final ScanCallback bleScanCallback = new ScanCallback() {
+            @Override
+            public void onScanResult(int callbackType, ScanResult result) {
+                BluetoothDevice device = result.getDevice();
+                String name = device.getName();
+                if (name != null && name.contains("Even G1_") && name.contains("_L_")) {
+                    synchronized (foundDeviceNames) {
+                        if (!foundDeviceNames.contains(name)) {
+                            foundDeviceNames.add(name);
+                            Log.d(TAG, "Found smart glasses: " + name);
+                            String adjustedName = parsePairingIdFromDeviceName(name);
+                            EventBus.getDefault().post(
+                                    new FoundGlassesBluetoothDeviceEvent(
+                                            smartGlassesDevice.deviceModelName,
+                                            adjustedName
+                                    )
+                            );
+                        }
                     }
                 }
+            }
+
+            @Override
+            public void onBatchScanResults(List<ScanResult> results) {
+                // If needed, handle batch results here
+            }
+
+            @Override
+            public void onScanFailed(int errorCode) {
+                Log.e(TAG, "BLE scan failed with code: " + errorCode);
             }
         };
 
         // Start scanning
-        bluetoothAdapter.startLeScan(tempLeScanCallback);
-        Log.d(TAG, "Started scanning for smart glasses...");
+        scanner.startScan(filters, settings, bleScanCallback);
+        Log.d(TAG, "Started scanning for smart glasses with BluetoothLeScanner...");
 
+        // Stop scanning after 10 seconds (adjust as needed)
         findCompatibleDevicesHandler.postDelayed(() -> {
-            bluetoothAdapter.stopLeScan(tempLeScanCallback);
+            scanner.stopScan(bleScanCallback);
             isScanningForCompatibleDevices = false;
             Log.d(TAG, "Stopped scanning for smart glasses.");
-        }, 10000); // Adjust the timeout as needed (10 seconds here)
+        }, 10000);
     }
+
 
 
 
