@@ -1270,7 +1270,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     // Constants for text wall display
     private static final int TEXT_COMMAND = 0x4E;  // Text command
-    private static final int DISPLAY_WIDTH = 688;  // Display width in pixels
+    private static final int DISPLAY_WIDTH = 340;  // Display width in pixels
     private static final int FONT_SIZE = 21;      // Font size
     private static final int LINES_PER_SCREEN = 7; // Lines per screen
     private static final int MAX_CHUNK_SIZE = 176; // Maximum chunk size for BLE packets
@@ -1363,24 +1363,34 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 continue;
             }
 
-            StringBuilder currentLine = new StringBuilder();
-
-            // Process the line character by character to preserve spaces
-            for (int i = 0; i < rawLine.length(); i++) {
-                char currentChar = rawLine.charAt(i);
-
-                // Check if adding this character exceeds the character limit
-                if (currentLine.length() + 1 > charsPerLine) {
-                    lines.add(currentLine.toString());
-                    currentLine = new StringBuilder(); // Start a new line
+            // Wrap text (similar to wrapText) using our rough charsPerLine
+            String current = rawLine.trim();
+            while (!current.isEmpty()) {
+                // If shorter than max length, just add
+                if (current.length() <= charsPerLine) {
+                    lines.add(current);
+                    break;
                 }
 
-                currentLine.append(currentChar); // Add the character to the current line
-            }
+                // Otherwise, find the best split position
+                int splitIndex = charsPerLine;
 
-            // Add the remaining text in the current line
-            if (currentLine.length() > 0) {
-                lines.add(currentLine.toString());
+                // Move splitIndex left until we find a space
+                while (splitIndex > 0 && current.charAt(splitIndex) != ' ') {
+                    splitIndex--;
+                }
+
+                // If no space was found, force the split at charsPerLine
+                if (splitIndex == 0) {
+                    splitIndex = charsPerLine;
+                }
+
+                // Extract the chunk, trim it, and add to result lines
+                String chunk = current.substring(0, splitIndex).trim();
+                lines.add(chunk);
+
+                // Remove that chunk (plus leading/trailing spaces) from current
+                current = current.substring(splitIndex).trim();
             }
         }
 
