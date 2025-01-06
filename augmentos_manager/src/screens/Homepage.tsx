@@ -10,6 +10,8 @@ import NavigationBar from '../components/NavigationBar';
 import PuckConnection from '../components/PuckConnection';
 import { useStatus } from '../AugmentOSStatusProvider';
 import { ScrollView } from 'react-native-gesture-handler';
+import { SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from '../consts';
+import { loadSetting } from '../augmentos_core_comms/SettingsHelper';
 
 interface HomepageProps {
   isDarkTheme: boolean;
@@ -23,6 +25,7 @@ interface AnimatedSectionProps extends PropsWithChildren {
 const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
   const navigation = useNavigation<NavigationProp<any>>();
   const { status } = useStatus();
+  const [isSimulatedPuck, setIsSimulatedPuck] = React.useState(false);
 
   // Initialize animations with starting values
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -41,6 +44,18 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
     ),
     [fadeAnim, slideAnim],
   );
+
+  React.useEffect(() => {
+    const loadSimulatedPuckSetting = async () => {
+      const simulatedPuck = await loadSetting(
+        SETTINGS_KEYS.SIMULATED_PUCK,
+        SIMULATED_PUCK_DEFAULT,
+      );
+      setIsSimulatedPuck(simulatedPuck);
+    };
+
+    loadSimulatedPuckSetting();
+  }, []);
 
   useFocusEffect(
     useCallback(() => {
@@ -82,9 +97,11 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
           <Header isDarkTheme={isDarkTheme} navigation={navigation} />
         </AnimatedSection>
 
+        {!isSimulatedPuck||true && (
         <AnimatedSection>
           <PuckConnection isDarkTheme={isDarkTheme} />
         </AnimatedSection>
+        )}
 
         <AnimatedSection>
           <ConnectedDeviceInfo isDarkTheme={isDarkTheme} />

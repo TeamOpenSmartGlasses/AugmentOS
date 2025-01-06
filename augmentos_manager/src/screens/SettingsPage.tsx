@@ -181,7 +181,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
           />
         </View> */}
 
-        {/* Temporary until we make a proper page for thsi */}
         {Platform.OS == 'android' && (
           <TouchableOpacity
             style={styles.settingItem}
@@ -206,6 +205,31 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
             />
           </TouchableOpacity>
         )}
+
+         
+          <TouchableOpacity
+            style={styles.settingItem}
+            onPress={() => {
+              navigation.navigate('PhoneNotificationSettings');
+            }}>
+            <View style={styles.settingTextContainer}>
+              <Text
+                style={[
+                  styles.label,
+                  isDarkTheme ? styles.lightText : styles.darkText,
+                ]}>
+                Notifications
+              </Text>
+            </View>
+            <Icon
+              name="angle-right"
+              size={20}
+              color={
+                isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color
+              }
+            />
+          </TouchableOpacity>
+      
 
         <TouchableOpacity
           style={styles.settingItem}

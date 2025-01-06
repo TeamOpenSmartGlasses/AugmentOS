@@ -56,7 +56,7 @@ class MainApplication : Application(), ReactApplication {
     override fun onCreate() {
         super.onCreate()
         SoLoader.init(this, /* native exopackage */ false)
-
+/*
         // Register a listener to set up notificationReceiver once React context is available
         reactNativeHost.reactInstanceManager.addReactInstanceEventListener(
             object : ReactInstanceEventListener {
@@ -67,6 +67,6 @@ class MainApplication : Application(), ReactApplication {
                         .registerReceiver(notificationReceiver, filter)
                 }
             }
-        )
+        )*/
     }
 }

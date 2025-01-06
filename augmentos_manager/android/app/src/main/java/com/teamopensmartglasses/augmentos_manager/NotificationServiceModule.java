@@ -22,6 +22,7 @@ public class NotificationServiceModule extends ReactContextBaseJavaModule {
     public NotificationServiceModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
+        NotificationService.setReactApplicationContext(reactContext);
 
     }
 
@@ -51,6 +52,7 @@ public class NotificationServiceModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void startNotificationListenerService(Promise promise) {
         try {
+            Log.d(TAG, "Starting notification listener service");
             Context context = getReactApplicationContext();
             Intent serviceIntent = new Intent(context, NotificationService.class);
             context.startService(serviceIntent);
@@ -82,11 +84,17 @@ public class NotificationServiceModule extends ReactContextBaseJavaModule {
 
     // Callback for the Notification Listener Service
     public void onNotificationPosted(String jsonString) {
-        // String packageName = sbn.getPackageName();
-        // String title = sbn.getNotification().extras.getString("android.title");
-        // String text = sbn.getNotification().extras.getString("android.text");
-
-        Log.d(TAG, "Notification received: " + jsonString);
+        Log.d(TAG, "onNotificationPosted .. received: " + jsonString);
         sendNotificationToJS(jsonString);
+    }
+
+    @ReactMethod
+    public void addListener(String eventName) {
+        Log.d(TAG, "addListener: Event listener added for " + eventName);
+    }
+
+    @ReactMethod
+    public void removeListeners(int count) {
+        Log.d(TAG, "removeListeners: Removed " + count + " listeners");
     }
 }

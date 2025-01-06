@@ -6,6 +6,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.service.notification.NotificationListenerService;
+import com.facebook.react.bridge.ReactApplicationContext;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
 
@@ -21,7 +22,11 @@ import java.util.List;
 public class NotificationService extends NotificationListenerService {
 
     private static final String TAG = "NotificationListener";
+    private static ReactApplicationContext reactContext;
 
+    public static void setReactApplicationContext(ReactApplicationContext context) {
+        reactContext = context;
+    }
     private final List<String> packageBlacklist = Arrays.asList(
             "com.android.systemui",
             "com.samsung.android.app.smartcapture",
@@ -63,8 +68,6 @@ public class NotificationService extends NotificationListenerService {
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
-        if (!shouldListenForNotifications()) return;
-
         String packageName = sbn.getPackageName();
 
         Log.d(TAG, "Notification Posted: " + sbn.getPackageName());
@@ -137,9 +140,8 @@ public class NotificationService extends NotificationListenerService {
             obj.put("appName", appName);
             obj.put("title", title);
             obj.put("text", text);
-            // TODO: Finish
-            // NotificationServiceModule notificationUtils = new NotificationServiceModule(getReactApplicationContext());
-            // notificationUtils.onNotificationPosted(obj.toString());
+            NotificationServiceModule notificationUtils = new NotificationServiceModule(reactContext);
+            notificationUtils.onNotificationPosted(obj.toString());
         } catch (JSONException e) {
             Log.d(TAG, "JSONException occurred while processing notification: " + e.getMessage());
         }
@@ -172,10 +174,5 @@ public class NotificationService extends NotificationListenerService {
             e.printStackTrace();
             return packageName;
         }
-    }
-
-    public boolean shouldListenForNotifications() {
-        return true;
-        //return PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean("should_display_notifications", false);
     }
 }
