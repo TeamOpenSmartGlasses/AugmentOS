@@ -89,7 +89,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     private static final long DELAY_BETWEEN_SENDS_MS = 20;
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 50;
-    private static final long HEARTBEAT_INTERVAL_MS = 5000;
+    private static final long HEARTBEAT_INTERVAL_MS = 10000;
 
     private int reconnectAttempts = 0;  // Counts the number of reconnect attempts
     private static final long BASE_RECONNECT_DELAY_MS = 3000;  // Start with 3 seconds
