@@ -12,7 +12,7 @@
 
 
 extern "C" JNIEXPORT jbyteArray JNICALL
-Java_com_example_demo_1ai_1even_cpp_Cpp_decodeLC3(JNIEnv *env, jclass instance, jbyteArray lc3Data) {
+Java_com_teamopensmartglasses_smartglassesmanager_cpp_L3cCpp_decodeLC3(JNIEnv *env, jclass instance, jbyteArray lc3Data) {
 //    __android_log_print(ANDROID_LOG_INFO, "cpp", "JNI decodeLC3 called!");
     jbyte *lc3Bytes = env->GetByteArrayElements(lc3Data, nullptr);
     int lc3Length = env->GetArrayLength(lc3Data);
