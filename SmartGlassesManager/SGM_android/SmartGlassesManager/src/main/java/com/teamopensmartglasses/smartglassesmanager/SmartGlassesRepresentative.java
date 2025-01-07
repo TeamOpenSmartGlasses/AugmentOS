@@ -109,19 +109,15 @@ class SmartGlassesRepresentative {
         switch (smartGlassesDevice.getGlassesOs()){
             case ANDROID_OS_GLASSES:
                 smartGlassesCommunicator = new AndroidSGC(context, smartGlassesDevice, dataObservable);
-                isUsingGlassesMic = false;
                 break;
             case AUDIO_WEARABLE_GLASSES:
                 smartGlassesCommunicator = new AudioWearableSGC(context, smartGlassesDevice);
-                isUsingGlassesMic = false;
                 break;
             case ULTRALITE_MCU_OS_GLASSES:
                 smartGlassesCommunicator = new UltraliteSGC(context, smartGlassesDevice, lifecycleOwner);
-                isUsingGlassesMic = false;
                 break;
             case EVEN_REALITIES_G1_MCU_OS_GLASSES:
                 smartGlassesCommunicator = new EvenRealitiesG1SGC(context, smartGlassesDevice);
-                isUsingGlassesMic = true;
                 break;
         }
 
@@ -153,11 +149,6 @@ class SmartGlassesRepresentative {
     }
 
     private void connectAndStreamLocalMicrophone(boolean useBluetoothSco) {
-        if (isUsingGlassesMic) {
-            return;
-        }
-        //follow this order for speed
-        //start audio from bluetooth headset
         uiHandler.post(new Runnable() {
             @Override
             public void run() {

@@ -286,7 +286,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
 //                            Log.d(TAG, "Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
                             if (deviceName.contains("R_")) {
-                                Log.d(TAG, "Ignoring...");
+//                                Log.d(TAG, "Ignoring...");
 //                                Log.d(TAG, "Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
 //                                EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
                             } else {
