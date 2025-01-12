@@ -11,6 +11,7 @@ public interface AugmentOsActionsCallback {
     void forgetSmartGlasses();
     void startApp(String packageName);
     void stopApp(String packageName);
+    void setSensingEnabled(boolean sensingEnabled);
     void installAppFromRepository(JSONObject repoAppData);
     void uninstallApp(String packageName);
     void handleNotificationData(JSONObject notificationData);

@@ -26,6 +26,7 @@ export interface AppInfo {
   is_foreground: boolean;
   package_name: string;
   icon: string;
+  type: string;
 }
 
 export interface AugmentOSMainStatus {
@@ -33,6 +34,7 @@ export interface AugmentOSMainStatus {
   puck_battery_life: number | null;
   puck_charging_status: boolean;
   default_wearable: string | null,
+  sensing_enabled: boolean;
   glasses_info: Glasses | null;
   wifi: WifiConnection | null;
   gsm: GSMConnection | null;
@@ -44,6 +46,7 @@ export class AugmentOSParser {
     puck_connected: false,
     puck_battery_life: null,
     puck_charging_status: false,
+    sensing_enabled: false,
     default_wearable: null,
     glasses_info: null,
     wifi: { is_connected: false, ssid: '', signal_strength: 0 },
@@ -55,6 +58,7 @@ export class AugmentOSParser {
     puck_connected: true,
     puck_battery_life: 88,
     puck_charging_status: true,
+    sensing_enabled: true,
    // default_wearable: 'Vuzix Z100',
    default_wearable: 'evenrealities_g1',
     glasses_info: {
@@ -74,6 +78,7 @@ export class AugmentOSParser {
         description: 'AI executive functioning aid',
         is_running: true,
         is_foreground: true,
+        type: 'APP'
       },
       {
         name: 'Live Translation',
@@ -82,6 +87,7 @@ export class AugmentOSParser {
         description: 'Movie and TV streaming',
         is_running: false,
         is_foreground: false,
+        type: 'APP'
       },
       {
         name: 'Navigation',
@@ -90,6 +96,7 @@ export class AugmentOSParser {
         description: 'Navigation app',
         is_running: false,
         is_foreground: false,
+        type: 'APP'
       },
       {
         name: 'Mira AI',
@@ -98,6 +105,7 @@ export class AugmentOSParser {
         description: 'AI assistant',
         is_running: false,
         is_foreground: false,
+        type: 'APP'
       },
       {
         name: 'Screen Mirror',
@@ -106,6 +114,7 @@ export class AugmentOSParser {
         description: 'Screen mirroring app',
         is_running: false,
         is_foreground: false,
+        type: 'APP'
       },
       {
         name: 'Captions',
@@ -114,6 +123,7 @@ export class AugmentOSParser {
         description: 'Live captioning app',
         is_running: false,
         is_foreground: false,
+        type: 'APP'
       },
       {
         name: 'ADHD Aid',
@@ -122,6 +132,7 @@ export class AugmentOSParser {
         description: 'ADHD aid app',
         is_running: false,
         is_foreground: false,
+        type: 'APP'
       },
       {
         name: 'Mentra Link',
@@ -130,6 +141,7 @@ export class AugmentOSParser {
         description: 'Language learning app',
         is_running: false,
         is_foreground: false,
+        type: 'APP'
       },
     ],
   };
@@ -144,6 +156,7 @@ export class AugmentOSParser {
         puck_connected: true,
         puck_battery_life: status.puck_battery_life ?? null,
         puck_charging_status: status.charging_status ?? false,
+        sensing_enabled: status.sensing_enabled ?? false,
         default_wearable: status.default_wearable ?? null,
         glasses_info: status.connected_glasses
           ? {
@@ -162,6 +175,7 @@ export class AugmentOSParser {
           is_foreground: !!app.is_foreground,
           package_name: app.package_name || 'unknown.package',
           icon: app.icon || '/assets/icons/default-app.png',
+          type: app.type || 'APP'
         })) || [],
       };
     }

@@ -355,7 +355,7 @@ public class TPASystem {
         }
 
         // TODO Finish dashboard system
-        //  dashboardAppPackageName = sharedPreferences.getString(DASHBOARD_APP_KEY, null);
+        dashboardAppPackageName = sharedPreferences.getString(DASHBOARD_APP_KEY, null);
 
         thirdPartyApps = newThirdPartyAppList;
 

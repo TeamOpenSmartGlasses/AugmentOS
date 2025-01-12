@@ -769,6 +769,16 @@ export class BluetoothService extends EventEmitter {
     });
   }
 
+  async sendToggleSensing(enabled: boolean) {
+    console.log('sendToggleSensing');
+    return await this.sendDataToAugmentOs({
+      command: 'enable_sensing',
+      params: {
+        enabled: enabled,
+      },
+    });
+  }
+
   async startAppByPackageName(packageName: string) {
     console.log('startAppByPackageName');
     return await this.sendDataToAugmentOs({
