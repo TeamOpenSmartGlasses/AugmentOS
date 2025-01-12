@@ -149,6 +149,8 @@ class SmartGlassesRepresentative {
     }
 
     private void connectAndStreamLocalMicrophone(boolean useBluetoothSco) {
+        //follow this order for speed
+        //start audio from bluetooth headset
         uiHandler.post(new Runnable() {
             @Override
             public void run() {
