@@ -68,8 +68,6 @@ class SmartGlassesRepresentative {
     Handler uiHandler;
     Handler micHandler;
 
-    private boolean isUsingGlassesMic;
-
     SmartGlassesRepresentative(Context context, SmartGlassesDevice smartGlassesDevice, LifecycleOwner lifecycleOwner, PublishSubject<JSONObject> dataObservable){
         this.context = context;
         this.smartGlassesDevice = smartGlassesDevice;
