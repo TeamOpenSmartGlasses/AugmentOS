@@ -36,9 +36,11 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.hardware.display.VirtualDisplay;
 import android.media.projection.MediaProjection;
+import android.os.BatteryManager;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
@@ -77,7 +79,10 @@ import com.teamopensmartglasses.convoscope.tpa.TPASystem;
 import com.teamopensmartglasses.convoscope.ui.AugmentosUi;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.FoundGlassesBluetoothDeviceEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
@@ -88,14 +93,19 @@ import com.teamopensmartglasses.augmentoslib.events.SmartGlassesConnectedEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 
+import org.checkerframework.checker.units.qual.A;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.LinkedList;
 import java.util.Collections;
@@ -260,6 +270,45 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         sendStatusToAugmentOsManager();
     }
 
+    //TODO NO MORE PASTA
+    public ArrayList<String> notificationList = new ArrayList<String>();
+    @Subscribe
+    public void onDisplayGlassesDashboardEvent(DisplayGlassesDashboardEvent event) {
+            // Get current time and date
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
+            String currentTime = timeFormat.format(new Date());
+            String currentDate = dateFormat.format(new Date());
+
+            // Get battery level
+            IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+            Intent batteryStatus = this.registerReceiver(null, iFilter);
+            int level = batteryStatus != null ?
+                    batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) : -1;
+            int scale = batteryStatus != null ?
+                    batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1) : -1;
+            float batteryPct = level * 100 / (float)scale;
+
+            // Build dashboard string with fancy formatting
+            StringBuilder dashboard = new StringBuilder();
+       //     dashboard.append("Dashboard - AugmentOS\n");
+            dashboard.append(String.format("│ %s, %s\n", currentDate, currentTime));
+            //dashboard.append(String.format("│ Date      │ %s\n", currentDate));
+//            dashboard.append(String.format("│ Battery │ %.0f%%\n", batteryPct));
+//            dashboard.append("│ BLE       │ ON\n");
+
+       // dashboard.append("│ Notifications │\n");
+        int notificationCount = Math.min(1, notificationList.size());
+        for (int i = 0; i < notificationCount; i++) {
+            dashboard.append(String.format("│ - %s\n", notificationList.get(notificationList.size() - 1 - i)));
+        }
+
+            // Send to text wall
+            if(isSmartGlassesServiceBound)
+                smartGlassesService.sendTextWall(dashboard.toString());
+            Log.d(TAG, "Fancy dashboard displayed: " + dashboard.toString());
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -308,7 +357,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         if (!tpaSystem.isAppInstalled(AugmentOSManagerPackageName)) {
             // TODO: While we use simulated puck, disable the BLE Peripheral for testing
             // TODO: For now, just disable peripheral if manager is installed on same device
-            blePeripheral.start();
+            // blePeripheral.start();
         }
 
         completeInitialization();
@@ -332,14 +381,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void completeInitialization(){
         Log.d(TAG, "COMPLETE CONVOSCOPE INITIALIZATION");
 //        setUpUiPolling();
-        setUpLocationSending();
+        // setUpLocationSending();
 
         getCurrentMode(this);
 
         //update settings on backend on launch
-        updateTargetLanguageOnBackend(this);
-        updateSourceLanguageOnBackend(this);
-        updateVocabularyUpgradeOnBackend(this);
+        // updateTargetLanguageOnBackend(this);
+        // updateSourceLanguageOnBackend(this);
+        // updateVocabularyUpgradeOnBackend(this);
         saveCurrentMode(this, getCurrentMode(this));
 
         saveCurrentMode(this, "");
@@ -1867,7 +1916,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         try{
             JSONObject settingsObj = new JSONObject();
             settingsObj.put("current_mode", currentModeString);
-            sendSettings(settingsObj);
+       //     sendSettings(settingsObj);
         } catch (JSONException e){
             e.printStackTrace();
         }
@@ -2224,7 +2273,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Subscribe
     public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event) {
-        Log.d(TAG, "onGoogleAuthFailedEvent triggered");
+        Log.d(TAG, "onGoogleAuthFailedEvent triggered: " + event.reason);
         numConsecutiveAuthFailures += 1;
         if(numConsecutiveAuthFailures > 10) {
             Log.d("TAG", "ATTEMPT SIGN OUT");
@@ -2302,6 +2351,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             // Adding puck battery life and charging status
             status.put("puck_battery_life", batteryStatusHelper.getBatteryLevel());
             status.put("charging_status", batteryStatusHelper.isBatteryCharging());
+            status.put("sensing_enabled", SpeechRecSwitchSystem.sensing_enabled);
             status.put("default_wearable", AugmentosSmartGlassesService.getPreferredWearable(this));
 
             // Adding connected glasses object
@@ -2342,33 +2392,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 tpaObj.put("is_running", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
                 tpaObj.put("is_foreground", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
                 tpaObj.put("package_name", tpa.packageName);
+                tpaObj.put("type", tpa.appType.name());
                 apps.put(tpaObj);
             }
 
             // Adding apps array to the status object
             status.put("apps", apps);
 
-            // Adding dashboards array
-            JSONArray dashboards = new JSONArray();
 
-            for (ThirdPartyApp tpa : tpaSystem.getThirdPartyApps()) {
-                if(tpa.appType != ThirdPartyAppType.DASHBOARD) continue;
-                ThirdPartyApp currentDashboard = tpaSystem.getSelectedDashboardApp();
-
-                JSONObject tpaObj = new JSONObject();
-                tpaObj.put("name", tpa.appName);
-                tpaObj.put("description", tpa.appDescription);
-                if (currentDashboard != null) {
-                    tpaObj.put("is_selected", currentDashboard.packageName.equals(tpa.packageName));
-                } else {
-                    tpaObj.put("is_selected", false);
-                }
-                tpaObj.put("package_name", tpa.packageName);
-                apps.put(tpaObj);
-            }
-
-            // Adding apps array to the status object
-            status.put("dashboards", apps);
 
             // Wrapping the status object inside a main object (as shown in your example)
             JSONObject mainObject = new JSONObject();
@@ -2479,6 +2510,15 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Override
+    public void setSensingEnabled(boolean sensingEnabled){
+        if (isSmartGlassesServiceBound) {
+            EventBus.getDefault().post(new SetSensingEnabledEvent(sensingEnabled));
+        } else {
+            blePeripheral.sendNotifyManager("Connect glasses to toggle sensing", "error");
+        }
+    }
+
+    @Override
     public void installAppFromRepository(JSONObject repoAppData) {
         Log.d(TAG, "installAppFromRepository not implemented");
         //TODO: Implement this
@@ -2505,6 +2545,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
                 //TODO: Actually finish implementing notifications
                 //TODO: Also pull navigation data from this?
+
+                String formattedNotification = String.format("[%s]: %s", title, text);
+                notificationList.add(formattedNotification);
+
+                // Keep only the last 10 notifications
+                if (notificationList.size() > 10) {
+                    notificationList.remove(0);
+                }
             } else {
                 System.out.println("Notification Data is null");
             }

@@ -150,4 +150,8 @@
     </intent>
   </queries>
 
+  <queries>
+    <package android:name="com.teamopensmartglasses.augmentos_manager" />
+  </queries>
+
 </manifest>

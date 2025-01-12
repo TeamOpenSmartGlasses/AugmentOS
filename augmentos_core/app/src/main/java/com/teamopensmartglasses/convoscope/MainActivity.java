@@ -66,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
   private static final int READ_CONTACTS_PERMISSIONS_REQUEST = 2;
 
   public SmartGlassesDevice selectedDevice;
+  private static final String TARGET_PACKAGE = "com.teamopensmartglasses.augmentos_manager";
+
 
   public boolean gettingPermissions = false;
 
@@ -73,7 +75,13 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
+    if (isAppInstalled(TARGET_PACKAGE)) {
+      setContentView(R.layout.activity_main);
+      launchTargetApp(TARGET_PACKAGE);
+    } else {
+      // Show a message or handle the case where the target app is not installed
+      setContentView(R.layout.activity_main);
+    }
     mBound = false;
 
     permissionsUtils = new PermissionsUtils(this, TAG);
@@ -110,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   public void onStart() {
     super.onStart();
-    UiUtils.setupTitle(this, "AugmentOS");
+    UiUtils.setupTitle(this, "AugmentOS Core");
 
     if (permissionsUtils == null) {
       permissionsUtils = new PermissionsUtils(this, TAG);
@@ -461,5 +469,30 @@ public class MainActivity extends AppCompatActivity {
         }
         return currentModeString;
    }
+
+  private boolean isAppInstalled(String packageName) {
+    PackageManager pm = getPackageManager();
+    try {
+      pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+      return true;
+    } catch (PackageManager.NameNotFoundException e) {
+      return false;
+    }
+  }
+
+  private void launchTargetApp(String packageName) {
+    PackageManager pm = getPackageManager();
+    Intent launchIntent = pm.getLaunchIntentForPackage(packageName);
+
+    if (launchIntent != null) {
+      startActivity(launchIntent);
+      finish(); // Optional: Close this app if switching to the target app
+    } else {
+      // Handle the case where the app is installed but cannot be launched
+      Uri playStoreUri = Uri.parse("https://play.google.com/store/apps/details?id=" + packageName);
+      Intent intent = new Intent(Intent.ACTION_VIEW, playStoreUri);
+      startActivity(intent);
+    }
+  }
 
 }

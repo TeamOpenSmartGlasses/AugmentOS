@@ -23,6 +23,7 @@ import android.os.BatteryManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.view.Display;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,6 +41,7 @@ import java.nio.ByteBuffer;
 import com.google.gson.Gson;
 import com.teamopensmartglasses.augmentoslib.events.AudioChunkNewEvent;
 import com.teamopensmartglasses.smartglassesmanager.cpp.L3cCpp;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.FoundGlassesBluetoothDeviceEvent;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 
@@ -286,7 +288,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
 //                            Log.d(TAG, "Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
                             if (deviceName.contains("R_")) {
-                                Log.d(TAG, "Ignoring...");
+                                //Log.d(TAG, "Ignoring...");
 //                                Log.d(TAG, "Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
 //                                EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
                             } else {
@@ -1134,7 +1136,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         if (heartbeatHandler != null) {
             heartbeatHandler.removeCallbacksAndMessages(null);
             heartbeatHandler.removeCallbacksAndMessages(heartbeatRunnable);
-            heartbeatHandler = null;
+
+            // TODO: Evaluate this but pretty sure we should not set this to null here, only ondestroy
+            //heartbeatHandler = null;
         }
     }
 
@@ -1696,32 +1700,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     }
 
     private void showDashboard() {
-        // Get current time and date
-        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
-        String currentTime = timeFormat.format(new Date());
-        String currentDate = dateFormat.format(new Date());
-
-        // Get battery level
-        IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
-        Intent batteryStatus = context.registerReceiver(null, iFilter);
-        int level = batteryStatus != null ?
-                batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) : -1;
-        int scale = batteryStatus != null ?
-                batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1) : -1;
-        float batteryPct = level * 100 / (float)scale;
-
-        // Build dashboard string with fancy formatting
-        StringBuilder dashboard = new StringBuilder();
-        dashboard.append("Dashboard - AugmentOS\n");
-        dashboard.append(String.format("│ Time      │ %s\n", currentTime));
-        dashboard.append(String.format("│ Date      │ %s\n", currentDate));
-        dashboard.append(String.format("│ Battery │ %.0f%%\n", batteryPct));
-        dashboard.append("│ BLE       │ ON\n");
-
-        // Send to text wall
-        displayTextWall(dashboard.toString());
-        Log.d(TAG, "Fancy dashboard displayed: " + dashboard.toString());
+        EventBus.getDefault().post(new DisplayGlassesDashboardEvent());
     }
 
 }

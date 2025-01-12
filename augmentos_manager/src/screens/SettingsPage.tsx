@@ -33,8 +33,8 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] =
     React.useState(false);
   const { status } = useStatus();
-  const [isUsingAudioWearable, setIsUsingAudioWearable] = React.useState(
-    status.default_wearable == 'Audio Wearable',
+  const [isSensingEnabled, setIsSensingEnabled] = React.useState(
+    status.sensing_enabled,
   );
 
   React.useEffect(() => {
@@ -42,6 +42,10 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
 
     loadInitialSettings();
   }, []);
+
+  React.useEffect(() => {
+    setIsSensingEnabled(status.sensing_enabled);
+  }, [status])
 
   const switchColors = {
     trackColor: {
@@ -53,10 +57,10 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     ios_backgroundColor: isDarkTheme ? '#666666' : '#D1D1D6',
   };
 
-  const toggleVirtualWearable = async () => {
-    let isUsingAudio = status.default_wearable == 'Audio Wearable';
-    BluetoothService.getInstance().sendToggleVirtualWearable(!isUsingAudio);
-    setIsUsingAudioWearable(!isUsingAudio);
+  const toggleSensing = async () => {
+    let newSensing = isSensingEnabled;
+    BluetoothService.getInstance().sendToggleSensing(newSensing);
+    setIsSensingEnabled(newSensing);
   };
 
   const sendDisconnectWearable = async () => {
@@ -206,30 +210,58 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
           </TouchableOpacity>
         )}
 
-         
-          <TouchableOpacity
-            style={styles.settingItem}
-            onPress={() => {
-              navigation.navigate('PhoneNotificationSettings');
-            }}>
-            <View style={styles.settingTextContainer}>
-              <Text
-                style={[
-                  styles.label,
-                  isDarkTheme ? styles.lightText : styles.darkText,
-                ]}>
-                Notifications
-              </Text>
-            </View>
-            <Icon
-              name="angle-right"
-              size={20}
-              color={
-                isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color
-              }
-            />
-          </TouchableOpacity>
-      
+
+        <TouchableOpacity
+          style={styles.settingItem}
+          onPress={() => {
+            navigation.navigate('PhoneNotificationSettings');
+          }}>
+          <View style={styles.settingTextContainer}>
+            <Text
+              style={[
+                styles.label,
+                isDarkTheme ? styles.lightText : styles.darkText,
+              ]}>
+              Notifications
+            </Text>
+          </View>
+          <Icon
+            name="angle-right"
+            size={20}
+            color={
+              isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color
+            }
+          />
+        </TouchableOpacity>
+
+        <View style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text
+              style={[
+                styles.label,
+                isDarkTheme ? styles.lightText : styles.darkText,
+                (!status.puck_connected || !status.glasses_info?.model_name) && styles.disabledItem
+              ]}>
+              Sensing
+            </Text>
+            <Text
+              style={[
+                styles.value,
+                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
+                (!status.puck_connected || !status.glasses_info?.model_name) && styles.disabledItem
+              ]}>
+              Enable microphones & cameras
+            </Text>
+          </View>
+          <Switch
+            disabled={!status.glasses_info?.model_name}
+            value={isSensingEnabled}
+            onValueChange={toggleSensing}
+            trackColor={switchColors.trackColor}
+            thumbColor={switchColors.thumbColor}
+            ios_backgroundColor={switchColors.ios_backgroundColor}
+          />
+        </View>
 
         <TouchableOpacity
           style={styles.settingItem}
@@ -247,13 +279,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               Forget Glasses
             </Text>
           </View>
-          {/* <Icon
-              name="angle-right"
-              size={20}
-              color={
-                isDarkTheme ? styles.lightText.color : styles.darkText.color
-              }
-            /> */}
         </TouchableOpacity>
 
         {/* <TouchableOpacity style={styles.settingItem}>

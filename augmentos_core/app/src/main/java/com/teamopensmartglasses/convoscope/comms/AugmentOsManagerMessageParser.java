@@ -58,6 +58,11 @@ public class AugmentOsManagerMessageParser {
                     callback.stopApp(stopPackage);
                     break;
 
+                case "enable_sensing":
+                    boolean sensingEnabled = commandObject.getJSONObject("params").getBoolean("enabled");
+                    callback.setSensingEnabled(sensingEnabled);
+                    break;
+
                 case "install_app_from_repository":
                     JSONObject repoAppData = commandObject.getJSONObject("params");
                     callback.installAppFromRepository(repoAppData);
