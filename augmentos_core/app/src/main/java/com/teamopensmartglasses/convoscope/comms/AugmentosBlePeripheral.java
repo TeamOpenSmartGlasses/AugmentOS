@@ -118,6 +118,9 @@ public class AugmentosBlePeripheral {
                 if (state == BluetoothAdapter.STATE_ON) {
                     Log.d(TAG, "Bluetooth is now enabled. Starting BLE services.");
                     start();
+                } else if (state == BluetoothAdapter.STATE_OFF) {
+                    Log.d(TAG, "Bluetooth is now disabled. Stoping BLE services.");
+                    stopBle();
                 }
                 // TODO: Maybe do something when BT is stopped?
             }
@@ -162,6 +165,12 @@ public class AugmentosBlePeripheral {
     // Start BLE services: GATT server and advertising
     @SuppressLint("MissingPermission")
     public void start() {
+        // Already running? Clean up first
+        if (gattServer != null || bluetoothAdvertiser != null) {
+            Log.d(TAG, "Called ble .start() but BLE is already running. Stopping first, then restarting...");
+            stopBle();
+        }
+
         if (bluetoothAdapter == null) {
             Log.e(TAG, "Bluetooth is NULL");
             return;
@@ -187,7 +196,7 @@ public class AugmentosBlePeripheral {
         setupGattServer();
 
         // Add a small delay before starting advertising
-        new Handler(Looper.getMainLooper()).postDelayed(this::startAdvertising, 1000);
+        new Handler(Looper.getMainLooper()).postDelayed(this::startAdvertising, 2000);
     }
 
     private void handlePairingDenied(BluetoothDevice device) {
@@ -586,6 +595,7 @@ public class AugmentosBlePeripheral {
         if (bluetoothAdvertiser != null && advertiseCallback != null) {
             bluetoothAdvertiser.stopAdvertising(advertiseCallback);
             Log.d(TAG, "BLE advertising stopped");
+            bluetoothAdvertiser = null;
             advertiseCallback = null;
         }
 
