@@ -10,9 +10,9 @@ public class EvenRealitiesG1 extends SmartGlassesDevice {
         hasDisplay = true;
         hasSpeakers = false;
         hasCamera = false;
-        hasInMic = false;
+        hasInMic = true;
         hasOutMic = false;
-        useScoMic = true;
+        useScoMic = false;
         weight = 37;
     }
 }
