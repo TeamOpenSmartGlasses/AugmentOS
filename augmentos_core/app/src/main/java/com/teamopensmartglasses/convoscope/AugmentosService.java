@@ -6,6 +6,7 @@ import static com.teamopensmartglasses.convoscope.BatteryOptimizationHelper.isSy
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.SEND_NOTIFICATIONS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
@@ -62,6 +63,7 @@ import com.google.firebase.auth.GetTokenResult;
 import com.teamopensmartglasses.augmentoslib.DataStreamType;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
+import com.teamopensmartglasses.augmentoslib.events.NotificationEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.convoscope.comms.AugmentOsActionsCallback;
 import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
@@ -110,6 +112,7 @@ import java.util.Objects;
 import java.util.LinkedList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Queue;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 //SpeechRecIntermediateOutputEvent
@@ -232,6 +235,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public AugmentosSmartGlassesService smartGlassesService;
     private boolean isSmartGlassesServiceBound = false;
     private final List<Runnable> serviceReadyListeners = new ArrayList<>();
+    private NotificationSystem notificationSystem;
 
 
     public AugmentosService() {
@@ -333,6 +337,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         wifiStatusHelper = new WifiStatusHelper(this);
         gsmStatusHelper = new GsmStatusHelper(this);
 
+        notificationSystem = new NotificationSystem();
+
 
 
 
@@ -380,7 +386,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     public void completeInitialization(){
         Log.d(TAG, "COMPLETE CONVOSCOPE INITIALIZATION");
-//        setUpUiPolling();
+        setUpUiPolling();
         // setUpLocationSending();
 
         getCurrentMode(this);
@@ -1070,11 +1076,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             backendServerComms.restRequest(UI_POLL_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
-                    try {
-                        parseConvoscopeResults(result);
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);
-                    }
+//                    Log.d(TAG, "Request sent Successfully: " + result.toString());
                 }
                 @Override
                 public void onFailure(int code){
@@ -2545,6 +2547,30 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
                 //TODO: Actually finish implementing notifications
                 //TODO: Also pull navigation data from this?
+
+                notificationSystem.addNotification(notificationData);
+
+                JSONArray notificationQueue = notificationSystem.getNotificationQueue();
+                JSONObject requestWrapper = new JSONObject();
+                requestWrapper.put("notifications", notificationQueue);
+
+                try {
+                    backendServerComms.restRequest(SEND_NOTIFICATIONS_ENDPOINT, requestWrapper, new VolleyJsonCallback(){
+                        @Override
+                        public void onSuccess(JSONObject result){
+//                    Log.d(TAG, "Request sent Successfully: " + result.toString());
+                        }
+                        @Override
+                        public void onFailure(int code){
+                            Log.d(TAG, "SOME FAILURE HAPPENED (requestUiPoll)");
+                            if (code == 401){
+                                EventBus.getDefault().post(new GoogleAuthFailedEvent("401 AUTH ERROR (requestUiPoll)"));
+                            }
+                        }
+                    });
+                } catch (JSONException e){
+                    e.printStackTrace();
+                }
 
                 String formattedNotification = String.format("[%s]: %s", title, text);
                 notificationList.add(formattedNotification);
