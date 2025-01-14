@@ -2421,13 +2421,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Override
     public void requestPing() {
         Log.d("AugmentOsService", "Requesting ping: ");
-        JSONObject ping = new JSONObject();
-        try{
-            ping.put("ping", true);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        blePeripheral.sendDataToAugmentOsManager(ping.toString());
+        blePeripheral.sendPing();
     }
 
     @Override

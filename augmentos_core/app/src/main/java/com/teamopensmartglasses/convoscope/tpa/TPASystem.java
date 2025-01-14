@@ -1,6 +1,7 @@
 package com.teamopensmartglasses.convoscope.tpa;
 
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
+import static com.teamopensmartglasses.augmentoslib.SmartGlassesAndroidService.INTENT_ACTION;
 
 import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
@@ -9,7 +10,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
+import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Handler;
 import android.util.Log;
 import android.content.pm.PackageManager;
@@ -46,6 +50,7 @@ import com.teamopensmartglasses.convoscope.tpa.eventbusmessages.TPARequestEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -127,39 +132,112 @@ public class TPASystem {
 
     private ThirdPartyApp getThirdPartyAppIfAppIsAugmentOsThirdPartyApp(String packageName, Context context) {
         PackageManager packageManager = context.getPackageManager();
-        try {
-            PackageInfo packageInfo = packageManager.getPackageInfo(packageName, PackageManager.GET_SERVICES | PackageManager.GET_META_DATA);
+        Intent augmentOsIntent = new Intent(INTENT_ACTION);
+        String thisAppPackageName = context.getPackageName();
 
-            if (packageInfo.services != null) {
-                for (ServiceInfo serviceInfo : packageInfo.services) {
-                    // Check if this service has metadata indicating it’s an AugmentOS TPA
-                    try{
-                        if (serviceInfo.metaData != null
-                                && !serviceInfo.metaData.getString("com.augmentos.tpa.name", "").isEmpty()
-                                && !serviceInfo.metaData.getString("com.augmentos.tpa.description", "").isEmpty()) {
-                            Log.d(TAG, "AugmentOS TPA detected: " + packageName);
 
-                            return new ThirdPartyApp(
-                                    serviceInfo.metaData.getString("com.augmentos.tpa.name"),
-                                    serviceInfo.metaData.getString("com.augmentos.tpa.description"),
-                                    packageInfo.packageName,
-                                    serviceInfo.name,
-                                    packageInfo.packageName.equals(AugmentOSManagerPackageName) ? ThirdPartyAppType.CORE_SYSTEM : ThirdPartyAppType.APP,
-                                    new AugmentOSCommand[]{}
-                            );
+        // Query services with the specified action
+        List<ResolveInfo> services = packageManager.queryIntentServices(augmentOsIntent, 0);
+
+        for (ResolveInfo resolveInfo : services) {
+            if (resolveInfo.serviceInfo != null && resolveInfo.serviceInfo.packageName.equals(packageName)) {
+                if (resolveInfo.serviceInfo.packageName.equals(thisAppPackageName)) {
+                    Log.d(TAG, "Skipping Core app: " + packageName);
+                    continue;
+                }
+
+                Log.d(TAG, "AugmentOS TPA detected: " + packageName);
+
+                String authority = packageName + ".augmentosconfigprovider";
+                Uri uri = Uri.parse("content://" + authority + "/config");
+
+                Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+                if (cursor != null) {
+                    if (cursor.moveToFirst()) {
+                        int jsonColumnIndex = cursor.getColumnIndex("json");
+                        if (jsonColumnIndex != -1) {
+                            String jsonStr = cursor.getString(jsonColumnIndex);
+                            // parse jsonStr, do whatever
+                            Log.d(TAG, "WOAH\n\n\n\n\n");
+                            Log.d(TAG, "Str: " + jsonStr);
+                            Log.d(TAG, "\nEND JSON STR\n\n\n");
+
+                            try {
+                                JSONObject jsonObject = new JSONObject(jsonStr); // Parse the jsonStr into a JSONObject
+                                return new ThirdPartyApp(
+                                        jsonObject.getString("name"),
+                                        jsonObject.getString("description"),
+                                        resolveInfo.serviceInfo.packageName,
+                                        resolveInfo.serviceInfo.name,
+                                        resolveInfo.serviceInfo.packageName.equals(AugmentOSManagerPackageName) ? ThirdPartyAppType.CORE_SYSTEM : ThirdPartyAppType.APP,
+                                        new AugmentOSCommand[]{}
+                                );
+                            } catch (Exception e) {
+                                Log.e(TAG, "Error parsing JSON: " + e.getMessage(), e);
+                            }
                         }
-                    } catch (Exception e){
-                        Log.e(TAG, "Error processing service metadata for package: " + packageName, e);
                     }
+                    cursor.close();
                 }
             }
-            Log.d(TAG, "No AugmentOS components found in app: " + packageName);
-
-        } catch (PackageManager.NameNotFoundException e) {
-            Log.e(TAG, "Package not found: " + e.getMessage());
         }
         return null;
     }
+
+//    private ThirdPartyApp getThirdPartyAppIfAppIsAugmentOsThirdPartyApp(String packageName, Context context) {
+//        PackageManager packageManager = context.getPackageManager();
+//        try {
+//            PackageInfo packageInfo = packageManager.getPackageInfo(packageName, PackageManager.GET_SERVICES | PackageManager.GET_META_DATA);
+//
+//            if (packageInfo.services != null) {
+//                for (ServiceInfo serviceInfo : packageInfo.services) {
+//                    // Check if this service has metadata indicating it’s an AugmentOS TPA
+//                    try{
+//                        if (serviceInfo.metaData != null
+//                                && !serviceInfo.metaData.getString("com.augmentos.tpa.name", "").isEmpty()
+//                                && !serviceInfo.metaData.getString("com.augmentos.tpa.description", "").isEmpty()) {
+//                            Log.d(TAG, "AugmentOS TPA detected: " + packageName);
+//
+//                            String authority = packageName + ".augmentosconfigprovider";
+//                            Uri uri = Uri.parse("content://" + authority + "/config");
+//
+//                            Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+//                            if (cursor != null) {
+//                                if (cursor.moveToFirst()) {
+//                                    int jsonColumnIndex = cursor.getColumnIndex("json");
+//                                    if (jsonColumnIndex != -1) {
+//                                        String jsonStr = cursor.getString(jsonColumnIndex);
+//                                        // parse jsonStr, do whatever
+//                                        Log.d(TAG, "WOAH\n\n\n\n\n");
+//                                        Log.d(TAG, "Str: " + jsonStr);
+//                                        Log.d(TAG, "\nEND JSON STR\n\n\n");
+//                                    }
+//                                }
+//                                cursor.close();
+//                            }
+//
+//
+//                            return new ThirdPartyApp(
+//                                    serviceInfo.metaData.getString("com.augmentos.tpa.name"),
+//                                    serviceInfo.metaData.getString("com.augmentos.tpa.description"),
+//                                    packageInfo.packageName,
+//                                    serviceInfo.name,
+//                                    packageInfo.packageName.equals(AugmentOSManagerPackageName) ? ThirdPartyAppType.CORE_SYSTEM : ThirdPartyAppType.APP,
+//                                    new AugmentOSCommand[]{}
+//                            );
+//                        }
+//                    } catch (Exception e){
+//                        Log.e(TAG, "Error processing service metadata for package: " + packageName, e);
+//                    }
+//                }
+//            }
+//            Log.d(TAG, "No AugmentOS components found in app: " + packageName);
+//
+//        } catch (PackageManager.NameNotFoundException e) {
+//            Log.e(TAG, "Package not found: " + e.getMessage());
+//        }
+//        return null;
+//    }
 
     public ThirdPartyApp getDefaultDashboardApp() {
         ThirdPartyApp defaultDashboard = new ThirdPartyApp(

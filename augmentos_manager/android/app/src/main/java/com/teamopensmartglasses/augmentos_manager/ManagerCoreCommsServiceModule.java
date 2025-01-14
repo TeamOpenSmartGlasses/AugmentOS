@@ -33,16 +33,10 @@ public class ManagerCoreCommsServiceModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void startService() {
-        // Context context = getReactApplicationContext();
-        // Intent serviceIntent = new Intent(context, ManagerCoreCommsService.class);
-        // context.startService(serviceIntent);
         try {
             Context context = getReactApplicationContext();
             Intent serviceIntent = new Intent(context, ManagerCoreCommsService.class);
-            // serviceIntent.setAction("AugmentOSLIB_ACTION_START_FOREGROUND_SERVICE");
             serviceIntent.setAction("AugmentOSLIB_ACTION_START_FOREGROUND_SERVICE");
-            // serviceIntent.putExtra("tpaAction",
-            // "AugmentOSLIB_ACTION_START_FOREGROUND_SERVICE");
             context.startForegroundService(serviceIntent);
             Log.d(TAG, "ManagerCoreCommsService started as foreground service");
         } catch (Exception e) {
@@ -68,10 +62,6 @@ public class ManagerCoreCommsServiceModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void stopService() {
-        // Context context = getReactApplicationContext();
-        // Intent serviceIntent = new Intent(context, ManagerCoreCommsService.class);
-        // context.stopService(serviceIntent);
-
         Context context = getReactApplicationContext();
         Intent serviceIntent = new Intent(context, ManagerCoreCommsService.class);
         serviceIntent.setAction("AugmentOSLIB_ACTION_STOP_FOREGROUND_SERVICE");

@@ -394,6 +394,16 @@ public class AugmentosBlePeripheral {
         Log.d(TAG, "GATT server setup complete");
     }
 
+    public void sendPing(){
+        JSONObject ping = new JSONObject();
+        try{
+            ping.put("ping", true);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        sendDataToAugmentOsManager(ping.toString());
+    }
+
     public void sendNotifyManager(String message, String type) {
         Log.d(TAG, "sendNotifyManager");
         JSONObject data = new JSONObject();

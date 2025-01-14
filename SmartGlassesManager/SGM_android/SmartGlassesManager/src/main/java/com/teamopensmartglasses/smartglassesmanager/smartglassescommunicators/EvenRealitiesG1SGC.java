@@ -101,6 +101,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private Handler heartbeatHandler = new Handler();
     private Handler findCompatibleDevicesHandler;
     private boolean isScanningForCompatibleDevices = false;
+    private boolean isScanning = false;
 
     private Runnable heartbeatRunnable;
 
@@ -184,12 +185,34 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     long delay = Math.min(BASE_RECONNECT_DELAY_MS * (1L << reconnectAttempts), MAX_RECONNECT_DELAY_MS);
                     Log.d(TAG, "Disconnected. Attempting to reconnect in " + delay + " ms (Attempt " + reconnectAttempts + ")");
 
+//                    reconnectHandler.postDelayed(() -> {
+//                        if (gatt.getDevice() != null) {
+//                            gatt.close();
+//                            Log.d(TAG, "Reconnecting to gatt. Are we scanning?: " + isScanning);
+//                            reconnectToGatt(gatt.getDevice());
+//                        }
+//                    }, delay);
+
+                    // Do this ~carefully~ to compensate for old BLE stacks
+                    reconnectHandler.postDelayed(() -> {
+                        Log.d(TAG, "Manually disconnecting gatt. Are we scanning?: " + isScanning);
+                        gatt.disconnect();
+                    }, 0);
+
                     reconnectHandler.postDelayed(() -> {
                         if (gatt.getDevice() != null) {
+                            Log.d(TAG, "Closing gatt. Are we scanning?: " + isScanning);
                             gatt.close();
+                        }
+                    }, 2000); // 2 seconds after disconnect
+
+                    reconnectHandler.postDelayed(() -> {
+                        if (gatt.getDevice() != null) {
+                            Log.d(TAG, "Reconnecting to gatt. Are we scanning?: " + isScanning);
                             reconnectToGatt(gatt.getDevice());
                         }
-                    }, delay);
+                    }, 4000); // 2 seconds after close
+
                 }
             }
 
@@ -613,6 +636,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 .build();
 
         // Start scanning
+        isScanning = true;
         scanner.startScan(filters, settings, modernScanCallback);
         Log.d(TAG, "Started scanning for devices...");
 
@@ -625,6 +649,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         if (scanner != null) {
             scanner.stopScan(modernScanCallback);
         }
+        isScanning = false;
         Log.d(TAG, "Stopped scanning for devices");
     }
 

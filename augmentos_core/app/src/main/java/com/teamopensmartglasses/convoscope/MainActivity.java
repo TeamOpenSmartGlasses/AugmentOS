@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     if (isAppInstalled(TARGET_PACKAGE)) {
       setContentView(R.layout.activity_main);
-      launchTargetApp(TARGET_PACKAGE);
+      //launchTargetApp(TARGET_PACKAGE);
     } else {
       // Show a message or handle the case where the target app is not installed
       setContentView(R.layout.activity_main);

@@ -58,7 +58,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   };
 
   const toggleSensing = async () => {
-    let newSensing = isSensingEnabled;
+    let newSensing = !isSensingEnabled;
     BluetoothService.getInstance().sendToggleSensing(newSensing);
     setIsSensingEnabled(newSensing);
   };
