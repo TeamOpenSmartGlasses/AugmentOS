@@ -19,6 +19,7 @@ import static com.teamopensmartglasses.convoscope.Constants.glassesCardTitle;
 import static com.teamopensmartglasses.convoscope.Constants.languageLearningKey;
 import static com.teamopensmartglasses.convoscope.Constants.llContextConvoKey;
 import static com.teamopensmartglasses.convoscope.Constants.llWordSuggestUpgradeKey;
+import static com.teamopensmartglasses.convoscope.Constants.notificationFilterKey;
 import static com.teamopensmartglasses.convoscope.Constants.proactiveAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettingsKey;
 import static com.teamopensmartglasses.convoscope.Constants.displayRequestsKey;
@@ -106,6 +107,7 @@ import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
@@ -337,11 +339,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         wifiStatusHelper = new WifiStatusHelper(this);
         gsmStatusHelper = new GsmStatusHelper(this);
 
-        notificationSystem = new NotificationSystem();
-
-
-
-
+        notificationSystem = new NotificationSystem(this);
         //startNotificationService();
 
         // load pinyin converter in the background
@@ -1075,8 +1073,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             jsonQuery.put("deviceId", deviceId);
             backendServerComms.restRequest(UI_POLL_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
-                public void onSuccess(JSONObject result){
-//                    Log.d(TAG, "Request sent Successfully: " + result.toString());
+                public void onSuccess(JSONObject result) throws JSONException {
+                    parseAugmentosResults(result);
                 }
                 @Override
                 public void onFailure(int code){
@@ -1088,6 +1086,46 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             });
         } catch (JSONException e){
             e.printStackTrace();
+        }
+    }
+
+    private void parseAugmentosResults(JSONObject jsonResponse) throws JSONException {
+        JSONArray rootArray = jsonResponse.getJSONArray(notificationFilterKey);
+
+        if (rootArray.length() == 0) {
+            Log.d(TAG, "No data found in response");
+            return;
+        }
+
+        JSONObject firstEntry = rootArray.getJSONObject(0);
+
+        JSONArray notifications = firstEntry.getJSONArray("notification_data");
+        Log.d(TAG, "Got notifications: " + notifications.toString());
+
+        List<JSONObject> sortedNotifications = new ArrayList<>();
+        for (int i = 0; i < notifications.length(); i++) {
+            sortedNotifications.add(notifications.getJSONObject(i));
+        }
+
+        Collections.sort(sortedNotifications, new Comparator<JSONObject>() {
+            @Override
+            public int compare(JSONObject a, JSONObject b) {
+                try {
+                    return Integer.compare(a.getInt("rank"), b.getInt("rank"));
+                } catch (JSONException e) {
+                    // If a rank is missing or unparsable, treat as equal
+                    return 0;
+                }
+            }
+        });
+
+        notificationList.clear();
+
+        int limit = Math.min(3, sortedNotifications.size());
+        for (int i = 0; i < limit; i++) {
+            JSONObject notification = sortedNotifications.get(i);
+            String summary = notification.getString("summary");
+            notificationList.add(summary);
         }
     }
 
@@ -2545,40 +2583,17 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 String title = notificationData.getString("title");
                 String text = notificationData.getString("text");
 
-                //TODO: Actually finish implementing notifications
                 //TODO: Also pull navigation data from this?
 
-                notificationSystem.addNotification(notificationData);
+                EventBus.getDefault().post(new NotificationEvent(notificationData));
 
-                JSONArray notificationQueue = notificationSystem.getNotificationQueue();
-                JSONObject requestWrapper = new JSONObject();
-                requestWrapper.put("notifications", notificationQueue);
-
-                try {
-                    backendServerComms.restRequest(SEND_NOTIFICATIONS_ENDPOINT, requestWrapper, new VolleyJsonCallback(){
-                        @Override
-                        public void onSuccess(JSONObject result){
-//                    Log.d(TAG, "Request sent Successfully: " + result.toString());
-                        }
-                        @Override
-                        public void onFailure(int code){
-                            Log.d(TAG, "SOME FAILURE HAPPENED (requestUiPoll)");
-                            if (code == 401){
-                                EventBus.getDefault().post(new GoogleAuthFailedEvent("401 AUTH ERROR (requestUiPoll)"));
-                            }
-                        }
-                    });
-                } catch (JSONException e){
-                    e.printStackTrace();
-                }
-
-                String formattedNotification = String.format("[%s]: %s", title, text);
-                notificationList.add(formattedNotification);
+//                String formattedNotification = String.format("[%s]: %s", title, text);
+//                notificationList.add(formattedNotification);
 
                 // Keep only the last 10 notifications
-                if (notificationList.size() > 10) {
-                    notificationList.remove(0);
-                }
+//                if (notificationList.size() > 10) {
+//                    notificationList.remove(0);
+//                }
             } else {
                 System.out.println("Notification Data is null");
             }

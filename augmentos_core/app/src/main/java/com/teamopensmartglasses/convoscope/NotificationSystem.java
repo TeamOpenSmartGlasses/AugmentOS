@@ -7,7 +7,9 @@ import android.util.Log;
 import com.teamopensmartglasses.augmentoslib.events.NotificationEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
+import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 
+import android.content.Context;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -24,12 +26,12 @@ public class NotificationSystem {
 
     // JSONArray to manage notifications
     private final JSONArray notificationQueue;
-    private static final int MAX_DISPLAYED_NOTIFICATIONS = 10;
     private BackendServerComms backendServerComms;
     private long lastDataSentTime = 0;
 
-    public NotificationSystem() {
+    public NotificationSystem(Context context) {
         notificationQueue = new JSONArray();
+        backendServerComms = BackendServerComms.getInstance(context);
         // Register as a subscriber to the EventBus
         EventBus.getDefault().register(this);
     }
@@ -54,13 +56,14 @@ public class NotificationSystem {
         // Add a unique ID and timestamp to the notification
         try {
             if (notificationData != null) {
-                notificationData.put("id", UUID.randomUUID().toString());
+                notificationData.put("uuid", UUID.randomUUID().toString());
 
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                 String formattedDateTime = LocalDateTime.now().format(formatter);
                 notificationData.put("timestamp", formattedDateTime);
 
                 notificationQueue.put(notificationData); // Add to the JSONArray
+                sendNotificationsRequest(); // Send the notification to the server
                 Log.d(TAG, "Notification added to queue: " + notificationData);
             }
         } catch (JSONException e) {
@@ -72,30 +75,23 @@ public class NotificationSystem {
         return notificationQueue;
     }
 
-    public void sendNotificationsRequest() {
-        updateLastDataSentTime();
-        JSONObject queueWrapper = new JSONObject();
-        try {
-            queueWrapper.put("notifications", notificationQueue);
-        } catch (JSONException e) {
-            Log.e(TAG, "Error sending notifications: " + e.getMessage());
-        }
+    public void sendNotificationsRequest() throws JSONException {
+        JSONArray notificationQueue = getNotificationQueue();
+        JSONObject requestWrapper = new JSONObject();
+        requestWrapper.put("notifications", notificationQueue);
 
         try {
-            // Send the entire JSONArray
-            backendServerComms.restRequest(SEND_NOTIFICATIONS_ENDPOINT, queueWrapper, new VolleyJsonCallback() {
+            backendServerComms.restRequest(SEND_NOTIFICATIONS_ENDPOINT, requestWrapper, new VolleyJsonCallback() {
                 @Override
                 public void onSuccess(JSONObject result) {
-                    try {
-                        parseSendNotificationsResult(result);
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);
-                    }
+                    Log.d(TAG, "Request sent Successfully: " + result.toString());
                 }
-
                 @Override
                 public void onFailure(int code) {
-                    Log.d(TAG, "SOME FAILURE HAPPENED (sendChatRequest)");
+                    Log.d(TAG, "SOME FAILURE HAPPENED (sendNotificationsRequest)");
+                    if (code == 401){
+                        EventBus.getDefault().post(new GoogleAuthFailedEvent("401 AUTH ERROR (requestUiPoll)"));
+                    }
                 }
             });
         } catch (JSONException e) {

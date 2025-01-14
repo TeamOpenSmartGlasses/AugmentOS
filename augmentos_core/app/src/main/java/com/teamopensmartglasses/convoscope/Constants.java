@@ -16,6 +16,7 @@ public class Constants {
     public static String llWordSuggestUpgradeKey = "ll_word_suggest_upgrade_results";
     public static String shouldUpdateSettingsKey = "should_update_settings";
     public static String adhdStmbAgentKey = "adhd_stmb_agent_results";
+    public static String notificationFilterKey = "notification_results";
 
     //endpoints
     public static final String LLM_QUERY_ENDPOINT = "/chat";
