@@ -55,8 +55,24 @@ public class NotificationSystem {
     public synchronized void addNotification(JSONObject notificationData) {
         // Add a unique ID and timestamp to the notification
         try {
-            if (notificationData != null) {
+            if (notificationData != null && notificationData.has("appName") 
+                && !notificationData.getString("appName").toLowerCase().contains("augmentos")) {
                 notificationData.put("uuid", UUID.randomUUID().toString());
+
+                for (int i = 0; i < notificationQueue.length(); i++) { // Remove element with same title and appName
+                    try {
+                        JSONObject existingNotification = notificationQueue.getJSONObject(i);
+                        if (existingNotification.getString("title").equals(notificationData.getString("title")) &&
+                            existingNotification.getString("appName").equals(notificationData.getString("appName")) &&
+                            existingNotification.getString("message").length() < notificationData.getString("message").length() // if the existing message is shorter than the new message, then it means the new message is a continuation of the existing message
+                        ) {
+                            notificationQueue.remove(i);
+                            break; // Exit loop after removing the duplicate
+                        }
+                    } catch (JSONException e) {
+                        Log.e(TAG, "Error checking existing notifications in queue: " + e.getMessage());
+                    }
+                }
 
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                 String formattedDateTime = LocalDateTime.now().format(formatter);
