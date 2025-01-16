@@ -1067,7 +1067,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             }
         };
         
-        queryBatterStatusHandler.postDelayed(this::queryBatteryStatus, 1000);
+        queryBatterStatusHandler.postDelayed(this::queryBatteryStatus, 500);
         sendBrightnessCommandHandler.postDelayed(() -> sendAutoLightBrightnessCommand(30, true), delay);
         heartbeatHandler.postDelayed(heartbeatRunnable, delay);
     }

@@ -2367,7 +2367,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             if(isSmartGlassesServiceBound && smartGlassesService.getConnectedSmartGlasses() != null) {
                 connectedGlasses.put("model_name", smartGlassesService.getConnectedSmartGlasses().deviceModelName);
                 connectedGlasses.put("battery_life", batteryLevel);
-                connectedGlasses.put("brightness", 80);
+                connectedGlasses.put("brightness", smartGlassesService.getConnectedSmartGlasses().deviceModelName.contains("Even Realities") ? "auto" : 80);
             }
             else {
                 connectedGlasses.put("is_searching", getIsSearchingForGlasses());
