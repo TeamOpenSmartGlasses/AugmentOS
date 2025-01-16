@@ -31,6 +31,8 @@ import org.greenrobot.eventbus.EventBus;
 import org.json.JSONObject;
 import org.json.JSONException;
 
+import java.util.Objects;
+
 public class BackendServerComms {
     private String TAG = "MXT2_BackendServerComms";
 
@@ -87,7 +89,7 @@ public class BackendServerComms {
 //                        Log.d(TAG, "Success requesting data, response:");
                                 //
 
-                                if(endpoint == UI_POLL_ENDPOINT) {
+                                if(Objects.equals(endpoint, UI_POLL_ENDPOINT)) {
                                     try {
                                         if (response.getBoolean("success")) {
                                             callback.onSuccess(response);
@@ -96,17 +98,25 @@ public class BackendServerComms {
                                     }
                                 }
 
-                                if(endpoint == LLM_QUERY_ENDPOINT || endpoint == BUTTON_EVENT_ENDPOINT) {
+                                if(Objects.equals(endpoint, LLM_QUERY_ENDPOINT) || Objects.equals(endpoint, BUTTON_EVENT_ENDPOINT)) {
 //                            Log.d(TAG, response.toString());
                                     if (response.has("message")) {
-                                        callback.onSuccess(response);
+                                        try {
+                                            callback.onSuccess(response);
+                                        } catch (JSONException e) {
+                                            throw new RuntimeException(e);
+                                        }
                                     } else {
                                         callback.onFailure(-1);
                                     }
                                 }
 
-                                if (endpoint == GET_USER_SETTINGS_ENDPOINT){
-                                    callback.onSuccess(response);
+                                if (Objects.equals(endpoint, GET_USER_SETTINGS_ENDPOINT)){
+                                    try {
+                                        callback.onSuccess(response);
+                                    } catch (JSONException e) {
+                                        throw new RuntimeException(e);
+                                    }
                                 }
                             }
                         }, new Response.ErrorListener() {

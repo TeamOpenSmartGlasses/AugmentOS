@@ -6,6 +6,7 @@ import static com.teamopensmartglasses.convoscope.BatteryOptimizationHelper.isSy
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.SEND_NOTIFICATIONS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
@@ -18,6 +19,7 @@ import static com.teamopensmartglasses.convoscope.Constants.glassesCardTitle;
 import static com.teamopensmartglasses.convoscope.Constants.languageLearningKey;
 import static com.teamopensmartglasses.convoscope.Constants.llContextConvoKey;
 import static com.teamopensmartglasses.convoscope.Constants.llWordSuggestUpgradeKey;
+import static com.teamopensmartglasses.convoscope.Constants.notificationFilterKey;
 import static com.teamopensmartglasses.convoscope.Constants.proactiveAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettingsKey;
 import static com.teamopensmartglasses.convoscope.Constants.displayRequestsKey;
@@ -63,6 +65,7 @@ import com.google.firebase.auth.GetTokenResult;
 import com.teamopensmartglasses.augmentoslib.DataStreamType;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
+import com.teamopensmartglasses.augmentoslib.events.NotificationEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.convoscope.comms.AugmentOsActionsCallback;
 import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
@@ -101,14 +104,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.LinkedList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Queue;
 import java.util.stream.Collectors;
 //SpeechRecIntermediateOutputEvent
 import net.sourceforge.pinyin4j.PinyinHelper;
@@ -230,6 +237,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public AugmentosSmartGlassesService smartGlassesService;
     private boolean isSmartGlassesServiceBound = false;
     private final List<Runnable> serviceReadyListeners = new ArrayList<>();
+    private NotificationSystem notificationSystem;
 
 
     public AugmentosService() {
@@ -272,39 +280,74 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public ArrayList<String> notificationList = new ArrayList<String>();
     @Subscribe
     public void onDisplayGlassesDashboardEvent(DisplayGlassesDashboardEvent event) {
-            // Get current time and date
-            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
-            SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
-            String currentTime = timeFormat.format(new Date());
-            String currentDate = dateFormat.format(new Date());
+        // Get current time and date
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
+        String currentTime = timeFormat.format(new Date());
+        String currentDate = dateFormat.format(new Date());
 
-            // Get battery level
-            IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
-            Intent batteryStatus = this.registerReceiver(null, iFilter);
-            int level = batteryStatus != null ?
-                    batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) : -1;
-            int scale = batteryStatus != null ?
-                    batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1) : -1;
-            float batteryPct = level * 100 / (float)scale;
+        // Get battery level
+        IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        Intent batteryStatus = this.registerReceiver(null, iFilter);
+        int level = batteryStatus != null ?
+                batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) : -1;
+        int scale = batteryStatus != null ?
+                batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1) : -1;
+        float batteryPct = level * 100 / (float)scale;
 
-            // Build dashboard string with fancy formatting
-            StringBuilder dashboard = new StringBuilder();
+        // Build dashboard string with fancy formatting
+        StringBuilder dashboard = new StringBuilder();
        //     dashboard.append("Dashboard - AugmentOS\n");
-            dashboard.append(String.format("│ %s, %s\n", currentDate, currentTime));
-            //dashboard.append(String.format("│ Date      │ %s\n", currentDate));
+        dashboard.append(String.format("│ %s, %s\n", currentDate, currentTime));
+//            dashboard.append(String.format("│ Date      │ %s\n", currentDate));
 //            dashboard.append(String.format("│ Battery │ %.0f%%\n", batteryPct));
 //            dashboard.append("│ BLE       │ ON\n");
 
-       // dashboard.append("│ Notifications │\n");
-        int notificationCount = Math.min(1, notificationList.size());
-        for (int i = 0; i < notificationCount; i++) {
-            dashboard.append(String.format("│ - %s\n", notificationList.get(notificationList.size() - 1 - i)));
+        boolean recentNotificationFound = false;
+        try {
+            JSONArray notifications = notificationSystem.getNotificationQueue();
+            JSONObject mostRecentNotification = null;
+            LocalDateTime mostRecentTime = null;
+            LocalDateTime now = LocalDateTime.now();
+
+            for (int i = 0; i < notifications.length(); i++) {
+                JSONObject notification = notifications.getJSONObject(i);
+                String timestampStr = notification.getString("timestamp");
+                LocalDateTime notificationTime = LocalDateTime.parse(timestampStr, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+                // Check if the notification is less than 5 seconds old
+                if (notificationTime.plusSeconds(5).isAfter(now)) {
+                    if (mostRecentTime == null || notificationTime.isAfter(mostRecentTime)) {
+                        mostRecentTime = notificationTime;
+                        mostRecentNotification = notification;
+                    }
+                }
+            }
+
+            if (mostRecentNotification != null) {
+                // Display the most recent notification directly
+                String title = mostRecentNotification.getString("title");
+                String text = mostRecentNotification.getString("text");
+                dashboard.append(String.format("│ %s - %s\n", title, text));
+                recentNotificationFound = true;
+            }
+        } catch (JSONException e) {
+            Log.e(TAG, "Error while parsing notifications: " + e.getMessage());
         }
 
-            // Send to text wall
-            if(isSmartGlassesServiceBound)
-                smartGlassesService.sendTextWall(dashboard.toString());
-            Log.d(TAG, "Fancy dashboard displayed: " + dashboard.toString());
+        // If no recent notification was found, display from the list
+        if (!recentNotificationFound) {
+            int notificationCount = Math.min(2, notificationList.size());
+            for (int i = 0; i < notificationCount; i++) {
+                dashboard.append(String.format("│ %s\n", notificationList.get(i)));
+            }
+        }
+
+        // Send to text wall
+        if (isSmartGlassesServiceBound) {
+            smartGlassesService.sendTextWall(dashboard.toString());
+        }
+//        Log.d(TAG, "Dashboard displayed: " + dashboard.toString());
     }
 
     @Override
@@ -331,9 +374,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         wifiStatusHelper = new WifiStatusHelper(this);
         gsmStatusHelper = new GsmStatusHelper(this);
 
-
-
-
+        notificationSystem = new NotificationSystem(this);
         //startNotificationService();
 
         // load pinyin converter in the background
@@ -378,7 +419,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     public void completeInitialization(){
         Log.d(TAG, "COMPLETE CONVOSCOPE INITIALIZATION");
-//        setUpUiPolling();
+        setUpUiPolling();
         // setUpLocationSending();
 
         getCurrentMode(this);
@@ -1075,12 +1116,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             jsonQuery.put("deviceId", deviceId);
             backendServerComms.restRequest(UI_POLL_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
-                public void onSuccess(JSONObject result){
-                    try {
-                        parseConvoscopeResults(result);
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);
-                    }
+                public void onSuccess(JSONObject result) throws JSONException {
+                    parseAugmentosResults(result);
                 }
                 @Override
                 public void onFailure(int code){
@@ -1092,6 +1129,46 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             });
         } catch (JSONException e){
             e.printStackTrace();
+        }
+    }
+
+    private void parseAugmentosResults(JSONObject jsonResponse) throws JSONException {
+        JSONArray rootArray = jsonResponse.getJSONArray(notificationFilterKey);
+
+        if (rootArray.length() == 0) {
+            Log.d(TAG, "No data found in response");
+            return;
+        }
+
+        JSONObject firstEntry = rootArray.getJSONObject(0);
+
+        JSONArray notifications = firstEntry.getJSONArray("notification_data");
+        Log.d(TAG, "Got notifications: " + notifications.toString());
+
+        List<JSONObject> sortedNotifications = new ArrayList<>();
+        for (int i = 0; i < notifications.length(); i++) {
+            sortedNotifications.add(notifications.getJSONObject(i));
+        }
+
+        Collections.sort(sortedNotifications, new Comparator<JSONObject>() {
+            @Override
+            public int compare(JSONObject a, JSONObject b) {
+                try {
+                    return Integer.compare(a.getInt("rank"), b.getInt("rank"));
+                } catch (JSONException e) {
+                    // If a rank is missing or unparsable, treat as equal
+                    return 0;
+                }
+            }
+        });
+
+        notificationList.clear();
+//        Log.d(TAG, "Got notifications: " + sortedNotifications.toString());
+
+         for (int i = 0; i < sortedNotifications.size(); i++) {
+            JSONObject notification = sortedNotifications.get(i);
+            String summary = notification.getString("summary");
+            notificationList.add(summary);
         }
     }
 
@@ -2548,16 +2625,17 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 String title = notificationData.getString("title");
                 String text = notificationData.getString("text");
 
-                //TODO: Actually finish implementing notifications
                 //TODO: Also pull navigation data from this?
 
-                String formattedNotification = String.format("[%s]: %s", title, text);
-                notificationList.add(formattedNotification);
+                EventBus.getDefault().post(new NotificationEvent(notificationData));
+
+//                String formattedNotification = String.format("[%s]: %s", title, text);
+//                notificationList.add(formattedNotification);
 
                 // Keep only the last 10 notifications
-                if (notificationList.size() > 10) {
-                    notificationList.remove(0);
-                }
+//                if (notificationList.size() > 10) {
+//                    notificationList.remove(0);
+//                }
             } else {
                 System.out.println("Notification Data is null");
             }
