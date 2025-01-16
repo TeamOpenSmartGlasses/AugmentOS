@@ -44,13 +44,13 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
     //service stuff
     private Notification updateNotification() {
-//        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//        NotificationCompat.Builder builder;
-//
-//        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME,
-//                NotificationManager.IMPORTANCE_HIGH);
-//        channel.setDescription(NOTIFICATION_DESCRIPTION);
-//        manager.createNotificationChannel(channel);
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationCompat.Builder builder;
+
+        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME,
+                NotificationManager.IMPORTANCE_HIGH);
+        channel.setDescription(NOTIFICATION_DESCRIPTION);
+        manager.createNotificationChannel(channel);
 
         return new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(CHANNEL_NAME)
