@@ -19,17 +19,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.os.BatteryManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-import android.view.Display;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 //BMP
@@ -41,6 +36,7 @@ import java.nio.ByteBuffer;
 import com.google.gson.Gson;
 import com.teamopensmartglasses.augmentoslib.events.AudioChunkNewEvent;
 import com.teamopensmartglasses.smartglassesmanager.cpp.L3cCpp;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBatteryLevelEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.FoundGlassesBluetoothDeviceEvent;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
@@ -80,7 +76,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private BluetoothGattCharacteristic rightTxChar;
     private BluetoothGattCharacteristic leftRxChar;
     private BluetoothGattCharacteristic rightRxChar;
-    private final Handler handler = new Handler();
+    private final Handler handler = new Handler(Looper.getMainLooper());
+    private final Handler queryBatterStatusHandler = new Handler(Looper.getMainLooper());
+    private final Handler sendBrightnessCommandHandler = new Handler(Looper.getMainLooper());
     private Handler reconnectHandler = new Handler(Looper.getMainLooper());
     private final Semaphore sendSemaphore = new Semaphore(1);
     private boolean isLeftConnected = false;
@@ -91,7 +89,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     private static final long DELAY_BETWEEN_SENDS_MS = 20;
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 50;
-    private static final long HEARTBEAT_INTERVAL_MS = 10000;
+    private static final long HEARTBEAT_INTERVAL_MS = 2000;
 
     private int reconnectAttempts = 0;  // Counts the number of reconnect attempts
     private static final long BASE_RECONNECT_DELAY_MS = 3000;  // Start with 3 seconds
@@ -341,16 +339,24 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 //                                clearBmpDisplay();
                                 showHomeScreen();
                             }
+                        } else if (deviceName.contains("L_")) {
+                            if (data.length > 2 && data[0] == 0x2C && data[1] == 0x66) {
+                                int batteryLevel = data[2];
+
+                                EventBus.getDefault().post(new GlassesBatteryLevelEvent(batteryLevel));
+                            } else if (data.length > 0 && data[0] == 0x25) {
+                                Log.d(TAG, "Heartbeat response received");
+                            }
                         }
                         // Handle other non-audio responses
                         else {
                             Log.d(TAG, "Received non-audio response: " + bytesToHex(data) + ", from: " + deviceName);
                         }
 
-                        // Check if it's a heartbeat response
-                        if (data.length > 0 && data[0] == 0x25) {
-                            Log.d(TAG, "Heartbeat response received");
-                        }
+//                        if (data.length > 0 && data[0] == 0x2C) {
+//                            Log.d(TAG, "Battery response received" + Arrays.toString(data));
+//                            Log.d(TAG, "Battery response received" + bytesToHex(data));
+//                        }
                     }
                 });
             }
@@ -1045,6 +1051,13 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         return buffer.array();
     }
 
+    private byte[] constructBatteryLevelQuery() {
+        ByteBuffer buffer = ByteBuffer.allocate(2);
+        buffer.put((byte) 0x2C);  // Command
+        buffer.put((byte) 0x01); // use 0x02 for iOS
+        return buffer.array();
+    }
+
     private void startHeartbeat(int delay) {
         heartbeatRunnable = new Runnable() {
             @Override
@@ -1053,6 +1066,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 heartbeatHandler.postDelayed(this, HEARTBEAT_INTERVAL_MS);
             }
         };
+        
+        queryBatterStatusHandler.postDelayed(this::queryBatteryStatus, 1000);
+        sendBrightnessCommandHandler.postDelayed(() -> sendAutoLightBrightnessCommand(30, true), delay);
         heartbeatHandler.postDelayed(heartbeatRunnable, delay);
     }
 
@@ -1167,26 +1183,43 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
     }
 
+    private int heartbeatCount = 0;
+
     private void sendHeartbeat() {
         byte[] heartbeatPacket = constructHeartbeat();
         Log.d(TAG, "Sending heartbeat: " + bytesToHex(heartbeatPacket));
 
         sendDataSequentially(heartbeatPacket, false);
 
-//        new Thread(() -> {
-//            try {
-//                if (leftGlassGatt != null && leftTxChar != null) {
-//                    leftTxChar.setValue(heartbeatPacket);
-//                    leftGlassGatt.writeCharacteristic(leftTxChar);
-//                }
-//                if (rightGlassGatt != null && rightTxChar != null) {
-//                    rightTxChar.setValue(heartbeatPacket);
-//                    rightGlassGatt.writeCharacteristic(rightTxChar);
-//                }
-//            } catch (Exception e) {
-//                Log.e(TAG, "Error sending heartbeat: " + e.getMessage());
-//            }
-//        }).start();
+        heartbeatCount++;
+        if (heartbeatCount % 10 == 0) {
+            queryBatteryStatus();
+        }
+    }
+
+    private void queryBatteryStatus() {
+        byte[] batteryQueryPacket = constructBatteryLevelQuery();
+        Log.d(TAG, "Sending battery status query: " + bytesToHex(batteryQueryPacket));
+
+        sendDataSequentially(batteryQueryPacket, true);
+    }
+
+    public void sendAutoLightBrightnessCommand(int brightness, boolean autoLight) {
+        // Validate brightness range
+        if (brightness < 0 || brightness > 63) {
+            Log.e(TAG, "Brightness value must be between 0 and 63");
+            return;
+        }
+
+        // Construct the command
+        ByteBuffer buffer = ByteBuffer.allocate(3);
+        buffer.put((byte) 0x01);              // Command
+        buffer.put((byte) brightness);       // Brightness level (0~63)
+        buffer.put((byte) (autoLight ? 1 : 0)); // Auto light (0 = close, 1 = open)
+
+        sendDataSequentially(buffer.array(), false);
+
+        Log.d(TAG, "Sent auto light brightness command => Brightness: " + brightness + ", Auto Light: " + (autoLight ? "Open" : "Close"));
     }
 
     private static String bytesToHex(byte[] bytes) {
