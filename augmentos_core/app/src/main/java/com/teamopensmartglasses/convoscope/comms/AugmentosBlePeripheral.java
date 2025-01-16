@@ -16,7 +16,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.ParcelUuid;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 
@@ -35,7 +34,6 @@ import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -418,14 +416,27 @@ public class AugmentosBlePeripheral {
         sendDataToAugmentOsManager(data.toString());
     }
 
-    public void sendGlassesSearchResultsToManager(String modelName, String deviceName) {
+    public void sendGlassesBluetoothDiscoverResultToManager(String modelName, String deviceName) {
         Log.d(TAG, "sendGlassesSearchResultsToManager");
         JSONObject data = new JSONObject();
         JSONObject messageObj = new JSONObject();
         try{
             messageObj.put("model_name", modelName);
             messageObj.put("device_name", deviceName);
-            data.put("glasses_search_result", messageObj);
+            data.put("compatible_glasses_search_result", messageObj);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        sendDataToAugmentOsManager(data.toString());
+    }
+
+    public void sendGlassesBluetoothStopToManager(String modelName) {
+        Log.d(TAG, "sendGlassesSearchResultsToManager");
+        JSONObject data = new JSONObject();
+        JSONObject messageObj = new JSONObject();
+        try{
+            messageObj.put("model_name", modelName);
+            data.put("compatible_glasses_search_stop", messageObj);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

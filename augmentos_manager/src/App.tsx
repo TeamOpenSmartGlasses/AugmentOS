@@ -22,6 +22,7 @@ import SelectGlassesModelScreen from './screens/SelectGlassesModelScreen.tsx';
 import GlassesPairingGuideScreen from './screens/GlassesPairingGuideScreen.tsx';
 import SelectGlassesBluetoothScreen from './screens/SelectGlassesBluetoothScreen.tsx';
 import PhoneNotificationSettings from './screens/PhoneNotificationSettings.tsx';
+import { SearchResultsProvider } from './SearchResultsContext.tsx';
 
 // Assign the RootStackParamList to the navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -37,6 +38,7 @@ const App: React.FC = () => {
     <GestureHandlerRootView style={styles.container}>
       <NotificationListener>
         <StatusProvider>
+          <SearchResultsProvider>
           <MessageBanner />
           <NavigationContainer>
             <Stack.Navigator initialRouteName="Intro">
@@ -204,6 +206,7 @@ const App: React.FC = () => {
 
             </Stack.Navigator>
           </NavigationContainer>
+          </SearchResultsProvider>
         </StatusProvider>
       </NotificationListener>
     </GestureHandlerRootView>

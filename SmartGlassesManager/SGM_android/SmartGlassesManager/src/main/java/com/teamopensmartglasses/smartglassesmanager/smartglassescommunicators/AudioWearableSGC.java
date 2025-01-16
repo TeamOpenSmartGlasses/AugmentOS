@@ -4,12 +4,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
 
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.FoundGlassesBluetoothDeviceEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.TextToSpeechEvent;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -109,7 +106,7 @@ public class AudioWearableSGC extends SmartGlassesCommunicator {
 
     @Override
     public void findCompatibleDeviceNames() {
-        EventBus.getDefault().post(new FoundGlassesBluetoothDeviceEvent(smartGlassesDevice.deviceModelName, "NOTREQUIREDSKIP"));
+        EventBus.getDefault().post(new GlassesBluetoothSearchDiscoverEvent(smartGlassesDevice.deviceModelName, "NOTREQUIREDSKIP"));
     }
 
     public void showNaturalLanguageCommandScreen(String prompt, String naturalLanguageArgs){

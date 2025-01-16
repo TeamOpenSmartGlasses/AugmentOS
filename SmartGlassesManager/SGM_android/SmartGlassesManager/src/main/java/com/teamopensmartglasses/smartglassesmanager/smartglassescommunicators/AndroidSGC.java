@@ -13,7 +13,7 @@ import com.teamopensmartglasses.smartglassesmanager.comms.AspWebsocketServer;
 import com.teamopensmartglasses.smartglassesmanager.comms.AudioSystem;
 import com.teamopensmartglasses.smartglassesmanager.comms.MessageTypes;
 import com.teamopensmartglasses.augmentoslib.events.GlassesPovImageEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.FoundGlassesBluetoothDeviceEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.utils.NetworkUtils;
 
@@ -31,8 +31,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -624,7 +622,7 @@ public class AndroidSGC extends SmartGlassesCommunicator {
 
     @Override
     public void findCompatibleDeviceNames() {
-        EventBus.getDefault().post(new FoundGlassesBluetoothDeviceEvent(smartGlassesDevice.deviceModelName,"NOTREQUIREDSKIP"));
+        EventBus.getDefault().post(new GlassesBluetoothSearchDiscoverEvent(smartGlassesDevice.deviceModelName,"NOTREQUIREDSKIP"));
     }
 
     public void displayBulletList(String title, String [] bullets){

@@ -23,6 +23,7 @@ import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettings
 import static com.teamopensmartglasses.convoscope.Constants.displayRequestsKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 import static com.teamopensmartglasses.convoscope.Constants.augmentOsMainServiceNotificationId;
+import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.getPreferredWearable;
 import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.getSmartGlassesDeviceFromModelName;
 import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.savePreferredWearable;
 import static com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.deleteEvenSharedPreferences;
@@ -80,10 +81,10 @@ import com.teamopensmartglasses.convoscope.ui.AugmentosUi;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.FoundGlassesBluetoothDeviceEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchStopEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
-import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
@@ -93,14 +94,12 @@ import com.teamopensmartglasses.augmentoslib.events.SmartGlassesConnectedEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 
-import org.checkerframework.checker.units.qual.A;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -110,7 +109,6 @@ import java.util.Objects;
 import java.util.LinkedList;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 //SpeechRecIntermediateOutputEvent
 import net.sourceforge.pinyin4j.PinyinHelper;
@@ -397,6 +395,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         // If not system app, bring up the settings menu
         if (isSystemApp(this)) {
             handleBatteryOptimization(this);
+        }
+
+        String preferredWearable = AugmentosSmartGlassesService.getPreferredWearable(this);
+        if(!preferredWearable.isEmpty()) {
+            executeOnceSmartGlassesServiceReady(this, () -> {
+                SmartGlassesDevice preferredDevice = AugmentosSmartGlassesService.getSmartGlassesDeviceFromModelName(preferredWearable);
+                smartGlassesService.findCompatibleDeviceNames(preferredDevice);
+            });
         }
     }
 
@@ -2296,8 +2302,13 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Subscribe
-    public void onFoundGlassesBluetoothDeviceEvent(FoundGlassesBluetoothDeviceEvent event){
-        blePeripheral.sendGlassesSearchResultsToManager(event.modelName, event.deviceName);
+    public void onGlassesBluetoothSearchDiscoverEvent(GlassesBluetoothSearchDiscoverEvent event){
+        blePeripheral.sendGlassesBluetoothDiscoverResultToManager(event.modelName, event.deviceName);
+    }
+
+    @Subscribe
+    public void onGlassesBluetoothSearchStopEvent(GlassesBluetoothSearchStopEvent event){
+        blePeripheral.sendGlassesBluetoothStopToManager(event.modelName);
     }
 
     @Subscribe
@@ -2457,7 +2468,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         // TODO: Good lord this is hacky
         // TODO: Find a good way to conditionally send a glasses bt device name to SGC
-        if(!deviceName.isEmpty() && modelName.contains("Even Realities"))
+        if (!deviceName.isEmpty() && modelName.contains("Even Realities"))
             savePreferredG1DeviceId(this, deviceName);
 
         executeOnceSmartGlassesServiceReady(this, () -> {

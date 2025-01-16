@@ -1,6 +1,6 @@
 // SelectGlassesBluetoothScreen.tsx
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -9,6 +9,7 @@ import {
   ScrollView,
   Image,
   Platform,
+  Alert,
 } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native'; // <<--- import useRoute
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -21,6 +22,7 @@ import { getGlassesImage } from '../logic/getGlassesImage';
 import PairingDeviceInfo from '../components/PairingDeviceInfo';
 import { EvenRealitiesG1PairingGuide, VuzixZ100PairingGuide } from '../components/GlassesPairingGuides';
 import GlobalEventEmitter from '../logic/GlobalEventEmitter';
+import { useSearchResults } from '../SearchResultsContext';
 // import NavigationBar from '../components/NavigationBar'; // if needed
 
 interface SelectGlassesBluetoothScreenProps {
@@ -37,7 +39,15 @@ const SelectGlassesBluetoothScreen: React.FC<SelectGlassesBluetoothScreenProps> 
   const bluetoothService = BluetoothService.getInstance();
   const { glassesModelName } = route.params as { glassesModelName: string };
   const navigation = useNavigation<NavigationProps>();
-  const [searchResults, setSearchResults] = useState<string[]>([]);
+  const { searchResults, setSearchResults } = useSearchResults();
+
+ // Create a ref to track the current state of searchResults
+ const searchResultsRef = useRef<string[]>(searchResults);
+
+ // Keep the ref updated whenever searchResults changes
+ useEffect(() => {
+   searchResultsRef.current = searchResults;
+ }, [searchResults]);
 
   React.useEffect(() => {
     const unsubscribe = navigation.addListener('beforeRemove', (e) => {
@@ -71,16 +81,42 @@ const SelectGlassesBluetoothScreen: React.FC<SelectGlassesBluetoothScreenProps> 
         }
         return prevResults;
       });
-      
     };
 
+    const stopSearch = ({ modelName }: { modelName: string }) => {
+      console.log("SEARCH RESULTS:")
+      console.log(JSON.stringify(searchResults));
+      if (searchResultsRef.current.length === 0) {
+        Alert.alert(
+          "No " + modelName + " found",
+          "Retry search?",
+          [
+            {
+              text: "No",
+              onPress: () => navigation.goBack(), // Navigate back if user chooses "No"
+              style: "cancel",
+            },
+            {
+              text: "Yes",
+              onPress: () =>
+                BluetoothService.getInstance().sendSearchForCompatibleDeviceNames(glassesModelName), // Retry search
+            },
+          ],
+          { cancelable: false } // Prevent closing the alert by tapping outside
+        );
+      }
+    };
+    
+
     if (!MOCK_CONNECTION) {
-      GlobalEventEmitter.on('GLASSES_SEARCH_RESULT', handleSearchResult);
+      GlobalEventEmitter.on('COMPATIBLE_GLASSES_SEARCH_RESULT', handleSearchResult);
+      GlobalEventEmitter.on('COMPATIBLE_GLASSES_SEARCH_STOP', stopSearch);
     }
 
     return () => {
       if (!MOCK_CONNECTION) {
-        GlobalEventEmitter.removeListener('GLASSES_SEARCH_RESULT', handleSearchResult);
+        GlobalEventEmitter.removeListener('COMPATIBLE_GLASSES_SEARCH_RESULT', handleSearchResult);
+        GlobalEventEmitter.removeListener('COMPATIBLE_GLASSES_SEARCH_STOP', stopSearch);
       }
     };
   }, []);
@@ -88,8 +124,8 @@ const SelectGlassesBluetoothScreen: React.FC<SelectGlassesBluetoothScreenProps> 
 
   React.useEffect(() => {
     console.log('Searching for compatible devices for: ', glassesModelName);
+    setSearchResults([]);
     BluetoothService.getInstance().sendSearchForCompatibleDeviceNames(glassesModelName);
-
   }, [glassesModelName]);
 
   React.useEffect(() => {

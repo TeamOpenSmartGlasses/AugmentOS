@@ -97,7 +97,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
           <Header isDarkTheme={isDarkTheme} navigation={navigation} />
         </AnimatedSection>
 
-        {!isSimulatedPuck||true && (
+        {!isSimulatedPuck && (
         <AnimatedSection>
           <PuckConnection isDarkTheme={isDarkTheme} />
         </AnimatedSection>

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.Log;
@@ -15,7 +14,7 @@ import androidx.lifecycle.LiveData;
 import com.teamopensmartglasses.smartglassesmanager.R;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.FoundGlassesBluetoothDeviceEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.vuzix.ultralite.Anchor;
 import com.vuzix.ultralite.EventListener;
@@ -30,7 +29,6 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 
 //communicate with ActiveLook smart glasses
@@ -184,7 +182,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
 
     @Override
     public void findCompatibleDeviceNames() {
-        EventBus.getDefault().post(new FoundGlassesBluetoothDeviceEvent(smartGlassesDevice.deviceModelName, "NOTREQUIREDSKIP"));
+        EventBus.getDefault().post(new GlassesBluetoothSearchDiscoverEvent(smartGlassesDevice.deviceModelName, "NOTREQUIREDSKIP"));
     }
 
     @Override

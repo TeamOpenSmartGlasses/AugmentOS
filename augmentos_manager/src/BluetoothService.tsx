@@ -233,8 +233,8 @@ export class BluetoothService extends EventEmitter {
   startReconnectionScan() {
     const performScan = () => {
       if (this.simulatedPuck) {
-        //this.sendRequestStatus();
-        this.sendHeartbeat();
+        this.sendRequestStatus();
+        //this.sendHeartbeat();
         this.reconnectionTimer = setTimeout(
           performScan,
           this.connectedDevice ? 30000 : 500,
@@ -568,9 +568,12 @@ export class BluetoothService extends EventEmitter {
       } else if ('notify_manager' in jsonData) {
         let notify_manager = (jsonData as any).notify_manager;
         GlobalEventEmitter.emit('SHOW_BANNER', { message: notify_manager.message, type: notify_manager.type })
-      } else if ('glasses_search_result' in jsonData) {
-        let glasses_search_result = (jsonData as any).glasses_search_result;
-        GlobalEventEmitter.emit('GLASSES_SEARCH_RESULT', { modelName: glasses_search_result.model_name, deviceName: glasses_search_result.device_name })
+      } else if ('compatible_glasses_search_result' in jsonData) {
+        let compatible_glasses_search_result = (jsonData as any).compatible_glasses_search_result;
+        GlobalEventEmitter.emit('COMPATIBLE_GLASSES_SEARCH_RESULT', { modelName: compatible_glasses_search_result.model_name, deviceName: compatible_glasses_search_result.device_name })
+      } else if ('compatible_glasses_search_stop' in jsonData) {
+        let compatible_glasses_search_stop = (jsonData as any).compatible_glasses_search_stop;
+        GlobalEventEmitter.emit('COMPATIBLE_GLASSES_SEARCH_STOP', { modelName: compatible_glasses_search_stop.model_name })
       }
     } catch (e) {
       console.log('Some error parsing data from AugmentOS_Core...');

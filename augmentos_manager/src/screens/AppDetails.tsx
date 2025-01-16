@@ -363,17 +363,18 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flex: 1,
+    //paddingBottom:55,
   },
   scrollContentContainer: {
-    paddingBottom: 16,
+    paddingBottom: 55,
   },
   contentContainer: {
-    padding: 16,
+    paddingTop:16,
     alignItems: 'center',
   },
   buttonContainer: {
     width: '100%',
-    paddingHorizontal: 16,
+    padding: 16
   },
   icon: {
     width: 100,
@@ -402,7 +403,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     marginBottom: 15,
-    paddingHorizontal: 20,
+    paddingHorizontal: 36,
   },
   metaItem: {
     flexDirection: 'row',
@@ -438,6 +439,7 @@ const styles = StyleSheet.create({
     color: '#666',
     textAlign: 'center',
     marginBottom: 20,
+    marginHorizontal:16,
     lineHeight: 20,
     fontFamily: 'Montserrat-Regular',
   },
@@ -473,6 +475,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 10,
     marginBottom: 10,
+    marginHorizontal:16,
   },
   requirementItem: {
     backgroundColor: '#f0f0f0',
@@ -497,6 +500,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 10,
     alignSelf: 'center',
+    marginHorizontal: 16,
+    marginBottom:16,
   },
   installButtonText: {
     fontSize: 16,

@@ -15,9 +15,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { useStatus } from '../AugmentOSStatusProvider';
 import { BluetoothService } from '../BluetoothService';
 import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
-import { SETTINGS_KEYS } from '../consts';
+import { SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from '../consts';
 import NavigationBar from '../components/NavigationBar';
 import { getGlassesImage } from '../logic/getGlassesImage';
+import GlobalEventEmitter from '../logic/GlobalEventEmitter';
 
 interface SelectGlassesModelScreenProps {
     isDarkTheme: boolean;
@@ -32,6 +33,7 @@ const SelectGlassesModelScreen: React.FC<SelectGlassesModelScreenProps> = ({
 }) => {
     const { status } = useStatus();
     const [glassesModelNameToPair, setGlassesModelNameToPair] = useState<string | null>(null);
+    const bluetoothService = BluetoothService.getInstance();
 
     const glassesOptions = [
         { modelName: 'Vuzix Z100', key: 'vuzix-z100' },
@@ -40,20 +42,19 @@ const SelectGlassesModelScreen: React.FC<SelectGlassesModelScreenProps> = ({
         { modelName: 'Audio Wearable', key: 'Audio Wearable' },
     ];
 
-    React.useEffect(() => {
-        // if (glassesModelNameToPair && status.glasses_info?.is_searching) {
-        //     navigation.navigate('GlassesPairingGuideScreen', {
-        //         glassesModelName: glassesModelNameToPair,
-        //     });
-        // }
+    React.useEffect(() => { }, [status]);
 
+    const triggerGlassesPairingGuide = async (glassesModelName: string) => {
+        const simulatedPuck = await loadSetting(
+            SETTINGS_KEYS.SIMULATED_PUCK,
+            SIMULATED_PUCK_DEFAULT,
+        );
+        if (simulatedPuck && !(await bluetoothService.isBluetoothEnabled() && await bluetoothService.isLocationEnabled())) {
+            GlobalEventEmitter.emit('SHOW_BANNER', { message: "Please enable Bluetooth and Location", type: "error" })
+            return;
+        }
 
-    }, [status]);
-
-    const triggerGlassesPairingGuide = (glassesModelName: string) => {
         setGlassesModelNameToPair(glassesModelName);
-        //BluetoothService.getInstance().sendConnectWearable(glassesModelName);
-        //BluetoothService.getInstance().sendSearchForCompatibleDeviceNames(glassesModelName);
         console.log("TRIGGERING SEARCH SCREEN FOR: " + glassesModelName);
         navigation.navigate('SelectGlassesBluetoothScreen', {
             glassesModelName: glassesModelName,

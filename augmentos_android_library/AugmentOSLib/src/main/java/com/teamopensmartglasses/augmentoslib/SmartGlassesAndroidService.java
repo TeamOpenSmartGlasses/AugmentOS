@@ -44,19 +44,13 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
     //service stuff
     private Notification updateNotification() {
-        Context context = getApplicationContext();
-
-//        PendingIntent action = PendingIntent.getActivity(context,
-//                0, new Intent(context, mainActivityClass),
-//                PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_MUTABLE); // Flag indicating that if the described PendingIntent already exists, the current one should be canceled before generating a new one.
-
-        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        NotificationCompat.Builder builder;
-
-        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME,
-                NotificationManager.IMPORTANCE_HIGH);
-        channel.setDescription(NOTIFICATION_DESCRIPTION);
-        manager.createNotificationChannel(channel);
+//        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//        NotificationCompat.Builder builder;
+//
+//        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME,
+//                NotificationManager.IMPORTANCE_HIGH);
+//        channel.setDescription(NOTIFICATION_DESCRIPTION);
+//        manager.createNotificationChannel(channel);
 
         return new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(CHANNEL_NAME)
