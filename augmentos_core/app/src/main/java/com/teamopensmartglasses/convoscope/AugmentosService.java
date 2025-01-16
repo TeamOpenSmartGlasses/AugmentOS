@@ -86,6 +86,7 @@ import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchStopEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBatteryLevelEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
@@ -239,6 +240,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private final List<Runnable> serviceReadyListeners = new ArrayList<>();
     private NotificationSystem notificationSystem;
 
+    private int batteryLevel = 80;
 
     public AugmentosService() {
     }
@@ -286,20 +288,20 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         String currentTime = timeFormat.format(new Date());
         String currentDate = dateFormat.format(new Date());
 
-        // Get battery level
-        IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
-        Intent batteryStatus = this.registerReceiver(null, iFilter);
-        int level = batteryStatus != null ?
-                batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) : -1;
-        int scale = batteryStatus != null ?
-                batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1) : -1;
-        float batteryPct = level * 100 / (float)scale;
+            // Get battery level
+//            IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+//            Intent batteryStatus = this.registerReceiver(null, iFilter);
+//            int level = batteryStatus != null ?
+//                    batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) : -1;
+//            int scale = batteryStatus != null ?
+//                    batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1) : -1;
+//            float batteryPct = level * 100 / (float)scale;
 
         // Build dashboard string with fancy formatting
         StringBuilder dashboard = new StringBuilder();
        //     dashboard.append("Dashboard - AugmentOS\n");
-        dashboard.append(String.format("│ %s, %s\n", currentDate, currentTime));
-//            dashboard.append(String.format("│ Date      │ %s\n", currentDate));
+            dashboard.append(String.format(Locale.getDefault(), "│ %s, %s, %d%%\n", currentDate, currentTime, batteryLevel));
+            //dashboard.append(String.format("│ Date      │ %s\n", currentDate));
 //            dashboard.append(String.format("│ Battery │ %.0f%%\n", batteryPct));
 //            dashboard.append("│ BLE       │ ON\n");
 
@@ -348,6 +350,12 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             smartGlassesService.sendTextWall(dashboard.toString());
         }
 //        Log.d(TAG, "Dashboard displayed: " + dashboard.toString());
+    }
+
+    @Subscribe
+    public void onGlassBatteryLevelEvent(GlassesBatteryLevelEvent event) {
+        batteryLevel = event.batteryLevel;
+        sendStatusToAugmentOsManager();
     }
 
     @Override
@@ -2446,7 +2454,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             JSONObject connectedGlasses = new JSONObject();
             if(isSmartGlassesServiceBound && smartGlassesService.getConnectedSmartGlasses() != null) {
                 connectedGlasses.put("model_name", smartGlassesService.getConnectedSmartGlasses().deviceModelName);
-                connectedGlasses.put("battery_life", 80);
+                connectedGlasses.put("battery_life", batteryLevel);
                 connectedGlasses.put("brightness", 80);
             }
             else {
