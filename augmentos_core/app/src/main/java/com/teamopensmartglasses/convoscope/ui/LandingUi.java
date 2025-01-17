@@ -47,7 +47,7 @@ public class LandingUi extends Fragment {
 
     // TODO: AugmentOS should not need firebase
     //  But we do need to reevaluate this whole thing later
-    if (currentUser != null || true) {
+    if (currentUser != null) {
       Log.d(TAG, "Already logged in, skipping to main UI");
       navController.navigate(R.id.nav_convoscope);
     }
