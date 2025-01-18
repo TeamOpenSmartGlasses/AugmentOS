@@ -28,7 +28,6 @@ public class SpeechRecAzure extends SpeechRecFramework {
 
     private SpeechConfig speechConfig;
     private SpeechRecognizer speechRecognizer;
-
     private SpeechTranslationConfig speechTranslationConfig;
     private TranslationRecognizer translationRecognizer;
 
@@ -38,17 +37,48 @@ public class SpeechRecAzure extends SpeechRecFramework {
     private String targetLanguageCode;
     private boolean isTranslation;
 
-    public SpeechRecAzure(Context context, String languageLocale) {
+    private static SpeechRecAzure instance;
+
+    private SpeechRecAzure(Context context, String languageLocale) {
         this.mContext = context;
         this.currentLanguageCode = initLanguageLocale(languageLocale);
         this.isTranslation = false;
     }
 
-    public SpeechRecAzure(Context context, String currentLanguageLocale, String targetLanguageLocale) {
+    private SpeechRecAzure(Context context, String currentLanguageLocale, String targetLanguageLocale) {
         this.mContext = context;
         this.currentLanguageCode = initLanguageLocale(currentLanguageLocale);
         this.targetLanguageCode = initLanguageLocale(targetLanguageLocale);
         this.isTranslation = true;
+    }
+
+    public static synchronized SpeechRecAzure getInstance(Context context, String languageLocale) {
+        if (instance == null || instance.isTranslation || !instance.currentLanguageCode.equals(languageLocale)) {
+            if (instance != null) {
+                instance.destroy(); // Clean up the old instance
+            }
+            instance = new SpeechRecAzure(context, languageLocale);
+        }
+        return instance;
+    }
+
+    public static synchronized SpeechRecAzure getInstance(Context context, String currentLanguageLocale, String targetLanguageLocale) {
+        if (instance == null || !instance.isTranslation ||
+                !instance.currentLanguageCode.equals(currentLanguageLocale) ||
+                !instance.targetLanguageCode.equals(targetLanguageLocale)) {
+            if (instance != null) {
+                instance.destroy(); // Clean up the old instance
+            }
+            instance = new SpeechRecAzure(context, currentLanguageLocale, targetLanguageLocale);
+        }
+        return instance;
+    }
+
+    public static synchronized void resetInstance() {
+        if (instance != null) {
+            instance.destroy();
+            instance = null;
+        }
     }
 
     @Override
@@ -102,7 +132,6 @@ public class SpeechRecAzure extends SpeechRecFramework {
 
     @Override
     public void ingestAudioChunk(byte[] audioChunk) {
-//        Log.d(TAG, "Injesting audio chunk");
         if (isTranslation && translationRecognizer != null) {
             AzureAudioInputStream.getInstance().push(audioChunk);
         } else if (!isTranslation && speechRecognizer != null) {
@@ -169,7 +198,6 @@ public class SpeechRecAzure extends SpeechRecFramework {
             String intermediateResult = e.getResult().getText();
             BigInteger offset = e.getResult().getOffset();
             if (intermediateResult != null && !intermediateResult.trim().isEmpty()) {
-                // Get the single entry from the map
                 Map.Entry<String, String> translation = e.getResult().getTranslations().entrySet().iterator().next();
                 String translatedText = translation.getValue();
                 String targetLanguage = translation.getKey();
@@ -183,7 +211,6 @@ public class SpeechRecAzure extends SpeechRecFramework {
             String finalResult = e.getResult().getText();
             BigInteger offset = e.getResult().getOffset();
             if (finalResult != null && !finalResult.trim().isEmpty()) {
-                // Get the single entry from the map
                 Map.Entry<String, String> translation = e.getResult().getTranslations().entrySet().iterator().next();
                 String translatedText = translation.getValue();
                 String targetLanguage = translation.getKey();

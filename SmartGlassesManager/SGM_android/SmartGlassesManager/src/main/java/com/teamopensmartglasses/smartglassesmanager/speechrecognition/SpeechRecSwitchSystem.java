@@ -70,10 +70,10 @@ public class SpeechRecSwitchSystem {
         } else if (this.asrFramework == ASR_FRAMEWORKS.DEEPGRAM_ASR_FRAMEWORK){
             speechRecFramework = new SpeechRecDeepgram(mContext, language);
         } else if (this.asrFramework == ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK){
-            speechRecFramework = new SpeechRecAzure(mContext, language);
+            speechRecFramework = SpeechRecAzure.getInstance(mContext, language);
         } else {
             Log.e(TAG, "Falling back to Azure ASR Framework, as the selected ASR framework is not supported.");
-            speechRecFramework = new SpeechRecAzure(mContext, language);
+            speechRecFramework = SpeechRecAzure.getInstance(mContext, language);
         }
 
         //start asr
@@ -101,7 +101,7 @@ public class SpeechRecSwitchSystem {
         this.asrFramework = asrFramework;
 
         //create new asr
-        speechRecFramework = new SpeechRecAzure(mContext, transcribeLanguage, sourceLanguage);
+        speechRecFramework = SpeechRecAzure.getInstance(mContext, transcribeLanguage, sourceLanguage);
 
         //start asr
         speechRecFramework.start();
