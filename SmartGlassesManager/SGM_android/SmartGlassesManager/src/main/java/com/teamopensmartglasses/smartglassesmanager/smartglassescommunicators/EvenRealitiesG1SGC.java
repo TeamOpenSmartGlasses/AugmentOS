@@ -1,5 +1,7 @@
 package com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators;
 
+import static java.lang.System.exit;
+
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
@@ -58,6 +60,7 @@ import java.util.regex.Pattern;
 public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final String TAG = "WearableAi_EvenRealitiesG1SGC";
     public static final String SHARED_PREFS_NAME = "EvenRealitiesPrefs";
+    private int heartbeatCount = 0;
     private BluetoothAdapter bluetoothAdapter;
 
     public static final String LEFT_DEVICE_KEY = "SavedG1LeftName";
@@ -91,7 +94,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     private static final long DELAY_BETWEEN_SENDS_MS = 20;
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 50;
-    private static final long HEARTBEAT_INTERVAL_MS = 2000;
+    private static final long HEARTBEAT_INTERVAL_MS = 30000;
 
     private int leftReconnectAttempts = 0;
     private int rightReconnectAttempts = 0;
@@ -154,6 +157,16 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private long lastConnectionTimestamp = 0;
     private SmartGlassesDevice smartGlassesDevice;
 
+    private static final long CONNECTION_TIMEOUT_MS = 10000; // 10 seconds
+
+    // Handlers for connection timeouts
+    private final Handler leftConnectionTimeoutHandler = new Handler(Looper.getMainLooper());
+    private final Handler rightConnectionTimeoutHandler = new Handler(Looper.getMainLooper());
+
+    // Runnable tasks for handling timeouts
+    private Runnable leftConnectionTimeoutRunnable;
+    private Runnable rightConnectionTimeoutRunnable;
+
     public EvenRealitiesG1SGC(Context context, SmartGlassesDevice smartGlassesDevice) {
         super();
         this.context = context;
@@ -173,33 +186,52 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             @Override
             public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
                 Log.d(TAG, "ConnectionStateChanged");
-                if (newState == BluetoothProfile.STATE_CONNECTED) {
-                    Log.d(TAG, side + " glass connected, discovering services...");
-                    reconnectAttempts = 0;
-                    gatt.discoverServices();
-                } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
-                    Log.d(TAG, side + " glass disconnected, stopping heartbeats");
+                // Cancel the connection timeout
+                if ("Left".equals(side) && leftConnectionTimeoutRunnable != null) {
+                    leftConnectionTimeoutHandler.removeCallbacks(leftConnectionTimeoutRunnable);
+                    leftConnectionTimeoutRunnable = null;
+                } else if ("Right".equals(side) && rightConnectionTimeoutRunnable != null) {
+                    rightConnectionTimeoutHandler.removeCallbacks(rightConnectionTimeoutRunnable);
+                    rightConnectionTimeoutRunnable = null;
+                }
 
-                    if ("Left".equals(side)) {
-                        isLeftConnected = false;
-                        leftReconnectAttempts++;
-                    } else {
-                        isRightConnected = false;
-                        rightReconnectAttempts++;
-                    }
+                if (status == BluetoothGatt.GATT_SUCCESS) {
 
-                    stopHeartbeat();
-                    updateConnectionState();
-                    reconnectAttempts++;
+                    if (newState == BluetoothProfile.STATE_CONNECTED) {
+                        Log.d(TAG, side + " glass connected, discovering services...");
+                        if ("Left".equals(side)) {
+                            isLeftConnected = true;
+                            leftReconnectAttempts = 0;
+                        } else {
+                            isRightConnected = true;
+                            rightReconnectAttempts = 0;
+                        }
+                        gatt.discoverServices();
+                    } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
+                        Log.d(TAG, side + " glass disconnected, stopping heartbeats");
 
-                    long delay;
-                    if ("Left".equals(side)) {
-                        delay = Math.min(BASE_RECONNECT_DELAY_MS * (1L << leftReconnectAttempts), MAX_RECONNECT_DELAY_MS);
-                        Log.d(TAG, side + " glass disconnected. Attempting to reconnect " + side + " + in " + delay + " ms (Attempt " + leftReconnectAttempts + ")");
-                    } else {
-                        delay = Math.min(BASE_RECONNECT_DELAY_MS * (1L << rightReconnectAttempts), MAX_RECONNECT_DELAY_MS);
-                        Log.d(TAG, side + " glass disconnected. Attempting to reconnect " + side + " + in " + delay + " ms (Attempt " + rightReconnectAttempts + ")");
-                    }
+                        if ("Left".equals(side)) {
+                            isLeftConnected = false;
+                            leftReconnectAttempts++;
+                            leftGlassGatt = null;
+                        } else {
+                            isRightConnected = false;
+                            rightReconnectAttempts++;
+                            rightGlassGatt = null;
+                        }
+
+                        stopHeartbeat();
+                        sendQueue.clear();
+                        updateConnectionState();
+
+                        long delay;
+                        if ("Left".equals(side)) {
+                            delay = Math.min(BASE_RECONNECT_DELAY_MS * (1L << leftReconnectAttempts), MAX_RECONNECT_DELAY_MS);
+                            Log.d(TAG, side + " glass disconnected. Attempting to reconnect " + side + " in " + delay + " ms (Attempt " + leftReconnectAttempts + ")");
+                        } else {
+                            delay = Math.min(BASE_RECONNECT_DELAY_MS * (1L << rightReconnectAttempts), MAX_RECONNECT_DELAY_MS);
+                            Log.d(TAG, side + " glass disconnected. Attempting to reconnect " + side + " in " + delay + " ms (Attempt " + rightReconnectAttempts + ")");
+                        }
 //                    reconnectHandler.postDelayed(() -> {
 //                        if (gatt.getDevice() != null) {
 //                            gatt.close();
@@ -208,27 +240,43 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 //                        }
 //                    }, delay);
 
-                    // Do this ~carefully~ to compensate for old BLE stacks
-                    reconnectHandler.postDelayed(() -> {
+                        // Do this ~carefully~ to compensate for old BLE stacks
+                        // reconnectHandler.postDelayed(() -> {
                         //Log.d(TAG, "Manually disconnecting gatt. Are we scanning?: " + isScanning);
-                        gatt.disconnect();
-                    }, 0);
+                        // gatt.disconnect();
+                        // }, 0);
 
-                    reconnectHandler.postDelayed(() -> {
                         if (gatt.getDevice() != null) {
                             Log.d(TAG, "Closing gatt. Are we scanning?: " + isScanning);
                             //gatt.disconnect();
                             gatt.close();
                         }
-                    }, 2000); // 2 seconds after disconnect
 
-                    reconnectHandler.postDelayed(() -> {
-                        if (gatt.getDevice() != null) {
-                            Log.d(TAG, "Reconnecting to gatt. Are we scanning?: " + isScanning);
-                            reconnectToGatt(gatt.getDevice());
-                        }
-                    }, delay); // 2 seconds after close
+                        reconnectHandler.postDelayed(() -> {
+                            if (gatt.getDevice() != null) {
+                                Log.d(TAG, "Reconnecting to gatt. Are we scanning?: " + isScanning);
+                                reconnectToGatt(gatt.getDevice());
+                            }
+                        }, delay); // 2 seconds after close
 
+                    }
+                } else {
+                    stopHeartbeat();
+                    sendQueue.clear();
+
+                    Log.e(TAG, side + " glass connection failed with status: " + status);
+                    if ("Left".equals(side)) {
+                        isLeftConnected = false;
+                        leftReconnectAttempts++;
+                        leftGlassGatt = null;
+                    } else {
+                        isRightConnected = false;
+                        rightReconnectAttempts++;
+                        rightGlassGatt = null;
+                    }
+                    gatt.disconnect();
+                    gatt.close();
+                    scheduleReconnect(side, gatt.getDevice());
                 }
             }
 
@@ -305,6 +353,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     Log.d(TAG, side + " glass write successful");
                 } else {
                     Log.e(TAG, side + " glass write failed with status: " + status);
+
+                    if(status == 133) {
+                        Log.d(TAG, "GOT THAT 133 STATUS!");
+                   
+                    }
                 }
             }
 
@@ -353,7 +406,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             }
                             // Check for head up movement - initial F5 03 signal
                             else if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x03) {
-                                Log.d(TAG, "HEAD DOWN MOVEMENT DETECTED");
+                                // Log.d(TAG, "HEAD DOWN MOVEMENT DETECTED");
 //                                clearBmpDisplay();
                                 showHomeScreen();
                             }
@@ -541,29 +594,75 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         Log.d(TAG, "Nuked EvenRealities SharedPreferences");
     }
 
-    private void reconnectToGatt(BluetoothDevice device) {
-        if (device.getName().contains("_L_")) {
-            Log.d(TAG, "Connect GATT to left side");
-            leftGlassGatt = device.connectGatt(context, false, leftGattCallback);
-        } else if (device.getName().contains("_R_")) {
-            Log.d(TAG, "Connect GATT to right side");
-            rightGlassGatt = device.connectGatt(context, false, rightGattCallback);
-        } else {
-            Log.d(TAG, "Tried to connect to incorrect device: " + device.getName());
-        }
-    }
-
     private void connectToGatt(BluetoothDevice device) {
         if (device.getName().contains("_L_") && leftGlassGatt == null) {
             Log.d(TAG, "Connect GATT to left side");
             leftGlassGatt = device.connectGatt(context, false, leftGattCallback);
+            isLeftConnected = false; // Reset connection state
+            startConnectionTimeout("Left", leftGlassGatt);
         } else if (device.getName().contains("_R_") && rightGlassGatt == null) {
             Log.d(TAG, "Connect GATT to right side");
             rightGlassGatt = device.connectGatt(context, false, rightGattCallback);
+            isRightConnected = false; // Reset connection state
+            startConnectionTimeout("Right", rightGlassGatt);
         } else {
-            Log.d(TAG, "Tried to connect to incorrect device: " + device.getName());
+            Log.d(TAG, "Tried to connect to incorrect or already connected device: " + device.getName());
         }
     }
+
+    private void reconnectToGatt(BluetoothDevice device) {
+        connectToGatt(device); // Reuse the connectToGatt method
+    }
+
+    private void startConnectionTimeout(String side, BluetoothGatt gatt) {
+        Runnable timeoutRunnable = () -> {
+            if ("Left".equals(side)) {
+                if (!isLeftConnected) {
+                    Log.d(TAG, "Left connection timed out. Closing GATT and retrying...");
+                    if (leftGlassGatt != null) {
+                        leftGlassGatt.disconnect();
+                        leftGlassGatt.close();
+                        leftGlassGatt = null;
+                    }
+                    leftReconnectAttempts++;
+                    scheduleReconnect("Left", gatt.getDevice());
+                }
+            } else if ("Right".equals(side)) {
+                if (!isRightConnected) {
+                    Log.d(TAG, "Right connection timed out. Closing GATT and retrying...");
+                    if (rightGlassGatt != null) {
+                        rightGlassGatt.disconnect();
+                        rightGlassGatt.close();
+                        rightGlassGatt = null;
+                    }
+                    rightReconnectAttempts++;
+                    scheduleReconnect("Right", gatt.getDevice());
+                }
+            }
+        };
+
+        if ("Left".equals(side)) {
+            leftConnectionTimeoutRunnable = timeoutRunnable;
+            leftConnectionTimeoutHandler.postDelayed(leftConnectionTimeoutRunnable, CONNECTION_TIMEOUT_MS);
+        } else if ("Right".equals(side)) {
+            rightConnectionTimeoutRunnable = timeoutRunnable;
+            rightConnectionTimeoutHandler.postDelayed(rightConnectionTimeoutRunnable, CONNECTION_TIMEOUT_MS);
+        }
+    }
+
+    private void scheduleReconnect(String side, BluetoothDevice device) {
+        long delay;
+        if ("Left".equals(side)) {
+            delay = Math.min(BASE_RECONNECT_DELAY_MS * (1L << leftReconnectAttempts), MAX_RECONNECT_DELAY_MS);
+            Log.d(TAG, side + " glass reconnecting in " + delay + " ms (Attempt " + leftReconnectAttempts + ")");
+        } else { // "Right"
+            delay = Math.min(BASE_RECONNECT_DELAY_MS * (1L << rightReconnectAttempts), MAX_RECONNECT_DELAY_MS);
+            Log.d(TAG, side + " glass reconnecting in " + delay + " ms (Attempt " + rightReconnectAttempts + ")");
+        }
+
+        reconnectHandler.postDelayed(() -> reconnectToGatt(device), delay);
+    }
+
 
     private final ScanCallback modernScanCallback = new ScanCallback() {
         @Override
@@ -682,7 +781,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         Log.d(TAG, "Started scanning for devices...");
 
         // Stop the scan after some time (e.g., 10-15s instead of 60 to avoid throttling)
-        handler.postDelayed(() -> stopScan(), 10000);
+        //handler.postDelayed(() -> stopScan(), 10000);
     }
 
     private void stopScan() {
@@ -815,16 +914,32 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 // Send to left glass if available
                 if (leftGlassGatt != null && leftTxChar != null && isLeftConnected) {
                     leftTxChar.setValue(request.data);
-                    leftGlassGatt.writeCharacteristic(leftTxChar);
+                    boolean leftSuccess = leftGlassGatt.writeCharacteristic(leftTxChar);
                     Thread.sleep(DELAY_BETWEEN_SENDS_MS);
+                    if (!leftSuccess) {
+                        Log.d(TAG," BIG ERROR!!! DESTROY!!!");
+                       // sendQueue.clear();
+                        //destroy();
+                        //leftGlassGatt.disconnect();
+                       // return;
+                    }
                 }
 
                 // Send to right glass if needed and available
                 if (!request.onlyLeft && rightGlassGatt != null && rightTxChar != null && isRightConnected) {
                     rightTxChar.setValue(request.data);
-                    rightGlassGatt.writeCharacteristic(rightTxChar);
+                    boolean rightSuccess = rightGlassGatt.writeCharacteristic(rightTxChar);
                     Thread.sleep(DELAY_BETWEEN_SENDS_MS);
+                    if (!rightSuccess) {
+                        Log.d(TAG, " BIG ERROR!!! DESTROY!!!");
+//                        sendQueue.clear();
+
+                        //rightGlassGatt.disconnect();
+                        //destroy();
+  //                      return;
+                    }
                 }
+
             } catch (InterruptedException e) {
                 Log.e(TAG, "Error sending data: " + e.getMessage());
                 // Optionally re-add the failed request to the queue
@@ -999,7 +1114,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             connectHandler.removeCallbacksAndMessages(null);
         if (retryBondHandler != null)
             retryBondHandler.removeCallbacksAndMessages(null);
-
+        if (leftConnectionTimeoutHandler != null && leftConnectionTimeoutRunnable != null) {
+            leftConnectionTimeoutHandler.removeCallbacks(leftConnectionTimeoutRunnable);
+        }
+        if (rightConnectionTimeoutHandler != null && rightConnectionTimeoutRunnable != null) {
+            rightConnectionTimeoutHandler.removeCallbacks(rightConnectionTimeoutRunnable);
+        }
 
         sendQueue.clear();
         isWorkerRunning = false;
@@ -1096,6 +1216,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     }
 
     private void startHeartbeat(int delay) {
+        heartbeatCount = 0;
+
         heartbeatRunnable = new Runnable() {
             @Override
             public void run() {
@@ -1103,8 +1225,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 heartbeatHandler.postDelayed(this, HEARTBEAT_INTERVAL_MS);
             }
         };
-        
-        queryBatterStatusHandler.postDelayed(this::queryBatteryStatus, 1000);
+
         sendBrightnessCommandHandler.postDelayed(() -> sendAutoLightBrightnessCommand(30, true), delay);
         heartbeatHandler.postDelayed(heartbeatRunnable, delay);
     }
@@ -1225,18 +1346,17 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
     }
 
-    private int heartbeatCount = 0;
-
     private void sendHeartbeat() {
         byte[] heartbeatPacket = constructHeartbeat();
         Log.d(TAG, "Sending heartbeat: " + bytesToHex(heartbeatPacket));
 
         sendDataSequentially(heartbeatPacket, false);
 
-        heartbeatCount++;
-        if (heartbeatCount % 10 == 0) {
-            queryBatteryStatus();
+        if (heartbeatCount == 0 || heartbeatCount % 10 == 0) {
+            queryBatterStatusHandler.postDelayed(this::queryBatteryStatus, 1000);
         }
+
+        heartbeatCount++;
     }
 
     private void queryBatteryStatus() {
@@ -1399,10 +1519,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             // Combine lines for this page
             StringBuilder pageText = new StringBuilder();
             for (String line : pageLines) {
-                Log.d(TAG, "LINE: " + line);
+                //Log.d(TAG, "LINE: " + line);
                 pageText.append(line).append("\n");
             }
-            Log.d(TAG, "PAGE TEXT: " + pageText);
+            //Log.d(TAG, "PAGE TEXT: " + pageText);
 
             byte[] textBytes = pageText.toString().getBytes(StandardCharsets.UTF_8);
             int totalChunks = (int) Math.ceil((double) textBytes.length / MAX_CHUNK_SIZE);
@@ -1528,7 +1648,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             }
         }
 
-        Log.d(TAG, "Sent text wall");
+        // Log.d(TAG, "Sent text wall");
     }
 
     private static String bytesToUtf8(byte[] bytes) {
