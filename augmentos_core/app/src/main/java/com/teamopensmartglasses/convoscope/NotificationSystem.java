@@ -78,6 +78,10 @@ public class NotificationSystem {
                 String formattedDateTime = LocalDateTime.now().format(formatter);
                 notificationData.put("timestamp", formattedDateTime);
 
+                if (notificationQueue.length() >= 5) {
+                    notificationQueue.remove(0);
+                }
+
                 notificationQueue.put(notificationData); // Add to the JSONArray
                 sendNotificationsRequest(); // Send the notification to the server
                 Log.d(TAG, "Notification added to queue: " + notificationData);
@@ -105,7 +109,7 @@ public class NotificationSystem {
                 @Override
                 public void onFailure(int code) {
                     Log.d(TAG, "SOME FAILURE HAPPENED (sendNotificationsRequest)");
-                    if (code == 401){
+                    if (code == 401) {
                         EventBus.getDefault().post(new GoogleAuthFailedEvent("401 AUTH ERROR (requestUiPoll)"));
                     }
                 }
