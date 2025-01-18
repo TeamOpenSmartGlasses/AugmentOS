@@ -32,6 +32,8 @@
 
     "@react-navigation/native-stack": "^6.11.0",
 
+    "axios": "^1.7.9",
+
     "events": "^3.3.0",
 
     "invariant": "^2.2.4",

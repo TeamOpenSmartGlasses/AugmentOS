@@ -1,11 +1,16 @@
-import React, {useState, useRef, memo} from 'react';
+import React, {
+  useState,
+  useRef,
+  // memo,
+  useEffect,
+} from 'react';
 import {
   View,
   Text,
   FlatList,
   TouchableOpacity,
   StyleSheet,
-  Image,
+  // Image,
   TextInput,
   Animated,
   Easing,
@@ -16,82 +21,84 @@ import {useNavigation, useFocusEffect} from '@react-navigation/native';
 
 import {RootStackParamList, AppStoreItem} from '../components/types';
 import NavigationBar from '../components/NavigationBar';
-import {AppStoreData} from '../data/appStoreData';
 import AppItem from '../components/AppStore/AppItem.tsx';
 
 interface AppStoreProps {
   isDarkTheme: boolean;
 }
 
-const RecommendedItem = memo(
-  ({
-    item,
-    theme,
-    onPress,
-  }: {
-    item: AppStoreItem;
-    theme: any;
-    onPress: () => void;
-  }) => {
-    const scale = useRef(new Animated.Value(0.5)).current;
-    const opacity = useRef(new Animated.Value(0)).current;
+import BackendServerComms from '../backend_comms/BackendServerComms.tsx';
+import {GET_APP_STORE_DATA_ENDPOINT} from '../consts.tsx';
 
-    useFocusEffect(
-      React.useCallback(() => {
-        scale.setValue(0.5);
-        opacity.setValue(0);
-
-        const animation = Animated.parallel([
-          Animated.spring(scale, {
-            toValue: 1,
-            tension: 50,
-            friction: 7,
-            useNativeDriver: true,
-          }),
-          Animated.timing(opacity, {
-            toValue: 1,
-            duration: 500,
-            useNativeDriver: true,
-          }),
-        ]);
-
-        animation.start();
-
-        return () => {
-          animation.stop();
-        };
-      }, [opacity, scale]),
-    );
-
-    return (
-      <Animated.View
-        style={{
-          transform: [{scale}],
-          opacity,
-        }}>
-        <TouchableOpacity style={styles.recommendCard} onPress={onPress}>
-          <Image
-            source={{uri: item.icon_image_url}}
-            style={styles.recommendIcon}
-          />
-          <Text
-            style={[styles.recommendAppName, {color: theme.textColor}]}
-            numberOfLines={1}>
-            {item.name}
-          </Text>
-        </TouchableOpacity>
-      </Animated.View>
-    );
-  },
-);
+// const RecommendedItem = memo(
+//   ({
+//     item,
+//     theme,
+//     onPress,
+//   }: {
+//     item: AppStoreItem;
+//     theme: any;
+//     onPress: () => void;
+//   }) => {
+//     const scale = useRef(new Animated.Value(0.5)).current;
+//     const opacity = useRef(new Animated.Value(0)).current;
+//
+//     useFocusEffect(
+//       React.useCallback(() => {
+//         scale.setValue(0.5);
+//         opacity.setValue(0);
+//
+//         const animation = Animated.parallel([
+//           Animated.spring(scale, {
+//             toValue: 1,
+//             tension: 50,
+//             friction: 7,
+//             useNativeDriver: true,
+//           }),
+//           Animated.timing(opacity, {
+//             toValue: 1,
+//             duration: 500,
+//             useNativeDriver: true,
+//           }),
+//         ]);
+//
+//         animation.start();
+//
+//         return () => {
+//           animation.stop();
+//         };
+//       }, [opacity, scale]),
+//     );
+//
+//     return (
+//       <Animated.View
+//         style={{
+//           transform: [{scale}],
+//           opacity,
+//         }}>
+//         <TouchableOpacity style={styles.recommendCard} onPress={onPress}>
+//           <Image
+//             source={{uri: item.icon_image_url}}
+//             style={styles.recommendIcon}
+//           />
+//           <Text
+//             style={[styles.recommendAppName, {color: theme.textColor}]}
+//             numberOfLines={1}>
+//             {item.name}
+//           </Text>
+//         </TouchableOpacity>
+//       </Animated.View>
+//     );
+//   },
+// );
 
 const AppStore: React.FC<AppStoreProps> = ({isDarkTheme}) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList, 'AppStore'>>();
 
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredApps, setFilteredApps] = useState(AppStoreData);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [filteredApps, setFilteredApps] = useState<AppStoreItem[]>([]);
+  const [selectedCategory] = useState<string | null>(null);
 
   // Animation values for main layout (keeping all except list animations)
   const headerAnimation = useRef(new Animated.Value(0)).current;
@@ -114,6 +121,23 @@ const AppStore: React.FC<AppStoreProps> = ({isDarkTheme}) => {
     selectedChipBg: isDarkTheme ? '#666666' : '#333333',
     selectedChipText: isDarkTheme ? '#FFFFFF' : '#FFFFFF',
   };
+
+  useEffect(() => {
+    const fetchAppStoreData = async () => {
+      const backendServerComms = BackendServerComms.getInstance();
+
+      const callback = {
+        onSuccess: (data: any) => {
+          setFilteredApps(data); // Assuming the API returns a list of AppStoreItem
+        },
+        onFailure: () => {},
+      };
+
+      backendServerComms.restRequest(GET_APP_STORE_DATA_ENDPOINT, null, callback);
+    };
+
+    fetchAppStoreData();
+  }, []);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -178,7 +202,7 @@ const AppStore: React.FC<AppStoreProps> = ({isDarkTheme}) => {
   };
 
   const filterApps = (query: string, category: string | null) => {
-    let apps = AppStoreData;
+    let apps = filteredApps;
 
     if (category) {
       apps = apps.filter(app => app.category === category);
@@ -193,16 +217,16 @@ const AppStore: React.FC<AppStoreProps> = ({isDarkTheme}) => {
     setFilteredApps(apps);
   };
 
-  const handleCategoryPress = (category: string) => {
-    if (category === 'All') {
-      setSelectedCategory(null);
-      filterApps(searchQuery, null);
-    } else {
-      const newCategory = selectedCategory === category ? null : category;
-      setSelectedCategory(newCategory);
-      filterApps(searchQuery, newCategory);
-    }
-  };
+  // const handleCategoryPress = (category: string) => {
+  //   if (category === 'All') {
+  //     setSelectedCategory(null);
+  //     filterApps(searchQuery, null);
+  //   } else {
+  //     const newCategory = selectedCategory === category ? null : category;
+  //     setSelectedCategory(newCategory);
+  //     filterApps(searchQuery, newCategory);
+  //   }
+  // };
 
   const renderItem = ({item, index}: {item: AppStoreItem; index: number}) => (
     <AppItem
@@ -213,32 +237,32 @@ const AppStore: React.FC<AppStoreProps> = ({isDarkTheme}) => {
     />
   );
 
-  const renderRecommendedItem = ({item}: {item: AppStoreItem}) => (
-    <RecommendedItem
-      item={item}
-      theme={theme}
-      onPress={() => navigation.navigate('AppDetails', {app: item})}
-    />
-  );
-
-  const renderCategory = ({item}: {item: string}) => (
-    <TouchableOpacity
-      style={[
-        styles.categoryChip,
-        {backgroundColor: theme.categoryChipBg},
-        selectedCategory === item && {backgroundColor: theme.selectedChipBg},
-      ]}
-      onPress={() => handleCategoryPress(item)}>
-      <Text
-        style={[
-          styles.categoryText,
-          {color: theme.categoryChipText},
-          selectedCategory === item && {color: theme.selectedChipText},
-        ]}>
-        {item}
-      </Text>
-    </TouchableOpacity>
-  );
+  // const renderRecommendedItem = ({item}: {item: AppStoreItem}) => (
+  //   <RecommendedItem
+  //     item={item}
+  //     theme={theme}
+  //     onPress={() => navigation.navigate('AppDetails', {app: item})}
+  //   />
+  // );
+  //
+  // const renderCategory = ({item}: {item: string}) => (
+  //   <TouchableOpacity
+  //     style={[
+  //       styles.categoryChip,
+  //       {backgroundColor: theme.categoryChipBg},
+  //       selectedCategory === item && {backgroundColor: theme.selectedChipBg},
+  //     ]}
+  //     onPress={() => handleCategoryPress(item)}>
+  //     <Text
+  //       style={[
+  //         styles.categoryText,
+  //         {color: theme.categoryChipText},
+  //         selectedCategory === item && {color: theme.selectedChipText},
+  //       ]}>
+  //       {item}
+  //     </Text>
+  //   </TouchableOpacity>
+  // );
 
   return (
     <View style={[styles.container, {backgroundColor: theme.backgroundColor}]}>
