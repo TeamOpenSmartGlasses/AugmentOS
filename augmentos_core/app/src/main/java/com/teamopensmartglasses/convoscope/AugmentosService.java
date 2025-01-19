@@ -2633,25 +2633,24 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                         Log.d(TAG, "Download link received: " + downloadLink);
 
                         if (downloadLink.startsWith("https://api.augmentos.org/")) {
-                            downloadApk(downloadLink, packageName);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                                downloadApk(downloadLink, packageName);
+                            }
                         } else {
                             Log.e(TAG, "The download link does not match the required domain.");
                             throw new UnsupportedOperationException("Download links outside of https://api.augmentos.org/ are not supported.");
                         }
                     } else {
                         Log.e(TAG, "Download link is missing in the response.");
-                        sendFailureStatusToAugmentOsManager();
                     }
                 } catch (Exception e) {
                     Log.e(TAG, "Error parsing download link: ", e);
-                    sendFailureStatusToAugmentOsManager();
                 }
             }
 
             @Override
             public void onFailure(int code) {
                 Log.d(TAG, "SOME FAILURE HAPPENED (installAppFromRepository)");
-                sendFailureStatusToAugmentOsManager();
             }
         });
     }

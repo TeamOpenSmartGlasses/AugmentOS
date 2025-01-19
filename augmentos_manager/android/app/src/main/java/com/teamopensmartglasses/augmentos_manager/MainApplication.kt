@@ -44,7 +44,8 @@ class MainApplication : Application(), ReactApplication {
                 CoreServiceStarterPackage(),
                 AsyncStoragePackage(),
                 SvgPackage(),
-                NotificationServicePackage()
+                NotificationServicePackage(),
+                InstallApkPackage(),
             )
         }
 

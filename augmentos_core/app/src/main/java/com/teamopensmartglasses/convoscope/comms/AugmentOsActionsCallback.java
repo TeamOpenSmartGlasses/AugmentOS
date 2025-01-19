@@ -13,7 +13,7 @@ public interface AugmentOsActionsCallback {
     void startApp(String packageName);
     void stopApp(String packageName);
     void setSensingEnabled(boolean sensingEnabled);
-    void installAppFromRepository(String repository, String packageName);
+    void installAppFromRepository(String repository, String packageName) throws JSONException;
     void uninstallApp(String packageName);
     void handleNotificationData(JSONObject notificationData);
     void setAuthSecretKey(String authSecretKey);

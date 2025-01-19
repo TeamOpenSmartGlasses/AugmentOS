@@ -14,7 +14,9 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList, AppStoreItem} from '../components/types';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import NavigationBar from '../components/NavigationBar';
-import BluetoothService from "../BluetoothService.tsx";
+import BluetoothService from '../BluetoothService.tsx';
+import { NativeModules } from 'react-native';
+const { InstallApkModule } = NativeModules;
 
 type AppDetailsProps = NativeStackScreenProps<
   RootStackParamList,
@@ -166,6 +168,17 @@ const AppDetails: React.FC<AppDetailsProps> = ({
   function toggleTheme(): void {
     throw new Error('Function not implemented.');
   }
+
+  const handleInstall = () => {
+    const packageName = 'com.mentra.merge'; // Adjust your APK filename
+    InstallApkModule.installApk(packageName)
+      .then((result: any) => {
+        console.log('Success:', result);
+      })
+      .catch((error: any) => {
+        console.error('Error:', error);
+      });
+  };
 
   return (
     <SafeAreaView

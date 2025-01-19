@@ -118,6 +118,7 @@ public class AugmentosUi extends Fragment {
 
     //unregister receiver
     getActivity().unregisterReceiver(mMainServiceReceiver);
+  }
 
   //UI
   private static IntentFilter makeMainServiceReceiverIntentFilter() {

@@ -867,6 +867,7 @@ export class BluetoothService extends EventEmitter {
       command: 'start_app',
       params: {
         target: packageName,
+        repository: packageName
       },
     });
     await this.validateResponseFromCore();
