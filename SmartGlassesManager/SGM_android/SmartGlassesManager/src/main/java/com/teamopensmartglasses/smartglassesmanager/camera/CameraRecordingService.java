@@ -42,12 +42,6 @@ import androidx.core.app.NotificationManagerCompat;
 import com.arthenica.ffmpegkit.FFmpegKit;
 import com.arthenica.ffmpegkit.ReturnCode;
 import com.teamopensmartglasses.smartglassesmanager.R;
-//import com.fadcam.CameraType;
-//import com.fadcam.Constants;
-//import com.fadcam.MainActivity;
-//import com.fadcam.R;
-//import com.fadcam.Utils;
-//import com.fadcam.VideoCodec;
 
 import java.io.File;
 import java.io.IOException;
@@ -67,7 +61,6 @@ public class CameraRecordingService extends Service {
 
     private static final String TAG = "CameraRecordingService";
 
-//    private MediaRecorder mediaRecorder;
     private ImageReader imageReader;
     private CameraDevice cameraDevice;
     private CameraCaptureSession captureSession;
@@ -80,15 +73,13 @@ public class CameraRecordingService extends Service {
 
     private File tempFileBeingProcessed;
 
+    private CameraManager cameraManager;
+
     private RecordingState recordingState = RecordingState.NONE;
 
-    private CameraManager torchManager;
-    private String torchCameraId;
     private boolean isTorchOn = false;
 
-    private CameraManager cameraManager;
     private Handler backgroundHandler;
-    private boolean isTorchEnabled = false;
 
 
     public boolean isRecording() {
@@ -176,12 +167,6 @@ public class CameraRecordingService extends Service {
                             stopSelf();
                         }
                         break;
-                    case Constants.INTENT_ACTION_TOGGLE_TORCH:
-                        toggleTorch();
-                        return START_STICKY;
-                    case Constants.INTENT_ACTION_TOGGLE_RECORDING_TORCH:
-                        toggleRecordingTorch();
-                        break;
                     case Constants.BROADCAST_ON_TORCH_STATE_REQUEST:
                         if (cameraDevice != null) {
                             try {
@@ -230,78 +215,6 @@ public class CameraRecordingService extends Service {
         return null;
     }
 
-//    private void setupMediaRecorder() {
-//        /*
-//         * This method sets up the MediaRecorder for video recording.
-//         * It creates a directory for saving videos if it doesn't exist,
-//         * generates a timestamp-based filename, and configures the
-//         * MediaRecorder with the appropriate settings based on the
-//         * selected video quality (SD, HD, FHD). It reduces bitrates
-//         * by 50% using the HEVC (H.265) encoder for efficient compression
-//         * without significantly affecting video quality.
-//         *
-//         * - SD: 640x480 @ 0.5 Mbps
-//         * - HD: 1280x720 @ 2.5 Mbps
-//         * - FHD: 1920x1080 @ 5 Mbps
-//         *
-//         * It also adjusts the frame rate, sets audio settings, and configures
-//         * the orientation based on the camera selection (front or rear).
-//         */
-//
-//        try {
-//            // Create directory for saving videos if it doesn't exist
-//            File videoDir = new File(getExternalFilesDir(null), Constants.RECORDING_DIRECTORY);
-//            if (!videoDir.exists()) {
-//                if (videoDir.mkdirs()) {
-//                    Log.d(TAG, "setupMediaRecorder: Directory created successfully");
-//                } else {
-//                    Log.e(TAG, "setupMediaRecorder: Failed to create directory");
-//                }
-//            }
-//
-//            // Generate a timestamp-based filename for the video
-//            String timestamp = new SimpleDateFormat("yyyyMMdd_hh_mm_ssa", Locale.getDefault()).format(new Date());
-//            File videoFile = new File(videoDir, "temp_" + timestamp + "." + Constants.RECORDING_FILE_EXTENSION);
-//
-//            // Initialize MediaRecorder
-//            mediaRecorder = new MediaRecorder();
-//            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-//            mediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
-//            mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-//            mediaRecorder.setOutputFile(videoFile.getAbsolutePath());
-//
-//            // Set video resolution and adjust size and bitrate
-//            mediaRecorder.setVideoSize(sharedPreferencesManager.getCameraResolution().getWidth(), sharedPreferencesManager.getCameraResolution().getHeight());
-//            mediaRecorder.setVideoEncodingBitRate(getVideoBitrate());
-//
-//            // Set frame rate and capture rate
-//            mediaRecorder.setVideoFrameRate(sharedPreferencesManager.getVideoFrameRate());
-//            mediaRecorder.setCaptureRate(sharedPreferencesManager.getVideoFrameRate());
-//
-//            // Audio settings: high-quality audio
-//            mediaRecorder.setAudioEncodingBitRate(384000);
-//            mediaRecorder.setAudioSamplingRate(48000);
-//            mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-//
-//            VideoCodec videoCodec = sharedPreferencesManager.getVideoCodec();
-//            mediaRecorder.setVideoEncoder(videoCodec.getEncoder());
-//
-//            // Set orientation based on camera selection
-//            if (sharedPreferencesManager.getCameraSelection().equals(CameraType.FRONT)) {
-//                mediaRecorder.setOrientationHint(270);
-//            } else {
-//                mediaRecorder.setOrientationHint(90);
-//            }
-//
-//            // Prepare MediaRecorder
-//            mediaRecorder.prepare();
-//
-//        } catch (IOException e) {
-//            Log.e(TAG, "setupMediaRecorder: Error setting up media recorder", e);
-//            e.printStackTrace();
-//        }
-//    }
-
     private void createCameraPreviewSession() {
         if (captureSession != null) {
             captureSession.close();
@@ -320,19 +233,7 @@ public class CameraRecordingService extends Service {
             // Now we can safely set the flash mode
             captureRequestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
 
-//            List<Surface> surfaces = new ArrayList<>();
-//            Surface recorderSurface = mediaRecorder.getSurface();
-//            surfaces.add(recorderSurface);
-//
-//            if(previewSurface != null && previewSurface.isValid()) {
-//                captureRequestBuilder.addTarget(previewSurface);
-//                surfaces.add(previewSurface);
-//            }
-//
-//            captureRequestBuilder.addTarget(recorderSurface);
             List<Surface> surfaces = new ArrayList<>();
-//            Surface recorderSurface = mediaRecorder.getSurface();
-//            surfaces.add(recorderSurface);
 
             if(previewSurface != null && previewSurface.isValid()) {
                 captureRequestBuilder.addTarget(previewSurface);
@@ -371,15 +272,12 @@ public class CameraRecordingService extends Service {
 
             if (recordingState.equals(RecordingState.NONE)) {
                 recordingStartTime = SystemClock.elapsedRealtime();
-//                mediaRecorder.start();
                 setupRecordingInProgressNotification();
                 recordingState = RecordingState.IN_PROGRESS;
                 broadcastOnRecordingStarted();
             } else if (recordingState.equals(RecordingState.PAUSED)) {
-//                mediaRecorder.resume();
                 setupRecordingInProgressNotification();
                 recordingState = RecordingState.IN_PROGRESS;
-                showRecordingResumedToast();
                 broadcastOnRecordingResumed();
             }
         }
@@ -474,14 +372,11 @@ public class CameraRecordingService extends Service {
             }, null);
         } catch (CameraAccessException e) {
             Log.e(TAG, "openCamera: Error accessing camera", e);
-            Log.e(TAG, "openCamera: Error accessing camera", e);
             stopSelf();
         } catch (SecurityException e) {
             Log.e(TAG, "openCamera: Camera permission denied", e);
-            Log.e(TAG, "openCamera: Camera permission denied", e);
             stopSelf();
         } catch (Exception e) {
-            Log.e(TAG, "openCamera: Unexpected error", e);
             Log.e(TAG, "openCamera: Unexpected error", e);
             stopSelf();
         }
@@ -490,13 +385,6 @@ public class CameraRecordingService extends Service {
     private void startRecording() {
         try {
             sharedPreferencesManager.setRecordingInProgress(true);
-
-//            setupMediaRecorder();
-
-//            if (mediaRecorder == null) {
-//                Log.e(TAG, "startRecording: MediaRecorder is not initialized");
-//                return;
-//            }
 
             if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                 Log.e(TAG, "startRecording: External storage not available, cannot start recording.");
@@ -516,10 +404,8 @@ public class CameraRecordingService extends Service {
             sharedPreferencesManager.setRecordingInProgress(true);
 
             if(cameraDevice != null) {
-//                mediaRecorder.resume();
                 setupRecordingInProgressNotification();
                 recordingState = RecordingState.IN_PROGRESS;
-                showRecordingResumedToast();
                 broadcastOnRecordingResumed();
             } else {
                 openCamera();
@@ -535,77 +421,15 @@ public class CameraRecordingService extends Service {
         try {
             sharedPreferencesManager.setRecordingInProgress(false);
 
-//            mediaRecorder.pause();
-
             recordingState = RecordingState.PAUSED;
 
             setupRecordingResumeNotification();
 
-            showRecordingInPausedToast();
-
             broadcastOnRecordingPaused();
-
-//            Toast.makeText(this, R.string.video_recording_paused, Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e(TAG, "Error pausing recording", e);
         }
     }
-
-//    private void stopRecording() {
-//        try {
-//            sharedPreferencesManager.setRecordingInProgress(false);
-//
-//            if(recordingState.equals(RecordingState.NONE))
-//            {
-//                return;
-//            }
-//
-//            Log.d(TAG, "stopRecording: Attempting to stop recording from recording service.");
-//
-//            if (mediaRecorder != null) {
-//                try {
-//                    mediaRecorder.resume();
-//                    mediaRecorder.stop();
-//                    mediaRecorder.reset();
-//                } catch (IllegalStateException e) {
-//                    Log.e(TAG, "stopRecording: Error while stopping the recording", e);
-//                } finally {
-//                    mediaRecorder.release();
-//                    mediaRecorder = null;
-//                    Log.d(TAG, "stopRecording: Recording stopped");
-//                    stopForeground(true);
-//                }
-//            }
-//
-//            if (captureSession != null) {
-//                captureSession.close();
-//                captureSession = null;
-//            }
-//
-//            if (cameraDevice != null) {
-//                cameraDevice.close();
-//                cameraDevice = null;
-//            }
-//
-//            recordingState = RecordingState.NONE;
-//
-//            cancelNotification();
-//
-//            processLatestVideoFileWithWatermark();
-//
-//            broadcastOnRecordingStopped();
-//
-//            // Toast.makeText(this, R.string.video_recording_stopped, Toast.LENGTH_SHORT).show();
-////            Utils.showQuickToast(this, R.string.video_recording_stopped);
-//
-//
-//            if(!isWorkingInProgress()) {
-//                stopSelf();
-//            }
-//        } catch (Exception e) {
-//            Log.e(TAG, "Error stopping recording", e);
-//        }
-//    }
 
     private void stopRecording() {
         try {
@@ -958,84 +782,8 @@ public class CameraRecordingService extends Service {
         notificationManager.cancel(NOTIFICATION_ID);
     }
 
-    private void showRecordingResumedToast() {
-        Toast.makeText(getApplicationContext(), getText(R.string.video_recording_resumed), Toast.LENGTH_SHORT).show();
-    }
-
-    private void showRecordingInPausedToast() {
-        Toast.makeText(getApplicationContext(), getText(R.string.video_recording_paused), Toast.LENGTH_SHORT).show();
-    }
-
     private String getLocationData() {
         return locationHelper.getLocationData();
-    }
-
-    private void toggleTorch() {
-        try {
-            if (torchManager == null) {
-                torchManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-            }
-
-            // Get selected torch source from preferences
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            String selectedTorchSource = prefs.getString(Constants.PREF_SELECTED_TORCH_SOURCE, null);
-
-            // If no source selected, find first available torch
-            if (selectedTorchSource == null) {
-                for (String id : torchManager.getCameraIdList()) {
-                    if (torchManager.getCameraCharacteristics(id)
-                            .get(CameraCharacteristics.FLASH_INFO_AVAILABLE)) {
-                        selectedTorchSource = id;
-                        break;
-                    }
-                }
-            }
-            
-            if (selectedTorchSource != null) {
-                isTorchOn = !isTorchOn;
-                if (isTorchOn) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                        int intensity = prefs.getInt("torch_intensity", 1);
-                        try {
-                            torchManager.turnOnTorchWithStrengthLevel(selectedTorchSource, intensity);
-                        } catch (Exception e) {
-                            // Fallback if intensity control fails
-                            torchManager.setTorchMode(selectedTorchSource, true);
-                        }
-                    } else {
-                        torchManager.setTorchMode(selectedTorchSource, true);
-                    }
-                } else {
-                    torchManager.setTorchMode(selectedTorchSource, false);
-                }
-                
-                Log.d(TAG, "Recording torch turned " + (isTorchOn ? "ON" : "OFF") + " using source: " + selectedTorchSource);
-            }
-        } catch (CameraAccessException e) {
-            Log.e(TAG, "Error accessing torch during recording: " + e.getMessage());
-        }
-    }
-
-    // In CameraRecordingService.java
-    private void toggleRecordingTorch() {
-        if (captureRequestBuilder != null) {
-            try {
-                boolean newTorchState = !isTorchEnabled;
-                captureRequestBuilder.set(CaptureRequest.FLASH_MODE,
-                        newTorchState ? CaptureRequest.FLASH_MODE_TORCH : CaptureRequest.FLASH_MODE_OFF);
-                
-                captureSession.setRepeatingRequest(captureRequestBuilder.build(), null, null);
-                isTorchEnabled = newTorchState;
-                
-                // Broadcast state change to update UI
-                Intent intent = new Intent(Constants.BROADCAST_ON_TORCH_STATE_CHANGED);
-                intent.putExtra(Constants.INTENT_EXTRA_TORCH_STATE, isTorchEnabled);
-                sendBroadcast(intent);
-                
-            } catch (CameraAccessException e) {
-                Log.e(TAG, "Could not toggle torch: " + e.getMessage());
-            }
-        }
     }
 
 }
