@@ -25,7 +25,7 @@ export type RootStackParamList = {
 export type AppStoreItem = {
   category: string;
   name: string;
-  packagename: string;
+  package_name: string;
   description: string;
   icon_image_url: string;
   identifier_code: string;
@@ -34,7 +34,7 @@ export type AppStoreItem = {
   requirements: string[];
   screenshots?: string[]; // Add this line to include screenshots
   reviews?: {
-      avatar: string; id: string; user: string; rating: number; comment: string 
+      avatar: string; id: string; user: string; rating: number; comment: string
 }[]; // Add reviews field
 
 

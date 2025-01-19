@@ -27,4 +27,5 @@ public class Constants {
     public static final String UI_POLL_ENDPOINT = "/ui_poll";
     public static final String SET_USER_SETTINGS_ENDPOINT = "/set_user_settings";
     public static final String GET_USER_SETTINGS_ENDPOINT = "/get_user_settings";
+    public static final String REQUEST_APP_BY_PACKAGE_NAME_DOWNLOAD_LINK_ENDPOINT = "/request_app_by_package_name_download_link";
 }

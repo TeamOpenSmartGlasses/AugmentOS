@@ -1,5 +1,6 @@
 package com.teamopensmartglasses.convoscope.comms;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public interface AugmentOsActionsCallback {
@@ -12,7 +13,7 @@ public interface AugmentOsActionsCallback {
     void startApp(String packageName);
     void stopApp(String packageName);
     void setSensingEnabled(boolean sensingEnabled);
-    void installAppFromRepository(JSONObject repoAppData);
+    void installAppFromRepository(String packageName) throws JSONException;
     void uninstallApp(String packageName);
     void handleNotificationData(JSONObject notificationData);
     void setAuthSecretKey(String authSecretKey);

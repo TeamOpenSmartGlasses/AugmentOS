@@ -6,6 +6,7 @@ import static com.teamopensmartglasses.convoscope.BatteryOptimizationHelper.isSy
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.REQUEST_APP_BY_PACKAGE_NAME_DOWNLOAD_LINK_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SEND_NOTIFICATIONS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
@@ -127,6 +128,11 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.SegToken;
+
+import android.app.DownloadManager;
+import android.net.Uri;
+import android.os.Environment;
+
 
 public class AugmentosService extends Service implements AugmentOsActionsCallback {
     public final String TAG = "AugmentOS_AugmentOSService";
@@ -2608,9 +2614,64 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Override
-    public void installAppFromRepository(JSONObject repoAppData) {
-        Log.d(TAG, "installAppFromRepository not implemented");
-        //TODO: Implement this
+    public void installAppFromRepository(String packageName) throws JSONException {
+        Log.d("AugmentOsService", "Installing app from repository: " + packageName);
+
+        JSONObject jsonQuery = new JSONObject();
+        jsonQuery.put("packageName", packageName);
+
+        backendServerComms.restRequest(REQUEST_APP_BY_PACKAGE_NAME_DOWNLOAD_LINK_ENDPOINT, jsonQuery, new VolleyJsonCallback() {
+            @Override
+            public void onSuccess(JSONObject result) {
+                Log.d(TAG, "GOT INSTALL APP RESULT: " + result.toString());
+
+                try {
+                    String downloadLink = result.optString("download_link");
+                    if (!downloadLink.isEmpty()) {
+                        Log.d(TAG, "Download link received: " + downloadLink);
+
+                        if (downloadLink.startsWith("https://api.augmentos.org/")) {
+                            downloadApk(downloadLink, packageName);
+                        } else {
+                            Log.e(TAG, "The download link does not match the required domain.");
+                            throw new UnsupportedOperationException("Download links outside of https://api.augmentos.org/ are not supported.");
+                        }
+                    } else {
+                        Log.e(TAG, "Download link is missing in the response.");
+                        sendFailureStatusToAugmentOsManager();
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "Error parsing download link: ", e);
+                    sendFailureStatusToAugmentOsManager();
+                }
+            }
+
+            @Override
+            public void onFailure(int code) {
+                Log.d(TAG, "SOME FAILURE HAPPENED (installAppFromRepository)");
+                sendFailureStatusToAugmentOsManager();
+            }
+        });
+    }
+
+    private void downloadApk(String downloadLink, String packageName) {
+        DownloadManager downloadManager = (DownloadManager) this.getSystemService(Context.DOWNLOAD_SERVICE);
+
+        if (downloadManager != null) {
+            Uri uri = Uri.parse(downloadLink);
+            DownloadManager.Request request = new DownloadManager.Request(uri);
+            request.setTitle("Downloading " + packageName);
+            request.setDescription("Downloading APK for " + packageName);
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, packageName + ".apk");
+
+            downloadManager.enqueue(request);
+        }
+    }
+
+    private void sendFailureStatusToAugmentOsManager() {
+        // Notify the AugmentOsManager about the failure
+        Log.e(TAG, "Failed to install app from repository.");
         sendStatusToAugmentOsManager();
     }
 

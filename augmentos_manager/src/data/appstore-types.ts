@@ -1,6 +1,6 @@
 export interface AppStoreItem {
     name: string;
-    packagename: string;
+    package_name: string;
     description: string;
     icon_image_url: string;
     identifier_code: string;

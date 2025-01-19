@@ -14,6 +14,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList, AppStoreItem} from '../components/types';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import NavigationBar from '../components/NavigationBar';
+import BluetoothService from "../BluetoothService.tsx";
 
 type AppDetailsProps = NativeStackScreenProps<
   RootStackParamList,
@@ -41,6 +42,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
   const tapSpinAnim = useRef(new Animated.Value(0)).current;
   const buttonScaleAnim = useRef(new Animated.Value(1)).current;
   const screenshotScrollAnim = useRef(new Animated.Value(0)).current;
+  const bluetoothService = BluetoothService.getInstance();
 
   // Theme colors
   const theme = {
@@ -120,17 +122,19 @@ const AppDetails: React.FC<AppDetailsProps> = ({
     ]).start();
   };
 
-  const sendInstallAppFromStore = (identifier_code: string) => {
+  const sendInstallAppFromStore = (package_name: string) => {
     animateButtonPress();
     if (installState === 'Install') {
       setInstallState('Installing...');
-      console.log(`Installing app with identifier: ${identifier_code}`);
+      console.log(`Installing app with package name: ${package_name}`);
+
+      bluetoothService.installAppByPackageName(package_name);
 
       setTimeout(() => {
         setInstallState('Start');
       }, 3000);
     } else if (installState === 'Start') {
-      console.log(`Starting app with identifier: ${identifier_code}`);
+      console.log(`Starting app with package name: ${package_name}`);
     }
   };
 
@@ -209,7 +213,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
                 {color: theme.subTextColor},
                 {opacity: fadeAnim, transform: [{translateY: slideAnim}]},
               ]}>
-              {app.packagename}
+              {app.package_name}
             </Animated.Text>
 
             <Animated.View
@@ -341,7 +345,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
                   styles.installButton,
                   installState === 'Installing...' && styles.disabledButton,
                 ]}
-                onPress={() => sendInstallAppFromStore(app.identifier_code)}
+                onPress={() => sendInstallAppFromStore(app.package_name)}
                 disabled={installState === 'Installing...'}>
                 <Text style={styles.installButtonText}>{installState}</Text>
               </TouchableOpacity>

@@ -881,6 +881,17 @@ export class BluetoothService extends EventEmitter {
     await this.validateResponseFromCore();
   }
 
+  async installAppByPackageName(packageName: string) {
+    console.log('installAppByPackageName');
+    await this.sendDataToAugmentOs({
+      command: 'install_app_from_repository',
+      params: {
+        target: packageName,
+      },
+    });
+    await this.validateResponseFromCore();
+  }
+
   async setAuthenticationSecretKey(authSecretKey: string) {
     console.log('setAuthenticationSecretKey');
     return await this.sendDataToAugmentOs({
