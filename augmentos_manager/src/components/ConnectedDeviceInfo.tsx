@@ -8,6 +8,7 @@ import { NavigationProps } from '../components/types';
 import { useNavigation } from '@react-navigation/native';
 import { getGlassesImage } from '../logic/getGlassesImage';
 import { checkAndRequestNotificationPermission } from '../augmentos_core_comms/NotificationServiceUtils';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 
 interface ConnectedDeviceInfoProps {
@@ -167,10 +168,14 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
 
                     <View style={styles.statusInfo}>
                       {status.glasses_info?.brightness &&
-                        <>
-                          <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
-                          <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>{status.glasses_info?.brightness}%</Text>
-                        </>
+                          <>
+                            <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
+                            <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>
+                              {status.glasses_info && status.glasses_info.model_name && status.glasses_info.model_name.includes('Even Realities')
+                                  ? `${status.glasses_info.brightness}`
+                                  : `${status.glasses_info.brightness}%`}
+                            </Text>
+                          </>
                       }
                     </View>
                     <TouchableOpacity
@@ -191,7 +196,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                     ) : (
                       <View style={styles.noGlassesContent}>
                         <TouchableOpacity style={styles.connectButton} onPress={connectGlasses}>
-                          <Text style={styles.buttonText}>{"Connect"}</Text>
+                          <Text style={styles.buttonText}>Connect</Text>
                         </TouchableOpacity>
                       </View>
                     )}
@@ -255,6 +260,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    width: '100%',
   },
   disconnectedContent: {
     flex: 1,
@@ -278,7 +284,8 @@ const styles = StyleSheet.create({
   },
   statusInfoNotConnected: {
     alignItems: 'center',
-    flex: 1
+    flex: 1,
+    width:'100%'
   },
   statusInfo: {
     alignItems: 'center',
@@ -351,7 +358,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   connectButton: {
-    flexDirection:'row',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#2196F3',

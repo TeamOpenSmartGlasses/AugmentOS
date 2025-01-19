@@ -1,5 +1,6 @@
 package com.teamopensmartglasses.convoscope.ui;
 
+import android.content.pm.PackageManager;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -7,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -41,7 +43,9 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
 
 public class AugmentosUi extends Fragment {
-    public String TAG = "WearableAi_ConvoscopeUi";
+  public String TAG = "WearableAi_ConvoscopeUi";
+
+  private static final String TARGET_PACKAGE = "com.teamopensmartglasses.augmentos_manager";
 
      //UI
   private ResponseTextUiAdapter responseTextUiAdapter;
@@ -114,7 +118,6 @@ public class AugmentosUi extends Fragment {
 
     //unregister receiver
     getActivity().unregisterReceiver(mMainServiceReceiver);
-  }
 
   //UI
   private static IntentFilter makeMainServiceReceiverIntentFilter() {
@@ -341,7 +344,12 @@ public class AugmentosUi extends Fragment {
 
       //auto start if we have perms (if we are already running/connected, this is still safe to call)
       if (!((MainActivity) getActivity()).gettingPermissions){
-        connectGlasses();
+        //connectGlasses();
+
+        if (((MainActivity) getActivity()).isAppInstalled(TARGET_PACKAGE)) {
+          //setContentView(R.layout.activity_main);
+          ((MainActivity) getActivity()).launchTargetApp(TARGET_PACKAGE);
+        }
       }
     }
 
