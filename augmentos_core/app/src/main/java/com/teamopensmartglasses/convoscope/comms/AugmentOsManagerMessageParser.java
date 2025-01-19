@@ -64,8 +64,9 @@ public class AugmentOsManagerMessageParser {
                     break;
 
                 case "install_app_from_repository":
-                    JSONObject repoAppData = commandObject.getJSONObject("params");
-                    callback.installAppFromRepository(repoAppData);
+                    String repo = commandObject.getJSONObject("params").getString("repository");
+                    String packageNameToInstall = commandObject.getJSONObject("params").getString("target");
+                    callback.installAppFromRepository(repo, packageNameToInstall);
                     break;
 
                 case "uninstall_app":
@@ -95,6 +96,10 @@ public class AugmentOsManagerMessageParser {
                     String targetApp = commandObject.getJSONObject("params").getString("target");
                     JSONObject settings = commandObject.getJSONObject("params").getJSONObject("settings");
                     callback.updateAppSettings(targetApp, settings);
+                    break;
+                case "request_app_info":
+                    String packageNameToGetDetails = commandObject.getJSONObject("params").getString("target");
+                    callback.requestAppInfo(packageNameToGetDetails);
                     break;
 
                 default:

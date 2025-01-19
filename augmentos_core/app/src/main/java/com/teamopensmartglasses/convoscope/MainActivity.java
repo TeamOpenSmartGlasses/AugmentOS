@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     if (isAppInstalled(TARGET_PACKAGE)) {
       setContentView(R.layout.activity_main);
-      //launchTargetApp(TARGET_PACKAGE);
+      launchTargetApp(TARGET_PACKAGE);
     } else {
       // Show a message or handle the case where the target app is not installed
       setContentView(R.layout.activity_main);
@@ -470,7 +470,7 @@ public class MainActivity extends AppCompatActivity {
         return currentModeString;
    }
 
-  private boolean isAppInstalled(String packageName) {
+  public boolean isAppInstalled(String packageName) {
     PackageManager pm = getPackageManager();
     try {
       pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
@@ -480,7 +480,7 @@ public class MainActivity extends AppCompatActivity {
     }
   }
 
-  private void launchTargetApp(String packageName) {
+  public void launchTargetApp(String packageName) {
     PackageManager pm = getPackageManager();
     Intent launchIntent = pm.getLaunchIntentForPackage(packageName);
 

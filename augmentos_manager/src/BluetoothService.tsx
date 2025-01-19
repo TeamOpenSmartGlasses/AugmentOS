@@ -574,6 +574,8 @@ export class BluetoothService extends EventEmitter {
       } else if ('compatible_glasses_search_stop' in jsonData) {
         let compatible_glasses_search_stop = (jsonData as any).compatible_glasses_search_stop;
         GlobalEventEmitter.emit('COMPATIBLE_GLASSES_SEARCH_STOP', { modelName: compatible_glasses_search_stop.model_name })
+      } else if ('app_info' in jsonData) {
+        GlobalEventEmitter.emit('APP_INFO_RESULT', {appInfo: jsonData.app_info});
       }
     } catch (e) {
       console.log('Some error parsing data from AugmentOS_Core...');
@@ -903,6 +905,44 @@ export class BluetoothService extends EventEmitter {
     return await this.sendDataToAugmentOs({
       command: 'delete_auth_secret_key',
     });
+  }
+
+  async sendRequestAppDetails(packageName: string) {
+    return await this.sendDataToAugmentOs({
+      command: 'request_app_info',
+      params: {
+        'target': packageName
+      }
+    })
+  }
+
+  async sendUpdateAppSetting(packageName: string, settingsDeltaObj: any) {
+    return await this.sendDataToAugmentOs({
+      command: 'update_app_settings',
+      params: {
+        target: packageName,
+        settings: settingsDeltaObj
+      }
+    })
+  }
+
+  async sendInstallAppFromRepository(repository: string, packageName: string) {
+    return await this.sendDataToAugmentOs({
+      command: 'install_app_from_repository',
+      params: {
+        repository: repository,
+        target: packageName
+      }
+    })
+  }
+
+  async sendUninstallApp(packageName: string) {
+    return await this.sendDataToAugmentOs({
+      command: 'uninstall_app',
+      params: {
+        target: packageName
+      }
+    })
   }
 
   private static bluetoothService: BluetoothService | null = null;

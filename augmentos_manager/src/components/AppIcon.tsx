@@ -4,6 +4,9 @@ import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react
 import { AppInfo } from '../AugmentOSStatusParser';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
+import { NavigationProps } from './types';
+import BluetoothService from '../BluetoothService';
 
 interface AppIconProps {
     app: AppInfo;
@@ -20,6 +23,8 @@ const AppIcon: React.FC<AppIconProps> = ({
     style,
     isDarkTheme = false,
 }) => {
+  const navigation = useNavigation<NavigationProps>();
+
     const getAppImage = useMemo(
         () => (packageName: string) => {
             switch (packageName) {
@@ -48,9 +53,17 @@ const AppIcon: React.FC<AppIconProps> = ({
         []
     );
 
+    const openAppSettings = async () => {
+        navigation.navigate('AppSettings', {
+            packageName: app.package_name,
+            appName: app.name
+        });
+    }
+
     return (
         <TouchableOpacity
             onPress={onClick}
+            onLongPress={openAppSettings}
             activeOpacity={0.7}
             style={[styles.appWrapper, style]}
             accessibilityLabel={`Launch ${app.name}`}
