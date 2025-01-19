@@ -10,17 +10,22 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.camera.core.CameraSelector;
 import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.LifecycleService;
 import androidx.preference.PreferenceManager;
 
 import com.teamopensmartglasses.augmentoslib.events.SmartGlassesConnectedEvent;
+import com.teamopensmartglasses.smartglassesmanager.camera.CameraRecordingService;
+import com.teamopensmartglasses.smartglassesmanager.camera.Constants;
 import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.teamopensmartglasses.smartglassesmanager.comms.MessageTypes;
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
@@ -130,6 +135,9 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         //start text to speech
         textToSpeechSystem = new TextToSpeechSystem(this);
         textToSpeechSystem.setup();
+
+        //start background camera
+        startRecordingService();
     }
 
     protected void setupEventBusSubscribers() {
@@ -455,7 +463,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         String CHANNEL_ID = myChannelId;
 
         NotificationChannel channel = new NotificationChannel(CHANNEL_ID, notificationAppName,
-                NotificationManager.IMPORTANCE_HIGH);
+                NotificationManager.IMPORTANCE_LOW);
         channel.setDescription(notificationDescription);
         manager.createNotificationChannel(channel);
 
@@ -699,4 +707,27 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     }
 
     public void setFontSize(SmartGlassesFontSize fontSize) { EventBus.getDefault().post(new SetFontSizeEvent(fontSize)); }
+
+    //background camera stuff - designed for ASG running core locally
+    private final Handler handler = new Handler(Looper.getMainLooper());
+
+    private void startRecordingService() {
+        Log.d(TAG, "Starting recording video in background...");
+        Intent intent = new Intent(this, CameraRecordingService.class);
+        intent.setAction(Constants.INTENT_ACTION_START_RECORDING);
+        startService(intent);
+
+        // Ensure the delay actually works
+        handler.postDelayed(() -> {
+            stopRecordingService();
+        }, 30000); // 10 seconds
+    }
+
+    private void stopRecordingService() {
+        Log.d(TAG, "Stopping recording video in background...");
+        Intent intent = new Intent(this, CameraRecordingService.class);
+        intent.setAction(Constants.INTENT_ACTION_STOP_RECORDING);
+        startService(intent);
+    }
+
 }
