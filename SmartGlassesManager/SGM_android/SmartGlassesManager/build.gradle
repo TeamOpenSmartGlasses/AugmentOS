@@ -29,7 +29,7 @@ android {
     }
 
     defaultConfig {
-        minSdk 30
+        minSdk 28
         targetSdk 32
         versionCode 3
         versionName "0.1"
