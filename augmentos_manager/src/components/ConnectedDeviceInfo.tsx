@@ -168,10 +168,14 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
 
                     <View style={styles.statusInfo}>
                       {status.glasses_info?.brightness &&
-                        <>
-                          <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
-                          <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>{status.glasses_info?.brightness}%</Text>
-                        </>
+                          <>
+                            <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
+                            <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>
+                              {status.glasses_info && status.glasses_info.model_name && status.glasses_info.model_name.includes('Even Realities')
+                                  ? `${status.glasses_info.brightness}`
+                                  : `${status.glasses_info.brightness}%`}
+                            </Text>
+                          </>
                       }
                     </View>
                     <TouchableOpacity
