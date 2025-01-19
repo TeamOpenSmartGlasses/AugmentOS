@@ -11,12 +11,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.ImageFormat;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CaptureRequest;
+import android.media.Image;
+import android.media.ImageReader;
 import android.media.MediaRecorder;
 import android.os.Build;
 import android.os.Environment;
@@ -64,7 +67,8 @@ public class CameraRecordingService extends Service {
 
     private static final String TAG = "CameraRecordingService";
 
-    private MediaRecorder mediaRecorder;
+//    private MediaRecorder mediaRecorder;
+    private ImageReader imageReader;
     private CameraDevice cameraDevice;
     private CameraCaptureSession captureSession;
 
@@ -112,6 +116,23 @@ public class CameraRecordingService extends Service {
         createNotificationChannel();
 
         sharedPreferencesManager = SharedPreferencesManager.getInstance(getApplicationContext());
+
+        // Initialize ImageReader for raw frames
+        imageReader = ImageReader.newInstance(
+                sharedPreferencesManager.getCameraResolution().getWidth(),
+                sharedPreferencesManager.getCameraResolution().getHeight(),
+                ImageFormat.YUV_420_888,
+                2 // Buffer count
+        );
+
+        // Listen for new frames
+        imageReader.setOnImageAvailableListener(reader -> {
+            try (Image image = reader.acquireLatestImage()) {
+                if (image == null) return;
+                // TODO: Process raw frame data here (convert, share, etc.)
+                Log.d(TAG, "got raw frame from background camera");
+            }
+        }, backgroundHandler);
 
         cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
 
@@ -209,77 +230,77 @@ public class CameraRecordingService extends Service {
         return null;
     }
 
-    private void setupMediaRecorder() {
-        /*
-         * This method sets up the MediaRecorder for video recording.
-         * It creates a directory for saving videos if it doesn't exist,
-         * generates a timestamp-based filename, and configures the
-         * MediaRecorder with the appropriate settings based on the
-         * selected video quality (SD, HD, FHD). It reduces bitrates
-         * by 50% using the HEVC (H.265) encoder for efficient compression
-         * without significantly affecting video quality.
-         *
-         * - SD: 640x480 @ 0.5 Mbps
-         * - HD: 1280x720 @ 2.5 Mbps
-         * - FHD: 1920x1080 @ 5 Mbps
-         *
-         * It also adjusts the frame rate, sets audio settings, and configures
-         * the orientation based on the camera selection (front or rear).
-         */
-
-        try {
-            // Create directory for saving videos if it doesn't exist
-            File videoDir = new File(getExternalFilesDir(null), Constants.RECORDING_DIRECTORY);
-            if (!videoDir.exists()) {
-                if (videoDir.mkdirs()) {
-                    Log.d(TAG, "setupMediaRecorder: Directory created successfully");
-                } else {
-                    Log.e(TAG, "setupMediaRecorder: Failed to create directory");
-                }
-            }
-
-            // Generate a timestamp-based filename for the video
-            String timestamp = new SimpleDateFormat("yyyyMMdd_hh_mm_ssa", Locale.getDefault()).format(new Date());
-            File videoFile = new File(videoDir, "temp_" + timestamp + "." + Constants.RECORDING_FILE_EXTENSION);
-
-            // Initialize MediaRecorder
-            mediaRecorder = new MediaRecorder();
-            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-            mediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
-            mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-            mediaRecorder.setOutputFile(videoFile.getAbsolutePath());
-
-            // Set video resolution and adjust size and bitrate
-            mediaRecorder.setVideoSize(sharedPreferencesManager.getCameraResolution().getWidth(), sharedPreferencesManager.getCameraResolution().getHeight());
-            mediaRecorder.setVideoEncodingBitRate(getVideoBitrate());
-
-            // Set frame rate and capture rate
-            mediaRecorder.setVideoFrameRate(sharedPreferencesManager.getVideoFrameRate());
-            mediaRecorder.setCaptureRate(sharedPreferencesManager.getVideoFrameRate());
-
-            // Audio settings: high-quality audio
-            mediaRecorder.setAudioEncodingBitRate(384000);
-            mediaRecorder.setAudioSamplingRate(48000);
-            mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-
-            VideoCodec videoCodec = sharedPreferencesManager.getVideoCodec();
-            mediaRecorder.setVideoEncoder(videoCodec.getEncoder());
-
-            // Set orientation based on camera selection
-            if (sharedPreferencesManager.getCameraSelection().equals(CameraType.FRONT)) {
-                mediaRecorder.setOrientationHint(270);
-            } else {
-                mediaRecorder.setOrientationHint(90);
-            }
-
-            // Prepare MediaRecorder
-            mediaRecorder.prepare();
-
-        } catch (IOException e) {
-            Log.e(TAG, "setupMediaRecorder: Error setting up media recorder", e);
-            e.printStackTrace();
-        }
-    }
+//    private void setupMediaRecorder() {
+//        /*
+//         * This method sets up the MediaRecorder for video recording.
+//         * It creates a directory for saving videos if it doesn't exist,
+//         * generates a timestamp-based filename, and configures the
+//         * MediaRecorder with the appropriate settings based on the
+//         * selected video quality (SD, HD, FHD). It reduces bitrates
+//         * by 50% using the HEVC (H.265) encoder for efficient compression
+//         * without significantly affecting video quality.
+//         *
+//         * - SD: 640x480 @ 0.5 Mbps
+//         * - HD: 1280x720 @ 2.5 Mbps
+//         * - FHD: 1920x1080 @ 5 Mbps
+//         *
+//         * It also adjusts the frame rate, sets audio settings, and configures
+//         * the orientation based on the camera selection (front or rear).
+//         */
+//
+//        try {
+//            // Create directory for saving videos if it doesn't exist
+//            File videoDir = new File(getExternalFilesDir(null), Constants.RECORDING_DIRECTORY);
+//            if (!videoDir.exists()) {
+//                if (videoDir.mkdirs()) {
+//                    Log.d(TAG, "setupMediaRecorder: Directory created successfully");
+//                } else {
+//                    Log.e(TAG, "setupMediaRecorder: Failed to create directory");
+//                }
+//            }
+//
+//            // Generate a timestamp-based filename for the video
+//            String timestamp = new SimpleDateFormat("yyyyMMdd_hh_mm_ssa", Locale.getDefault()).format(new Date());
+//            File videoFile = new File(videoDir, "temp_" + timestamp + "." + Constants.RECORDING_FILE_EXTENSION);
+//
+//            // Initialize MediaRecorder
+//            mediaRecorder = new MediaRecorder();
+//            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+//            mediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
+//            mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+//            mediaRecorder.setOutputFile(videoFile.getAbsolutePath());
+//
+//            // Set video resolution and adjust size and bitrate
+//            mediaRecorder.setVideoSize(sharedPreferencesManager.getCameraResolution().getWidth(), sharedPreferencesManager.getCameraResolution().getHeight());
+//            mediaRecorder.setVideoEncodingBitRate(getVideoBitrate());
+//
+//            // Set frame rate and capture rate
+//            mediaRecorder.setVideoFrameRate(sharedPreferencesManager.getVideoFrameRate());
+//            mediaRecorder.setCaptureRate(sharedPreferencesManager.getVideoFrameRate());
+//
+//            // Audio settings: high-quality audio
+//            mediaRecorder.setAudioEncodingBitRate(384000);
+//            mediaRecorder.setAudioSamplingRate(48000);
+//            mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+//
+//            VideoCodec videoCodec = sharedPreferencesManager.getVideoCodec();
+//            mediaRecorder.setVideoEncoder(videoCodec.getEncoder());
+//
+//            // Set orientation based on camera selection
+//            if (sharedPreferencesManager.getCameraSelection().equals(CameraType.FRONT)) {
+//                mediaRecorder.setOrientationHint(270);
+//            } else {
+//                mediaRecorder.setOrientationHint(90);
+//            }
+//
+//            // Prepare MediaRecorder
+//            mediaRecorder.prepare();
+//
+//        } catch (IOException e) {
+//            Log.e(TAG, "setupMediaRecorder: Error setting up media recorder", e);
+//            e.printStackTrace();
+//        }
+//    }
 
     private void createCameraPreviewSession() {
         if (captureSession != null) {
@@ -299,16 +320,28 @@ public class CameraRecordingService extends Service {
             // Now we can safely set the flash mode
             captureRequestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
 
+//            List<Surface> surfaces = new ArrayList<>();
+//            Surface recorderSurface = mediaRecorder.getSurface();
+//            surfaces.add(recorderSurface);
+//
+//            if(previewSurface != null && previewSurface.isValid()) {
+//                captureRequestBuilder.addTarget(previewSurface);
+//                surfaces.add(previewSurface);
+//            }
+//
+//            captureRequestBuilder.addTarget(recorderSurface);
             List<Surface> surfaces = new ArrayList<>();
-            Surface recorderSurface = mediaRecorder.getSurface();
-            surfaces.add(recorderSurface);
+//            Surface recorderSurface = mediaRecorder.getSurface();
+//            surfaces.add(recorderSurface);
 
             if(previewSurface != null && previewSurface.isValid()) {
                 captureRequestBuilder.addTarget(previewSurface);
                 surfaces.add(previewSurface);
             }
 
-            captureRequestBuilder.addTarget(recorderSurface);
+            // Attach ImageReader surface for raw frames
+            surfaces.add(imageReader.getSurface());
+            captureRequestBuilder.addTarget(imageReader.getSurface());
 
             Range<Integer> fpsRange = Range.create(sharedPreferencesManager.getVideoFrameRate(), 
                                                 sharedPreferencesManager.getVideoFrameRate());
@@ -338,12 +371,12 @@ public class CameraRecordingService extends Service {
 
             if (recordingState.equals(RecordingState.NONE)) {
                 recordingStartTime = SystemClock.elapsedRealtime();
-                mediaRecorder.start();
+//                mediaRecorder.start();
                 setupRecordingInProgressNotification();
                 recordingState = RecordingState.IN_PROGRESS;
                 broadcastOnRecordingStarted();
             } else if (recordingState.equals(RecordingState.PAUSED)) {
-                mediaRecorder.resume();
+//                mediaRecorder.resume();
                 setupRecordingInProgressNotification();
                 recordingState = RecordingState.IN_PROGRESS;
                 showRecordingResumedToast();
@@ -458,12 +491,12 @@ public class CameraRecordingService extends Service {
         try {
             sharedPreferencesManager.setRecordingInProgress(true);
 
-            setupMediaRecorder();
+//            setupMediaRecorder();
 
-            if (mediaRecorder == null) {
-                Log.e(TAG, "startRecording: MediaRecorder is not initialized");
-                return;
-            }
+//            if (mediaRecorder == null) {
+//                Log.e(TAG, "startRecording: MediaRecorder is not initialized");
+//                return;
+//            }
 
             if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                 Log.e(TAG, "startRecording: External storage not available, cannot start recording.");
@@ -483,7 +516,7 @@ public class CameraRecordingService extends Service {
             sharedPreferencesManager.setRecordingInProgress(true);
 
             if(cameraDevice != null) {
-                mediaRecorder.resume();
+//                mediaRecorder.resume();
                 setupRecordingInProgressNotification();
                 recordingState = RecordingState.IN_PROGRESS;
                 showRecordingResumedToast();
@@ -502,7 +535,7 @@ public class CameraRecordingService extends Service {
         try {
             sharedPreferencesManager.setRecordingInProgress(false);
 
-            mediaRecorder.pause();
+//            mediaRecorder.pause();
 
             recordingState = RecordingState.PAUSED;
 
@@ -518,57 +551,132 @@ public class CameraRecordingService extends Service {
         }
     }
 
+//    private void stopRecording() {
+//        try {
+//            sharedPreferencesManager.setRecordingInProgress(false);
+//
+//            if(recordingState.equals(RecordingState.NONE))
+//            {
+//                return;
+//            }
+//
+//            Log.d(TAG, "stopRecording: Attempting to stop recording from recording service.");
+//
+//            if (mediaRecorder != null) {
+//                try {
+//                    mediaRecorder.resume();
+//                    mediaRecorder.stop();
+//                    mediaRecorder.reset();
+//                } catch (IllegalStateException e) {
+//                    Log.e(TAG, "stopRecording: Error while stopping the recording", e);
+//                } finally {
+//                    mediaRecorder.release();
+//                    mediaRecorder = null;
+//                    Log.d(TAG, "stopRecording: Recording stopped");
+//                    stopForeground(true);
+//                }
+//            }
+//
+//            if (captureSession != null) {
+//                captureSession.close();
+//                captureSession = null;
+//            }
+//
+//            if (cameraDevice != null) {
+//                cameraDevice.close();
+//                cameraDevice = null;
+//            }
+//
+//            recordingState = RecordingState.NONE;
+//
+//            cancelNotification();
+//
+//            processLatestVideoFileWithWatermark();
+//
+//            broadcastOnRecordingStopped();
+//
+//            // Toast.makeText(this, R.string.video_recording_stopped, Toast.LENGTH_SHORT).show();
+////            Utils.showQuickToast(this, R.string.video_recording_stopped);
+//
+//
+//            if(!isWorkingInProgress()) {
+//                stopSelf();
+//            }
+//        } catch (Exception e) {
+//            Log.e(TAG, "Error stopping recording", e);
+//        }
+//    }
+
     private void stopRecording() {
         try {
             sharedPreferencesManager.setRecordingInProgress(false);
 
-            if(recordingState.equals(RecordingState.NONE))
-            {
+            if (recordingState.equals(RecordingState.NONE)) {
                 return;
             }
 
-            Log.d(TAG, "stopRecording: Attempting to stop recording from recording service.");
+            Log.d(TAG, "stopRecording: Attempting to stop recording.");
 
-            if (mediaRecorder != null) {
+            // 1) Safely stop capture requests before stopping the recorder
+            if (captureSession != null) {
                 try {
-                    mediaRecorder.resume();
-                    mediaRecorder.stop();
-                    mediaRecorder.reset();
-                } catch (IllegalStateException e) {
-                    Log.e(TAG, "stopRecording: Error while stopping the recording", e);
-                } finally {
-                    mediaRecorder.release();
-                    mediaRecorder = null;
-                    Log.d(TAG, "stopRecording: Recording stopped");
-                    stopForeground(true);
+                    captureSession.stopRepeating();
+                    // Optionally use captureSession.abortCaptures() if needed
+                } catch (CameraAccessException e) {
+                    Log.e(TAG, "stopRepeating error: " + e.getMessage());
                 }
             }
 
+            // 2) If already paused, resume first (only if we truly are paused)
+//            if (mediaRecorder != null) {
+//                try {
+//                    if (recordingState == RecordingState.PAUSED) {
+//                        mediaRecorder.resume();
+//                        // Maybe add a small delay to ensure the resume is processed
+//                        Thread.sleep(300);
+//                    }
+//
+//                    // 3) Now stop
+//                    mediaRecorder.stop();
+//                    mediaRecorder.reset();
+//                } catch (IllegalStateException e) {
+//                    Log.e(TAG, "Error calling mediaRecorder.stop()", e);
+//                } catch (InterruptedException e) {
+//                    Log.e(TAG, "Thread sleep interrupted", e);
+//                } finally {
+//                    mediaRecorder.release();
+//                    mediaRecorder = null;
+//                    stopForeground(true);
+//                }
+//            }
+
+            // 4) Close the capture session & camera
             if (captureSession != null) {
                 captureSession.close();
                 captureSession = null;
             }
-
             if (cameraDevice != null) {
                 cameraDevice.close();
                 cameraDevice = null;
             }
 
-            recordingState = RecordingState.NONE;
+            // 5) Close the ImageReader so no more raw frames arrive
+            if (imageReader != null) {
+                imageReader.close();
+                imageReader = null;
+            }
 
+            // 6) Update state, handle notification, etc.
+            recordingState = RecordingState.NONE;
             cancelNotification();
 
-            processLatestVideoFileWithWatermark();
-
+//            processLatestVideoFileWithWatermark();
             broadcastOnRecordingStopped();
 
-            // Toast.makeText(this, R.string.video_recording_stopped, Toast.LENGTH_SHORT).show();
-//            Utils.showQuickToast(this, R.string.video_recording_stopped);
-
-
-            if(!isWorkingInProgress()) {
+            if (!isWorkingInProgress()) {
                 stopSelf();
             }
+
         } catch (Exception e) {
             Log.e(TAG, "Error stopping recording", e);
         }
