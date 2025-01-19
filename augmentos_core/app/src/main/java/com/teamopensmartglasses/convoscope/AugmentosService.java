@@ -7,7 +7,6 @@ import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOIN
 import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.REQUEST_APP_BY_PACKAGE_NAME_DOWNLOAD_LINK_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.SEND_NOTIFICATIONS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
@@ -26,7 +25,6 @@ import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettings
 import static com.teamopensmartglasses.convoscope.Constants.displayRequestsKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 import static com.teamopensmartglasses.convoscope.Constants.augmentOsMainServiceNotificationId;
-import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.getPreferredWearable;
 import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.getSmartGlassesDeviceFromModelName;
 import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.savePreferredWearable;
 import static com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.deleteEvenSharedPreferences;
@@ -37,6 +35,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -44,7 +43,6 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.hardware.display.VirtualDisplay;
 import android.media.projection.MediaProjection;
-import android.os.BatteryManager;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
@@ -55,7 +53,9 @@ import android.service.notification.NotificationListenerService;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.FileProvider;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -105,6 +105,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -117,7 +118,6 @@ import java.util.Objects;
 import java.util.LinkedList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Queue;
 import java.util.stream.Collectors;
 //SpeechRecIntermediateOutputEvent
 import net.sourceforge.pinyin4j.PinyinHelper;
@@ -2654,6 +2654,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     private void downloadApk(String downloadLink, String packageName) {
         DownloadManager downloadManager = (DownloadManager) this.getSystemService(Context.DOWNLOAD_SERVICE);
 
@@ -2665,8 +2666,46 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
             request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, packageName + ".apk");
 
-            downloadManager.enqueue(request);
+            long downloadId = downloadManager.enqueue(request);
+
+            BroadcastReceiver receiver = new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+                    if (id == downloadId) {
+                        installApk(packageName);
+
+                        context.unregisterReceiver(this);
+                    }
+                }
+            };
+
+            this.registerReceiver(receiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), Context.RECEIVER_NOT_EXPORTED);
         }
+    }
+
+    private void installApk(String packageName) {
+        File apkFile = new File(
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                packageName + ".apk"
+        );
+        if (!apkFile.exists() || apkFile.length() == 0) {
+            Log.e("Installer", "APK file is missing or 0 bytes.");
+            return;
+        }
+
+        Uri apkUri;
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        apkUri = FileProvider.getUriForFile(
+                getApplicationContext(),
+                getApplicationContext().getPackageName() + ".provider",
+                apkFile
+        );
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     private void sendFailureStatusToAugmentOsManager() {
