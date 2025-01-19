@@ -7,6 +7,10 @@ android {
     namespace 'com.teamopensmartglasses.convoscope'
     compileSdk 33
 
+    buildFeatures {
+        aidl = true
+    }
+
     defaultConfig {
         applicationId "com.teamopensmartglasses.convoscope"
         minSdk 28

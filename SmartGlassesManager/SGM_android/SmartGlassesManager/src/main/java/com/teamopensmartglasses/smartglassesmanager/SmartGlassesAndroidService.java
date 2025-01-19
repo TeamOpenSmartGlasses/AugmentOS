@@ -24,6 +24,7 @@ import androidx.lifecycle.LifecycleService;
 import androidx.preference.PreferenceManager;
 
 import com.teamopensmartglasses.augmentoslib.events.SmartGlassesConnectedEvent;
+import com.teamopensmartglasses.smartglassesmanager.camera.CameraRecorder;
 import com.teamopensmartglasses.smartglassesmanager.camera.CameraRecordingService;
 import com.teamopensmartglasses.smartglassesmanager.camera.Constants;
 import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
@@ -69,7 +70,7 @@ import java.util.List;
 import io.reactivex.rxjava3.subjects.PublishSubject;
 
 /** Main service of Smart Glasses Manager, that starts connections to smart glasses and talks to third party apps (3PAs) */
-public abstract class SmartGlassesAndroidService extends LifecycleService {
+public abstract class SmartGlassesAndroidService extends LifecycleService implements CameraRecorder.CameraRecorderCallback {
     private static final String TAG = "SGM_ASP_Service";
 
     // Service Binder given to clients
@@ -135,9 +136,6 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         //start text to speech
         textToSpeechSystem = new TextToSpeechSystem(this);
         textToSpeechSystem.setup();
-
-        //start background camera
-        startRecordingService();
     }
 
     protected void setupEventBusSubscribers() {
@@ -708,26 +706,6 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
     public void setFontSize(SmartGlassesFontSize fontSize) { EventBus.getDefault().post(new SetFontSizeEvent(fontSize)); }
 
-    //background camera stuff - designed for ASG running core locally
-    private final Handler handler = new Handler(Looper.getMainLooper());
 
-    private void startRecordingService() {
-        Log.d(TAG, "Starting recording video in background...");
-        Intent intent = new Intent(this, CameraRecordingService.class);
-        intent.setAction(Constants.INTENT_ACTION_START_RECORDING);
-        startService(intent);
-
-        // Ensure the delay actually works
-        handler.postDelayed(() -> {
-            stopRecordingService();
-        }, 30000); // 10 seconds
-    }
-
-    private void stopRecordingService() {
-        Log.d(TAG, "Stopping recording video in background...");
-        Intent intent = new Intent(this, CameraRecordingService.class);
-        intent.setAction(Constants.INTENT_ACTION_STOP_RECORDING);
-        startService(intent);
-    }
 
 }

@@ -5,13 +5,14 @@ import static com.teamopensmartglasses.convoscope.BatteryOptimizationHelper.hand
 import static com.teamopensmartglasses.convoscope.BatteryOptimizationHelper.isSystemApp;
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.SEND_NOTIFICATIONS_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GET_USER_SETTINGS_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.adhdStmbAgentKey;
+import static com.teamopensmartglasses.convoscope.Constants.augmentOsMainServiceNotificationId;
+import static com.teamopensmartglasses.convoscope.Constants.displayRequestsKey;
 import static com.teamopensmartglasses.convoscope.Constants.entityDefinitionsKey;
 import static com.teamopensmartglasses.convoscope.Constants.explicitAgentQueriesKey;
 import static com.teamopensmartglasses.convoscope.Constants.explicitAgentResultsKey;
@@ -22,10 +23,7 @@ import static com.teamopensmartglasses.convoscope.Constants.llWordSuggestUpgrade
 import static com.teamopensmartglasses.convoscope.Constants.notificationFilterKey;
 import static com.teamopensmartglasses.convoscope.Constants.proactiveAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettingsKey;
-import static com.teamopensmartglasses.convoscope.Constants.displayRequestsKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
-import static com.teamopensmartglasses.convoscope.Constants.augmentOsMainServiceNotificationId;
-import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.getPreferredWearable;
 import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.getSmartGlassesDeviceFromModelName;
 import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.savePreferredWearable;
 import static com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.deleteEvenSharedPreferences;
@@ -39,17 +37,17 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.hardware.display.VirtualDisplay;
 import android.media.projection.MediaProjection;
-import android.os.BatteryManager;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.os.MemoryFile;
+import android.os.ParcelFileDescriptor;
 import android.service.notification.NotificationListenerService;
 import android.util.Log;
 
@@ -62,17 +60,24 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
+import com.huaban.analysis.jieba.JiebaSegmenter;
+import com.huaban.analysis.jieba.SegToken;
 import com.teamopensmartglasses.augmentoslib.DataStreamType;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
+import com.teamopensmartglasses.augmentoslib.events.DiarizationOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.NotificationEvent;
+import com.teamopensmartglasses.augmentoslib.events.SmartGlassesConnectedEvent;
+import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.convoscope.comms.AugmentOsActionsCallback;
 import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
-import com.teamopensmartglasses.convoscope.events.AugmentosSmartGlassesDisconnectedEvent;
-import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
+import com.teamopensmartglasses.convoscope.events.AugmentosSmartGlassesDisconnectedEvent;
+import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
@@ -81,22 +86,22 @@ import com.teamopensmartglasses.convoscope.statushelpers.GsmStatusHelper;
 import com.teamopensmartglasses.convoscope.statushelpers.WifiStatusHelper;
 import com.teamopensmartglasses.convoscope.tpa.TPASystem;
 import com.teamopensmartglasses.convoscope.ui.AugmentosUi;
-
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBatteryLevelEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchStopEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBatteryLevelEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
-import com.teamopensmartglasses.augmentoslib.events.DiarizationOutputEvent;
-import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
-import com.teamopensmartglasses.augmentoslib.events.SmartGlassesConnectedEvent;
-import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
-import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
+import net.sourceforge.pinyin4j.PinyinHelper;
+import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
+import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
+import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
+import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
+import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -104,35 +109,26 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.LinkedList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Queue;
 import java.util.stream.Collectors;
-//SpeechRecIntermediateOutputEvent
-import net.sourceforge.pinyin4j.PinyinHelper;
-import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
-import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
-import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
-import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
-import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
-import com.huaban.analysis.jieba.JiebaSegmenter;
-import com.huaban.analysis.jieba.SegToken;
 
 public class AugmentosService extends Service implements AugmentOsActionsCallback {
     public final String TAG = "AugmentOS_AugmentOSService";
-
-    private final IBinder binder = new LocalBinder();
 
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
@@ -246,13 +242,42 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public AugmentosService() {
     }
 
+    private final IAugmentOSCoreService.Stub binder = new IAugmentOSCoreService.Stub() {
+        @Override
+        public void receiveSharedMemory(ParcelFileDescriptor fd, int width, int height, int format) {
+            Log.d(TAG, "receiveSharedMemory called with: " + width + "x" + height);
+            if (fd == null) {
+                Log.e(TAG, "ParcelFileDescriptor is NULL!");
+                return;
+            }
+            try {
+                FileDescriptor fileDescriptor = fd.getFileDescriptor();
+                int bufferSize = width * height * 3 / 2; // YUV420 format
+
+                FileInputStream inputStream = new FileInputStream(fileDescriptor);
+                byte[] frameData = new byte[Math.min(100, bufferSize)]; // Just read first 100 bytes to check
+                int bytesRead = inputStream.read(frameData);
+                inputStream.close();
+
+                if (bytesRead > 0) {
+                    Log.d(TAG, "Received shared memory frame: " + width + "x" + height + ", bytesRead=" + bytesRead);
+                    Log.d(TAG, "First few bytes: " + Arrays.toString(Arrays.copyOf(frameData, 10)));
+                } else {
+                    Log.e(TAG, "Error: No bytes read from shared memory");
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "Error reading shared memory", e);
+            }
+        }
+    };
+
     private ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             AugmentosSmartGlassesService.LocalBinder binder = (AugmentosSmartGlassesService.LocalBinder) service;
             smartGlassesService = (AugmentosSmartGlassesService) binder.getService();
             isSmartGlassesServiceBound = true;
-//            sendStatusToAugmentOsManager();
+
             for (Runnable action : serviceReadyListeners) {
                 action.run();
             }
@@ -261,7 +286,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-            Log.d(TAG,"SMART GLASSES SERVICE DISCONNECTED!!!!");
+            Log.d(TAG, "SMART GLASSES SERVICE DISCONNECTED!!!!");
             isSmartGlassesServiceBound = false;
 
             // TODO: For now, stop all apps on disconnection
@@ -270,6 +295,61 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             sendStatusToAugmentOsManager();
         }
     };
+
+
+//    private final IAugmentOSCoreService.Stub sharedMemBinder = new IAugmentOSCoreService.Stub() {
+//        @Override
+//        public void receiveSharedMemory(ParcelFileDescriptor fd, int width, int height, int format) {
+//            Log.d(TAG, "receiveSharedMemory called with: " + width + "x" + height);
+//            if (fd == null) {
+//                Log.e(TAG, "ParcelFileDescriptor is NULL!");
+//                return;
+//            }
+//            try {
+//                FileDescriptor fileDescriptor = fd.getFileDescriptor();
+//                int bufferSize = width * height * 3 / 2; // YUV420 format
+//
+//                FileInputStream inputStream = new FileInputStream(fileDescriptor);
+//                byte[] frameData = new byte[Math.min(100, bufferSize)]; // Just read first 100 bytes to check
+//                int bytesRead = inputStream.read(frameData);
+//                inputStream.close();
+//
+//                if (bytesRead > 0) {
+//                    Log.d(TAG, "Received shared memory frame: " + width + "x" + height + ", bytesRead=" + bytesRead);
+//                    Log.d(TAG, "First few bytes: " + Arrays.toString(Arrays.copyOf(frameData, 10)));
+//                } else {
+//                    Log.e(TAG, "Error: No bytes read from shared memory");
+//                }
+//            } catch (IOException e) {
+//                Log.e(TAG, "Error reading shared memory", e);
+//            }
+//        }
+//    };
+//
+//    private ServiceConnection connection = new ServiceConnection() {
+//        @Override
+//        public void onServiceConnected(ComponentName name, IBinder service) {
+//            AugmentosSmartGlassesService.LocalBinder binder = (AugmentosSmartGlassesService.LocalBinder) service;
+//            smartGlassesService = (AugmentosSmartGlassesService) binder.getService();
+//            isSmartGlassesServiceBound = true;
+////            sendStatusToAugmentOsManager();
+//            for (Runnable action : serviceReadyListeners) {
+//                action.run();
+//            }
+//            serviceReadyListeners.clear(); // Clear the queue
+//        }
+//
+//        @Override
+//        public void onServiceDisconnected(ComponentName name) {
+//            Log.d(TAG,"SMART GLASSES SERVICE DISCONNECTED!!!!");
+//            isSmartGlassesServiceBound = false;
+//
+//            // TODO: For now, stop all apps on disconnection
+//            // TODO: Future: Make this nicer
+//            tpaSystem.stopAllThirdPartyApps();
+//            sendStatusToAugmentOsManager();
+//        }
+//    };
 
     @Subscribe
     public void onAugmentosSmartGlassesDisconnectedEvent(AugmentosSmartGlassesDisconnectedEvent event){
@@ -408,6 +488,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
 
         completeInitialization();
+
     }
 
     private void createNotificationChannel() {
@@ -2736,6 +2817,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Override
     public IBinder onBind(Intent intent) {
+        Log.d(TAG, "Something bound");
         return binder;
     }
 }
