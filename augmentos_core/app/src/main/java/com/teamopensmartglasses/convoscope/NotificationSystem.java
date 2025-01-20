@@ -37,8 +37,8 @@ public class NotificationSystem {
     }
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    public void onNotificationEvent(NotificationEvent event) {
-        JSONObject notificationData = event.notificationData;
+    public void onNotificationEvent(NotificationEvent event) throws JSONException {
+        JSONObject notificationData = event.getNotificationData();
         try {
             if (notificationData != null) {
                 Log.d(TAG, "Received event: " + notificationData.toString());
@@ -63,15 +63,17 @@ public class NotificationSystem {
                     try {
                         JSONObject existingNotification = notificationQueue.getJSONObject(i);
                         if (existingNotification.getString("title").equals(notificationData.getString("title")) &&
-                            existingNotification.getString("appName").equals(notificationData.getString("appName")) &&
-                            existingNotification.getString("message").length() < notificationData.getString("message").length() // if the existing message is shorter than the new message, then it means the new message is a continuation of the existing message
-                        ) {
+                            existingNotification.getString("appName").equals(notificationData.getString("appName"))) {
                             notificationQueue.remove(i);
                             break; // Exit loop after removing the duplicate
                         }
                     } catch (JSONException e) {
                         Log.e(TAG, "Error checking existing notifications in queue: " + e.getMessage());
                     }
+                }
+
+                if (notificationQueue.length() >= 5) {
+                    notificationQueue.remove(0);
                 }
 
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

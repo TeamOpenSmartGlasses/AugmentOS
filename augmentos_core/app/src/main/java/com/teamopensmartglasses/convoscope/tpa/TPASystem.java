@@ -35,6 +35,7 @@ import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.HomeScreenEvent;
 import com.teamopensmartglasses.augmentoslib.events.IntermediateScrollingTextRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
+import com.teamopensmartglasses.augmentoslib.events.NotificationEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardImageViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardSimpleViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.RegisterCommandRequestEvent;
@@ -312,6 +313,11 @@ public class TPASystem {
         if(tpaIsSubscribed){
             augmentOsLibBroadcastSender.sendEventToAllTPAs(SpeechRecOutputEvent.eventId, event);
         }
+    }
+
+    @Subscribe
+    public void onNotificationEvent(NotificationEvent event){
+        augmentOsLibBroadcastSender.sendEventToAllTPAs(NotificationEvent.eventId, event);
     }
 
     @Subscribe
