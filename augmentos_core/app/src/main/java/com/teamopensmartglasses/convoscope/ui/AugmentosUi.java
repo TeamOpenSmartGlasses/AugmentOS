@@ -350,6 +350,7 @@ public class AugmentosUi extends Fragment {
         if (((MainActivity) getActivity()).isAppInstalled(TARGET_PACKAGE)) {
           //setContentView(R.layout.activity_main);
           ((MainActivity) getActivity()).launchTargetApp(TARGET_PACKAGE);
+          ((MainActivity) getActivity()).finish();
         }
       }
     }

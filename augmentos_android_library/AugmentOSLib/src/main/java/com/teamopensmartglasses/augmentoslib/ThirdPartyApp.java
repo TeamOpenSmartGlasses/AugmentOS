@@ -22,7 +22,7 @@ public class ThirdPartyApp implements Serializable {
 
     public String serviceName;
     public ThirdPartyAppType appType;
-    private JSONArray settings;
+    transient private JSONArray settings;
 
     public AugmentOSCommand[] commandList;
 
@@ -67,7 +67,25 @@ public class ThirdPartyApp implements Serializable {
         Uri settingUri = Uri.parse("content://" + authority + "/config/" + settingKey);
 
         ContentValues values = new ContentValues();
-        values.put("currentValue", newValue.toString());
+
+        // Determine the type of newValue and put it accordingly
+        if (newValue instanceof Boolean) {
+            values.put("currentValue", (Boolean) newValue);
+        } else if (newValue instanceof Integer) {
+            values.put("currentValue", (Integer) newValue);
+        } else if (newValue instanceof Float) {
+            values.put("currentValue", (Float) newValue);
+        } else if (newValue instanceof Double) {
+            values.put("currentValue", (Double) newValue);
+        } else if (newValue instanceof String) {
+            values.put("currentValue", (String) newValue);
+        } else if (newValue instanceof JSONArray) {
+            values.put("currentValue", newValue.toString());
+        } else {
+            // Handle unsupported types or convert to String
+            Log.w("AugmentOS_Core", "Unsupported type for setting: " + newValue.getClass().getSimpleName());
+            values.put("currentValue", newValue.toString());
+        }
 
         int rowsUpdated = context.getContentResolver().update(settingUri, values, null, null);
         if (rowsUpdated > 0) {
