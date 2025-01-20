@@ -121,8 +121,8 @@ export default PickerSelect;
 const styles = StyleSheet.create({
   touchable: {
     padding: 12,
-    borderWidth: 1,
-    borderRadius: 4,
+   // borderWidth: 1,
+   // borderRadius: 4,
     borderColor: '#888',
     backgroundColor: '#fff',
   },

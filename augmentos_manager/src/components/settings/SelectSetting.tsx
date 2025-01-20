@@ -47,7 +47,7 @@ const SelectSetting: React.FC<SelectSettingProps> = ({
           items={pickerItems}
           value={value}
           onValueChange={onValueChange}
-          placeholder={{ label: 'Select an option...', value: '' }}
+          // placeholder={{ label: 'Select an option...', value: '' }}
           style={{
             touchable: { borderColor: theme.textColor },
             touchableText: { color: theme.textColor },

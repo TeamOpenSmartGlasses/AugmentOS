@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 
 type TextSettingProps = {
@@ -15,6 +15,11 @@ const TextSetting: React.FC<TextSettingProps> = ({
   theme
 }) => {
   const [localValue, setLocalValue] = useState(value);
+
+  // Whenever the parent’s value changes, update localValue
+  useEffect(() => {
+    setLocalValue(value);
+  }, [value]);
 
   return (
     <View style={styles.container}>
