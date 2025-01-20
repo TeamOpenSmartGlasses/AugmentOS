@@ -154,7 +154,7 @@ dependencies {
     implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.15.0'
 
     //Vuzix Ultralite OEM Platform / Vuzix Z100
-    implementation 'com.vuzix:ultralite-sdk-android:1.4.1'
+    implementation 'com.vuzix:ultralite-sdk-android:1.8'
 
     //Azure ASR
     implementation "com.microsoft.cognitiveservices.speech:client-sdk:1.42.0"

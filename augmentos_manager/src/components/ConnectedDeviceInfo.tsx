@@ -9,6 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import { getGlassesImage } from '../logic/getGlassesImage';
 import { checkAndRequestNotificationPermission } from '../augmentos_core_comms/NotificationServiceUtils';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { checkAndRequestNotificationAccessSpecialPermission } from '../utils/NotificationServiceUtils.tsx';
 
 
 interface ConnectedDeviceInfoProps {
@@ -54,24 +55,42 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
       }
 
       // Request permissions on Android
-      if (Platform.OS === 'android' && Platform.Version >= 23) {
-        PermissionsAndroid.requestMultiple([
-          PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
-          PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        ]).then((result) => {
-          console.log('Permissions granted:', result);
-        });
-      }
+       if (Platform.OS === 'android' && Platform.Version >= 23) {
+         PermissionsAndroid.requestMultiple([
+           PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
+           PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
+           PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+         ]).then(async (result) => {
+             console.log('Permissions granted:', result);
 
-      // Cleanup function
-      return () => {
-        fadeAnim.stopAnimation();
-        scaleAnim.stopAnimation();
-        slideAnim.stopAnimation();
-      };
-    }, [status.puck_connected, fadeAnim, scaleAnim, slideAnim])
-  );
+             const allGranted = Object.values(result).every(
+               (value) => value === PermissionsAndroid.RESULTS.GRANTED
+             );
+
+             if (allGranted) {
+               try {
+                 await checkAndRequestNotificationAccessSpecialPermission();
+               } catch (error) {
+                 console.warn('Notification permission request error:', error);
+               }
+             } else {
+               console.warn('Some permissions were denied:', result);
+               // Optionally handle partial denial here
+             }
+           })
+           .catch((error) => {
+             console.error('Error requesting permissions:', error);
+           });
+       }
+
+       // Cleanup function
+       return () => {
+         fadeAnim.stopAnimation();
+         scaleAnim.stopAnimation();
+         slideAnim.stopAnimation();
+       };
+     }, [status.puck_connected, fadeAnim, scaleAnim, slideAnim])
+   );
 
   const handleConnectToPuck = async () => {
     try {

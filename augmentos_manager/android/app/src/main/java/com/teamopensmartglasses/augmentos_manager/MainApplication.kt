@@ -47,7 +47,8 @@ class MainApplication : Application(), ReactApplication {
                 AsyncStoragePackage(),
                 SvgPackage(),
                 NotificationServicePackage(),
-                ReactSliderPackage()
+                ReactSliderPackage(),
+                NotificationAccessPackage()
             )
         }
 
