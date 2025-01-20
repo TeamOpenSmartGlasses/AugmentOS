@@ -754,7 +754,8 @@ export class BluetoothService extends EventEmitter {
       const timeout = setTimeout(() => {
         if (!responseReceived) {
           console.log('validateResponseFromCore: No response. Triggering reconnection...');
-          reject(new Error('Response timeout.'));
+          //reject(new Error('Response timeout.'));
+          reject(null);
         }
       }, 6000);
   

@@ -69,6 +69,8 @@ const AppSettings: React.FC<AppSettingsProps> = ({
   }, [packageName]);
 
   const handleSettingChange = (key: string, value: any) => {
+    console.log(`Changing ${key} to ${value}`);
+
     setSettingsState((prevState) => ({
       ...prevState,
       [key]: value,
