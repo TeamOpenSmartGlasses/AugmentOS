@@ -20,6 +20,8 @@ import com.th3rdwave.safeareacontext.SafeAreaContextPackage
 import com.zoontek.rnpermissions.RNPermissionsPackage
 import it.innove.BleManagerPackage
 import kjd.reactnative.bluetooth.RNBluetoothClassicPackage
+import com.reactnativecommunity.slider.ReactSliderPackage
+
 // import com.teamopensmartglasses.augmentos_manager.NotificationServicePackage
 
 class MainApplication : Application(), ReactApplication {
@@ -44,7 +46,8 @@ class MainApplication : Application(), ReactApplication {
                 CoreServiceStarterPackage(),
                 AsyncStoragePackage(),
                 SvgPackage(),
-                NotificationServicePackage()
+                NotificationServicePackage(),
+                ReactSliderPackage()
             )
         }
 

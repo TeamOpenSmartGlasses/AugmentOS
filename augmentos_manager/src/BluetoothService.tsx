@@ -28,6 +28,7 @@ export interface Device {
 
 export class BluetoothService extends EventEmitter {
   devices: Device[] = [];
+  private validationInProgress: Promise<void> | null = null;
   connectedDevice: Device | null = null;
   isScanning: boolean = false;
   isConnecting: boolean = false;
@@ -741,45 +742,48 @@ export class BluetoothService extends EventEmitter {
   }
 
   async validateResponseFromCore() {
+    // If there's already a validation in progress, just return it
+    if (this.validationInProgress) {
+      return this.validationInProgress;
+    }
+  
     console.log('validateResponseFromCore: Data written, waiting for response...');
-   // this.isLocked = true;
-    try {
+  
+    this.validationInProgress = new Promise((resolve, reject) => {
       let responseReceived = false;
-      await new Promise((resolve, reject) => {
-        const timeout = setTimeout(() => {
-          if (!responseReceived) {
-            console.log(
-              'validateResponseFromCore: No response received within timeout. Triggering reconnection...',
-            );
-            reject(
-              new Error(
-                'validateResponseFromCore: Response timeout for data...'
-              ),
-            );
-          }
-        }, 6000); // Timeout after 5 seconds
-
-        this.once('dataReceived', data => {
-          responseReceived = true;
-          this.isLocked = false;
-          clearTimeout(timeout);
-          console.log('Core is alive!');
-          resolve(null);
-        });
+      const timeout = setTimeout(() => {
+        if (!responseReceived) {
+          console.log('validateResponseFromCore: No response. Triggering reconnection...');
+          reject(new Error('Response timeout.'));
+        }
+      }, 6000);
+  
+      this.once('dataReceived', () => {
+        responseReceived = true;
+        clearTimeout(timeout);
+        console.log('Core is alive!');
+        resolve();
       });
+    });
+  
+    try {
+      await this.validationInProgress;
     } catch (error) {
-      // console.error('Error writing data:', error);
-      // Alert.alert('Write Error', 'Failed to write data to device: ' + error);
-      // GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Write Error - Failed to write data to device: ' + error, type: 'error' })
+      //console.error('validateResponseFromCore error:', error);
       if (this.simulatedPuck) {
+        // Restart the service if simulated
         ManagerCoreCommsService.startService();
         startExternalService();
       } else {
+        // Disconnect if real device
         this.handleDisconnectedPeripheral({
           peripheral: this.connectedDevice?.id,
         });
         this.disconnectFromDevice();
       }
+      throw error; // Rethrow if you want to handle it further up
+    } finally {
+      this.validationInProgress = null;
     }
   }
 
@@ -979,7 +983,7 @@ export class BluetoothService extends EventEmitter {
         await NotificationService.stopNotificationListenerService();
       }
       if (BluetoothService.bluetoothService.unsubscribePhoneNotifications) {
-        BluetoothService.bluetoothService.unsubscribePhoneNotifications();
+        BluetoothService.bluetoothService.unsubscribePhoneNotifications.remove();
       }
 
       // Nullify the instance

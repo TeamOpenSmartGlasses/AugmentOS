@@ -362,8 +362,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void onCreate() {
         super.onCreate();
 
-        createNotificationChannel(); // New method to ensure one-time channel creation
-        startForeground(augmentOsMainServiceNotificationId, updateNotification());
+//        createNotificationChannel(); // New method to ensure one-time channel creation
+//        startForeground(augmentOsMainServiceNotificationId, updateNotification());
 
         //setup event bus subscribers
         EventBus.getDefault().register(this);
@@ -473,6 +473,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             case ACTION_START_FOREGROUND_SERVICE:
                 // start the service in the foreground
                 Log.d("TEST", "starting foreground");
+                createNotificationChannel(); // New method to ensure one-time channel creation
                 startForeground(augmentOsMainServiceNotificationId, updateNotification());
 
                 // Send out the status once AugmentOS_Core is ready :)
@@ -2710,7 +2711,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             Iterator<String> keys = settings.keys();
             while (keys.hasNext()) {
                 String key = keys.next();
-                String value = settings.getString(key);
+                Object value = settings.get(key);
                 if(!tpa.updateSetting(this, key, value)) {
                     allSuccess = false;
                 }
@@ -2722,9 +2723,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         if (!allSuccess) {
             blePeripheral.sendNotifyManager("Error updating settings", "error");
+            return;
         }
-
-        blePeripheral.sendAppInfoToManager(tpa);
     }
 
     public class LocalBinder extends Binder {
