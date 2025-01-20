@@ -284,8 +284,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Subscribe
     public void onDisplayGlassesDashboardEvent(DisplayGlassesDashboardEvent event) {
         // Get current time and date
-        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
+        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd", Locale.getDefault());
         String currentTime = timeFormat.format(new Date());
         String currentDate = dateFormat.format(new Date());
 
