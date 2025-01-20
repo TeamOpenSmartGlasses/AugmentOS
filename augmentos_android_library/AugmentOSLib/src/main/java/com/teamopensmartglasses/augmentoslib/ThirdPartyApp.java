@@ -22,7 +22,7 @@ public class ThirdPartyApp implements Serializable {
 
     public String serviceName;
     public ThirdPartyAppType appType;
-    private JSONArray settings;
+    transient private JSONArray settings;
 
     public AugmentOSCommand[] commandList;
 
