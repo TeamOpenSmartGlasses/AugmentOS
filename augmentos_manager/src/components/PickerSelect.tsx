@@ -88,7 +88,7 @@ const PickerSelect: React.FC<PickerSelectProps> = ({
           <SafeAreaView style={{ backgroundColor: '#fff', borderRadius: 8 }}>
             <FlatList
               data={data}
-              keyExtractor={(item) => item.value}
+              keyExtractor={(item, index) => `${item.value}-${index}`}
               renderItem={({ item }) => {
                 const isSelected = item.value === value;
                 return (
