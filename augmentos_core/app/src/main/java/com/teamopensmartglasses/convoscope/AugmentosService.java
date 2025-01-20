@@ -111,6 +111,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.LinkedList;
@@ -240,7 +241,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private final List<Runnable> serviceReadyListeners = new ArrayList<>();
     private NotificationSystem notificationSystem;
 
-    private int batteryLevel = 80;
+    private int batteryLevel = 100;
 
     public AugmentosService() {
     }
@@ -445,13 +446,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             handleBatteryOptimization(this);
         }
 
-        String preferredWearable = AugmentosSmartGlassesService.getPreferredWearable(this);
-        if(!preferredWearable.isEmpty()) {
-            executeOnceSmartGlassesServiceReady(this, () -> {
-                SmartGlassesDevice preferredDevice = AugmentosSmartGlassesService.getSmartGlassesDeviceFromModelName(preferredWearable);
-                smartGlassesService.findCompatibleDeviceNames(preferredDevice);
-            });
-        }
+        // TODO: Uncomment for auto-connect
+//        String preferredWearable = AugmentosSmartGlassesService.getPreferredWearable(this);
+//        if(!preferredWearable.isEmpty()) {
+//            executeOnceSmartGlassesServiceReady(this, () -> {
+//                SmartGlassesDevice preferredDevice = AugmentosSmartGlassesService.getSmartGlassesDeviceFromModelName(preferredWearable);
+//                smartGlassesService.connectToSmartGlasses(preferredDevice);
+//            });
+//        }
     }
 
     @Override
@@ -2454,7 +2456,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             if(isSmartGlassesServiceBound && smartGlassesService.getConnectedSmartGlasses() != null) {
                 connectedGlasses.put("model_name", smartGlassesService.getConnectedSmartGlasses().deviceModelName);
                 connectedGlasses.put("battery_life", batteryLevel);
-                connectedGlasses.put("brightness", 80);
+                connectedGlasses.put("brightness", smartGlassesService.getConnectedSmartGlasses().deviceModelName.contains("Even Realities") ? "auto" : "unknown");
             }
             else {
                 connectedGlasses.put("is_searching", getIsSearchingForGlasses());
@@ -2608,17 +2610,32 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Override
-    public void installAppFromRepository(JSONObject repoAppData) {
+    public void installAppFromRepository(String repository, String packageName) {
         Log.d(TAG, "installAppFromRepository not implemented");
         //TODO: Implement this
-        sendStatusToAugmentOsManager();
+        blePeripheral.sendNotifyManager("Installing is not implemented yet", "error");
     }
 
     @Override
     public void uninstallApp(String uninstallPackageName) {
         Log.d(TAG, "uninstallApp not implemented");
-        //TODO: Implement this
-        sendStatusToAugmentOsManager();
+        blePeripheral.sendNotifyManager("Uninstalling is not implemented yet", "error");
+    }
+
+    @Override
+    public void requestAppInfo(String packageNameToGetDetails) {
+        ThirdPartyApp tpa = tpaSystem.getThirdPartyAppByPackageName(packageNameToGetDetails);
+        if (tpa == null) {
+            blePeripheral.sendNotifyManager("Could not find app", "error");
+            sendStatusToAugmentOsManager();
+            return;
+        }
+        JSONArray settings = tpa.getSettings(this);
+        if (settings == null) {
+            blePeripheral.sendNotifyManager("Could not get app's details", "error");
+            return;
+        }
+        blePeripheral.sendAppInfoToManager(tpa);
     }
 
     @Override
@@ -2681,22 +2698,33 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Override
     public void updateAppSettings(String targetApp, JSONObject settings) {
         Log.d("AugmentOsService", "Updating settings for app: " + targetApp);
-        // Logic to update the app's settings
-
-        // TODO: Hardcode this for now because the only relevant app here is LLSG
-        // TODO: Long term, figure out how to architect this system
-        if(targetApp.equals(("Language Learning"))){
-            try {
-                String newSourceLanguage = settings.getString("sourceLanguage");
-                String newTargetLanguage = settings.getString("targetLanguage");
-                String newTranscribeLanguage = settings.getString("transcribeLanguage");
-                String newVocabularyUpgrade = settings.getString("vocabularyUpgrade");
-                String newLiveCaptionsTranslationOption = settings.getString("liveCaptionsTranslationOption");
-
-            } catch (JSONException e){}
+        ThirdPartyApp tpa = tpaSystem.getThirdPartyAppByPackageName(targetApp);
+        if (tpa == null) {
+            blePeripheral.sendNotifyManager("Could not find app", "error");
+            return;
         }
 
-        sendStatusToAugmentOsManager();
+        boolean allSuccess = true;
+        try {
+            // New loop over all keys in the settings object
+            Iterator<String> keys = settings.keys();
+            while (keys.hasNext()) {
+                String key = keys.next();
+                String value = settings.getString(key);
+                if(!tpa.updateSetting(this, key, value)) {
+                    allSuccess = false;
+                }
+            }
+        } catch (JSONException e) {
+            Log.e("AugmentOsService", "Failed to parse settings object", e);
+            allSuccess = false;
+        }
+
+        if (!allSuccess) {
+            blePeripheral.sendNotifyManager("Error updating settings", "error");
+        }
+
+        blePeripheral.sendAppInfoToManager(tpa);
     }
 
     public class LocalBinder extends Binder {

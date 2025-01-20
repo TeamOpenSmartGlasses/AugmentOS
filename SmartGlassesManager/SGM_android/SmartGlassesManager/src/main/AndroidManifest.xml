@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.teamopensmartglasses.smartglassesmanager">
 
-  <uses-sdk android:minSdkVersion="34"
+  <uses-sdk android:minSdkVersion="28"
       android:targetSdkVersion="34"
+      tools:overrideLibrary="com.vuzix.ultralite.sdk"
       />
 
     <!--    NETWORK-->
@@ -27,13 +28,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
 
-<!--    <queries>-->
-<!--        <intent>-->
-<!--            <action android:name="AUGMENTOS_INTENT" />-->
-<!--        </intent>-->
-<!--    </queries>-->
-
-    <queries>
+  <queries>
         <intent>
             <action android:name="android.intent.action.TTS_SERVICE" />
         </intent>

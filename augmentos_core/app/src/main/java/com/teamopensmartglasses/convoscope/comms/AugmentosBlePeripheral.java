@@ -19,6 +19,8 @@ import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
 
+import com.google.gson.Gson;
+import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.events.CoreToManagerOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.ManagerToCoreRequestEvent;
 
@@ -53,6 +55,7 @@ public class AugmentosBlePeripheral {
     private BluetoothGattServer gattServer;
     private BluetoothGattCharacteristic characteristic;
     private Context context;
+    private Gson gson;
     private BluetoothDevice connectedDevice;
     private AdvertiseCallback advertiseCallback;
     private Integer currentMtuSize = 251;  // Default MTU size
@@ -67,6 +70,8 @@ public class AugmentosBlePeripheral {
         this.context = context;
         this.callback = callback;  // Store callback to delegate commands
         this.parser = new AugmentOsManagerMessageParser(callback);  // Initialize the parser with callback
+
+        this.gson = new Gson();
 
         EventBus.getDefault().register(this);
 
@@ -410,6 +415,18 @@ public class AugmentosBlePeripheral {
             messageObj.put("message", message);
             messageObj.put("type", type);
             data.put("notify_manager", messageObj);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        sendDataToAugmentOsManager(data.toString());
+    }
+
+    public void sendAppInfoToManager(ThirdPartyApp tpa) {
+        Log.d(TAG, "sendNotifyManager");
+        JSONObject data = new JSONObject();
+        try{
+            data.put("app_info", tpa.toJson(true));
+
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

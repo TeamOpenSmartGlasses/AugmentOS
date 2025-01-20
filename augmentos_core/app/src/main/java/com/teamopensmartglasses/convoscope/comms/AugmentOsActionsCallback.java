@@ -12,11 +12,12 @@ public interface AugmentOsActionsCallback {
     void startApp(String packageName);
     void stopApp(String packageName);
     void setSensingEnabled(boolean sensingEnabled);
-    void installAppFromRepository(JSONObject repoAppData);
+    void installAppFromRepository(String repository, String packageName);
     void uninstallApp(String packageName);
     void handleNotificationData(JSONObject notificationData);
     void setAuthSecretKey(String authSecretKey);
     void verifyAuthSecretKey();
     void deleteAuthSecretKey();
     void updateAppSettings(String targetApp, JSONObject settings);
+    void requestAppInfo(String packageNameToGetDetails);
 }

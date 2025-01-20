@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.teamopensmartglasses.convoscope"
-        minSdk 30
+        minSdk 28
         targetSdk 33
         versionCode 1
         versionName "1.0"
