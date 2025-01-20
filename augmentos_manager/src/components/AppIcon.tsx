@@ -46,6 +46,8 @@ const AppIcon: React.FC<AppIconProps> = ({
                 case 'com.google.android.apps.maps':
                 case 'com.mentra.navigation':
                     return require('../assets/app-icons/navigation.png');
+                case 'com.mentra.shownotifications':
+                    return require('../assets/app-icons/phone-notifications.png');
                 default:
                     return require('../assets/app-icons/navigation.png');
             }
