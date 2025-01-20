@@ -86,24 +86,13 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
             Log.d(TAG, "Ultralites power button pressed: " + turningOn);
 
             //flip value of screen toggle
-            screenToggleOff = !turningOn;
+            screenToggleOff = !screenToggleOff;
 
             if (!screenToggleOff) {
                 Log.d(TAG, "screen toggle off NOT on, showing turn ON message");
                 displayReferenceCardSimple("SGM Connected.", "Screen back on...", 4);
             } else {
-                Log.d(TAG, "screen toggle off IS on, showing turn OFF message");
-//                ultraliteCanvas.clear();
-//                displayReferenceCardSimple("Toggling off....", "Toggling off...", -1);
-//                screenOffHandler.removeCallbacksAndMessages(this);
-//                screenOffHandler.removeCallbacksAndMessages(screenOffRunnable);
-//                screenOffRunnable = new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        ultraliteSdk.screenOff();
-//                    }
-//                };
-//                screenOffHandler.postDelayed(screenOffRunnable, 2200);
+                Log.d(TAG, "screen toggle off IS on");
             }
         }
     }
@@ -151,7 +140,8 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
             boolean isControlled = ultraliteSdk.requestControl();
             if (isControlled){
 //                setupUltraliteCanvas();
-                changeUltraliteLayout(Layout.CANVAS);
+//                changeUltraliteLayout(Layout.CANVAS);
+                showHomeScreen();
             } else {
                 return;
             }
@@ -167,7 +157,8 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         Log.d(TAG, "Ultralite CONTROL changed to: " + isControlledByMe);
         if(isControlledByMe) {
             hasUltraliteControl = true;
-            setupUltraliteCanvas();
+//            setupUltraliteCanvas();
+//            showHomeScreen();
             connectionEvent(2);
             displayReferenceCardSimple("Connected to SGM", "by TeamOpenSmartGlasses", 5);
         } else {
@@ -382,8 +373,9 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
     }
 
     public void showHomeScreen(){
-        changeUltraliteLayout(Layout.CANVAS);
-        ultraliteCanvas.clear();
+//        changeUltraliteLayout(Layout.CANVAS);
+//        ultraliteCanvas.clear();
+        ultraliteSdk.screenOff();
         screenIsClear = true;
     }
 
@@ -400,8 +392,10 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
             return;
         }
 
+        ultraliteSdk.screenOn();
+
         currentUltraliteLayout = chosenLayout;
-        ultraliteSdk.setLayout(chosenLayout, 0, true);
+        ultraliteSdk.setLayout(chosenLayout, 0, true, false, 2);
 
         if (chosenLayout.equals(Layout.CANVAS)){
             if (ultraliteCanvas == null){

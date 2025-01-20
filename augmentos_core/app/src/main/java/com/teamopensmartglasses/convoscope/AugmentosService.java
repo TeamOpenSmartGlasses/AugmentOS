@@ -243,6 +243,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     private int batteryLevel = 100;
 
+    private boolean showingDashboardNow = false;
+
     public AugmentosService() {
     }
 
@@ -691,9 +693,15 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         long time = event.timestamp;
 
         Log.d(TAG, "GLASSES TAPPED X TIMES: " + numTaps + " SIDEOFGLASSES: " + sideOfGlasses);
-        if (numTaps == 3) {
-//            sendLatestCSEResultViaSms();
-            Log.d(TAG, "GOT A TRIPLE TAP");
+        if (numTaps == 2 || numTaps == 3) {
+            if (!showingDashboardNow) {
+                Log.d(TAG, "GOT A DOUBLE+ TAP");
+                EventBus.getDefault().post(new DisplayGlassesDashboardEvent());
+                //            sendLatestCSEResultViaSms();
+            } else {
+                smartGlassesService.sendHomeScreen();
+            }
+            showingDashboardNow = !showingDashboardNow;
         }
     }
 
