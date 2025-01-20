@@ -267,9 +267,9 @@ public class AugmentOSConfigProvider extends ContentProvider {
                     break;
 
                 case "slider":
-                    if (newValue instanceof Integer) {
+                    if (newValue instanceof Number) {
                         // Optionally, clamp to min/max
-                        int val = (Integer) newValue;
+                        int val = ((Number) newValue).intValue();
                         JSONObject settingItem = getSettingItem(key);
                         if (settingItem != null) {
                             Integer minVal = settingItem.has("min") ? settingItem.getInt("min") : null;
@@ -295,6 +295,16 @@ public class AugmentOSConfigProvider extends ContentProvider {
                             jsonArray.put(obj.toString());
                         }
                         editor.putString(key, jsonArray.toString());
+                    } else if (newValue instanceof String) {
+                        try {
+                            // Validate if the string is a valid JSON array
+                            new JSONArray((String) newValue);
+                            editor.putString(key, (String) newValue);
+                            Log.d(TAG, "Updated multiselect '" + key + "' to " + newValue);
+                        } catch (Exception e) {
+                            Log.e(TAG, "Invalid JSON array string for multiselect: " + newValue, e);
+                            return 0;
+                        }
                     } else {
                         Log.e(TAG, "Invalid type for multiselect: " + newValue);
                         return 0;
