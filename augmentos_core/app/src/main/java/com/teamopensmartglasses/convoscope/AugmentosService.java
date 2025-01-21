@@ -2492,13 +2492,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             for (ThirdPartyApp tpa : tpaSystem.getThirdPartyApps()) {
                 if(tpa.appType != ThirdPartyAppType.APP) continue;
 
-                JSONObject tpaObj = new JSONObject();
-                tpaObj.put("name", tpa.appName);
-                tpaObj.put("description", tpa.appDescription);
+                JSONObject tpaObj = tpa.toJson(false);
+                //JSONObject tpaObj = new JSONObject();
+                //tpaObj.put("name", tpa.appName);
+                //tpaObj.put("description", tpa.appDescription);
                 tpaObj.put("is_running", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
                 tpaObj.put("is_foreground", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
-                tpaObj.put("package_name", tpa.packageName);
-                tpaObj.put("type", tpa.appType.name());
+                //tpaObj.put("package_name", tpa.packageName);
+                //tpaObj.put("type", tpa.appType.name());
                 apps.put(tpaObj);
             }
 

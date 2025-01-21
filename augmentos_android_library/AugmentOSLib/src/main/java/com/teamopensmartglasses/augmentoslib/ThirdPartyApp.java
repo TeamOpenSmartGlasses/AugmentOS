@@ -98,7 +98,7 @@ public class ThirdPartyApp implements Serializable {
         }
     }
 
-    public JSONObject toJson(boolean includeDetails) {
+    public JSONObject toJson(boolean includeSettings) {
         JSONObject tpaObj = new JSONObject();
         try {
             tpaObj.put("name", appName);
@@ -107,7 +107,7 @@ public class ThirdPartyApp implements Serializable {
             tpaObj.put("package_name", packageName);
             tpaObj.put("type", appType.name());
 
-            if(includeDetails) {
+            if(includeSettings) {
                 tpaObj.put("settings", settings);
             }
         } catch (JSONException e) {
