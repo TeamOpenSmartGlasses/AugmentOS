@@ -13,3 +13,7 @@ export const stopExternalService = () => {
 export const openCorePermissionsActivity = () => {
     ServiceStarter.openPermissionsActivity();
 };
+
+export const isAugmentOsCoreInstalled = async () => {
+    return ServiceStarter.isAugmentOsCoreInstalled();
+};

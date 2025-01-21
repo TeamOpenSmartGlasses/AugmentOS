@@ -4,7 +4,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
 
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.TextToSpeechEvent;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -14,13 +16,15 @@ public class AudioWearableSGC extends SmartGlassesCommunicator {
     private static boolean killme;
 
     Context context;
+    SmartGlassesDevice smartGlassesDevice;
 
-    public AudioWearableSGC(Context context){
+    public AudioWearableSGC(Context context, SmartGlassesDevice smartGlassesDevice){
         super();
 
         //state information
         killme = false;
         mConnectState = 0;
+        this.smartGlassesDevice = smartGlassesDevice;
     }
 
     public void setFontSizes(){
@@ -41,7 +45,7 @@ public class AudioWearableSGC extends SmartGlassesCommunicator {
         killme = true;
     }
 
-    public void displayReferenceCardSimple(String title, String body){
+    public void displayReferenceCardSimple(String title, String body, int lingerTimeMs){
         Log.d(TAG, "TTS reference card");
         EventBus.getDefault().post(new TextToSpeechEvent(title + ", " + body, "english"));
     }
@@ -100,6 +104,10 @@ public class AudioWearableSGC extends SmartGlassesCommunicator {
         displayTextLine(json);
     }
 
+    @Override
+    public void findCompatibleDeviceNames() {
+        EventBus.getDefault().post(new GlassesBluetoothSearchDiscoverEvent(smartGlassesDevice.deviceModelName, "NOTREQUIREDSKIP"));
+    }
 
     public void showNaturalLanguageCommandScreen(String prompt, String naturalLanguageArgs){
     }

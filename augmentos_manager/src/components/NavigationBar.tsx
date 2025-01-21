@@ -18,6 +18,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
   const navigation = useNavigation<NavigationProps>();
   const iconColor = isDarkTheme ? '#FFFFFF' : '#000000';
   const backgroundColor = isDarkTheme ? '#000000' : '#F2F2F7';
+  const disabledColor = isDarkTheme ? '#666666' : '#CCCCCC';
   const iconSize = 24;
 
   // Different icon sets
@@ -67,22 +68,24 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
       {/* Glasses Mirror Icon */}
       <TouchableOpacity
         onPress={() => navigation.navigate('GlassesMirror')}
+        disabled={true}
         style={styles.iconWrapper}>
         <MaterialCommunityIcons
           name={icons.mirror}
           size={iconSize}
-          color={iconColor}
+          color={disabledColor}
         />
       </TouchableOpacity>
 
       {/* App Store Icon */}
       <TouchableOpacity
         onPress={() => navigation.navigate('AppStore')}
+        disabled={true}
         style={styles.iconWrapper}>
         <MaterialCommunityIcons
           name={icons.apps}
           size={iconSize}
-          color={iconColor}
+          color={disabledColor}
         />
       </TouchableOpacity>
 
@@ -110,7 +113,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    height: 56,
+    height: 55,
     borderTopWidth: 0.5,
     borderTopColor: '#E5E5EA',
   },

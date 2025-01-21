@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.Log;
@@ -15,6 +14,8 @@ import androidx.lifecycle.LiveData;
 import com.teamopensmartglasses.smartglassesmanager.R;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.vuzix.ultralite.Anchor;
 import com.vuzix.ultralite.EventListener;
 import com.vuzix.ultralite.Layout;
@@ -22,6 +23,8 @@ import com.vuzix.ultralite.TextAlignment;
 import com.vuzix.ultralite.TextWrapMode;
 import com.vuzix.ultralite.UltraliteColor;
 import com.vuzix.ultralite.UltraliteSDK;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -63,6 +66,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
 
     boolean hasUltraliteControl;
     boolean screenIsClear;
+    SmartGlassesDevice smartGlassesDevice;
 
     public class UltraliteListener implements EventListener{
         @Override
@@ -82,29 +86,18 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
             Log.d(TAG, "Ultralites power button pressed: " + turningOn);
 
             //flip value of screen toggle
-            screenToggleOff = !turningOn;
+            screenToggleOff = !screenToggleOff;
 
             if (!screenToggleOff) {
                 Log.d(TAG, "screen toggle off NOT on, showing turn ON message");
                 displayReferenceCardSimple("SGM Connected.", "Screen back on...", 4);
             } else {
-                Log.d(TAG, "screen toggle off IS on, showing turn OFF message");
-//                ultraliteCanvas.clear();
-//                displayReferenceCardSimple("Toggling off....", "Toggling off...", -1);
-//                screenOffHandler.removeCallbacksAndMessages(this);
-//                screenOffHandler.removeCallbacksAndMessages(screenOffRunnable);
-//                screenOffRunnable = new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        ultraliteSdk.screenOff();
-//                    }
-//                };
-//                screenOffHandler.postDelayed(screenOffRunnable, 2200);
+                Log.d(TAG, "screen toggle off IS on");
             }
         }
     }
 
-    public UltraliteSGC(Context context, LifecycleOwner lifecycleOwner) {
+    public UltraliteSGC(Context context, SmartGlassesDevice smartGlassesDevice, LifecycleOwner lifecycleOwner) {
         super();
         this.lifecycleOwner = lifecycleOwner;
         this.context = context;
@@ -117,6 +110,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         killHandler = new Handler();
 
         rowTextsLiveNow = new ArrayList<Integer>();
+        this.smartGlassesDevice = smartGlassesDevice;
 
         ultraliteSdk = UltraliteSDK.get(context);
         ultraliteListener = new UltraliteListener();
@@ -146,7 +140,8 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
             boolean isControlled = ultraliteSdk.requestControl();
             if (isControlled){
 //                setupUltraliteCanvas();
-                changeUltraliteLayout(Layout.CANVAS);
+//                changeUltraliteLayout(Layout.CANVAS);
+                showHomeScreen();
             } else {
                 return;
             }
@@ -162,7 +157,8 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         Log.d(TAG, "Ultralite CONTROL changed to: " + isControlledByMe);
         if(isControlledByMe) {
             hasUltraliteControl = true;
-            setupUltraliteCanvas();
+//            setupUltraliteCanvas();
+//            showHomeScreen();
             connectionEvent(2);
             displayReferenceCardSimple("Connected to SGM", "by TeamOpenSmartGlasses", 5);
         } else {
@@ -173,6 +169,11 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
 
     @Override
     protected void setFontSizes(){
+    }
+
+    @Override
+    public void findCompatibleDeviceNames() {
+        EventBus.getDefault().post(new GlassesBluetoothSearchDiscoverEvent(smartGlassesDevice.deviceModelName, "NOTREQUIREDSKIP"));
     }
 
     @Override
@@ -372,8 +373,9 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
     }
 
     public void showHomeScreen(){
-        changeUltraliteLayout(Layout.CANVAS);
-        ultraliteCanvas.clear();
+//        changeUltraliteLayout(Layout.CANVAS);
+//        ultraliteCanvas.clear();
+        ultraliteSdk.screenOff();
         screenIsClear = true;
     }
 
@@ -390,8 +392,10 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
             return;
         }
 
+        ultraliteSdk.screenOn();
+
         currentUltraliteLayout = chosenLayout;
-        ultraliteSdk.setLayout(chosenLayout, 0, true);
+        ultraliteSdk.setLayout(chosenLayout, 0, true, false, 2);
 
         if (chosenLayout.equals(Layout.CANVAS)){
             if (ultraliteCanvas == null){

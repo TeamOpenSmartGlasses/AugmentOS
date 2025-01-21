@@ -13,6 +13,9 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+
 
     <!-- Add Permission for Notification Listener -->
     <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />
@@ -20,11 +23,14 @@
     <application android:name=".MainApplication" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:allowBackup="false" android:theme="@style/AppTheme" android:supportsRtl="true">
 
         <!-- Declare NotificationListenerService -->
-        <service android:name=".NotificationListenerService" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" android:exported="true">
+        <!-- <service 
+            android:name="com.teamopensmartglasses.augmentos_manager.NotificationService" 
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" 
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
-        </service>
+        </service> -->
 
         <service android:name="com.teamopensmartglasses.augmentos_manager.ManagerCoreCommsService" android:exported="true">
             <intent-filter>
@@ -32,6 +38,22 @@
             </intent-filter>
             <meta-data android:name="com.augmentos.tpa.name" android:value="AugmentOS Manager" />
             <meta-data android:name="com.augmentos.tpa.description" android:value="AugmentOS Manager Description" />
+        </service>
+
+        <service
+            android:name="com.teamopensmartglasses.augmentos_manager.NotificationService"
+            android:label="@string/app_name"
+            android:exported="false"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+          <intent-filter>
+            <action android:name="android.service.notification.NotificationListenerService" />
+          </intent-filter>
+          <meta-data
+              android:name="android.service.notification.default_filter_types"
+              android:value="conversations|alerting"/>
+          <meta-data
+              android:name="android.service.notification.disabled_filter_types"
+              android:value="ongoing|silent"/>
         </service>
 
 
@@ -42,22 +64,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!-- 
-        <receiver android:name=".CoreMessageIntentEvent" android:exported="true" android:enabled="true">
-            <intent-filter>
-                <action android:name="AUGMENTOS_INTENT" />
-            </intent-filter>
-        </receiver> -->
-    
-    
-         <!-- <receiver
-        android:name="com.teamopensmartglasses.augmentoslib.TPABroadcastReceiver"
-        android:enabled="true"
-        android:exported="true" >
-      <intent-filter>
-        <action android:name="com.teamopensmartglasses.totpa" />
-      </intent-filter>
-    </receiver> -->
     </application>
 
     <queries>

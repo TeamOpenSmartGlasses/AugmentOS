@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -8,13 +8,14 @@ import {
   Platform,
   ScrollView,
   Animated,
+  Alert,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {useStatus} from '../AugmentOSStatusProvider';
-import {BluetoothService} from '../BluetoothService';
-import {loadSetting, saveSetting} from '../augmentos_core_comms/SettingsHelper';
-import {SETTINGS_KEYS} from '../consts';
+import { useStatus } from '../AugmentOSStatusProvider';
+import { BluetoothService } from '../BluetoothService';
+import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
+import { SETTINGS_KEYS } from '../consts';
 import NavigationBar from '../components/NavigationBar';
 
 interface SettingsPageProps {
@@ -31,16 +32,20 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   const [isDoNotDisturbEnabled, setDoNotDisturbEnabled] = React.useState(false);
   const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] =
     React.useState(false);
-  const {status} = useStatus();
-  const [isUsingAudioWearable, setIsUsingAudioWearable] = React.useState(
-    status.default_wearable == 'Audio Wearable',
+  const { status } = useStatus();
+  const [isSensingEnabled, setIsSensingEnabled] = React.useState(
+    status.sensing_enabled,
   );
 
   React.useEffect(() => {
-    const loadInitialSettings = async () => {};
+    const loadInitialSettings = async () => { };
 
     loadInitialSettings();
   }, []);
+
+  React.useEffect(() => {
+    setIsSensingEnabled(status.sensing_enabled);
+  }, [status])
 
   const switchColors = {
     trackColor: {
@@ -52,10 +57,10 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     ios_backgroundColor: isDarkTheme ? '#666666' : '#D1D1D6',
   };
 
-  const toggleVirtualWearable = async () => {
-    let isUsingAudio = status.default_wearable == 'Audio Wearable';
-    BluetoothService.getInstance().sendToggleVirtualWearable(!isUsingAudio);
-    setIsUsingAudioWearable(!isUsingAudio);
+  const toggleSensing = async () => {
+    let newSensing = !isSensingEnabled;
+    BluetoothService.getInstance().sendToggleSensing(newSensing);
+    setIsSensingEnabled(newSensing);
   };
 
   const sendDisconnectWearable = async () => {
@@ -65,6 +70,10 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   const forgetPuck = async () => {
     await BluetoothService.getInstance().disconnectFromDevice();
     await saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, null);
+  };
+
+  const forgetGlasses = async () => {
+    await BluetoothService.getInstance().sendForgetSmartGlasses();
   };
 
   // Theme colors
@@ -80,6 +89,24 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     categoryChipText: isDarkTheme ? '#FFFFFF' : '#555555',
     selectedChipBg: isDarkTheme ? '#666666' : '#333333',
     selectedChipText: isDarkTheme ? '#FFFFFF' : '#FFFFFF',
+  };
+
+  const confirmForgetGlasses = () => {
+    Alert.alert(
+      "Forget Glasses",
+      "Are you sure you want to forget your glasses?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Yes",
+          onPress: forgetGlasses,
+        },
+      ],
+      { cancelable: false }
+    );
   };
 
   return (
@@ -104,7 +131,9 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
       </View>
       {/* Margin bottom is 60 as super quick ugly hack for navbar */}
       <ScrollView style={styles.scrollViewContainer}>
-        <View style={styles.settingItem}>
+        
+        {/* Dark Mode */}
+        {/* <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
             <Text
               style={[
@@ -128,9 +157,9 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
             thumbColor={switchColors.thumbColor}
             ios_backgroundColor={switchColors.ios_backgroundColor}
           />
-        </View>
+        </View> */}
 
-        <View style={styles.settingItem}>
+        {/* <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
             <Text
               style={[
@@ -156,10 +185,10 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
             thumbColor={switchColors.thumbColor}
             ios_backgroundColor={switchColors.ios_backgroundColor}
           />
-        </View>
+        </View> */}
 
-        {/* Temporary until we make a proper page for thsi */}
-        {Platform.OS == 'android' && (
+        {/* Disable changing simulated puck */}
+        {/* {Platform.OS == 'android' && (
           <TouchableOpacity
             style={styles.settingItem}
             onPress={() => {
@@ -182,7 +211,78 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               }
             />
           </TouchableOpacity>
-        )}
+        )} */}
+
+
+        <TouchableOpacity
+          style={styles.settingItem}
+          onPress={() => {
+            navigation.navigate('PhoneNotificationSettings');
+          }}>
+          <View style={styles.settingTextContainer}>
+            <Text
+              style={[
+                styles.label,
+                isDarkTheme ? styles.lightText : styles.darkText,
+              ]}>
+              Notifications
+            </Text>
+          </View>
+          <Icon
+            name="angle-right"
+            size={20}
+            color={
+              isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color
+            }
+          />
+        </TouchableOpacity>
+
+        <View style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text
+              style={[
+                styles.label,
+                isDarkTheme ? styles.lightText : styles.darkText,
+                (!status.puck_connected || !status.glasses_info?.model_name) && styles.disabledItem
+              ]}>
+              Sensing
+            </Text>
+            <Text
+              style={[
+                styles.value,
+                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
+                (!status.puck_connected || !status.glasses_info?.model_name) && styles.disabledItem
+              ]}>
+              Enable microphones & cameras
+            </Text>
+          </View>
+          <Switch
+            disabled={!status.glasses_info?.model_name}
+            value={isSensingEnabled}
+            onValueChange={toggleSensing}
+            trackColor={switchColors.trackColor}
+            thumbColor={switchColors.thumbColor}
+            ios_backgroundColor={switchColors.ios_backgroundColor}
+          />
+        </View>
+
+        <TouchableOpacity
+          style={styles.settingItem}
+          disabled={!status.puck_connected || status.default_wearable == ""}
+          onPress={() => {
+            confirmForgetGlasses();
+          }}>
+          <View style={styles.settingTextContainer}>
+            <Text
+              style={[
+                styles.label,
+                styles.redText,
+                (!status.puck_connected || status.default_wearable === "") && styles.disabledItem
+              ]}>
+              Forget Glasses
+            </Text>
+          </View>
+        </TouchableOpacity>
 
         {/* <TouchableOpacity style={styles.settingItem}>
         <View style={styles.settingTextContainer}>
@@ -280,7 +380,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
 
 const styles = StyleSheet.create({
   scrollViewContainer: {
-    marginBottom: 60,
+    marginBottom: 55,
   },
   container: {
     flex: 1,
@@ -312,6 +412,9 @@ const styles = StyleSheet.create({
   },
   lightBackground: {
     backgroundColor: '#f0f0f0',
+  },
+  redText: {
+    color: '#FF0F0F', // Using orange as a warning color
   },
   darkText: {
     color: 'black',
@@ -373,6 +476,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '600',
     color: '#333',
+  },
+  disabledItem: {
+    opacity: 0.4,       // or any other styling to indicate disabled
+  },
+  disabledText: {
+    color: '#aaaaaa',   // for example, a grey color
   },
 });
 

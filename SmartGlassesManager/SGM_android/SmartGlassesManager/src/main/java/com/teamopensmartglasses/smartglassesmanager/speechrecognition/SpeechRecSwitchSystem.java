@@ -1,10 +1,12 @@
 package com.teamopensmartglasses.smartglassesmanager.speechrecognition;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.teamopensmartglasses.augmentoslib.events.AudioChunkNewEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.PauseAsrEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.azure.SpeechRecAzure;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.deepgram.SpeechRecDeepgram;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.google.SpeechRecGoogle;
@@ -20,9 +22,29 @@ public class SpeechRecSwitchSystem {
     private SpeechRecGoogle speechRecGoogle;
     private Context mContext;
     public String currentLanguage;
+    public static boolean sensing_enabled;
 
     public SpeechRecSwitchSystem(Context mContext) {
         this.mContext = mContext;
+        sensing_enabled = getSensingEnabled();
+    }
+
+    private boolean getSensingEnabled() {
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences("AugmentOSPrefs", Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean("sensing_enabled", true);
+    }
+
+    public void saveSensingEnabled(boolean enabled) {
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences("AugmentOSPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("sensing_enabled", enabled);
+        editor.apply();
+    }
+
+    @Subscribe
+    public void onSetSensingEnabledEvent(SetSensingEnabledEvent event){
+        sensing_enabled = event.enabled;
+        saveSensingEnabled(event.enabled);
     }
 
     public void startAsrFramework(ASR_FRAMEWORKS asrFramework) {
@@ -48,10 +70,10 @@ public class SpeechRecSwitchSystem {
         } else if (this.asrFramework == ASR_FRAMEWORKS.DEEPGRAM_ASR_FRAMEWORK){
             speechRecFramework = new SpeechRecDeepgram(mContext, language);
         } else if (this.asrFramework == ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK){
-            speechRecFramework = new SpeechRecAzure(mContext, language);
+            speechRecFramework = SpeechRecAzure.getInstance(mContext, language);
         } else {
             Log.e(TAG, "Falling back to Azure ASR Framework, as the selected ASR framework is not supported.");
-            speechRecFramework = new SpeechRecAzure(mContext, language);
+            speechRecFramework = SpeechRecAzure.getInstance(mContext, language);
         }
 
         //start asr
@@ -79,7 +101,7 @@ public class SpeechRecSwitchSystem {
         this.asrFramework = asrFramework;
 
         //create new asr
-        speechRecFramework = new SpeechRecAzure(mContext, transcribeLanguage, sourceLanguage);
+        speechRecFramework = SpeechRecAzure.getInstance(mContext, transcribeLanguage, sourceLanguage);
 
         //start asr
         speechRecFramework.start();
@@ -90,6 +112,10 @@ public class SpeechRecSwitchSystem {
     public void onAudioChunkNewEvent(AudioChunkNewEvent receivedEvent){
         //redirect audio to the currently in use ASR framework, if it's not paused
         if (!speechRecFramework.pauseAsrFlag) {
+            if (!sensing_enabled){
+                Log.d(TAG,"Sensing is disabled");
+                return;
+            }
             speechRecFramework.ingestAudioChunk(receivedEvent.thisChunk);
         }
     }

@@ -26,6 +26,7 @@ export interface AppInfo {
   is_foreground: boolean;
   package_name: string;
   icon: string;
+  type: string;
 }
 
 export interface AugmentOSMainStatus {
@@ -33,6 +34,7 @@ export interface AugmentOSMainStatus {
   puck_battery_life: number | null;
   puck_charging_status: boolean;
   default_wearable: string | null,
+  sensing_enabled: boolean;
   glasses_info: Glasses | null;
   wifi: WifiConnection | null;
   gsm: GSMConnection | null;
@@ -44,6 +46,7 @@ export class AugmentOSParser {
     puck_connected: false,
     puck_battery_life: null,
     puck_charging_status: false,
+    sensing_enabled: false,
     default_wearable: null,
     glasses_info: null,
     wifi: { is_connected: false, ssid: '', signal_strength: 0 },
@@ -55,9 +58,12 @@ export class AugmentOSParser {
     puck_connected: true,
     puck_battery_life: 88,
     puck_charging_status: true,
-    default_wearable: 'Vuzix Z100',
+    sensing_enabled: true,
+   // default_wearable: 'Vuzix Z100',
+   default_wearable: 'evenrealities_g1',
     glasses_info: {
-      model_name: 'Vuzix Z100',
+      model_name: 'Even Realities G1',
+      //model_name: 'Vuzix Z100',
       battery_life: 60,
       is_searching: false,
       brightness: 87,
@@ -72,62 +78,70 @@ export class AugmentOSParser {
         description: 'AI executive functioning aid',
         is_running: true,
         is_foreground: true,
+        type: 'APP'
       },
       {
-        name: 'Translator',
-        package_name: 'com.translator.app',
+        name: 'Live Translation',
+        package_name: 'com.mentra.livetranslation',
         icon: '/assets/app-icons/translation.png',
         description: 'Movie and TV streaming',
-        is_running: true,
+        is_running: false,
         is_foreground: false,
+        type: 'APP'
       },
       {
         name: 'Navigation',
-        package_name: 'com.google.android.apps.maps',
-        icon: '/assets/icons/navigation.png',
+        package_name: 'com.mentra.navigation',
+        icon: '/assets/app-icons/navigation.png',
         description: 'Navigation app',
-        is_running: true,
+        is_running: false,
         is_foreground: false,
+        type: 'APP'
       },
       {
         name: 'Mira AI',
-        package_name: 'com.example.miraai',
-        icon: '/assets/icons/mira-ai.png',
+        package_name: 'com.mentra.miraai',
+        icon: '/assets/app-icons/mira-ai.png',
         description: 'AI assistant',
-        is_running: true,
+        is_running: false,
         is_foreground: false,
+        type: 'APP'
       },
       {
-        name: 'Mirror',
-        package_name: 'com.example.screenmirror',
-        icon: '/assets/icons/screen-mirror.png',
+        name: 'Screen Mirror',
+        package_name: 'com.mentra.screenmirror',
+        icon: '/assets/app-icons/screen-mirror.png',
         description: 'Screen mirroring app',
         is_running: false,
         is_foreground: false,
+        type: 'APP'
       },
       {
         name: 'Captions',
-        package_name: 'com.example.livecaptions',
-        icon: '/assets/icons/captions.png',
+        package_name: 'com.mentra.livecaptions',
+        icon: '/assets/app-icons/captions.png',
         description: 'Live captioning app',
         is_running: false,
         is_foreground: false,
+        type: 'APP'
       },
       {
         name: 'ADHD Aid',
-        package_name: 'com.example.adhdaid',
-        icon: '/assets/icons/adhd-aid.png',
+        package_name: 'com.mentra.adhdaid',
+        icon: '/assets/app-icons/adhd-aid.png',
         description: 'ADHD aid app',
         is_running: false,
         is_foreground: false,
+        type: 'APP'
       },
       {
         name: 'Mentra Link',
         package_name: 'com.mentra.link',
-        icon: '/assets/icons/mentra-link.png',
+        icon: '/assets/app-icons/mentra-link.png',
         description: 'Language learning app',
         is_running: false,
         is_foreground: false,
+        type: 'APP'
       },
     ],
   };
@@ -142,6 +156,7 @@ export class AugmentOSParser {
         puck_connected: true,
         puck_battery_life: status.puck_battery_life ?? null,
         puck_charging_status: status.charging_status ?? false,
+        sensing_enabled: status.sensing_enabled ?? false,
         default_wearable: status.default_wearable ?? null,
         glasses_info: status.connected_glasses
           ? {
@@ -160,6 +175,7 @@ export class AugmentOSParser {
           is_foreground: !!app.is_foreground,
           package_name: app.package_name || 'unknown.package',
           icon: app.icon || '/assets/icons/default-app.png',
+          type: app.type || 'APP'
         })) || [],
       };
     }

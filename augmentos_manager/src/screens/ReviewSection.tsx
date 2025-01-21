@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     flex: 1,
     paddingHorizontal: 20,
-    marginBottom: 60,
+    marginBottom: 55,
   },
   reviewBubble: {
     position: 'absolute',

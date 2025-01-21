@@ -20,7 +20,6 @@ import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.LifecycleService;
 import androidx.preference.PreferenceManager;
 
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.PostGenericGlobalMessageEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartGlassesConnectedEvent;
 import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.teamopensmartglasses.smartglassesmanager.comms.MessageTypes;
@@ -45,6 +44,7 @@ import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecS
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.EvenRealitiesG1;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.InmoAirOne;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.MentraMach1;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.TCLRayNeoXTwo;
@@ -59,6 +59,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import io.reactivex.rxjava3.subjects.PublishSubject;
 
@@ -153,12 +154,39 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         connectHandler.post(new Runnable() {
             @Override
             public void run() {
-                 Log.d(TAG, "CONNECTING TO SMART GLASSES");
+                Log.d(TAG, "CONNECTING TO SMART GLASSES");
                 smartGlassesRepresentative = new SmartGlassesRepresentative(currContext, device, currContext, dataObservable);
                 smartGlassesRepresentative.connectToSmartGlasses();
             }
         });
     }
+
+    public void findCompatibleDeviceNames(SmartGlassesDevice device) {
+        LifecycleService currContext = this;
+        smartGlassesRepresentative = new SmartGlassesRepresentative(currContext, device, currContext, dataObservable);
+        smartGlassesRepresentative.findCompatibleDeviceNames();
+    }
+
+//    public boolean tryConnectToPreferredWearable() {
+//        String preferredWearableName = getPreferredWearable(getApplicationContext());
+//
+//        if (preferredWearableName == null || preferredWearableName.trim().isEmpty()) {
+//            Log.d(TAG, "No preferred wearable stored. Cannot connect.");
+//            return false;
+//        }
+//
+//        SmartGlassesDevice matchingDevice = getSmartGlassesDeviceFromModelName(preferredWearableName);
+//
+//        if (matchingDevice != null) {
+//            Log.d(TAG, "Trying to connect to preferred wearable: " + preferredWearableName);
+//            connectToSmartGlasses(matchingDevice);
+//            return true;
+//        } else {
+//            Log.d(TAG, "Preferred wearable \"" + preferredWearableName + "\" not recognized in our known devices list.");
+//            return false;
+//        }
+//    }
+
 
     @Override
     public void onDestroy() {
@@ -355,14 +383,12 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
     //switches the currently running transcribe language without changing the default/saved language
     public void switchRunningTranscribeLanguage(String language){
-        if (speechRecSwitchSystem != null) {
-            if (speechRecSwitchSystem.currentLanguage.equals(language)) {
-                return;
-            }
-            speechRecSwitchSystem.destroy();
+        if (speechRecSwitchSystem.currentLanguage.equals(language)){
+            return;
         }
 
         //kill previous speech rec
+        speechRecSwitchSystem.destroy();
         speechRecSwitchSystem = null;
 
         //start speech rec after small delay
@@ -380,21 +406,25 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             }
         }, 250);
     }
+
     //switches the currently running transcribe language without changing the default/saved language
     public void startTranslationStream(String toTranslateLanguage){
-        String language;
-
-        if (speechRecSwitchSystem == null) {
-            language = getChosenTranscribeLanguage(this.getApplicationContext());
-        } else {
-            language = speechRecSwitchSystem.currentLanguage;
-            speechRecSwitchSystem.destroy();
-        }
-
-        Log.d(TAG, "TRANSLATION STREAM STARTED" + language);
+//        String language;
+//
+//        if (speechRecSwitchSystem == null) {
+////            language = getChosenTranscribeLanguage(this.getApplicationContext());
+//            language = "English";
+//        } else {
+//            language = speechRecSwitchSystem.currentLanguage;
+//            speechRecSwitchSystem.destroy();
+//        }
+//
+//        Log.d(TAG, "TRANSLATION STREAM STARTED" + language);
+        String language = speechRecSwitchSystem.currentLanguage;
         translationLanguage = toTranslateLanguage;
 
         //kill previous speech rec
+        speechRecSwitchSystem.destroy();
         speechRecSwitchSystem = null;
 
         //start speech rec after small delay
@@ -407,14 +437,8 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
                 ASR_FRAMEWORKS asrFramework = getChosenAsrFramework(context);
                 speechRecSwitchSystem.startAsrFramework(ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK, language, toTranslateLanguage); //force azure because translation
             }
-        }, 250);
-    }
-
-    public void killTranslationStream(){
-        translationLanguage = null;
-        speechRecSwitchSystem.destroy();
-        speechRecSwitchSystem = null;
-        switchRunningTranscribeLanguage(getChosenTranscribeLanguage(this.getApplicationContext()));
+        }, 2000);
+        Log.d(TAG, "SSTOPPING TRANSCRIBE LANGUAGE IN n seconds");
     }
 
     //service stuff
@@ -481,6 +505,28 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         return Service.START_STICKY;
     }
 
+    public static SmartGlassesDevice getSmartGlassesDeviceFromModelName(String modelName) {
+        ArrayList<SmartGlassesDevice> allDevices = new ArrayList<>(
+                Arrays.asList(
+                        new VuzixUltralite(),
+                        new MentraMach1(),
+                        new EvenRealitiesG1(),
+                        new VuzixShield(),
+                        new InmoAirOne(),
+                        new TCLRayNeoXTwo(),
+                        new AudioWearable()
+                )
+        );
+
+        SmartGlassesDevice matchingDevice = null;
+        for (SmartGlassesDevice device : allDevices) {
+            if (device.deviceModelName.equals(modelName)) {
+                return device;
+            }
+        }
+
+        return null;
+    }
 
     // Setup for aioConnectSmartGlasses
     ArrayList<SmartGlassesDevice> smartGlassesDevices = new ArrayList<>();
@@ -525,6 +571,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             if (smartGlassesRepresentative != null && smartGlassesRepresentative.getConnectionState() == 2) { // Check if connected
                 Toast.makeText(getApplicationContext(), "Connected to " + smartGlassesRepresentative.smartGlassesDevice.deviceModelName, Toast.LENGTH_LONG).show();
                 Log.d(TAG, "Connected to: " + smartGlassesRepresentative.smartGlassesDevice.deviceModelName);
+//                sendReferenceCard("Connected", "Connected to AugmentOS");
 
                 // Stop all retries and connected checker
                 aioRetryHandler.removeCallbacks(aioRetryConnectionTask);
@@ -546,8 +593,8 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         }
 
         String preferred = getPreferredWearable(this.getApplicationContext());
-        //smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new EvenRealitiesG1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
-        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
+        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new EvenRealitiesG1(), new VuzixUltralite(), new MentraMach1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
+//        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new MentraMach1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
         for (int i = 0; i < smartGlassesDevices.size(); i++){
             if (smartGlassesDevices.get(i).deviceModelName.equals(preferred)){
                 // Move to start for earliest search priority
@@ -579,6 +626,11 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     //show a reference card on the smart glasses with title and body text
     public static void sendReferenceCard(String title, String body) {
         EventBus.getDefault().post(new ReferenceCardSimpleViewRequestEvent(title, body));
+    }
+
+    //show a reference card on the smart glasses with title and body text
+    public static void sendReferenceCard(String title, String body, int lingerTimeMs) {
+        EventBus.getDefault().post(new ReferenceCardSimpleViewRequestEvent(title, body, lingerTimeMs));
     }
 
     //show a text wall card on the smart glasses

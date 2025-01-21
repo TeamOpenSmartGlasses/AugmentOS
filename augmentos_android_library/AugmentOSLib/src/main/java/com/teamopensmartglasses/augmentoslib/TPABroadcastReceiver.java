@@ -15,6 +15,7 @@ import com.teamopensmartglasses.augmentoslib.events.FocusChangedEvent;
 import com.teamopensmartglasses.augmentoslib.events.GlassesPovImageEvent;
 import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
+import com.teamopensmartglasses.augmentoslib.events.NotificationEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.TranslateOutputEvent;
@@ -67,6 +68,9 @@ public class TPABroadcastReceiver extends BroadcastReceiver {
                 break;
             case CoreToManagerOutputEvent.eventId:
                 EventBus.getDefault().post((CoreToManagerOutputEvent) serializedEvent);
+                break;
+            case NotificationEvent.eventId:
+                EventBus.getDefault().post((NotificationEvent) serializedEvent);
                 break;
         }
     }
