@@ -16,6 +16,7 @@
 <!--  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>-->
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
   <uses-permission android:name="android.permission.BLUETOOTH" />
   <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />

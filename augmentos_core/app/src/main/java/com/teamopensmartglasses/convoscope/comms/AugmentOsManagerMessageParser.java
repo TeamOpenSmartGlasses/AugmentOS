@@ -63,10 +63,10 @@ public class AugmentOsManagerMessageParser {
                     callback.setSensingEnabled(sensingEnabled);
                     break;
 
-                case "install_app_from_repository":
-                    String repo = commandObject.getJSONObject("params").getString("repository");
+                case "install_app_from_repository": // TODO: Implement repository handling
+//                    String repo = commandObject.getJSONObject("params").getString("repository");
                     String packageNameToInstall = commandObject.getJSONObject("params").getString("target");
-                    callback.installAppFromRepository(repo, packageNameToInstall);
+                    callback.installAppFromRepository("repo", packageNameToInstall);
                     break;
 
                 case "uninstall_app":

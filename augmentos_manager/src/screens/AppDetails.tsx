@@ -14,6 +14,9 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList, AppStoreItem} from '../components/types';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import NavigationBar from '../components/NavigationBar';
+import BluetoothService from '../BluetoothService.tsx';
+import { NativeModules } from 'react-native';
+const { InstallApkModule } = NativeModules;
 
 type AppDetailsProps = NativeStackScreenProps<
   RootStackParamList,
@@ -30,7 +33,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
 }) => {
   const {app} = route.params as {app: AppStoreItem};
   const [installState, setInstallState] = useState<
-    'Install' | 'Installing...' | 'Start'
+    'Install' | 'Downloading...' | 'Installing...' | 'Start'
   >('Install');
 
   // Animation values
@@ -41,6 +44,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
   const tapSpinAnim = useRef(new Animated.Value(0)).current;
   const buttonScaleAnim = useRef(new Animated.Value(1)).current;
   const screenshotScrollAnim = useRef(new Animated.Value(0)).current;
+  const bluetoothService = BluetoothService.getInstance();
 
   // Theme colors
   const theme = {
@@ -120,23 +124,26 @@ const AppDetails: React.FC<AppDetailsProps> = ({
     ]).start();
   };
 
-  const sendInstallAppFromStore = (identifier_code: string) => {
+  const sendInstallAppFromStore = (packageName: string) => {
     animateButtonPress();
     if (installState === 'Install') {
-      setInstallState('Installing...');
-      console.log(`Installing app with identifier: ${identifier_code}`);
+      setInstallState('Downloading...');
+      console.log(`Installing app with package name: ${packageName}`);
 
-      setTimeout(() => {
-        setInstallState('Start');
-      }, 3000);
+      bluetoothService.installAppByPackageName(packageName);
+
+      // setTimeout(() => {
+      //   setInstallState('Start');
+      // }, 3000);
     } else if (installState === 'Start') {
-      console.log(`Starting app with identifier: ${identifier_code}`);
+      console.log(`Starting app with package name: ${packageName}`);
     }
+    // handleInstall(packageName);
   };
 
   const navigateToReviews = () => {
     navigation.navigate('Reviews', {
-      appId: app.identifier_code,
+      appId: app.identifierCode,
       appName: app.name,
     });
   };
@@ -163,6 +170,16 @@ const AppDetails: React.FC<AppDetailsProps> = ({
     throw new Error('Function not implemented.');
   }
 
+  const handleInstall = (packageName: string) => {
+      InstallApkModule.installApk(packageName)
+      .then((result: any) => {
+        console.log('Success:', result);
+      })
+      .catch((error: any) => {
+        console.error('Error:', error);
+      });
+  };
+
   return (
     <SafeAreaView
       style={[styles.safeArea, {backgroundColor: theme.backgroundColor}]}>
@@ -183,7 +200,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
             ]}>
             <TouchableOpacity onPress={handleIconTap} activeOpacity={0.8}>
               <Animated.Image
-                source={{uri: app.icon_image_url}}
+                source={{uri: app.iconImageUrl}}
                 style={[
                   styles.icon as ImageStyle,
                   {
@@ -209,7 +226,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
                 {color: theme.subTextColor},
                 {opacity: fadeAnim, transform: [{translateY: slideAnim}]},
               ]}>
-              {app.packagename}
+              {app.packageName}
             </Animated.Text>
 
             <Animated.View
@@ -341,7 +358,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
                   styles.installButton,
                   installState === 'Installing...' && styles.disabledButton,
                 ]}
-                onPress={() => sendInstallAppFromStore(app.identifier_code)}
+                onPress={() => sendInstallAppFromStore(app.packageName)}
                 disabled={installState === 'Installing...'}>
                 <Text style={styles.installButtonText}>{installState}</Text>
               </TouchableOpacity>

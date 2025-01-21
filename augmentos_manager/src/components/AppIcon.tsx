@@ -84,7 +84,7 @@ const AppIcon: React.FC<AppIconProps> = ({
                     ]}
                 >
                     <ImageBackground
-                        source={getAppImage(app.package_name)}
+                        source={getAppImage(app.packageName)}
                         style={styles.appIcon}
                         imageStyle={styles.appIconRounded}
                     />
@@ -117,8 +117,8 @@ const styles = StyleSheet.create({
     },
     appWrapper: {
         alignItems: 'center',
-        width: 70, 
-        height: 100, 
+        width: 70,
+        height: 100,
         borderColor: '#E5E5EA',
     },
     appIconWrapper: {

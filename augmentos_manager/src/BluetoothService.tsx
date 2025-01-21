@@ -874,6 +874,7 @@ export class BluetoothService extends EventEmitter {
       command: 'start_app',
       params: {
         target: packageName,
+        repository: packageName
       },
     });
     await this.validateResponseFromCore();
@@ -883,6 +884,17 @@ export class BluetoothService extends EventEmitter {
     console.log('stopAppByPackageName');
     await this.sendDataToAugmentOs({
       command: 'stop_app',
+      params: {
+        target: packageName,
+      },
+    });
+    await this.validateResponseFromCore();
+  }
+
+  async installAppByPackageName(packageName: string) {
+    console.log('installAppByPackageName');
+    await this.sendDataToAugmentOs({
+      command: 'install_app_from_repository',
       params: {
         target: packageName,
       },
@@ -933,15 +945,15 @@ export class BluetoothService extends EventEmitter {
     })
   }
 
-  async sendInstallAppFromRepository(repository: string, packageName: string) {
-    return await this.sendDataToAugmentOs({
-      command: 'install_app_from_repository',
-      params: {
-        repository: repository,
-        target: packageName
-      }
-    })
-  }
+//   async sendInstallAppFromRepository(repository: string, packageName: string) {
+//     return await this.sendDataToAugmentOs({
+//       command: 'install_app_from_repository',
+//       params: {
+//         repository: repository,
+//         target: packageName
+//       }
+//     })
+//   }
 
   async sendUninstallApp(packageName: string) {
     return await this.sendDataToAugmentOs({

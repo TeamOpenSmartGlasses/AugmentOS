@@ -8,6 +8,7 @@ https://github.com/emexlabs/WearableIntelligenceSystem/blob/master/android_smart
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GET_USER_SETTINGS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.REQUEST_APP_BY_PACKAGE_NAME_DOWNLOAD_LINK_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.convoscopebackend.Config.devServerUrl;
 import static com.teamopensmartglasses.convoscope.convoscopebackend.Config.serverUrl;
@@ -112,6 +113,14 @@ public class BackendServerComms {
                                 }
 
                                 if (Objects.equals(endpoint, GET_USER_SETTINGS_ENDPOINT)){
+                                    try {
+                                        callback.onSuccess(response);
+                                    } catch (JSONException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                }
+
+                                if (Objects.equals(endpoint, REQUEST_APP_BY_PACKAGE_NAME_DOWNLOAD_LINK_ENDPOINT)) {
                                     try {
                                         callback.onSuccess(response);
                                     } catch (JSONException e) {
