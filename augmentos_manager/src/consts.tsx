@@ -1,6 +1,6 @@
 export const MOCK_CONNECTION: boolean = false;
 export const SIMULATED_PUCK_DEFAULT: boolean = true;
-export const ENABLE_PHONE_NOTIFICATIONS_DEFAULT: boolean = false;
+export const ENABLE_PHONE_NOTIFICATIONS_DEFAULT: boolean = true;
 
 export const GET_APP_STORE_DATA_ENDPOINT = '/app_store_data';
 
