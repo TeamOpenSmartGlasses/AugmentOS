@@ -19,9 +19,11 @@ public class BootReceiver extends BroadcastReceiver {
             // For Android Oreo (API 26) and above, use startForegroundService
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 Log.d(TAG, "Using startForegroundService for AugmentosService");
-                context.startForegroundService(serviceIntent);
+
+                // TODO: Reenable this
+                //context.startForegroundService(serviceIntent);
             } else {
-                context.startService(serviceIntent);
+                //context.startService(serviceIntent);
             }
         }
     }
