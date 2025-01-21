@@ -51,7 +51,7 @@ const RunningAppsList: React.FC<RunningAppsListProps> = ({isDarkTheme}) => {
               <View key={index} style={styles.iconWrapper}>
                 <AppIcon
                   app={app}
-                  onClick={() => stopApp(app.package_name)}
+                  onClick={() => stopApp(app.packageName)}
                   isForegroundApp={app.is_foreground}
                   isDarkTheme={isDarkTheme}
                 />

@@ -45,10 +45,10 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
     const uniqueApps = React.useMemo(() => {
         const seen = new Set();
         return status.apps.filter(app => {
-            if (seen.has(app.package_name)) {
+            if (seen.has(app.packageName)) {
                 return false;
             }
-            seen.add(app.package_name);
+            seen.add(app.packageName);
             return true;
         });
     }, [status.apps]);
@@ -78,19 +78,19 @@ const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
             <View style={styles.gridContainer}>
                 {uniqueApps.map((app) => (
                     <View
-                        key={app.package_name}
+                        key={app.packageName}
                         style={[
                             styles.itemContainer,
                             {
                                 width: itemWidth,
-                                margin: GRID_MARGIN / 2, 
+                                margin: GRID_MARGIN / 2,
                             },
                         ]}
                     >
                         <AppIcon
                             app={app}
                             isDarkTheme={isDarkTheme}
-                            onClick={() => startApp(app.package_name)}
+                            onClick={() => startApp(app.packageName)}
                             // size={itemWidth * 0.8} // Adjust size relative to itemWidth
                         />
                     </View>
@@ -139,7 +139,6 @@ const styles = StyleSheet.create({
     emptyContainer: {
         alignItems: 'center',
         justifyContent: 'center',
-      
     },
 });
 
