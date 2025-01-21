@@ -177,6 +177,18 @@ const AppSettings: React.FC<AppSettingsProps> = ({
     );
   }
 
+  if (appInfo && appInfo.settings?.length == 0) {
+    return(
+      <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+        <View style={styles.loadingContainer}>
+          <Text style={[styles.text, { color: theme.textColor }]}>
+            {appName} doesn't have any settings
+          </Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
   return (
     <SafeAreaView
       style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}
@@ -201,6 +213,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    marginHorizontal: 20
   },
   text: {
     fontSize: 18,
