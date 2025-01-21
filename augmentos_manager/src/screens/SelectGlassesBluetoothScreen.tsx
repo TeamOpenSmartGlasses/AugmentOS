@@ -169,7 +169,7 @@ const SelectGlassesBluetoothScreen: React.FC<SelectGlassesBluetoothScreenProps> 
         <View style={styles.contentContainer}>
           <PairingDeviceInfo glassesModelName={glassesModelName} isDarkTheme={isDarkTheme} />
         </View>
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, marginBottom:20 }}>
           {/* DISPLAY LIST OF BLUETOOTH SEARCH RESULTS */}
           {searchResults && searchResults.length > 0 && (
             <>
@@ -224,12 +224,12 @@ const styles = StyleSheet.create({
   },
   scrollViewContainer: {
     flex: 1,
-    marginBottom:20,
+    paddingBottom:0,
   },
   container: {
     flex: 1,
     paddingHorizontal: 20,
-    paddingTop: 10,
+    paddingTop: 0,
   },
   titleContainer: {
     paddingVertical: 15,
