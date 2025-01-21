@@ -377,7 +377,7 @@ const AppStore: React.FC<AppStoreProps> = ({isDarkTheme}) => {
         <FlatList
           data={filteredApps}
           renderItem={renderItem}
-          keyExtractor={item => item.identifier_code}
+          keyExtractor={item => item.identifierCode}
           contentContainerStyle={styles.listContent}
           showsVerticalScrollIndicator={false}
           windowSize={5}

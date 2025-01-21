@@ -33,7 +33,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
 }) => {
   const {app} = route.params as {app: AppStoreItem};
   const [installState, setInstallState] = useState<
-    'Install' | 'Installing...' | 'Start'
+    'Install' | 'Downloading...' | 'Installing...' | 'Start'
   >('Install');
 
   // Animation values
@@ -124,25 +124,26 @@ const AppDetails: React.FC<AppDetailsProps> = ({
     ]).start();
   };
 
-  const sendInstallAppFromStore = (package_name: string) => {
+  const sendInstallAppFromStore = (packageName: string) => {
     animateButtonPress();
     if (installState === 'Install') {
-      setInstallState('Installing...');
-      console.log(`Installing app with package name: ${package_name}`);
+      setInstallState('Downloading...');
+      console.log(`Installing app with package name: ${packageName}`);
 
-      bluetoothService.installAppByPackageName(package_name);
+      bluetoothService.installAppByPackageName(packageName);
 
-      setTimeout(() => {
-        setInstallState('Start');
-      }, 3000);
+      // setTimeout(() => {
+      //   setInstallState('Start');
+      // }, 3000);
     } else if (installState === 'Start') {
-      console.log(`Starting app with package name: ${package_name}`);
+      console.log(`Starting app with package name: ${packageName}`);
     }
+    // handleInstall(packageName);
   };
 
   const navigateToReviews = () => {
     navigation.navigate('Reviews', {
-      appId: app.identifier_code,
+      appId: app.identifierCode,
       appName: app.name,
     });
   };
@@ -169,9 +170,8 @@ const AppDetails: React.FC<AppDetailsProps> = ({
     throw new Error('Function not implemented.');
   }
 
-  const handleInstall = () => {
-    const packageName = 'com.mentra.merge'; // Adjust your APK filename
-    InstallApkModule.installApk(packageName)
+  const handleInstall = (packageName: string) => {
+      InstallApkModule.installApk(packageName)
       .then((result: any) => {
         console.log('Success:', result);
       })
@@ -200,7 +200,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
             ]}>
             <TouchableOpacity onPress={handleIconTap} activeOpacity={0.8}>
               <Animated.Image
-                source={{uri: app.icon_image_url}}
+                source={{uri: app.iconImageUrl}}
                 style={[
                   styles.icon as ImageStyle,
                   {
@@ -226,7 +226,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
                 {color: theme.subTextColor},
                 {opacity: fadeAnim, transform: [{translateY: slideAnim}]},
               ]}>
-              {app.package_name}
+              {app.packageName}
             </Animated.Text>
 
             <Animated.View
@@ -358,7 +358,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
                   styles.installButton,
                   installState === 'Installing...' && styles.disabledButton,
                 ]}
-                onPress={() => sendInstallAppFromStore(app.package_name)}
+                onPress={() => sendInstallAppFromStore(app.packageName)}
                 disabled={installState === 'Installing...'}>
                 <Text style={styles.installButtonText}>{installState}</Text>
               </TouchableOpacity>

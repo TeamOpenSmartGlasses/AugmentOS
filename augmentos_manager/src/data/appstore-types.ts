@@ -1,9 +1,9 @@
 export interface AppStoreItem {
     name: string;
-    package_name: string;
+    packageName: string;
     description: string;
-    icon_image_url: string;
-    identifier_code: string;
+    iconImageUrl: string;
+    identifierCode: string;
     rating: number;
     downloads: number;
     requirements: string[];

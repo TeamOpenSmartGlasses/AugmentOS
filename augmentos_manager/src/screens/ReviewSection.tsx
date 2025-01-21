@@ -46,7 +46,7 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ route, isDarkTheme }) => 
 
       const callback = {
         onSuccess: (data: any) => {
-          const fetchedApp = data.find((item: { identifier_code: string }) => item.identifier_code === appId);
+          const fetchedApp = data.find((item: { identifierCode: string }) => item.identifierCode === appId);
           setApp(fetchedApp);
           setReviews(fetchedApp?.reviews || []);
           setFilteredReviews(fetchedApp?.reviews || []);

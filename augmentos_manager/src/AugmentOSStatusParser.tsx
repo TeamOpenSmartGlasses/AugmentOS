@@ -24,7 +24,7 @@ export interface AppInfo {
   description: string;
   is_running: boolean;
   is_foreground: boolean;
-  package_name: string;
+  packageName: string;
   icon: string;
   type: string;
 }
@@ -73,7 +73,7 @@ export class AugmentOSParser {
     apps: [
       {
         name: 'Mentra Merge',
-        package_name: 'com.mentra.merge',
+        packageName: 'com.mentra.merge',
         icon: '/assets/app-icons/mentra-merge.png',
         description: 'AI executive functioning aid',
         is_running: true,
@@ -82,7 +82,7 @@ export class AugmentOSParser {
       },
       {
         name: 'Live Translation',
-        package_name: 'com.mentra.livetranslation',
+        packageName: 'com.mentra.livetranslation',
         icon: '/assets/app-icons/translation.png',
         description: 'Movie and TV streaming',
         is_running: false,
@@ -91,7 +91,7 @@ export class AugmentOSParser {
       },
       {
         name: 'Navigation',
-        package_name: 'com.mentra.navigation',
+        packageName: 'com.mentra.navigation',
         icon: '/assets/app-icons/navigation.png',
         description: 'Navigation app',
         is_running: false,
@@ -100,7 +100,7 @@ export class AugmentOSParser {
       },
       {
         name: 'Mira AI',
-        package_name: 'com.mentra.miraai',
+        packageName: 'com.mentra.miraai',
         icon: '/assets/app-icons/mira-ai.png',
         description: 'AI assistant',
         is_running: false,
@@ -109,7 +109,7 @@ export class AugmentOSParser {
       },
       {
         name: 'Screen Mirror',
-        package_name: 'com.mentra.screenmirror',
+        packageName: 'com.mentra.screenmirror',
         icon: '/assets/app-icons/screen-mirror.png',
         description: 'Screen mirroring app',
         is_running: false,
@@ -118,7 +118,7 @@ export class AugmentOSParser {
       },
       {
         name: 'Captions',
-        package_name: 'com.mentra.livecaptions',
+        packageName: 'com.mentra.livecaptions',
         icon: '/assets/app-icons/captions.png',
         description: 'Live captioning app',
         is_running: false,
@@ -127,7 +127,7 @@ export class AugmentOSParser {
       },
       {
         name: 'ADHD Aid',
-        package_name: 'com.mentra.adhdaid',
+        packageName: 'com.mentra.adhdaid',
         icon: '/assets/app-icons/adhd-aid.png',
         description: 'ADHD aid app',
         is_running: false,
@@ -136,7 +136,7 @@ export class AugmentOSParser {
       },
       {
         name: 'Mentra Link',
-        package_name: 'com.mentra.link',
+        packageName: 'com.mentra.link',
         icon: '/assets/app-icons/mentra-link.png',
         description: 'Language learning app',
         is_running: false,
@@ -173,7 +173,7 @@ export class AugmentOSParser {
           description: app.description || 'No description available',
           is_running: !!app.is_running,
           is_foreground: !!app.is_foreground,
-          package_name: app.package_name || 'unknown.package',
+          packageName: app.packageName || 'unknown.package',
           icon: app.icon || '/assets/icons/default-app.png',
           type: app.type || 'APP'
         })) || [],

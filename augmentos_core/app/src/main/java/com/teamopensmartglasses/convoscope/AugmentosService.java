@@ -2637,7 +2637,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 Log.d(TAG, "GOT INSTALL APP RESULT: " + result.toString());
 
                 try {
-                    String downloadLink = result.optString("download_link");
+                    String downloadLink = result.optString("download_url");
                     if (!downloadLink.isEmpty()) {
                         Log.d(TAG, "Download link received: " + downloadLink);
 

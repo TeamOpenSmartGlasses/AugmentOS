@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useFocusEffect } from '@react-navigation/native';
-import { AppStoreItem } from '../types'; 
+import { AppStoreItem } from '../types';
 
 interface AppItemProps {
   item: AppStoreItem;
@@ -87,7 +87,7 @@ const AppItem = memo(({ item, index, theme, onPress }: AppItemProps) => {
         onPress={onPress}
         activeOpacity={0.9}
       >
-        <Image source={{ uri: item.icon_image_url }} style={styles.icon} />
+        <Image source={{ uri: item.iconImageUrl }} style={styles.icon} />
         <View style={styles.cardContent}>
           <Text style={[styles.appName, { color: theme.textColor }]}>{item.name}</Text>
           <Text style={[styles.description, { color: theme.subTextColor }]} numberOfLines={2}>

@@ -945,15 +945,15 @@ export class BluetoothService extends EventEmitter {
     })
   }
 
-  async sendInstallAppFromRepository(repository: string, packageName: string) {
-    return await this.sendDataToAugmentOs({
-      command: 'install_app_from_repository',
-      params: {
-        repository: repository,
-        target: packageName
-      }
-    })
-  }
+//   async sendInstallAppFromRepository(repository: string, packageName: string) {
+//     return await this.sendDataToAugmentOs({
+//       command: 'install_app_from_repository',
+//       params: {
+//         repository: repository,
+//         target: packageName
+//       }
+//     })
+//   }
 
   async sendUninstallApp(packageName: string) {
     return await this.sendDataToAugmentOs({
