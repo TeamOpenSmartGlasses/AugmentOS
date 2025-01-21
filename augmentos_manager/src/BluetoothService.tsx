@@ -112,6 +112,10 @@ export class BluetoothService extends EventEmitter {
             name: 'Fake Device',
             rssi: -50,
           };
+
+          saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, true)
+          .then()
+          .catch();
         }
 
         this.emit('dataReceived', data);

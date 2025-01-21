@@ -9,11 +9,12 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 
 public class TpaHelpers {
-    public static void redirectToAugmentOsManagerIfAvailable(Context context){
+    public static boolean redirectToAugmentOsManagerIfAvailable(Context context){
         if (isAppInstalled(context, AugmentOSManagerPackageName)) {
             launchTargetApp(context, AugmentOSManagerPackageName);
+            return true;
         } else {
-
+            return false;
         }
     }
     private static boolean isAppInstalled(Context context, String packageName) {

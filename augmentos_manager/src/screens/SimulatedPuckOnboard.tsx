@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -10,12 +10,12 @@ import {
   Alert,
   BackHandler,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {useStatus} from '../AugmentOSStatusProvider';
+import { useStatus } from '../AugmentOSStatusProvider';
 import BluetoothService from '../BluetoothService';
-import {loadSetting, saveSetting} from '../augmentos_core_comms/SettingsHelper';
-import {SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT} from '../consts';
+import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
+import { SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from '../consts';
 import ManagerCoreCommsService from '../augmentos_core_comms/ManagerCoreCommsService';
 import { isAugmentOsCoreInstalled, openCorePermissionsActivity, stopExternalService } from '../augmentos_core_comms/CoreServiceStarter';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -29,9 +29,10 @@ interface SimulatedPuckOnboardProps {
 const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
   isDarkTheme,
   toggleTheme
-  }) => {
+}) => {
   const [isSimulatedPuck, setIsSimulatedPuck] = React.useState(false);
-  const {status} = useStatus();
+  const [isCoreInstalled, setIsCoreInstalled] = React.useState(false);
+  const { status } = useStatus();
   //const bluetoothService = BluetoothService.getInstance();
   const navigation = useNavigation<NavigationProps>();
 
@@ -54,18 +55,42 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
     loadSimulatedPuckSetting();
   }, []);
 
+  // Initial check for core installation
+  React.useEffect(() => {
+    const checkCoreInstallation = async () => {
+      const installed = await isAugmentOsCoreInstalled();
+      setIsCoreInstalled(installed);
+
+      // If not installed, start polling
+      if (!installed) {
+        const intervalId = setInterval(async () => {
+          const currentStatus = await isAugmentOsCoreInstalled();
+          if (currentStatus) {
+            setIsCoreInstalled(true);
+            clearInterval(intervalId);
+            openCorePermissionsActivity();
+          }
+        }, 1000);
+
+        // Cleanup interval on component unmount
+        return () => clearInterval(intervalId);
+      }
+    };
+
+    checkCoreInstallation();
+  }, []);
+
   React.useEffect(() => {
     const doCoreConnectionCheck = async () => {
-    if (status.puck_connected) {
-      if(await isAugmentOsCoreInstalled()) {
-        openCorePermissionsActivity();
-        console.log("IS INSTALLED")
-        navigation.navigate('Home');
+      if (status.puck_connected) {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Home' }],
+        });
       }
-    }
+    };
 
     doCoreConnectionCheck();
-    }
   }, [status]);
 
   return (
@@ -74,7 +99,7 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
         styles.container,
         isDarkTheme ? styles.darkBackground : styles.lightBackground,
       ]}>
-      <View style={{marginTop: 20}}>
+      <View style={{ marginTop: 20 }}>
         <Text
           style={[
             styles.title,
@@ -102,7 +127,7 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
 
       </View>
       {isSimulatedPuck && (
-        <View style={{marginTop: 20}}>
+        <View style={{ marginTop: 20 }}>
           <Text
             style={[
               styles.subtitle,
