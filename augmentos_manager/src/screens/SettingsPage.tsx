@@ -131,7 +131,9 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
       </View>
       {/* Margin bottom is 60 as super quick ugly hack for navbar */}
       <ScrollView style={styles.scrollViewContainer}>
-        <View style={styles.settingItem}>
+        
+        {/* Dark Mode */}
+        {/* <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
             <Text
               style={[
@@ -155,7 +157,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
             thumbColor={switchColors.thumbColor}
             ios_backgroundColor={switchColors.ios_backgroundColor}
           />
-        </View>
+        </View> */}
 
         {/* <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
@@ -185,7 +187,8 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
           />
         </View> */}
 
-        {Platform.OS == 'android' && (
+        {/* Disable changing simulated puck */}
+        {/* {Platform.OS == 'android' && (
           <TouchableOpacity
             style={styles.settingItem}
             onPress={() => {
@@ -208,7 +211,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               }
             />
           </TouchableOpacity>
-        )}
+        )} */}
 
 
         <TouchableOpacity

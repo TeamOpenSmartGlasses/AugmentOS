@@ -167,12 +167,14 @@ public class TPASystem {
 
                             try {
                                 JSONObject jsonObject = new JSONObject(jsonStr); // Parse the jsonStr into a JSONObject
+                                String version = jsonObject.has("version") ? jsonObject.getString("version") : "0.0.0";
                                 JSONArray settings = jsonObject.has("settings") ? jsonObject.getJSONArray("settings") : new JSONArray();
                                 return new ThirdPartyApp(
                                         jsonObject.getString("name"),
                                         jsonObject.getString("description"),
                                         resolveInfo.serviceInfo.packageName,
                                         resolveInfo.serviceInfo.name,
+                                        version,
                                         resolveInfo.serviceInfo.packageName.equals(AugmentOSManagerPackageName) ? ThirdPartyAppType.CORE_SYSTEM : ThirdPartyAppType.APP,
                                         settings,
                                         new AugmentOSCommand[]{}
@@ -195,6 +197,7 @@ public class TPASystem {
                 "A default dashboard",
                 "packageName",
                 "serviceName",
+                "1.0.0",
                 ThirdPartyAppType.DASHBOARD,
                 new JSONArray(),
                 new AugmentOSCommand[]{}
