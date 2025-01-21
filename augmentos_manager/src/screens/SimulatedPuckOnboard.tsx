@@ -60,6 +60,7 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
     const checkCoreInstallation = async () => {
       const installed = await isAugmentOsCoreInstalled();
       setIsCoreInstalled(installed);
+      openCorePermissionsActivity();
 
       // If not installed, start polling
       if (!installed) {
