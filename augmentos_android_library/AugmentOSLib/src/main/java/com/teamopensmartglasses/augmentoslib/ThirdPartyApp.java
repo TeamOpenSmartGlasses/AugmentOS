@@ -104,7 +104,7 @@ public class ThirdPartyApp implements Serializable {
             tpaObj.put("name", appName);
             tpaObj.put("description", appDescription);
             tpaObj.put("version", version);
-            tpaObj.put("package_name", packageName);
+            tpaObj.put("packageName", packageName);
             tpaObj.put("type", appType.name());
 
             if(includeSettings) {
