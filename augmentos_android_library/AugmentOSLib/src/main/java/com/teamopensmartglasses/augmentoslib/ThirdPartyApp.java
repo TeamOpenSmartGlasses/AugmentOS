@@ -23,16 +23,17 @@ public class ThirdPartyApp implements Serializable {
     public String serviceName;
     public ThirdPartyAppType appType;
     transient private JSONArray settings;
-
+    public String version;
     public AugmentOSCommand[] commandList;
 
-    public ThirdPartyApp(String appName, String appDescription, String packageName, String serviceName, ThirdPartyAppType appType, JSONArray settings, AugmentOSCommand[] commandList){
+    public ThirdPartyApp(String appName, String appDescription, String packageName, String serviceName, String version, ThirdPartyAppType appType, JSONArray settings, AugmentOSCommand[] commandList){
         this.appName = appName;
         this.appDescription = appDescription;
         this.packageName = packageName;
         this.serviceName = serviceName;
         this.appType = appType;
         this.settings = settings;
+        this.version = version;
         this.commandList = commandList;
     }
 
@@ -102,6 +103,7 @@ public class ThirdPartyApp implements Serializable {
         try {
             tpaObj.put("name", appName);
             tpaObj.put("description", appDescription);
+            tpaObj.put("version", version);
             tpaObj.put("package_name", packageName);
             tpaObj.put("type", appType.name());
 
