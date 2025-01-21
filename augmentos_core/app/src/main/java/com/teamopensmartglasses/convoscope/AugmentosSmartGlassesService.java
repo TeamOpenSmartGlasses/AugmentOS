@@ -1,5 +1,7 @@
 package com.teamopensmartglasses.convoscope;
 
+import static com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.deleteEvenSharedPreferences;
+
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
@@ -64,8 +66,6 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
         saveApiKey(this, asrApiKey);
 
         saveChosenAsrFramework(this, ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK);
-
-        this.aioConnectSmartGlasses();
     }
 
     @Override

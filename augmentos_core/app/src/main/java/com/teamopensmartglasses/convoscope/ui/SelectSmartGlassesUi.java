@@ -19,6 +19,7 @@ import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.convoscope.R;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.InmoAirOne;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.MentraMach1;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.TCLRayNeoXTwo;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.VuzixShield;
@@ -45,7 +46,7 @@ public class SelectSmartGlassesUi extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        smartGlassesDevices = new SmartGlassesDevice[]{new VuzixShield(), new InmoAirOne(), new TCLRayNeoXTwo(), new VuzixUltralite(), new AudioWearable()};
+        smartGlassesDevices = new SmartGlassesDevice[]{new VuzixShield(), new InmoAirOne(), new TCLRayNeoXTwo(), new VuzixUltralite(), new MentraMach1(), new AudioWearable()};
     }
 
     @Override

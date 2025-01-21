@@ -1,14 +1,19 @@
-import {NativeEventEmitter, NativeModules, Alert, Platform} from 'react-native';
+import { NativeEventEmitter, NativeModules, Alert, Platform } from 'react-native';
 import BleManager from 'react-native-ble-manager';
-import {EventEmitter} from 'events';
-import {TextDecoder} from 'text-encoding';
-import {check, PERMISSIONS, RESULTS} from 'react-native-permissions';
-import {AppState} from 'react-native';
-import {MOCK_CONNECTION, SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT} from './consts';
-import {loadSetting, saveSetting} from './augmentos_core_comms/SettingsHelper';
-import {startExternalService} from './augmentos_core_comms/CoreServiceStarter';
+import { EventEmitter } from 'events';
+import { TextDecoder } from 'text-encoding';
+import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
+import { AppState } from 'react-native';
+import { ENABLE_PHONE_NOTIFICATIONS_DEFAULT, MOCK_CONNECTION, SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from './consts';
+import { loadSetting, saveSetting } from './augmentos_core_comms/SettingsHelper';
+import { startExternalService } from './augmentos_core_comms/CoreServiceStarter';
 import ManagerCoreCommsService from './augmentos_core_comms/ManagerCoreCommsService';
 import GlobalEventEmitter from './logic/GlobalEventEmitter';
+import {
+  checkAndRequestNotificationPermission,
+  NotificationEventEmitter,
+  NotificationService,
+} from './augmentos_core_comms/NotificationServiceUtils';
 
 const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
 
@@ -23,6 +28,7 @@ export interface Device {
 
 export class BluetoothService extends EventEmitter {
   devices: Device[] = [];
+  private validationInProgress: Promise<boolean | void> | null = null;
   connectedDevice: Device | null = null;
   isScanning: boolean = false;
   isConnecting: boolean = false;
@@ -38,8 +44,10 @@ export class BluetoothService extends EventEmitter {
 
   simulatedPuck: boolean = false;
 
-  private appStateSubscription: {remove: () => void} | null = null;
+  private appStateSubscription: { remove: () => void } | null = null;
   private reconnectionTimer: NodeJS.Timeout | null = null;
+
+  unsubscribePhoneNotifications: any;
 
   constructor() {
     super();
@@ -59,6 +67,22 @@ export class BluetoothService extends EventEmitter {
       this.initializeBleManager();
     }
 
+    let enablePhoneNotifications = await loadSetting(SETTINGS_KEYS.ENABLE_PHONE_NOTIFICATIONS, ENABLE_PHONE_NOTIFICATIONS_DEFAULT);
+    if (enablePhoneNotifications && await checkAndRequestNotificationPermission() && !(await NotificationService.isNotificationListenerEnabled())) {
+      await NotificationService.startNotificationListenerService();
+    }
+
+    this.unsubscribePhoneNotifications = NotificationEventEmitter.addListener('onNotificationPosted', (data) => {
+      console.log('Notification received in TS:', data);
+      try {
+        let json = JSON.parse(data);
+        this.sendPhoneNotification(json.appName, json.title, json.text);
+      } catch (e) {
+        console.log("Error parsing phone notification", e);
+      }
+
+    });
+
     this.startReconnectionScan();
 
     this.appStateSubscription = AppState.addEventListener(
@@ -69,7 +93,7 @@ export class BluetoothService extends EventEmitter {
 
   async initializeBleManager() {
     try {
-      await BleManager.start({showAlert: false});
+      await BleManager.start({ showAlert: false });
       console.log('BLE Manager initialized');
       this.addListeners();
     } catch (error) {
@@ -88,8 +112,13 @@ export class BluetoothService extends EventEmitter {
             name: 'Fake Device',
             rssi: -50,
           };
+
+          saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, true)
+          .then()
+          .catch();
         }
 
+        this.emit('dataReceived', data);
         this.parseDataFromAugmentOsCore(data);
       } catch (e) {
         console.error('Failed to parse JSON from core message:', e);
@@ -142,8 +171,15 @@ export class BluetoothService extends EventEmitter {
   }
 
   async isLocationEnabled(): Promise<boolean> {
-    const result = await check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
-    return result === RESULTS.GRANTED;
+    if (Platform.OS === 'android') {
+      const result = await check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
+      return result === RESULTS.GRANTED;
+    } else if (Platform.OS === 'ios') {
+      console.log("FIGURE THIS OUT FOR IOS");
+      return true;
+    }
+    console.log("Checking for location on a non-mobile device?");
+    return false;
   }
 
   async scanForDevices() {
@@ -203,6 +239,7 @@ export class BluetoothService extends EventEmitter {
     const performScan = () => {
       if (this.simulatedPuck) {
         this.sendRequestStatus();
+        //this.sendHeartbeat();
         this.reconnectionTimer = setTimeout(
           performScan,
           this.connectedDevice ? 30000 : 500,
@@ -277,7 +314,7 @@ export class BluetoothService extends EventEmitter {
 
   async connectToDevice(device: Device) {
     this.isConnecting = true;
-    this.emit('connectingStatusChanged', {isConnecting: true});
+    this.emit('connectingStatusChanged', { isConnecting: true });
 
     try {
       console.log('Connecting to Puck:', device.id);
@@ -335,7 +372,7 @@ export class BluetoothService extends EventEmitter {
     }
 
     this.isConnecting = false;
-    this.emit('connectingStatusChanged', {isConnecting: false});
+    this.emit('connectingStatusChanged', { isConnecting: false });
   }
 
   async enableNotifications(deviceId: string) {
@@ -391,7 +428,7 @@ export class BluetoothService extends EventEmitter {
       GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Read Error - Failed to read data from device', type: 'error' })
     }
   }
-//** issue with data being set in this function */
+  //** issue with data being set in this function */
   // handleCharacteristicUpdate(data: any) {
   //   // console.log('Characteristic update received:', data);
 
@@ -536,6 +573,14 @@ export class BluetoothService extends EventEmitter {
       } else if ('notify_manager' in jsonData) {
         let notify_manager = (jsonData as any).notify_manager;
         GlobalEventEmitter.emit('SHOW_BANNER', { message: notify_manager.message, type: notify_manager.type })
+      } else if ('compatible_glasses_search_result' in jsonData) {
+        let compatible_glasses_search_result = (jsonData as any).compatible_glasses_search_result;
+        GlobalEventEmitter.emit('COMPATIBLE_GLASSES_SEARCH_RESULT', { modelName: compatible_glasses_search_result.model_name, deviceName: compatible_glasses_search_result.device_name })
+      } else if ('compatible_glasses_search_stop' in jsonData) {
+        let compatible_glasses_search_stop = (jsonData as any).compatible_glasses_search_stop;
+        GlobalEventEmitter.emit('COMPATIBLE_GLASSES_SEARCH_STOP', { modelName: compatible_glasses_search_stop.model_name })
+      } else if ('app_info' in jsonData) {
+        GlobalEventEmitter.emit('APP_INFO_RESULT', { appInfo: jsonData.app_info });
       }
     } catch (e) {
       console.log('Some error parsing data from AugmentOS_Core...');
@@ -585,11 +630,14 @@ export class BluetoothService extends EventEmitter {
 
   async sendDataToAugmentOs(dataObj: any) {
     if (this.simulatedPuck) {
-      console.log('Sending command to simulated puck/core...');
-      ManagerCoreCommsService.sendCommandToCore(JSON.stringify(dataObj));
-      return;
+      await this.sendDataToSimulatedAugmentOs(dataObj);
     }
+    else {
+      await this.sendDataToRemoteAugmentOs(dataObj);
+    }
+  }
 
+  async sendDataToRemoteAugmentOs(dataObj: any) {
     if (!this.connectedDevice) {
       console.log('SendDataToAugmentOs: No connected device to write to');
       this.emit('deviceDisconnected');
@@ -629,68 +677,175 @@ export class BluetoothService extends EventEmitter {
           );
         }, 250 * i);
       }
-
-      console.log('Data chunk written, waiting for response...');
-
-      // Wait for response or timeout
-      await new Promise((resolve, reject) => {
-        const timeout = setTimeout(() => {
-          if (!responseReceived) {
-            console.log(
-              'No response received within timeout. Triggering reconnection...',
-            );
-            this.handleDisconnectedPeripheral({
-              peripheral: this.connectedDevice?.id,
-            });
-            reject(
-              new Error(
-                'Response timeout for data: ' + JSON.stringify(dataObj),
-              ),
-            );
-          }
-        }, 6000); // Timeout after 5 seconds
-
-        this.once('dataReceived', data => {
-          /*
-          TODO: This does not validate that the response we got pertains to the command we sent
-          But at the same time we're literally only accepting status objects right now
-          so it doesn't really matter
-          */
-          responseReceived = true;
-          this.isLocked = false;
-          clearTimeout(timeout);
-          // console.log('GOT A RESPONSE FROM THE THING SO ALL GOOD CUZ');
-          resolve(null);
-        });
-      });
     } catch (error) {
-      // console.error('Error writing data:', error);
-      // Alert.alert('Write Error', 'Failed to write data to device: ' + error);
+      GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Write Error - Failed to write data to device: ' + error, type: 'error' })
+      this.disconnectFromDevice();
+    }
+
+    //   console.log('Data chunk written, waiting for response...');
+
+    //   // Wait for response or timeout
+    //   await new Promise((resolve, reject) => {
+    //     const timeout = setTimeout(() => {
+    //       if (!responseReceived) {
+    //         console.log(
+    //           'No response received within timeout. Triggering reconnection...',
+    //         );
+    //         this.handleDisconnectedPeripheral({
+    //           peripheral: this.connectedDevice?.id,
+    //         });
+    //         reject(
+    //           new Error(
+    //             'Response timeout for data: ' + JSON.stringify(dataObj),
+    //           ),
+    //         );
+    //       }
+    //     }, 6000); // Timeout after 5 seconds
+
+    //     this.once('dataReceived', data => {
+    //       /*
+    //       TODO: This does not validate that the response we got pertains to the command we sent
+    //       But at the same time we're literally only accepting status objects right now
+    //       so it doesn't really matter
+    //       */
+    //       responseReceived = true;
+    //       this.isLocked = false;
+    //       clearTimeout(timeout);
+    //       // console.log('GOT A RESPONSE FROM THE THING SO ALL GOOD CUZ');
+    //       resolve(null);
+    //     });
+    //   });
+    // } catch (error) {
+    //   // console.error('Error writing data:', error);
+    //   // Alert.alert('Write Error', 'Failed to write data to device: ' + error);
+    //   GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Write Error - Failed to write data to device: ' + error, type: 'error' })
+    //   this.disconnectFromDevice();
+    // }
+  }
+
+  async sendDataToSimulatedAugmentOs(dataObj: any) {
+    if (!this.simulatedPuck) {
+      console.log('SendDataToSimulatedAugmentOs: Critical error');
+    }
+
+    if (!this.connectedDevice) {
+      //  console.log('SendDataToSimulatedAugmentOs: No connected device to write to');
+    }
+
+    if (this.isLocked) {
+      console.log('SendDataToSimulatedAugmentOs: Action is locked. Ignoring button press.');
+      return;
+    }
+
+    try {
+      ManagerCoreCommsService.sendCommandToCore(JSON.stringify(dataObj));
+    } catch (error) {
       GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Write Error - Failed to write data to device: ' + error, type: 'error' })
       this.disconnectFromDevice();
     }
   }
 
+  async validateResponseFromCore() {
+    if (this.validationInProgress) {
+      return this.validationInProgress;
+    }
+
+    console.log('validateResponseFromCore: Data written, waiting for response...');
+
+    this.validationInProgress = new Promise((resolve, reject) => {
+      let responseReceived = false;
+
+      const dataReceivedListener = () => {
+        responseReceived = true;
+        clearTimeout(timeout);
+        console.log('Core is alive!');
+        resolve(true);
+      };
+
+      this.once('dataReceived', dataReceivedListener);
+
+      const timeout = setTimeout(() => {
+        if (!responseReceived) {
+          console.log('validateResponseFromCore: No response. Triggering reconnection...');
+          this.removeListener('dataReceived', dataReceivedListener);
+          reject(new Error('Response timeout.'));
+        }
+      }, 6000);
+    }).then(() => {
+      return true;
+    }).catch((error) => {
+      if (this.simulatedPuck) {
+        ManagerCoreCommsService.startService();
+        startExternalService();
+      } else {
+        this.handleDisconnectedPeripheral({
+          peripheral: this.connectedDevice?.id,
+        });
+        this.disconnectFromDevice();
+      }
+    }).finally(() => {
+      this.validationInProgress = null;
+    });
+
+    return this.validationInProgress;
+  }
+
+
   /* AugmentOS Comms Methods (call these to do things) */
 
   async sendHeartbeat() {
     console.log('Send Connection Check');
-    return await this.sendDataToAugmentOs({command: 'ping'});
+    await this.sendDataToAugmentOs({ command: 'ping' });
+    await this.validateResponseFromCore();
   }
 
   async sendRequestStatus() {
     console.log('Send Request Status');
-    return await this.sendDataToAugmentOs({command: 'request_status'});
+    await this.sendDataToAugmentOs({ command: 'request_status' });
+    await this.validateResponseFromCore();
   }
 
-  async sendConnectWearable() {
-    console.log('sendConnectWearable');
-    return await this.sendDataToAugmentOs({command: 'connect_wearable'});
+  async sendSearchForCompatibleDeviceNames(modelName: string) {
+    console.log('sendSearchForCompatibleDeviceNames with modelName: ' + modelName);
+    return await this.sendDataToAugmentOs({
+      command: 'search_for_compatible_device_names',
+      params: {
+        model_name: modelName
+      }
+    });
+  }
+
+  async sendConnectWearable(modelName: string, deviceName: string = "") {
+    console.log('sendConnectWearable with modelName: ' + modelName);
+    return await this.sendDataToAugmentOs({
+      command: 'connect_wearable',
+      params: {
+        model_name: modelName,
+        device_name: deviceName
+      }
+    });
+  }
+
+  async sendPhoneNotification(appName: string = "", title: string = "", text: string = "") {
+    console.log('sendPhoneNotification');
+    return await this.sendDataToAugmentOs({
+      command: 'phone_notification',
+      params: {
+        appName: appName,
+        title: title,
+        text: text
+      }
+    });
   }
 
   async sendDisconnectWearable() {
     console.log('sendDisconnectWearable');
-    return await this.sendDataToAugmentOs({command: 'disconnect_wearable'});
+    return await this.sendDataToAugmentOs({ command: 'disconnect_wearable' });
+  }
+
+  async sendForgetSmartGlasses() {
+    console.log('sendForgetSmartGlasses');
+    return await this.sendDataToAugmentOs({ command: 'forget_smart_glasses' });
   }
 
   async sendToggleVirtualWearable(enabled: boolean) {
@@ -703,24 +858,36 @@ export class BluetoothService extends EventEmitter {
     });
   }
 
+  async sendToggleSensing(enabled: boolean) {
+    console.log('sendToggleSensing');
+    return await this.sendDataToAugmentOs({
+      command: 'enable_sensing',
+      params: {
+        enabled: enabled,
+      },
+    });
+  }
+
   async startAppByPackageName(packageName: string) {
     console.log('startAppByPackageName');
-    return await this.sendDataToAugmentOs({
+    await this.sendDataToAugmentOs({
       command: 'start_app',
       params: {
         target: packageName,
       },
     });
+    await this.validateResponseFromCore();
   }
 
   async stopAppByPackageName(packageName: string) {
     console.log('stopAppByPackageName');
-    return await this.sendDataToAugmentOs({
+    await this.sendDataToAugmentOs({
       command: 'stop_app',
       params: {
         target: packageName,
       },
     });
+    await this.validateResponseFromCore();
   }
 
   async setAuthenticationSecretKey(authSecretKey: string) {
@@ -745,6 +912,44 @@ export class BluetoothService extends EventEmitter {
     return await this.sendDataToAugmentOs({
       command: 'delete_auth_secret_key',
     });
+  }
+
+  async sendRequestAppDetails(packageName: string) {
+    return await this.sendDataToAugmentOs({
+      command: 'request_app_info',
+      params: {
+        'target': packageName
+      }
+    })
+  }
+
+  async sendUpdateAppSetting(packageName: string, settingsDeltaObj: any) {
+    return await this.sendDataToAugmentOs({
+      command: 'update_app_settings',
+      params: {
+        target: packageName,
+        settings: settingsDeltaObj
+      }
+    })
+  }
+
+  async sendInstallAppFromRepository(repository: string, packageName: string) {
+    return await this.sendDataToAugmentOs({
+      command: 'install_app_from_repository',
+      params: {
+        repository: repository,
+        target: packageName
+      }
+    })
+  }
+
+  async sendUninstallApp(packageName: string) {
+    return await this.sendDataToAugmentOs({
+      command: 'uninstall_app',
+      params: {
+        target: packageName
+      }
+    })
   }
 
   private static bluetoothService: BluetoothService | null = null;
@@ -776,6 +981,13 @@ export class BluetoothService extends EventEmitter {
       BluetoothService.bluetoothService.chunks = {};
       BluetoothService.bluetoothService.expectedChunks = {};
       BluetoothService.bluetoothService.isLocked = false;
+
+      if (await NotificationService.isNotificationListenerEnabled()) {
+        await NotificationService.stopNotificationListenerService();
+      }
+      if (BluetoothService.bluetoothService.unsubscribePhoneNotifications) {
+        BluetoothService.bluetoothService.unsubscribePhoneNotifications.remove();
+      }
 
       // Nullify the instance
       BluetoothService.bluetoothService = null;

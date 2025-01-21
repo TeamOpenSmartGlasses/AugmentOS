@@ -1,15 +1,17 @@
 package com.teamopensmartglasses.augmentos_manager;
 
+import android.content.ComponentName;
+import android.content.Intent;
+import android.service.notification.NotificationListenerService;
 import android.util.Log;
 
 import com.teamopensmartglasses.augmentoslib.SmartGlassesAndroidService;
-import com.teamopensmartglasses.augmentoslib.DataStreamType;
-import com.teamopensmartglasses.augmentoslib.FocusStates;
 import com.teamopensmartglasses.augmentoslib.AugmentOSLib;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-import java.util.UUID;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class ManagerCoreCommsService extends SmartGlassesAndroidService {
     public final String TAG = "ManagerCoreCommsService";
@@ -31,6 +33,8 @@ public class ManagerCoreCommsService extends SmartGlassesAndroidService {
         ManagerCoreCommsServiceModule.setManagerServiceInstance(this);
 
         sendCommandToCore("{ 'command': 'request_status' }");
+
+        // startNotificationService();
     }
 
 
@@ -39,6 +43,7 @@ public class ManagerCoreCommsService extends SmartGlassesAndroidService {
         Log.d(TAG, "onDestroy: Called");
         augmentOSLib.deinit();
         ManagerCoreCommsServiceModule.setManagerServiceInstance(null);
+        stopNotificationService();
         super.onDestroy();
     }
 
@@ -54,5 +59,39 @@ public class ManagerCoreCommsService extends SmartGlassesAndroidService {
     public void sendCommandToCore(String jsonString) {
         Log.d(TAG, "sendCommandToCore: " + jsonString);
         augmentOSLib.sendDataFromManagerToCore(jsonString);
+    }
+
+    //
+    // Following code is for sending Android user's notifications to puck/glasses:
+    //
+
+    private void startNotificationService() {
+        Intent notificationServiceIntent = new Intent(this, NotificationService.class);
+        startService(notificationServiceIntent);
+
+        NotificationListenerService.requestRebind(
+                new ComponentName(this, NotificationService.class));
+    }
+
+    private void stopNotificationService() {
+        Intent notificationServiceIntent = new Intent(this, NotificationService.class);
+        stopService(notificationServiceIntent);
+    }
+
+    @Subscribe
+    public void onNewNotificationReceivedEvent(NewNotificationReceivedEvent event) {
+        try {
+            Log.d(TAG, "onNewNotificationReceivedEvent: " + event.toString());
+            JSONObject commandObj = new JSONObject();
+            JSONObject paramsObj = new JSONObject();
+            commandObj.put("command", "phone_notification");
+            paramsObj.put("app_name", event.appName);
+            paramsObj.put("title", event.title);
+            paramsObj.put("text", event.text);
+            commandObj.put("params", paramsObj);
+            this.sendCommandToCore(commandObj.toString());
+        } catch (JSONException e) {
+            Log.d(TAG, "Failed to create JSON object from notification event: " + e.toString());
+        }
     }
 }

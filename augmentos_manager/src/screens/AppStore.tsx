@@ -264,7 +264,7 @@ const AppStore: React.FC<AppStoreProps> = ({isDarkTheme}) => {
             styles.header,
             isDarkTheme ? styles.headerTextDark : styles.headerTextLight,
           ]}>
-          App Store Mockup
+          App Store
         </Text>
         <Animated.View
           style={[
@@ -302,7 +302,8 @@ const AppStore: React.FC<AppStoreProps> = ({isDarkTheme}) => {
         </Animated.View>
       </Animated.View>
 
-      <Animated.View
+{/* Not in 1.0 */}
+      {/* <Animated.View
         style={[
           styles.categoriesSection,
           {
@@ -326,7 +327,7 @@ const AppStore: React.FC<AppStoreProps> = ({isDarkTheme}) => {
           contentContainerStyle={styles.categoriesList}
           showsHorizontalScrollIndicator={false}
         />
-      </Animated.View>
+      </Animated.View> */}
 
       <Animated.View
         style={[
@@ -338,14 +339,14 @@ const AppStore: React.FC<AppStoreProps> = ({isDarkTheme}) => {
         <Text style={[styles.recommendHeader, {color: theme.textColor}]}>
           Recommended for You
         </Text>
-        <FlatList
+        {/* <FlatList
           data={AppStoreData.slice(0, 5)}
           horizontal
           renderItem={renderRecommendedItem}
           keyExtractor={item => item.identifier_code}
           contentContainerStyle={styles.recommendList}
           showsHorizontalScrollIndicator={false}
-        />
+        /> */}
       </Animated.View>
 
       <View style={styles.listContainer}>
@@ -425,7 +426,7 @@ const styles = StyleSheet.create({
   },
   categoriesSection: {
     marginTop: 15,
-    paddingHorizontal: 15,
+    paddingHorizontal: 0,
   },
   categoriesList: {
     flexDirection: 'row',
@@ -453,7 +454,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '700',
     color: '#444',
-    marginBottom: 15,
+    //marginBottom: 15,
     fontFamily: 'Montserrat-Bold',
   },
   recommendList: {},

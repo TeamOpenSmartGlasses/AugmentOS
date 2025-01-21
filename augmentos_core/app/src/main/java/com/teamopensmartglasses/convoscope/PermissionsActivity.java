@@ -17,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.teamopensmartglasses.augmentoslib.tpa_helpers.TpaHelpers;
+
 public class PermissionsActivity extends AppCompatActivity {
 
     private static final int PERMISSION_REQUEST_CODE = 1001;
@@ -24,7 +26,7 @@ public class PermissionsActivity extends AppCompatActivity {
 
     private static final String[] REQUIRED_PERMISSIONS = {
             Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.ACCESS_BACKGROUND_LOCATION,
+            //Manifest.permission.ACCESS_BACKGROUND_LOCATION,
             Manifest.permission.BLUETOOTH_SCAN,
             Manifest.permission.BLUETOOTH_CONNECT,
             Manifest.permission.BLUETOOTH_ADVERTISE,
@@ -85,6 +87,8 @@ public class PermissionsActivity extends AppCompatActivity {
             showBatteryOptimizationSettings();
         }
 
+        //BOUNCE OVER :)
+        TpaHelpers.redirectToAugmentOsManagerIfAvailable(this);
         // Finish this activity and return to the Manager
         finish();
     }

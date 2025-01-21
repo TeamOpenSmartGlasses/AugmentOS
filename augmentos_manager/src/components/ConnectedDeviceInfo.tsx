@@ -4,6 +4,13 @@ import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { BluetoothService } from '../BluetoothService';
 import { useStatus } from '../AugmentOSStatusProvider';
+import { NavigationProps } from '../components/types';
+import { useNavigation } from '@react-navigation/native';
+import { getGlassesImage } from '../logic/getGlassesImage';
+import { checkAndRequestNotificationPermission } from '../augmentos_core_comms/NotificationServiceUtils';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { checkAndRequestNotificationAccessSpecialPermission } from '../utils/NotificationServiceUtils.tsx';
+
 
 interface ConnectedDeviceInfoProps {
   isDarkTheme: boolean;
@@ -16,6 +23,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   const [connectedGlasses, setConnectedGlasses] = useState('');
   const bluetoothService = BluetoothService.getInstance();
   const { status, isSearchingForPuck, isConnectingToPuck, refreshStatus } = useStatus();
+  const navigation = useNavigation<NavigationProps>();
 
   useFocusEffect(
     React.useCallback(() => {
@@ -47,26 +55,44 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
       }
 
       // Request permissions on Android
-      if (Platform.OS === 'android' && Platform.Version >= 23) {
-        PermissionsAndroid.requestMultiple([
-          PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
-          PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        ]).then((result) => {
-          console.log('Permissions granted:', result);
-        });
-      }
+       if (Platform.OS === 'android' && Platform.Version >= 23) {
+         PermissionsAndroid.requestMultiple([
+           PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
+           PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
+           PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+         ]).then(async (result) => {
+             console.log('Permissions granted:', result);
 
-      // Cleanup function
-      return () => {
-        fadeAnim.stopAnimation();
-        scaleAnim.stopAnimation();
-        slideAnim.stopAnimation();
-      };
-    }, [status.puck_connected, fadeAnim, scaleAnim, slideAnim])
-  );
+             const allGranted = Object.values(result).every(
+               (value) => value === PermissionsAndroid.RESULTS.GRANTED
+             );
 
-  const handleConnect = async () => {
+             if (allGranted) {
+               try {
+                 await checkAndRequestNotificationAccessSpecialPermission();
+               } catch (error) {
+                 console.warn('Notification permission request error:', error);
+               }
+             } else {
+               console.warn('Some permissions were denied:', result);
+               // Optionally handle partial denial here
+             }
+           })
+           .catch((error) => {
+             console.error('Error requesting permissions:', error);
+           });
+       }
+
+       // Cleanup function
+       return () => {
+         fadeAnim.stopAnimation();
+         scaleAnim.stopAnimation();
+         slideAnim.stopAnimation();
+       };
+     }, [status.puck_connected, fadeAnim, scaleAnim, slideAnim])
+   );
+
+  const handleConnectToPuck = async () => {
     try {
       await bluetoothService.scanForDevices();
     } catch (error) {
@@ -77,8 +103,14 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   };
 
   const connectGlasses = async () => {
+    if (status.default_wearable == undefined || status.default_wearable == "") {
+      navigation.navigate('SelectGlassesModelScreen');
+      return;
+    }
+
+
     try {
-      await bluetoothService.sendConnectWearable();
+      await bluetoothService.sendConnectWearable(status.default_wearable);
     } catch (error) {
       console.error('connect 2 glasses error:', error);
     }
@@ -97,32 +129,6 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     statusValueColor: isDarkTheme ? '#FFFFFF' : '#333333',
     connectedDotColor: '#28a745',
     separatorColor: isDarkTheme ? '#666666' : '#999999',
-  };
-
-  const getGlassesImage = (glasses: string | null) => {
-    switch (glasses) {
-      case 'Vuzix-z100':
-      case 'Vuzix Z100':
-      case 'Vuzix Ultralite':
-      case 'Mentra Mach1':
-      case 'Mach1':
-        return require('../assets/glasses/vuzix-z100-glasses.png');
-      case 'inmo_air':
-        return require('../assets/glasses/inmo_air.png');
-      case 'tcl_rayneo_x_two':
-        return require('../assets/glasses/tcl_rayneo_x_two.png');
-      case 'Vuzix_shield':
-        return require('../assets/glasses/vuzix_shield.png');
-      case 'Even Realities G1':
-      case 'evenrealities_g1':
-      case 'g1':
-        return require('../assets/glasses/g1.png');
-      case 'virtual-wearable':
-      case 'Audio Wearable':
-        return require('../assets/glasses/audio_wearable.png');
-      default:
-        return require('../assets/glasses/unknown_wearable.png');
-    }
   };
 
   const getBatteryIcon = (level: number) => {
@@ -149,51 +155,72 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     <View style={[styles.deviceInfoContainer, { backgroundColor: themeStyles.backgroundColor }]}>
       {status.puck_connected ? (
         <>
-          {status.glasses_info?.model_name ? (
+          {status.default_wearable ? (
             <View style={styles.connectedContent}>
               <Animated.Image
-                source={getGlassesImage(status.glasses_info.model_name)}
+                source={getGlassesImage(status.default_wearable)}
                 style={[styles.glassesImage, { opacity: fadeAnim, transform: [{ scale: scaleAnim }] }]}
               />
               <Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]}>
-                <Text style={[styles.connectedDot, { color: themeStyles.connectedDotColor }]}>●</Text>
-                <Text style={styles.connectedTextGreen}>Connected</Text>
-                <Text style={[styles.separator, { color: themeStyles.separatorColor }]}>|</Text>
                 <Text style={[styles.connectedTextTitle, { color: themeStyles.textColor }]}>
-                  {formatGlassesTitle(connectedGlasses)} {status.glasses_info.model_name}
+                  {formatGlassesTitle(connectedGlasses)} {status.default_wearable}
                 </Text>
               </Animated.View>
-              <Animated.View style={[styles.statusBar, { opacity: fadeAnim }]}>
-                <View style={styles.statusInfo}>
-                  {status.glasses_info?.battery_life &&
-                    <>
-                      <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Battery</Text>
-                      <View style={styles.batteryContainer}>
-                        <Icon name={batteryIcon} size={16} color={batteryColor} style={styles.batteryIcon} />
-                        <Text style={[styles.batteryValue, { color: batteryColor }]}>
-                          {status.glasses_info.battery_life}%
-                        </Text>
-                      </View>
-                    </>
-                  }
-                </View>
 
-                <View style={styles.statusInfo}>
-                  {status.glasses_info?.brightness &&
-                    <>
-                      <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
-                      <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>{status.glasses_info?.brightness}%</Text>
-                    </>
-                  }
-                </View>
-                <TouchableOpacity
-                  style={styles.disconnectButton}
-                  onPress={sendDisconnectWearable}
-                >
-                  <Icon name="power-off" size={18} color="white" style={styles.icon} />
-                  <Text style={styles.disconnectText}>Disconnect</Text>
-                </TouchableOpacity>
-              </Animated.View>
+              {/* Are we connected? */}
+              {status.glasses_info?.model_name ? (
+                <>
+                  <Animated.View style={[styles.statusBar, { opacity: fadeAnim }]}>
+                    <View style={styles.statusInfo}>
+                      {status.glasses_info?.battery_life &&
+                        <>
+                          <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Battery</Text>
+                          <View style={styles.batteryContainer}>
+                            <Icon name={batteryIcon} size={16} color={batteryColor} style={styles.batteryIcon} />
+                            <Text style={[styles.batteryValue, { color: batteryColor }]}>
+                              {status.glasses_info.battery_life}%
+                            </Text>
+                          </View>
+                        </>
+                      }
+                    </View>
+
+                    <View style={styles.statusInfo}>
+                      {status.glasses_info?.brightness &&
+                          <>
+                            <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
+                            <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>
+                              {status.glasses_info && status.glasses_info.model_name && status.glasses_info.model_name.includes('Even Realities')
+                                  ? `${status.glasses_info.brightness}`
+                                  : `${status.glasses_info.brightness}%`}
+                            </Text>
+                          </>
+                      }
+                    </View>
+                    <TouchableOpacity
+                      style={styles.disconnectButton}
+                      onPress={sendDisconnectWearable}
+                    >
+                      <Icon name="power-off" size={18} color="white" style={styles.icon} />
+                      <Text style={styles.disconnectText}>Disconnect</Text>
+                    </TouchableOpacity>
+                  </Animated.View>
+                </>
+              ) : (
+                  <View style={styles.statusInfoNotConnected}>
+                    {status.glasses_info?.is_searching ? (
+                      <View style={styles.disconnectedContent}>
+                        <ActivityIndicator size="small" color="#2196F3" />
+                      </View>
+                    ) : (
+                      <View style={styles.noGlassesContent}>
+                        <TouchableOpacity style={styles.connectButton} onPress={connectGlasses}>
+                          <Text style={styles.buttonText}>Connect</Text>
+                        </TouchableOpacity>
+                      </View>
+                    )}
+                  </View>
+              )}
             </View>
           ) : (
             <>
@@ -206,10 +233,9 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                 </View>
               ) : (
                 <View style={styles.noGlassesContent}>
-                  <Text style={styles.noGlassesText}>No Glasses Connected</Text>
+                  <Text style={styles.noGlassesText}>{"No Glasses Paired"}</Text>
                   <TouchableOpacity style={styles.connectButton} onPress={connectGlasses}>
-                    <Icon name="wifi" size={16} color="white" style={styles.icon} />
-                    <Text style={styles.buttonText}>Connect Glasses</Text>
+                    <Text style={styles.buttonText}>{"Connect Glasses"}</Text>
                   </TouchableOpacity>
                 </View>
               )}
@@ -224,7 +250,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
           {isSearchingForPuck || isConnectingToPuck ? (
             <ActivityIndicator size="small" color="#2196F3" />
           ) : (
-            <TouchableOpacity style={styles.connectButton} onPress={handleConnect}>
+            <TouchableOpacity style={styles.connectButton} onPress={handleConnectToPuck}>
               <Icon name="wifi" size={16} color="white" style={styles.icon} />
               <Text style={styles.buttonText}>Connect</Text>
             </TouchableOpacity>
@@ -240,7 +266,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     width: '100%',
-    minHeight: 250,
+    minHeight: 230,
     justifyContent: 'center',
     marginTop: 15,
   },
@@ -253,6 +279,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    width: '100%',
   },
   disconnectedContent: {
     flex: 1,
@@ -273,6 +300,11 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#6750A414',
     flexWrap: 'wrap',
+  },
+  statusInfoNotConnected: {
+    alignItems: 'center',
+    flex: 1,
+    width:'100%'
   },
   statusInfo: {
     alignItems: 'center',
@@ -299,7 +331,7 @@ const styles = StyleSheet.create({
   connectedStatus: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 10,
+    marginVertical: 0,
   },
   connectedDot: {
     fontSize: 14,
@@ -341,11 +373,10 @@ const styles = StyleSheet.create({
   noGlassesText: {
     color: 'black',
     textAlign: 'center',
-    fontSize: 14,
+    fontSize: 16,
     marginBottom: 10,
   },
   connectButton: {
-    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#2196F3',

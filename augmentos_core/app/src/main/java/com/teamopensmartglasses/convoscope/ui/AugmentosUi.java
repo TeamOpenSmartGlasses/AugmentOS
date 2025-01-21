@@ -1,5 +1,6 @@
 package com.teamopensmartglasses.convoscope.ui;
 
+import android.content.pm.PackageManager;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -7,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -31,6 +33,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.teamopensmartglasses.convoscope.MainActivity;
+import com.teamopensmartglasses.convoscope.PermissionsActivity;
 import com.teamopensmartglasses.convoscope.R;
 import com.teamopensmartglasses.convoscope.ResponseTextUiAdapter;
 import com.teamopensmartglasses.convoscope.TranscriptTextUiAdapter;
@@ -41,7 +44,9 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
 
 public class AugmentosUi extends Fragment {
-    public String TAG = "WearableAi_ConvoscopeUi";
+  public String TAG = "WearableAi_ConvoscopeUi";
+
+  private static final String TARGET_PACKAGE = "com.teamopensmartglasses.augmentos_manager";
 
      //UI
   private ResponseTextUiAdapter responseTextUiAdapter;
@@ -141,6 +146,15 @@ public class AugmentosUi extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+    // BOUNCE TO PERMISSIONS ACTIVITY
+      Intent intent = new Intent(getContext(), PermissionsActivity.class);
+      startActivity(intent);
+
+      // Optionally, finish the current activity if you don't want the user to go back here
+      if (getActivity() != null) {
+        getActivity().finish();
+      }
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.convoscope_fragment, container, false);
@@ -341,7 +355,12 @@ public class AugmentosUi extends Fragment {
 
       //auto start if we have perms (if we are already running/connected, this is still safe to call)
       if (!((MainActivity) getActivity()).gettingPermissions){
-        connectGlasses();
+        //connectGlasses();
+
+        if (((MainActivity) getActivity()).isAppInstalled(TARGET_PACKAGE)) {
+          //((MainActivity) getActivity()).launchTargetApp(TARGET_PACKAGE);
+          //((MainActivity) getActivity()).finish();
+        }
       }
     }
 

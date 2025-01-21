@@ -43,6 +43,7 @@ import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 
 //rxjava
 import java.nio.ByteBuffer;
+import java.util.List;
 
 import io.reactivex.rxjava3.subjects.PublishSubject;
 
@@ -82,22 +83,39 @@ class SmartGlassesRepresentative {
         EventBus.getDefault().register(this);
     }
 
+    public void findCompatibleDeviceNames(){
+        SmartGlassesCommunicator temporarySmartGlassesCommunicator = null;
+        switch (smartGlassesDevice.getGlassesOs()){
+            case ANDROID_OS_GLASSES:
+                temporarySmartGlassesCommunicator = new AndroidSGC(context, smartGlassesDevice, dataObservable);
+                break;
+            case AUDIO_WEARABLE_GLASSES:
+                temporarySmartGlassesCommunicator = new AudioWearableSGC(context, smartGlassesDevice);
+                break;
+            case ULTRALITE_MCU_OS_GLASSES:
+                temporarySmartGlassesCommunicator = new UltraliteSGC(context, smartGlassesDevice, lifecycleOwner);
+                break;
+            case EVEN_REALITIES_G1_MCU_OS_GLASSES:
+                temporarySmartGlassesCommunicator = new EvenRealitiesG1SGC(context, smartGlassesDevice);
+                break;
+        }
+
+        temporarySmartGlassesCommunicator.findCompatibleDeviceNames();
+    }
+
     public void connectToSmartGlasses(){
         switch (smartGlassesDevice.getGlassesOs()){
             case ANDROID_OS_GLASSES:
-                smartGlassesCommunicator = new AndroidSGC(context, dataObservable);
+                smartGlassesCommunicator = new AndroidSGC(context, smartGlassesDevice, dataObservable);
                 break;
-//            case ACTIVELOOK_OS_GLASSES:
-//                smartGlassesCommunicator = new ActiveLookSGC(context);
-//                break;
             case AUDIO_WEARABLE_GLASSES:
-                smartGlassesCommunicator = new AudioWearableSGC(context);
+                smartGlassesCommunicator = new AudioWearableSGC(context, smartGlassesDevice);
                 break;
             case ULTRALITE_MCU_OS_GLASSES:
-                smartGlassesCommunicator = new UltraliteSGC(context, lifecycleOwner);
+                smartGlassesCommunicator = new UltraliteSGC(context, smartGlassesDevice, lifecycleOwner);
                 break;
             case EVEN_REALITIES_G1_MCU_OS_GLASSES:
-                smartGlassesCommunicator = new EvenRealitiesG1SGC(context);
+                smartGlassesCommunicator = new EvenRealitiesG1SGC(context, smartGlassesDevice);
                 break;
         }
 
@@ -128,7 +146,7 @@ class SmartGlassesRepresentative {
         connectAndStreamLocalMicrophone(false);
     }
 
-    private void connectAndStreamLocalMicrophone(boolean useBluetoothSco){
+    private void connectAndStreamLocalMicrophone(boolean useBluetoothSco) {
         //follow this order for speed
         //start audio from bluetooth headset
         uiHandler.post(new Runnable() {
@@ -178,7 +196,7 @@ class SmartGlassesRepresentative {
 
     public void showReferenceCard(String title, String body){
         if (smartGlassesCommunicator != null) {
-            smartGlassesCommunicator.displayReferenceCardSimple(title, body);
+            smartGlassesCommunicator.displayReferenceCardSimple(title, body, -1);
         }
     }
 
@@ -233,7 +251,6 @@ class SmartGlassesRepresentative {
     @Subscribe
     public void onDoubleTextWallViewEvent(DoubleTextWallViewRequestEvent receivedEvent){
         if (smartGlassesCommunicator != null) {
-            Log.d(TAG, "DOUBLE TEXT WALL BOOM");
             smartGlassesCommunicator.displayDoubleTextWall(receivedEvent.textTop, receivedEvent.textBottom);
         }
     }
@@ -242,7 +259,7 @@ class SmartGlassesRepresentative {
     public void onReferenceCardSimpleViewEvent(ReferenceCardSimpleViewRequestEvent receivedEvent){
         Log.d(TAG, "SHOWING REFERENCE CARD");
         if (smartGlassesCommunicator != null) {
-            smartGlassesCommunicator.displayReferenceCardSimple(receivedEvent.title, receivedEvent.body);
+            smartGlassesCommunicator.displayReferenceCardSimple(receivedEvent.title, receivedEvent.body, receivedEvent.lingerTimeMs);
 //            homeUiAfterDelay(referenceCardDelayTime);
         }
     }

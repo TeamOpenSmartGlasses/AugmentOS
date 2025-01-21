@@ -44,6 +44,9 @@ public class LandingUi extends Fragment {
     // Check if we're already logged in... if so, skip to MainActivity
     mAuth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
+
+    // TODO: AugmentOS should not need firebase
+    //  But we do need to reevaluate this whole thing later
     if (currentUser != null) {
       Log.d(TAG, "Already logged in, skipping to main UI");
       navController.navigate(R.id.nav_convoscope);

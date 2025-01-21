@@ -16,10 +16,11 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.ParcelUuid;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 
+import com.google.gson.Gson;
+import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.events.CoreToManagerOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.ManagerToCoreRequestEvent;
 
@@ -54,6 +55,7 @@ public class AugmentosBlePeripheral {
     private BluetoothGattServer gattServer;
     private BluetoothGattCharacteristic characteristic;
     private Context context;
+    private Gson gson;
     private BluetoothDevice connectedDevice;
     private AdvertiseCallback advertiseCallback;
     private Integer currentMtuSize = 251;  // Default MTU size
@@ -68,6 +70,8 @@ public class AugmentosBlePeripheral {
         this.context = context;
         this.callback = callback;  // Store callback to delegate commands
         this.parser = new AugmentOsManagerMessageParser(callback);  // Initialize the parser with callback
+
+        this.gson = new Gson();
 
         EventBus.getDefault().register(this);
 
@@ -117,6 +121,9 @@ public class AugmentosBlePeripheral {
                 if (state == BluetoothAdapter.STATE_ON) {
                     Log.d(TAG, "Bluetooth is now enabled. Starting BLE services.");
                     start();
+                } else if (state == BluetoothAdapter.STATE_OFF) {
+                    Log.d(TAG, "Bluetooth is now disabled. Stoping BLE services.");
+                    stopBle();
                 }
                 // TODO: Maybe do something when BT is stopped?
             }
@@ -161,6 +168,12 @@ public class AugmentosBlePeripheral {
     // Start BLE services: GATT server and advertising
     @SuppressLint("MissingPermission")
     public void start() {
+        // Already running? Clean up first
+        if (gattServer != null || bluetoothAdvertiser != null) {
+            Log.d(TAG, "Called ble .start() but BLE is already running. Stopping first, then restarting...");
+            stopBle();
+        }
+
         if (bluetoothAdapter == null) {
             Log.e(TAG, "Bluetooth is NULL");
             return;
@@ -186,7 +199,7 @@ public class AugmentosBlePeripheral {
         setupGattServer();
 
         // Add a small delay before starting advertising
-        new Handler(Looper.getMainLooper()).postDelayed(this::startAdvertising, 1000);
+        new Handler(Looper.getMainLooper()).postDelayed(this::startAdvertising, 2000);
     }
 
     private void handlePairingDenied(BluetoothDevice device) {
@@ -384,6 +397,16 @@ public class AugmentosBlePeripheral {
         Log.d(TAG, "GATT server setup complete");
     }
 
+    public void sendPing(){
+        JSONObject ping = new JSONObject();
+        try{
+            ping.put("ping", true);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        sendDataToAugmentOsManager(ping.toString());
+    }
+
     public void sendNotifyManager(String message, String type) {
         Log.d(TAG, "sendNotifyManager");
         JSONObject data = new JSONObject();
@@ -392,6 +415,45 @@ public class AugmentosBlePeripheral {
             messageObj.put("message", message);
             messageObj.put("type", type);
             data.put("notify_manager", messageObj);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        sendDataToAugmentOsManager(data.toString());
+    }
+
+    public void sendAppInfoToManager(ThirdPartyApp tpa) {
+        Log.d(TAG, "sendNotifyManager");
+        JSONObject data = new JSONObject();
+        try{
+            data.put("app_info", tpa.toJson(true));
+
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        sendDataToAugmentOsManager(data.toString());
+    }
+
+    public void sendGlassesBluetoothDiscoverResultToManager(String modelName, String deviceName) {
+        Log.d(TAG, "sendGlassesSearchResultsToManager");
+        JSONObject data = new JSONObject();
+        JSONObject messageObj = new JSONObject();
+        try{
+            messageObj.put("model_name", modelName);
+            messageObj.put("device_name", deviceName);
+            data.put("compatible_glasses_search_result", messageObj);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        sendDataToAugmentOsManager(data.toString());
+    }
+
+    public void sendGlassesBluetoothStopToManager(String modelName) {
+        Log.d(TAG, "sendGlassesSearchResultsToManager");
+        JSONObject data = new JSONObject();
+        JSONObject messageObj = new JSONObject();
+        try{
+            messageObj.put("model_name", modelName);
+            data.put("compatible_glasses_search_stop", messageObj);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -571,6 +633,7 @@ public class AugmentosBlePeripheral {
         if (bluetoothAdvertiser != null && advertiseCallback != null) {
             bluetoothAdvertiser.stopAdvertising(advertiseCallback);
             Log.d(TAG, "BLE advertising stopped");
+            bluetoothAdvertiser = null;
             advertiseCallback = null;
         }
 

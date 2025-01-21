@@ -6,12 +6,16 @@ import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.APP
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.EVENT_BUNDLE;
 
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import android.util.Log;
 
 import com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants;
+import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.CenteredTextViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.DisplayCustomContentRequestEvent;
@@ -57,7 +61,7 @@ public class AugmentOSLibBroadcastReceiver extends BroadcastReceiver {
         String eventId = intent.getStringExtra(EVENT_ID);
         String sendingPackage = intent.getStringExtra(APP_PKG_NAME);
         Serializable serializedEvent = intent.getSerializableExtra(EVENT_BUNDLE);
-        Log.d(TAG, "GOT EVENT ID: " + eventId);
+//        Log.d(TAG, "GOT EVENT ID: " + eventId);
 
         //map from id to event
         switch (eventId) {
@@ -79,7 +83,7 @@ public class AugmentOSLibBroadcastReceiver extends BroadcastReceiver {
             case SendBitmapViewRequestEvent.eventId:
             case HomeScreenEvent.eventId:
             case DisplayCustomContentRequestEvent.eventId:
-                Log.d(TAG, "Piping command event to ThirdPartyAppSystem for verification before broadcast.");
+//                Log.d(TAG, "Piping command event to ThirdPartyAppSystem for verification before broadcast.");
                 EventBus.getDefault().post(new TPARequestEvent(eventId, serializedEvent, sendingPackage));
                 break;
             case SubscribeDataStreamRequestEvent.eventId:
