@@ -7,7 +7,6 @@ import Homepage from './screens/Homepage';
 import SettingsPage from './screens/SettingsPage';
 // import IntroScreen from './screens/IntroScreen';
 import RegisterScreen from './screens/RegisterScreen';
-import LoginScreen from './screens/LoginScreen';
 import ProfileSettingsPage from './screens/ProfileSettingsPage';
 import GlassesMirror from './screens/GlassesMirror';
 import NotificationListener from './components/NotificationListener';
@@ -18,12 +17,15 @@ import { StyleSheet } from 'react-native';
 import { RootStackParamList } from './components/types'; // Update path as needed
 import MessageBanner from './components/MessageBanner.tsx';
 import SimulatedPuckSettings from './screens/SimulatedPuckSettings.tsx';
+import SimulatedPuckOnboard from './screens/SimulatedPuckOnboard.tsx';
 import SelectGlassesModelScreen from './screens/SelectGlassesModelScreen.tsx';
 import GlassesPairingGuideScreen from './screens/GlassesPairingGuideScreen.tsx';
 import SelectGlassesBluetoothScreen from './screens/SelectGlassesBluetoothScreen.tsx';
 import PhoneNotificationSettings from './screens/PhoneNotificationSettings.tsx';
 import { SearchResultsProvider } from './SearchResultsContext.tsx';
 import AppSettings from './screens/AppSettings.tsx';
+import LoginScreen from './screens/LoginScreen.tsx';
+import SplashScreen from './screens/SplashScreen.tsx';
 
 // Assign the RootStackParamList to the navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -43,11 +45,16 @@ const App: React.FC = () => {
             <MessageBanner />
             <NavigationContainer>
               <Stack.Navigator initialRouteName="Intro">
-                {/* <Stack.Screen
-                name="Intro"
-                component={IntroScreen}
-                options={{ headerShown: false }}
-              /> */}
+                <Stack.Screen
+                  name="Intro"
+                  component={SplashScreen}
+                  options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                  name="Login"
+                  component={LoginScreen}
+                  options={{ headerShown: false }}
+                />
                 <Stack.Screen name="Home" options={{ headerShown: false }}>
                   {() => (
                     <Homepage
@@ -59,11 +66,6 @@ const App: React.FC = () => {
                 <Stack.Screen
                   name="Register"
                   component={RegisterScreen}
-                  options={{ headerShown: false }}
-                />
-                <Stack.Screen
-                  name="Login"
-                  component={LoginScreen}
                   options={{ headerShown: false }}
                 />
                 <Stack.Screen name="SettingsPage" options={{ headerShown: false }}>
@@ -149,6 +151,23 @@ const App: React.FC = () => {
                   }}>
                   {props => (
                     <SimulatedPuckSettings
+                      {...props}
+                      toggleTheme={toggleTheme}
+                      isDarkTheme={isDarkTheme}
+                    />
+                  )}
+                </Stack.Screen>
+                <Stack.Screen name="SimulatedPuckOnboard"
+                  options={{
+                    title: 'Simulated Puck',
+                    headerShown: false,
+                    headerStyle: {
+                      backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
+                    },
+                    headerTintColor: isDarkTheme ? '#ffffff' : '#000000',
+                  }}>
+                  {props => (
+                    <SimulatedPuckOnboard
                       {...props}
                       toggleTheme={toggleTheme}
                       isDarkTheme={isDarkTheme}

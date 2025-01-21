@@ -1273,7 +1273,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             }
         };
 
-        sendBrightnessCommandHandler.postDelayed(() -> sendAutoLightBrightnessCommand(50, false), delay);
+        sendBrightnessCommandHandler.postDelayed(() -> sendAutoLightBrightnessCommand(8, false), delay);
         heartbeatHandler.postDelayed(heartbeatRunnable, delay);
     }
 

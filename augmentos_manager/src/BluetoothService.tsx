@@ -28,7 +28,7 @@ export interface Device {
 
 export class BluetoothService extends EventEmitter {
   devices: Device[] = [];
-  private validationInProgress: Promise<void> | null = null;
+  private validationInProgress: Promise<boolean | void> | null = null;
   connectedDevice: Device | null = null;
   isScanning: boolean = false;
   isConnecting: boolean = false;
@@ -112,6 +112,10 @@ export class BluetoothService extends EventEmitter {
             name: 'Fake Device',
             rssi: -50,
           };
+
+          saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, true)
+          .then()
+          .catch();
         }
 
         this.emit('dataReceived', data);
@@ -576,7 +580,7 @@ export class BluetoothService extends EventEmitter {
         let compatible_glasses_search_stop = (jsonData as any).compatible_glasses_search_stop;
         GlobalEventEmitter.emit('COMPATIBLE_GLASSES_SEARCH_STOP', { modelName: compatible_glasses_search_stop.model_name })
       } else if ('app_info' in jsonData) {
-        GlobalEventEmitter.emit('APP_INFO_RESULT', {appInfo: jsonData.app_info});
+        GlobalEventEmitter.emit('APP_INFO_RESULT', { appInfo: jsonData.app_info });
       }
     } catch (e) {
       console.log('Some error parsing data from AugmentOS_Core...');
@@ -725,7 +729,7 @@ export class BluetoothService extends EventEmitter {
     }
 
     if (!this.connectedDevice) {
-    //  console.log('SendDataToSimulatedAugmentOs: No connected device to write to');
+      //  console.log('SendDataToSimulatedAugmentOs: No connected device to write to');
     }
 
     if (this.isLocked) {
@@ -742,50 +746,48 @@ export class BluetoothService extends EventEmitter {
   }
 
   async validateResponseFromCore() {
-    // If there's already a validation in progress, just return it
     if (this.validationInProgress) {
       return this.validationInProgress;
     }
-  
+
     console.log('validateResponseFromCore: Data written, waiting for response...');
-  
+
     this.validationInProgress = new Promise((resolve, reject) => {
       let responseReceived = false;
-      const timeout = setTimeout(() => {
-        if (!responseReceived) {
-          console.log('validateResponseFromCore: No response. Triggering reconnection...');
-          //reject(new Error('Response timeout.'));
-          reject(null);
-        }
-      }, 6000);
-  
-      this.once('dataReceived', () => {
+
+      const dataReceivedListener = () => {
         responseReceived = true;
         clearTimeout(timeout);
         console.log('Core is alive!');
-        resolve();
-      });
-    });
-  
-    try {
-      await this.validationInProgress;
-    } catch (error) {
-      //console.error('validateResponseFromCore error:', error);
+        resolve(true);
+      };
+
+      this.once('dataReceived', dataReceivedListener);
+
+      const timeout = setTimeout(() => {
+        if (!responseReceived) {
+          console.log('validateResponseFromCore: No response. Triggering reconnection...');
+          this.removeListener('dataReceived', dataReceivedListener);
+          reject(new Error('Response timeout.'));
+        }
+      }, 6000);
+    }).then(() => {
+      return true;
+    }).catch((error) => {
       if (this.simulatedPuck) {
-        // Restart the service if simulated
         ManagerCoreCommsService.startService();
         startExternalService();
       } else {
-        // Disconnect if real device
         this.handleDisconnectedPeripheral({
           peripheral: this.connectedDevice?.id,
         });
         this.disconnectFromDevice();
       }
-      throw error; // Rethrow if you want to handle it further up
-    } finally {
+    }).finally(() => {
       this.validationInProgress = null;
-    }
+    });
+
+    return this.validationInProgress;
   }
 
 

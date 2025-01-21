@@ -33,6 +33,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.teamopensmartglasses.convoscope.MainActivity;
+import com.teamopensmartglasses.convoscope.PermissionsActivity;
 import com.teamopensmartglasses.convoscope.R;
 import com.teamopensmartglasses.convoscope.ResponseTextUiAdapter;
 import com.teamopensmartglasses.convoscope.TranscriptTextUiAdapter;
@@ -145,6 +146,15 @@ public class AugmentosUi extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+    // BOUNCE TO PERMISSIONS ACTIVITY
+      Intent intent = new Intent(getContext(), PermissionsActivity.class);
+      startActivity(intent);
+
+      // Optionally, finish the current activity if you don't want the user to go back here
+      if (getActivity() != null) {
+        getActivity().finish();
+      }
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.convoscope_fragment, container, false);
@@ -348,9 +358,8 @@ public class AugmentosUi extends Fragment {
         //connectGlasses();
 
         if (((MainActivity) getActivity()).isAppInstalled(TARGET_PACKAGE)) {
-          //setContentView(R.layout.activity_main);
-          ((MainActivity) getActivity()).launchTargetApp(TARGET_PACKAGE);
-          ((MainActivity) getActivity()).finish();
+          //((MainActivity) getActivity()).launchTargetApp(TARGET_PACKAGE);
+          //((MainActivity) getActivity()).finish();
         }
       }
     }

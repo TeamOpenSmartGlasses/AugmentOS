@@ -3,6 +3,8 @@ package com.teamopensmartglasses.augmentos_manager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.util.Log;
+import android.content.pm.PackageManager;
+
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -37,13 +39,14 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
                 Log.d(TAG, "Starting service as foreground service");
                 getReactApplicationContext().startForegroundService(intent);
                 // } else {
-                //Log.d(TAG, "Starting service as normal service");
-                //getReactApplicationContext().startService(intent);
+                // Log.d(TAG, "Starting service as normal service");
+                // getReactApplicationContext().startService(intent);
             }
         } catch (Exception e) {
             Log.e(TAG, "Failed to start service", e);
         }
     }
+
     @ReactMethod
     public void stopService() {
         try {
@@ -74,4 +77,17 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
             Log.d(TAG, "Error opening the app, " + e);
         }
     }
+
+    @ReactMethod
+    public boolean isAugmentOsCoreInstalled() {
+        try {
+            getReactApplicationContext()
+                    .getPackageManager()
+                    .getPackageInfo("com.teamopensmartglasses.convoscope", 0);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+
 }

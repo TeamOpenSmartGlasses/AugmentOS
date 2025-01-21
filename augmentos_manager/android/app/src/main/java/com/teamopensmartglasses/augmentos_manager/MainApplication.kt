@@ -48,8 +48,8 @@ class MainApplication : Application(), ReactApplication {
                 SvgPackage(),
                 NotificationServicePackage(),
                 InstallApkPackage(),
-                ReactSliderPackage()
-
+                ReactSliderPackage(),
+                NotificationAccessPackage()
             )
         }
 
