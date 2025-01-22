@@ -18,7 +18,6 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.ArrayList;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
 import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;

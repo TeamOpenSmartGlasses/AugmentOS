@@ -1,9 +1,12 @@
 package com.teamopensmartglasses.convoscope;
 
+import android.util.Log;
+
 import java.util.*;
 import java.util.concurrent.*;
 
 public class WindowManagerWithTimeouts {
+    public static final String TAG = "WindowManager";
     private static final int DEFAULT_LINGER_TIME = 0; // or any default you want
     private final int globalTimeoutSeconds;
     private long lastGlobalUpdate; // track when *any* layer was last updated
@@ -36,7 +39,7 @@ public class WindowManagerWithTimeouts {
      * Show or update a layer (e.g. an app).
      * @param layerId - unique ID for the app or feature
      * @param displayCommand - code that does the actual display
-     * @param lingerTimeSecs - after how many seconds this layer should auto-hide (0 = never)
+     * @param lingerTimeSecs - after how many seconds this layer should auto-hide (0 = never, -1 = match global)
      */
     public void showAppLayer(String layerId, Runnable displayCommand, int lingerTimeSecs) {
         globalTimedOut = false; // new user update => no longer timed out
@@ -48,7 +51,7 @@ public class WindowManagerWithTimeouts {
         layer.setDisplayCommand(displayCommand);
         layer.setVisible(true);
         layer.setLastUpdated(System.currentTimeMillis());
-        layer.setLingerTimeSeconds(lingerTimeSecs);
+        layer.setLingerTimeSeconds(lingerTimeSecs == -1 ? globalTimeoutSeconds : lingerTimeSecs);
         updateGlobalTimestamp();
         updateDisplay();
     }
@@ -108,6 +111,7 @@ public class WindowManagerWithTimeouts {
                 long age = (now - layer.getLastUpdated()) / 1000L;
                 if (age >= layer.getLingerTimeSeconds()) {
                     layer.setVisible(false);
+                    layers.remove(layer);
                 }
             }
         }
@@ -184,6 +188,16 @@ public class WindowManagerWithTimeouts {
     // Stop the scheduler if needed (e.g. on service destroy).
     public void shutdown() {
         scheduler.shutdownNow();
+    }
+
+    public boolean isDashboardShowing() {
+        if (currentlyDisplayedLayer.id.equals("DASHBOARD")) {
+            Log.d(TAG, "Dashboard is showing confirmed!");
+            return true;
+        } else {
+            Log.d(TAG, "Dashboard is now showing, confirmed!");
+            return false;
+        }
     }
 
     //----- Inner class for layers -----

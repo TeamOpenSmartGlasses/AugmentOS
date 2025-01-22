@@ -219,8 +219,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private long currTime = 0;
     private long lastPressed = 0;
     private long lastTapped = 0;
-    private boolean showingDashboardNow = false;
-
 
     //clear screen to start
     public boolean clearedScreenYet = false;
@@ -308,14 +306,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         long time = event.timestamp;
 
         Log.d(TAG, "GLASSES TAPPED X TIMES: " + numTaps + " SIDEOFGLASSES: " + sideOfGlasses);
+        if (smartGlassesService == null) return;
         if (numTaps == 2 || numTaps == 3) {
-            if (!showingDashboardNow) {
+            if (smartGlassesService.windowManager.isDashboardShowing()) {
+                smartGlassesService.windowManager.hideDashboard();
+            } else {
                 Log.d(TAG, "GOT A DOUBLE+ TAP");
                 EventBus.getDefault().post(new DisplayGlassesDashboardEvent());
-            } else {
-                smartGlassesService.windowManager.hideDashboard();
             }
-            showingDashboardNow = !showingDashboardNow;
         }
     }
 
@@ -487,13 +485,13 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
 
         // TODO: Uncomment for auto-connect
-//        String preferredWearable = AugmentosSmartGlassesService.getPreferredWearable(this);
-//        if(!preferredWearable.isEmpty()) {
-//            executeOnceSmartGlassesServiceReady(this, () -> {
-//                SmartGlassesDevice preferredDevice = AugmentosSmartGlassesService.getSmartGlassesDeviceFromModelName(preferredWearable);
-//                smartGlassesService.connectToSmartGlasses(preferredDevice);
-//            });
-//        }
+        String preferredWearable = AugmentosSmartGlassesService.getPreferredWearable(this);
+        if(!preferredWearable.isEmpty()) {
+            executeOnceSmartGlassesServiceReady(this, () -> {
+                SmartGlassesDevice preferredDevice = AugmentosSmartGlassesService.getSmartGlassesDeviceFromModelName(preferredWearable);
+                smartGlassesService.connectToSmartGlasses(preferredDevice);
+            });
+        }
     }
 
     @Override
