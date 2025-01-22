@@ -42,6 +42,8 @@ import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBatt
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchStopEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHeadDownEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHeadUpEvent;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 
 import org.greenrobot.eventbus.EventBus;
@@ -389,7 +391,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             // Check for head down movement - initial F5 02 signal
                             if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x02) {
                                 Log.d(TAG, "HEAD UP MOVEMENT DETECTED");
-                                showDashboard();
+                                EventBus.getDefault().post(new GlassesHeadUpEvent());
+                                //showDashboard();
 //                                displayTextWall("AugmentOS\t\tDashboard\nBy the boys:\n- cayden\n- Israelov\n- Nicobro");
 //                                byte[] bmpData = loadBmpFromAssets();
 //                                if (bmpData != null) {
@@ -402,7 +405,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             else if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x03) {
                                 // Log.d(TAG, "HEAD DOWN MOVEMENT DETECTED");
 //                                clearBmpDisplay();
-                                showHomeScreen();
+                                EventBus.getDefault().post(new GlassesHeadDownEvent());
+
                             }
                         } else if (deviceName.contains("L_")) {
                             if (data.length > 2 && data[0] == 0x2C && data[1] == 0x66) {
@@ -1967,10 +1971,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         Log.d(TAG, "Clearing BMP display with EXIT command");
         byte[] exitCommand = new byte[]{0x18};
         sendDataSequentially(exitCommand);
-    }
-
-    private void showDashboard() {
-        EventBus.getDefault().post(new DisplayGlassesDashboardEvent());
     }
 
 }

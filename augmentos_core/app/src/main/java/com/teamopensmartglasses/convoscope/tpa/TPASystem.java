@@ -48,6 +48,7 @@ import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEv
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TranslateOutputEvent;
+import com.teamopensmartglasses.convoscope.AugmentosSmartGlassesService;
 import com.teamopensmartglasses.convoscope.tpa.eventbusmessages.TPARequestEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -85,9 +86,11 @@ public class TPASystem {
     private static final int HEALTH_CHECK_INTERVAL_MS = 5000;  // 5 seconds
     private Handler healthCheckHandler;
     private Runnable healthCheckRunnable;
+    private AugmentosSmartGlassesService smartGlassesService;
 
-    public TPASystem(Context context){
+    public TPASystem(Context context, AugmentosSmartGlassesService smartGlassesService){
         mContext = context;
+        this.smartGlassesService = smartGlassesService;
         augmentOsLibBroadcastSender = new AugmentOSLibBroadcastSender(mContext);
         augmentOsLibBroadcastReceiver = new AugmentOSLibBroadcastReceiver(mContext);
         runningApps = new HashSet<>();
@@ -440,40 +443,52 @@ public class TPASystem {
 
         switch (receivedEvent.eventId) {
             case ReferenceCardSimpleViewRequestEvent.eventId:
-                EventBus.getDefault().post((ReferenceCardSimpleViewRequestEvent) receivedEvent.serializedEvent);
+                smartGlassesService.windowManager.showAppLayer(receivedEvent.sendingPackage, () -> EventBus.getDefault().post((ReferenceCardSimpleViewRequestEvent) receivedEvent.serializedEvent), -1);
+                //EventBus.getDefault().post((ReferenceCardSimpleViewRequestEvent) receivedEvent.serializedEvent);
                 break;
             case TextWallViewRequestEvent.eventId:
-                EventBus.getDefault().post((TextWallViewRequestEvent) receivedEvent.serializedEvent);
+                smartGlassesService.windowManager.showAppLayer(receivedEvent.sendingPackage, () -> EventBus.getDefault().post((TextWallViewRequestEvent) receivedEvent.serializedEvent), -1);
+                //EventBus.getDefault().post((TextWallViewRequestEvent) receivedEvent.serializedEvent);
                 break;
             case DoubleTextWallViewRequestEvent.eventId:
-                EventBus.getDefault().post((DoubleTextWallViewRequestEvent) receivedEvent.serializedEvent);
+                smartGlassesService.windowManager.showAppLayer(receivedEvent.sendingPackage, () -> EventBus.getDefault().post((DoubleTextWallViewRequestEvent) receivedEvent.serializedEvent), -1);
+                //EventBus.getDefault().post((DoubleTextWallViewRequestEvent) receivedEvent.serializedEvent);
                 break;
             case HomeScreenEvent.eventId:
-                EventBus.getDefault().post((HomeScreenEvent) receivedEvent.serializedEvent);
+                smartGlassesService.windowManager.showAppLayer(receivedEvent.sendingPackage, () -> EventBus.getDefault().post((HomeScreenEvent) receivedEvent.serializedEvent), -1);
+                //EventBus.getDefault().post((HomeScreenEvent) receivedEvent.serializedEvent);
                 break;
             case ReferenceCardImageViewRequestEvent.eventId:
-                EventBus.getDefault().post((ReferenceCardImageViewRequestEvent) receivedEvent.serializedEvent);
+                smartGlassesService.windowManager.showAppLayer(receivedEvent.sendingPackage, () -> EventBus.getDefault().post((ReferenceCardImageViewRequestEvent) receivedEvent.serializedEvent), -1);
+                //EventBus.getDefault().post((ReferenceCardImageViewRequestEvent) receivedEvent.serializedEvent);
                 break;
             case BulletPointListViewRequestEvent.eventId:
-                EventBus.getDefault().post((BulletPointListViewRequestEvent) receivedEvent.serializedEvent);
+                smartGlassesService.windowManager.showAppLayer(receivedEvent.sendingPackage, () -> EventBus.getDefault().post((BulletPointListViewRequestEvent) receivedEvent.serializedEvent), -1);
+                //EventBus.getDefault().post((BulletPointListViewRequestEvent) receivedEvent.serializedEvent);
                 break;
             case ScrollingTextViewStartRequestEvent.eventId: //mode start command - gives app focus
-                EventBus.getDefault().post((ScrollingTextViewStartRequestEvent) receivedEvent.serializedEvent);
+                smartGlassesService.windowManager.showAppLayer(receivedEvent.sendingPackage, () -> EventBus.getDefault().post((ScrollingTextViewStartRequestEvent) receivedEvent.serializedEvent), -1);
+                //EventBus.getDefault().post((ScrollingTextViewStartRequestEvent) receivedEvent.serializedEvent);
                 break;
             case ScrollingTextViewStopRequestEvent.eventId:
-                EventBus.getDefault().post((ScrollingTextViewStopRequestEvent) receivedEvent.serializedEvent);
+                smartGlassesService.windowManager.showAppLayer(receivedEvent.sendingPackage, () -> EventBus.getDefault().post((ScrollingTextViewStopRequestEvent) receivedEvent.serializedEvent), -1);
+                //EventBus.getDefault().post((ScrollingTextViewStopRequestEvent) receivedEvent.serializedEvent);
                 break;
             case FinalScrollingTextRequestEvent.eventId:
-                EventBus.getDefault().post((FinalScrollingTextRequestEvent) receivedEvent.serializedEvent);
+                smartGlassesService.windowManager.showAppLayer(receivedEvent.sendingPackage, () -> EventBus.getDefault().post((FinalScrollingTextRequestEvent) receivedEvent.serializedEvent), -1);
+                //EventBus.getDefault().post((FinalScrollingTextRequestEvent) receivedEvent.serializedEvent);
                 break;
             case IntermediateScrollingTextRequestEvent.eventId:
-                EventBus.getDefault().post((IntermediateScrollingTextRequestEvent) receivedEvent.serializedEvent);
+                smartGlassesService.windowManager.showAppLayer(receivedEvent.sendingPackage, () -> EventBus.getDefault().post((IntermediateScrollingTextRequestEvent) receivedEvent.serializedEvent), -1);
+                //EventBus.getDefault().post((IntermediateScrollingTextRequestEvent) receivedEvent.serializedEvent);
                 break;
             case TextLineViewRequestEvent.eventId:
-                EventBus.getDefault().post((TextLineViewRequestEvent) receivedEvent.serializedEvent);
+                smartGlassesService.windowManager.showAppLayer(receivedEvent.sendingPackage, () -> EventBus.getDefault().post((TextLineViewRequestEvent) receivedEvent.serializedEvent), -1);
+                //EventBus.getDefault().post((TextLineViewRequestEvent) receivedEvent.serializedEvent);
                 break;
             case DisplayCustomContentRequestEvent.eventId:
-                EventBus.getDefault().post((DisplayCustomContentRequestEvent) receivedEvent.serializedEvent);
+                smartGlassesService.windowManager.showAppLayer(receivedEvent.sendingPackage, () -> EventBus.getDefault().post((DisplayCustomContentRequestEvent) receivedEvent.serializedEvent), -1);
+                //EventBus.getDefault().post((DisplayCustomContentRequestEvent) receivedEvent.serializedEvent);
 
         }
     }
