@@ -1610,6 +1610,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
             // Increment sequence number for next page
             textSeqNum = (textSeqNum + 1) % 256;
+            break;
         }
 
         Log.d(TAG, "TOTAL PAGES: " + totalPages);
