@@ -40,7 +40,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       // console.log("GOT SOME APP INFO YO");
       // console.log(JSON.stringify(appInfo));
       setAppInfo(appInfo);
-      
+
       // Initialize settings state with current values
       const initialState: { [key: string]: any } = {};
       appInfo.settings.forEach((setting: any) => {
@@ -118,7 +118,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
             value={settingsState[setting.key]}
             min={setting.min}
             max={setting.max}
-            onValueChange={(val) => 
+            onValueChange={(val) =>
               setSettingsState((prevState) => ({
                 ...prevState,
                 [setting.key]: val, // Immediate UI update
@@ -175,29 +175,54 @@ const AppSettings: React.FC<AppSettingsProps> = ({
         </View>
       </SafeAreaView>
     );
+  } else {
+      if (appInfo.instructions && appInfo.settings?.length > 0) {
+        return (
+          <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+            <ScrollView contentContainerStyle={styles.mainContainer}>
+              <View style={styles.loadingContainer}>
+                <Text style={[styles.text, { color: theme.textColor }]}>
+                  {appInfo.instructions}
+                </Text>
+              </View>
+              {appInfo.settings.map((setting: any, index: number) =>
+                renderSetting(setting, index)
+              )}
+            </ScrollView>
+          </SafeAreaView>
+        );
+      } else if (appInfo.instructions) {
+        return (
+          <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+            <View style={styles.loadingContainer}>
+              <Text style={[styles.text, { color: theme.textColor }]}>
+                {appInfo.instructions}
+              </Text>
+            </View>
+          </SafeAreaView>
+        );
+      } else if (appInfo.settings?.length === 0) {
+        return (
+          <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+            <View style={styles.loadingContainer}>
+              <Text style={[styles.text, { color: theme.textColor }]}>
+                {appName} doesn't have any settings
+              </Text>
+            </View>
+          </SafeAreaView>
+        );
+      } else {
+         return (
+           <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+             <ScrollView contentContainerStyle={styles.mainContainer}>
+               {appInfo.settings.map((setting: any, index: number) =>
+                 renderSetting(setting, index)
+               )}
+             </ScrollView>
+           </SafeAreaView>
+         );
+      }
   }
-
-  if (appInfo && appInfo.settings?.length == 0) {
-    return(
-      <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-        <View style={styles.loadingContainer}>
-          <Text style={[styles.text, { color: theme.textColor }]}>
-            {appName} doesn't have any settings
-          </Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
-
-  return (
-    <SafeAreaView
-      style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}
-    >
-      <ScrollView contentContainerStyle={styles.mainContainer}>
-        {appInfo.settings.map((setting: any, index: number) => renderSetting(setting, index))}
-      </ScrollView>
-    </SafeAreaView>
-  );
 };
 
 const styles = StyleSheet.create({

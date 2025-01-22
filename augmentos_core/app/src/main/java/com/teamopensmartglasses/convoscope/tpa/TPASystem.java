@@ -169,9 +169,11 @@ public class TPASystem {
                                 JSONObject jsonObject = new JSONObject(jsonStr); // Parse the jsonStr into a JSONObject
                                 String version = jsonObject.has("version") ? jsonObject.getString("version") : "0.0.0";
                                 JSONArray settings = jsonObject.has("settings") ? jsonObject.getJSONArray("settings") : new JSONArray();
+                                String instructions = jsonObject.has("instructions") ? jsonObject.getString("instructions") : "";
                                 return new ThirdPartyApp(
                                         jsonObject.getString("name"),
                                         jsonObject.getString("description"),
+                                        instructions,
                                         resolveInfo.serviceInfo.packageName,
                                         resolveInfo.serviceInfo.name,
                                         version,
@@ -195,6 +197,7 @@ public class TPASystem {
         ThirdPartyApp defaultDashboard = new ThirdPartyApp(
                 "Default Dashboard",
                 "A default dashboard",
+                "",
                 "packageName",
                 "serviceName",
                 "1.0.0",

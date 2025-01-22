@@ -22,6 +22,7 @@ interface GSMConnection {
 export interface AppInfo {
   name: string;
   description: string;
+  instructions: string | null;
   is_running: boolean;
   is_foreground: boolean;
   packageName: string;
