@@ -164,24 +164,27 @@ const AppSettings: React.FC<AppSettingsProps> = ({
     }
   };
 
-  if (!appInfo) {
-    return (
-      <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#999999" />
-          <Text style={[styles.text, { color: theme.textColor }]}>
-            Loading App Settings...
-          </Text>
-        </View>
-      </SafeAreaView>
-    );
-  } else {
+    if (!appInfo) {
+      return (
+        <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#999999" />
+            <Text style={[styles.text, { color: theme.textColor }]}>
+              Loading App Settings...
+            </Text>
+          </View>
+        </SafeAreaView>
+      );
+    } else {
       if (appInfo.instructions && appInfo.settings?.length > 0) {
         return (
           <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
             <ScrollView contentContainerStyle={styles.mainContainer}>
-              <View style={styles.loadingContainer}>
-                <Text style={[styles.text, { color: theme.textColor }]}>
+              <View style={[styles.instructionsContainer, { marginBottom: 20 }]}>
+                <Text style={[styles.title, { color: theme.textColor }]}>
+                  Instructions
+                </Text>
+                <Text style={[styles.instructionsText, { color: theme.textColor }]}>
                   {appInfo.instructions}
                 </Text>
               </View>
@@ -194,11 +197,16 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       } else if (appInfo.instructions) {
         return (
           <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-            <View style={styles.loadingContainer}>
-              <Text style={[styles.text, { color: theme.textColor }]}>
-                {appInfo.instructions}
-              </Text>
-            </View>
+            <ScrollView contentContainerStyle={styles.mainContainer}>
+              <View style={[styles.instructionsContainer, { marginBottom: 20 }]}>
+                <Text style={[styles.title, { color: theme.textColor }]}>
+                  Description
+                </Text>
+                <Text style={[styles.instructionsText, { color: theme.textColor }]}>
+                  {appInfo.instructions}
+                </Text>
+              </View>
+            </ScrollView>
           </SafeAreaView>
         );
       } else if (appInfo.settings?.length === 0) {
@@ -212,17 +220,17 @@ const AppSettings: React.FC<AppSettingsProps> = ({
           </SafeAreaView>
         );
       } else {
-         return (
-           <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-             <ScrollView contentContainerStyle={styles.mainContainer}>
-               {appInfo.settings.map((setting: any, index: number) =>
-                 renderSetting(setting, index)
-               )}
-             </ScrollView>
-           </SafeAreaView>
-         );
+        return (
+          <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+            <ScrollView contentContainerStyle={styles.mainContainer}>
+              {appInfo.settings.map((setting: any, index: number) =>
+                renderSetting(setting, index)
+              )}
+            </ScrollView>
+          </SafeAreaView>
+        );
       }
-  }
+    }
 };
 
 const styles = StyleSheet.create({
@@ -234,11 +242,25 @@ const styles = StyleSheet.create({
     padding: 16,
     alignItems: 'stretch',
   },
+    instructionsContainer: {
+      marginTop: 10,
+      marginBottom: 20,
+      alignItems: 'flex-start',
+    },
+    title: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      marginBottom: 10,
+    },
+    instructionsText: {
+      fontSize: 16,
+      lineHeight: 22,
+    },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 20
+    marginHorizontal: 20,
   },
   text: {
     fontSize: 18,
