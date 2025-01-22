@@ -1,7 +1,5 @@
 package com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators;
 
-import static java.lang.System.exit;
-
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
@@ -38,7 +36,8 @@ import java.nio.ByteBuffer;
 import com.google.gson.Gson;
 import com.teamopensmartglasses.augmentoslib.events.AudioChunkNewEvent;
 import com.teamopensmartglasses.smartglassesmanager.cpp.L3cCpp;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBatteryLevelEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BatteryLevelEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BrightnessLevelEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchStopEvent;
@@ -91,6 +90,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private int currentSeq = 0;
     private boolean stopper = false;
     private boolean debugStopper = false;
+    private boolean shouldUseAutoBrightness = false;
+    private int brightnessValue = 35;
 
     private static final long DELAY_BETWEEN_SENDS_MS = 2;
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 5;
@@ -414,7 +415,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                                 Log.d(TAG, "Battery response received");
                                 int batteryLevel = data[2];
 
-                                EventBus.getDefault().post(new GlassesBatteryLevelEvent(batteryLevel));
+                                EventBus.getDefault().post(new BatteryLevelEvent(batteryLevel));
                             }
                         }
                         //HEARTBEAT RESPONSE
@@ -1275,7 +1276,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             }
         };
 
-        sendBrightnessCommandHandler.postDelayed(() -> sendAutoLightBrightnessCommand(8, false), delay);
+        sendBrightnessCommandHandler.postDelayed(() -> sendBrightnessCommand(brightnessValue, shouldUseAutoBrightness), delay);
         heartbeatHandler.postDelayed(heartbeatRunnable, delay);
     }
 
@@ -1417,7 +1418,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         sendDataSequentially(batteryQueryPacket, false);
     }
 
-    public void sendAutoLightBrightnessCommand(int brightness, boolean autoLight) {
+    public void sendBrightnessCommand(int brightness, boolean autoLight) {
         // Validate brightness range
         if (brightness < 0 || brightness > 63) {
             Log.e(TAG, "Brightness value must be between 0 and 63");
@@ -1433,6 +1434,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         sendDataSequentially(buffer.array(), false);
 
         Log.d(TAG, "Sent auto light brightness command => Brightness: " + brightness + ", Auto Light: " + (autoLight ? "Open" : "Close"));
+
+        //send to AugmentOS core
+        EventBus.getDefault().post(new BrightnessLevelEvent(autoLight ? -1 : ((brightness * 100) / 63)));
     }
 
     private static String bytesToHex(byte[] bytes) {
