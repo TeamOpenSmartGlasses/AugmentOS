@@ -147,15 +147,6 @@ public class AugmentosUi extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-    // BOUNCE TO PERMISSIONS ACTIVITY
-      Intent intent = new Intent(getContext(), PermissionsActivity.class);
-      startActivity(intent);
-
-      // Optionally, finish the current activity if you don't want the user to go back here
-      if (getActivity() != null) {
-        getActivity().finish();
-      }
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.convoscope_fragment, container, false);
     }

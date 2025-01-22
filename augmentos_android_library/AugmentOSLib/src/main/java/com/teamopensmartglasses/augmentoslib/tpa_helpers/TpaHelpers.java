@@ -17,7 +17,7 @@ public class TpaHelpers {
             return false;
         }
     }
-    private static boolean isAppInstalled(Context context, String packageName) {
+    public static boolean isAppInstalled(Context context, String packageName) {
         PackageManager pm = context.getPackageManager();
         try {
             pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);

@@ -196,7 +196,7 @@ class SmartGlassesRepresentative {
 
     public void showReferenceCard(String title, String body){
         if (smartGlassesCommunicator != null) {
-            smartGlassesCommunicator.displayReferenceCardSimple(title, body, -1);
+            smartGlassesCommunicator.displayReferenceCardSimple(title, body);
         }
     }
 
@@ -259,7 +259,7 @@ class SmartGlassesRepresentative {
     public void onReferenceCardSimpleViewEvent(ReferenceCardSimpleViewRequestEvent receivedEvent){
         Log.d(TAG, "SHOWING REFERENCE CARD");
         if (smartGlassesCommunicator != null) {
-            smartGlassesCommunicator.displayReferenceCardSimple(receivedEvent.title, receivedEvent.body, receivedEvent.lingerTimeMs);
+            smartGlassesCommunicator.displayReferenceCardSimple(receivedEvent.title, receivedEvent.body);
 //            homeUiAfterDelay(referenceCardDelayTime);
         }
     }

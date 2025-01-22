@@ -563,7 +563,7 @@ public class AndroidSGC extends SmartGlassesCommunicator {
         }
     }
 
-    public void displayReferenceCardSimple(String title, String body, int lingerTimeMs){
+    public void displayReferenceCardSimple(String title, String body){
         try{
             //build json object to send command result
             JSONObject commandResponseObject = new JSONObject();
@@ -759,7 +759,7 @@ public class AndroidSGC extends SmartGlassesCommunicator {
     }
 
     public void displayTextLine(String text){
-        displayReferenceCardSimple("", text, -1);
+        displayReferenceCardSimple("", text);
     }
 
     public void displayCenteredText(String text){
@@ -768,7 +768,7 @@ public class AndroidSGC extends SmartGlassesCommunicator {
     }
 
     public void displayCustomContent(String json) {
-        displayReferenceCardSimple("CustomDisplayNotImplemented", json, -1);
+        displayReferenceCardSimple("CustomDisplayNotImplemented", json);
     }
 
 

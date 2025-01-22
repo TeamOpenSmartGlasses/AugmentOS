@@ -1091,7 +1091,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     }
 
     @Override
-    public void displayReferenceCardSimple(String title, String body, int lingerTime) {
+    public void displayReferenceCardSimple(String title, String body) {
         if (!isConnected()) {
             Log.d(TAG, "Not connected to glasses");
             return;
@@ -1100,8 +1100,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         List<byte[]> chunks = createTextWallChunks(title + "\n\n" + body);
         sendChunks(chunks);
         Log.d(TAG, "Send simple reference card");
-
-        homeScreenInNSeconds(lingerTime);
     }
 
     @Override

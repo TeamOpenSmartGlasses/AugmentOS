@@ -146,9 +146,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private FirebaseAuth.AuthStateListener authStateListener;
     private FirebaseAuth.IdTokenListener idTokenListener;
 
-    private final String notificationAppName = "AugmentOS_Main";
-    private final String notificationDescription = "AugmentOS_Main Description";
-    private final String myChannelId = "augmentos_main";
+    private final String notificationAppName = "AugmentOS Core";
+    private final String notificationDescription = "Running in foreground";
+    private final String myChannelId = "augmentos_core";
     public static final String ACTION_START_CORE = "ACTION_START_CORE";
     public static final String ACTION_STOP_CORE = "ACTION_STOP_CORE";
 
