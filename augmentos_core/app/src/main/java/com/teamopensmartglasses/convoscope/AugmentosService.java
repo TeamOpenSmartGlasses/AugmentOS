@@ -89,6 +89,7 @@ import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlas
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchStopEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BatteryLevelEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesDisplayPowerEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHeadDownEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHeadUpEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
@@ -597,6 +598,13 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         stopService(intent);  // Stop the service
     }
 
+    @Subscribe
+    public void onGlassesDisplayPowerEvent(GlassesDisplayPowerEvent event) {
+        if (smartGlassesService == null) return;
+        if (event.turnedOn) {
+            smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("AugmentOS Connected", "Screen back on"), 4);
+        }
+    }
     @Subscribe
     public void onGlassesConnnected(SmartGlassesConnectedEvent event) {
         Log.d(TAG, "Got event for onGlassesConnected....");
