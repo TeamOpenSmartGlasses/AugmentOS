@@ -1,7 +1,5 @@
 package com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators;
 
-import static java.lang.System.exit;
-
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
@@ -38,7 +36,8 @@ import java.nio.ByteBuffer;
 import com.google.gson.Gson;
 import com.teamopensmartglasses.augmentoslib.events.AudioChunkNewEvent;
 import com.teamopensmartglasses.smartglassesmanager.cpp.L3cCpp;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBatteryLevelEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BatteryLevelEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BrightnessLevelEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchStopEvent;
@@ -91,6 +90,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private int currentSeq = 0;
     private boolean stopper = false;
     private boolean debugStopper = false;
+    private boolean shouldUseAutoBrightness = false;
+    private int brightnessValue = 35;
 
     private static final long DELAY_BETWEEN_SENDS_MS = 2;
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 5;
@@ -322,10 +323,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
                             //below has odd staggered times so they don't happen in sync
                             // Start MIC streaming
-                            setMicEnabled(true, 150); // Enable the MIC
+                            setMicEnabled(true, 500); // Enable the MIC
 
                             //enable our AugmentOS notification key
-                            sendWhiteListCommand(300);
+                            sendWhiteListCommand(750);
 
                             //start heartbeat
                             startHeartbeat(3200);
@@ -384,45 +385,47 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             }
 //                          Log.d(this.getClass().getSimpleName(), "============Lc3 data = " + Arrays.toString(lc3) + ", Pcm = " + Arrays.toString(pcmData));
                         }
-                        // Only check head movements from the right sensor
-                        else if (deviceName.contains("R_")) {
-                            // Check for head down movement - initial F5 02 signal
-                            if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x02) {
+                        //HEAD UP MOVEMENTS
+                        else if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x02) {
+                            // Only check head movements from the right sensor
+                            if (deviceName.contains("R_")) {
+                                // Check for head down movement - initial F5 02 signal
                                 Log.d(TAG, "HEAD UP MOVEMENT DETECTED");
                                 showDashboard();
-//                                displayTextWall("AugmentOS\t\tDashboard\nBy the boys:\n- cayden\n- Israelov\n- Nicobro");
-//                                byte[] bmpData = loadBmpFromAssets();
-//                                if (bmpData != null) {
-//                                    displayBitmapImage(bmpData);
-//                                } else {
-//                                    Log.e(TAG, "Could not load BMP data");
-//                                }
+                                //                                displayTextWall("AugmentOS\t\tDashboard\nBy the boys:\n- cayden\n- Israelov\n- Nicobro");
+                                //                                byte[] bmpData = loadBmpFromAssets();
+                                //                                if (bmpData != null) {
+                                //                                    displayBitmapImage(bmpData);
+                                //                                } else {
+                                //                                    Log.e(TAG, "Could not load BMP data");
+                                //                                }
                             }
-                            // Check for head up movement - initial F5 03 signal
-                            else if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x03) {
+                        }
+                        //HEAD DOWN MOVEMENTS
+                        else if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x03) {
+                            if (deviceName.contains("R_")) {
                                 // Log.d(TAG, "HEAD DOWN MOVEMENT DETECTED");
-//                                clearBmpDisplay();
+    //                                clearBmpDisplay();
                                 showHomeScreen();
                             }
-                        } else if (deviceName.contains("L_")) {
-                            if (data.length > 2 && data[0] == 0x2C && data[1] == 0x66) {
+                        }
+                        //BATTERY RESPONSE
+                        else if (data.length > 2 && data[0] == 0x2C && data[1] == 0x66) {
+                            if (deviceName.contains("L_")) {
                                 Log.d(TAG, "Battery response received");
                                 int batteryLevel = data[2];
 
-                                EventBus.getDefault().post(new GlassesBatteryLevelEvent(batteryLevel));
-                            } else if (data.length > 0 && data[0] == 0x25) {
-                                Log.d(TAG, "Heartbeat response received");
+                                EventBus.getDefault().post(new BatteryLevelEvent(batteryLevel));
                             }
+                        }
+                        //HEARTBEAT RESPONSE
+                        else if (data.length > 0 && data[0] == 0x25) {
+                            Log.d(TAG, "Heartbeat response received");
                         }
                         // Handle other non-audio responses
                         else {
-                            Log.d(TAG, "Received non-audio response: " + bytesToHex(data) + ", from: " + deviceName);
+                            Log.d(TAG, "Received other Even Realities response: " + bytesToHex(data) + ", from: " + deviceName);
                         }
-
-//                        if (data.length > 0 && data[0] == 0x2C) {
-//                            Log.d(TAG, "Battery response received" + Arrays.toString(data));
-//                            Log.d(TAG, "Battery response received" + bytesToHex(data));
-//                        }
                     }
                 });
             }
@@ -1273,7 +1276,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             }
         };
 
-        sendBrightnessCommandHandler.postDelayed(() -> sendAutoLightBrightnessCommand(8, false), delay);
+        sendBrightnessCommandHandler.postDelayed(() -> sendBrightnessCommand(brightnessValue, shouldUseAutoBrightness), delay);
         heartbeatHandler.postDelayed(heartbeatRunnable, delay);
     }
 
@@ -1415,7 +1418,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         sendDataSequentially(batteryQueryPacket, false);
     }
 
-    public void sendAutoLightBrightnessCommand(int brightness, boolean autoLight) {
+    public void sendBrightnessCommand(int brightness, boolean autoLight) {
         // Validate brightness range
         if (brightness < 0 || brightness > 63) {
             Log.e(TAG, "Brightness value must be between 0 and 63");
@@ -1431,6 +1434,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         sendDataSequentially(buffer.array(), false);
 
         Log.d(TAG, "Sent auto light brightness command => Brightness: " + brightness + ", Auto Light: " + (autoLight ? "Open" : "Close"));
+
+        //send to AugmentOS core
+        EventBus.getDefault().post(new BrightnessLevelEvent(autoLight ? -1 : ((brightness * 100) / 63)));
     }
 
     private static String bytesToHex(byte[] bytes) {
@@ -1443,6 +1449,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     //microphone stuff
     public void setMicEnabled(boolean enable, int delay) {
+        Log.d(TAG, "Running set mic enabled: " + enable);
         micEnableHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -1607,6 +1614,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
             // Increment sequence number for next page
             textSeqNum = (textSeqNum + 1) % 256;
+            break;
         }
 
         Log.d(TAG, "TOTAL PAGES: " + totalPages);
