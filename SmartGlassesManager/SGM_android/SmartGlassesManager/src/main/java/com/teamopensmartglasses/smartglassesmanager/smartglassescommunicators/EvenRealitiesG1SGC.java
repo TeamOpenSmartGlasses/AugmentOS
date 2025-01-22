@@ -939,7 +939,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         leftTxChar.setValue(request.data);
                         boolean leftSuccess = leftGlassGatt.writeCharacteristic(leftTxChar);
                         if (!leftSuccess) {
-                            Log.d(TAG, " LEFT BIG ERROR!!! DESTROY!!!");
+                            Log.d(TAG, "Left write error :(");
                             //                        leftSuccess = leftGlassGatt.writeCharacteristic(leftTxChar);
                             //                        if (!leftSuccess){
                             //                            Log.d(TAG, " LEFT BIGGER ERROR!!! DESTROY!!!");
@@ -949,7 +949,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             //leftGlassGatt.disconnect();
                             // return;
                         } else {
-                            Log.d(TAG, " SUCCESS ON LEFT");
+                            //Log.d(TAG, " SUCCESS ON LEFT");
                         }
 
                         Thread.sleep(DELAY_BETWEEN_SENDS_MS);
@@ -960,7 +960,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         rightTxChar.setValue(request.data);
                         boolean rightSuccess = rightGlassGatt.writeCharacteristic(rightTxChar);
                         if (!rightSuccess) {
-                            Log.d(TAG, " RIGHT BIG ERROR!!! DESTROY!!!");
+                            Log.d(TAG, "Right write error :(");
                             //                        rightSuccess = rightGlassGatt.writeCharacteristic(rightTxChar);
                             //                        if (!rightSuccess){
                             //                            Log.d(TAG, " RIGHT BIGGER ERROR!!! DESTROY!!!");
@@ -971,7 +971,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             //destroy();
                             //                      return;
                         } else {
-                            Log.d(TAG, " SUCCESS ON RIGHT");
+                            //Log.d(TAG, " SUCCESS ON RIGHT");
                         }
                         Thread.sleep(DELAY_BETWEEN_SENDS_MS);
                     }

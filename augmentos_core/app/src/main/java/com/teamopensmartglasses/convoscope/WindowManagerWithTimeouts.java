@@ -13,6 +13,12 @@ public class WindowManagerWithTimeouts {
 
     private final Runnable globalTimeoutAction;
 
+    // Track what is currently shown on-screen so we don’t re-send the same layer repeatedly
+    private Layer currentlyDisplayedLayer = null;
+    private long currentlyDisplayedLayerTimestamp = 0;
+    private boolean globalTimedOut = false;
+
+
     /**
      * @param globalTimeoutSeconds - if no updates for this many seconds, call globalTimeoutAction
      * @param globalTimeoutAction  - what to do when global timeout triggers (e.g. clearScreen)
@@ -33,6 +39,7 @@ public class WindowManagerWithTimeouts {
      * @param lingerTimeSecs - after how many seconds this layer should auto-hide (0 = never)
      */
     public void showAppLayer(String layerId, Runnable displayCommand, int lingerTimeSecs) {
+        globalTimedOut = false; // new user update => no longer timed out
         Layer layer = findLayer(layerId);
         if (layer == null) {
             layer = new Layer(layerId);
@@ -58,6 +65,7 @@ public class WindowManagerWithTimeouts {
      * Dashboard is always on top if visible.
      */
     public void showDashboard(Runnable displayCommand, int lingerTimeSecs) {
+        globalTimedOut = false; // new user update => no longer timed out
         Layer dash = findLayer("DASHBOARD");
         if (dash == null) {
             dash = new Layer("DASHBOARD");
@@ -88,9 +96,10 @@ public class WindowManagerWithTimeouts {
         long now = System.currentTimeMillis();
 
         // Check global timeout
-        if ((now - lastGlobalUpdate) >= (globalTimeoutSeconds * 1000L)) {
+        if (!globalTimedOut && (now - lastGlobalUpdate) >= (globalTimeoutSeconds * 1000L)) {
             // Global inactivity => call the provided global timeout action (e.g. clearScreen)
             globalTimeoutAction.run();
+            globalTimedOut = true;
         }
 
         // Check each layer’s linger
@@ -110,23 +119,52 @@ public class WindowManagerWithTimeouts {
      * Renders whichever layer is on top. If the dashboard is visible, it wins.
      */
     private void updateDisplay() {
+        // Dashboard first
         Layer dash = findLayer("DASHBOARD");
         if (dash != null && dash.isVisible()) {
-            dash.runCommand();
+            maybeRunLayer(dash);
             return;
         }
 
-        // Otherwise the newest visible layer
+        // Otherwise newest visible layer
         Layer top = layers.stream()
                 .filter(Layer::isVisible)
                 .max(Comparator.comparingLong(Layer::getLastUpdated))
                 .orElse(null);
 
         if (top != null) {
-            top.runCommand();
+            maybeRunLayer(top);
         } else {
-            // No visible layers => could do nothing, or do something like call "clearScreen"
-            // globalTimeoutAction.run();   // up to your design
+            // No visible layers => optional clear
+            maybeRunLayer(null);
+        }
+    }
+
+    /**
+     * Only call runCommand() if:
+     *  - The top layer is different from the currently displayed layer
+     *  - OR the same layer but with a more recent lastUpdated
+     *  - OR null if we want to clear the screen
+     */
+    private void maybeRunLayer(Layer newTop) {
+        if (newTop == null) {
+            // We want to clear the display if something *was* shown before
+            if (currentlyDisplayedLayer != null) {
+                // Clear
+                globalTimeoutAction.run();
+                currentlyDisplayedLayer = null;
+                currentlyDisplayedLayerTimestamp = 0;
+            }
+            return;
+        }
+
+        boolean isDifferentLayer = (currentlyDisplayedLayer != newTop);
+        boolean isUpdatedContent = (newTop.getLastUpdated() != currentlyDisplayedLayerTimestamp);
+
+        if (isDifferentLayer || isUpdatedContent) {
+            newTop.runCommand();
+            currentlyDisplayedLayer = newTop;
+            currentlyDisplayedLayerTimestamp = newTop.getLastUpdated();
         }
     }
 

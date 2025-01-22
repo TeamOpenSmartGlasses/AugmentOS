@@ -88,6 +88,7 @@ import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlas
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchStopEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBatteryLevelEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHeadDownEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHeadUpEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
@@ -260,6 +261,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             AugmentosSmartGlassesService.LocalBinder binder = (AugmentosSmartGlassesService.LocalBinder) service;
             smartGlassesService = (AugmentosSmartGlassesService) binder.getService();
             isSmartGlassesServiceBound = true;
+            tpaSystem.setSmartGlassesService(smartGlassesService);
             for (Runnable action : serviceReadyListeners) {
                 action.run();
             }
@@ -271,6 +273,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             Log.d(TAG,"SMART GLASSES SERVICE DISCONNECTED!!!!");
             isSmartGlassesServiceBound = false;
             smartGlassesService = null;
+            tpaSystem.setSmartGlassesService(smartGlassesService);
 
             // TODO: For now, stop all apps on disconnection
             // TODO: Future: Make this nicer
@@ -293,7 +296,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Subscribe
-    public void onGlassesHeadDownEvent(GlassesHeadUpEvent event){
+    public void onGlassesHeadDownEvent(GlassesHeadDownEvent event){
         smartGlassesService.windowManager.hideDashboard();
     }
 
@@ -572,6 +575,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             unbindService(connection);  // Unbind from the service
             isSmartGlassesServiceBound = false;
             smartGlassesService = null;
+            tpaSystem.setSmartGlassesService(smartGlassesService);
         }
         Intent intent = new Intent(this, AugmentosSmartGlassesService.class);
         stopService(intent);  // Stop the service
@@ -714,6 +718,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             unbindService(connection);
             isSmartGlassesServiceBound = false;
             smartGlassesService = null;
+            tpaSystem.setSmartGlassesService(smartGlassesService);
         }
 
         if(tpaSystem != null) {
