@@ -258,6 +258,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
             // Update preferred wearable if connected
             if(connectionState == 2){
+                Log.d(TAG, "sendUiUpdate updates preferred wearable");
                 savePreferredWearable(this, smartGlassesRepresentative.smartGlassesDevice.deviceModelName);
                 onGlassesConnected(smartGlassesRepresentative.smartGlassesDevice);
                 EventBus.getDefault().post(new SmartGlassesConnectedEvent(smartGlassesRepresentative.smartGlassesDevice));
@@ -309,11 +310,13 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
     /** Gets the preferred wearable from shared preference. */
     public static String getPreferredWearable(Context context) {
+        Log.d(TAG, "GETTING PREFERRED WEARABLE");
         return PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.PREFERRED_WEARABLE), "");
     }
 
     /** Saves the preferred wearable in user shared preference. */
     public static void savePreferredWearable(Context context, String wearableName) {
+        Log.d(TAG, "SAVING PREFERRED WEARABLE");
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
                 .putString(context.getResources().getString(R.string.PREFERRED_WEARABLE), wearableName)

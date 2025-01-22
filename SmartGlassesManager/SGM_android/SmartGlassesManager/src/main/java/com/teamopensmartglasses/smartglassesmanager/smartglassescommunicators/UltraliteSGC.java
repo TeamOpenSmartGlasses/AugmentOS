@@ -14,9 +14,11 @@ import androidx.lifecycle.LiveData;
 import com.teamopensmartglasses.smartglassesmanager.R;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BatteryLevelEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.vuzix.ultralite.Anchor;
+import com.vuzix.ultralite.BatteryStatus;
 import com.vuzix.ultralite.EventListener;
 import com.vuzix.ultralite.Layout;
 import com.vuzix.ultralite.TextAlignment;
@@ -60,6 +62,10 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
     //handler to turn off screen/toggle
     Handler screenOffHandler;
     Runnable screenOffRunnable;
+
+    //handler to check battery life
+    Handler batteryHandler;
+    Runnable batteryRunnable;
 
     //handler to disconnect
     Handler killHandler;
@@ -126,6 +132,13 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
             onUltraliteControlChanged(isControlled);
         });
 
+        //setup battery status
+        EventBus.getDefault().post(new BatteryLevelEvent(ultraliteSdk.getBatteryLevel()));
+        LiveData<BatteryStatus> batteryStatusObserver = ultraliteSdk.getBatteryStatus();
+        batteryStatusObserver.observe(lifecycleOwner, batteryStatus -> {
+            onUltraliteBatteryChanged(batteryStatus);
+        });
+
 //        if (ultraliteSdk.isAvailable()){
 //            Log.d(TAG, "Ultralite SDK is available.");
 //        } else {
@@ -166,6 +179,13 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         }
 //        mUltraliteControlledByMe = isControlledByMe;
     }
+
+    private void onUltraliteBatteryChanged(BatteryStatus batteryStatus) {
+        Log.d(TAG, "Ultralite new battery status");
+        int batteryLevel = batteryStatus.getLevel();
+        EventBus.getDefault().post(new BatteryLevelEvent(batteryLevel));
+    }
+
 
     @Override
     protected void setFontSizes(){

@@ -84,10 +84,11 @@ import com.teamopensmartglasses.convoscope.tpa.TPASystem;
 import com.teamopensmartglasses.convoscope.ui.AugmentosUi;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BrightnessLevelEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchStopEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBatteryLevelEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BatteryLevelEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHeadDownEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHeadUpEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
@@ -249,7 +250,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private final List<Runnable> serviceReadyListeners = new ArrayList<>();
     private NotificationSystem notificationSystem;
 
-    private int batteryLevel = 100;
+    private Integer batteryLevel;
+    private Integer brightnessLevel;
+
+    private boolean showingDashboardNow = false;
+
     public AugmentosService() {
     }
 
@@ -388,12 +393,21 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         if (smartGlassesService != null) {
             smartGlassesService.windowManager.showDashboard(()->smartGlassesService.sendTextWall(dashboard.toString()), -1);
         }
-//        Log.d(TAG, "Dashboard displayed: " + dashboard.toString());
+        Log.d(TAG, "Dashboard displayed: " + dashboard.toString());
     }
 
     @Subscribe
-    public void onGlassBatteryLevelEvent(GlassesBatteryLevelEvent event) {
+    public void onGlassBatteryLevelEvent(BatteryLevelEvent event) {
+        Log.d(TAG, "BATTERY received");
         batteryLevel = event.batteryLevel;
+        sendStatusToAugmentOsManager();
+    }
+
+    @Subscribe
+    public void onBrightnessLevelEvent(BrightnessLevelEvent event) {
+        Log.d(TAG, "BRIGHTNESS received");
+        brightnessLevel = event.brightnessLevel;
+        sendStatusToAugmentOsManager();
     }
 
     @Override
@@ -422,6 +436,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         notificationSystem = new NotificationSystem(this);
         //startNotificationService();
+
+        //what is the preferred wearable?
+        String preferredWearable = AugmentosSmartGlassesService.getPreferredWearable(this);
+        Log.d(TAG, "PREFER 222 - " + preferredWearable);
 
         // load pinyin converter in the background
         // new Thread(this::loadSegmenter).start();
@@ -2480,13 +2498,22 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             status.put("charging_status", batteryStatusHelper.isBatteryCharging());
             status.put("sensing_enabled", SpeechRecSwitchSystem.sensing_enabled);
             status.put("default_wearable", AugmentosSmartGlassesService.getPreferredWearable(this));
+            Log.d(TAG, "PREFER - Got default wearabe: " + AugmentosSmartGlassesService.getPreferredWearable(this));
 
             // Adding connected glasses object
             JSONObject connectedGlasses = new JSONObject();
             if(smartGlassesService != null && smartGlassesService.getConnectedSmartGlasses() != null) {
                 connectedGlasses.put("model_name", smartGlassesService.getConnectedSmartGlasses().deviceModelName);
-                connectedGlasses.put("battery_life", batteryLevel);
-                connectedGlasses.put("brightness", smartGlassesService.getConnectedSmartGlasses().deviceModelName.contains("Even Realities") ? "auto" : "unknown");
+                connectedGlasses.put("battery_life", (batteryLevel == null) ? -1: batteryLevel); //-1 if unknown
+                String brightnessString;
+                if (brightnessLevel == null) {
+                    brightnessString = "?";
+                } else if (brightnessLevel == -1){
+                    brightnessString = "AUTO";
+                } else {
+                    brightnessString = brightnessLevel.toString() + "%";
+                }
+                connectedGlasses.put("brightness", brightnessString);
             }
             else {
                 connectedGlasses.put("is_searching", getIsSearchingForGlasses());
@@ -2599,6 +2626,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Disconnecting from wearable: " + wearableId);
         // Logic to disconnect wearable
         stopSmartGlassesService();
+
+        //reset some local variables
+        brightnessLevel = null;
+        batteryLevel = null;
     }
 
     @Override

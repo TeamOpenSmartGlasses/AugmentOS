@@ -1,8 +1,10 @@
 package com.teamopensmartglasses.smartglassesmanager.eventbusmessages;
 
-public class GlassesBatteryLevelEvent {
+public class BatteryLevelEvent {
+    // -1 is auto brightness
+
     public final int batteryLevel;
-    public GlassesBatteryLevelEvent(int batteryLevel) {
+    public BatteryLevelEvent(int batteryLevel) {
         this.batteryLevel = batteryLevel;
     }
 }
