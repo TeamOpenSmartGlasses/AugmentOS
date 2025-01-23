@@ -2529,7 +2529,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 tpaObj.put("is_running", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
                 tpaObj.put("is_foreground", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
                 tpaObj.put("version", tpa.version);
-                tpaObj.put("can_update", tpa.canUpdateApp);
                 //tpaObj.put("package_name", tpa.packageName);
                 //tpaObj.put("type", tpa.appType.name());
                 apps.put(tpaObj);
@@ -2715,7 +2714,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 public void onReceive(Context context, Intent intent) {
                     long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
                     if (id == downloadId) {
-                        installApk(packageName);
+                        installApk(packageName, appName);
 
                         context.unregisterReceiver(this);
                     }
@@ -2726,15 +2725,17 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
     }
 
-    private void installApk(String packageName) {
+    private void installApk(String packageName, String appName) {
         File apkFile = new File(
                 Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-                packageName + ".apk"
+                appName + ".apk"
         );
         if (!apkFile.exists() || apkFile.length() == 0) {
             Log.e("Installer", "APK file is missing or 0 bytes.");
             return;
         }
+
+        Log.d("Installer", "APK file exists: " + apkFile.getAbsolutePath());
 
         blePeripheral.sendAppIsInstalledEventToManager(packageName);
 
