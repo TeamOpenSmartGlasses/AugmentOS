@@ -26,6 +26,7 @@ type AppDetailsProps = NativeStackScreenProps<
   toggleTheme: () => void;
 };
 import { useStatus } from '../AugmentOSStatusProvider';
+import appStore from "./AppStore.tsx";
 
 const AppDetails: React.FC<AppDetailsProps> = ({
   route,
@@ -48,6 +49,8 @@ const AppDetails: React.FC<AppDetailsProps> = ({
       (a) => a.packageName === app.packageName
     );
 
+    if(installState === 'Downloading...') {return;}
+
     if (!installedApp) {
       setInstallState('Install');
       return;
@@ -56,9 +59,8 @@ const AppDetails: React.FC<AppDetailsProps> = ({
     const installedVersion = installedApp.version || '0.0.0';
     const storeVersion = app.version || '0.0.0';
 
-    console.log('Installed version:', installedVersion);
-    console.log('Store version:', storeVersion);
-    console.log()
+    // console.log('Installed version:', installedVersion);
+    // console.log('Store version:', storeVersion);
 
     if (semver.valid(installedVersion) && semver.valid(storeVersion)) {
 
@@ -68,7 +70,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
         setInstallState('Start');
       }
     }
-  }, [status, app]);
+  }, [status, installState, app.version, app.packageName]);
 
   useEffect(() => {
     checkVersionAndSetState();
