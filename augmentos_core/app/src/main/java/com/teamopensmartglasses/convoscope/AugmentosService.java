@@ -11,20 +11,15 @@ import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GET_USER_SETTINGS_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.adhdStmbAgentKey;
-import static com.teamopensmartglasses.convoscope.Constants.entityDefinitionsKey;
 import static com.teamopensmartglasses.convoscope.Constants.explicitAgentQueriesKey;
 import static com.teamopensmartglasses.convoscope.Constants.explicitAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.glassesCardTitle;
-import static com.teamopensmartglasses.convoscope.Constants.languageLearningKey;
-import static com.teamopensmartglasses.convoscope.Constants.llContextConvoKey;
-import static com.teamopensmartglasses.convoscope.Constants.llWordSuggestUpgradeKey;
 import static com.teamopensmartglasses.convoscope.Constants.notificationFilterKey;
-import static com.teamopensmartglasses.convoscope.Constants.proactiveAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettingsKey;
 import static com.teamopensmartglasses.convoscope.Constants.displayRequestsKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 import static com.teamopensmartglasses.convoscope.Constants.augmentOsMainServiceNotificationId;
+import static com.teamopensmartglasses.convoscope.statushelpers.JsonHelper.convertJsonToMap;
 import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.getSmartGlassesDeviceFromModelName;
 import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.savePreferredWearable;
 import static com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.deleteEvenSharedPreferences;
@@ -41,6 +36,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.hardware.display.VirtualDisplay;
 import android.media.projection.MediaProjection;
 import android.os.Binder;
@@ -63,6 +59,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
+import com.posthog.java.PostHog;
 import com.teamopensmartglasses.augmentoslib.DataStreamType;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
@@ -77,7 +74,9 @@ import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
+import com.teamopensmartglasses.convoscope.events.TriggerSendStatusToAugmentOsManagerEvent;
 import com.teamopensmartglasses.convoscope.statushelpers.BatteryStatusHelper;
+import com.teamopensmartglasses.convoscope.statushelpers.DeviceInfo;
 import com.teamopensmartglasses.convoscope.statushelpers.GsmStatusHelper;
 import com.teamopensmartglasses.convoscope.statushelpers.WifiStatusHelper;
 import com.teamopensmartglasses.convoscope.tpa.TPASystem;
@@ -95,7 +94,6 @@ import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHead
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
-import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
 import com.teamopensmartglasses.augmentoslib.events.DiarizationOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
@@ -114,16 +112,17 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 import java.util.LinkedList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.UUID;
 //SpeechRecIntermediateOutputEvent
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
@@ -144,6 +143,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     private final IBinder binder = new LocalBinder();
 
+    private static final String POSTHOG_API_KEY = "phc_J7nhqRlkNVoUjKxQZnpYtqRoyEeLl3gFCwYsajxFvpc";
+    private static final String POSTHOG_HOST = "https://us.i.posthog.com";
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private FirebaseAuth.IdTokenListener idTokenListener;
@@ -244,6 +245,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     public TPASystem tpaSystem;
 
+    PostHog postHog;
+
+    private String userId;
+
     private AugmentosBlePeripheral blePeripheral;
 
     public AugmentosSmartGlassesService smartGlassesService;
@@ -291,6 +296,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         // TODO: For now, stop all apps on disconnection
         // TODO: Future: Make this nicer
         tpaSystem.stopAllThirdPartyApps();
+        sendStatusToAugmentOsManager();
+    }
+
+    public void onTriggerSendStatusToAugmentOsManagerEvent(TriggerSendStatusToAugmentOsManagerEvent event) {
         sendStatusToAugmentOsManager();
     }
 
@@ -421,6 +430,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         //setup event bus subscribers
         EventBus.getDefault().register(this);
 
+        getUserId();
+        postHog = new PostHog.Builder(POSTHOG_API_KEY).host(POSTHOG_HOST).build();
+
+        Map<String, Object> props = new HashMap<>();
+        props.put("timestamp", System.currentTimeMillis());
+        props.put("device_info", DeviceInfo.getDeviceInfo());
+        postHog.capture(userId, "augmentos_service_started", props);
+
         //make responses holder
         responsesBuffer = new ArrayList<>();
         responsesToShare = new ArrayList<>();
@@ -464,6 +481,21 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
 
         completeInitialization();
+    }
+
+    private void getUserId() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        userId = prefs.getString("user_id", "");
+
+        if (userId.isEmpty()) {
+            // Generate a random UUID string if no userId exists
+            userId = UUID.randomUUID().toString();
+
+            // Save the new userId to SharedPreferences
+            prefs.edit()
+                    .putString("user_id", userId)
+                    .apply();
+        }
     }
 
     private void createNotificationChannel() {
@@ -612,6 +644,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d(TAG, "****************** SENDING REFERENCE CARD: CONNECTED TO AUGMENT OS");
         if (smartGlassesService != null)
             smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS"), 6);
+
+        Map<String, Object> props = new HashMap<>();
+        props.put("glasses_model_name", event.device.deviceModelName);
+        props.put("timestamp", System.currentTimeMillis());
+        postHog.capture(userId, "glasses_connected", props);
     }
 
     public void handleSignOut(){
@@ -748,6 +785,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         if(tpaSystem != null) {
             tpaSystem.destroy();
         }
+
+        postHog.shutdown();
 
         super.onDestroy();
     }
@@ -2568,6 +2607,13 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             JSONObject mainObject = new JSONObject();
             mainObject.put("status", status);
 
+            try {
+                Map<String, Object> props = convertJsonToMap(status);
+                postHog.capture(userId, "status", props);
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+
             return mainObject;
         } catch (JSONException e) {
             throw new RuntimeException(e);
@@ -2661,6 +2707,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         } else {
             blePeripheral.sendNotifyManager("Must connect glasses to start an app", "error");
         }
+
+        Map<String, Object> props = new HashMap<>();
+        props.put("package_name", packageName);
+        props.put("timestamp", System.currentTimeMillis());
+        postHog.capture(userId, "start_app", props);
     }
 
     @Override
@@ -2668,6 +2719,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Stopping app: " + packageName);
         tpaSystem.stopThirdPartyAppByPackageName(packageName);
         sendStatusToAugmentOsManager();
+
+        Map<String, Object> props = new HashMap<>();
+        props.put("package_name", packageName);
+        props.put("timestamp", System.currentTimeMillis());
+        postHog.capture(userId, "stop_app", props);
     }
 
     @Override
@@ -2677,6 +2733,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         } else {
             blePeripheral.sendNotifyManager("Connect glasses to toggle sensing", "error");
         }
+
+        Map<String, Object> props = new HashMap<>();
+        props.put("sensing_enabled", sensingEnabled);
+        props.put("timestamp", System.currentTimeMillis());
+        postHog.capture(userId, "set_sensing_enabled", props);
     }
 
     @Override
@@ -2794,6 +2855,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             return;
         }
         blePeripheral.sendAppInfoToManager(tpa);
+
+        Map<String, Object> props = new HashMap<>();
+        props.put("package_name", packageNameToGetDetails);
+        props.put("timestamp", System.currentTimeMillis());
+        postHog.capture(userId, "request_app_info", props);
     }
 
     @Override
