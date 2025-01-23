@@ -93,8 +93,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private boolean shouldUseAutoBrightness = false;
     private int brightnessValue = 35;
 
-    private static final long DELAY_BETWEEN_SENDS_MS = 2;
-    private static final long DELAY_BETWEEN_CHUNKS_SEND = 5;
+    private static final long DELAY_BETWEEN_SENDS_MS = 8;
+    private static final long DELAY_BETWEEN_CHUNKS_SEND = 16;
     private static final long DELAY_BETWEEN_ACTIONS_SEND = 250;
     private static final long HEARTBEAT_INTERVAL_MS = 30000;
 
@@ -377,11 +377,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             if (deviceName.contains("R_")) {
                                 //Log.d(TAG, "Ignoring...");
 //                                Log.d(TAG, "Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
-//                                EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
+                                Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName);
+                                EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
                             } else {
 //                                Log.d(TAG, "Lc3 Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(lc3) + ", from: " + deviceName);
 //                                Log.d(TAG, "PCM Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
-                                EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
+//                                EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
                             }
 //                          Log.d(this.getClass().getSimpleName(), "============Lc3 data = " + Arrays.toString(lc3) + ", Pcm = " + Arrays.toString(pcmData));
                         }
@@ -875,10 +876,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static class SendRequest {
         final byte[] data;
         final boolean onlyLeft;
+        final boolean onlyRight;
 
-        SendRequest(byte[] data, boolean onlyLeft) {
+        SendRequest(byte[] data, boolean onlyLeft, boolean onlyRight) {
             this.data = data;
             this.onlyLeft = onlyLeft;
+            this.onlyRight = onlyRight;
         }
     }
 
@@ -888,16 +891,26 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     // Non-blocking function to add new send request
     private void sendDataSequentially(byte[] data, boolean onlyLeft) {
-        SendRequest [] chunks = {new SendRequest(data, onlyLeft)};
+        SendRequest [] chunks = {new SendRequest(data, onlyLeft, false)};
         sendQueue.offer(chunks);
         startWorkerIfNeeded();
     }
 
     // Overloaded function to handle multiple chunks (List<byte[]>)
     private void sendDataSequentially(List<byte[]> data, boolean onlyLeft) {
-        SendRequest[] chunks = new SendRequest[data.size()]; // Use size() instead of length
+        sendDataSequentially(data, onlyLeft, false);
+    }
+
+    private void sendDataSequentially(byte[] data, boolean onlyLeft, boolean onlyRight) {
+        SendRequest [] chunks = {new SendRequest(data, onlyLeft, onlyRight)};
+        sendQueue.offer(chunks);
+        startWorkerIfNeeded();
+    }
+
+    private void sendDataSequentially(List<byte[]> data, boolean onlyLeft, boolean onlyRight) {
+        SendRequest[] chunks = new SendRequest[data.size()];
         for (int i = 0; i < data.size(); i++) {
-            chunks[i] = new SendRequest(data.get(i), onlyLeft); // Use get() to access elements
+            chunks[i] = new SendRequest(data.get(i), onlyLeft, onlyRight);
         }
         sendQueue.offer(chunks);
         startWorkerIfNeeded();
@@ -934,7 +947,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     }
 
                     // Send to left glass if available
-                    if (leftGlassGatt != null && leftTxChar != null && isLeftConnected) {
+                    if (!request.onlyRight && leftGlassGatt != null && leftTxChar != null && isLeftConnected) {
                         leftTxChar.setValue(request.data);
                         boolean leftSuccess = leftGlassGatt.writeCharacteristic(leftTxChar);
                         if (!leftSuccess) {
@@ -1465,7 +1478,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 buffer.put(command);
                 buffer.put(enableByte);
 
-                sendDataSequentially(buffer.array());
+                sendDataSequentially(buffer.array(), false, true);
                 Log.d(TAG, "Sent MIC command: " + bytesToHex(buffer.array()));
             }
         }, delay);
