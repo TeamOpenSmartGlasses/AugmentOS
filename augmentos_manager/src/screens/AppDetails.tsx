@@ -1,17 +1,16 @@
-import React, {useState, useEffect, useRef,useCallback} from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   StyleSheet,
   ScrollView,
-  Animated,
-  Easing,
-  ImageStyle,
-  SafeAreaView,ActivityIndicator,
+  Image,
+  SafeAreaView,
+  ActivityIndicator,
 } from 'react-native';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList, AppStoreItem} from '../components/types';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList, AppStoreItem } from '../components/types';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import NavigationBar from '../components/NavigationBar';
 import BluetoothService from '../BluetoothService.tsx';
@@ -32,40 +31,41 @@ const AppDetails: React.FC<AppDetailsProps> = ({
   route,
   navigation,
   isDarkTheme,
+  toggleTheme, // Use toggleTheme from props
 }) => {
-  const {app} = route.params as {app: AppStoreItem};
+  const { app } = route.params as { app: AppStoreItem };
   const [installState, setInstallState] = useState<
     'Install' | 'Update' | 'Downloading...' | 'Installing...' | 'Start'
   >('Install');
-    const { status } = useStatus();
+  const { status } = useStatus();
 
-    const checkVersionAndSetState = useCallback(() => {
-        if (!status || !status.apps) {
-          return; // status not loaded yet; keep default or show fallback
-        }
+  const checkVersionAndSetState = useCallback(() => {
+    if (!status || !status.apps) {
+      return; // Status not loaded yet; keep default or show fallback
+    }
 
-        const installedApp = status.apps.find(
-          (a) => a.packageName === app.packageName
-        );
+    const installedApp = status.apps.find(
+      (a) => a.packageName === app.packageName
+    );
 
-        if (!installedApp) {
-          setInstallState('Install');
-          return;
-        }
+    if (!installedApp) {
+      setInstallState('Install');
+      return;
+    }
 
-        const installedVersion = installedApp.version || '0.0.0';
-        const storeVersion = app.version || '0.0.0';
+    const installedVersion = installedApp.version || '0.0.0';
+    const storeVersion = app.version || '0.0.0';
 
-        if (semver.valid(installedVersion) && semver.valid(storeVersion)) {
-          if (semver.lt(installedVersion, storeVersion)) {
-            setInstallState('Update');
-          } else {
-            setInstallState('Start');
-          }
-        } else {
-            setInstallState('Start');
-        }
-    }, [status, app]);
+    if (semver.valid(installedVersion) && semver.valid(storeVersion)) {
+      if (semver.lt(installedVersion, storeVersion)) {
+        setInstallState('Update');
+      } else {
+        setInstallState('Start');
+      }
+    } else {
+      setInstallState('Start');
+    }
+  }, [status, app]);
 
   useEffect(() => {
     checkVersionAndSetState();
@@ -83,17 +83,17 @@ const AppDetails: React.FC<AppDetailsProps> = ({
       })
       .catch((error: any) => console.error(error));
 
-  const handleAppDownloaded = (data: { appIsDownloaded: any }) => {
+    const handleAppDownloaded = (data: { appIsDownloaded: any }) => {
       setInstallState('Installing...');
       InstallApkModule.installApk(data.appIsDownloaded.packageName)
-      .then((result: any) => {
-        console.log('Success:', result);
-        setInstallState('Start');
-      })
-      .catch((error: any) => {
-        console.error('Error:', error);
-      });
-  };
+        .then((result: any) => {
+          console.log('Success:', result);
+          setInstallState('Start');
+        })
+        .catch((error: any) => {
+          console.error('Error:', error);
+        });
+    };
 
     GlobalEventEmitter.on('APP_IS_DOWNLOADED_RESULT', handleAppDownloaded);
 
@@ -101,17 +101,8 @@ const AppDetails: React.FC<AppDetailsProps> = ({
     return () => {
       GlobalEventEmitter.off('APP_IS_DOWNLOADED_RESULT', handleAppDownloaded);
     };
-  }, []);
+  }, [app.packageName]);
 
-
-  // Animation values
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-  const slideAnim = useRef(new Animated.Value(50)).current;
-  const scaleAnim = useRef(new Animated.Value(0.9)).current;
-  const rotateAnim = useRef(new Animated.Value(0)).current;
-  const tapSpinAnim = useRef(new Animated.Value(0)).current;
-  const buttonScaleAnim = useRef(new Animated.Value(1)).current;
-  const screenshotScrollAnim = useRef(new Animated.Value(0)).current;
   const bluetoothService = BluetoothService.getInstance();
 
   // Theme colors
@@ -127,73 +118,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
     requirementText: isDarkTheme ? '#FFFFFF' : '#444444',
   };
 
-  // Initial animation sequence
-  useEffect(() => {
-    const animationSequence = Animated.parallel([
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: 800,
-        useNativeDriver: true,
-        easing: Easing.out(Easing.cubic),
-      }),
-      Animated.timing(slideAnim, {
-        toValue: 0,
-        duration: 800,
-        useNativeDriver: true,
-        easing: Easing.out(Easing.back(1.5)),
-      }),
-      Animated.timing(scaleAnim, {
-        toValue: 1,
-        duration: 800,
-        useNativeDriver: true,
-        easing: Easing.out(Easing.back(1.5)),
-      }),
-      Animated.timing(rotateAnim, {
-        toValue: 1,
-        duration: 800,
-        useNativeDriver: true,
-        easing: Easing.out(Easing.cubic),
-      }),
-      Animated.timing(screenshotScrollAnim, {
-        toValue: 1,
-        duration: 1000,
-        useNativeDriver: true,
-        easing: Easing.inOut(Easing.cubic),
-      }),
-    ]);
-
-    animationSequence.start();
-  }, [fadeAnim, rotateAnim, scaleAnim, screenshotScrollAnim, slideAnim]);
-
-  // Handle icon tap spin animation
-  const handleIconTap = () => {
-    tapSpinAnim.setValue(0);
-    Animated.timing(tapSpinAnim, {
-      toValue: 1,
-      duration: 800,
-      useNativeDriver: true,
-      easing: Easing.out(Easing.cubic),
-    }).start();
-  };
-
-  // Button press animation
-  const animateButtonPress = () => {
-    Animated.sequence([
-      Animated.timing(buttonScaleAnim, {
-        toValue: 0.95,
-        duration: 100,
-        useNativeDriver: true,
-      }),
-      Animated.timing(buttonScaleAnim, {
-        toValue: 1,
-        duration: 100,
-        useNativeDriver: true,
-      }),
-    ]).start();
-  };
-
   const sendInstallAppFromStore = (packageName: string) => {
-    animateButtonPress();
     if (installState === 'Install') {
       setInstallState('Downloading...');
       console.log(`Installing app with package name: ${packageName}`);
@@ -205,7 +130,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
   };
 
   const launchTargetApp = (packageName: string) => {
-      TpaHelpers.launchTargetApp(packageName);
+    TpaHelpers.launchTargetApp(packageName);
   };
 
   const navigateToReviews = () => {
@@ -215,200 +140,141 @@ const AppDetails: React.FC<AppDetailsProps> = ({
     });
   };
 
-  // Modified spin interpolation
-  const spin = Animated.modulo(
-    Animated.add(
-      rotateAnim.interpolate({
-        inputRange: [0, 1],
-        outputRange: [0, 360],
-      }),
-      tapSpinAnim.interpolate({
-        inputRange: [0, 1],
-        outputRange: [0, 360],
-      }),
-    ),
-    360,
-  ).interpolate({
-    inputRange: [0, 360],
-    outputRange: ['0deg', '360deg'],
-  });
-
-  function toggleTheme(): void {
-    throw new Error('Function not implemented.');
-  }
-
   return (
     <SafeAreaView
-      style={[styles.safeArea, {backgroundColor: theme.backgroundColor}]}>
+      style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}
+    >
       <View style={styles.mainContainer}>
         <ScrollView
-          style={[
-            styles.scrollContainer,
-            {backgroundColor: theme.backgroundColor},
-          ]}
-          contentContainerStyle={styles.scrollContentContainer}>
-          <Animated.View
-            style={[
-              styles.contentContainer,
-              {
-                opacity: fadeAnim,
-                transform: [{translateY: slideAnim}, {scale: scaleAnim}],
-              },
-            ]}>
-            <TouchableOpacity onPress={handleIconTap} activeOpacity={0.8}>
-              <Animated.Image
-                source={{uri: app.iconImageUrl}}
-                style={[
-                  styles.icon as ImageStyle,
-                  {
-                    borderColor: theme.iconBorder,
-                    transform: [{rotate: spin}],
-                  },
-                ]}
-              />
-            </TouchableOpacity>
+          style={[styles.scrollContainer, { backgroundColor: theme.backgroundColor }]}
+          contentContainerStyle={styles.scrollContentContainer}
+        >
+          <View style={styles.contentContainer}>
+            {/* Removed TouchableOpacity around the icon */}
+            <Image
+              source={{ uri: app.iconImageUrl }}
+              style={[
+                styles.icon,
+                {
+                  borderColor: theme.iconBorder,
+                },
+              ]}
+            />
 
-            <Animated.Text
+            <Text
               style={[
                 styles.appName,
-                {color: theme.textColor},
-                {opacity: fadeAnim, transform: [{translateY: slideAnim}]},
-              ]}>
+                { color: theme.textColor },
+              ]}
+            >
               {app.name}
-            </Animated.Text>
+            </Text>
 
-            <Animated.Text
+            <Text
               style={[
                 styles.packageName,
-                {color: theme.subTextColor},
-                {opacity: fadeAnim, transform: [{translateY: slideAnim}]},
-              ]}>
+                { color: theme.subTextColor },
+              ]}
+            >
               {app.packageName}
-            </Animated.Text>
+            </Text>
 
-            {/*<Animated.View*/}
-            {/*  style={[*/}
-            {/*    styles.metaContainer,*/}
-            {/*    {opacity: fadeAnim, transform: [{translateY: slideAnim}]},*/}
-            {/*  ]}>*/}
-            {/*  <View style={styles.metaItem}>*/}
-            {/*    <MaterialCommunityIcons name="star" size={16} color="#FFD700" />*/}
-            {/*    <Text style={[styles.rating, {color: theme.metaTextColor}]}>*/}
-            {/*      {app.rating.toFixed(1)}*/}
-            {/*    </Text>*/}
-            {/*  </View>*/}
-            {/*  <View style={styles.metaItem}>*/}
-            {/*    <MaterialCommunityIcons*/}
-            {/*      name="download"*/}
-            {/*      size={16}*/}
-            {/*      color={isDarkTheme ? '#FFFFFF' : '#444444'}*/}
-            {/*    />*/}
-            {/*    <Text style={[styles.downloads, {color: theme.metaTextColor}]}>*/}
-            {/*      {app.downloads.toLocaleString()} Downloads*/}
-            {/*    </Text>*/}
-            {/*  </View>*/}
-            {/*  <TouchableOpacity*/}
-            {/*    style={styles.reviewsIcon}*/}
-            {/*    onPress={navigateToReviews}>*/}
-            {/*    <MaterialCommunityIcons*/}
-            {/*      name="comment-text"*/}
-            {/*      size={24}*/}
-            {/*      color="#3a86ff"*/}
-            {/*    />*/}
-            {/*    <Text style={styles.reviewsText}>Reviews</Text>*/}
-            {/*  </TouchableOpacity>*/}
-            {/*</Animated.View>*/}
+            {/*<View
+              style={[
+                styles.metaContainer,
+              ]}
+            >
+              <View style={styles.metaItem}>
+                <MaterialCommunityIcons name="star" size={16} color="#FFD700" />
+                <Text style={[styles.rating, { color: theme.metaTextColor }]}>
+                  {app.rating.toFixed(1)}
+                </Text>
+              </View>
+              <View style={styles.metaItem}>
+                <MaterialCommunityIcons
+                  name="download"
+                  size={16}
+                  color={isDarkTheme ? '#FFFFFF' : '#444444'}
+                />
+                <Text style={[styles.downloads, { color: theme.metaTextColor }]}>
+                  {app.downloads.toLocaleString()} Downloads
+                </Text>
+              </View>
+              <TouchableOpacity
+                style={styles.reviewsIcon}
+                onPress={navigateToReviews}
+              >
+                <MaterialCommunityIcons
+                  name="comment-text"
+                  size={24}
+                  color="#3a86ff"
+                />
+                <Text style={styles.reviewsText}>Reviews</Text>
+              </TouchableOpacity>
+            </View>*/}
 
-            <Animated.Text
+            <Text
               style={[
                 styles.description,
-                {color: theme.subTextColor},
-                {opacity: fadeAnim, transform: [{translateY: slideAnim}]},
-              ]}>
+                { color: theme.subTextColor },
+              ]}
+            >
               {app.description}
-            </Animated.Text>
-
-            {app.screenshots && app.screenshots.length > 0 && (
-              <Animated.View
-                style={[
-                  styles.screenshotsContainer,
-                  {
-                    opacity: fadeAnim,
-                    transform: [
-                      {
-                        translateX: screenshotScrollAnim.interpolate({
-                          inputRange: [0, 1],
-                          outputRange: [100, 0],
-                        }),
-                      },
-                    ],
-                  },
-                ]}>
-                <Text style={[styles.sectionHeader, {color: theme.textColor}]}>
-                  Screenshots
-                </Text>
-                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                  <View style={styles.screenshotsList}>
-                    {app.screenshots.map((screenshotUrl, index) => (
-                      <Animated.Image
-                        key={index}
-                        source={{uri: screenshotUrl}}
-                        style={[
-                          styles.screenshot as any,
-                          {borderColor: theme.borderColor},
-                          {
-                            opacity: fadeAnim,
-                            transform: [
-                              {scale: scaleAnim},
-                              {
-                                translateX: screenshotScrollAnim.interpolate({
-                                  inputRange: [0, 1],
-                                  outputRange: [50 * (index + 1), 0],
-                                }),
-                              },
-                            ],
-                          },
-                        ]}
-                      />
-                    ))}
-                  </View>
-                </ScrollView>
-              </Animated.View>
-            )}
-
-            <Text style={[styles.sectionHeader, {color: theme.textColor}]}>
-              Requirements
             </Text>
-            <View style={styles.requirementsGrid}>
-              {app.requirements.map((requirement: string, index: number) => (
-                <Animated.View
-                  key={index}
-                  style={[
-                    styles.requirementItem,
-                    {backgroundColor: theme.requirementBg},
-                    {
-                      opacity: fadeAnim,
-                      transform: [{scale: scaleAnim}, {translateY: slideAnim}],
-                    },
-                  ]}>
-                  <Text
-                    style={[
-                      styles.requirementText,
-                      {color: theme.requirementText},
-                    ]}>
-                    {requirement}
-                  </Text>
-                </Animated.View>
-              ))}
-            </View>
 
-            <Animated.View
+            {/*{app.screenshots && app.screenshots.length > 0 && (*/}
+            {/*  <View*/}
+            {/*    style={[*/}
+            {/*      styles.screenshotsContainer,*/}
+            {/*    ]}*/}
+            {/*  >*/}
+            {/*    <Text style={[styles.sectionHeader, { color: theme.textColor }]}>*/}
+            {/*      Screenshots*/}
+            {/*    </Text>*/}
+            {/*    <ScrollView horizontal showsHorizontalScrollIndicator={false}>*/}
+            {/*      <View style={styles.screenshotsList}>*/}
+            {/*        {app.screenshots.map((screenshotUrl, index) => (*/}
+            {/*          <Image*/}
+            {/*            key={index}*/}
+            {/*            source={{ uri: screenshotUrl }}*/}
+            {/*            style={[*/}
+            {/*              styles.screenshot,*/}
+            {/*              { borderColor: theme.borderColor },*/}
+            {/*            ]}*/}
+            {/*          />*/}
+            {/*        ))}*/}
+            {/*      </View>*/}
+            {/*    </ScrollView>*/}
+            {/*  </View>*/}
+            {/*)}*/}
+
+            {/*<Text style={[styles.sectionHeader, { color: theme.textColor }]}>*/}
+            {/*  Requirements*/}
+            {/*</Text>*/}
+            {/*<View style={styles.requirementsGrid}>*/}
+            {/*  {app.requirements.map((requirement: string, index: number) => (*/}
+            {/*    <View*/}
+            {/*      key={index}*/}
+            {/*      style={[*/}
+            {/*        styles.requirementItem,*/}
+            {/*        { backgroundColor: theme.requirementBg },*/}
+            {/*      ]}*/}
+            {/*    >*/}
+            {/*      <Text*/}
+            {/*        style={[*/}
+            {/*          styles.requirementText,*/}
+            {/*          { color: theme.requirementText },*/}
+            {/*        ]}*/}
+            {/*      >*/}
+            {/*        {requirement}*/}
+            {/*      </Text>*/}
+            {/*    </View>*/}
+            {/*  ))}*/}
+            {/*</View>*/}
+
+            <View
               style={[
                 styles.buttonContainer,
-                {
-                  transform: [{ scale: buttonScaleAnim }],
-                  opacity: fadeAnim,
-                },
               ]}
             >
               <TouchableOpacity
@@ -434,8 +300,8 @@ const AppDetails: React.FC<AppDetailsProps> = ({
                   <Text style={styles.installButtonText}>{installState}</Text>
                 )}
               </TouchableOpacity>
-            </Animated.View>
-          </Animated.View>
+            </View>
+          </View>
         </ScrollView>
         <NavigationBar isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
       </View>
@@ -458,7 +324,7 @@ const styles = StyleSheet.create({
     paddingBottom: 55,
   },
   contentContainer: {
-    paddingTop:16,
+    paddingTop: 16,
     alignItems: 'center',
   },
   buttonContainer: {
@@ -528,7 +394,7 @@ const styles = StyleSheet.create({
     color: '#666',
     textAlign: 'center',
     marginBottom: 20,
-    marginHorizontal:16,
+    marginHorizontal: 16,
     lineHeight: 20,
     fontFamily: 'Montserrat-Regular',
   },
@@ -564,7 +430,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 10,
     marginBottom: 10,
-    marginHorizontal:16,
+    marginHorizontal: 16,
   },
   requirementItem: {
     backgroundColor: '#f0f0f0',
@@ -590,7 +456,7 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     alignSelf: 'center',
     marginHorizontal: 16,
-    marginBottom:16,
+    marginBottom: 16,
   },
   installButtonText: {
     fontSize: 16,
