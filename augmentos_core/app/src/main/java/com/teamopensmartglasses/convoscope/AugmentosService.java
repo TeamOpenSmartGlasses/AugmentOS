@@ -11,16 +11,10 @@ import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GET_USER_SETTINGS_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.adhdStmbAgentKey;
-import static com.teamopensmartglasses.convoscope.Constants.entityDefinitionsKey;
 import static com.teamopensmartglasses.convoscope.Constants.explicitAgentQueriesKey;
 import static com.teamopensmartglasses.convoscope.Constants.explicitAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.glassesCardTitle;
-import static com.teamopensmartglasses.convoscope.Constants.languageLearningKey;
-import static com.teamopensmartglasses.convoscope.Constants.llContextConvoKey;
-import static com.teamopensmartglasses.convoscope.Constants.llWordSuggestUpgradeKey;
 import static com.teamopensmartglasses.convoscope.Constants.notificationFilterKey;
-import static com.teamopensmartglasses.convoscope.Constants.proactiveAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettingsKey;
 import static com.teamopensmartglasses.convoscope.Constants.displayRequestsKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
@@ -82,6 +76,7 @@ import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
 import com.teamopensmartglasses.convoscope.events.TriggerSendStatusToAugmentOsManagerEvent;
 import com.teamopensmartglasses.convoscope.statushelpers.BatteryStatusHelper;
+import com.teamopensmartglasses.convoscope.statushelpers.DeviceInfo;
 import com.teamopensmartglasses.convoscope.statushelpers.GsmStatusHelper;
 import com.teamopensmartglasses.convoscope.statushelpers.WifiStatusHelper;
 import com.teamopensmartglasses.convoscope.tpa.TPASystem;
@@ -99,7 +94,6 @@ import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHead
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
-import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
 import com.teamopensmartglasses.augmentoslib.events.DiarizationOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
@@ -118,7 +112,6 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
@@ -130,7 +123,6 @@ import java.util.LinkedList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 //SpeechRecIntermediateOutputEvent
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
@@ -443,6 +435,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         Map<String, Object> props = new HashMap<>();
         props.put("timestamp", System.currentTimeMillis());
+        props.put("device_info", DeviceInfo.getDeviceInfo());
         postHog.capture(userId, "augmentos_service_started", props);
 
         //make responses holder
