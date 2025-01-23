@@ -67,8 +67,6 @@ const AppDetails: React.FC<AppDetailsProps> = ({
       } else {
         setInstallState('Start');
       }
-    } else {
-      setInstallState('Start');
     }
   }, [status, app]);
 
