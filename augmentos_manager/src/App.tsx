@@ -31,7 +31,7 @@ import { AuthProvider } from './AuthContext.tsx';
 import VerifyEmailScreen from './screens/VerifyEmail.tsx';
 
 const linking = {
-  prefixes: ['augmentos_manager://'], // Match the scheme from your `intent-filter`
+  prefixes: ['com.augmentos.augmentos_manager://'], // Match the scheme from your `intent-filter`
   config: {
     screens: {
       VerifyEmailScreen: 'verify_email', // Map to your VerifyEmail screen

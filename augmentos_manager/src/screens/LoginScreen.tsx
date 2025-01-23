@@ -9,6 +9,7 @@ import {
   Animated,
   SafeAreaView,
   Alert,
+  BackHandler,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -25,6 +26,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isFormLoading, setIsFormLoading] = useState(false)
+  const [backPressCount, setBackPressCount] = useState(0);
 
   const opacity = useRef(new Animated.Value(0)).current;
   const translateY = useRef(new Animated.Value(20)).current;
@@ -89,7 +91,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
       email,
       password,
       options: {
-        emailRedirectTo: "augmentos_manager://verify_email"
+        emailRedirectTo: "com.augmentos.augmentos_manager://verify_email"
       }
     });
   
@@ -123,6 +125,23 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
     }
     setIsFormLoading(false)
   }
+
+useEffect(() => {
+  const backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
+    if (backPressCount === 0) {
+      setBackPressCount(1);
+      setTimeout(() => setBackPressCount(0), 2000);
+      Alert.alert('Press back again to exit');
+      return true;
+    } else {
+      BackHandler.exitApp();
+      return true;
+    }
+  });
+
+  return () => backHandler.remove();
+}, [backPressCount]);
+
 
   return (
     <LinearGradient colors={['#EFF6FF', '#FFFFFF']} style={styles.container}>
@@ -234,7 +253,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
               </Animated.View>
             ) : (
               <View style={styles.signInOptions}>
-                <TouchableOpacity
+                {/* <TouchableOpacity
                   style={[styles.socialButton, styles.googleButton]}
                   onPress={handleGoogleSignIn}>
                   <View style={styles.socialIconContainer}>
@@ -261,7 +280,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
                   <View style={styles.divider} />
                   <Text style={styles.dividerText}>Or</Text>
                   <View style={styles.divider} />
-                </View>
+                </View> */}
 
                 <TouchableOpacity
                   style={styles.enhancedEmailButton}

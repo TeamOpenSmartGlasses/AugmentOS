@@ -60,8 +60,10 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
         this.setupEventBusSubscribers();
 
         windowManager = new WindowManagerWithTimeouts(
-                30, // globalTimeoutSeconds
-                () -> clearScreen() // what to do when globally timed out
+                19, // globalTimeoutSeconds
+                () -> {
+                    sendTextWall(" ");
+                } // what to do when globally timed out
         );
 
         String asrApiKey = getResources().getString(R.string.google_api_key);

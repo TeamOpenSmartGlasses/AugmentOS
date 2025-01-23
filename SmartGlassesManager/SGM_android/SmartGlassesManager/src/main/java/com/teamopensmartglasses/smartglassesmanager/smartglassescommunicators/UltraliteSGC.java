@@ -74,10 +74,19 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
     boolean hasUltraliteControl;
     boolean screenIsClear;
     SmartGlassesDevice smartGlassesDevice;
+    private static final long TAP_DEBOUNCE_TIME = 300; // milliseconds
+    private long lastTapTime = 0;
 
     public class UltraliteListener implements EventListener{
         @Override
         public void onTap(int tapCount) {
+            long currentTime = System.currentTimeMillis();
+            if (currentTime - lastTapTime < TAP_DEBOUNCE_TIME) {
+                Log.d(TAG, "Ignoring duplicate tap event");
+                return;
+            }
+
+            lastTapTime = currentTime;
             Log.d(TAG, "Ultralite go tap n times: " + tapCount);
             tapEvent(tapCount);
         }
