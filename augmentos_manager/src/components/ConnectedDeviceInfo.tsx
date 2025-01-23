@@ -141,7 +141,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
 
   const getBatteryColor = (level: number) => {
     if (level > 60) { return '#4CAF50'; }
-    if (level > 20) { return '#FFB300'; }
+    if (level > 20) { return '#ff9a00'; }
     if (level == -1) { return '#000000'; }
     return '#FF5722';
   };
