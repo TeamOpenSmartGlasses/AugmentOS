@@ -188,7 +188,7 @@ public class WindowManagerWithTimeouts {
 
     public void clearAll() {
         layers.clear();  // Remove all layers
-        currentlyDisplayedLayer = null;
+        //currentlyDisplayedLayer = null;
         currentlyDisplayedLayerTimestamp = 0;
         updateDisplay();  // This will trigger the globalTimeoutAction since no layers exist
     }
