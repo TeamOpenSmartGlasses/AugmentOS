@@ -5,6 +5,11 @@ import { createClient } from '@supabase/supabase-js';
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from '@env'; 
 import { AppState } from 'react-native';
 
+console.log("\n\n\n\n\n\n\nSUPABASE KEY:");
+console.log(SUPABASE_URL);
+console.log(SUPABASE_ANON_KEY);
+console.log("\n\n\n\n\n\n");
+
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: {
     storage: AsyncStorage,
