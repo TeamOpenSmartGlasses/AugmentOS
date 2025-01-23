@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class ThirdPartyApp implements Serializable {
     transient final String TAG = "ThirdPartyApp";
+    private final String appInstructions;
     public String appName;
     public String appDescription;
     public String packageName;
@@ -25,9 +26,11 @@ public class ThirdPartyApp implements Serializable {
     transient private JSONArray settings;
     public String version;
     public AugmentOSCommand[] commandList;
-    public ThirdPartyApp(String appName, String appDescription, String packageName, String serviceName, String version, ThirdPartyAppType appType, JSONArray settings, AugmentOSCommand[] commandList){
+
+    public ThirdPartyApp(String appName, String appDescription, String appInstructions, String packageName, String serviceName, String version, ThirdPartyAppType appType, JSONArray settings, AugmentOSCommand[] commandList){
         this.appName = appName;
         this.appDescription = appDescription;
+        this.appInstructions = appInstructions;
         this.packageName = packageName;
         this.serviceName = serviceName;
         this.appType = appType;
@@ -102,6 +105,7 @@ public class ThirdPartyApp implements Serializable {
         try {
             tpaObj.put("name", appName);
             tpaObj.put("description", appDescription);
+            tpaObj.put("instructions", appInstructions);
             tpaObj.put("version", version);
             tpaObj.put("packageName", packageName);
             tpaObj.put("type", appType.name());

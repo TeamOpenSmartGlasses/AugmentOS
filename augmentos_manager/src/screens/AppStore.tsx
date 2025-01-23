@@ -171,7 +171,7 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
               isDarkTheme ? styles.headerTextDark : styles.headerTextLight,
             ]}
           >
-            App Store
+            AugmentOS Store
           </Text>
           <View
             style={[
