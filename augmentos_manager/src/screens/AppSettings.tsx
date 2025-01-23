@@ -13,6 +13,7 @@ import SliderSetting from '../components/settings/SliderSetting';
 import SelectSetting from '../components/settings/SelectSetting';
 import MultiSelectSetting from '../components/settings/MultiSelectSetting';
 import TitleValueSetting from '../components/settings/TitleValueSetting';
+import LoadingComponent from "../components/LoadingComponent.tsx";
 
 type AppSettingsProps = NativeStackScreenProps<
   RootStackParamList,
@@ -40,7 +41,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       // console.log("GOT SOME APP INFO YO");
       // console.log(JSON.stringify(appInfo));
       setAppInfo(appInfo);
-      
+
       // Initialize settings state with current values
       const initialState: { [key: string]: any } = {};
       appInfo.settings.forEach((setting: any) => {
@@ -118,7 +119,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
             value={settingsState[setting.key]}
             min={setting.min}
             max={setting.max}
-            onValueChange={(val) => 
+            onValueChange={(val) =>
               setSettingsState((prevState) => ({
                 ...prevState,
                 [setting.key]: val, // Immediate UI update
@@ -164,40 +165,64 @@ const AppSettings: React.FC<AppSettingsProps> = ({
     }
   };
 
-  if (!appInfo) {
-    return (
-      <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#999999" />
-          <Text style={[styles.text, { color: theme.textColor }]}>
-            Loading App Settings...
-          </Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
-
-  if (appInfo && appInfo.settings?.length == 0) {
-    return(
-      <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-        <View style={styles.loadingContainer}>
-          <Text style={[styles.text, { color: theme.textColor }]}>
-            {appName} doesn't have any settings
-          </Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
-
-  return (
-    <SafeAreaView
-      style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}
-    >
-      <ScrollView contentContainerStyle={styles.mainContainer}>
-        {appInfo.settings.map((setting: any, index: number) => renderSetting(setting, index))}
-      </ScrollView>
-    </SafeAreaView>
-  );
+    if (!appInfo) {
+          return <LoadingComponent message="Loading App Settings..." theme={theme} />;
+    } else {
+      if (appInfo.instructions && appInfo.settings?.length > 0) {
+        return (
+          <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+            <ScrollView contentContainerStyle={styles.mainContainer}>
+              <View style={[styles.instructionsContainer, { marginBottom: 20 }]}>
+                <Text style={[styles.title, { color: theme.textColor }]}>
+                  Instructions
+                </Text>
+                <Text style={[styles.instructionsText, { color: theme.textColor }]}>
+                  {appInfo.instructions}
+                </Text>
+              </View>
+              {appInfo.settings.map((setting: any, index: number) =>
+                renderSetting(setting, index)
+              )}
+            </ScrollView>
+          </SafeAreaView>
+        );
+      } else if (appInfo.instructions) {
+        return (
+          <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+            <ScrollView contentContainerStyle={styles.mainContainer}>
+              <View style={[styles.instructionsContainer, { marginBottom: 20 }]}>
+                <Text style={[styles.title, { color: theme.textColor }]}>
+                  Description
+                </Text>
+                <Text style={[styles.instructionsText, { color: theme.textColor }]}>
+                  {appInfo.instructions}
+                </Text>
+              </View>
+            </ScrollView>
+          </SafeAreaView>
+        );
+      } else if (appInfo.settings?.length === 0) {
+        return (
+          <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+            <View style={styles.loadingContainer}>
+              <Text style={[styles.text, { color: theme.textColor }]}>
+                {appName} doesn't have any settings
+              </Text>
+            </View>
+          </SafeAreaView>
+        );
+      } else {
+        return (
+          <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+            <ScrollView contentContainerStyle={styles.mainContainer}>
+              {appInfo.settings.map((setting: any, index: number) =>
+                renderSetting(setting, index)
+              )}
+            </ScrollView>
+          </SafeAreaView>
+        );
+      }
+    }
 };
 
 const styles = StyleSheet.create({
@@ -209,11 +234,25 @@ const styles = StyleSheet.create({
     padding: 16,
     alignItems: 'stretch',
   },
+    instructionsContainer: {
+      marginTop: 10,
+      marginBottom: 20,
+      alignItems: 'flex-start',
+    },
+    title: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      marginBottom: 10,
+    },
+    instructionsText: {
+      fontSize: 16,
+      lineHeight: 22,
+    },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 20
+    marginHorizontal: 20,
   },
   text: {
     fontSize: 18,

@@ -49,7 +49,8 @@ class MainApplication : Application(), ReactApplication {
                 NotificationServicePackage(),
                 InstallApkPackage(),
                 ReactSliderPackage(),
-                NotificationAccessPackage()
+                NotificationAccessPackage(),
+                TpaHelpersPackage(),
             )
         }
 

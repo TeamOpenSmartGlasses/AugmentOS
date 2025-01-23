@@ -29,6 +29,7 @@ export type AppStoreItem = {
   category: string;
   name: string;
   packageName: string;
+  version: string;
   description: string;
   iconImageUrl: string;
   identifierCode: string;

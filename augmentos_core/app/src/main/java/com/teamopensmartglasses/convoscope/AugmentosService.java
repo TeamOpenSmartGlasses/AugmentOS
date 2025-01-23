@@ -36,6 +36,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.content.SharedPreferences;
 import android.hardware.display.VirtualDisplay;
 import android.media.projection.MediaProjection;
@@ -2593,6 +2594,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 //tpaObj.put("description", tpa.appDescription);
                 tpaObj.put("is_running", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
                 tpaObj.put("is_foreground", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
+                tpaObj.put("version", tpa.version);
                 //tpaObj.put("package_name", tpa.packageName);
                 //tpaObj.put("type", tpa.appType.name());
                 apps.put(tpaObj);
@@ -2754,12 +2756,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
                 try {
                     String downloadLink = result.optString("download_url");
+                    String appName = result.optString("app_name");
+                    String version = result.optString("version");
                     if (!downloadLink.isEmpty()) {
                         Log.d(TAG, "Download link received: " + downloadLink);
 
                         if (downloadLink.startsWith("https://api.augmentos.org/")) {
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                                downloadApk(downloadLink, packageName);
+                                downloadApk(downloadLink, packageName, appName, version);
                             }
                         } else {
                             Log.e(TAG, "The download link does not match the required domain.");
@@ -2780,17 +2784,18 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         });
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
-    private void downloadApk(String downloadLink, String packageName) {
+    private void downloadApk(String downloadLink, String packageName, String appName, String version) { // TODO: Add fallback if the download doesn't succeed
         DownloadManager downloadManager = (DownloadManager) this.getSystemService(Context.DOWNLOAD_SERVICE);
 
         if (downloadManager != null) {
             Uri uri = Uri.parse(downloadLink);
             DownloadManager.Request request = new DownloadManager.Request(uri);
-            request.setTitle("Downloading " + packageName);
-            request.setDescription("Downloading APK for " + packageName);
+            request.setTitle("Downloading " + appName);
+//            request.setDescription("Downloading APK for " + appName);
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, packageName + ".apk");
+            String downloadedAppName = appName.replace(" ", "") + "_" + version + ".apk";
+            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, downloadedAppName);
+//            blePeripheral.sendAppIsInstalledEventToManager(packageName);
 
             long downloadId = downloadManager.enqueue(request);
 
@@ -2799,40 +2804,44 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 public void onReceive(Context context, Intent intent) {
                     long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
                     if (id == downloadId) {
-                        installApk(packageName);
+                        installApk(packageName, downloadedAppName);
 
                         context.unregisterReceiver(this);
                     }
                 }
             };
 
-            this.registerReceiver(receiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), Context.RECEIVER_NOT_EXPORTED);
+            this.registerReceiver(receiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
         }
     }
 
-    private void installApk(String packageName) {
+    private void installApk(String packageName, String downloadedAppName) {
         File apkFile = new File(
                 Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-                packageName + ".apk"
+                downloadedAppName
         );
         if (!apkFile.exists() || apkFile.length() == 0) {
             Log.e("Installer", "APK file is missing or 0 bytes.");
             return;
         }
 
-        Uri apkUri;
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        apkUri = FileProvider.getUriForFile(
-                getApplicationContext(),
-                getApplicationContext().getPackageName() + ".provider",
-                apkFile
-        );
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        Log.d("Installer", "APK file exists: " + apkFile.getAbsolutePath());
 
-        intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        blePeripheral.sendNotifyManager("App installed", "Success");
+        blePeripheral.sendAppIsInstalledEventToManager(packageName);
+
+//        Uri apkUri;
+//        Intent intent = new Intent(Intent.ACTION_VIEW);
+//        apkUri = FileProvider.getUriForFile(
+//                getApplicationContext(),
+//                getApplicationContext().getPackageName() + ".provider",
+//                apkFile
+//        );
+//        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//
+//        intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(intent);
+//        blePeripheral.sendNotifyManager("App installed", "Success");
     }
 
     @Override
