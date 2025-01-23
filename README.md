@@ -74,7 +74,7 @@ TEDxMIT Talk on "Can Smart Glasses Revolutionize How We Learn Languages?" by Cay
 
 #### Live Captions
 
-See live captions of everything that is said. 100s of languges supported with high accuracy and low latency.
+See live captions of everything that is said. 100s of languages supported with high accuracy and low latency.
 
 #### ADHD Glasses
 
@@ -110,10 +110,10 @@ To get started, check out our [Example App](https://github.com/TeamOpenSmartGlas
 
 - [Vuzix Z100](https://www.vuzix.com/products/z100-smart-glasses)
 - [Mentra Mach1](https://mentra.glass/)
+- [Even Realities G1](https://www.evenrealities.com/g1)
 
 **Future Support:**
 
-- [Even Realities G1](https://www.evenrealities.com/g1)
 - [Meizu StarV](https://www.meizu.com/starv)
 
 ### Smart Phones
