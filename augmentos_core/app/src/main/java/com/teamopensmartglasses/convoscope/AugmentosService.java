@@ -408,14 +408,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Subscribe
     public void onGlassBatteryLevelEvent(BatteryLevelEvent event) {
-        Log.d(TAG, "BATTERY received");
+//        Log.d(TAG, "BATTERY received");
         batteryLevel = event.batteryLevel;
         sendStatusToAugmentOsManager();
     }
 
     @Subscribe
     public void onBrightnessLevelEvent(BrightnessLevelEvent event) {
-        Log.d(TAG, "BRIGHTNESS received");
+//        Log.d(TAG, "BRIGHTNESS received");
         brightnessLevel = event.brightnessLevel;
         sendStatusToAugmentOsManager();
     }
@@ -457,7 +457,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         //what is the preferred wearable?
         String preferredWearable = AugmentosSmartGlassesService.getPreferredWearable(this);
-        Log.d(TAG, "PREFER 222 - " + preferredWearable);
 
         // load pinyin converter in the background
         // new Thread(this::loadSegmenter).start();

@@ -310,13 +310,13 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
     /** Gets the preferred wearable from shared preference. */
     public static String getPreferredWearable(Context context) {
-        Log.d(TAG, "GETTING PREFERRED WEARABLE");
+//        Log.d(TAG, "GETTING PREFERRED WEARABLE");
         return PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.PREFERRED_WEARABLE), "");
     }
 
     /** Saves the preferred wearable in user shared preference. */
     public static void savePreferredWearable(Context context, String wearableName) {
-        Log.d(TAG, "SAVING PREFERRED WEARABLE");
+//        Log.d(TAG, "SAVING PREFERRED WEARABLE");
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
                 .putString(context.getResources().getString(R.string.PREFERRED_WEARABLE), wearableName)
