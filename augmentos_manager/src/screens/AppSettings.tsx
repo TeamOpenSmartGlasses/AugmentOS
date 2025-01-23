@@ -13,6 +13,7 @@ import SliderSetting from '../components/settings/SliderSetting';
 import SelectSetting from '../components/settings/SelectSetting';
 import MultiSelectSetting from '../components/settings/MultiSelectSetting';
 import TitleValueSetting from '../components/settings/TitleValueSetting';
+import LoadingComponent from "../components/LoadingComponent.tsx";
 
 type AppSettingsProps = NativeStackScreenProps<
   RootStackParamList,
@@ -40,7 +41,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       // console.log("GOT SOME APP INFO YO");
       // console.log(JSON.stringify(appInfo));
       setAppInfo(appInfo);
-      
+
       // Initialize settings state with current values
       const initialState: { [key: string]: any } = {};
       appInfo.settings.forEach((setting: any) => {
@@ -118,7 +119,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
             value={settingsState[setting.key]}
             min={setting.min}
             max={setting.max}
-            onValueChange={(val) => 
+            onValueChange={(val) =>
               setSettingsState((prevState) => ({
                 ...prevState,
                 [setting.key]: val, // Immediate UI update
@@ -177,16 +178,8 @@ const AppSettings: React.FC<AppSettingsProps> = ({
     );
   }
 
-  if (appInfo && appInfo.settings?.length == 0) {
-    return(
-      <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-        <View style={styles.loadingContainer}>
-          <Text style={[styles.text, { color: theme.textColor }]}>
-            {appName} doesn't have any settings
-          </Text>
-        </View>
-      </SafeAreaView>
-    );
+  if (appInfo && appInfo.settings?.length === 0) {
+    return <LoadingComponent message="Loading App Settings..." theme={theme} />;
   }
 
   return (
@@ -213,7 +206,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 20
+    marginHorizontal: 20,
   },
   text: {
     fontSize: 18,

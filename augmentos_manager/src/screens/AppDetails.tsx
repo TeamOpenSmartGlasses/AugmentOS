@@ -56,7 +56,12 @@ const AppDetails: React.FC<AppDetailsProps> = ({
     const installedVersion = installedApp.version || '0.0.0';
     const storeVersion = app.version || '0.0.0';
 
+    console.log('Installed version:', installedVersion);
+    console.log('Store version:', storeVersion);
+    console.log()
+
     if (semver.valid(installedVersion) && semver.valid(storeVersion)) {
+
       if (semver.lt(installedVersion, storeVersion)) {
         setInstallState('Update');
       } else {
@@ -72,18 +77,8 @@ const AppDetails: React.FC<AppDetailsProps> = ({
   }, [checkVersionAndSetState]);
 
   useEffect(() => {
-    // Check if app is installed on mount
-    TpaHelpers.isAppInstalled(app.packageName)
-      .then((isAvailable: any) => {
-        if (isAvailable) {
-          setInstallState('Start');
-        } else {
-          console.log('App not installed.');
-        }
-      })
-      .catch((error: any) => console.error(error));
-
     const handleAppDownloaded = (data: { appIsDownloaded: any }) => {
+      console.log('App is downloaded:', data.appIsDownloaded);
       setInstallState('Installing...');
       InstallApkModule.installApk(data.appIsDownloaded.packageName)
         .then((result: any) => {
@@ -101,7 +96,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
     return () => {
       GlobalEventEmitter.off('APP_IS_DOWNLOADED_RESULT', handleAppDownloaded);
     };
-  }, [app.packageName]);
+  }, []);
 
   const bluetoothService = BluetoothService.getInstance();
 
@@ -119,7 +114,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
   };
 
   const sendInstallAppFromStore = (packageName: string) => {
-    if (installState === 'Install') {
+    if (installState === 'Install' || installState === 'Update') {
       setInstallState('Downloading...');
       console.log(`Installing app with package name: ${packageName}`);
 
@@ -133,12 +128,12 @@ const AppDetails: React.FC<AppDetailsProps> = ({
     TpaHelpers.launchTargetApp(packageName);
   };
 
-  const navigateToReviews = () => {
-    navigation.navigate('Reviews', {
-      appId: app.identifierCode,
-      appName: app.name,
-    });
-  };
+  // const navigateToReviews = () => {
+  //   navigation.navigate('Reviews', {
+  //     appId: app.identifierCode,
+  //     appName: app.name,
+  //   });
+  // };
 
   return (
     <SafeAreaView
@@ -283,7 +278,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
                   (installState === 'Installing...' || installState === 'Downloading...') && styles.disabledButton,
                 ]}
                 onPress={() => {
-                  if (installState === 'Install') {
+                  if (installState === 'Install' || installState === 'Update') {
                     sendInstallAppFromStore(app.packageName);
                   } else if (installState === 'Start') {
                     launchTargetApp(app.packageName);
@@ -329,7 +324,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     width: '100%',
-    padding: 16
+    padding: 16,
   },
   icon: {
     width: 100,
