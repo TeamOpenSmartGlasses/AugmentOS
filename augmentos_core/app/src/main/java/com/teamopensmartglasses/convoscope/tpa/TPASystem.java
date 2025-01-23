@@ -49,6 +49,7 @@ import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TranslateOutputEvent;
 import com.teamopensmartglasses.convoscope.AugmentosSmartGlassesService;
+import com.teamopensmartglasses.convoscope.events.TriggerSendStatusToAugmentOsManagerEvent;
 import com.teamopensmartglasses.convoscope.tpa.eventbusmessages.TPARequestEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -131,6 +132,8 @@ public class TPASystem {
 
                     // This will pick up any installed but unregistered apps
                     loadThirdPartyAppsFromStorage();
+
+                    EventBus.getDefault().post(new TriggerSendStatusToAugmentOsManagerEvent());
                 }
             }
         };
