@@ -2667,12 +2667,13 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
                 try {
                     String downloadLink = result.optString("download_url");
+                    String appName = result.optString("app_name");
                     if (!downloadLink.isEmpty()) {
                         Log.d(TAG, "Download link received: " + downloadLink);
 
                         if (downloadLink.startsWith("https://api.augmentos.org/")) {
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                                downloadApk(downloadLink, packageName);
+                                downloadApk(downloadLink, packageName, appName);
                             }
                         } else {
                             Log.e(TAG, "The download link does not match the required domain.");
@@ -2693,17 +2694,17 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         });
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
-    private void downloadApk(String downloadLink, String packageName) {
+    private void downloadApk(String downloadLink, String packageName, String appName) { // TODO: Add fallback if the download doesn't succeed
         DownloadManager downloadManager = (DownloadManager) this.getSystemService(Context.DOWNLOAD_SERVICE);
 
         if (downloadManager != null) {
             Uri uri = Uri.parse(downloadLink);
             DownloadManager.Request request = new DownloadManager.Request(uri);
-            request.setTitle("Downloading " + packageName);
-            request.setDescription("Downloading APK for " + packageName);
+            request.setTitle("Downloading " + appName);
+//            request.setDescription("Downloading APK for " + appName);
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, packageName + ".apk");
+            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, appName + ".apk");
+//            blePeripheral.sendAppIsInstalledEventToManager(packageName);
 
             long downloadId = downloadManager.enqueue(request);
 
@@ -2719,7 +2720,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 }
             };
 
-            this.registerReceiver(receiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), Context.RECEIVER_NOT_EXPORTED);
+            this.registerReceiver(receiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
         }
     }
 
@@ -2733,19 +2734,21 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             return;
         }
 
-        Uri apkUri;
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        apkUri = FileProvider.getUriForFile(
-                getApplicationContext(),
-                getApplicationContext().getPackageName() + ".provider",
-                apkFile
-        );
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        blePeripheral.sendAppIsInstalledEventToManager(packageName);
 
-        intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        blePeripheral.sendNotifyManager("App installed", "Success");
+//        Uri apkUri;
+//        Intent intent = new Intent(Intent.ACTION_VIEW);
+//        apkUri = FileProvider.getUriForFile(
+//                getApplicationContext(),
+//                getApplicationContext().getPackageName() + ".provider",
+//                apkFile
+//        );
+//        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//
+//        intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(intent);
+//        blePeripheral.sendNotifyManager("App installed", "Success");
     }
 
     @Override

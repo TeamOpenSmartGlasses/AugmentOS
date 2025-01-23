@@ -460,6 +460,19 @@ public class AugmentosBlePeripheral {
         sendDataToAugmentOsManager(data.toString());
     }
 
+    public void sendAppIsInstalledEventToManager(String packageName) {
+        Log.d(TAG, "sendAppIsInstalledEventToManager");
+        JSONObject data = new JSONObject();
+        JSONObject messageObj = new JSONObject();
+        try{
+            messageObj.put("package_name", packageName);
+            data.put("app_is_downloaded", messageObj);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        sendDataToAugmentOsManager(data.toString());
+    }
+
     @SuppressLint("MissingPermission")
     public void sendDataToAugmentOsManager(String jsonData) {
         if(isSimulatedPuck){

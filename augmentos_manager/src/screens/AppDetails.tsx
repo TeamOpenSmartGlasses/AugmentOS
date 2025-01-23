@@ -8,7 +8,7 @@ import {
   Animated,
   Easing,
   ImageStyle,
-  SafeAreaView,
+  SafeAreaView,ActivityIndicator,
 } from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList, AppStoreItem} from '../components/types';
@@ -16,8 +16,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import NavigationBar from '../components/NavigationBar';
 import BluetoothService from '../BluetoothService.tsx';
 import { NativeModules } from 'react-native';
-const { InstallApkModule } = NativeModules;
-
+const { InstallApkModule, TpaHelpers } = NativeModules;
+import GlobalEventEmitter from '../logic/GlobalEventEmitter';
 type AppDetailsProps = NativeStackScreenProps<
   RootStackParamList,
   'AppDetails'
@@ -35,6 +35,50 @@ const AppDetails: React.FC<AppDetailsProps> = ({
   const [installState, setInstallState] = useState<
     'Install' | 'Downloading...' | 'Installing...' | 'Start'
   >('Install');
+
+    TpaHelpers.isAppInstalled(app.packageName)
+      .then((isAvailable: any) => {
+        console.log('App' + app.packageName);
+        if (isAvailable) {
+          setInstallState('Start');
+        } else {
+          console.log('App not installed.');
+        }
+      })
+      .catch((error: any) => console.error(error));
+
+  useEffect(() => {
+    // Check if app is installed on mount
+    TpaHelpers.isAppInstalled(app.packageName)
+      .then((isAvailable: any) => {
+        if (isAvailable) {
+          setInstallState('Start');
+        } else {
+          console.log('App not installed.');
+        }
+      })
+      .catch((error: any) => console.error(error));
+
+  const handleAppDownloaded = (data: { appIsDownloaded: any }) => {
+      setInstallState('Installing...');
+      InstallApkModule.installApk(data.appIsDownloaded.packageName)
+      .then((result: any) => {
+        console.log('Success:', result);
+        setInstallState('Start');
+      })
+      .catch((error: any) => {
+        console.error('Error:', error);
+      });
+  };
+
+    GlobalEventEmitter.on('APP_IS_DOWNLOADED_RESULT', handleAppDownloaded);
+
+    // Cleanup listener on unmount
+    return () => {
+      GlobalEventEmitter.off('APP_IS_DOWNLOADED_RESULT', handleAppDownloaded);
+    };
+  }, []);
+
 
   // Animation values
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -131,14 +175,9 @@ const AppDetails: React.FC<AppDetailsProps> = ({
       console.log(`Installing app with package name: ${packageName}`);
 
       bluetoothService.installAppByPackageName(packageName);
-
-      // setTimeout(() => {
-      //   setInstallState('Start');
-      // }, 3000);
     } else if (installState === 'Start') {
       console.log(`Starting app with package name: ${packageName}`);
     }
-    // handleInstall(packageName);
   };
 
   const navigateToReviews = () => {
@@ -169,16 +208,6 @@ const AppDetails: React.FC<AppDetailsProps> = ({
   function toggleTheme(): void {
     throw new Error('Function not implemented.');
   }
-
-  const handleInstall = (packageName: string) => {
-      InstallApkModule.installApk(packageName)
-      .then((result: any) => {
-        console.log('Success:', result);
-      })
-      .catch((error: any) => {
-        console.error('Error:', error);
-      });
-  };
 
   return (
     <SafeAreaView
@@ -349,20 +378,30 @@ const AppDetails: React.FC<AppDetailsProps> = ({
               style={[
                 styles.buttonContainer,
                 {
-                  transform: [{scale: buttonScaleAnim}],
+                  transform: [{ scale: buttonScaleAnim }],
                   opacity: fadeAnim,
                 },
-              ]}>
+              ]}
+            >
               <TouchableOpacity
                 style={[
                   styles.installButton,
-                  installState === 'Installing...' && styles.disabledButton,
+                  (installState === 'Installing...' || installState === 'Downloading...') && styles.disabledButton,
                 ]}
                 onPress={() => sendInstallAppFromStore(app.packageName)}
-                disabled={installState === 'Installing...'}>
-                <Text style={styles.installButtonText}>{installState}</Text>
+                disabled={installState === 'Installing...' || installState === 'Downloading...'}
+              >
+                {installState === 'Installing...' || installState === 'Downloading...' ? (
+                  <View style={styles.spinnerContainer}>
+                    <ActivityIndicator size="small" color="#fff" />
+                    <Text style={styles.installButtonText}>{installState}</Text>
+                  </View>
+                ) : (
+                  <Text style={styles.installButtonText}>{installState}</Text>
+                )}
               </TouchableOpacity>
             </Animated.View>
+
           </Animated.View>
         </ScrollView>
         <NavigationBar isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
@@ -528,6 +567,13 @@ const styles = StyleSheet.create({
   },
   disabledButton: {
     backgroundColor: '#ccc',
+    elevation: 0,
+    shadowColor: 'transparent',
+  },
+  spinnerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

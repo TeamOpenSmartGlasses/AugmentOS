@@ -581,6 +581,8 @@ export class BluetoothService extends EventEmitter {
         GlobalEventEmitter.emit('COMPATIBLE_GLASSES_SEARCH_STOP', { modelName: compatible_glasses_search_stop.model_name })
       } else if ('app_info' in jsonData) {
         GlobalEventEmitter.emit('APP_INFO_RESULT', { appInfo: jsonData.app_info });
+      } else if ('app_is_downloaded' in jsonData) {
+          GlobalEventEmitter.emit('APP_IS_DOWNLOADED_RESULT', { appIsDownloaded: jsonData.app_is_downloaded });
       }
     } catch (e) {
       console.log('Some error parsing data from AugmentOS_Core...');
