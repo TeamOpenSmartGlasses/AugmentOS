@@ -30,6 +30,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 //BMP
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.zip.CRC32;
 import java.nio.ByteBuffer;
 
@@ -93,7 +94,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private boolean shouldUseAutoBrightness = false;
     private int brightnessValue = 35;
 
-    private static final long DELAY_BETWEEN_SENDS_MS = 2;
+    private static final long DELAY_BETWEEN_SENDS_MS = 25;
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 5;
     private static final long DELAY_BETWEEN_ACTIONS_SEND = 250;
     private static final long HEARTBEAT_INTERVAL_MS = 30000;
@@ -345,7 +346,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             @Override
             public void onCharacteristicWrite(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
                 if (status == BluetoothGatt.GATT_SUCCESS) {
-                    Log.d(TAG, side + " glass write successful");
+//                    Log.d(TAG, side + " glass write successful");
                 } else {
                     Log.e(TAG, side + " glass write failed with status: " + status);
 
@@ -377,11 +378,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             if (deviceName.contains("R_")) {
                                 //Log.d(TAG, "Ignoring...");
 //                                Log.d(TAG, "Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
-//                                EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
+//                                Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName);
+                                EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
                             } else {
 //                                Log.d(TAG, "Lc3 Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(lc3) + ", from: " + deviceName);
 //                                Log.d(TAG, "PCM Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
-                                EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
+//                                EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
                             }
 //                          Log.d(this.getClass().getSimpleName(), "============Lc3 data = " + Arrays.toString(lc3) + ", Pcm = " + Arrays.toString(pcmData));
                         }
@@ -412,7 +414,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         //BATTERY RESPONSE
                         else if (data.length > 2 && data[0] == 0x2C && data[1] == 0x66) {
                             if (deviceName.contains("L_")) {
-                                Log.d(TAG, "Battery response received");
+//                                Log.d(TAG, "Battery response received");
                                 int batteryLevel = data[2];
 
                                 EventBus.getDefault().post(new BatteryLevelEvent(batteryLevel));
@@ -420,11 +422,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         }
                         //HEARTBEAT RESPONSE
                         else if (data.length > 0 && data[0] == 0x25) {
-                            Log.d(TAG, "Heartbeat response received");
+//                            Log.d(TAG, "Heartbeat response received");
                         }
                         // Handle other non-audio responses
                         else {
-                            Log.d(TAG, "Received other Even Realities response: " + bytesToHex(data) + ", from: " + deviceName);
+//                            Log.d(TAG, "Received other Even Realities response: " + bytesToHex(data) + ", from: " + deviceName);
                         }
                     }
                 });
@@ -847,6 +849,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         sendDataSequentially(data, false);
     }
 
+    private void sendDataSequentially(List<byte[]> data) {
+        sendDataSequentially(data, false);
+    }
+
 //    private void sendDataSequentially(byte[] data, boolean onlyLeft) {
 //        if (stopper) return;
 //        stopper = true;
@@ -875,10 +881,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static class SendRequest {
         final byte[] data;
         final boolean onlyLeft;
+        final boolean onlyRight;
 
-        SendRequest(byte[] data, boolean onlyLeft) {
+        SendRequest(byte[] data, boolean onlyLeft, boolean onlyRight) {
             this.data = data;
             this.onlyLeft = onlyLeft;
+            this.onlyRight = onlyRight;
         }
     }
 
@@ -888,16 +896,26 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     // Non-blocking function to add new send request
     private void sendDataSequentially(byte[] data, boolean onlyLeft) {
-        SendRequest [] chunks = {new SendRequest(data, onlyLeft)};
+        SendRequest [] chunks = {new SendRequest(data, onlyLeft, false)};
         sendQueue.offer(chunks);
         startWorkerIfNeeded();
     }
 
     // Overloaded function to handle multiple chunks (List<byte[]>)
     private void sendDataSequentially(List<byte[]> data, boolean onlyLeft) {
-        SendRequest[] chunks = new SendRequest[data.size()]; // Use size() instead of length
+        sendDataSequentially(data, onlyLeft, false);
+    }
+
+    private void sendDataSequentially(byte[] data, boolean onlyLeft, boolean onlyRight) {
+        SendRequest [] chunks = {new SendRequest(data, onlyLeft, onlyRight)};
+        sendQueue.offer(chunks);
+        startWorkerIfNeeded();
+    }
+
+    private void sendDataSequentially(List<byte[]> data, boolean onlyLeft, boolean onlyRight) {
+        SendRequest[] chunks = new SendRequest[data.size()];
         for (int i = 0; i < data.size(); i++) {
-            chunks[i] = new SendRequest(data.get(i), onlyLeft); // Use get() to access elements
+            chunks[i] = new SendRequest(data.get(i), onlyLeft, onlyRight);
         }
         sendQueue.offer(chunks);
         startWorkerIfNeeded();
@@ -934,7 +952,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     }
 
                     // Send to left glass if available
-                    if (leftGlassGatt != null && leftTxChar != null && isLeftConnected) {
+                    if (!request.onlyRight && leftGlassGatt != null && leftTxChar != null && isLeftConnected) {
                         leftTxChar.setValue(request.data);
                         boolean leftSuccess = leftGlassGatt.writeCharacteristic(leftTxChar);
                         if (!leftSuccess) {
@@ -948,7 +966,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             //leftGlassGatt.disconnect();
                             // return;
                         } else {
-                            Log.d(TAG, " SUCCESS ON LEFT");
+//                            Log.d(TAG, " SUCCESS ON LEFT");
                         }
 
                         Thread.sleep(DELAY_BETWEEN_SENDS_MS);
@@ -970,7 +988,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             //destroy();
                             //                      return;
                         } else {
-                            Log.d(TAG, " SUCCESS ON RIGHT");
+//                            Log.d(TAG, " SUCCESS ON RIGHT");
                         }
                         Thread.sleep(DELAY_BETWEEN_SENDS_MS);
                     }
@@ -1219,11 +1237,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public void displayDoubleTextWall(String textTop, String textBottom) {
         List<byte[]> chunks = createTextWallChunks(textTop + "\n\n" + textBottom);
         sendChunks(chunks);
-        Log.d(TAG, "Send double text wall");
+//        Log.d(TAG, "Send double text wall");
     }
 
     public void showHomeScreen() {
-        Log.d(TAG, "EVEN SHOWING HOME SCREEN");
+//        Log.d(TAG, "EVEN SHOWING HOME SCREEN");
         displayTextWall(" ");
     }
 
@@ -1241,7 +1259,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         goHomeHandler.removeCallbacksAndMessages(null);
         List<byte[]> chunks = createTextWallChunks(a);
         sendChunks(chunks);
-        Log.d(TAG, "Sent text wall");
+//        Log.d(TAG, "Sent text wall");
     }
 
     public void setFontSizes() {}
@@ -1272,6 +1290,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             @Override
             public void run() {
                 sendHeartbeat();
+//                sendLoremIpsum();
                 heartbeatHandler.postDelayed(this, HEARTBEAT_INTERVAL_MS);
             }
         };
@@ -1399,7 +1418,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     private void sendHeartbeat() {
         byte[] heartbeatPacket = constructHeartbeat();
-        Log.d(TAG, "Sending heartbeat: " + bytesToHex(heartbeatPacket));
+//        Log.d(TAG, "Sending heartbeat: " + bytesToHex(heartbeatPacket));
 
         sendDataSequentially(heartbeatPacket, false);
 
@@ -1413,7 +1432,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     private void queryBatteryStatus() {
         byte[] batteryQueryPacket = constructBatteryLevelQuery();
-        Log.d(TAG, "Sending battery status query: " + bytesToHex(batteryQueryPacket));
+//        Log.d(TAG, "Sending battery status query: " + bytesToHex(batteryQueryPacket));
 
         sendDataSequentially(batteryQueryPacket, false);
     }
@@ -1465,7 +1484,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 buffer.put(command);
                 buffer.put(enableByte);
 
-                sendDataSequentially(buffer.array());
+                sendDataSequentially(buffer.array(), false, true);
                 Log.d(TAG, "Sent MIC command: " + bytesToHex(buffer.array()));
             }
         }, delay);
@@ -1551,16 +1570,27 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     // Constants for text wall display
     private static final int TEXT_COMMAND = 0x4E;  // Text command
-    private static final int DISPLAY_WIDTH = 340;  // Display width in pixels
+    private static final int DISPLAY_WIDTH = 640;  // Display width in pixels
+    private static final int DISPLAY_USE_WIDTH = 340;  // How much of the display to use
     private static final int FONT_SIZE = 21;      // Font size
+    private static final float FONT_DIVIDER = 2.0f;
     private static final int LINES_PER_SCREEN = 7; // Lines per screen
     private static final int MAX_CHUNK_SIZE = 176; // Maximum chunk size for BLE packets
+//    private static final int INDENT_SPACES = 32;    // Number of spaces to indent text
 
     private int textSeqNum = 0; // Sequence number for text packets
 
     private List<byte[]> createTextWallChunks(String text) {
         // Split text into lines based on display width and font size
         List<String> lines = splitIntoLines(text);
+
+        // Add indentation to each line
+        float fontDivider = 2.0f;  // Same as in splitIntoLines
+        int unusedWidth = DISPLAY_WIDTH - DISPLAY_USE_WIDTH;
+        int indentChars = Math.round(unusedWidth / (FONT_SIZE / FONT_DIVIDER) / 2);
+        lines = lines.stream()
+                .map(line -> " ".repeat(indentChars) + line)
+                .collect(Collectors.toList());
 
         // Calculate total pages
         int totalPages = (int) Math.ceil((double) lines.size() / LINES_PER_SCREEN);
@@ -1598,8 +1628,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         (byte) totalChunks,     // Total packages
                         (byte) i,               // Current package number
                         screenStatus,           // Screen status
-                        0x00,                   // new_char_pos0 (high)
-                        0x00,                   // new_char_pos1 (low)
+                        (byte) 0x00,                   // new_char_pos0 (high)
+                        (byte) 0x00,                   // new_char_pos1 (low)
                         (byte) page,            // Current page number
                         (byte) totalPages       // Max page number
                 };
@@ -1617,7 +1647,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             break;
         }
 
-        Log.d(TAG, "TOTAL PAGES: " + totalPages);
+//        Log.d(TAG, "TOTAL PAGES: " + totalPages);
 
         return allChunks;
     }
@@ -1635,8 +1665,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
         List<String> lines = new ArrayList<>();
         String[] rawLines = text.split("\n"); // Split by newlines first
-        float fontDivider = 2.0f;
-        int charsPerLine = Math.round(DISPLAY_WIDTH / (FONT_SIZE / fontDivider)); // Rough estimate
+        int charsPerLine = (int) Math.round((DISPLAY_USE_WIDTH / (FONT_SIZE / FONT_DIVIDER) * 1.45)); // Rough estimate
 
         for (String rawLine : rawLines) {
             if (rawLine.isEmpty()) {
@@ -1979,6 +2008,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     private void showDashboard() {
         EventBus.getDefault().post(new DisplayGlassesDashboardEvent());
+    }
+
+    private void sendLoremIpsum(){
+        String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ";
+        sendDataSequentially(createTextWallChunks(text));
     }
 
 }
