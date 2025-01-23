@@ -393,7 +393,7 @@ public class TPASystem {
             ThirdPartyApp foundTpa = getThirdPartyAppIfAppIsAugmentOsThirdPartyApp(packageName, mContext);
             if(foundTpa != null) {
                 Log.d(TAG, "Discovered an unregistered TPA on device: " + packageName);
-                Toast.makeText(mContext, "Discovered an unregistered TPA on device: " + packageName, Toast.LENGTH_LONG).show();
+                // Toast.makeText(mContext, "Discovered an unregistered TPA on device: " + packageName, Toast.LENGTH_LONG).show();
                 newThirdPartyAppList.put(foundTpa.packageName, foundTpa);
             }
         }

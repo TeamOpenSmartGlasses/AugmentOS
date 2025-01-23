@@ -631,11 +631,6 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         EventBus.getDefault().post(new ReferenceCardSimpleViewRequestEvent(title, body));
     }
 
-    //show a reference card on the smart glasses with title and body text
-    public static void sendReferenceCard(String title, String body, int lingerTimeMs) {
-        EventBus.getDefault().post(new ReferenceCardSimpleViewRequestEvent(title, body, lingerTimeMs));
-    }
-
     //show a text wall card on the smart glasses
     public static void sendTextWall(String text) {
         EventBus.getDefault().post(new TextWallViewRequestEvent(text));

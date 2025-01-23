@@ -611,7 +611,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         sendStatusToAugmentOsManager();
 
         Log.d(TAG, "****************** SENDING REFERENCE CARD: CONNECTED TO AUGMENT OS");
-        smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS", 6);
+        if (smartGlassesService != null)
+            smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS"), 6);
     }
 
     public void handleSignOut(){

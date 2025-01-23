@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import NavigationBar from '../components/NavigationBar';
-
+import { supabase } from '../supabaseClient';
 interface ProfileSettingsPageProps {
   isDarkTheme: boolean;
 }
@@ -40,6 +40,17 @@ const ProfileSettingsPage: React.FC<ProfileSettingsPageProps> = ({ isDarkTheme }
   const textStyle = isDarkTheme ? styles.darkText : styles.lightText;
   const profilePlaceholderStyle = isDarkTheme ? styles.darkProfilePlaceholder : styles.lightProfilePlaceholder;
   const inputStyle = isDarkTheme ? styles.darkInput : styles.lightInput;
+
+  async function handleSignOut() {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.error(error);
+      // Handle sign-out error
+    } else {
+      console.log('Sign-out successful');
+    }
+  }
+  
 
   return (
     <View style={[styles.container, containerStyle]}>

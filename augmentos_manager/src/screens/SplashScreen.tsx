@@ -4,6 +4,8 @@ import { loadSetting } from '../augmentos_core_comms/SettingsHelper';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from '../consts';
 import { NavigationProps } from '../components/types';
+import { supabase } from '../supabaseClient';
+import { useAuth } from '../AuthContext';
 
 interface SplashScreenProps {
   //navigation: any;
@@ -11,14 +13,15 @@ interface SplashScreenProps {
 
 const SplashScreen: React.FC<SplashScreenProps> = ({}) => {
   const navigation = useNavigation<NavigationProps>();
+  const { user, loading } = useAuth();
 
   useEffect(() => {
     const initializeApp = async () => {
       const simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, SIMULATED_PUCK_DEFAULT);
       const previouslyBondedPuck = await loadSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, false);
-      const authenticated = true;
+      const authenticated = false;
       
-      if (authenticated) {
+      if (user) {
         if (previouslyBondedPuck) {
           navigation.reset({
             index: 0,
@@ -29,10 +32,6 @@ const SplashScreen: React.FC<SplashScreenProps> = ({}) => {
             index: 0,
             routes: [{ name: 'SimulatedPuckOnboard' }],
           });
-        // navigation.reset({
-        //     index: 0,
-        //     routes: [{ name: 'Home' }],
-        //   });
         } else {
           navigation.reset({
             index: 0,
@@ -47,12 +46,28 @@ const SplashScreen: React.FC<SplashScreenProps> = ({}) => {
       }
     };
 
-    initializeApp();
-  }, [navigation]);
+    if (!loading)
+      initializeApp();
+  }, [navigation, user, loading]);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>AugmentOS</Text>
+      {loading ? (
+        <View>
+          <Text style={styles.text}>Loading...</Text>
+          <Text style={styles.subText}>Please wait while we authenticate</Text>
+        </View>
+      ) : user ? (
+        <View>
+          <Text style={styles.text}>Welcome Back!</Text>
+          <Text style={styles.subText}>{user.email}</Text>
+        </View>
+      ) : (
+        <View>
+          <Text style={styles.text}>AugmentOS</Text>
+          <Text style={styles.subText}>Please log in to continue</Text>
+        </View>
+      )}
     </View>
   );
 };
@@ -62,11 +77,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
   },
   text: {
     fontSize: 24,
     fontWeight: 'bold',
+  },
+  subText: {  // Add this new style
+    fontSize: 16,
+    marginTop: 8,
   },
 });
 
