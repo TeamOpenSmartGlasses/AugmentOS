@@ -17,6 +17,7 @@ import { BluetoothService } from '../BluetoothService';
 import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
 import { SETTINGS_KEYS } from '../consts';
 import NavigationBar from '../components/NavigationBar';
+import { supabase } from '../supabaseClient';
 
 interface SettingsPageProps {
   isDarkTheme: boolean;
@@ -89,6 +90,39 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     categoryChipText: isDarkTheme ? '#FFFFFF' : '#555555',
     selectedChipBg: isDarkTheme ? '#666666' : '#333333',
     selectedChipText: isDarkTheme ? '#FFFFFF' : '#FFFFFF',
+  };
+
+  const handleSignOut = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.error(error);
+      // Handle sign-out error
+    } else {
+      console.log('Sign-out successful');
+      BluetoothService.resetInstance();
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'SplashScreen' }],
+      });
+    }
+  }
+
+  const confirmSignOut = () => {
+    Alert.alert(
+      "Sign Out",
+      "Are you sure you want to sign out?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Yes",
+          onPress: handleSignOut,
+        },
+      ],
+      { cancelable: false }
+    );
   };
 
   const confirmForgetGlasses = () => {
@@ -280,6 +314,23 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
                 (!status.puck_connected || status.default_wearable === "") && styles.disabledItem
               ]}>
               Forget Glasses
+            </Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.settingItem}
+          onPress={() => {
+            confirmSignOut();
+          }}>
+          <View style={styles.settingTextContainer}>
+            <Text
+              style={[
+                styles.label,
+                styles.redText,
+               // (!status.puck_connected || status.default_wearable === "") && styles.disabledItem
+              ]}>
+              Sign Out
             </Text>
           </View>
         </TouchableOpacity>

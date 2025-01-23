@@ -8,11 +8,14 @@ import {
   Dimensions,
   Animated,
   SafeAreaView,
+  Alert,
+  BackHandler,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import GoogleIcon from '../icons/GoogleIcon';
 import AppleIcon from '../icons/AppleIcon';
+import { supabase } from '../supabaseClient';
 
 interface LoginScreenProps {
   navigation: any;
@@ -22,6 +25,8 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
   const [isSigningUp, setIsSigningUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isFormLoading, setIsFormLoading] = useState(false)
+  const [backPressCount, setBackPressCount] = useState(0);
 
   const opacity = useRef(new Animated.Value(0)).current;
   const translateY = useRef(new Animated.Value(20)).current;
@@ -77,16 +82,66 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
     }
   };
 
-  const handleEmailSignUp = async () => {
-    try {
-      // Implement email sign up logic
-      console.log('Email sign up:', {email, password});
-      // After successful sign up and sign in
-      navigation.replace('Home');
-    } catch (error) {
-      console.error('Email sign up failed:', error);
+   const handleEmailSignUp = async (email: string, password: string) => {
+    setIsFormLoading(true)
+    const {
+      data: { session },
+      error,
+    } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        emailRedirectTo: "com.augmentos.augmentos_manager://verify_email"
+      }
+    });
+  
+    if (error) {
+      Alert.alert(error.message);
     }
-  };
+
+    if(!session) {
+      Alert.alert('Please check your inbox for email verification!')
+    } else {
+      console.log('Sign-up successful:');
+      // You might now prompt the user to confirm email, or proceed further
+      navigation.replace('Home');
+    }
+    setIsFormLoading(false)
+  }
+
+  const handleEmailSignIn = async (email: string, password: string) => {
+    setIsFormLoading(true)
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+  
+    if (error) {
+      Alert.alert(error.message);
+      // Handle sign-in error
+    } else {
+      console.log('Sign-in successful:', data);
+      navigation.replace('Home');
+    }
+    setIsFormLoading(false)
+  }
+
+useEffect(() => {
+  const backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
+    if (backPressCount === 0) {
+      setBackPressCount(1);
+      setTimeout(() => setBackPressCount(0), 2000);
+      Alert.alert('Press back again to exit');
+      return true;
+    } else {
+      BackHandler.exitApp();
+      return true;
+    }
+  });
+
+  return () => backHandler.remove();
+}, [backPressCount]);
+
 
   return (
     <LinearGradient colors={['#EFF6FF', '#FFFFFF']} style={styles.container}>
@@ -158,7 +213,21 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
 
                 <TouchableOpacity
                   style={styles.enhancedPrimaryButton}
-                  onPress={handleEmailSignUp}>
+                  onPress={() => {handleEmailSignIn(email,password)}}
+                  disabled={isFormLoading}>
+                  <LinearGradient
+                    colors={['#2196F3', '#1E88E5']}
+                    style={styles.buttonGradient}>
+                    <Text style={styles.enhancedPrimaryButtonText}>
+                      Log in
+                    </Text>
+                  </LinearGradient>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={styles.enhancedPrimaryButton}
+                  onPress={() => {handleEmailSignUp(email,password)}}
+                  disabled={isFormLoading}>
                   <LinearGradient
                     colors={['#2196F3', '#1E88E5']}
                     style={styles.buttonGradient}>
@@ -184,7 +253,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
               </Animated.View>
             ) : (
               <View style={styles.signInOptions}>
-                <TouchableOpacity
+                {/* <TouchableOpacity
                   style={[styles.socialButton, styles.googleButton]}
                   onPress={handleGoogleSignIn}>
                   <View style={styles.socialIconContainer}>
@@ -211,7 +280,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
                   <View style={styles.divider} />
                   <Text style={styles.dividerText}>Or</Text>
                   <View style={styles.divider} />
-                </View>
+                </View> */}
 
                 <TouchableOpacity
                   style={styles.enhancedEmailButton}

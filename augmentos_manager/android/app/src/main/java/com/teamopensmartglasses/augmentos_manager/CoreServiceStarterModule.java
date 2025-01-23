@@ -70,7 +70,8 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(
                     "com.teamopensmartglasses.convoscope",
-                    "com.teamopensmartglasses.convoscope.PermissionsActivity"));
+                    "com.teamopensmartglasses.convoscope.MainActivity"));
+                    // "com.teamopensmartglasses.convoscope.PermissionsActivity"));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             getReactApplicationContext().startActivity(intent);
         } catch (Exception e) {

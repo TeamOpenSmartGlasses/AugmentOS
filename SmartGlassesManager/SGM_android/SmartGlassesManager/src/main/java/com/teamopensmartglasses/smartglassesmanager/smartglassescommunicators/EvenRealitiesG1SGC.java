@@ -39,9 +39,10 @@ import com.teamopensmartglasses.augmentoslib.events.AudioChunkNewEvent;
 import com.teamopensmartglasses.smartglassesmanager.cpp.L3cCpp;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BatteryLevelEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BrightnessLevelEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchStopEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHeadDownEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHeadUpEvent;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 
 import org.greenrobot.eventbus.EventBus;
@@ -393,7 +394,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             if (deviceName.contains("R_")) {
                                 // Check for head down movement - initial F5 02 signal
                                 Log.d(TAG, "HEAD UP MOVEMENT DETECTED");
-                                showDashboard();
+                                EventBus.getDefault().post(new GlassesHeadUpEvent());
+                                //showDashboard();
                                 //                                displayTextWall("AugmentOS\t\tDashboard\nBy the boys:\n- cayden\n- Israelov\n- Nicobro");
                                 //                                byte[] bmpData = loadBmpFromAssets();
                                 //                                if (bmpData != null) {
@@ -408,7 +410,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             if (deviceName.contains("R_")) {
                                 // Log.d(TAG, "HEAD DOWN MOVEMENT DETECTED");
     //                                clearBmpDisplay();
-                                showHomeScreen();
+                                EventBus.getDefault().post(new GlassesHeadDownEvent());
+
                             }
                         }
                         //BATTERY RESPONSE
@@ -956,7 +959,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         leftTxChar.setValue(request.data);
                         boolean leftSuccess = leftGlassGatt.writeCharacteristic(leftTxChar);
                         if (!leftSuccess) {
-                            Log.d(TAG, " LEFT BIG ERROR!!! DESTROY!!!");
+                            Log.d(TAG, "Left write error :(");
                             //                        leftSuccess = leftGlassGatt.writeCharacteristic(leftTxChar);
                             //                        if (!leftSuccess){
                             //                            Log.d(TAG, " LEFT BIGGER ERROR!!! DESTROY!!!");
@@ -966,7 +969,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             //leftGlassGatt.disconnect();
                             // return;
                         } else {
-//                            Log.d(TAG, " SUCCESS ON LEFT");
+                            //Log.d(TAG, " SUCCESS ON LEFT");
                         }
 
                         Thread.sleep(DELAY_BETWEEN_SENDS_MS);
@@ -977,7 +980,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         rightTxChar.setValue(request.data);
                         boolean rightSuccess = rightGlassGatt.writeCharacteristic(rightTxChar);
                         if (!rightSuccess) {
-                            Log.d(TAG, " RIGHT BIG ERROR!!! DESTROY!!!");
+                            Log.d(TAG, "Right write error :(");
                             //                        rightSuccess = rightGlassGatt.writeCharacteristic(rightTxChar);
                             //                        if (!rightSuccess){
                             //                            Log.d(TAG, " RIGHT BIGGER ERROR!!! DESTROY!!!");
@@ -988,7 +991,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             //destroy();
                             //                      return;
                         } else {
-//                            Log.d(TAG, " SUCCESS ON RIGHT");
+                            //Log.d(TAG, " SUCCESS ON RIGHT");
                         }
                         Thread.sleep(DELAY_BETWEEN_SENDS_MS);
                     }
@@ -1109,7 +1112,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     }
 
     @Override
-    public void displayReferenceCardSimple(String title, String body, int lingerTime) {
+    public void displayReferenceCardSimple(String title, String body) {
         if (!isConnected()) {
             Log.d(TAG, "Not connected to glasses");
             return;
@@ -1118,8 +1121,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         List<byte[]> chunks = createTextWallChunks(title + "\n\n" + body);
         sendChunks(chunks);
         Log.d(TAG, "Send simple reference card");
-
-        homeScreenInNSeconds(lingerTime);
     }
 
     @Override
@@ -2006,13 +2007,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         sendDataSequentially(exitCommand);
     }
 
-    private void showDashboard() {
-        EventBus.getDefault().post(new DisplayGlassesDashboardEvent());
-    }
-
     private void sendLoremIpsum(){
         String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ";
         sendDataSequentially(createTextWallChunks(text));
     }
-
 }

@@ -8,7 +8,8 @@ export type RootStackParamList = {
   SettingsPage: undefined;
   AppStore: undefined;
   PairPuckScreen: undefined; // Add this line
-
+  SplashScreen: undefined;
+  VerifyEmailScreen: undefined;
   AppDetails: { app: AppStoreItem };
   ProfileSettings: undefined;
   GlassesMirror: undefined;

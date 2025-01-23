@@ -26,6 +26,19 @@ import { SearchResultsProvider } from './SearchResultsContext.tsx';
 import AppSettings from './screens/AppSettings.tsx';
 import LoginScreen from './screens/LoginScreen.tsx';
 import SplashScreen from './screens/SplashScreen.tsx';
+import 'react-native-url-polyfill/auto';
+import { AuthProvider } from './AuthContext.tsx';
+import VerifyEmailScreen from './screens/VerifyEmail.tsx';
+
+const linking = {
+  prefixes: ['com.augmentos.augmentos_manager://'], // Match the scheme from your `intent-filter`
+  config: {
+    screens: {
+      VerifyEmailScreen: 'verify_email', // Map to your VerifyEmail screen
+      // Add other screens as needed
+    },
+  },
+};
 
 // Assign the RootStackParamList to the navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -40,13 +53,14 @@ const App: React.FC = () => {
   return (
     <GestureHandlerRootView style={styles.container}>
       <NotificationListener>
+        <AuthProvider>
         <StatusProvider>
           <SearchResultsProvider>
             <MessageBanner />
-            <NavigationContainer>
-              <Stack.Navigator initialRouteName="Intro">
+            <NavigationContainer linking={linking}>
+              <Stack.Navigator initialRouteName="SplashScreen">
                 <Stack.Screen
-                  name="Intro"
+                  name="SplashScreen"
                   component={SplashScreen}
                   options={{ headerShown: false }}
                 />
@@ -55,6 +69,12 @@ const App: React.FC = () => {
                   component={LoginScreen}
                   options={{ headerShown: false }}
                 />
+                  <Stack.Screen
+                  name="VerifyEmailScreen"
+                  component={VerifyEmailScreen}
+                  options={{ headerShown: false }}
+                />
+                
                 <Stack.Screen name="Home" options={{ headerShown: false }}>
                   {() => (
                     <Homepage
@@ -244,6 +264,7 @@ const App: React.FC = () => {
             </NavigationContainer>
           </SearchResultsProvider>
         </StatusProvider>
+        </AuthProvider>
       </NotificationListener>
     </GestureHandlerRootView>
   );

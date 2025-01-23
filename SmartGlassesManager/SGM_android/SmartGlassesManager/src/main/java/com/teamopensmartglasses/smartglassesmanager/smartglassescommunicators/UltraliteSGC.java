@@ -16,6 +16,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BatteryLevelEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesDisplayPowerEvent;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.vuzix.ultralite.Anchor;
 import com.vuzix.ultralite.BatteryStatus;
@@ -73,10 +74,19 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
     boolean hasUltraliteControl;
     boolean screenIsClear;
     SmartGlassesDevice smartGlassesDevice;
+    private static final long TAP_DEBOUNCE_TIME = 300; // milliseconds
+    private long lastTapTime = 0;
 
     public class UltraliteListener implements EventListener{
         @Override
         public void onTap(int tapCount) {
+            long currentTime = System.currentTimeMillis();
+            if (currentTime - lastTapTime < TAP_DEBOUNCE_TIME) {
+                Log.d(TAG, "Ignoring duplicate tap event");
+                return;
+            }
+
+            lastTapTime = currentTime;
             Log.d(TAG, "Ultralite go tap n times: " + tapCount);
             tapEvent(tapCount);
         }
@@ -96,7 +106,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
 
             if (!screenToggleOff) {
                 Log.d(TAG, "screen toggle off NOT on, showing turn ON message");
-                displayReferenceCardSimple("SGM Connected.", "Screen back on...", 4);
+                EventBus.getDefault().post(new GlassesDisplayPowerEvent(screenToggleOff));
             } else {
                 Log.d(TAG, "screen toggle off IS on");
             }
@@ -170,14 +180,10 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         Log.d(TAG, "Ultralite CONTROL changed to: " + isControlledByMe);
         if(isControlledByMe) {
             hasUltraliteControl = true;
-//            setupUltraliteCanvas();
-//            showHomeScreen();
             connectionEvent(2);
-            displayReferenceCardSimple("Connected to SGM", "by TeamOpenSmartGlasses", 5);
         } else {
             hasUltraliteControl = false;
         }
-//        mUltraliteControlledByMe = isControlledByMe;
     }
 
     private void onUltraliteBatteryChanged(BatteryStatus batteryStatus) {
@@ -393,8 +399,6 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
     }
 
     public void showHomeScreen(){
-//        changeUltraliteLayout(Layout.CANVAS);
-//        ultraliteCanvas.clear();
         ultraliteSdk.screenOff();
         screenIsClear = true;
     }
@@ -474,10 +478,6 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         return BitmapFactory.decodeResource(res, R.drawable.vuzix_shield);
     }
 
-    public void displayReferenceCardSimple(String title, String body){
-       displayReferenceCardSimple(title, body, cardLingerTime);
-    }
-
 //    public void displayReferenceCardSimple(String title, String body, int lingerTime){
 //        if (!isConnected()) {
 //            Log.d(TAG, "Not showing reference card because not connected to Ultralites...");
@@ -532,7 +532,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         ultraliteSdk.setFont(null, 0, textSize);
     }
 
-    public void displayReferenceCardSimple(String titleStr, String bodyStr, int lingerTime){
+    public void displayReferenceCardSimple(String titleStr, String bodyStr){
         if (screenToggleOff){
             return;
         }
@@ -594,8 +594,6 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
 
         ultraliteCanvas.commit();
         screenIsClear = false;
-
-        homeScreenInNSeconds(lingerTime);
     }
 
 
@@ -648,7 +646,6 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         if (rowStrings.length == 0){
             ultraliteCanvas.commit();
             screenIsClear = false;
-//            homeScreenInNSeconds(lingerTime);
             return;
         }
 
@@ -667,7 +664,6 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
 
         ultraliteCanvas.commit();
         screenIsClear = false;
-//        homeScreenInNSeconds(cardLingerTime);
     }
 
     public void displayBulletList(String title, String [] bulletList, int lingerTime){
@@ -700,10 +696,6 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
 
         ultraliteCanvas.commit();
         screenIsClear = false;
-
-//        if (lingerTime > 0){
-//            homeScreenInNSeconds(lingerTime);
-//        }
     }
 
     public void homeScreenInNSeconds(int n){
@@ -777,10 +769,6 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
 //                        ultraliteCanvas.createText(titleWrapped, ultraliteAlignment, ultraliteColor, Anchor.TOP_LEFT, true); //, 0, 0, -1, -1, TextWrapMode.WRAP, true);
 //                        ultraliteCanvas.createText(bodyWrapped, ultraliteAlignment, ultraliteColor, Anchor.BOTTOM_LEFT, true); //, 0, 0, -1, -1, TextWrapMode.WRAP, true);
 //                        ultraliteCanvas.commit();
-
-
-
-//                        homeScreenInNSeconds(cardLingerTime);
                     }
 
                     @Override
