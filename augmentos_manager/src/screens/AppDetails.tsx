@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef,useCallback} from 'react';
 import {
   View,
   Text,
@@ -15,6 +15,7 @@ import {RootStackParamList, AppStoreItem} from '../components/types';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import NavigationBar from '../components/NavigationBar';
 import BluetoothService from '../BluetoothService.tsx';
+import semver from 'semver';
 import { NativeModules } from 'react-native';
 const { InstallApkModule, TpaHelpers } = NativeModules;
 import GlobalEventEmitter from '../logic/GlobalEventEmitter';
@@ -25,6 +26,7 @@ type AppDetailsProps = NativeStackScreenProps<
   isDarkTheme: boolean;
   toggleTheme: () => void;
 };
+import { useStatus } from '../AugmentOSStatusProvider';
 
 const AppDetails: React.FC<AppDetailsProps> = ({
   route,
@@ -33,19 +35,41 @@ const AppDetails: React.FC<AppDetailsProps> = ({
 }) => {
   const {app} = route.params as {app: AppStoreItem};
   const [installState, setInstallState] = useState<
-    'Install' | 'Downloading...' | 'Installing...' | 'Start'
+    'Install' | 'Update' | 'Downloading...' | 'Installing...' | 'Start'
   >('Install');
+    const { status } = useStatus();
 
-    TpaHelpers.isAppInstalled(app.packageName)
-      .then((isAvailable: any) => {
-        console.log('App' + app.packageName);
-        if (isAvailable) {
-          setInstallState('Start');
-        } else {
-          console.log('App not installed.');
+    const checkVersionAndSetState = useCallback(() => {
+        if (!status || !status.apps) {
+          return; // status not loaded yet; keep default or show fallback
         }
-      })
-      .catch((error: any) => console.error(error));
+
+        const installedApp = status.apps.find(
+          (a) => a.packageName === app.packageName
+        );
+
+        if (!installedApp) {
+          setInstallState('Install');
+          return;
+        }
+
+        const installedVersion = installedApp.version || '0.0.0';
+        const storeVersion = app.version || '0.0.0';
+
+        if (semver.valid(installedVersion) && semver.valid(storeVersion)) {
+          if (semver.lt(installedVersion, storeVersion)) {
+            setInstallState('Update');
+          } else {
+            setInstallState('Start');
+          }
+        } else {
+            setInstallState('Start');
+        }
+    }, [status, app]);
+
+  useEffect(() => {
+    checkVersionAndSetState();
+  }, [checkVersionAndSetState]);
 
   useEffect(() => {
     // Check if app is installed on mount
@@ -180,6 +204,10 @@ const AppDetails: React.FC<AppDetailsProps> = ({
     }
   };
 
+  const launchTargetApp = (packageName: string) => {
+      TpaHelpers.launchTargetApp(packageName);
+  };
+
   const navigateToReviews = () => {
     navigation.navigate('Reviews', {
       appId: app.identifierCode,
@@ -258,38 +286,38 @@ const AppDetails: React.FC<AppDetailsProps> = ({
               {app.packageName}
             </Animated.Text>
 
-            <Animated.View
-              style={[
-                styles.metaContainer,
-                {opacity: fadeAnim, transform: [{translateY: slideAnim}]},
-              ]}>
-              <View style={styles.metaItem}>
-                <MaterialCommunityIcons name="star" size={16} color="#FFD700" />
-                <Text style={[styles.rating, {color: theme.metaTextColor}]}>
-                  {app.rating.toFixed(1)}
-                </Text>
-              </View>
-              <View style={styles.metaItem}>
-                <MaterialCommunityIcons
-                  name="download"
-                  size={16}
-                  color={isDarkTheme ? '#FFFFFF' : '#444444'}
-                />
-                <Text style={[styles.downloads, {color: theme.metaTextColor}]}>
-                  {app.downloads.toLocaleString()} Downloads
-                </Text>
-              </View>
-              <TouchableOpacity
-                style={styles.reviewsIcon}
-                onPress={navigateToReviews}>
-                <MaterialCommunityIcons
-                  name="comment-text"
-                  size={24}
-                  color="#3a86ff"
-                />
-                <Text style={styles.reviewsText}>Reviews</Text>
-              </TouchableOpacity>
-            </Animated.View>
+            {/*<Animated.View*/}
+            {/*  style={[*/}
+            {/*    styles.metaContainer,*/}
+            {/*    {opacity: fadeAnim, transform: [{translateY: slideAnim}]},*/}
+            {/*  ]}>*/}
+            {/*  <View style={styles.metaItem}>*/}
+            {/*    <MaterialCommunityIcons name="star" size={16} color="#FFD700" />*/}
+            {/*    <Text style={[styles.rating, {color: theme.metaTextColor}]}>*/}
+            {/*      {app.rating.toFixed(1)}*/}
+            {/*    </Text>*/}
+            {/*  </View>*/}
+            {/*  <View style={styles.metaItem}>*/}
+            {/*    <MaterialCommunityIcons*/}
+            {/*      name="download"*/}
+            {/*      size={16}*/}
+            {/*      color={isDarkTheme ? '#FFFFFF' : '#444444'}*/}
+            {/*    />*/}
+            {/*    <Text style={[styles.downloads, {color: theme.metaTextColor}]}>*/}
+            {/*      {app.downloads.toLocaleString()} Downloads*/}
+            {/*    </Text>*/}
+            {/*  </View>*/}
+            {/*  <TouchableOpacity*/}
+            {/*    style={styles.reviewsIcon}*/}
+            {/*    onPress={navigateToReviews}>*/}
+            {/*    <MaterialCommunityIcons*/}
+            {/*      name="comment-text"*/}
+            {/*      size={24}*/}
+            {/*      color="#3a86ff"*/}
+            {/*    />*/}
+            {/*    <Text style={styles.reviewsText}>Reviews</Text>*/}
+            {/*  </TouchableOpacity>*/}
+            {/*</Animated.View>*/}
 
             <Animated.Text
               style={[
@@ -388,7 +416,13 @@ const AppDetails: React.FC<AppDetailsProps> = ({
                   styles.installButton,
                   (installState === 'Installing...' || installState === 'Downloading...') && styles.disabledButton,
                 ]}
-                onPress={() => sendInstallAppFromStore(app.packageName)}
+                onPress={() => {
+                  if (installState === 'Install') {
+                    sendInstallAppFromStore(app.packageName);
+                  } else if (installState === 'Start') {
+                    launchTargetApp(app.packageName);
+                  }
+                }}
                 disabled={installState === 'Installing...' || installState === 'Downloading...'}
               >
                 {installState === 'Installing...' || installState === 'Downloading...' ? (
@@ -401,7 +435,6 @@ const AppDetails: React.FC<AppDetailsProps> = ({
                 )}
               </TouchableOpacity>
             </Animated.View>
-
           </Animated.View>
         </ScrollView>
         <NavigationBar isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />

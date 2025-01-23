@@ -33,19 +33,29 @@ public class TpaHelpersModule extends ReactContextBaseJavaModule {
         return MODULE_NAME;
     }
 
-    @ReactMethod
-    public void redirectToAugmentOsManagerIfAvailable(String packageName, Promise promise) {
-        if (isAppInstalled(packageName)) {
-            launchTargetApp(packageName);
-            promise.resolve(true);
-        } else {
-            promise.resolve(false);
-        }
-    }
+//    @ReactMethod
+//    public void launchTargetApp(String packageName, Promise promise) {
+//        if (isAppInstalled(packageName)) {
+//            launchTargetApp(packageName);
+//            promise.resolve(true);
+//        } else {
+//            promise.resolve(false);
+//        }
+//    }
 
     @ReactMethod
     public void isAppInstalled(String packageName, Promise promise) {
         promise.resolve(isAppInstalled(packageName));
+    }
+
+    @ReactMethod
+    public void launchTargetApp(String packageName) {
+        PackageManager pm = getReactApplicationContext().getPackageManager();
+        Intent launchIntent = pm.getLaunchIntentForPackage(packageName);
+
+        if (launchIntent != null) {
+            getReactApplicationContext().startActivity(launchIntent);
+        }
     }
 
     private boolean isAppInstalled(String packageName) {
@@ -56,15 +66,6 @@ public class TpaHelpersModule extends ReactContextBaseJavaModule {
         } catch (PackageManager.NameNotFoundException e) {
             System.out.println("App not found: " + packageName);
             return false;
-        }
-    }
-
-    private void launchTargetApp(String packageName) {
-        PackageManager pm = getReactApplicationContext().getPackageManager();
-        Intent launchIntent = pm.getLaunchIntentForPackage(packageName);
-
-        if (launchIntent != null) {
-            getReactApplicationContext().startActivity(launchIntent);
         }
     }
 }

@@ -2528,6 +2528,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 //tpaObj.put("description", tpa.appDescription);
                 tpaObj.put("is_running", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
                 tpaObj.put("is_foreground", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
+                tpaObj.put("version", tpa.version);
+                tpaObj.put("can_update", tpa.canUpdateApp);
                 //tpaObj.put("package_name", tpa.packageName);
                 //tpaObj.put("type", tpa.appType.name());
                 apps.put(tpaObj);

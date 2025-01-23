@@ -25,7 +25,6 @@ public class ThirdPartyApp implements Serializable {
     transient private JSONArray settings;
     public String version;
     public AugmentOSCommand[] commandList;
-
     public ThirdPartyApp(String appName, String appDescription, String packageName, String serviceName, String version, ThirdPartyAppType appType, JSONArray settings, AugmentOSCommand[] commandList){
         this.appName = appName;
         this.appDescription = appDescription;

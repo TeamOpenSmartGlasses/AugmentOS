@@ -53,9 +53,9 @@ const ReviewDetailsModal: React.FC<ReviewDetailsModalProps> = ({
             <MaterialCommunityIcons name="close" size={24} color={themeColors.closeIcon} />
           </TouchableOpacity>
 
-          <Image 
-            source={{ uri: review.avatar }} 
-            style={styles.avatar} 
+          <Image
+            source={{ uri: review.avatar }}
+            style={styles.avatar}
           />
           <Text style={[styles.userName, { color: themeColors.text }]}>
             {review.user}

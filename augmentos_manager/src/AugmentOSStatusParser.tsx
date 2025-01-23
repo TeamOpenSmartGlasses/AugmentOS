@@ -24,6 +24,7 @@ export interface AppInfo {
   description: string;
   is_running: boolean;
   is_foreground: boolean;
+  version: string;
   packageName: string;
   icon: string;
   type: string;
@@ -174,6 +175,7 @@ export class AugmentOSParser {
           is_running: !!app.is_running,
           is_foreground: !!app.is_foreground,
           packageName: app.packageName || 'unknown.package',
+          version: app.version || '1.0.0',
           icon: app.icon || '/assets/icons/default-app.png',
           type: app.type || 'APP'
         })) || [],
