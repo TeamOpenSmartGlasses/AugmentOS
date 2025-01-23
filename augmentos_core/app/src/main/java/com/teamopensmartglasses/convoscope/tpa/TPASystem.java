@@ -228,9 +228,13 @@ public class TPASystem {
             return false;
 
         if (thirdPartyApps.containsKey(packageName) && isAppInstalled(packageName)) {
-            augmentOsLibBroadcastSender.startThirdPartyApp(Objects.requireNonNull(thirdPartyApps.get(packageName)));
-            runningApps.add(packageName);
-            return true;
+            ThirdPartyApp tpa = thirdPartyApps.get(packageName);
+            if(augmentOsLibBroadcastSender.startThirdPartyApp(Objects.requireNonNull(tpa))) {
+                runningApps.add(packageName);
+                if(smartGlassesService != null)
+                    smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("AugmentOS started app:", tpa.appName), 6);
+                return true;
+            }
         } else {
             Log.d(TAG, "App " + packageName + " is not installed. Removing from list.");
             unregisterThirdPartyAppByPackageName(packageName);
