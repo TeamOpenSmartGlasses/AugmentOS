@@ -7,7 +7,7 @@ import {
   ScrollView,
   Image,
   SafeAreaView,
-  ActivityIndicator,
+  ActivityIndicator,Alert,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList, AppStoreItem } from '../components/types';
@@ -78,16 +78,34 @@ const AppDetails: React.FC<AppDetailsProps> = ({
 
   useEffect(() => {
     const handleAppDownloaded = (data: { appIsDownloaded: any }) => {
-      console.log('App is downloaded:', data.appIsDownloaded);
-      setInstallState('Installing...');
-      InstallApkModule.installApk(data.appIsDownloaded.packageName)
-        .then((result: any) => {
-          console.log('Success:', result);
-          setInstallState('Start');
-        })
-        .catch((error: any) => {
-          console.error('Error:', error);
-        });
+//         console.log('App is downloaded:', data.appIsDownloaded);
+        // Show the alert to inform the user about the redirection
+        Alert.alert(
+          'Install the App',
+          `You will be redirected to the downloads folder. Please press on ${app.name} to install it.`,
+          [
+            {
+              text: 'OK, Take Me There',
+              onPress: () => {
+                // Proceed with installing the APK after user acknowledges
+                setInstallState('Installing...');
+                InstallApkModule.installApk(data.appIsDownloaded.packageName)
+                  .then((result: any) => {
+                    console.log('Success:', result);
+                    setInstallState('Start');
+                  })
+                  .catch((error: any) => {
+                    console.error('Error:', error);
+                  });
+              },
+            },
+            {
+              text: 'Cancel',
+              style: 'cancel',
+            },
+          ],
+          { cancelable: true },
+        );
     };
 
     GlobalEventEmitter.on('APP_IS_DOWNLOADED_RESULT', handleAppDownloaded);
