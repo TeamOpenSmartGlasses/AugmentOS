@@ -1,11 +1,10 @@
 package com.teamopensmartglasses.convoscope;
 
-import static com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.deleteEvenSharedPreferences;
-
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
+import android.view.WindowManager;
 
 import com.teamopensmartglasses.convoscope.events.AugmentosSmartGlassesDisconnectedEvent;
 import com.teamopensmartglasses.convoscope.ui.AugmentosUi;
@@ -43,7 +42,7 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
     // Double clicking constants
     private final long doublePressTimeConst = 420;
     private final long doubleTapTimeConst = 600;
-    public DisplayQueue displayQueue;
+    public WindowManagerWithTimeouts windowManager;
 
     public AugmentosSmartGlassesService() {
         super(AugmentosUi.class,
@@ -60,7 +59,12 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
         //setup event bus subscribers
         this.setupEventBusSubscribers();
 
-        displayQueue = new DisplayQueue();
+        windowManager = new WindowManagerWithTimeouts(
+                19, // globalTimeoutSeconds
+                () -> {
+                    sendTextWall(" ");
+                } // what to do when globally timed out
+        );
 
         String asrApiKey = getResources().getString(R.string.google_api_key);
         saveApiKey(this, asrApiKey);
@@ -72,7 +76,7 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
     protected void onGlassesConnected(SmartGlassesDevice device) {
         Log.d(TAG, "Glasses connected successfully: " + device.deviceModelName);
         setFontSize(SmartGlassesFontSize.MEDIUM);
-        displayQueue.startQueue();
+        //windowManager.startQueue();
     }
 
     @Override
@@ -80,21 +84,10 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
         EventBus.getDefault().post(new AugmentosSmartGlassesDisconnectedEvent());
         EventBus.getDefault().unregister(this);
 
-        if (displayQueue != null) displayQueue.stopQueue();
+        //if (windowManager != null) windowManager.stopQueue();
+        if (windowManager != null) windowManager.shutdown();
 
         super.onDestroy();
-    }
-
-    @Subscribe
-    public void onGlassesTapSideEvent(GlassesTapOutputEvent event) {
-        int numTaps = event.numTaps;
-        boolean sideOfGlasses = event.sideOfGlasses;
-        long time = event.timestamp;
-
-        Log.d(TAG, "GLASSES TAPPED X TIMES: " + numTaps + " SIDEOFGLASSES: " + sideOfGlasses);
-        if (numTaps == 3) {
-            Log.d(TAG, "GOT A TRIPLE TAP");
-        }
     }
 
     @Subscribe
@@ -124,5 +117,13 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
     @Subscribe
     public void onTranscript(SpeechRecOutputEvent event) {
 
+    }
+
+    public WindowManagerWithTimeouts getWindowManager() {
+        return windowManager;
+    }
+
+    public void clearScreen() {
+     sendHomeScreen();
     }
 }

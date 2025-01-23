@@ -6,26 +6,20 @@ import static com.teamopensmartglasses.convoscope.BatteryOptimizationHelper.isSy
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.SEND_NOTIFICATIONS_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.REQUEST_APP_BY_PACKAGE_NAME_DOWNLOAD_LINK_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GET_USER_SETTINGS_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.adhdStmbAgentKey;
-import static com.teamopensmartglasses.convoscope.Constants.entityDefinitionsKey;
 import static com.teamopensmartglasses.convoscope.Constants.explicitAgentQueriesKey;
 import static com.teamopensmartglasses.convoscope.Constants.explicitAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.glassesCardTitle;
-import static com.teamopensmartglasses.convoscope.Constants.languageLearningKey;
-import static com.teamopensmartglasses.convoscope.Constants.llContextConvoKey;
-import static com.teamopensmartglasses.convoscope.Constants.llWordSuggestUpgradeKey;
 import static com.teamopensmartglasses.convoscope.Constants.notificationFilterKey;
-import static com.teamopensmartglasses.convoscope.Constants.proactiveAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettingsKey;
 import static com.teamopensmartglasses.convoscope.Constants.displayRequestsKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 import static com.teamopensmartglasses.convoscope.Constants.augmentOsMainServiceNotificationId;
-import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.getPreferredWearable;
+import static com.teamopensmartglasses.convoscope.statushelpers.JsonHelper.convertJsonToMap;
 import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.getSmartGlassesDeviceFromModelName;
 import static com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService.savePreferredWearable;
 import static com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.deleteEvenSharedPreferences;
@@ -36,14 +30,16 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
+import android.content.SharedPreferences;
 import android.hardware.display.VirtualDisplay;
 import android.media.projection.MediaProjection;
-import android.os.BatteryManager;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
@@ -54,7 +50,9 @@ import android.service.notification.NotificationListenerService;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.FileProvider;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -62,6 +60,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
+import com.posthog.java.PostHog;
 import com.teamopensmartglasses.augmentoslib.DataStreamType;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
@@ -76,21 +75,26 @@ import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
+import com.teamopensmartglasses.convoscope.events.TriggerSendStatusToAugmentOsManagerEvent;
 import com.teamopensmartglasses.convoscope.statushelpers.BatteryStatusHelper;
+import com.teamopensmartglasses.convoscope.statushelpers.DeviceInfo;
 import com.teamopensmartglasses.convoscope.statushelpers.GsmStatusHelper;
 import com.teamopensmartglasses.convoscope.statushelpers.WifiStatusHelper;
 import com.teamopensmartglasses.convoscope.tpa.TPASystem;
 import com.teamopensmartglasses.convoscope.ui.AugmentosUi;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BrightnessLevelEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchStopEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesBatteryLevelEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BatteryLevelEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesDisplayPowerEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHeadDownEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHeadUpEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
-import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
 import com.teamopensmartglasses.augmentoslib.events.DiarizationOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.GlassesTapOutputEvent;
@@ -104,21 +108,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 import java.util.LinkedList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Queue;
-import java.util.stream.Collectors;
+import java.util.UUID;
 //SpeechRecIntermediateOutputEvent
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
@@ -129,18 +134,25 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
 import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.SegToken;
 
+import android.app.DownloadManager;
+import android.net.Uri;
+import android.os.Environment;
+
+
 public class AugmentosService extends Service implements AugmentOsActionsCallback {
     public final String TAG = "AugmentOS_AugmentOSService";
 
     private final IBinder binder = new LocalBinder();
 
+    private static final String POSTHOG_API_KEY = "phc_J7nhqRlkNVoUjKxQZnpYtqRoyEeLl3gFCwYsajxFvpc";
+    private static final String POSTHOG_HOST = "https://us.i.posthog.com";
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private FirebaseAuth.IdTokenListener idTokenListener;
 
-    private final String notificationAppName = "AugmentOS_Main";
-    private final String notificationDescription = "AugmentOS_Main Description";
-    private final String myChannelId = "augmentos_main";
+    private final String notificationAppName = "AugmentOS Core";
+    private final String notificationDescription = "Running in foreground";
+    private final String myChannelId = "augmentos_core";
     public static final String ACTION_START_CORE = "ACTION_START_CORE";
     public static final String ACTION_STOP_CORE = "ACTION_STOP_CORE";
 
@@ -234,6 +246,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     public TPASystem tpaSystem;
 
+    PostHog postHog;
+
+    private String userId;
+
     private AugmentosBlePeripheral blePeripheral;
 
     public AugmentosSmartGlassesService smartGlassesService;
@@ -241,7 +257,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private final List<Runnable> serviceReadyListeners = new ArrayList<>();
     private NotificationSystem notificationSystem;
 
-    private int batteryLevel = 100;
+    private Integer batteryLevel;
+    private Integer brightnessLevel;
 
     private boolean showingDashboardNow = false;
 
@@ -254,17 +271,19 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             AugmentosSmartGlassesService.LocalBinder binder = (AugmentosSmartGlassesService.LocalBinder) service;
             smartGlassesService = (AugmentosSmartGlassesService) binder.getService();
             isSmartGlassesServiceBound = true;
-//            sendStatusToAugmentOsManager();
+            tpaSystem.setSmartGlassesService(smartGlassesService);
             for (Runnable action : serviceReadyListeners) {
                 action.run();
             }
-            serviceReadyListeners.clear(); // Clear the queue
+            serviceReadyListeners.clear();
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
             Log.d(TAG,"SMART GLASSES SERVICE DISCONNECTED!!!!");
             isSmartGlassesServiceBound = false;
+            smartGlassesService = null;
+            tpaSystem.setSmartGlassesService(smartGlassesService);
 
             // TODO: For now, stop all apps on disconnection
             // TODO: Future: Make this nicer
@@ -279,6 +298,39 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         // TODO: Future: Make this nicer
         tpaSystem.stopAllThirdPartyApps();
         sendStatusToAugmentOsManager();
+    }
+
+    public void onTriggerSendStatusToAugmentOsManagerEvent(TriggerSendStatusToAugmentOsManagerEvent event) {
+        sendStatusToAugmentOsManager();
+    }
+
+    @Subscribe
+    public void onGlassesHeadUpEvent(GlassesHeadUpEvent event){
+        EventBus.getDefault().post(new DisplayGlassesDashboardEvent());
+    }
+
+    @Subscribe
+    public void onGlassesHeadDownEvent(GlassesHeadDownEvent event){
+        smartGlassesService.windowManager.hideDashboard();
+    }
+
+
+    @Subscribe
+    public void onGlassesTapSideEvent(GlassesTapOutputEvent event) {
+        int numTaps = event.numTaps;
+        boolean sideOfGlasses = event.sideOfGlasses;
+        long time = event.timestamp;
+
+        Log.d(TAG, "GLASSES TAPPED X TIMES: " + numTaps + " SIDEOFGLASSES: " + sideOfGlasses);
+        if (smartGlassesService == null) return;
+        if (numTaps == 2 || numTaps == 3) {
+            if (smartGlassesService.windowManager.isDashboardShowing()) {
+                smartGlassesService.windowManager.hideDashboard();
+            } else {
+                Log.d(TAG, "GOT A DOUBLE+ TAP");
+                EventBus.getDefault().post(new DisplayGlassesDashboardEvent());
+            }
+        }
     }
 
     //TODO NO MORE PASTA
@@ -349,15 +401,24 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
 
         // Send to text wall
-        if (isSmartGlassesServiceBound) {
-            smartGlassesService.sendTextWall(dashboard.toString());
+        if (smartGlassesService != null) {
+            smartGlassesService.windowManager.showDashboard(()->smartGlassesService.sendTextWall(dashboard.toString()), -1);
         }
-//        Log.d(TAG, "Dashboard displayed: " + dashboard.toString());
+        Log.d(TAG, "Dashboard displayed: " + dashboard.toString());
     }
 
     @Subscribe
-    public void onGlassBatteryLevelEvent(GlassesBatteryLevelEvent event) {
+    public void onGlassBatteryLevelEvent(BatteryLevelEvent event) {
+//        Log.d(TAG, "BATTERY received");
         batteryLevel = event.batteryLevel;
+        sendStatusToAugmentOsManager();
+    }
+
+    @Subscribe
+    public void onBrightnessLevelEvent(BrightnessLevelEvent event) {
+//        Log.d(TAG, "BRIGHTNESS received");
+        brightnessLevel = event.brightnessLevel;
+        sendStatusToAugmentOsManager();
     }
 
     @Override
@@ -369,6 +430,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         //setup event bus subscribers
         EventBus.getDefault().register(this);
+
+        getUserId();
+        postHog = new PostHog.Builder(POSTHOG_API_KEY).host(POSTHOG_HOST).build();
+
+        Map<String, Object> props = new HashMap<>();
+        props.put("timestamp", System.currentTimeMillis());
+        props.put("device_info", DeviceInfo.getDeviceInfo());
+        postHog.capture(userId, "augmentos_service_started", props);
 
         //make responses holder
         responsesBuffer = new ArrayList<>();
@@ -387,6 +456,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         notificationSystem = new NotificationSystem(this);
         //startNotificationService();
 
+        //what is the preferred wearable?
+        String preferredWearable = AugmentosSmartGlassesService.getPreferredWearable(this);
+
         // load pinyin converter in the background
         // new Thread(this::loadSegmenter).start();
 //        if (
@@ -399,7 +471,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 //        }
 
         // Init TPA broadcast receivers
-        tpaSystem = new TPASystem(this);
+        tpaSystem = new TPASystem(this, smartGlassesService);
 
         // Initialize BLE Peripheral
         blePeripheral = new AugmentosBlePeripheral(this, this);
@@ -410,6 +482,21 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
 
         completeInitialization();
+    }
+
+    private void getUserId() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        userId = prefs.getString("user_id", "");
+
+        if (userId.isEmpty()) {
+            // Generate a random UUID string if no userId exists
+            userId = UUID.randomUUID().toString();
+
+            // Save the new userId to SharedPreferences
+            prefs.edit()
+                    .putString("user_id", userId)
+                    .apply();
+        }
     }
 
     private void createNotificationChannel() {
@@ -449,13 +536,13 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
 
         // TODO: Uncomment for auto-connect
-//        String preferredWearable = AugmentosSmartGlassesService.getPreferredWearable(this);
-//        if(!preferredWearable.isEmpty()) {
-//            executeOnceSmartGlassesServiceReady(this, () -> {
-//                SmartGlassesDevice preferredDevice = AugmentosSmartGlassesService.getSmartGlassesDeviceFromModelName(preferredWearable);
-//                smartGlassesService.connectToSmartGlasses(preferredDevice);
-//            });
-//        }
+        String preferredWearable = AugmentosSmartGlassesService.getPreferredWearable(this);
+        if(!preferredWearable.isEmpty()) {
+            executeOnceSmartGlassesServiceReady(this, () -> {
+                SmartGlassesDevice preferredDevice = AugmentosSmartGlassesService.getSmartGlassesDeviceFromModelName(preferredWearable);
+                smartGlassesService.connectToSmartGlasses(preferredDevice);
+            });
+        }
     }
 
     @Override
@@ -533,21 +620,36 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
 
     public void stopSmartGlassesService() {
-        if (isSmartGlassesServiceBound) {
+        if (smartGlassesService != null) {
             unbindService(connection);  // Unbind from the service
             isSmartGlassesServiceBound = false;
+            smartGlassesService = null;
+            tpaSystem.setSmartGlassesService(smartGlassesService);
         }
         Intent intent = new Intent(this, AugmentosSmartGlassesService.class);
         stopService(intent);  // Stop the service
     }
 
     @Subscribe
+    public void onGlassesDisplayPowerEvent(GlassesDisplayPowerEvent event) {
+        if (smartGlassesService == null) return;
+        if (event.turnedOn) {
+            smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("AugmentOS Connected", "Screen back on"), 4);
+        }
+    }
+    @Subscribe
     public void onGlassesConnnected(SmartGlassesConnectedEvent event) {
         Log.d(TAG, "Got event for onGlassesConnected....");
         sendStatusToAugmentOsManager();
 
         Log.d(TAG, "****************** SENDING REFERENCE CARD: CONNECTED TO AUGMENT OS");
-        smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS", 6);
+        if (smartGlassesService != null)
+            smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS"), 6);
+
+        Map<String, Object> props = new HashMap<>();
+        props.put("glasses_model_name", event.device.deviceModelName);
+        props.put("timestamp", System.currentTimeMillis());
+        postHog.capture(userId, "glasses_connected", props);
     }
 
     public void handleSignOut(){
@@ -595,10 +697,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                         Log.d(TAG, "Should use dynamic? " + useDynamicTranscribeLanguage);
                         if (useDynamicTranscribeLanguage){
                             Log.d(TAG, "Switching running transcribe language to: " + dynamicTranscribeLanguage);
-                            if (isSmartGlassesServiceBound)
+                            if (smartGlassesService != null)
                                 smartGlassesService.switchRunningTranscribeLanguage(dynamicTranscribeLanguage);
                         } else {
-                            if (isSmartGlassesServiceBound)
+                            if (smartGlassesService != null)
                                 smartGlassesService.switchRunningTranscribeLanguage(smartGlassesService.getChosenTranscribeLanguage(mContext));
                         }
                     } catch (JSONException e) {
@@ -620,7 +722,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         uiPollRunnableCode = new Runnable() {
             @Override
             public void run() {
-                if (isSmartGlassesServiceBound) {
+                if (smartGlassesService != null) {
                     requestUiPoll();
                 }
                 long currentTime = System.currentTimeMillis();
@@ -641,7 +743,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         locationSendingRunnableCode = new Runnable() {
             @Override
             public void run() {
-                if (isSmartGlassesServiceBound)
+                if (smartGlassesService != null)
                     requestLocation();
                 locationSendingLoopHandler.postDelayed(this, locationSendTime);
             }
@@ -674,35 +776,20 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             blePeripheral.destroy();
         }
 
-        if (isSmartGlassesServiceBound) {
+        if (smartGlassesService != null) {
             unbindService(connection);
             isSmartGlassesServiceBound = false;
+            smartGlassesService = null;
+            tpaSystem.setSmartGlassesService(smartGlassesService);
         }
 
         if(tpaSystem != null) {
             tpaSystem.destroy();
         }
 
+        postHog.shutdown();
+
         super.onDestroy();
-    }
-
-    @Subscribe
-    public void onGlassesTapSideEvent(GlassesTapOutputEvent event) {
-        int numTaps = event.numTaps;
-        boolean sideOfGlasses = event.sideOfGlasses;
-        long time = event.timestamp;
-
-        Log.d(TAG, "GLASSES TAPPED X TIMES: " + numTaps + " SIDEOFGLASSES: " + sideOfGlasses);
-        if (numTaps == 2 || numTaps == 3) {
-            if (!showingDashboardNow) {
-                Log.d(TAG, "GOT A DOUBLE+ TAP");
-                EventBus.getDefault().post(new DisplayGlassesDashboardEvent());
-                //            sendLatestCSEResultViaSms();
-            } else {
-                smartGlassesService.sendHomeScreen();
-            }
-            showingDashboardNow = !showingDashboardNow;
-        }
     }
 
     @Subscribe
@@ -934,21 +1021,21 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         if (isFinal && !isTranslated) {
             transcriptsBuffer.add(text);
-            sendFinalTranscriptToActivity(text);
+     //       sendFinalTranscriptToActivity(text);
         }
 
-        if(!isSmartGlassesServiceBound) return;
-
-        if (Objects.equals(getCurrentMode(this), "Language Learning")) {
-            //debounce and then send to backend
-            if (!isTranslated && smartGlassesService.getSelectedLiveCaptionsTranslation(this) != 2) debounceAndSendTranscript(text, isFinal);
-    //        getSettings();
-            // Send transcript to user if live captions are enabled
-            if (smartGlassesService.getSelectedLiveCaptionsTranslation(this) != 0) { // 0 is language learning mode
-    //            showTranscriptsToUser(text, isFinal);
-                debounceAndShowTranscriptOnGlasses(text, isFinal, isTranslated);
-            }
-        }
+        if(smartGlassesService == null) return;
+//
+//        if (Objects.equals(getCurrentMode(this), "Language Learning")) {
+//            //debounce and then send to backend
+//            if (!isTranslated && smartGlassesService.getSelectedLiveCaptionsTranslation(this) != 2) debounceAndSendTranscript(text, isFinal);
+//    //        getSettings();
+//            // Send transcript to user if live captions are enabled
+//            if (smartGlassesService.getSelectedLiveCaptionsTranslation(this) != 0) { // 0 is language learning mode
+//    //            showTranscriptsToUser(text, isFinal);
+//                debounceAndShowTranscriptOnGlasses(text, isFinal, isTranslated);
+//            }
+//        }
     }
 
     private Handler glassesTranscriptDebounceHandler = new Handler(Looper.getMainLooper());
@@ -957,79 +1044,79 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private long glassesTranslatedTranscriptLastSentTime = 0;
     private final long GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY = 400; // in milliseconds
 
-    private void debounceAndShowTranscriptOnGlasses(String transcript, boolean isFinal, boolean isTranslated) {
-        glassesTranscriptDebounceHandler.removeCallbacks(glassesTranscriptDebounceRunnable);
-        long currentTime = System.currentTimeMillis();
+//    private void debounceAndShowTranscriptOnGlasses(String transcript, boolean isFinal, boolean isTranslated) {
+//        glassesTranscriptDebounceHandler.removeCallbacks(glassesTranscriptDebounceRunnable);
+//        long currentTime = System.currentTimeMillis();
+//
+//        if (isFinal) {
+//            showTranscriptsToUser(transcript, isTranslated, true);
+//            return;
+//        }
+//
+//        // if intermediate
+//        if (smartGlassesService != null && smartGlassesService.getSelectedLiveCaptionsTranslation(this) == 2) {
+//            if (isTranslated) {
+//                if (currentTime - glassesTranslatedTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
+//                    showTranscriptsToUser(transcript, true, false);
+//                    glassesTranslatedTranscriptLastSentTime = currentTime;
+//                } else {
+//                    glassesTranscriptDebounceRunnable = () -> {
+//                        showTranscriptsToUser(transcript, true, false);
+//                        glassesTranslatedTranscriptLastSentTime = System.currentTimeMillis();
+//                    };
+//                    glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
+//                }
+//            } else {
+//                if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
+//                    showTranscriptsToUser(transcript, false, false);
+//                    glassesTranscriptLastSentTime = currentTime;
+//                } else {
+//                    glassesTranscriptDebounceRunnable = () -> {
+//                        showTranscriptsToUser(transcript, false, false);
+//                        glassesTranscriptLastSentTime = System.currentTimeMillis();
+//                    };
+//                    glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
+//                }
+//            }
+//        } else {
+//            if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
+//                showTranscriptsToUser(transcript, false, false);
+//                glassesTranscriptLastSentTime = currentTime;
+//            } else {
+//                glassesTranscriptDebounceRunnable = () -> {
+//                    showTranscriptsToUser(transcript, false, false);
+//                    glassesTranscriptLastSentTime = System.currentTimeMillis();
+//                };
+//                glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
+//            }
+//        }
+//    }
 
-        if (isFinal) {
-            showTranscriptsToUser(transcript, isTranslated, true);
-            return;
-        }
-
-        // if intermediate
-        if (isSmartGlassesServiceBound && smartGlassesService.getSelectedLiveCaptionsTranslation(this) == 2) {
-            if (isTranslated) {
-                if (currentTime - glassesTranslatedTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-                    showTranscriptsToUser(transcript, true, false);
-                    glassesTranslatedTranscriptLastSentTime = currentTime;
-                } else {
-                    glassesTranscriptDebounceRunnable = () -> {
-                        showTranscriptsToUser(transcript, true, false);
-                        glassesTranslatedTranscriptLastSentTime = System.currentTimeMillis();
-                    };
-                    glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
-                }
-            } else {
-                if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-                    showTranscriptsToUser(transcript, false, false);
-                    glassesTranscriptLastSentTime = currentTime;
-                } else {
-                    glassesTranscriptDebounceRunnable = () -> {
-                        showTranscriptsToUser(transcript, false, false);
-                        glassesTranscriptLastSentTime = System.currentTimeMillis();
-                    };
-                    glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
-                }
-            }
-        } else {
-            if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-                showTranscriptsToUser(transcript, false, false);
-                glassesTranscriptLastSentTime = currentTime;
-            } else {
-                glassesTranscriptDebounceRunnable = () -> {
-                    showTranscriptsToUser(transcript, false, false);
-                    glassesTranscriptLastSentTime = System.currentTimeMillis();
-                };
-                glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
-            }
-        }
-    }
-
-    private void showTranscriptsToUser(final String transcript, final boolean isTranslated, final boolean isFinal) {
-        String processed_transcript = transcript;
-
-        if (!isTranslated && AugmentosSmartGlassesService.getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") ||
-            isTranslated && (
-                getChosenSourceLanguage(this).equals("Chinese (Pinyin)") ||
-                getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && AugmentosSmartGlassesService.getChosenTranscribeLanguage(this).equals(getChosenSourceLanguage(this)))
-        ) {
-            if(segmenterLoaded) {
-                processed_transcript = convertToPinyin(transcript);
-            } else if (!segmenterLoading) {
-                new Thread(this::loadSegmenter).start();
-                hasUserBeenNotified = true;
-                if (isSmartGlassesServiceBound)
-                    smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false, false));
-            } else if (!hasUserBeenNotified) {  //tell user we are loading the pinyin converter
-                hasUserBeenNotified = true;
-                if (isSmartGlassesServiceBound)
-                    smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false, false));
-            }
-        }
-
-        if (AugmentosSmartGlassesService.getSelectedLiveCaptionsTranslation(this) == 2) sendTextWallLiveTranslationLiveCaption(processed_transcript, isTranslated, isFinal);
-        else sendTextWallLiveCaptionLL(processed_transcript, "", isFinal);
-    }
+//    private void showTranscriptsToUser(final String transcript, final boolean isTranslated, final boolean isFinal) {
+//        String processed_transcript = transcript;
+//
+//        if (!isTranslated && AugmentosSmartGlassesService.getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") ||
+//            isTranslated && (
+//                getChosenSourceLanguage(this).equals("Chinese (Pinyin)") ||
+//                getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && AugmentosSmartGlassesService.getChosenTranscribeLanguage(this).equals(getChosenSourceLanguage(this)))
+//        ) {
+//            if(segmenterLoaded) {
+//                processed_transcript = convertToPinyin(transcript);
+//            } else if (!segmenterLoading) {
+//                new Thread(this::loadSegmenter).start();
+//                hasUserBeenNotified = true;
+//                if (smartGlassesService != null)
+//                    smartGlassesService.windowManager.addTask(new WindowManager.Task(() -> smartGlassesService.sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false, false));
+//            } else if (!hasUserBeenNotified) {  //tell user we are loading the pinyin converter
+//                hasUserBeenNotified = true;
+//                if (smartGlassesService != null)
+//                    smartGlassesService.windowManager.addTask(new WindowManager.Task(() -> smartGlassesService.sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false, false));
+//            }
+//        }
+//
+//        if (AugmentosSmartGlassesService.getSelectedLiveCaptionsTranslation(this) == 2) sendTextWallLiveTranslationLiveCaption(processed_transcript, isTranslated, isFinal);
+//        else sendTextWallLiveCaptionLL(processed_transcript, "", isFinal);
+//    }
 
     private void loadSegmenter() {
         segmenterLoading = true;
@@ -1399,7 +1486,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         int max_rows_allowed = 4;
 
         if (!clearedScreenYet) {
-            if (isSmartGlassesServiceBound)
+            if (smartGlassesService != null)
                 smartGlassesService.sendHomeScreen();
             clearedScreenYet = true;
         }
@@ -1510,86 +1597,86 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     public void sendTextWallLiveCaptionLL(final String newLiveCaption, final String llString, final boolean isFinal) {
-        String textBubble = "\uD83D\uDDE8";
-        if (!llString.isEmpty()) {
-            llCurrentString = llString;
-        } else if (!newLiveCaption.isEmpty()) {
-            if (AugmentosSmartGlassesService.getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") ||
-                    AugmentosSmartGlassesService.getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") && !segmenterLoaded) {
-                currentLiveCaption = processHanziString(finalLiveCaption + " " + newLiveCaption);
-            } else {
-                currentLiveCaption = processString(finalLiveCaption + " " + newLiveCaption);
-            }
-            if (isFinal) {
-                finalLiveCaption += " " + newLiveCaption;
-            }
-
-            // Limit the length of the final live caption, in case it gets too long
-            if (finalLiveCaption.length() > 5000) {
-                finalLiveCaption = finalLiveCaption.substring(finalLiveCaption.length() - 5000);
-            }
-        }
-
-        final String finalLiveCaption = textBubble + currentLiveCaption;
-        if (isSmartGlassesServiceBound)
-            smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendDoubleTextWall(llCurrentString, finalLiveCaption), true, false, true));
+//        String textBubble = "\uD83D\uDDE8";
+//        if (!llString.isEmpty()) {
+//            llCurrentString = llString;
+//        } else if (!newLiveCaption.isEmpty()) {
+//            if (AugmentosSmartGlassesService.getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") ||
+//                    AugmentosSmartGlassesService.getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") && !segmenterLoaded) {
+//                currentLiveCaption = processHanziString(finalLiveCaption + " " + newLiveCaption);
+//            } else {
+//                currentLiveCaption = processString(finalLiveCaption + " " + newLiveCaption);
+//            }
+//            if (isFinal) {
+//                finalLiveCaption += " " + newLiveCaption;
+//            }
+//
+//            // Limit the length of the final live caption, in case it gets too long
+//            if (finalLiveCaption.length() > 5000) {
+//                finalLiveCaption = finalLiveCaption.substring(finalLiveCaption.length() - 5000);
+//            }
+//        }
+//
+//        final String finalLiveCaption = textBubble + currentLiveCaption;
+//        if (smartGlassesService != null)
+//            smartGlassesService.windowManager.addTask(new WindowManager.Task(() -> smartGlassesService.sendDoubleTextWall(llCurrentString, finalLiveCaption), true, false, true));
     }
 
     public void sendTextWallLiveTranslationLiveCaption(final String newText, final boolean isTranslated, final boolean isFinal) {
-        if (!newText.isEmpty()) {
-            if (isTranslated) {
-                if (getChosenSourceLanguage(this).equals("Chinese (Hanzi)") ||
-                        getChosenSourceLanguage(this).equals("Chinese (Pinyin)") && !segmenterLoaded) {
-                    translationText = processHanziString(finalTranslationText + " " + newText);
-                } else {
-                    translationText = processString(finalTranslationText + " " + newText);
-                }
-
-                if (isFinal) {
-                    finalTranslationText += " " + newText;
-                }
-
-                // Limit the length of the final translation text
-                if (finalTranslationText.length() > 5000) {
-                    finalTranslationText = finalTranslationText.substring(finalTranslationText.length() - 5000);
-                }
-            } else {
-                if (AugmentosSmartGlassesService.getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") ||
-                        AugmentosSmartGlassesService.getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") && !segmenterLoaded) {
-                    liveCaptionText = processHanziString(finalLiveCaptionText + " " + newText);
-                } else {
-                    liveCaptionText = processString(finalLiveCaptionText + " " + newText);
-                }
-
-                if (isFinal) {
-                    finalLiveCaptionText += " " + newText;
-                }
-
-                // Limit the length of the final live caption text
-                if (finalLiveCaptionText.length() > 5000) {
-                    finalLiveCaptionText = finalLiveCaptionText.substring(finalLiveCaptionText.length() - 5000);
-                }
-            }
-        }
-
-        String textBubble = "\uD83D\uDDE8";
-
-        final String finalLiveTranslationDisplayText;
-        if (!translationText.isEmpty()) {
-            finalLiveTranslationDisplayText = textBubble + translationText + "\n";
-        } else {
-            finalLiveTranslationDisplayText = "\n\n\n";
-        }
-
-        final String finalLiveCaptionDisplayText;
-        if (!liveCaptionText.isEmpty()) {
-            finalLiveCaptionDisplayText = textBubble + liveCaptionText;
-        } else {
-            finalLiveCaptionDisplayText = "\n\n\n";
-        }
-
-        if (isSmartGlassesServiceBound)
-            smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendDoubleTextWall(finalLiveTranslationDisplayText, finalLiveCaptionDisplayText), true, false, true));
+//        if (!newText.isEmpty()) {
+//            if (isTranslated) {
+//                if (getChosenSourceLanguage(this).equals("Chinese (Hanzi)") ||
+//                        getChosenSourceLanguage(this).equals("Chinese (Pinyin)") && !segmenterLoaded) {
+//                    translationText = processHanziString(finalTranslationText + " " + newText);
+//                } else {
+//                    translationText = processString(finalTranslationText + " " + newText);
+//                }
+//
+//                if (isFinal) {
+//                    finalTranslationText += " " + newText;
+//                }
+//
+//                // Limit the length of the final translation text
+//                if (finalTranslationText.length() > 5000) {
+//                    finalTranslationText = finalTranslationText.substring(finalTranslationText.length() - 5000);
+//                }
+//            } else {
+//                if (AugmentosSmartGlassesService.getChosenTranscribeLanguage(this).equals("Chinese (Hanzi)") ||
+//                        AugmentosSmartGlassesService.getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") && !segmenterLoaded) {
+//                    liveCaptionText = processHanziString(finalLiveCaptionText + " " + newText);
+//                } else {
+//                    liveCaptionText = processString(finalLiveCaptionText + " " + newText);
+//                }
+//
+//                if (isFinal) {
+//                    finalLiveCaptionText += " " + newText;
+//                }
+//
+//                // Limit the length of the final live caption text
+//                if (finalLiveCaptionText.length() > 5000) {
+//                    finalLiveCaptionText = finalLiveCaptionText.substring(finalLiveCaptionText.length() - 5000);
+//                }
+//            }
+//        }
+//
+//        String textBubble = "\uD83D\uDDE8";
+//
+//        final String finalLiveTranslationDisplayText;
+//        if (!translationText.isEmpty()) {
+//            finalLiveTranslationDisplayText = textBubble + translationText + "\n";
+//        } else {
+//            finalLiveTranslationDisplayText = "\n\n\n";
+//        }
+//
+//        final String finalLiveCaptionDisplayText;
+//        if (!liveCaptionText.isEmpty()) {
+//            finalLiveCaptionDisplayText = textBubble + liveCaptionText;
+//        } else {
+//            finalLiveCaptionDisplayText = "\n\n\n";
+//        }
+//
+//        if (smartGlassesService != null)
+//            smartGlassesService.windowManager.addTask(new WindowManager.Task(() -> smartGlassesService.sendDoubleTextWall(finalLiveTranslationDisplayText, finalLiveCaptionDisplayText), true, false, true));
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
@@ -1608,85 +1695,85 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         //displayResults
         JSONArray displayRequests = response.has(displayRequestsKey) ? response.getJSONArray(displayRequestsKey) : new JSONArray();
 
-        //proactive agents
-        JSONArray proactiveAgentResults = response.has(proactiveAgentResultsKey) ? response.getJSONArray(proactiveAgentResultsKey) : new JSONArray();
-        JSONArray entityDefinitions = response.has(entityDefinitionsKey) ? response.getJSONArray(entityDefinitionsKey) : new JSONArray();
+//        //proactive agents
+//        JSONArray proactiveAgentResults = response.has(proactiveAgentResultsKey) ? response.getJSONArray(proactiveAgentResultsKey) : new JSONArray();
+//        JSONArray entityDefinitions = response.has(entityDefinitionsKey) ? response.getJSONArray(entityDefinitionsKey) : new JSONArray();
+//
+//        //adhd STMB results
+//        JSONArray adhdStmbResults = response.has(adhdStmbAgentKey) ? response.getJSONArray(adhdStmbAgentKey) : new JSONArray();
+//        if (adhdStmbResults.length() != 0) {
+//            Log.d(TAG, "ADHD RESULTS: ");
+//            Log.d(TAG, adhdStmbResults.toString());
+//
+//            if (!clearedScreenYet) {
+//                smartGlassesService.sendHomeScreen();
+//                clearedScreenYet = true;
+//            }
+//
+//            updateAdhdSummaries(adhdStmbResults);
+//            String dynamicSummary = adhdStmbResults.getJSONObject(0).getString("summary");
+//            String [] adhdResults = calculateAdhdStmbStringFormatted(getAdhdStmbSummaries());
+//            smartGlassesService.windowManager.addTask(new WindowManager.Task(() -> smartGlassesService.sendRowsCard(adhdResults), false, true, false));
+//            sendUiUpdateSingle(dynamicSummary);
+//            responsesBuffer.add(dynamicSummary);
+//        }
+//
+//        JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
+//        JSONArray llWordSuggestUpgradeResults = response.has(llWordSuggestUpgradeKey) ? response.getJSONArray(llWordSuggestUpgradeKey) : new JSONArray();
+//        updateCombineResponse(languageLearningResults, llWordSuggestUpgradeResults);
+//        if (Objects.equals(getCurrentMode(this), "Language Learning") && (languageLearningResults.length() != 0 || llWordSuggestUpgradeResults.length() != 0)) {
+//            String [] llCombineResults = calculateLLCombineResponseFormatted(getLLCombineResponse());
+//            String newLineSeparator = isLiveCaptionsChecked ? "\n" : "\n\n";
+//            if (smartGlassesService.getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+//                String textWallString = Arrays.stream(llCombineResults)
+//                        .reduce((a, b) -> b + newLineSeparator + a)
+//                        .orElse("");
+//                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString, false);
+//                else {
+//                    smartGlassesService.windowManager.addTask(new WindowManager.Task(() -> smartGlassesService.sendTextWall(textWallString), true, true, true));
+//                }
+//            }
+////            Log.d(TAG, "ll combine results"+ llCombineResults.toString());
+//            sendUiUpdateSingle(String.join("\n", llCombineResults));
+//            responsesBuffer.add(String.join("\n", llCombineResults));
+//        }
 
-        //adhd STMB results
-        JSONArray adhdStmbResults = response.has(adhdStmbAgentKey) ? response.getJSONArray(adhdStmbAgentKey) : new JSONArray();
-        if (adhdStmbResults.length() != 0) {
-            Log.d(TAG, "ADHD RESULTS: ");
-            Log.d(TAG, adhdStmbResults.toString());
-
-            if (!clearedScreenYet) {
-                smartGlassesService.sendHomeScreen();
-                clearedScreenYet = true;
-            }
-
-            updateAdhdSummaries(adhdStmbResults);
-            String dynamicSummary = adhdStmbResults.getJSONObject(0).getString("summary");
-            String [] adhdResults = calculateAdhdStmbStringFormatted(getAdhdStmbSummaries());
-            smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendRowsCard(adhdResults), false, true, false));
-            sendUiUpdateSingle(dynamicSummary);
-            responsesBuffer.add(dynamicSummary);
-        }
-
-        JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
-        JSONArray llWordSuggestUpgradeResults = response.has(llWordSuggestUpgradeKey) ? response.getJSONArray(llWordSuggestUpgradeKey) : new JSONArray();
-        updateCombineResponse(languageLearningResults, llWordSuggestUpgradeResults);
-        if (Objects.equals(getCurrentMode(this), "Language Learning") && (languageLearningResults.length() != 0 || llWordSuggestUpgradeResults.length() != 0)) {
-            String [] llCombineResults = calculateLLCombineResponseFormatted(getLLCombineResponse());
-            String newLineSeparator = isLiveCaptionsChecked ? "\n" : "\n\n";
-            if (smartGlassesService.getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
-                String textWallString = Arrays.stream(llCombineResults)
-                        .reduce((a, b) -> b + newLineSeparator + a)
-                        .orElse("");
-                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString, false);
-                else {
-                    smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendTextWall(textWallString), true, true, true));
-                }
-            }
-//            Log.d(TAG, "ll combine results"+ llCombineResults.toString());
-            sendUiUpdateSingle(String.join("\n", llCombineResults));
-            responsesBuffer.add(String.join("\n", llCombineResults));
-        }
-
-        JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
-
-        updateContextConvoResponses(llContextConvoResults); //sliding buffer, time managed context convo card
-        String[] llContextConvoResponses;
-
-        if (llContextConvoResults.length() != 0) {
-            llContextConvoResponses = calculateLLContextConvoResponseFormatted(getContextConvoResponses());
-            if (smartGlassesService.getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
-                String textWallString = Arrays.stream(llContextConvoResponses)
-                        .reduce((a, b) -> b + "\n\n" + a)
-                        .orElse("");
-                //sendRowsCard(llContextConvoResponses);
-
-                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString, false);
-                else {
-                    smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendTextWall(textWallString), false, true, false));
-                }
-            }
-            List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
-            Collections.reverse(list);
-            sendUiUpdateSingle(String.join("\n", list));
-            responsesBuffer.add(String.join("\n", list));
-
-            try {
-                JSONObject llContextConvoResult = llContextConvoResults.getJSONObject(0);
-//                Log.d(TAG, llContextConvoResult.toString());
-                JSONObject toTTS = llContextConvoResult.getJSONObject("to_tts");
-                String text = toTTS.getString("text");
-                String language = toTTS.getString("language");
-//                Log.d(TAG, "Text: " + text + ", Language: " + language);
-                //sendTextToSpeech(text, language);
-                smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendTextToSpeech(text, language), false, false, false));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
+//        JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
+//
+//        updateContextConvoResponses(llContextConvoResults); //sliding buffer, time managed context convo card
+//        String[] llContextConvoResponses;
+//
+//        if (llContextConvoResults.length() != 0) {
+//            llContextConvoResponses = calculateLLContextConvoResponseFormatted(getContextConvoResponses());
+//            if (smartGlassesService.getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+//                String textWallString = Arrays.stream(llContextConvoResponses)
+//                        .reduce((a, b) -> b + "\n\n" + a)
+//                        .orElse("");
+//                //sendRowsCard(llContextConvoResponses);
+//
+//                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", textWallString, false);
+//                else {
+//                    smartGlassesService.windowManager.addTask(new WindowManager.Task(() -> smartGlassesService.sendTextWall(textWallString), false, true, false));
+//                }
+//            }
+//            List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
+//            Collections.reverse(list);
+//            sendUiUpdateSingle(String.join("\n", list));
+//            responsesBuffer.add(String.join("\n", list));
+//
+//            try {
+//                JSONObject llContextConvoResult = llContextConvoResults.getJSONObject(0);
+////                Log.d(TAG, llContextConvoResult.toString());
+//                JSONObject toTTS = llContextConvoResult.getJSONObject("to_tts");
+//                String text = toTTS.getString("text");
+//                String language = toTTS.getString("language");
+////                Log.d(TAG, "Text: " + text + ", Language: " + language);
+//                //sendTextToSpeech(text, language);
+//                smartGlassesService.windowManager.addTask(new WindowManager.Task(() -> smartGlassesService.sendTextToSpeech(text, language), false, false, false));
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
         // displayResults
         for (int i = 0; i < displayRequests.length(); i++) {
@@ -1702,19 +1789,19 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                         title = content.getString("title");
                         body = content.getString("body");
                         queueOutput(title + ": " + body);
-                        smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendReferenceCard(title, body), false, false, false));
+                        smartGlassesService.windowManager.showAppLayer("server", () -> smartGlassesService.sendReferenceCard(title, body), -1);
                         break;
                     case "TEXT_WALL":
                     case "TEXT_LINE":
                         body = content.getString("body");
                         queueOutput(body);
-                        smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendTextWall(body), false, false,false));
+                        smartGlassesService.windowManager.showAppLayer("server", () -> smartGlassesService.sendTextWall(body), -1);
                         break;
                     case "DOUBLE_TEXT_WALL":
                         String bodyTop = content.getString("bodyTop");
                         String bodyBottom = content.getString("bodyBottom");
                         queueOutput(bodyTop + "\n\n" + bodyBottom);
-                        smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendDoubleTextWall(bodyTop, bodyBottom), false, false, false));
+                        smartGlassesService.windowManager.showAppLayer("server", () -> smartGlassesService.sendDoubleTextWall(bodyTop, bodyBottom), -1);
                         break;
                     case "ROWS_CARD":
                         JSONArray rowsArray = content.getJSONArray("rows");
@@ -1722,7 +1809,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                         for (int k = 0; k < rowsArray.length(); k++)
                             stringsArray[k] = rowsArray.getString(k);
                         queueOutput(String.join("\n", stringsArray));
-                        smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendRowsCard(stringsArray), false, false, false));
+                        smartGlassesService.windowManager.showAppLayer("server", () -> smartGlassesService.sendRowsCard(stringsArray), -1);
                         break;
                     default:
                         Log.d(TAG, "SOME ISSUE");
@@ -1733,19 +1820,19 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             }
         }
 
-        // entityDefinitions
-        for (int i = 0; i < entityDefinitions.length(); i++) {
-            try {
-                JSONObject obj = entityDefinitions.getJSONObject(i);
-                String name = obj.getString("name");
-                String body = obj.getString("summary");
-                if (isSmartGlassesServiceBound)
-                    smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendReferenceCard("" + name + "", body), false, false, false));
-                queueOutput(name + ": " + body);
-            } catch (JSONException e){
-                e.printStackTrace();
-            }
-        }
+//        // entityDefinitions
+//        for (int i = 0; i < entityDefinitions.length(); i++) {
+//            try {
+//                JSONObject obj = entityDefinitions.getJSONObject(i);
+//                String name = obj.getString("name");
+//                String body = obj.getString("summary");
+//                if (smartGlassesService != null)
+//                    smartGlassesService.windowManager.addTask(new WindowManager.Task(() -> smartGlassesService.sendReferenceCard("" + name + "", body), false, false, false));
+//                queueOutput(name + ": " + body);
+//            } catch (JSONException e){
+//                e.printStackTrace();
+//            }
+//        }
 
         long wakeWordTime = response.has(wakeWordTimeKey) ? response.getLong(wakeWordTimeKey) : -1;
 
@@ -1753,8 +1840,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         if (wakeWordTime != -1 && wakeWordTime != previousWakeWordTime){
             previousWakeWordTime = wakeWordTime;
             String body = "Listening... ";
-            if (isSmartGlassesServiceBound)
-                smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendReferenceCard(glassesCardTitle, body), true, true, false));
+            if (smartGlassesService != null)
+                smartGlassesService.windowManager.showAppLayer("server", () -> smartGlassesService.sendReferenceCard(glassesCardTitle, body), -1);
             queueOutput(body);
         }
 
@@ -1765,8 +1852,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 JSONObject obj = explicitAgentQueries.getJSONObject(i);
                 String title = "Processing Query";
                 String body = "\"" + obj.getString("query") + "\"";
-                if (isSmartGlassesServiceBound)
-                    smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendReferenceCard(title, body), true, true, false));
+                if (smartGlassesService != null)
+                    smartGlassesService.windowManager.showAppLayer("server", () -> smartGlassesService.sendReferenceCard(title, body), -1);
                 queueOutput(body);
             } catch (JSONException e){
                 e.printStackTrace();
@@ -1782,27 +1869,27 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 JSONObject obj = explicitAgentResults.getJSONObject(i);
                 //String body = "Response: " + obj.getString("insight");
                 String body = obj.getString("insight");
-                if (isSmartGlassesServiceBound)
-                    smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendReferenceCard(glassesCardTitle, body), true, false, false));
+                if (smartGlassesService != null)
+                    smartGlassesService.windowManager.showAppLayer("server", () -> smartGlassesService.sendReferenceCard(glassesCardTitle, body), -1);
                 queueOutput(body);
             } catch (JSONException e){
                 e.printStackTrace();
             }
         }
 
-        //go through proactive agent results and add to resultsToDisplayList
-        for (int i = 0; i < proactiveAgentResults.length(); i++){
-            try {
-                JSONObject obj = proactiveAgentResults.getJSONObject(i);
-                String name = obj.getString("agent_name") + " says";
-                String body = obj.getString("agent_insight");
-                if (isSmartGlassesServiceBound)
-                    smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendReferenceCard(name, body), false, false, false));
-                queueOutput(name + ": " + body);
-            } catch (JSONException e){
-                e.printStackTrace();
-            }
-        }
+//        //go through proactive agent results and add to resultsToDisplayList
+//        for (int i = 0; i < proactiveAgentResults.length(); i++){
+//            try {
+//                JSONObject obj = proactiveAgentResults.getJSONObject(i);
+//                String name = obj.getString("agent_name") + " says";
+//                String body = obj.getString("agent_insight");
+//                if (smartGlassesService != null)
+//                    smartGlassesService.windowManager.addTask(new WindowManager.Task(() -> smartGlassesService.sendReferenceCard(name, body), false, false, false));
+//                queueOutput(name + ": " + body);
+//            } catch (JSONException e){
+//                e.printStackTrace();
+//            }
+//        }
 
         //see if we should update user settings
         boolean shouldUpdateSettingsResult = response.has(shouldUpdateSettingsKey) && response.getBoolean(shouldUpdateSettingsKey);
@@ -1824,7 +1911,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     public void speakTTS(String toSpeak){
-        if (isSmartGlassesServiceBound)
+        if (smartGlassesService != null)
             smartGlassesService.sendTextLine(toSpeak);
     }
 
@@ -2009,7 +2096,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     public void saveCurrentMode(Context context, String currentModeString) {
-//        if (isSmartGlassesServiceBound)
+//        if (smartGlassesService != null)
 //            smartGlassesService.sendHomeScreen();
 
         saveCurrentModeLocal(context, currentModeString);
@@ -2385,15 +2472,15 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     // Used for notifications and for screen mirror
     @Subscribe
     public void onNewScreenTextEvent(NewScreenTextEvent event) {
-        // Notification
-        if (event.title != null && event.body != null) {
-            if (isSmartGlassesServiceBound)
-                smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendReferenceCard(event.title, event.body), false, false, false));
-        }
-        else if (event.body != null){ //Screen mirror text
-            if (isSmartGlassesServiceBound)
-                smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendTextWall(event.body), false, true, false));
-        }
+//        // Notification
+//        if (event.title != null && event.body != null) {
+//            if (smartGlassesService != null)
+//                smartGlassesService.windowManager.addTask(new WindowManager.Task(() -> smartGlassesService.sendReferenceCard(event.title, event.body), false, false, false));
+//        }
+//        else if (event.body != null){ //Screen mirror text
+//            if (smartGlassesService != null)
+//                smartGlassesService.windowManager.addTask(new WindowManager.Task(() -> smartGlassesService.sendTextWall(event.body), false, true, false));
+//        }
     }
 
     @Subscribe
@@ -2408,8 +2495,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Subscribe
     public void onNewScreenImageEvent(NewScreenImageEvent event) {
-        if (isSmartGlassesServiceBound)
-            smartGlassesService.displayQueue.addTask(new DisplayQueue.Task(() -> smartGlassesService.sendBitmap(event.bmp), false, true, false));
+        if (smartGlassesService != null)
+            smartGlassesService.windowManager.showAppLayer("server", () -> smartGlassesService.sendBitmap(event.bmp), -1);
     }
 
     private void updateLastDataSentTime() {
@@ -2434,7 +2521,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     private void executeOnceSmartGlassesServiceReady(Context context, Runnable action) {
-        if (isSmartGlassesServiceBound && smartGlassesService != null) {
+        if (smartGlassesService != null && smartGlassesService != null) {
             // If the service is already bound, execute the action immediately
             action.run();
             return;
@@ -2444,7 +2531,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         serviceReadyListeners.add(action);
 
         // Ensure the service is started and bound
-        if (!isSmartGlassesServiceBound) {
+        if (smartGlassesService == null) {
             startSmartGlassesService();
         }
     }
@@ -2459,13 +2546,22 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             status.put("charging_status", batteryStatusHelper.isBatteryCharging());
             status.put("sensing_enabled", SpeechRecSwitchSystem.sensing_enabled);
             status.put("default_wearable", AugmentosSmartGlassesService.getPreferredWearable(this));
+            Log.d(TAG, "PREFER - Got default wearabe: " + AugmentosSmartGlassesService.getPreferredWearable(this));
 
             // Adding connected glasses object
             JSONObject connectedGlasses = new JSONObject();
-            if(isSmartGlassesServiceBound && smartGlassesService.getConnectedSmartGlasses() != null) {
+            if(smartGlassesService != null && smartGlassesService.getConnectedSmartGlasses() != null) {
                 connectedGlasses.put("model_name", smartGlassesService.getConnectedSmartGlasses().deviceModelName);
-                connectedGlasses.put("battery_life", batteryLevel);
-                connectedGlasses.put("brightness", smartGlassesService.getConnectedSmartGlasses().deviceModelName.contains("Even Realities") ? "auto" : "unknown");
+                connectedGlasses.put("battery_life", (batteryLevel == null) ? -1: batteryLevel); //-1 if unknown
+                String brightnessString;
+                if (brightnessLevel == null) {
+                    brightnessString = "?";
+                } else if (brightnessLevel == -1){
+                    brightnessString = "AUTO";
+                } else {
+                    brightnessString = brightnessLevel.toString() + "%";
+                }
+                connectedGlasses.put("brightness", brightnessString);
             }
             else {
                 connectedGlasses.put("is_searching", getIsSearchingForGlasses());
@@ -2498,6 +2594,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 //tpaObj.put("description", tpa.appDescription);
                 tpaObj.put("is_running", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
                 tpaObj.put("is_foreground", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
+                tpaObj.put("version", tpa.version);
                 //tpaObj.put("package_name", tpa.packageName);
                 //tpaObj.put("type", tpa.appType.name());
                 apps.put(tpaObj);
@@ -2511,6 +2608,13 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             // Wrapping the status object inside a main object (as shown in your example)
             JSONObject mainObject = new JSONObject();
             mainObject.put("status", status);
+
+            try {
+                Map<String, Object> props = convertJsonToMap(status);
+                postHog.capture(userId, "status", props);
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
 
             return mainObject;
         } catch (JSONException e) {
@@ -2578,6 +2682,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Disconnecting from wearable: " + wearableId);
         // Logic to disconnect wearable
         stopSmartGlassesService();
+
+        //reset some local variables
+        brightnessLevel = null;
+        batteryLevel = null;
     }
 
     @Override
@@ -2595,12 +2703,17 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         // Logic to start the app by package name
         
         // Only allow starting apps if glasses are connected
-        if(isSmartGlassesServiceBound && smartGlassesService.getConnectedSmartGlasses() != null) {
+        if (smartGlassesService != null && smartGlassesService.getConnectedSmartGlasses() != null) {
             tpaSystem.startThirdPartyAppByPackageName(packageName);
             sendStatusToAugmentOsManager();
         } else {
             blePeripheral.sendNotifyManager("Must connect glasses to start an app", "error");
         }
+
+        Map<String, Object> props = new HashMap<>();
+        props.put("package_name", packageName);
+        props.put("timestamp", System.currentTimeMillis());
+        postHog.capture(userId, "start_app", props);
     }
 
     @Override
@@ -2608,22 +2721,127 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Stopping app: " + packageName);
         tpaSystem.stopThirdPartyAppByPackageName(packageName);
         sendStatusToAugmentOsManager();
+
+        Map<String, Object> props = new HashMap<>();
+        props.put("package_name", packageName);
+        props.put("timestamp", System.currentTimeMillis());
+        postHog.capture(userId, "stop_app", props);
     }
 
     @Override
     public void setSensingEnabled(boolean sensingEnabled){
-        if (isSmartGlassesServiceBound) {
+        if (smartGlassesService != null) {
             EventBus.getDefault().post(new SetSensingEnabledEvent(sensingEnabled));
         } else {
             blePeripheral.sendNotifyManager("Connect glasses to toggle sensing", "error");
         }
+
+        Map<String, Object> props = new HashMap<>();
+        props.put("sensing_enabled", sensingEnabled);
+        props.put("timestamp", System.currentTimeMillis());
+        postHog.capture(userId, "set_sensing_enabled", props);
     }
 
     @Override
-    public void installAppFromRepository(String repository, String packageName) {
-        Log.d(TAG, "installAppFromRepository not implemented");
-        //TODO: Implement this
-        blePeripheral.sendNotifyManager("Installing is not implemented yet", "error");
+    public void installAppFromRepository(String repository, String packageName) throws JSONException {
+        Log.d("AugmentOsService", "Installing app from repository: " + packageName);
+
+        JSONObject jsonQuery = new JSONObject();
+        jsonQuery.put("packageName", packageName);
+
+        backendServerComms.restRequest(REQUEST_APP_BY_PACKAGE_NAME_DOWNLOAD_LINK_ENDPOINT, jsonQuery, new VolleyJsonCallback() {
+            @Override
+            public void onSuccess(JSONObject result) {
+                Log.d(TAG, "GOT INSTALL APP RESULT: " + result.toString());
+
+                try {
+                    String downloadLink = result.optString("download_url");
+                    String appName = result.optString("app_name");
+                    String version = result.optString("version");
+                    if (!downloadLink.isEmpty()) {
+                        Log.d(TAG, "Download link received: " + downloadLink);
+
+                        if (downloadLink.startsWith("https://api.augmentos.org/")) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                                downloadApk(downloadLink, packageName, appName, version);
+                            }
+                        } else {
+                            Log.e(TAG, "The download link does not match the required domain.");
+                            throw new UnsupportedOperationException("Download links outside of https://api.augmentos.org/ are not supported.");
+                        }
+                    } else {
+                        Log.e(TAG, "Download link is missing in the response.");
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "Error parsing download link: ", e);
+                }
+            }
+
+            @Override
+            public void onFailure(int code) {
+                Log.d(TAG, "SOME FAILURE HAPPENED (installAppFromRepository)");
+            }
+        });
+    }
+
+    private void downloadApk(String downloadLink, String packageName, String appName, String version) { // TODO: Add fallback if the download doesn't succeed
+        DownloadManager downloadManager = (DownloadManager) this.getSystemService(Context.DOWNLOAD_SERVICE);
+
+        if (downloadManager != null) {
+            Uri uri = Uri.parse(downloadLink);
+            DownloadManager.Request request = new DownloadManager.Request(uri);
+            request.setTitle("Downloading " + appName);
+//            request.setDescription("Downloading APK for " + appName);
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+            String downloadedAppName = appName.replace(" ", "") + "_" + version + ".apk";
+            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, downloadedAppName);
+//            blePeripheral.sendAppIsInstalledEventToManager(packageName);
+
+            long downloadId = downloadManager.enqueue(request);
+
+            BroadcastReceiver receiver = new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+                    if (id == downloadId) {
+                        installApk(packageName, downloadedAppName);
+
+                        context.unregisterReceiver(this);
+                    }
+                }
+            };
+
+            this.registerReceiver(receiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+        }
+    }
+
+    private void installApk(String packageName, String downloadedAppName) {
+        File apkFile = new File(
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                downloadedAppName
+        );
+        if (!apkFile.exists() || apkFile.length() == 0) {
+            Log.e("Installer", "APK file is missing or 0 bytes.");
+            return;
+        }
+
+        Log.d("Installer", "APK file exists: " + apkFile.getAbsolutePath());
+
+        blePeripheral.sendAppIsInstalledEventToManager(packageName);
+
+//        Uri apkUri;
+//        Intent intent = new Intent(Intent.ACTION_VIEW);
+//        apkUri = FileProvider.getUriForFile(
+//                getApplicationContext(),
+//                getApplicationContext().getPackageName() + ".provider",
+//                apkFile
+//        );
+//        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//
+//        intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(intent);
+//        blePeripheral.sendNotifyManager("App installed", "Success");
     }
 
     @Override
@@ -2646,6 +2864,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             return;
         }
         blePeripheral.sendAppInfoToManager(tpa);
+
+        Map<String, Object> props = new HashMap<>();
+        props.put("package_name", packageNameToGetDetails);
+        props.put("timestamp", System.currentTimeMillis());
+        postHog.capture(userId, "request_app_info", props);
     }
 
     @Override

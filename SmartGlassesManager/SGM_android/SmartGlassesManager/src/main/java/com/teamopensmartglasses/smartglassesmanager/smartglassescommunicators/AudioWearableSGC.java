@@ -45,7 +45,7 @@ public class AudioWearableSGC extends SmartGlassesCommunicator {
         killme = true;
     }
 
-    public void displayReferenceCardSimple(String title, String body, int lingerTimeMs){
+    public void displayReferenceCardSimple(String title, String body){
         Log.d(TAG, "TTS reference card");
         EventBus.getDefault().post(new TextToSpeechEvent(title + ", " + body, "english"));
     }

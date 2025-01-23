@@ -6,7 +6,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 import { NavigationProps } from './types';
-import BluetoothService from '../BluetoothService';
+// import BluetoothService from '../BluetoothService';
 
 interface AppIconProps {
     app: AppInfo;
@@ -57,7 +57,7 @@ const AppIcon: React.FC<AppIconProps> = ({
 
     const openAppSettings = async () => {
         navigation.navigate('AppSettings', {
-            packageName: app.package_name,
+            packageName: app.packageName,
             appName: app.name
         });
     }
@@ -84,7 +84,7 @@ const AppIcon: React.FC<AppIconProps> = ({
                     ]}
                 >
                     <ImageBackground
-                        source={getAppImage(app.package_name)}
+                        source={getAppImage(app.packageName)}
                         style={styles.appIcon}
                         imageStyle={styles.appIconRounded}
                     />
@@ -117,8 +117,8 @@ const styles = StyleSheet.create({
     },
     appWrapper: {
         alignItems: 'center',
-        width: 70, 
-        height: 100, 
+        width: 70,
+        height: 100,
         borderColor: '#E5E5EA',
     },
     appIconWrapper: {

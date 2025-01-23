@@ -23,7 +23,7 @@ public abstract class SmartGlassesCommunicator {
     public final String finishNaturalLanguageString = "'finish command' when done";
 
     //reference card
-    public abstract void displayReferenceCardSimple(String title, String body, int lingerTimeMs);
+    public abstract void displayReferenceCardSimple(String title, String body);
 
     //display text wall
     public abstract void displayTextWall(String text);

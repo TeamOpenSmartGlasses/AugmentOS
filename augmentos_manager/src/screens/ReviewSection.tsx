@@ -1,12 +1,17 @@
-import React, { useState, useMemo } from 'react';
-import { View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import React, {
+  useState,
+  // useMemo,
+  useEffect,
+} from 'react';
+import { View, StyleSheet, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { AppStoreData } from '../data/appStoreData.ts';
 import SearchWithFilters from '../components/AppReview/SearchBar.tsx';
 import ReviewList from '../components/AppReview/ReviewList.tsx';
 import ReviewModal from '../components/AppReview/ReviewModal.tsx';
 import ReviewDetailsModal from '../components/AppReview/ReviewDetailsModal.tsx';
 import AnimatedChatBubble from '../components/AppReview/AnimatedChatBubble.tsx';
+import BackendServerComms from '../backend_comms/BackendServerComms';
+import {GET_APP_STORE_DATA_ENDPOINT} from '../consts.tsx'; // Assuming BackendServerComms is correctly set up
 
 interface ReviewSectionProps {
   route: any;
@@ -16,9 +21,9 @@ interface ReviewSectionProps {
 const ReviewSection: React.FC<ReviewSectionProps> = ({ route, isDarkTheme }) => {
   const { appId } = route.params;
 
-  const app = AppStoreData.find((item: { identifier_code: string }) => item.identifier_code === appId);
-  const reviews = useMemo(() => app?.reviews || [], [app]);
-
+  const [, setApp] = useState<any | null>(null);
+  const [reviews, setReviews] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [isModalVisible, setModalVisible] = useState(false);
   const [isDetailsModalVisible, setDetailsModalVisible] = useState(false);
   const [selectedReview, setSelectedReview] = useState(null);
@@ -34,6 +39,31 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ route, isDarkTheme }) => 
     accent: isDarkTheme ? '#3b82f6' : '#007BFF',
     border: isDarkTheme ? '#404040' : '#e0e0e0',
   };
+
+  useEffect(() => {
+    const fetchAppData = async () => {
+      const backendServerComms = BackendServerComms.getInstance();
+
+      const callback = {
+        onSuccess: (data: any) => {
+          const fetchedApp = data.find((item: { identifierCode: string }) => item.identifierCode === appId);
+          setApp(fetchedApp);
+          setReviews(fetchedApp?.reviews || []);
+          setFilteredReviews(fetchedApp?.reviews || []);
+          setIsLoading(false);
+        },
+        onFailure: (errorCode: number) => {
+          console.error(`Failed to fetch app data. Error code: ${errorCode}`);
+          setIsLoading(false);
+        },
+      };
+
+      setIsLoading(true);
+      await backendServerComms.restRequest(GET_APP_STORE_DATA_ENDPOINT, null, callback);
+    };
+
+    fetchAppData();
+  }, [appId]);
 
   const handleSearch = (query: string, filters: string[]) => {
     const filtered = reviews.filter((review: { user: string; comment: string; rating: number }) => {
@@ -64,6 +94,14 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ route, isDarkTheme }) => 
     setSelectedReview(review);
     setDetailsModalVisible(true);
   };
+
+  if (isLoading) {
+    return (
+        <View style={[styles.container, { backgroundColor: themeColors.background }]}>
+          <ActivityIndicator size="large" color={themeColors.accent} />
+        </View>
+    );
+  }
 
   return (
     <View style={[styles.container, { backgroundColor: themeColors.background }]}>

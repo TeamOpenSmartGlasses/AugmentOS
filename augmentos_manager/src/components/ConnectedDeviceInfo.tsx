@@ -136,12 +136,13 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     if (level > 50) { return 'battery-three-quarters'; }
     if (level > 25) { return 'battery-half'; }
     if (level > 10) { return 'battery-quarter'; }
-    return 'battery-empty';
+    return 'battery-full';
   };
 
   const getBatteryColor = (level: number) => {
     if (level > 60) { return '#4CAF50'; }
-    if (level > 20) { return '#FFB300'; }
+    if (level > 20) { return '#ff9a00'; }
+    if (level == -1) { return '#000000'; }
     return '#FF5722';
   };
 
@@ -178,7 +179,9 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                           <View style={styles.batteryContainer}>
                             <Icon name={batteryIcon} size={16} color={batteryColor} style={styles.batteryIcon} />
                             <Text style={[styles.batteryValue, { color: batteryColor }]}>
-                              {status.glasses_info.battery_life}%
+                            {status.glasses_info.battery_life == -1 
+                              ? "?" 
+                              : `${status.glasses_info.battery_life}%`}
                             </Text>
                           </View>
                         </>
@@ -190,9 +193,9 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                           <>
                             <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
                             <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>
-                              {status.glasses_info && status.glasses_info.model_name && status.glasses_info.model_name.includes('Even Realities')
+                              {status.glasses_info 
                                   ? `${status.glasses_info.brightness}`
-                                  : `${status.glasses_info.brightness}%`}
+                                  : "?"}
                             </Text>
                           </>
                       }
@@ -317,6 +320,7 @@ const styles = StyleSheet.create({
   },
   batteryIcon: {
     marginRight: 4,
+    alignSelf: 'center',
   },
   batteryValue: {
     fontSize: 14,

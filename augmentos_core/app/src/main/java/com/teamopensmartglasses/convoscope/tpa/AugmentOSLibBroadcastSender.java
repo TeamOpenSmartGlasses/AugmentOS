@@ -64,9 +64,9 @@ public class AugmentOSLibBroadcastSender {
         context.sendBroadcast(intent);
     }
 
-    public void startThirdPartyApp(ThirdPartyApp tpa){
+    public boolean startThirdPartyApp(ThirdPartyApp tpa){
         if(tpa.packageName == "" || tpa.serviceName == ""){
-            return;
+            return false;
         }
 
         Intent i = new Intent();
@@ -75,7 +75,7 @@ public class AugmentOSLibBroadcastSender {
         i.setComponent(new ComponentName(tpa.packageName, tpa.serviceName));
         ComponentName c = context.startForegroundService(i);
 
-        EventBus.getDefault().post(new ReferenceCardSimpleViewRequestEvent("AugmentOS started app:", tpa.appName, 6));
+        return true;
     }
 
     public void killThirdPartyApp(ThirdPartyApp tpa){

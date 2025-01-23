@@ -47,6 +47,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import com.teamopensmartglasses.convoscope.PermissionsActivity;
 import com.teamopensmartglasses.convoscope.R;
 
 
@@ -248,7 +249,18 @@ public class LoginUi extends Fragment {
     NavOptions navOptions = new NavOptions.Builder()
             .setPopUpTo(R.id.nav_landing, true) // Replace 'nav_graph_start_destination' with the ID of your start destination in the nav graph
             .build();
-    navController.navigate(R.id.nav_convoscope, null, navOptions);
+    //navController.navigate(R.id.nav_convoscope, null, navOptions);
+
+    //navController.navigate(R.id.nav_permissions, null, navOptions);
+    // BOUNCE TO PERMISSIONS ACTIVITY
+    Intent intent = new Intent(getContext(), PermissionsActivity.class);
+    startActivity(intent);
+
+    // Optionally, finish the current activity if you don't want the user to go back here
+    if (getActivity() != null) {
+      getActivity().finish();
+    }
+    // TODO: Put permission check here :)
   }
 
   public void killApp(){
