@@ -78,7 +78,7 @@ public class WindowManagerWithTimeouts {
         dash.setDisplayCommand(displayCommand);
         dash.setVisible(true);
         dash.setLastUpdated(System.currentTimeMillis());
-        dash.setLingerTimeSeconds(lingerTimeSecs);
+        dash.setLingerTimeSeconds(lingerTimeSecs == -1 ? globalTimeoutSeconds : lingerTimeSecs);
         updateGlobalTimestamp();
         updateDisplay();
     }
@@ -101,7 +101,8 @@ public class WindowManagerWithTimeouts {
         // Check global timeout
         if (!globalTimedOut && (now - lastGlobalUpdate) >= (globalTimeoutSeconds * 1000L)) {
             // Global inactivity => call the provided global timeout action (e.g. clearScreen)
-            globalTimeoutAction.run();
+            //globalTimeoutAction.run();
+            clearAll();
             globalTimedOut = true;
         }
 
@@ -185,13 +186,20 @@ public class WindowManagerWithTimeouts {
         lastGlobalUpdate = System.currentTimeMillis();
     }
 
+    public void clearAll() {
+        layers.clear();  // Remove all layers
+        currentlyDisplayedLayer = null;
+        currentlyDisplayedLayerTimestamp = 0;
+        updateDisplay();  // This will trigger the globalTimeoutAction since no layers exist
+    }
+
     // Stop the scheduler if needed (e.g. on service destroy).
     public void shutdown() {
         scheduler.shutdownNow();
     }
 
     public boolean isDashboardShowing() {
-        if (currentlyDisplayedLayer.id.equals("DASHBOARD")) {
+        if (currentlyDisplayedLayer != null && currentlyDisplayedLayer.id.equals("DASHBOARD")) {
             Log.d(TAG, "Dashboard is showing confirmed!");
             return true;
         } else {
