@@ -189,7 +189,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                     </View>
 
                     <View style={styles.statusInfo}>
-                      {status.glasses_info?.brightness != null && status.glasses_info?.brightness >= 0 &&
+                      {status.glasses_info?.brightness != null &&
                           <>
                             <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
                             <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>

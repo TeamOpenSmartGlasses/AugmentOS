@@ -2560,7 +2560,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 connectedGlasses.put("battery_life", (batteryLevel == null) ? -1: batteryLevel); //-1 if unknown
                 String brightnessString;
                 if (brightnessLevel == null) {
-                    brightnessString = "?";
+                    brightnessString = "-";
                 } else if (brightnessLevel == -1){
                     brightnessString = "AUTO";
                 } else {
