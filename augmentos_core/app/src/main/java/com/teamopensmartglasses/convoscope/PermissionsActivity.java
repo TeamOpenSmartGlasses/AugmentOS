@@ -192,7 +192,18 @@ public class PermissionsActivity extends AppCompatActivity {
     }
 
     public void redirectAndFinish(){
-        TpaHelpers.redirectToAugmentOsManagerIfAvailable(this);
-        finish();
+        boolean redirected = TpaHelpers.redirectToAugmentOsManagerIfAvailable(this);
+        if (!redirected) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Installation Required")
+                    .setMessage("To use AugmentOS, you'll need to install the \"AugmentOS Manager\" app")
+                    .setPositiveButton("OK", (dialog, which) -> {
+                        dialog.dismiss();
+                        finish();
+                    });
+            builder.show();
+        } else {
+            finish();
+        }
     }
 }
