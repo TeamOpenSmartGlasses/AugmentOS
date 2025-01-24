@@ -55,42 +55,49 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
       }
 
       // Request permissions on Android
-       if (Platform.OS === 'android' && Platform.Version >= 23) {
-         PermissionsAndroid.requestMultiple([
-           PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
-           PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
-           PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-         ]).then(async (result) => {
-             console.log('Permissions granted:', result);
+      if (Platform.OS === 'android' && Platform.Version >= 23) {
+        PermissionsAndroid.requestMultiple([
+          PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
+          PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        ]).then(async (result) => {
+          console.log('Permissions granted:', result);
 
-             const allGranted = Object.values(result).every(
-               (value) => value === PermissionsAndroid.RESULTS.GRANTED
-             );
+          const allGranted = Object.values(result).every(
+            (value) => value === PermissionsAndroid.RESULTS.GRANTED
+          );
 
-             if (allGranted) {
-               try {
-                 await checkAndRequestNotificationAccessSpecialPermission();
-               } catch (error) {
-                 console.warn('Notification permission request error:', error);
-               }
-             } else {
-               console.warn('Some permissions were denied:', result);
-               // Optionally handle partial denial here
-             }
-           })
-           .catch((error) => {
-             console.error('Error requesting permissions:', error);
-           });
-       }
+          if (allGranted) {
+            try {
+              await checkAndRequestNotificationAccessSpecialPermission();
+            } catch (error) {
+              console.warn('Notification permission request error:', error);
+            }
+          } else {
+            console.warn('Some permissions were denied:', result);
+            // Optionally handle partial denial here
+            Alert.alert(
+              'Permissions Required',
+              'Some permissions were denied. Please go to Settings and enable all required permissions for the app to function properly.',
+              [
+                { text: 'OK', style: 'default' }
+              ]
+            );
+          }
+        })
+          .catch((error) => {
+            console.error('Error requesting permissions:', error);
+          });
+      }
 
-       // Cleanup function
-       return () => {
-         fadeAnim.stopAnimation();
-         scaleAnim.stopAnimation();
-         slideAnim.stopAnimation();
-       };
-     }, [status.puck_connected, fadeAnim, scaleAnim, slideAnim])
-   );
+      // Cleanup function
+      return () => {
+        fadeAnim.stopAnimation();
+        scaleAnim.stopAnimation();
+        slideAnim.stopAnimation();
+      };
+    }, [status.puck_connected, fadeAnim, scaleAnim, slideAnim])
+  );
 
   const handleConnectToPuck = async () => {
     try {
@@ -173,15 +180,15 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                 <>
                   <Animated.View style={[styles.statusBar, { opacity: fadeAnim }]}>
                     <View style={styles.statusInfo}>
-                      {status.glasses_info?.battery_life &&
+                      {status.glasses_info?.battery_life != null && status.glasses_info?.battery_life >= 0 &&
                         <>
                           <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Battery</Text>
                           <View style={styles.batteryContainer}>
                             <Icon name={batteryIcon} size={16} color={batteryColor} style={styles.batteryIcon} />
                             <Text style={[styles.batteryValue, { color: batteryColor }]}>
-                            {status.glasses_info.battery_life == -1 
-                              ? "?" 
-                              : `${status.glasses_info.battery_life}%`}
+                              {status.glasses_info.battery_life == -1
+                                ? "-"
+                                : `${status.glasses_info.battery_life}%`}
                             </Text>
                           </View>
                         </>
@@ -189,15 +196,15 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                     </View>
 
                     <View style={styles.statusInfo}>
-                      {status.glasses_info?.brightness &&
-                          <>
-                            <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
-                            <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>
-                              {status.glasses_info 
-                                  ? `${status.glasses_info.brightness}`
-                                  : "?"}
-                            </Text>
-                          </>
+                      {status.glasses_info?.brightness != null &&
+                        <>
+                          <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
+                          <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>
+                            {status.glasses_info
+                              ? `${status.glasses_info.brightness}`
+                              : "-"}
+                          </Text>
+                        </>
                       }
                     </View>
                     <TouchableOpacity
@@ -210,19 +217,19 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                   </Animated.View>
                 </>
               ) : (
-                  <View style={styles.statusInfoNotConnected}>
-                    {status.glasses_info?.is_searching ? (
-                      <View style={styles.disconnectedContent}>
-                        <ActivityIndicator size="small" color="#2196F3" />
-                      </View>
-                    ) : (
-                      <View style={styles.noGlassesContent}>
-                        <TouchableOpacity style={styles.connectButton} onPress={connectGlasses}>
-                          <Text style={styles.buttonText}>Connect</Text>
-                        </TouchableOpacity>
-                      </View>
-                    )}
-                  </View>
+                <View style={styles.statusInfoNotConnected}>
+                  {status.glasses_info?.is_searching ? (
+                    <View style={styles.disconnectedContent}>
+                      <ActivityIndicator size="small" color="#2196F3" />
+                    </View>
+                  ) : (
+                    <View style={styles.noGlassesContent}>
+                      <TouchableOpacity style={styles.connectButton} onPress={connectGlasses}>
+                        <Text style={styles.buttonText}>Connect</Text>
+                      </TouchableOpacity>
+                    </View>
+                  )}
+                </View>
               )}
             </View>
           ) : (
@@ -307,7 +314,7 @@ const styles = StyleSheet.create({
   statusInfoNotConnected: {
     alignItems: 'center',
     flex: 1,
-    width:'100%'
+    width: '100%'
   },
   statusInfo: {
     alignItems: 'center',

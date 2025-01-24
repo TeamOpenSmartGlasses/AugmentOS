@@ -68,7 +68,7 @@ public class PermissionsActivity extends AppCompatActivity {
 
         // Check if permissions are already granted
         if (areAllPermissionsGranted(false)) {
-            onPermissionsGranted();
+            promptForBatteryOptimizationPermission();
         } else {
             // Request permissions
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, PERMISSION_REQUEST_CODE);
@@ -103,7 +103,7 @@ public class PermissionsActivity extends AppCompatActivity {
                             new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION},
                             BACKGROUND_LOCATION_PERMISSION_CODE);
                 } else {
-                    onPermissionsGranted();
+                    promptForBatteryOptimizationPermission();
                 }
             } else {
                 showPermissionDenialAlert();
@@ -112,7 +112,7 @@ public class PermissionsActivity extends AppCompatActivity {
             // Check if background location permission is granted
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
-                onPermissionsGranted();
+                promptForBatteryOptimizationPermission();
             } else {
                 // ... handle background location denial ...
                 showPermissionDenialAlert();
@@ -133,11 +133,11 @@ public class PermissionsActivity extends AppCompatActivity {
                     }
                 });
         AlertDialog alert = builder.create();
-        alert.setOnDismissListener(dialogInterface -> finish());
+        alert.setOnDismissListener(dialogInterface -> promptForBatteryOptimizationPermission());
         alert.show();
     }
 
-    private void onPermissionsGranted() {
+    private void promptForBatteryOptimizationPermission() {
         // Call the helper method for battery optimization handling
         if (isSystemApp(this)) {
             handleBatteryOptimization(this);
@@ -158,25 +158,27 @@ public class PermissionsActivity extends AppCompatActivity {
     }
 
     private void showBatteryOptimizationSettings() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Disable Battery Optimization")
-                .setMessage("This application needs to remain active in the background to function properly. " +
-                        "Please disable battery optimization for better performance and reliability.")
-                .setPositiveButton("Go to Settings", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        userWentToSettings = true;
-                        Intent intent = new Intent();
-                        intent.setAction(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
-                        startActivity(intent);
-                    }
-                })
-                .setNegativeButton("Back", (dialog, which) -> {
-                    redirectAndFinish();
-                });
-        ;
-        AlertDialog alert = builder.create();
-        alert.show();
+        if (!isFinishing()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Disable Battery Optimization")
+                    .setMessage("This application needs to remain active in the background to function properly. " +
+                            "Please disable battery optimization for better performance and reliability.")
+                    .setPositiveButton("Go to Settings", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            userWentToSettings = true;
+                            Intent intent = new Intent();
+                            intent.setAction(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton("Back", (dialog, which) -> {
+                        redirectAndFinish();
+                    });
+            ;
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
     }
 
     @Override
@@ -190,7 +192,18 @@ public class PermissionsActivity extends AppCompatActivity {
     }
 
     public void redirectAndFinish(){
-        TpaHelpers.redirectToAugmentOsManagerIfAvailable(this);
-        finish();
+        boolean redirected = TpaHelpers.redirectToAugmentOsManagerIfAvailable(this);
+        if (!redirected) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Installation Required")
+                    .setMessage("To use AugmentOS, you'll need to install the \"AugmentOS Manager\" app")
+                    .setPositiveButton("OK", (dialog, which) -> {
+                        dialog.dismiss();
+                        finish();
+                    });
+            builder.show();
+        } else {
+            finish();
+        }
     }
 }

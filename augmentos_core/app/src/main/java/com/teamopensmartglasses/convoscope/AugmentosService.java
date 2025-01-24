@@ -538,10 +538,15 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         // TODO: Uncomment for auto-connect
         String preferredWearable = AugmentosSmartGlassesService.getPreferredWearable(this);
         if(!preferredWearable.isEmpty()) {
-            executeOnceSmartGlassesServiceReady(this, () -> {
-                SmartGlassesDevice preferredDevice = AugmentosSmartGlassesService.getSmartGlassesDeviceFromModelName(preferredWearable);
-                smartGlassesService.connectToSmartGlasses(preferredDevice);
-            });
+            SmartGlassesDevice preferredDevice = AugmentosSmartGlassesService.getSmartGlassesDeviceFromModelName(preferredWearable);
+            if (preferredDevice != null) {
+                executeOnceSmartGlassesServiceReady(this, () -> {
+                    smartGlassesService.connectToSmartGlasses(preferredDevice);
+                });
+            } else {
+                // We have some invalid device saved... delete from preferences
+                AugmentosSmartGlassesService.savePreferredWearable(this, "");
+            }
         }
     }
 
@@ -2555,7 +2560,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 connectedGlasses.put("battery_life", (batteryLevel == null) ? -1: batteryLevel); //-1 if unknown
                 String brightnessString;
                 if (brightnessLevel == null) {
-                    brightnessString = "?";
+                    brightnessString = "-";
                 } else if (brightnessLevel == -1){
                     brightnessString = "AUTO";
                 } else {
