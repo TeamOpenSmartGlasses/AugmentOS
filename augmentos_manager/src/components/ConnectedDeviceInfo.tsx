@@ -173,14 +173,14 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                 <>
                   <Animated.View style={[styles.statusBar, { opacity: fadeAnim }]}>
                     <View style={styles.statusInfo}>
-                      {status.glasses_info?.battery_life &&
+                      {status.glasses_info?.battery_life != null && status.glasses_info?.battery_life >= 0 &&
                         <>
                           <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Battery</Text>
                           <View style={styles.batteryContainer}>
                             <Icon name={batteryIcon} size={16} color={batteryColor} style={styles.batteryIcon} />
                             <Text style={[styles.batteryValue, { color: batteryColor }]}>
                             {status.glasses_info.battery_life == -1 
-                              ? "?" 
+                              ? "-" 
                               : `${status.glasses_info.battery_life}%`}
                             </Text>
                           </View>
@@ -189,13 +189,13 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                     </View>
 
                     <View style={styles.statusInfo}>
-                      {status.glasses_info?.brightness &&
+                      {status.glasses_info?.brightness != null && status.glasses_info?.brightness >= 0 &&
                           <>
                             <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Brightness</Text>
                             <Text style={[styles.statusValue, { color: themeStyles.statusValueColor }]}>
                               {status.glasses_info 
                                   ? `${status.glasses_info.brightness}`
-                                  : "?"}
+                                  : "-"}
                             </Text>
                           </>
                       }
