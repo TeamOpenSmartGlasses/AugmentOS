@@ -540,7 +540,12 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         if(!preferredWearable.isEmpty()) {
             executeOnceSmartGlassesServiceReady(this, () -> {
                 SmartGlassesDevice preferredDevice = AugmentosSmartGlassesService.getSmartGlassesDeviceFromModelName(preferredWearable);
-                smartGlassesService.connectToSmartGlasses(preferredDevice);
+                if (preferredDevice != null) {
+                    smartGlassesService.connectToSmartGlasses(preferredDevice);
+                } else {
+                    // We have some invalid device saved... delete from preferences
+                    AugmentosSmartGlassesService.savePreferredWearable(this, "");
+                }
             });
         }
     }
