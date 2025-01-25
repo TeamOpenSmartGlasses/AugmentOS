@@ -63,6 +63,11 @@ public class AugmentOsManagerMessageParser {
                     callback.setSensingEnabled(sensingEnabled);
                     break;
 
+                case "enable_contextual_dashboard":
+                    boolean dashboardEnabled = commandObject.getJSONObject("params").getBoolean("enabled");
+                    callback.setContextualDashboardEnabled(dashboardEnabled);
+                    break;
+
                 case "install_app_from_repository": // TODO: Implement repository handling
 //                    String repo = commandObject.getJSONObject("params").getString("repository");
                     String packageNameToInstall = commandObject.getJSONObject("params").getString("target");
@@ -100,6 +105,11 @@ public class AugmentOsManagerMessageParser {
                 case "request_app_info":
                     String packageNameToGetDetails = commandObject.getJSONObject("params").getString("target");
                     callback.requestAppInfo(packageNameToGetDetails);
+                    break;
+
+                case "update_glasses_brightness":
+                    int brightnessLevel = commandObject.getJSONObject("params").getInt("brightness");
+                    callback.updateGlassesBrightness(brightnessLevel);
                     break;
 
                 default:

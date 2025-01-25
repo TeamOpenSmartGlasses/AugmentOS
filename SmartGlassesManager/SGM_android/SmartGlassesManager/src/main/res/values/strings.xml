@@ -23,6 +23,7 @@
     <string name="say_something">Say something!</string>
     <!-- Internal code use. -->
     <string name="SHARED_PREF_KEY">api_key</string>
+    <string name="SHARED_PREF_BRIGHTNESS">brightness</string>
     <string name="PREFERRED_WEARABLE">preferred_wearable</string>
     <string name="DEFAULT_COMMAND_SHARED_PREF_KEY">default_command_key</string>
     <string name="DEFAULT_COMMAND_SET_SHARED_PREF_KEY">default_command_set_key</string>

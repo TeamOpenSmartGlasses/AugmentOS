@@ -66,6 +66,7 @@ import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
 import com.teamopensmartglasses.augmentoslib.events.NotificationEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
 import com.teamopensmartglasses.convoscope.comms.AugmentOsActionsCallback;
 import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
 import com.teamopensmartglasses.convoscope.events.AugmentosSmartGlassesDisconnectedEvent;
@@ -261,6 +262,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private Integer brightnessLevel;
 
     private boolean showingDashboardNow = false;
+    private boolean contextualDashboardEnabled;
 
     public AugmentosService() {
     }
@@ -337,6 +339,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public ArrayList<String> notificationList = new ArrayList<String>();
     @Subscribe
     public void onDisplayGlassesDashboardEvent(DisplayGlassesDashboardEvent event) {
+        if (!contextualDashboardEnabled) {
+            return;
+        }
+
         // Get current time and date
         SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm", Locale.getDefault());
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd", Locale.getDefault());
@@ -418,6 +424,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void onBrightnessLevelEvent(BrightnessLevelEvent event) {
 //        Log.d(TAG, "BRIGHTNESS received");
         brightnessLevel = event.brightnessLevel;
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .edit()
+                .putString(this.getResources().getString(com.teamopensmartglasses.smartglassesmanager.R.string.SHARED_PREF_BRIGHTNESS), String.valueOf(brightnessLevel))
+                .apply();
         sendStatusToAugmentOsManager();
     }
 
@@ -454,6 +464,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         gsmStatusHelper = new GsmStatusHelper(this);
 
         notificationSystem = new NotificationSystem(this);
+
+        contextualDashboardEnabled = getContextualDashboardEnabled();
         //startNotificationService();
 
         //what is the preferred wearable?
@@ -2550,6 +2562,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             status.put("puck_battery_life", batteryStatusHelper.getBatteryLevel());
             status.put("charging_status", batteryStatusHelper.isBatteryCharging());
             status.put("sensing_enabled", SpeechRecSwitchSystem.sensing_enabled);
+            status.put("contextual_dashboard_enabled", this.contextualDashboardEnabled);
             status.put("default_wearable", AugmentosSmartGlassesService.getPreferredWearable(this));
             Log.d(TAG, "PREFER - Got default wearabe: " + AugmentosSmartGlassesService.getPreferredWearable(this));
 
@@ -2734,7 +2747,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Override
-    public void setSensingEnabled(boolean sensingEnabled){
+    public void setSensingEnabled(boolean sensingEnabled) {
         if (smartGlassesService != null) {
             EventBus.getDefault().post(new SetSensingEnabledEvent(sensingEnabled));
         } else {
@@ -2745,6 +2758,23 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         props.put("sensing_enabled", sensingEnabled);
         props.put("timestamp", System.currentTimeMillis());
         postHog.capture(userId, "set_sensing_enabled", props);
+    }
+
+    @Override
+    public void setContextualDashboardEnabled(boolean contextualDashboardEnabled) {
+        saveContextualDashboardEnabled(contextualDashboardEnabled);
+        this.contextualDashboardEnabled = contextualDashboardEnabled;
+    }
+
+    public boolean getContextualDashboardEnabled() {
+        return this.getSharedPreferences("AugmentOSPrefs", Context.MODE_PRIVATE).getBoolean("contextual_dashboard_enabled", true);
+    }
+
+    public void saveContextualDashboardEnabled(boolean enabled) {
+        SharedPreferences sharedPreferences = this.getSharedPreferences("AugmentOSPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("contextual_dashboard_enabled", enabled);
+        editor.apply();
     }
 
     @Override
@@ -2903,6 +2933,19 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             }
         } catch (JSONException e) {
             Log.d(TAG, "JSONException occurred while handling notification data: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void updateGlassesBrightness(int brightness) {
+        Log.d("AugmentOsService", "Updating glasses brightness: " + brightness);
+        if (smartGlassesService != null) {
+            String title = "Brightness Adjustment";
+            String body = "Updating glasses brightness to " + brightness + "%.";
+            smartGlassesService.windowManager.showAppLayer("system", () -> SmartGlassesAndroidService.sendReferenceCard(title, body), 6);
+            smartGlassesService.updateGlassesBrightness(brightness);
+        } else {
+            blePeripheral.sendNotifyManager("Connect glasses to update brightness", "error");
         }
     }
 
