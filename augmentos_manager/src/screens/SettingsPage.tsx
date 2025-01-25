@@ -38,6 +38,9 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   const [isSensingEnabled, setIsSensingEnabled] = React.useState(
     status.sensing_enabled,
   );
+  const [isContextualDashboardEnabled, setIsContextualDashboardEnabled] = React.useState(
+    status.contextual_dashboard_enabled,
+  );
   const [brightness, setBrightness] = useState(
     status.glasses_info && status.glasses_info.brightness
       ? parseInt(status.glasses_info.brightness.replace('%', ''), 10)
@@ -50,17 +53,24 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     loadInitialSettings();
   }, []);
 
+  const toggleSensing = async () => {
+    let newSensing = !isSensingEnabled;
+    await BluetoothService.getInstance().sendToggleSensing(newSensing);
+    setIsSensingEnabled(newSensing);
+  };
+
+  const toggleContextualDashboard = async () => {
+    let newContextualDashboardSetting = !isContextualDashboardEnabled;
+    await BluetoothService.getInstance().sendToggleContextualDashboard(newContextualDashboardSetting);
+    setIsContextualDashboardEnabled(newContextualDashboardSetting);
+  };
+
   const changeBrightness = async (newBrightness: number) => {
     await BluetoothService.getInstance().setGlassesBrightnessMode(newBrightness, false);
 
     console.log(`Brightness set to: ${newBrightness}`);
   };
 
-  const toggleSensing = async () => {
-    let newSensing = !isSensingEnabled;
-    await BluetoothService.getInstance().sendToggleSensing(newSensing);
-    setIsSensingEnabled(newSensing);
-  };
 
   React.useEffect(() => {
     setIsSensingEnabled(status.sensing_enabled);
@@ -182,7 +192,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
       </View>
       {/* Margin bottom is 60 as super quick ugly hack for navbar */}
       <ScrollView style={styles.scrollViewContainer}>
-
         {/* Dark Mode */}
         {/* <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
@@ -264,7 +273,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
           </TouchableOpacity>
         )} */}
 
-
         <TouchableOpacity
           style={styles.settingItem}
           onPress={() => {
@@ -282,9 +290,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
           <Icon
             name="angle-right"
             size={20}
-            color={
-              isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color
-            }
+            color={isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color}
           />
         </TouchableOpacity>
 
@@ -294,7 +300,8 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               style={[
                 styles.label,
                 isDarkTheme ? styles.lightText : styles.darkText,
-                (!status.puck_connected || !status.glasses_info?.model_name) && styles.disabledItem,
+                (!status.puck_connected || !status.glasses_info?.model_name) &&
+                  styles.disabledItem,
               ]}>
               Sensing
             </Text>
@@ -302,7 +309,8 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               style={[
                 styles.value,
                 isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-                (!status.puck_connected || !status.glasses_info?.model_name) && styles.disabledItem,
+                (!status.puck_connected || !status.glasses_info?.model_name) &&
+                  styles.disabledItem,
               ]}>
               Enable microphones & cameras
             </Text>
@@ -316,6 +324,46 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
             ios_backgroundColor={switchColors.ios_backgroundColor}
           />
         </View>
+        <View style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+              <Text
+                style={[
+                  styles.label,
+                  isDarkTheme ? styles.lightText : styles.darkText,
+                  (!status.puck_connected || !status.glasses_info?.model_name) &&
+                    styles.disabledItem,
+                ]}
+              >
+                Contextual Dashboard
+              </Text>
+              {status.glasses_info?.model_name && (
+                <Text
+                  style={[
+                    styles.value,
+                    isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
+                    (!status.puck_connected || !status.glasses_info?.model_name) &&
+                      styles.disabledItem,
+                  ]}
+                >
+                  {/* TODO: Make this less bespoke */}
+                  {`Show the summary of your phone notifications when you ${
+                    status.glasses_info?.model_name.toLowerCase().includes('even')
+                      ? 'look up'
+                      : 'tap your smart glasses'
+                  }`}
+                </Text>
+              )}
+          </View>
+          <Switch
+            disabled={!status.glasses_info?.model_name}
+            value={isContextualDashboardEnabled}
+            onValueChange={toggleContextualDashboard}
+            trackColor={switchColors.trackColor}
+            thumbColor={switchColors.thumbColor}
+            ios_backgroundColor={switchColors.ios_backgroundColor}
+          />
+        </View>
+
         {/* Brightness Slider */}
         <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
@@ -323,7 +371,8 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               style={[
                 styles.label,
                 isDarkTheme ? styles.lightText : styles.darkText,
-                (!status.puck_connected || !status.glasses_info?.model_name) && styles.disabledItem,
+                (!status.puck_connected || !status.glasses_info?.model_name) &&
+                  styles.disabledItem,
               ]}>
               Brightness
             </Text>
@@ -331,23 +380,24 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               style={[
                 styles.value,
                 isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-                (!status.puck_connected || !status.glasses_info?.model_name) && styles.disabledItem,
+                (!status.puck_connected || !status.glasses_info?.model_name) &&
+                  styles.disabledItem,
               ]}>
               Adjust the brightness level of your smart glasses
             </Text>
+            <Slider
+              disabled={!status.glasses_info?.model_name}
+              style={styles.slider}
+              minimumValue={0}
+              maximumValue={100}
+              step={1}
+              onSlidingComplete={value => changeBrightness(value)}
+              value={brightness}
+              minimumTrackTintColor="#2196F3"
+              maximumTrackTintColor={isDarkTheme ? '#666666' : '#D1D1D6'}
+              thumbTintColor="#FFFFFF"
+            />
           </View>
-          <Slider
-            disabled={!status.glasses_info?.model_name}
-            style={{ width: 160, height: 40 }}
-            minimumValue={0}
-            maximumValue={100}
-            step={1}
-            onSlidingComplete={(value) => changeBrightness(value)}
-            value={brightness}
-            minimumTrackTintColor={isDarkTheme ? '#2196F3' : '#2196F3'}
-            maximumTrackTintColor={isDarkTheme ? '#666666' : '#D1D1D6'}
-            thumbTintColor={isDarkTheme ? '#FFFFFF' : '#FFFFFF'}
-          />
         </View>
 
         <TouchableOpacity
@@ -361,7 +411,8 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               style={[
                 styles.label,
                 styles.redText,
-                (!status.puck_connected || status.default_wearable === '') && styles.disabledItem
+                (!status.puck_connected || status.default_wearable === '') &&
+                  styles.disabledItem,
               ]}>
               Forget Glasses
             </Text>
@@ -378,7 +429,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               style={[
                 styles.label,
                 styles.redText,
-               // (!status.puck_connected || status.default_wearable === "") && styles.disabledItem
+                // (!status.puck_connected || status.default_wearable === "") && styles.disabledItem
               ]}>
               Sign Out
             </Text>
@@ -579,10 +630,14 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   disabledItem: {
-    opacity: 0.4,       // or any other styling to indicate disabled
+    opacity: 0.4,
   },
   disabledText: {
-    color: '#aaaaaa',   // for example, a grey color
+    color: '#aaaaaa',
+  },
+  slider: {
+    width: '100%',
+    height: 50,
   },
 });
 

@@ -37,6 +37,7 @@ export interface AugmentOSMainStatus {
   puck_charging_status: boolean;
   default_wearable: string | null,
   sensing_enabled: boolean;
+  contextual_dashboard_enabled: boolean;
   glasses_info: Glasses | null;
   wifi: WifiConnection | null;
   gsm: GSMConnection | null;
@@ -160,6 +161,7 @@ export class AugmentOSParser {
         puck_battery_life: status.puck_battery_life ?? null,
         puck_charging_status: status.charging_status ?? false,
         sensing_enabled: status.sensing_enabled ?? false,
+        contextual_dashboard_enabled: status.contextual_dashboard_enabled ?? true,
         default_wearable: status.default_wearable ?? null,
         glasses_info: status.connected_glasses
           ? {
