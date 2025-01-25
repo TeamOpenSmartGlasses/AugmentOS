@@ -37,6 +37,7 @@ export interface AugmentOSMainStatus {
   puck_charging_status: boolean;
   default_wearable: string | null,
   sensing_enabled: boolean;
+  contextual_dashboard_enabled: boolean;
   glasses_info: Glasses | null;
   wifi: WifiConnection | null;
   gsm: GSMConnection | null;
@@ -169,12 +170,14 @@ export class AugmentOSParser {
     if (data && 'status' in data) {
       console.log('data good?');
       let status = data.status;
+      console.log('432432432' , status.connected_glasses.brightness);
 
       return {
         puck_connected: true,
         puck_battery_life: status.puck_battery_life ?? null,
         puck_charging_status: status.charging_status ?? false,
         sensing_enabled: status.sensing_enabled ?? false,
+        contextual_dashboard_enabled: status.contextual_dashboard_enabled ?? true,
         default_wearable: status.default_wearable ?? null,
         glasses_info: status.connected_glasses
           ? {
@@ -194,7 +197,7 @@ export class AugmentOSParser {
           packageName: app.packageName || 'unknown.package',
           version: app.version || '1.0.0',
           icon: app.icon || '/assets/icons/default-app.png',
-          type: app.type || 'APP'
+          type: app.type || 'APP',
         })) || [],
       };
     }

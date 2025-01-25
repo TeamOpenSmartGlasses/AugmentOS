@@ -615,6 +615,12 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         connectedCheckerHandler.post(connectedCheckerTask); // Start connected checker
     }
 
+    public void updateGlassesBrightness(int brightness) {
+        if (smartGlassesRepresentative != null) {
+            smartGlassesRepresentative.updateGlassesBrightness(brightness);
+        }
+    }
+
     public void showNoGoogleAsrDialog(){
         new android.app.AlertDialog.Builder(getApplicationContext()).setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("No Google API Key Provided")

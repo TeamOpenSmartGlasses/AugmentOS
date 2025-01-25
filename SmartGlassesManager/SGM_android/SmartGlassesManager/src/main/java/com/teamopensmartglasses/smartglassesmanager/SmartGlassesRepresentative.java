@@ -129,6 +129,11 @@ class SmartGlassesRepresentative {
         }
     }
 
+    public void updateGlassesBrightness(int brightness) {
+        if (smartGlassesCommunicator != null) {
+            smartGlassesCommunicator.updateGlassesBrightness(brightness);
+        }
+    }
 
     @Subscribe
     public void onDisableBleScoEvent(DisableBleScoAudioEvent receivedEvent) {

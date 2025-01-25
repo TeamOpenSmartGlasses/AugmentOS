@@ -872,13 +872,34 @@ export class BluetoothService extends EventEmitter {
     });
   }
 
+  async sendToggleContextualDashboard(enabled: boolean) {
+    console.log('sendToggleContextualDashboard');
+    return await this.sendDataToAugmentOs({
+      command: 'enable_contextual_dashboard',
+      params: {
+        enabled: enabled,
+      },
+    });
+  }
+
+  async setGlassesBrightnessMode(brightness: number, autoLight: boolean) {
+    console.log('setGlassesBrightnessMode');
+    return await this.sendDataToAugmentOs({
+      command: 'update_glasses_brightness',
+      params: {
+        brightness: brightness,
+        autoLight: autoLight,
+      },
+    });
+  }
+
   async startAppByPackageName(packageName: string) {
     console.log('startAppByPackageName');
     await this.sendDataToAugmentOs({
       command: 'start_app',
       params: {
         target: packageName,
-        repository: packageName
+        repository: packageName,
       },
     });
     await this.validateResponseFromCore();
