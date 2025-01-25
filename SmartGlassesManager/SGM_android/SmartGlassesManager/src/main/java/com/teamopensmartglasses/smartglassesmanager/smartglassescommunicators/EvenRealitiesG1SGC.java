@@ -1575,12 +1575,13 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final int DISPLAY_USE_WIDTH = 340;  // How much of the display to use
     private static final int FONT_SIZE = 21;      // Font size
     private static final float FONT_DIVIDER = 2.0f;
-    private static final int LINES_PER_SCREEN = 7; // Lines per screen
+    private static final int LINES_PER_SCREEN = 5; // Lines per screen
     private static final int MAX_CHUNK_SIZE = 176; // Maximum chunk size for BLE packets
 //    private static final int INDENT_SPACES = 32;    // Number of spaces to indent text
 
     private int textSeqNum = 0; // Sequence number for text packets
 
+    //currently only a single page - 1PAGE CHANGE
     private List<byte[]> createTextWallChunks(String text) {
         // Split text into lines based on display width and font size
         List<String> lines = splitIntoLines(text);
@@ -1594,7 +1595,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 .collect(Collectors.toList());
 
         // Calculate total pages
-        int totalPages = (int) Math.ceil((double) lines.size() / LINES_PER_SCREEN);
+//        int totalPages = (int) Math.ceil((double) lines.size() / LINES_PER_SCREEN);
+        int totalPages = 1; //hard set to 1 since we only do 1 page - 1PAGECHANGE
+
         List<byte[]> allChunks = new ArrayList<>();
 
         // Process each page
@@ -1645,7 +1648,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
             // Increment sequence number for next page
             textSeqNum = (textSeqNum + 1) % 256;
-            break;
+            break; //hard set to 1  - 1PAGECHANGE
         }
 
 //        Log.d(TAG, "TOTAL PAGES: " + totalPages);

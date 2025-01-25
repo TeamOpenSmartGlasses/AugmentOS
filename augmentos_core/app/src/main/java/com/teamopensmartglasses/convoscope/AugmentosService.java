@@ -62,6 +62,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
 import com.posthog.java.PostHog;
 import com.teamopensmartglasses.augmentoslib.DataStreamType;
+import com.teamopensmartglasses.augmentoslib.PhoneNotification;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
 import com.teamopensmartglasses.augmentoslib.events.NotificationEvent;
@@ -110,7 +111,9 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -362,35 +365,26 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 //            dashboard.append("│ BLE       │ ON\n");
 
         boolean recentNotificationFound = false;
-        try {
-            JSONArray notifications = notificationSystem.getNotificationQueue();
-            JSONObject mostRecentNotification = null;
-            LocalDateTime mostRecentTime = null;
-            LocalDateTime now = LocalDateTime.now();
+        ArrayList<PhoneNotification> notifications = notificationSystem.getNotificationQueue();
+        PhoneNotification mostRecentNotification = null;
+        long mostRecentTime = 0;
+        long now = System.currentTimeMillis();
 
-            for (int i = 0; i < notifications.length(); i++) {
-                JSONObject notification = notifications.getJSONObject(i);
-                String timestampStr = notification.getString("timestamp");
-                LocalDateTime notificationTime = LocalDateTime.parse(timestampStr, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-
-                // Check if the notification is less than 5 seconds old
-                if (notificationTime.plusSeconds(5).isAfter(now)) {
-                    if (mostRecentTime == null || notificationTime.isAfter(mostRecentTime)) {
-                        mostRecentTime = notificationTime;
-                        mostRecentNotification = notification;
-                    }
+        for (PhoneNotification notification : notifications) {
+            long notificationTime = notification.getTimestamp();
+            if ((notificationTime + 5000) > now) {  // 5 seconds in milliseconds
+                if (mostRecentTime == 0 || notificationTime > mostRecentTime) {
+                    mostRecentTime = notificationTime;
+                    mostRecentNotification = notification;
                 }
             }
+        }
 
-            if (mostRecentNotification != null) {
-                // Display the most recent notification directly
-                String title = mostRecentNotification.getString("title");
-                String text = mostRecentNotification.getString("text");
-                dashboard.append(String.format("│ %s - %s\n", title, text));
-                recentNotificationFound = true;
-            }
-        } catch (JSONException e) {
-            Log.e(TAG, "Error while parsing notifications: " + e.getMessage());
+        if (mostRecentNotification != null) {
+            dashboard.append(String.format("│ %s - %s\n",
+                    mostRecentNotification.getTitle(),
+                    mostRecentNotification.getText()));
+            recentNotificationFound = true;
         }
 
         // If no recent notification was found, display from the list
@@ -2881,24 +2875,13 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void handleNotificationData(JSONObject notificationData){
         try {
             if (notificationData != null) {
-                String jsonString = notificationData.toString();
-                System.out.println("Notification Data: " + jsonString);
-
                 String appName = notificationData.getString("appName");
                 String title = notificationData.getString("title");
                 String text = notificationData.getString("text");
+                long timestamp = notificationData.getLong("timestamp");
+                String id = notificationData.getString("id");
 
-                //TODO: Also pull navigation data from this?
-
-                EventBus.getDefault().post(new NotificationEvent(notificationData));
-
-//                String formattedNotification = String.format("[%s]: %s", title, text);
-//                notificationList.add(formattedNotification);
-
-                // Keep only the last 10 notifications
-//                if (notificationList.size() > 10) {
-//                    notificationList.remove(0);
-//                }
+                EventBus.getDefault().post(new NotificationEvent(title, text, appName, timestamp, id));
             } else {
                 System.out.println("Notification Data is null");
             }
