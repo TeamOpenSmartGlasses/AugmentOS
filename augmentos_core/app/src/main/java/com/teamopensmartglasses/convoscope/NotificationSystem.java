@@ -36,7 +36,7 @@ public class NotificationSystem {
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onNotificationEvent(NotificationEvent event) {
-        PhoneNotification notif = new PhoneNotification(event.title, event.text, event.appName, event.timestamp, event.id);
+        PhoneNotification notif = new PhoneNotification(event.title, event.text, event.appName, event.timestamp, event.uuid);
         Log.d(TAG, "Received event: " + notif.toString());
         addNotification(notif);
     }
@@ -72,7 +72,7 @@ public class NotificationSystem {
                 notifJson.put("message", notif.getText());
                 notifJson.put("appName", notif.getAppName());
                 notifJson.put("timestamp", notif.getTimestamp());
-                notifJson.put("id", notif.getId());
+                notifJson.put("uuid", notif.getUuid());
                 notificationsArray.put(notifJson);
             }
             requestWrapper.put("notifications", notificationsArray);

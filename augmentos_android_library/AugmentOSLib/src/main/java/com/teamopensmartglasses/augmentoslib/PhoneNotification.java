@@ -6,14 +6,14 @@ public class PhoneNotification {
     private String message;
     private String appName;
     private long timestamp;
-    private String id;
+    private String uuid;
 
-    public PhoneNotification(String title, String message, String appName, long timestamp, String id) {
+    public PhoneNotification(String title, String message, String appName, long timestamp, String uuid) {
         this.title = title;
         this.message = message;
         this.appName = appName;
         this.timestamp = timestamp;
-        this.id = id;
+        this.uuid = uuid;
     }
 
     public String getTitle() {
@@ -32,17 +32,17 @@ public class PhoneNotification {
         return timestamp;
     }
 
-    public String getId() {
-        return id;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     @Override
     public String toString() {
-        return String.format("Notification{title='%s', text='%s', appName='%s', uuid='%s'}",
-                title, message, appName, id);
+        return String.format("Notification{title='%s', text='%s', appName='%s', uuuuid='%s'}",
+                title, message, appName, uuid);
     }
 }

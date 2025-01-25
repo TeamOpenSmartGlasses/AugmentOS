@@ -154,7 +154,7 @@ public class NotificationService extends NotificationListenerService {
             obj.put("title", title);
             obj.put("text", text);
             obj.put("timestamp", System.currentTimeMillis());
-            obj.put("id", UUID.randomUUID().toString());
+            obj.put("uuid", UUID.randomUUID().toString());
 
             NotificationServiceModule notificationUtils = new NotificationServiceModule(reactContext);
             notificationUtils.onNotificationPosted(obj.toString());
