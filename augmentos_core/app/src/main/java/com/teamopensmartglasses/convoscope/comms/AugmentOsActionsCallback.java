@@ -13,6 +13,7 @@ public interface AugmentOsActionsCallback {
     void startApp(String packageName);
     void stopApp(String packageName);
     void setSensingEnabled(boolean sensingEnabled);
+    void setContextualDashboardEnabled(boolean contextualDashboardEnabled);
     void installAppFromRepository(String repository, String packageName) throws JSONException;
     void uninstallApp(String packageName);
     void handleNotificationData(JSONObject notificationData);
@@ -21,4 +22,5 @@ public interface AugmentOsActionsCallback {
     void deleteAuthSecretKey();
     void updateAppSettings(String targetApp, JSONObject settings);
     void requestAppInfo(String packageNameToGetDetails);
+    void updateGlassesBrightness(int brightness);
 }

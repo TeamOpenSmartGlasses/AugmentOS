@@ -61,7 +61,8 @@ export class BluetoothService extends EventEmitter {
     this.simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, SIMULATED_PUCK_DEFAULT);
 
     if (this.simulatedPuck) {
-      ManagerCoreCommsService.startService();
+      if (!(await ManagerCoreCommsService.isServiceRunning()))
+        ManagerCoreCommsService.startService();
       startExternalService();
       this.initializeCoreMessageIntentReader();
     } else {
@@ -84,6 +85,7 @@ export class BluetoothService extends EventEmitter {
 
     });
 
+    this.stopReconnectionScan();
     this.startReconnectionScan();
 
     this.appStateSubscription = AppState.addEventListener(
@@ -873,13 +875,34 @@ export class BluetoothService extends EventEmitter {
     });
   }
 
+  async sendToggleContextualDashboard(enabled: boolean) {
+    console.log('sendToggleContextualDashboard');
+    return await this.sendDataToAugmentOs({
+      command: 'enable_contextual_dashboard',
+      params: {
+        enabled: enabled,
+      },
+    });
+  }
+
+  async setGlassesBrightnessMode(brightness: number, autoLight: boolean) {
+    console.log('setGlassesBrightnessMode');
+    return await this.sendDataToAugmentOs({
+      command: 'update_glasses_brightness',
+      params: {
+        brightness: brightness,
+        autoLight: autoLight,
+      },
+    });
+  }
+
   async startAppByPackageName(packageName: string) {
     console.log('startAppByPackageName');
     await this.sendDataToAugmentOs({
       command: 'start_app',
       params: {
         target: packageName,
-        repository: packageName
+        repository: packageName,
       },
     });
     await this.validateResponseFromCore();
@@ -970,10 +993,11 @@ export class BluetoothService extends EventEmitter {
   }
 
   private static bluetoothService: BluetoothService | null = null;
-  public static getInstance(): BluetoothService {
+  public static getInstance(start: boolean = true): BluetoothService {
     if (!BluetoothService.bluetoothService) {
       BluetoothService.bluetoothService = new BluetoothService();
-      BluetoothService.bluetoothService.initialize();
+      if (start)
+        BluetoothService.bluetoothService.initialize();
     }
     return BluetoothService.bluetoothService;
   }
