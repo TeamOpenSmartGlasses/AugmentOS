@@ -62,7 +62,7 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
         windowManager = new WindowManagerWithTimeouts(
                 19, // globalTimeoutSeconds
                 () -> {
-                    sendTextWall(" ");
+                    sendHomeScreen();
                 } // what to do when globally timed out
         );
 
