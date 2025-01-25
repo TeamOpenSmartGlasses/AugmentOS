@@ -317,7 +317,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Subscribe
     public void onGlassesHeadDownEvent(GlassesHeadDownEvent event){
-        smartGlassesService.windowManager.hideDashboard();
+        if (smartGlassesService != null)
+            smartGlassesService.windowManager.hideDashboard();
     }
 
 
