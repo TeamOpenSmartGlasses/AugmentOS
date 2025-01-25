@@ -2910,9 +2910,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 String title = notificationData.getString("title");
                 String text = notificationData.getString("text");
                 long timestamp = notificationData.getLong("timestamp");
-                String id = notificationData.getString("id");
+                String uuid = notificationData.getString("uuid");
 
-                EventBus.getDefault().post(new NotificationEvent(title, text, appName, timestamp, id));
+                EventBus.getDefault().post(new NotificationEvent(title, text, appName, timestamp, uuid));
             } else {
                 System.out.println("Notification Data is null");
             }

@@ -831,7 +831,7 @@ export class BluetoothService extends EventEmitter {
     });
   }
 
-  async sendPhoneNotification(appName: string = "", title: string = "", text: string = "", timestamp: number = -1, id: string = "") {
+  async sendPhoneNotification(appName: string = "", title: string = "", text: string = "", timestamp: number = -1, uuid: string = "") {
     console.log('sendPhoneNotification');
     return await this.sendDataToAugmentOs({
       command: 'phone_notification',
@@ -840,7 +840,7 @@ export class BluetoothService extends EventEmitter {
         title: title,
         text: text,
         timestamp: timestamp,
-        id: id
+        uuid: uuid
       }
     });
   }

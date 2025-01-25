@@ -10,14 +10,14 @@ public class NotificationEvent implements Serializable {
     public String text;
     public String appName;
     public long timestamp;
-    public String id;
+    public String uuid;
     public static final String eventId = "notificationEvent";
 
-    public NotificationEvent(String title, String text, String appName, long timestamp, String id) {
+    public NotificationEvent(String title, String text, String appName, long timestamp, String uuid) {
         this.title = title;
         this.text = text;
         this.appName = appName;
         this.timestamp = timestamp;
-        this.id = id;
+        this.uuid = uuid;
     }
 }
