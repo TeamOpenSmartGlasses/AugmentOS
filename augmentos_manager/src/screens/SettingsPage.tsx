@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Slider from '@react-native-community/slider'; // Added Slider import
 import { useStatus } from '../AugmentOSStatusProvider';
 import { BluetoothService } from '../BluetoothService';
 import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
@@ -37,6 +38,11 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   const [isSensingEnabled, setIsSensingEnabled] = React.useState(
     status.sensing_enabled,
   );
+  const [brightness, setBrightness] = useState(
+    status.glasses_info && status.glasses_info.brightness
+      ? parseInt(status.glasses_info.brightness.replace('%', ''), 10)
+      : 50
+  );
 
   React.useEffect(() => {
     const loadInitialSettings = async () => { };
@@ -44,9 +50,26 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     loadInitialSettings();
   }, []);
 
+  const changeBrightness = async (newBrightness: number) => {
+    await BluetoothService.getInstance().setGlassesBrightnessMode(newBrightness, false);
+
+    console.log(`Brightness set to: ${newBrightness}`);
+  };
+
+  const toggleSensing = async () => {
+    let newSensing = !isSensingEnabled;
+    await BluetoothService.getInstance().sendToggleSensing(newSensing);
+    setIsSensingEnabled(newSensing);
+  };
+
   React.useEffect(() => {
     setIsSensingEnabled(status.sensing_enabled);
-  }, [status])
+    if (status.glasses_info && status.glasses_info.brightness) {
+        setBrightness(parseInt(status.glasses_info.brightness.replace('%', ''), 10));
+    } else {
+        console.log('No brightness info found');
+    }
+  }, [status]);
 
   const switchColors = {
     trackColor: {
@@ -56,12 +79,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     thumbColor:
       Platform.OS === 'ios' ? undefined : isDarkTheme ? '#FFFFFF' : '#FFFFFF',
     ios_backgroundColor: isDarkTheme ? '#666666' : '#D1D1D6',
-  };
-
-  const toggleSensing = async () => {
-    let newSensing = !isSensingEnabled;
-    BluetoothService.getInstance().sendToggleSensing(newSensing);
-    setIsSensingEnabled(newSensing);
   };
 
   const sendDisconnectWearable = async () => {
@@ -105,7 +122,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
         routes: [{ name: 'SplashScreen' }],
       });
     }
-  }
+  };
 
   const confirmSignOut = () => {
     Alert.alert(
@@ -165,7 +182,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
       </View>
       {/* Margin bottom is 60 as super quick ugly hack for navbar */}
       <ScrollView style={styles.scrollViewContainer}>
-        
+
         {/* Dark Mode */}
         {/* <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
@@ -277,7 +294,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               style={[
                 styles.label,
                 isDarkTheme ? styles.lightText : styles.darkText,
-                (!status.puck_connected || !status.glasses_info?.model_name) && styles.disabledItem
+                (!status.puck_connected || !status.glasses_info?.model_name) && styles.disabledItem,
               ]}>
               Sensing
             </Text>
@@ -285,7 +302,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               style={[
                 styles.value,
                 isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-                (!status.puck_connected || !status.glasses_info?.model_name) && styles.disabledItem
+                (!status.puck_connected || !status.glasses_info?.model_name) && styles.disabledItem,
               ]}>
               Enable microphones & cameras
             </Text>
@@ -299,10 +316,43 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
             ios_backgroundColor={switchColors.ios_backgroundColor}
           />
         </View>
+        {/* Brightness Slider */}
+        <View style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text
+              style={[
+                styles.label,
+                isDarkTheme ? styles.lightText : styles.darkText,
+                (!status.puck_connected || !status.glasses_info?.model_name) && styles.disabledItem,
+              ]}>
+              Brightness
+            </Text>
+            <Text
+              style={[
+                styles.value,
+                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
+                (!status.puck_connected || !status.glasses_info?.model_name) && styles.disabledItem,
+              ]}>
+              Adjust the brightness level of your smart glasses
+            </Text>
+          </View>
+          <Slider
+            disabled={!status.glasses_info?.model_name}
+            style={{ width: 160, height: 40 }}
+            minimumValue={0}
+            maximumValue={100}
+            step={1}
+            onSlidingComplete={(value) => changeBrightness(value)}
+            value={brightness}
+            minimumTrackTintColor={isDarkTheme ? '#2196F3' : '#2196F3'}
+            maximumTrackTintColor={isDarkTheme ? '#666666' : '#D1D1D6'}
+            thumbTintColor={isDarkTheme ? '#FFFFFF' : '#FFFFFF'}
+          />
+        </View>
 
         <TouchableOpacity
           style={styles.settingItem}
-          disabled={!status.puck_connected || status.default_wearable == ""}
+          disabled={!status.puck_connected || status.default_wearable === ''}
           onPress={() => {
             confirmForgetGlasses();
           }}>
@@ -311,7 +361,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               style={[
                 styles.label,
                 styles.redText,
-                (!status.puck_connected || status.default_wearable === "") && styles.disabledItem
+                (!status.puck_connected || status.default_wearable === '') && styles.disabledItem
               ]}>
               Forget Glasses
             </Text>

@@ -418,6 +418,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void onBrightnessLevelEvent(BrightnessLevelEvent event) {
 //        Log.d(TAG, "BRIGHTNESS received");
         brightnessLevel = event.brightnessLevel;
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .edit()
+                .putString(this.getResources().getString(com.teamopensmartglasses.smartglassesmanager.R.string.SHARED_PREF_BRIGHTNESS), String.valueOf(brightnessLevel))
+                .apply();
         sendStatusToAugmentOsManager();
     }
 
@@ -2903,6 +2907,16 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             }
         } catch (JSONException e) {
             Log.d(TAG, "JSONException occurred while handling notification data: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void updateGlassesBrightness(int brightness) {
+        Log.d("AugmentOsService", "Updating glasses brightness: " + brightness);
+        if (smartGlassesService != null) {
+            smartGlassesService.updateGlassesBrightness(brightness);
+        } else {
+            blePeripheral.sendNotifyManager("Connect glasses to update brightness", "error");
         }
     }
 

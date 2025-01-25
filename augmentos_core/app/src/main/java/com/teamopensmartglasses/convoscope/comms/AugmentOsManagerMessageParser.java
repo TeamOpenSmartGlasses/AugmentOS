@@ -102,6 +102,11 @@ public class AugmentOsManagerMessageParser {
                     callback.requestAppInfo(packageNameToGetDetails);
                     break;
 
+                case "update_glasses_brightness":
+                    int brightnessLevel = commandObject.getJSONObject("params").getInt("brightness");
+                    callback.updateGlassesBrightness(brightnessLevel);
+                    break;
+
                 default:
                     Log.w(TAG, "Unknown command: " + command);
             }

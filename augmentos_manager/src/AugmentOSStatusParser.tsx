@@ -4,7 +4,7 @@ interface Glasses {
   model_name: string;
   battery_life: number;
   is_searching: boolean;
-  brightness: number | null; // 0-100
+  brightness: string | null; // 0-100
 }
 
 interface WifiConnection {
@@ -153,6 +153,7 @@ export class AugmentOSParser {
     if (data && 'status' in data) {
       console.log('data good?');
       let status = data.status;
+      console.log('432432432' , status.connected_glasses.brightness);
 
       return {
         puck_connected: true,
@@ -178,7 +179,7 @@ export class AugmentOSParser {
           packageName: app.packageName || 'unknown.package',
           version: app.version || '1.0.0',
           icon: app.icon || '/assets/icons/default-app.png',
-          type: app.type || 'APP'
+          type: app.type || 'APP',
         })) || [],
       };
     }
