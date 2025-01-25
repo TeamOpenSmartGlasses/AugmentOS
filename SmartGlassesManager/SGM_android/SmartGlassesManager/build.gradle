@@ -159,6 +159,8 @@ dependencies {
     //Azure ASR
     implementation "com.microsoft.cognitiveservices.speech:client-sdk:1.42.0"
 
+    implementation 'io.github.cdimascio:dotenv-java:3.0.0'
+
     implementation project(path: ':AugmentOSLib')
 }
 

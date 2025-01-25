@@ -58,7 +58,10 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="com.augmentos.augmentos_manager" android:host="verify_email" />
+        <data
+            android:scheme="https"
+            android:host="augmentos.org"
+            android:pathPrefix="/verify_email" />
             </intent-filter>
 
         </activity>

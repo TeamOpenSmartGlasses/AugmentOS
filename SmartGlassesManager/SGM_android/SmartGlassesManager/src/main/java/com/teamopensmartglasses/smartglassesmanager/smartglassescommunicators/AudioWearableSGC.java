@@ -41,9 +41,20 @@ public class AudioWearableSGC extends SmartGlassesCommunicator {
 
     }
 
-    public void destroy(){
+    @Override
+    public void destroy() {
+        // Reset killme flag and connection state
         killme = true;
+        mConnectState = 0;
+
+        // Clear references to avoid memory leaks
+        this.context = null;
+        this.smartGlassesDevice = null;
+
+        // Log the destruction
+        Log.d(TAG, "AudioWearableSGC destroyed successfully.");
     }
+
 
     public void displayReferenceCardSimple(String title, String body){
         Log.d(TAG, "TTS reference card");
@@ -107,6 +118,7 @@ public class AudioWearableSGC extends SmartGlassesCommunicator {
     @Override
     public void findCompatibleDeviceNames() {
         EventBus.getDefault().post(new GlassesBluetoothSearchDiscoverEvent(smartGlassesDevice.deviceModelName, "NOTREQUIREDSKIP"));
+        this.destroy();
     }
 
     public void showNaturalLanguageCommandScreen(String prompt, String naturalLanguageArgs){

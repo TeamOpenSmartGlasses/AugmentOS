@@ -69,7 +69,7 @@ export class AugmentOSParser {
       //model_name: 'Vuzix Z100',
       battery_life: 60,
       is_searching: false,
-      brightness: 87,
+      brightness: "87%",
     },
     wifi: { is_connected: true, ssid: 'TP-LINK69', signal_strength: 100 },
     gsm: { is_connected: false, carrier: '', signal_strength: 0 },
@@ -79,6 +79,8 @@ export class AugmentOSParser {
         packageName: 'com.mentra.merge',
         icon: '/assets/app-icons/mentra-merge.png',
         description: 'AI executive functioning aid',
+        instructions: "",
+        version: "1.0.0",
         is_running: true,
         is_foreground: true,
         type: 'APP'
@@ -88,6 +90,8 @@ export class AugmentOSParser {
         packageName: 'com.mentra.livetranslation',
         icon: '/assets/app-icons/translation.png',
         description: 'Movie and TV streaming',
+        instructions: "",
+        version: "1.0.0",
         is_running: false,
         is_foreground: false,
         type: 'APP'
@@ -97,6 +101,8 @@ export class AugmentOSParser {
         packageName: 'com.mentra.navigation',
         icon: '/assets/app-icons/navigation.png',
         description: 'Navigation app',
+        instructions: "",
+        version: "1.0.0",
         is_running: false,
         is_foreground: false,
         type: 'APP'
@@ -106,6 +112,8 @@ export class AugmentOSParser {
         packageName: 'com.mentra.miraai',
         icon: '/assets/app-icons/mira-ai.png',
         description: 'AI assistant',
+        instructions: "",
+        version: "1.0.0",
         is_running: false,
         is_foreground: false,
         type: 'APP'
@@ -115,6 +123,8 @@ export class AugmentOSParser {
         packageName: 'com.mentra.screenmirror',
         icon: '/assets/app-icons/screen-mirror.png',
         description: 'Screen mirroring app',
+        instructions: "",
+        version: "1.0.0",
         is_running: false,
         is_foreground: false,
         type: 'APP'
@@ -124,6 +134,8 @@ export class AugmentOSParser {
         packageName: 'com.mentra.livecaptions',
         icon: '/assets/app-icons/captions.png',
         description: 'Live captioning app',
+        instructions: "",
+        version: "1.0.0",
         is_running: false,
         is_foreground: false,
         type: 'APP'
@@ -133,6 +145,8 @@ export class AugmentOSParser {
         packageName: 'com.mentra.adhdaid',
         icon: '/assets/app-icons/adhd-aid.png',
         description: 'ADHD aid app',
+        instructions: "",
+        version: "1.0.0",
         is_running: false,
         is_foreground: false,
         type: 'APP'
@@ -142,6 +156,8 @@ export class AugmentOSParser {
         packageName: 'com.mentra.link',
         icon: '/assets/app-icons/mentra-link.png',
         description: 'Language learning app',
+        instructions: "",
+        version: "1.0.0",
         is_running: false,
         is_foreground: false,
         type: 'APP'

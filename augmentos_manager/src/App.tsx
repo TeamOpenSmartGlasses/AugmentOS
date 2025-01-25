@@ -31,10 +31,10 @@ import { AuthProvider } from './AuthContext.tsx';
 import VerifyEmailScreen from './screens/VerifyEmail.tsx';
 
 const linking = {
-  prefixes: ['com.augmentos.augmentos_manager://'], // Match the scheme from your `intent-filter`
+  prefixes: ['https://augmentos.org'],
   config: {
     screens: {
-      VerifyEmailScreen: 'verify_email', // Map to your VerifyEmail screen
+      VerifyEmailScreen: 'verify_email',
       // Add other screens as needed
     },
   },

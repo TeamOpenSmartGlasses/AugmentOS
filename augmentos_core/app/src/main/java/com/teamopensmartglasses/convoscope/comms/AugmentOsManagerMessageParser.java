@@ -81,6 +81,7 @@ public class AugmentOsManagerMessageParser {
 
                 case "phone_notification":
                     JSONObject notificationData = commandObject.getJSONObject("params");
+                    Log.d(TAG, notificationData.toString());
                     callback.handleNotificationData(notificationData);
                     break;
 
