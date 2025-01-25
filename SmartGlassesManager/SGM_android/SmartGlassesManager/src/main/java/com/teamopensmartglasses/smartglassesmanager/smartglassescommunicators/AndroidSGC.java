@@ -523,20 +523,42 @@ public class AndroidSGC extends SmartGlassesCommunicator {
         Log.d(TAG, "Destroying AndroidSGC");
         killme = true;
 
-        //kill AudioSystem
-        audioSystem.destroy();
-
-        //kill asgWebSocket
-        asgWebSocket.destroy();
-
-        //stop sending heart beats
-        heart_beat_handler.removeCallbacksAndMessages(null);
-
-        //stop advertising broadcasting IP
-        if (adv_handler != null) {
-            adv_handler.removeCallbacksAndMessages(null);
+        // Destroy the audio system
+        if (audioSystem != null) {
+            audioSystem.destroy();
+            audioSystem = null;
         }
 
+        // Stop the WebSocket server
+        if (asgWebSocket != null) {
+            asgWebSocket.destroy();
+            asgWebSocket = null;
+        }
+
+        // Stop heartbeats
+        if (heart_beat_handler != null) {
+            heart_beat_handler.removeCallbacksAndMessages(null);
+            heart_beat_handler = null;
+        }
+
+        // Stop advertising broadcasting IP
+        if (adv_handler != null) {
+            adv_handler.removeCallbacksAndMessages(null);
+            adv_handler = null;
+        }
+
+        // Close and nullify the adv_socket
+        if (adv_socket != null && !adv_socket.isClosed()) {
+            adv_socket.close();
+            adv_socket = null;
+        }
+
+        // Dispose of the observable if applicable
+        if (dataObservable != null) {
+            dataObservable.onComplete();
+            dataObservable = null;
+        }
+        
         //stop sockets
         killSocket();
 
@@ -623,6 +645,7 @@ public class AndroidSGC extends SmartGlassesCommunicator {
     @Override
     public void findCompatibleDeviceNames() {
         EventBus.getDefault().post(new GlassesBluetoothSearchDiscoverEvent(smartGlassesDevice.deviceModelName,"NOTREQUIREDSKIP"));
+        this.destroy();
     }
 
     public void displayBulletList(String title, String [] bullets){

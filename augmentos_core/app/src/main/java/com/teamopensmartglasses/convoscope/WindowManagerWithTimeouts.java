@@ -106,13 +106,15 @@ public class WindowManagerWithTimeouts {
             globalTimedOut = true;
         }
 
-        // Check each layer’s linger
-        for (Layer layer : layers) {
+        // Use Iterator to safely remove elements while iterating
+        Iterator<Layer> iterator = layers.iterator();
+        while (iterator.hasNext()) {
+            Layer layer = iterator.next();
             if (layer.isVisible() && layer.getLingerTimeSeconds() > 0) {
                 long age = (now - layer.getLastUpdated()) / 1000L;
                 if (age >= layer.getLingerTimeSeconds()) {
                     layer.setVisible(false);
-                    layers.remove(layer);
+                    iterator.remove();  // Safe way to remove elements
                 }
             }
         }

@@ -76,6 +76,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
     SmartGlassesDevice smartGlassesDevice;
     private static final long TAP_DEBOUNCE_TIME = 300; // milliseconds
     private long lastTapTime = 0;
+    private int totalDashboardsIdk = 0;
 
     public class UltraliteListener implements EventListener{
         @Override
@@ -85,6 +86,8 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
                 Log.d(TAG, "Ignoring duplicate tap event");
                 return;
             }
+            totalDashboardsIdk++;
+            Log.d(TAG, "TOTAL NUMBER OF DASHBOARD TOGGLEZ: " + totalDashboardsIdk);
 
             lastTapTime = currentTime;
             Log.d(TAG, "Ultralite go tap n times: " + tapCount);
@@ -156,6 +159,11 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
 //        }
     }
 
+    @Override
+    public void updateGlassesBrightness(int brightness) {
+        // TODO: Implement this method
+    }
+
     private void onUltraliteConnectedChange(boolean isConnected) {
         Log.d(TAG, "Ultralite CONNECT changed to: " + isConnected);
         if (isConnected) {
@@ -200,6 +208,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
     @Override
     public void findCompatibleDeviceNames() {
         EventBus.getDefault().post(new GlassesBluetoothSearchDiscoverEvent(smartGlassesDevice.deviceModelName, "NOTREQUIREDSKIP"));
+        this.destroy();
     }
 
     @Override
@@ -382,21 +391,61 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
     }
 
     @Override
-    public void destroy(){
-       if (ultraliteSdk != null){
-//           displayReferenceCardSimple("Disconnecting...", "Disconnecting Smart Glasses from SGM");
-//
-//           //disconnect after slight delay, so our above text gets a chance to show up
-//           killHandler.postDelayed(new Runnable() {
-//               @Override
-//               public void run() {
-//                   ultraliteSdk.releaseControl();
-//               }
-//           }, 800);
-           ultraliteSdk.removeEventListener(ultraliteListener);
-           ultraliteSdk.releaseControl();
-       }
+    public void destroy() {
+        try {
+            if (ultraliteSdk != null) {
+                // Remove LiveData observers
+                LiveData<Boolean> ultraliteConnectedLive = ultraliteSdk.getConnected();
+                ultraliteConnectedLive.removeObservers(lifecycleOwner);
+
+                LiveData<Boolean> ultraliteControlled = ultraliteSdk.getControlledByMe();
+                ultraliteControlled.removeObservers(lifecycleOwner);
+
+                LiveData<BatteryStatus> batteryStatusObserver = ultraliteSdk.getBatteryStatus();
+                batteryStatusObserver.removeObservers(lifecycleOwner);
+
+                // Remove event listeners and release control
+                ultraliteSdk.removeEventListener(ultraliteListener);
+                ultraliteSdk.releaseControl();
+                ultraliteSdk = null; // Nullify reference
+            }
+
+            // Cancel all pending handlers and callbacks
+            if (goHomeHandler != null) {
+                goHomeHandler.removeCallbacksAndMessages(null);
+            }
+            if (screenOffHandler != null) {
+                screenOffHandler.removeCallbacksAndMessages(null);
+            }
+            if (killHandler != null) {
+                killHandler.removeCallbacksAndMessages(null);
+            }
+
+            // Clear canvas and other resources
+            if (ultraliteCanvas != null) {
+                ultraliteCanvas.clear();
+                ultraliteCanvas.commit();
+                ultraliteCanvas = null;
+            }
+
+            // Reset state variables
+            rowTextsLiveNow.clear();
+            screenToggleOff = false;
+            screenIsClear = true;
+            lastTapTime = 0;
+            totalDashboardsIdk = 0;
+            currentUltraliteLayout = null;
+
+            // Free up references
+            this.context = null;
+            this.lifecycleOwner = null;
+
+            Log.d(TAG, "UltraliteSGC destroyed successfully.");
+        } catch (Exception e) {
+            Log.e(TAG, "Error during destroy: ", e);
+        }
     }
+
 
     public void showHomeScreen(){
         ultraliteSdk.screenOff();

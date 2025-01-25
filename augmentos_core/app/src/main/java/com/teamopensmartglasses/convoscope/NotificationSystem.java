@@ -2,112 +2,87 @@ package com.teamopensmartglasses.convoscope;
 
 import static com.teamopensmartglasses.convoscope.Constants.SEND_NOTIFICATIONS_ENDPOINT;
 
+import android.content.Context;
 import android.util.Log;
 
+import com.teamopensmartglasses.augmentoslib.PhoneNotification;
 import com.teamopensmartglasses.augmentoslib.events.NotificationEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 
-import android.content.Context;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class NotificationSystem {
     private static final String TAG = "NotificationSystem";
 
-    // JSONArray to manage notifications
-    private final JSONArray notificationQueue;
+    private final ArrayList<PhoneNotification> notificationQueue;
     private BackendServerComms backendServerComms;
     private long lastDataSentTime = 0;
 
     public NotificationSystem(Context context) {
-        notificationQueue = new JSONArray();
+        notificationQueue = new ArrayList<>();
         backendServerComms = BackendServerComms.getInstance(context);
-        // Register as a subscriber to the EventBus
         EventBus.getDefault().register(this);
     }
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    public void onNotificationEvent(NotificationEvent event) throws JSONException {
-        JSONObject notificationData = event.getNotificationData();
-        try {
-            if (notificationData != null) {
-                Log.d(TAG, "Received event: " + notificationData.toString());
-                // Process the incoming notification
-                addNotification(notificationData);
-            } else {
-                Log.d(TAG, "Notification data in event is null");
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "Error processing notification event: " + e.getMessage());
-        }
+    public void onNotificationEvent(NotificationEvent event) {
+        PhoneNotification notif = new PhoneNotification(event.title, event.text, event.appName, event.timestamp, event.uuid);
+        Log.d(TAG, "Received event: " + notif.toString());
+        addNotification(notif);
     }
 
-    public synchronized void addNotification(JSONObject notificationData) {
-        // Add a unique ID and timestamp to the notification
-        try {
-            if (notificationData != null && notificationData.has("appName") 
-                && !notificationData.getString("appName").toLowerCase().contains("augmentos")) {
-                notificationData.put("uuid", UUID.randomUUID().toString());
+    public synchronized void addNotification(PhoneNotification notif) {
+        // Remove existing notification with same title and appName
+        notificationQueue.removeIf(existing ->
+                existing.getTitle().equals(notif.getTitle()) &&
+                        existing.getAppName().equals(notif.getAppName())
+        );
 
-                for (int i = 0; i < notificationQueue.length(); i++) { // Remove element with same title and appName
-                    try {
-                        JSONObject existingNotification = notificationQueue.getJSONObject(i);
-                        if (existingNotification.getString("title").equals(notificationData.getString("title")) &&
-                            existingNotification.getString("appName").equals(notificationData.getString("appName"))) {
-                            notificationQueue.remove(i);
-                            break; // Exit loop after removing the duplicate
-                        }
-                    } catch (JSONException e) {
-                        Log.e(TAG, "Error checking existing notifications in queue: " + e.getMessage());
-                    }
-                }
-
-                if (notificationQueue.length() >= 5) {
-                    notificationQueue.remove(0);
-                }
-
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                String formattedDateTime = LocalDateTime.now().format(formatter);
-                notificationData.put("timestamp", formattedDateTime);
-
-                if (notificationQueue.length() >= 5) {
-                    notificationQueue.remove(0);
-                }
-
-                notificationQueue.put(notificationData); // Add to the JSONArray
-                sendNotificationsRequest(); // Send the notification to the server
-                Log.d(TAG, "Notification added to queue: " + notificationData);
-            }
-        } catch (JSONException e) {
-            Log.e(TAG, "Error adding id/timestamp to notification: " + e.getMessage());
+        if (notificationQueue.size() >= 5) {
+            notificationQueue.remove(0);
         }
+
+        notificationQueue.add(notif);
+        sendNotificationsRequest();
+        Log.d(TAG, "Notification added to queue: " + notif);
     }
 
-    public JSONArray getNotificationQueue() {
+    public ArrayList<PhoneNotification> getNotificationQueue() {
         return notificationQueue;
     }
 
-    public void sendNotificationsRequest() throws JSONException {
-        JSONArray notificationQueue = getNotificationQueue();
-        JSONObject requestWrapper = new JSONObject();
-        requestWrapper.put("notifications", notificationQueue);
-
+    public void sendNotificationsRequest() {
         try {
+            JSONObject requestWrapper = new JSONObject();
+            JSONArray notificationsArray = new JSONArray();
+
+            for (PhoneNotification notif : notificationQueue) {
+                JSONObject notifJson = new JSONObject();
+                notifJson.put("title", notif.getTitle());
+                notifJson.put("message", notif.getText());
+                notifJson.put("appName", notif.getAppName());
+                notifJson.put("timestamp", notif.getTimestamp());
+                notifJson.put("uuid", notif.getUuid());
+                notificationsArray.put(notifJson);
+            }
+            requestWrapper.put("notifications", notificationsArray);
+
             backendServerComms.restRequest(SEND_NOTIFICATIONS_ENDPOINT, requestWrapper, new VolleyJsonCallback() {
                 @Override
                 public void onSuccess(JSONObject result) {
                     Log.d(TAG, "Request sent Successfully: " + result.toString());
                 }
+
                 @Override
                 public void onFailure(int code) {
                     Log.d(TAG, "SOME FAILURE HAPPENED (sendNotificationsRequest)");
@@ -117,11 +92,11 @@ public class NotificationSystem {
                 }
             });
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Error sending notifications: " + e.getMessage());
         }
     }
 
-    public void parseSendNotificationsResult(JSONObject response) throws JSONException {
+    public void parseSendNotificationsResult(JSONObject response) {
         Log.d(TAG, "Got result from server: " + response.toString());
     }
 

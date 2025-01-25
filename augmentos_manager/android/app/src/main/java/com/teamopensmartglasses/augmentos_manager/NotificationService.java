@@ -18,6 +18,18 @@ import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.service.notification.StatusBarNotification;
+import android.util.Log;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class NotificationService extends NotificationListenerService {
 
@@ -31,7 +43,10 @@ public class NotificationService extends NotificationListenerService {
             "com.android.systemui",
             "com.samsung.android.app.smartcapture",
             "com.sec.android.app.camera",
-            "com.sec.android.gallery3d"
+            "com.sec.android.gallery3d",
+            "com.teamopensmartglasses.augmentos",
+            "com.osp.app.signin",
+            "com.teamopensmartglasses.augmentos_manager"
     );
 
     private final List<String> categoryBlacklist = Arrays.asList(
@@ -66,84 +81,87 @@ public class NotificationService extends NotificationListenerService {
         return super.onUnbind(intent);
     }
 
+    private final Map<String, Runnable> notificationBuffer = new HashMap<>();
+    private final Handler notificationHandler = new Handler(Looper.getMainLooper());
+    private static final long DUPLICATE_THRESHOLD_MS = 200;
+
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
         String packageName = sbn.getPackageName();
-
-        Log.d(TAG, "Notification Posted: " + sbn.getPackageName());
-
-        // Filter by package blacklist
-        if (packageBlacklist.contains(packageName)) {
-            Log.d(TAG, "Notification from " + packageName + " ignored");
-            return;
-        }
-
         Notification notification = sbn.getNotification();
+        Bundle extras = notification.extras;
 
-        // Filter by category
-        String category = notification.category;
-        if (category != null && categoryBlacklist.contains(category)) {
-            Log.d(TAG, "Notification with category " + category + " ignored");
+        // 🚨 Log full notification for debugging
+        Log.d(TAG, "---- New Notification Received ----");
+        Log.d(TAG, "Package: " + packageName);
+        Log.d(TAG, "Notification Dump: " + extras.toString());
+
+        // Extract title and text
+        final String title = extras.getString(Notification.EXTRA_TITLE, "");
+        CharSequence textCharSequence = extras.getCharSequence(Notification.EXTRA_TEXT, "");
+        final String text = textCharSequence != null ? textCharSequence.toString() : "";
+
+        // 🚨 Ignore empty notifications
+        if (title.isEmpty() || text.isEmpty()) {
+            Log.d(TAG, "Ignoring notification with no content.");
             return;
         }
 
-        String appName = getAppName(packageName);
-        String title = "";
-        String text = "";
-
-        Bundle extras = notification.extras;
-        if (extras != null) {
-            // Extract title and text from notification extras
-            title = extras.getString(Notification.EXTRA_TITLE);
-            CharSequence textCharSequence = extras.getCharSequence(Notification.EXTRA_TEXT);
-            if (textCharSequence != null) {
-                text = textCharSequence.toString();
-            }
-
-            // Extract text lines from InboxStyle
-            CharSequence[] textLines = extras.getCharSequenceArray(Notification.EXTRA_TEXT_LINES);
-            if (textLines != null && textLines.length > 0) {
-                StringBuilder inboxText = new StringBuilder();
-                for (CharSequence line : textLines) {
-                    if (inboxText.length() > 0) {
-                        inboxText.append("\n");
-                    }
-                    inboxText.append(line);
-                }
-                text = inboxText.toString();
-            }
-
-            // Extract messages from MessagingStyle
-            NotificationCompat.MessagingStyle messagingStyle = NotificationCompat.MessagingStyle.extractMessagingStyleFromNotification(notification);
-            if (messagingStyle != null) {
-                StringBuilder messagingText = new StringBuilder();
-                for (NotificationCompat.MessagingStyle.Message message : messagingStyle.getMessages()) {
-                    if (message.getText() != null) {
-                        if (messagingText.length() > 0) {
-                            messagingText.append("\n");
-                        }
-                        messagingText.append(message.getText().toString());
-                    }
-                }
-                text = messagingText.toString();
-            }
-
-            // Handle BigTextStyle
-            CharSequence bigText = extras.getCharSequence(Notification.EXTRA_BIG_TEXT);
-            if (bigText != null) {
-                text = bigText.toString();
-            }
+        // 🚨 Ignore WhatsApp summary notifications like "5 new messages"
+        if (text.matches("^\\d+ new messages$")) {
+            Log.d(TAG, "Ignoring summary notification: " + text);
+            return;
         }
 
+        // 🚨 Ignore WhatsApp notifications with a `null` ID if they look like summaries
+        if (sbn.getKey().contains("|null|") && text.matches("^\\d+ new messages$")) {
+            Log.d(TAG, "Ignoring WhatsApp summary notification with null ID.");
+            return;
+        }
+
+        // Unique key for deduplication across multiple notifications
+        String notificationKey = packageName + "|" + title + "|" + text;
+
+        synchronized (notificationBuffer) {
+            // If a previous notification with the same key exists, remove it
+            if (notificationBuffer.containsKey(notificationKey)) {
+                notificationHandler.removeCallbacks(notificationBuffer.get(notificationKey));
+                notificationBuffer.remove(notificationKey);
+            }
+
+            // Create a delayed task to send the notification
+            Runnable task = new Runnable() {
+                @Override
+                public void run() {
+                    sendNotification(sbn, title, text);
+                    synchronized (notificationBuffer) {
+                        notificationBuffer.remove(notificationKey);
+                    }
+                }
+            };
+
+            // Store in buffer and schedule for 300ms delay
+            notificationBuffer.put(notificationKey, task);
+            notificationHandler.postDelayed(task, DUPLICATE_THRESHOLD_MS);
+        }
+    }
+
+    // Function to send notification
+    private void sendNotification(StatusBarNotification sbn, String title, String text) {
         try {
             JSONObject obj = new JSONObject();
-            obj.put("appName", appName);
+            obj.put("appName", getAppName(sbn.getPackageName()));
             obj.put("title", title);
             obj.put("text", text);
+            obj.put("timestamp", System.currentTimeMillis());
+            obj.put("uuid", UUID.randomUUID().toString());
+
             NotificationServiceModule notificationUtils = new NotificationServiceModule(reactContext);
             notificationUtils.onNotificationPosted(obj.toString());
+
+            Log.d(TAG, "✅ Sent notification: " + title + " - " + text);
         } catch (JSONException e) {
-            Log.d(TAG, "JSONException occurred while processing notification: " + e.getMessage());
+            Log.d(TAG, "❌ JSONException occurred: " + e.getMessage());
         }
     }
 

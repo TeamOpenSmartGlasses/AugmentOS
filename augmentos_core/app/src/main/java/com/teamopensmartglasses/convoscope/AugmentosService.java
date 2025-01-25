@@ -62,10 +62,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
 import com.posthog.java.PostHog;
 import com.teamopensmartglasses.augmentoslib.DataStreamType;
+import com.teamopensmartglasses.augmentoslib.PhoneNotification;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
 import com.teamopensmartglasses.augmentoslib.events.NotificationEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
 import com.teamopensmartglasses.convoscope.comms.AugmentOsActionsCallback;
 import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
 import com.teamopensmartglasses.convoscope.events.AugmentosSmartGlassesDisconnectedEvent;
@@ -110,7 +112,9 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -133,6 +137,7 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.SegToken;
+import com.teamopensmartglasses.smartglassesmanager.utils.EnvHelper;
 
 import android.app.DownloadManager;
 import android.net.Uri;
@@ -261,6 +266,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private Integer brightnessLevel;
 
     private boolean showingDashboardNow = false;
+    private boolean contextualDashboardEnabled;
 
     public AugmentosService() {
     }
@@ -311,7 +317,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Subscribe
     public void onGlassesHeadDownEvent(GlassesHeadDownEvent event){
-        smartGlassesService.windowManager.hideDashboard();
+        if (smartGlassesService != null)
+            smartGlassesService.windowManager.hideDashboard();
     }
 
 
@@ -337,6 +344,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public ArrayList<String> notificationList = new ArrayList<String>();
     @Subscribe
     public void onDisplayGlassesDashboardEvent(DisplayGlassesDashboardEvent event) {
+        if (!contextualDashboardEnabled) {
+            return;
+        }
+
         // Get current time and date
         SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm", Locale.getDefault());
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd", Locale.getDefault());
@@ -361,35 +372,26 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 //            dashboard.append("│ BLE       │ ON\n");
 
         boolean recentNotificationFound = false;
-        try {
-            JSONArray notifications = notificationSystem.getNotificationQueue();
-            JSONObject mostRecentNotification = null;
-            LocalDateTime mostRecentTime = null;
-            LocalDateTime now = LocalDateTime.now();
+        ArrayList<PhoneNotification> notifications = notificationSystem.getNotificationQueue();
+        PhoneNotification mostRecentNotification = null;
+        long mostRecentTime = 0;
+        long now = System.currentTimeMillis();
 
-            for (int i = 0; i < notifications.length(); i++) {
-                JSONObject notification = notifications.getJSONObject(i);
-                String timestampStr = notification.getString("timestamp");
-                LocalDateTime notificationTime = LocalDateTime.parse(timestampStr, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-
-                // Check if the notification is less than 5 seconds old
-                if (notificationTime.plusSeconds(5).isAfter(now)) {
-                    if (mostRecentTime == null || notificationTime.isAfter(mostRecentTime)) {
-                        mostRecentTime = notificationTime;
-                        mostRecentNotification = notification;
-                    }
+        for (PhoneNotification notification : notifications) {
+            long notificationTime = notification.getTimestamp();
+            if ((notificationTime + 5000) > now) {  // 5 seconds in milliseconds
+                if (mostRecentTime == 0 || notificationTime > mostRecentTime) {
+                    mostRecentTime = notificationTime;
+                    mostRecentNotification = notification;
                 }
             }
+        }
 
-            if (mostRecentNotification != null) {
-                // Display the most recent notification directly
-                String title = mostRecentNotification.getString("title");
-                String text = mostRecentNotification.getString("text");
-                dashboard.append(String.format("│ %s - %s\n", title, text));
-                recentNotificationFound = true;
-            }
-        } catch (JSONException e) {
-            Log.e(TAG, "Error while parsing notifications: " + e.getMessage());
+        if (mostRecentNotification != null) {
+            dashboard.append(String.format("│ %s - %s\n",
+                    mostRecentNotification.getTitle(),
+                    mostRecentNotification.getText()));
+            recentNotificationFound = true;
         }
 
         // If no recent notification was found, display from the list
@@ -418,6 +420,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void onBrightnessLevelEvent(BrightnessLevelEvent event) {
 //        Log.d(TAG, "BRIGHTNESS received");
         brightnessLevel = event.brightnessLevel;
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .edit()
+                .putString(this.getResources().getString(com.teamopensmartglasses.smartglassesmanager.R.string.SHARED_PREF_BRIGHTNESS), String.valueOf(brightnessLevel))
+                .apply();
         sendStatusToAugmentOsManager();
     }
 
@@ -427,7 +433,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
 //        createNotificationChannel(); // New method to ensure one-time channel creation
 //        startForeground(augmentOsMainServiceNotificationId, updateNotification());
-
+        EnvHelper.init(this);
         //setup event bus subscribers
         EventBus.getDefault().register(this);
 
@@ -454,6 +460,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         gsmStatusHelper = new GsmStatusHelper(this);
 
         notificationSystem = new NotificationSystem(this);
+
+        contextualDashboardEnabled = getContextualDashboardEnabled();
         //startNotificationService();
 
         //what is the preferred wearable?
@@ -2550,6 +2558,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             status.put("puck_battery_life", batteryStatusHelper.getBatteryLevel());
             status.put("charging_status", batteryStatusHelper.isBatteryCharging());
             status.put("sensing_enabled", SpeechRecSwitchSystem.sensing_enabled);
+            status.put("contextual_dashboard_enabled", this.contextualDashboardEnabled);
             status.put("default_wearable", AugmentosSmartGlassesService.getPreferredWearable(this));
             Log.d(TAG, "PREFER - Got default wearabe: " + AugmentosSmartGlassesService.getPreferredWearable(this));
 
@@ -2734,7 +2743,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Override
-    public void setSensingEnabled(boolean sensingEnabled){
+    public void setSensingEnabled(boolean sensingEnabled) {
         if (smartGlassesService != null) {
             EventBus.getDefault().post(new SetSensingEnabledEvent(sensingEnabled));
         } else {
@@ -2745,6 +2754,23 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         props.put("sensing_enabled", sensingEnabled);
         props.put("timestamp", System.currentTimeMillis());
         postHog.capture(userId, "set_sensing_enabled", props);
+    }
+
+    @Override
+    public void setContextualDashboardEnabled(boolean contextualDashboardEnabled) {
+        saveContextualDashboardEnabled(contextualDashboardEnabled);
+        this.contextualDashboardEnabled = contextualDashboardEnabled;
+    }
+
+    public boolean getContextualDashboardEnabled() {
+        return this.getSharedPreferences("AugmentOSPrefs", Context.MODE_PRIVATE).getBoolean("contextual_dashboard_enabled", true);
+    }
+
+    public void saveContextualDashboardEnabled(boolean enabled) {
+        SharedPreferences sharedPreferences = this.getSharedPreferences("AugmentOSPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("contextual_dashboard_enabled", enabled);
+        editor.apply();
     }
 
     @Override
@@ -2880,29 +2906,31 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void handleNotificationData(JSONObject notificationData){
         try {
             if (notificationData != null) {
-                String jsonString = notificationData.toString();
-                System.out.println("Notification Data: " + jsonString);
-
                 String appName = notificationData.getString("appName");
                 String title = notificationData.getString("title");
                 String text = notificationData.getString("text");
+                long timestamp = notificationData.getLong("timestamp");
+                String uuid = notificationData.getString("uuid");
 
-                //TODO: Also pull navigation data from this?
-
-                EventBus.getDefault().post(new NotificationEvent(notificationData));
-
-//                String formattedNotification = String.format("[%s]: %s", title, text);
-//                notificationList.add(formattedNotification);
-
-                // Keep only the last 10 notifications
-//                if (notificationList.size() > 10) {
-//                    notificationList.remove(0);
-//                }
+                EventBus.getDefault().post(new NotificationEvent(title, text, appName, timestamp, uuid));
             } else {
                 System.out.println("Notification Data is null");
             }
         } catch (JSONException e) {
             Log.d(TAG, "JSONException occurred while handling notification data: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void updateGlassesBrightness(int brightness) {
+        Log.d("AugmentOsService", "Updating glasses brightness: " + brightness);
+        if (smartGlassesService != null) {
+            String title = "Brightness Adjustment";
+            String body = "Updating glasses brightness to " + brightness + "%.";
+            smartGlassesService.windowManager.showAppLayer("system", () -> SmartGlassesAndroidService.sendReferenceCard(title, body), 6);
+            smartGlassesService.updateGlassesBrightness(brightness);
+        } else {
+            blePeripheral.sendNotifyManager("Connect glasses to update brightness", "error");
         }
     }
 

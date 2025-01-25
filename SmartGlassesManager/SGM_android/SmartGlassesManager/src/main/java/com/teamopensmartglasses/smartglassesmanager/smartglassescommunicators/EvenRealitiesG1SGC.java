@@ -23,8 +23,11 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
+import androidx.preference.PreferenceManager;
+
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 //BMP
@@ -36,6 +39,7 @@ import java.nio.ByteBuffer;
 
 import com.google.gson.Gson;
 import com.teamopensmartglasses.augmentoslib.events.AudioChunkNewEvent;
+import com.teamopensmartglasses.smartglassesmanager.R;
 import com.teamopensmartglasses.smartglassesmanager.cpp.L3cCpp;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BatteryLevelEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.BrightnessLevelEvent;
@@ -73,7 +77,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final UUID UART_RX_CHAR_UUID = UUID.fromString("6E400003-B5A3-F393-E0A9-E50E24DCCA9E");
     private static final UUID CLIENT_CHARACTERISTIC_CONFIG_UUID = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
     private static final String SAVED_G1_ID_KEY = "SAVED_G1_ID_KEY";
-
     private Context context;
     private BluetoothGatt leftGlassGatt;
     private BluetoothGatt rightGlassGatt;
@@ -93,7 +96,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private boolean stopper = false;
     private boolean debugStopper = false;
     private boolean shouldUseAutoBrightness = false;
-    private int brightnessValue = 35;
+    private int brightnessValue;
 
     private static final long DELAY_BETWEEN_SENDS_MS = 25;
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 5;
@@ -179,6 +182,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         goHomeHandler = new Handler();
         this.smartGlassesDevice = smartGlassesDevice;
         preferredG1DeviceId = getPreferredG1DeviceId(context);
+        brightnessValue = getSavedBrightnessValue(context);
         this.bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     }
 
@@ -332,6 +336,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
                             //start heartbeat
                             startHeartbeat(3200);
+                            sendBrightnessCommandHandler.postDelayed(() -> sendBrightnessCommand(brightnessValue, shouldUseAutoBrightness), 3200);
+
 
                             //start sending debug notifications
                             //                        startPeriodicNotifications(302);
@@ -570,6 +576,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public static String getPreferredG1DeviceId(Context context){
         SharedPreferences prefs = context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE);
         return prefs.getString(SAVED_G1_ID_KEY, null);
+    }
+
+    public static int getSavedBrightnessValue(Context context){
+        return Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_BRIGHTNESS), "50"));
     }
 
     private void savePairedDeviceNames() {
@@ -1078,9 +1088,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
     }
 
-
-
-
     private List<byte[]> createNotificationChunks(String json) {
         final int MAX_CHUNK_SIZE = 176; // 180 - 4 header bytes
         byte[] jsonBytes = json.getBytes(StandardCharsets.UTF_8);
@@ -1296,7 +1303,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             }
         };
 
-        sendBrightnessCommandHandler.postDelayed(() -> sendBrightnessCommand(brightnessValue, shouldUseAutoBrightness), delay);
         heartbeatHandler.postDelayed(heartbeatRunnable, delay);
     }
 
@@ -1377,9 +1383,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }, 10000);
     }
 
-
-
-
     private void sendWhiteListCommand(int delay) {
         if (whiteListedAlready){
             return;
@@ -1440,15 +1443,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     public void sendBrightnessCommand(int brightness, boolean autoLight) {
         // Validate brightness range
-        if (brightness < 0 || brightness > 63) {
-            Log.e(TAG, "Brightness value must be between 0 and 63");
-            return;
-        }
+        int validBrightness = (brightness * 63) / 100;
 
         // Construct the command
         ByteBuffer buffer = ByteBuffer.allocate(3);
         buffer.put((byte) 0x01);              // Command
-        buffer.put((byte) brightness);       // Brightness level (0~63)
+        buffer.put((byte) validBrightness);       // Brightness level (0~63)
         buffer.put((byte) (autoLight ? 1 : 0)); // Auto light (0 = close, 1 = open)
 
         sendDataSequentially(buffer.array(), false);
@@ -1456,7 +1456,17 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         Log.d(TAG, "Sent auto light brightness command => Brightness: " + brightness + ", Auto Light: " + (autoLight ? "Open" : "Close"));
 
         //send to AugmentOS core
-        EventBus.getDefault().post(new BrightnessLevelEvent(autoLight ? -1 : ((brightness * 100) / 63)));
+        EventBus.getDefault().post(new BrightnessLevelEvent(autoLight ? -1 : brightness));
+    }
+
+    @Override
+    public void updateGlassesBrightness(int brightness) {
+        sendBrightnessCommand(brightness, false);
+    }
+
+    @Override
+    public void enableGlassesAutoBrightness() {
+        sendBrightnessCommand(50, true);
     }
 
     private static String bytesToHex(byte[] bytes) {
@@ -1575,12 +1585,13 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final int DISPLAY_USE_WIDTH = 340;  // How much of the display to use
     private static final int FONT_SIZE = 21;      // Font size
     private static final float FONT_DIVIDER = 2.0f;
-    private static final int LINES_PER_SCREEN = 7; // Lines per screen
+    private static final int LINES_PER_SCREEN = 5; // Lines per screen
     private static final int MAX_CHUNK_SIZE = 176; // Maximum chunk size for BLE packets
 //    private static final int INDENT_SPACES = 32;    // Number of spaces to indent text
 
     private int textSeqNum = 0; // Sequence number for text packets
 
+    //currently only a single page - 1PAGE CHANGE
     private List<byte[]> createTextWallChunks(String text) {
         // Split text into lines based on display width and font size
         List<String> lines = splitIntoLines(text);
@@ -1594,7 +1605,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 .collect(Collectors.toList());
 
         // Calculate total pages
-        int totalPages = (int) Math.ceil((double) lines.size() / LINES_PER_SCREEN);
+//        int totalPages = (int) Math.ceil((double) lines.size() / LINES_PER_SCREEN);
+        int totalPages = 1; //hard set to 1 since we only do 1 page - 1PAGECHANGE
+
         List<byte[]> allChunks = new ArrayList<>();
 
         // Process each page
@@ -1645,7 +1658,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
             // Increment sequence number for next page
             textSeqNum = (textSeqNum + 1) % 256;
-            break;
+            break; //hard set to 1  - 1PAGECHANGE
         }
 
 //        Log.d(TAG, "TOTAL PAGES: " + totalPages);
