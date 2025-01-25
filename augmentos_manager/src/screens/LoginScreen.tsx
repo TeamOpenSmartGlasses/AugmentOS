@@ -82,32 +82,38 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
     }
   };
 
-   const handleEmailSignUp = async (email: string, password: string) => {
-    setIsFormLoading(true)
-    const {
-      data: { session },
-      error,
-    } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: "com.augmentos.augmentos_manager://verify_email"
-      }
-    });
-  
-    if (error) {
-      Alert.alert(error.message);
-    }
+  const handleEmailSignUp = async (email: string, password: string) => {
+    setIsFormLoading(true);
+    
+    try {
+      //const redirectUrl = encodeURIComponent("com.augmentos.augmentos_manager://verify_email/");
+      const redirectUrl = "https://augmentos.org/verify_email"; // No encoding needed
+      //const redirectUrl = "com.augmentos.augmentos_manager://verify_email/";
 
-    if(!session) {
-      Alert.alert('Please check your inbox for email verification!')
-    } else {
-      console.log('Sign-up successful:');
-      // You might now prompt the user to confirm email, or proceed further
-      navigation.replace('Home');
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: redirectUrl,
+        },
+      });
+  
+      if (error) {
+        Alert.alert("Error", error.message);
+      } else if (!data.session) {
+        Alert.alert("Please check your inbox for email verification!");
+      } else {
+        console.log("Sign-up successful:", data);
+        navigation.replace("Home");
+      }
+    } catch (err) {
+      console.error("Error during sign-up:", err);
+      Alert.alert("Error", "Something went wrong. Please try again.");
+    } finally {
+      setIsFormLoading(false);
     }
-    setIsFormLoading(false)
-  }
+  };
+  
 
   const handleEmailSignIn = async (email: string, password: string) => {
     setIsFormLoading(true)

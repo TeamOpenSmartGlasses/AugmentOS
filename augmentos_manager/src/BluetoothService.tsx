@@ -60,7 +60,8 @@ export class BluetoothService extends EventEmitter {
     this.simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, SIMULATED_PUCK_DEFAULT);
 
     if (this.simulatedPuck) {
-      ManagerCoreCommsService.startService();
+      if (!(await ManagerCoreCommsService.isServiceRunning()))
+        ManagerCoreCommsService.startService();
       startExternalService();
       this.initializeCoreMessageIntentReader();
     } else {
@@ -83,6 +84,7 @@ export class BluetoothService extends EventEmitter {
 
     });
 
+    this.stopReconnectionScan();
     this.startReconnectionScan();
 
     this.appStateSubscription = AppState.addEventListener(
@@ -967,10 +969,11 @@ export class BluetoothService extends EventEmitter {
   }
 
   private static bluetoothService: BluetoothService | null = null;
-  public static getInstance(): BluetoothService {
+  public static getInstance(start: boolean = true): BluetoothService {
     if (!BluetoothService.bluetoothService) {
       BluetoothService.bluetoothService = new BluetoothService();
-      BluetoothService.bluetoothService.initialize();
+      if (start)
+        BluetoothService.bluetoothService.initialize();
     }
     return BluetoothService.bluetoothService;
   }

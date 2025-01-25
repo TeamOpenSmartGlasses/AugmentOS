@@ -68,6 +68,11 @@ public class ManagerCoreCommsServiceModule extends ReactContextBaseJavaModule {
         context.startService(serviceIntent);
     }
 
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public boolean isServiceRunning() {
+        return managerServiceInstance != null;
+    }
+
     @ReactMethod
     public void sendCommandToCore(String jsonString) {
         if (managerServiceInstance == null) {
