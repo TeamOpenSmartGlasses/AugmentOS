@@ -14,6 +14,7 @@ import {
   NotificationEventEmitter,
   NotificationService,
 } from './augmentos_core_comms/NotificationServiceUtils';
+import { time } from 'console';
 
 const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
 
@@ -76,7 +77,7 @@ export class BluetoothService extends EventEmitter {
       console.log('Notification received in TS:', data);
       try {
         let json = JSON.parse(data);
-        this.sendPhoneNotification(json.appName, json.title, json.text);
+        this.sendPhoneNotification(json.appName, json.title, json.text, json.timestamp, json.id);
       } catch (e) {
         console.log("Error parsing phone notification", e);
       }
@@ -828,14 +829,16 @@ export class BluetoothService extends EventEmitter {
     });
   }
 
-  async sendPhoneNotification(appName: string = "", title: string = "", text: string = "") {
+  async sendPhoneNotification(appName: string = "", title: string = "", text: string = "", timestamp: number = -1, id: string = "") {
     console.log('sendPhoneNotification');
     return await this.sendDataToAugmentOs({
       command: 'phone_notification',
       params: {
         appName: appName,
         title: title,
-        text: text
+        text: text,
+        timestamp: timestamp,
+        id: id
       }
     });
   }
