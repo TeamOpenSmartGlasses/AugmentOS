@@ -1,6 +1,5 @@
 package com.teamopensmartglasses.convoscope.ui;
 
-import android.content.pm.PackageManager;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -8,32 +7,24 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.teamopensmartglasses.convoscope.MainActivity;
-import com.teamopensmartglasses.convoscope.PermissionsActivity;
 import com.teamopensmartglasses.convoscope.R;
 import com.teamopensmartglasses.convoscope.ResponseTextUiAdapter;
 import com.teamopensmartglasses.convoscope.TranscriptTextUiAdapter;
@@ -280,7 +271,7 @@ public class AugmentosUi extends Fragment {
 ////        }
 //      }
 
-      Context mContext = this.getContext();
+//      Context mContext = this.getContext();
 
 //      final Switch screenMirrorImageToggle = view.findViewById(R.id.word_upgrade_toggle);
 //      screenMirrorImageToggle.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("screen_mirror_image", false));
@@ -355,16 +346,7 @@ public class AugmentosUi extends Fragment {
       }
     }
 
-    private void saveMode(Context mContext, String modeName){
-      //save this mode
-      if (((MainActivity)getActivity()).mService != null) {
-        ((MainActivity) getActivity()).mService.saveCurrentMode(mContext, modeName);
-      } else{
-        ((MainActivity) getActivity()).mService.saveCurrentModeLocal(mContext, modeName);
-      }
-    }
-
-    private void pickContact() {
+  private void pickContact() {
 //        Intent pickContactIntent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
 //        startActivityForResult(pickContactIntent, PICK_CONTACT_REQUEST);
     }
