@@ -133,6 +133,7 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.SegToken;
+import com.teamopensmartglasses.smartglassesmanager.utils.EnvHelper;
 
 import android.app.DownloadManager;
 import android.net.Uri;
@@ -427,7 +428,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
 //        createNotificationChannel(); // New method to ensure one-time channel creation
 //        startForeground(augmentOsMainServiceNotificationId, updateNotification());
-
+        EnvHelper.init(this);
         //setup event bus subscribers
         EventBus.getDefault().register(this);
 

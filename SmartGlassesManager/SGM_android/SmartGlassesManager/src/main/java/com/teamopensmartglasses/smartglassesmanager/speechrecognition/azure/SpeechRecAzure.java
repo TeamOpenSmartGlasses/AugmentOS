@@ -14,6 +14,8 @@ import com.microsoft.cognitiveservices.speech.translation.TranslationRecognizer;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.TranslateOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecFramework;
+import com.teamopensmartglasses.smartglassesmanager.utils.EnvHelper;
+
 import org.greenrobot.eventbus.EventBus;
 
 import java.math.BigInteger;
@@ -22,8 +24,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class SpeechRecAzure extends SpeechRecFramework {
-    private static final String API_KEY = "0a2244c410664011bbf33fdb2cdc0f30";
-    private static final String REGION = "eastasia";
+    private String API_KEY;
+    private String REGION;
     private static final String TAG = "WearableAi_SpeechRecAzure";
 
     private SpeechConfig speechConfig;
@@ -43,6 +45,13 @@ public class SpeechRecAzure extends SpeechRecFramework {
         this.mContext = context;
         this.currentLanguageCode = initLanguageLocale(languageLocale);
         this.isTranslation = false;
+
+        this.API_KEY = EnvHelper.getEnv("AZURE_API_KEY");
+        this.REGION = EnvHelper.getEnv("AZURE_API_REGION");
+
+        if (API_KEY == null || REGION == null) {
+            throw new IllegalStateException("Azure credentials not found. Please ensure AZURE_API_KEY and AZURE_API_REGION are set.");
+        }
     }
 
     private SpeechRecAzure(Context context, String currentLanguageLocale, String targetLanguageLocale) {
@@ -50,6 +59,13 @@ public class SpeechRecAzure extends SpeechRecFramework {
         this.currentLanguageCode = initLanguageLocale(currentLanguageLocale);
         this.targetLanguageCode = initLanguageLocale(targetLanguageLocale);
         this.isTranslation = true;
+
+        this.API_KEY = EnvHelper.getEnv("AZURE_API_KEY");
+        this.REGION = EnvHelper.getEnv("AZURE_API_REGION");
+
+        if (API_KEY == null || REGION == null) {
+            throw new IllegalStateException("Azure credentials not found. Please ensure AZURE_API_KEY and AZURE_API_REGION are set.");
+        }
     }
 
     public static synchronized SpeechRecAzure getInstance(Context context, String languageLocale) {
