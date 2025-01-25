@@ -159,6 +159,11 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
 //        }
     }
 
+    @Override
+    public void updateGlassesBrightness(int brightness) {
+        // TODO: Implement this method
+    }
+
     private void onUltraliteConnectedChange(boolean isConnected) {
         Log.d(TAG, "Ultralite CONNECT changed to: " + isConnected);
         if (isConnected) {
