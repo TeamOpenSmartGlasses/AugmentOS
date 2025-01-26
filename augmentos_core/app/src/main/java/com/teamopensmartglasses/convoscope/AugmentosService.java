@@ -67,6 +67,8 @@ import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
 import com.teamopensmartglasses.augmentoslib.events.NotificationEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.StartAsrStreamRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.StopAsrStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
 import com.teamopensmartglasses.convoscope.comms.AugmentOsActionsCallback;
 import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
@@ -299,6 +301,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     };
 
     @Subscribe
+    public synchronized void onSubscribeStartAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
+    }
+
+    @Subscribe
+    public synchronized void onSubscribeStopAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
+    }
+
+    @Subscribe
     public void onAugmentosSmartGlassesDisconnectedEvent(AugmentosSmartGlassesDisconnectedEvent event){
         // TODO: For now, stop all apps on disconnection
         // TODO: Future: Make this nicer
@@ -320,6 +330,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         if (smartGlassesService != null)
             smartGlassesService.windowManager.hideDashboard();
     }
+
 
 
     @Subscribe

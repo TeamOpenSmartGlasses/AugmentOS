@@ -24,6 +24,7 @@ import com.teamopensmartglasses.augmentoslib.events.RowsCardViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStartRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStopRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SendBitmapViewRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.StartAsrStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
@@ -60,6 +61,18 @@ public class TPABroadcastSender {
         intent.putExtra(APP_PKG_NAME, packageName);
         intent.putExtra(EVENT_BUNDLE, eventBundle);
         context.sendBroadcast(intent);
+    }
+
+    @Subscribe
+    public void onStartAsrStreamRequestEvent(StartAsrStreamRequestEvent receivedEvent){
+        String eventId = StartAsrStreamRequestEvent.eventId;
+        sendEventToAugmentOS(eventId, receivedEvent);
+    }
+
+    @Subscribe
+    public void onStopAsrStreamRequestEvent(StopAsrStreamRequestEvent receivedEvent){
+        String eventId = StopAsrStreamRequestEvent.eventId;
+        sendEventToAugmentOS(eventId, receivedEvent);
     }
 
     @Subscribe
