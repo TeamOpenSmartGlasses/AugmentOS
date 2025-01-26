@@ -1254,7 +1254,13 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     public void showHomeScreen() {
 //        Log.d(TAG, "EVEN SHOWING HOME SCREEN");
-        displayTextWall(" ");
+//        displayTextWall(" ");
+        clearG1Screen();
+    }
+
+    public void clearG1Screen() {
+        byte[] exitCommand = new byte[]{(byte) 0x18};
+        sendDataSequentially(exitCommand, false);
     }
 
     @Override
