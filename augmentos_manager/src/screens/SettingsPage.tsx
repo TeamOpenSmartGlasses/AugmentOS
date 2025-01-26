@@ -41,8 +41,9 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   const [isContextualDashboardEnabled, setIsContextualDashboardEnabled] = React.useState(
     status.contextual_dashboard_enabled,
   );
+
   const [brightness, setBrightness] = useState(
-    status.glasses_info && status.glasses_info.brightness
+    status.glasses_info && status.glasses_info.brightness && !(status.glasses_info.brightness.includes('-'))
       ? parseInt(status.glasses_info.brightness.replace('%', ''), 10)
       : 50
   );
@@ -66,6 +67,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   };
 
   const changeBrightness = async (newBrightness: number) => {
+    if (status.glasses_info?.brightness === '-') {return;}
     await BluetoothService.getInstance().setGlassesBrightnessMode(newBrightness, false);
 
     console.log(`Brightness set to: ${newBrightness}`);
@@ -312,7 +314,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
                 (!status.puck_connected || !status.glasses_info?.model_name) &&
                   styles.disabledItem,
               ]}>
-              Enable microphones & cameras
+              Enable microphones & cameras.
             </Text>
           </View>
           <Switch
@@ -336,7 +338,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               >
                 Contextual Dashboard
               </Text>
-              {status.glasses_info?.model_name && (
+              {status.glasses_info && status.glasses_info.model_name && (
                 <Text
                   style={[
                     styles.value,
@@ -350,7 +352,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
                     status.glasses_info?.model_name.toLowerCase().includes('even')
                       ? 'look up'
                       : 'tap your smart glasses'
-                  }`}
+                  }.`}
                 </Text>
               )}
           </View>
@@ -383,10 +385,10 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
                 (!status.puck_connected || !status.glasses_info?.model_name) &&
                   styles.disabledItem,
               ]}>
-              Adjust the brightness level of your smart glasses
+              Adjust the brightness level of your smart glasses.
             </Text>
             <Slider
-              disabled={!status.glasses_info?.model_name}
+              disabled={!status.glasses_info?.model_name || status.glasses_info?.brightness === '-' || !status.glasses_info.model_name.toLowerCase().includes('even')}
               style={styles.slider}
               minimumValue={0}
               maximumValue={100}
