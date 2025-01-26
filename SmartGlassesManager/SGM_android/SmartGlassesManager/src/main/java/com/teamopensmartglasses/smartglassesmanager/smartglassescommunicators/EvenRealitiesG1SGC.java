@@ -98,7 +98,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private boolean shouldUseAutoBrightness = false;
     private int brightnessValue;
 
-    private static final long DELAY_BETWEEN_SENDS_MS = 25;
+    private static final long DELAY_BETWEEN_SENDS_MS = 30;
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 5;
     private static final long DELAY_BETWEEN_ACTIONS_SEND = 250;
     private static final long HEARTBEAT_INTERVAL_MS = 30000;

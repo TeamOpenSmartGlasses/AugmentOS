@@ -7,6 +7,7 @@ import android.util.Log;
 import com.teamopensmartglasses.augmentoslib.events.AudioChunkNewEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.PauseAsrEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.augmentos.SpeechRecAugmentos;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.azure.SpeechRecAzure;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.deepgram.SpeechRecDeepgram;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.google.SpeechRecGoogle;
@@ -71,6 +72,8 @@ public class SpeechRecSwitchSystem {
             speechRecFramework = new SpeechRecDeepgram(mContext, language);
         } else if (this.asrFramework == ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK){
             speechRecFramework = SpeechRecAzure.getInstance(mContext, language);
+        } else if (this.asrFramework == ASR_FRAMEWORKS.AUGMENTOS_ASR_FRAMEWORK){
+            speechRecFramework = SpeechRecAugmentos.getInstance(mContext, language);
         } else {
             Log.e(TAG, "Falling back to Azure ASR Framework, as the selected ASR framework is not supported.");
             speechRecFramework = SpeechRecAzure.getInstance(mContext, language);

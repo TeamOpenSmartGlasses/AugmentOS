@@ -69,7 +69,7 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
         String asrApiKey = getResources().getString(R.string.google_api_key);
         saveApiKey(this, asrApiKey);
 
-        saveChosenAsrFramework(this, ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK);
+        saveChosenAsrFramework(this, ASR_FRAMEWORKS.AUGMENTOS_ASR_FRAMEWORK);
     }
 
     @Override
