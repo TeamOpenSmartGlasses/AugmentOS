@@ -1188,6 +1188,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         if (characteristicHandler != null) {
             characteristicHandler.removeCallbacksAndMessages(null);
         }
+        if (reconnectHandler != null) {
+            reconnectHandler.removeCallbacksAndMessages(null);
+        }
         if (leftConnectionTimeoutHandler != null && leftConnectionTimeoutRunnable != null) {
             leftConnectionTimeoutHandler.removeCallbacks(leftConnectionTimeoutRunnable);
         }
@@ -1254,11 +1257,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     public void showHomeScreen() {
 //        Log.d(TAG, "EVEN SHOWING HOME SCREEN");
-//        displayTextWall(" ");
-        clearG1Screen();
+        displayTextWall(" ");
+//        clearG1Screen();
     }
 
     public void clearG1Screen() {
+        displayTextWall(" ");
         byte[] exitCommand = new byte[]{(byte) 0x18};
         sendDataSequentially(exitCommand, false);
     }
