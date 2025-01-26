@@ -161,7 +161,7 @@ public class PermissionsActivity extends AppCompatActivity {
         if (!isFinishing()) {
             String backgroundProcessingMessage = "This application needs to remain active in the background to function properly. " +
                     "Please disable battery optimization for better performance and reliability.";
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){//.UPSIDE_DOWN_CAKE)
+            if (Build.VERSION.SDK_INT >= 34) {//Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
                 // Add any Android 15 specific permissions here
                 backgroundProcessingMessage = "This application needs to remain active in the background to function properly. " +
                         "First, enable \"Allow background usage\", then select \"Allow background usage\" and set background usage to \"Unrestricted\" for better performance and reliability.";

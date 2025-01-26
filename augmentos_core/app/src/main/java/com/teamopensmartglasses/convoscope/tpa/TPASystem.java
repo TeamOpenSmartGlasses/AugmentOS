@@ -252,6 +252,8 @@ public class TPASystem {
         if (thirdPartyApps.containsKey(packageName)) {
                 runningApps.remove(packageName);
                 augmentOsLibBroadcastSender.killThirdPartyApp(Objects.requireNonNull(thirdPartyApps.get(packageName)));
+                if (smartGlassesService != null)
+                    smartGlassesService.windowManager.hideAppLayer(packageName);
         }
     }
 

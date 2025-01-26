@@ -60,6 +60,7 @@ import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
+import com.teamopensmartglasses.convoscope.events.ThirdPartyAppErrorEvent;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
 import com.teamopensmartglasses.convoscope.events.TriggerSendStatusToAugmentOsManagerEvent;
 import com.teamopensmartglasses.convoscope.statushelpers.BatteryStatusHelper;
@@ -262,6 +263,20 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 EventBus.getDefault().post(new DisplayGlassesDashboardEvent());
             }
         }
+    }
+
+    @Subscribe
+    public void onThirdPartyAppErrorEvent(ThirdPartyAppErrorEvent event) {
+        if (blePeripheral != null) {
+            blePeripheral.sendNotifyManager(event.text, "error");
+        }
+        if (tpaSystem != null) {
+            tpaSystem.stopThirdPartyAppByPackageName(event.packageName);
+        }
+        if (smartGlassesService != null) {
+            smartGlassesService.windowManager.showAppLayer("system", () -> AugmentosSmartGlassesService.sendReferenceCard("App error", event.text), 10);
+        }
+        sendStatusToAugmentOsManager();
     }
 
     //TODO NO MORE PASTA
