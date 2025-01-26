@@ -65,12 +65,12 @@ public class LandingUi extends Fragment {
 
     }
 
-    final Button landingButton = view.findViewById(R.id.landing_button);
-    landingButton.setOnClickListener(new View.OnClickListener() {
-      public void onClick(View v) {
-        navController.navigate(R.id.nav_login);
-      }
-    });
+//    final Button landingButton = view.findViewById(R.id.landing_button);
+//    landingButton.setOnClickListener(new View.OnClickListener() {
+//      public void onClick(View v) {
+//        navController.navigate(R.id.nav_login);
+//      }
+//    });
   }
 
   public String getSavedAuthToken(){

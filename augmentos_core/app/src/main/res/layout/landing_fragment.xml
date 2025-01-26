@@ -30,14 +30,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
 
-    <Button
-        android:id="@+id/landing_button"
-        android:layout_width="169dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="4dp"
-        android:text="Continue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+<!--    <Button-->
+<!--        android:id="@+id/landing_button"-->
+<!--        android:layout_width="169dp"-->
+<!--        android:layout_height="56dp"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:text="Continue"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView9" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
