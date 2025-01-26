@@ -39,6 +39,7 @@ public class NotificationService extends NotificationListenerService {
     public static void setReactApplicationContext(ReactApplicationContext context) {
         reactContext = context;
     }
+
     private final List<String> packageBlacklist = Arrays.asList(
             "com.android.systemui",
             "com.samsung.android.app.smartcapture",
@@ -46,15 +47,13 @@ public class NotificationService extends NotificationListenerService {
             "com.sec.android.gallery3d",
             "com.teamopensmartglasses.augmentos",
             "com.osp.app.signin",
-            "com.teamopensmartglasses.augmentos_manager"
-    );
+            "com.teamopensmartglasses.augmentos_manager");
 
     private final List<String> categoryBlacklist = Arrays.asList(
             Notification.CATEGORY_REMINDER,
             Notification.CATEGORY_ALARM,
             Notification.CATEGORY_EVENT,
-            Notification.CATEGORY_SERVICE
-    );
+            Notification.CATEGORY_SERVICE);
 
     @Override
     public void onCreate() {
@@ -156,10 +155,14 @@ public class NotificationService extends NotificationListenerService {
             obj.put("timestamp", System.currentTimeMillis());
             obj.put("uuid", UUID.randomUUID().toString());
 
-            NotificationServiceModule notificationUtils = new NotificationServiceModule(reactContext);
-            notificationUtils.onNotificationPosted(obj.toString());
+            if (reactContext != null) {
+                NotificationServiceModule notificationUtils = new NotificationServiceModule(reactContext);
+                notificationUtils.onNotificationPosted(obj.toString());
 
-            Log.d(TAG, "✅ Sent notification: " + title + " - " + text);
+                Log.d(TAG, "✅ Sent notification: " + title + " - " + text);
+            } else {
+                Log.d(TAG, "Could not send notification- reactContext is null");
+            }
         } catch (JSONException e) {
             Log.d(TAG, "❌ JSONException occurred: " + e.getMessage());
         }

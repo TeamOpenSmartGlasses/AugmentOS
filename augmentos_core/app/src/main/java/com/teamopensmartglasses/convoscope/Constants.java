@@ -2,6 +2,7 @@ package com.teamopensmartglasses.convoscope;
 
 public class Constants {
     public static String appName = "Augment OS";
+    public static int augmentOsSdkVerion = 1;
     public static int augmentOsMainServiceNotificationId = 3588;
     public static int augmentOsPackageMonitorServiceNotificationId = 3587;
     public static String glassesCardTitle = "";

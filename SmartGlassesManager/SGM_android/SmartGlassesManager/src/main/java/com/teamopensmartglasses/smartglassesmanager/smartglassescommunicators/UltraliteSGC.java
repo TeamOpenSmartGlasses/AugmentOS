@@ -74,7 +74,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
     boolean hasUltraliteControl;
     boolean screenIsClear;
     SmartGlassesDevice smartGlassesDevice;
-    private static final long TAP_DEBOUNCE_TIME = 300; // milliseconds
+    private static final long TAP_DEBOUNCE_TIME = 80; // milliseconds
     private long lastTapTime = 0;
     private int totalDashboardsIdk = 0;
 
@@ -115,6 +115,9 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
             }
         }
     }
+    private LiveData<Boolean> ultraliteConnectedLive;
+    private LiveData<Boolean> ultraliteControlled;
+    private LiveData<BatteryStatus> batteryStatusObserver;
 
     public UltraliteSGC(Context context, SmartGlassesDevice smartGlassesDevice, LifecycleOwner lifecycleOwner) {
         super();
@@ -135,19 +138,19 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         ultraliteListener = new UltraliteListener();
         ultraliteSdk.addEventListener(ultraliteListener);
 
-        LiveData<Boolean> ultraliteConnectedLive = ultraliteSdk.getConnected();
+        ultraliteConnectedLive = ultraliteSdk.getConnected();
         ultraliteConnectedLive.observe(lifecycleOwner, isConnected -> {
             onUltraliteConnectedChange(isConnected);
         });
 
-        LiveData<Boolean> ultraliteControlled = ultraliteSdk.getControlledByMe();
+        ultraliteControlled = ultraliteSdk.getControlledByMe();
         ultraliteControlled.observe(lifecycleOwner, isControlled -> {
             onUltraliteControlChanged(isControlled);
         });
 
         //setup battery status
         EventBus.getDefault().post(new BatteryLevelEvent(ultraliteSdk.getBatteryLevel()));
-        LiveData<BatteryStatus> batteryStatusObserver = ultraliteSdk.getBatteryStatus();
+        batteryStatusObserver = ultraliteSdk.getBatteryStatus();
         batteryStatusObserver.observe(lifecycleOwner, batteryStatus -> {
             onUltraliteBatteryChanged(batteryStatus);
         });
@@ -395,13 +398,8 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         try {
             if (ultraliteSdk != null) {
                 // Remove LiveData observers
-                LiveData<Boolean> ultraliteConnectedLive = ultraliteSdk.getConnected();
                 ultraliteConnectedLive.removeObservers(lifecycleOwner);
-
-                LiveData<Boolean> ultraliteControlled = ultraliteSdk.getControlledByMe();
                 ultraliteControlled.removeObservers(lifecycleOwner);
-
-                LiveData<BatteryStatus> batteryStatusObserver = ultraliteSdk.getBatteryStatus();
                 batteryStatusObserver.removeObservers(lifecycleOwner);
 
                 // Remove event listeners and release control
@@ -448,6 +446,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
 
 
     public void showHomeScreen(){
+        Log.d(TAG, "SHOW HOME SCREEN");
         ultraliteSdk.screenOff();
         screenIsClear = true;
     }

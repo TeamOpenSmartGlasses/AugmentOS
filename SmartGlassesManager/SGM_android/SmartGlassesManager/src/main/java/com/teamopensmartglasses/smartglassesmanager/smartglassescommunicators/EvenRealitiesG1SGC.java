@@ -89,6 +89,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private final Handler sendBrightnessCommandHandler = new Handler(Looper.getMainLooper());
     private Handler connectHandler = new Handler(Looper.getMainLooper());
     private Handler reconnectHandler = new Handler(Looper.getMainLooper());
+    private Handler characteristicHandler = new Handler(Looper.getMainLooper());
     private final Semaphore sendSemaphore = new Semaphore(1);
     private boolean isLeftConnected = false;
     private boolean isRightConnected = false;
@@ -366,7 +367,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
             @Override
             public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
-                new Handler(Looper.getMainLooper()).post(() -> {
+                characteristicHandler.post(() -> {
                     if (characteristic.getUuid().equals(UART_RX_CHAR_UUID)) {
                         byte[] data = characteristic.getValue();
                         String deviceName = gatt.getDevice().getName();
@@ -1184,6 +1185,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             connectHandler.removeCallbacksAndMessages(null);
         if (retryBondHandler != null)
             retryBondHandler.removeCallbacksAndMessages(null);
+        if (characteristicHandler != null) {
+            characteristicHandler.removeCallbacksAndMessages(null);
+        }
+        if (reconnectHandler != null) {
+            reconnectHandler.removeCallbacksAndMessages(null);
+        }
         if (leftConnectionTimeoutHandler != null && leftConnectionTimeoutRunnable != null) {
             leftConnectionTimeoutHandler.removeCallbacks(leftConnectionTimeoutRunnable);
         }
@@ -1251,6 +1258,13 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public void showHomeScreen() {
 //        Log.d(TAG, "EVEN SHOWING HOME SCREEN");
         displayTextWall(" ");
+//        clearG1Screen();
+    }
+
+    public void clearG1Screen() {
+        displayTextWall(" ");
+        byte[] exitCommand = new byte[]{(byte) 0x18};
+        sendDataSequentially(exitCommand, false);
     }
 
     @Override
