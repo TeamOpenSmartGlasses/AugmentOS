@@ -264,6 +264,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private boolean showingDashboardNow = false;
     private boolean contextualDashboardEnabled;
     private final Map<AsrStreamKey, Set<String>> activeStreams = new HashMap<>();
+//    private final Map<AsrStreamKey, AsrFramework> activeAsrFrameworks = new HashMap<>();
 
     public AugmentosService() {
     }
@@ -324,12 +325,27 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             activeStreams.put(key, subscribers);
 
 //             Start the underlying ASR engine
-//            startAsrEngine(key);
+//            activeAsrFrameworks = startAsrEngine(key);
         }
 
         subscribers.add(packageName);
         Log.d(TAG, "addAsrStream: " + packageName + " subscribed to " + key);
     }
+
+//    private AsrFramework startAsrEngine(AsrStreamKey key) {
+//        // Start the underlying ASR engine
+//        AsrFramework asrFramework = new AsrFramework(key);
+//        activeAsrFrameworks.put(key, asrFramework);
+//        return asrFramework;
+//    }
+
+//    private void stopAsrEngine(AsrStreamKey key) {
+//        AsrFramework asrFramework = activeAsrFrameworks.get(key);
+//        if (asrFramework != null) {
+//            asrFramework.stop();
+//            activeAsrFrameworks.remove(key);
+//        }
+//    }
 
     private void removeAsrStream(String packageName, AsrStreamKey key) {
         Set<String> subscribers = activeStreams.get(key);
@@ -342,19 +358,34 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d(TAG, "removeAsrStream: " + packageName + " unsubscribed from " + key);
 
         if (subscribers.isEmpty()) {
-//            // Stop the underlying ASR
+            // Stop the underlying ASR
 //            stopAsrEngine(key);
 
             activeStreams.remove(key);
         }
     }
 
-    public List<String> getActiveStreamStrings() {
-        List<String> activeStreamStrings = new ArrayList<>();
+    public synchronized List<AsrStreamKey> getActiveFilteredStreamKeys() {
+        // 1) Find all languages that have at least one TRANSLATION active
+        Set<String> translationLanguages = new HashSet<>();
         for (AsrStreamKey key : activeStreams.keySet()) {
-            activeStreamStrings.add(key.toString());
+            if (key.streamType == AsrStreamType.TRANSLATION) {
+                translationLanguages.add(key.transcribeLanguage);
+            }
         }
-        return activeStreamStrings;
+
+        // 2) Build the filtered list
+        List<AsrStreamKey> filteredList = new ArrayList<>();
+        for (AsrStreamKey key : activeStreams.keySet()) {
+            if (key.streamType == AsrStreamType.TRANSLATION) {
+                filteredList.add(key);
+            } else if (key.streamType == AsrStreamType.TRANSCRIPTION) {
+                if (!translationLanguages.contains(key.transcribeLanguage)) {
+                    filteredList.add(key);
+                }
+            }
+        }
+        return filteredList;
     }
 
     @Subscribe
