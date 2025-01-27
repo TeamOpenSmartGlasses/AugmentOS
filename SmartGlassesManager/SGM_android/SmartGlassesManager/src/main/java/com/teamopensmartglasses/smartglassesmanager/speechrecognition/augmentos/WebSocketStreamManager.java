@@ -33,7 +33,11 @@ public class WebSocketStreamManager {
     private Thread audioSenderThread;
     private boolean isRunning = false;
     private final List<WebSocketCallback> callbacks = new ArrayList<>();
-    private boolean lastVadState = false; // Track last sent VAD state to avoid redundant messages
+    private boolean lastVadState = false;
+    private List<AsrStreamKey> lastConfig = new ArrayList<>(); // Store last config
+    private boolean isReconnecting = false;
+    private static final int RECONNECT_DELAY_MS = 500;
+    private final Object reconnectLock = new Object();
 
     public interface WebSocketCallback {
         void onInterimTranscript(String text, String language, long timestamp);
@@ -46,7 +50,7 @@ public class WebSocketStreamManager {
     private WebSocketStreamManager(String url) {
         this.serverUrl = url;
         this.client = new OkHttpClient.Builder()
-                .readTimeout(0, TimeUnit.MILLISECONDS) // No timeout for reading
+                .readTimeout(0, TimeUnit.MILLISECONDS)
                 .build();
         this.audioQueue = new LinkedBlockingQueue<>();
     }
@@ -67,12 +71,14 @@ public class WebSocketStreamManager {
     }
 
     public void disconnect() {
+        synchronized (reconnectLock) {
+            isReconnecting = false;
+        }
         isConnected = false;
         stopAudioSender();
 
         if (webSocket != null) {
             audioQueue.clear();
-            callbacks.clear();
             webSocket.close(1000, "Normal closure");
             webSocket = null;
         }
@@ -86,7 +92,29 @@ public class WebSocketStreamManager {
         Log.d(TAG, "WebSocket disconnected and resources cleaned up");
     }
 
-    public void connect(String languageCode) {
+    private void attemptReconnect() {
+        synchronized (reconnectLock) {
+            if (isReconnecting) {
+                return;
+            }
+            isReconnecting = true;
+        }
+
+        new Thread(() -> {
+            while (isReconnecting && !isConnected) {
+                Log.d(TAG, "Attempting to reconnect...");
+                try {
+                    Thread.sleep(RECONNECT_DELAY_MS);
+                    connect(); // languageCode parameter not used anymore
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+            }
+        }).start();
+    }
+
+    public void connect() {
         if (client == null) {
             client = new OkHttpClient.Builder()
                     .readTimeout(0, TimeUnit.MILLISECONDS)
@@ -102,13 +130,21 @@ public class WebSocketStreamManager {
             public void onOpen(WebSocket webSocket, Response response) {
                 Log.d(TAG, "WebSocket Connected");
                 isConnected = true;
+                synchronized (reconnectLock) {
+                    isReconnecting = false;
+                }
 
                 JSONObject config = new JSONObject();
                 try {
-                    config.put("type", "config"); // Add the missing "type" field
-                    config.put("streams", new JSONArray()); // Ensure "streams" exists (even empty)
+                    config.put("type", "config");
+                    config.put("streams", new JSONArray());
                     webSocket.send(config.toString());
                     Log.d(TAG, "Sent initial ASR config: " + config);
+
+                    // If we have a saved config, send it after connection
+                    if (!lastConfig.isEmpty()) {
+                        updateConfig(lastConfig);
+                    }
                 } catch (JSONException e) {
                     Log.e(TAG, "Error creating config message", e);
                 }
@@ -171,6 +207,7 @@ public class WebSocketStreamManager {
                 Log.d(TAG, "WebSocket Closing: " + reason);
                 isConnected = false;
                 stopAudioSender();
+                attemptReconnect();
             }
 
             @Override
@@ -182,6 +219,7 @@ public class WebSocketStreamManager {
                 for (WebSocketCallback callback : callbacks) {
                     callback.onError("WebSocket failure: " + t.getMessage());
                 }
+                attemptReconnect();
             }
         });
     }
@@ -245,6 +283,9 @@ public class WebSocketStreamManager {
     public void updateConfig(List<AsrStreamKey> languages) {
         Log.d(TAG, "Updating ASR config");
 
+        // Save the config for reconnection
+        lastConfig = new ArrayList<>(languages);
+
         if (!isConnected || webSocket == null) {
             Log.e(TAG, "WebSocket not connected. Cannot send config update.");
             return;
@@ -278,5 +319,4 @@ public class WebSocketStreamManager {
             Log.e(TAG, "Error creating ASR config message", e);
         }
     }
-
 }

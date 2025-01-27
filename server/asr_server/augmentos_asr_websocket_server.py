@@ -37,16 +37,21 @@ class ASRStream:
 
         # Azure Speech Configuration
         if self.streamType == "translation":
+            print(f"[ASR] Setting up translation: from {self.transcribeLanguage} to {self.translateLanguage}")
             self.translation_config = speechsdk.translation.SpeechTranslationConfig(
                 subscription=speech_key, region=service_region
             )
             self.translation_config.speech_recognition_language = self.transcribeLanguage
             if self.translateLanguage:
+                print(f"[ASR] Adding target language: {self.translateLanguage}")
                 self.translation_config.add_target_language(self.translateLanguage)
+            else:
+                print("[ASR] Warning: No target language specified for translation stream")
             
             self.push_stream = speechsdk.audio.PushAudioInputStream()
             self.audio_config = speechsdk.audio.AudioConfig(stream=self.push_stream)
             
+            print("[ASR] Creating TranslationRecognizer...")
             self.recognizer = speechsdk.translation.TranslationRecognizer(
                 translation_config=self.translation_config,
                 audio_config=self.audio_config
@@ -91,9 +96,16 @@ class ASRStream:
                 return
 
             if self.streamType == "translation":
-                text = evt.result.translations.get(self.translateLanguage, "")
+                print(f"[ASR] Translation interim event: {evt.result}")
+                print(f"[ASR] Available translations: {evt.result.translations}")
+                # Get base language code (e.g., 'en' from 'en-US')
+                base_lang = self.translateLanguage.split('-')[0]
+                text = evt.result.translations.get(base_lang, "")
+                original_text = evt.result.text
+                print(f"[ASR] Translation interim: Original='{original_text}' Translated='{text}' (to {self.translateLanguage})")
             else:
                 text = evt.result.text
+                print(f"[ASR] Transcription interim: '{text}'")
 
             if text:
                 result = {
@@ -104,6 +116,7 @@ class ASRStream:
                 }
                 if self.streamType == "translation":
                     result["translateLanguage"] = self.translateLanguage
+                    result["original_text"] = original_text  # Add original text for debugging
                 asyncio.run_coroutine_threadsafe(
                     self.websocket.send(json.dumps(result)), self.loop
                 )
@@ -114,9 +127,16 @@ class ASRStream:
                 return
 
             if self.streamType == "translation":
-                text = evt.result.translations.get(self.translateLanguage, "")
+                print(f"[ASR] Translation final event: {evt.result}")
+                print(f"[ASR] Available translations: {evt.result.translations}")
+                # Get base language code (e.g., 'en' from 'en-US')
+                base_lang = self.translateLanguage.split('-')[0]
+                text = evt.result.translations.get(base_lang, "")
+                original_text = evt.result.text
+                print(f"[ASR] Translation final: Original='{original_text}' Translated='{text}' (to {self.translateLanguage})")
             else:
                 text = evt.result.text
+                print(f"[ASR] Transcription final: '{text}'")
 
             if text:
                 result = {
@@ -127,6 +147,7 @@ class ASRStream:
                 }
                 if self.streamType == "translation":
                     result["translateLanguage"] = self.translateLanguage
+                    result["original_text"] = original_text  # Add original text for debugging
                 asyncio.run_coroutine_threadsafe(
                     self.websocket.send(json.dumps(result)), self.loop
                 )
