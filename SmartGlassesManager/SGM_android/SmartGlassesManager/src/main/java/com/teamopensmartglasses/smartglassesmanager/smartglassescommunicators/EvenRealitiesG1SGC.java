@@ -385,7 +385,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             if (deviceName.contains("R_")) {
                                 //Log.d(TAG, "Ignoring...");
 //                                Log.d(TAG, "Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
-//                                Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName);
+//                                Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName + ", length: " + pcmData.length);
                                 EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
                             } else {
 //                                Log.d(TAG, "Lc3 Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(lc3) + ", from: " + deviceName);
@@ -1151,6 +1151,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
         if (leftGlassGatt != null) {
             leftGlassGatt.disconnect();
+        }
+
+        if (leftGlassGatt != null) {
             leftGlassGatt.close();
             leftGlassGatt = null;
         }

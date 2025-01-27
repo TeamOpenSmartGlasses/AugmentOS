@@ -29,6 +29,7 @@ public class WebSocketStreamManager {
     private Thread audioSenderThread;
     private boolean isRunning = false;
     private final List<WebSocketCallback> callbacks = new ArrayList<>();
+    private boolean lastVadState = false; // Track last sent VAD state to avoid redundant messages
 
     public interface WebSocketCallback {
         void onInterimTranscript(String text, long timestamp);
@@ -66,23 +67,20 @@ public class WebSocketStreamManager {
         if (webSocket != null) {
             audioQueue.clear();
             callbacks.clear();
-
             webSocket.close(1000, "Normal closure");
             webSocket = null;
         }
 
-        // Shutdown the old client
         if (client != null) {
             client.dispatcher().executorService().shutdown();
             client.connectionPool().evictAll();
-            client = null;  // Set to null so we create new one on next connect
+            client = null;
         }
 
         Log.d(TAG, "WebSocket disconnected and resources cleaned up");
     }
 
     public void connect(String languageCode) {
-        // Create new client if needed
         if (client == null) {
             client = new OkHttpClient.Builder()
                     .readTimeout(0, TimeUnit.MILLISECONDS)
@@ -99,7 +97,6 @@ public class WebSocketStreamManager {
                 Log.d(TAG, "WebSocket Connected");
                 isConnected = true;
 
-                // Send configuration message
                 JSONObject config = new JSONObject();
                 try {
                     config.put("language", languageCode);
@@ -117,7 +114,7 @@ public class WebSocketStreamManager {
                     JSONObject message = new JSONObject(text);
                     String type = message.getString("type");
                     String transcriptText = message.getString("text");
-                    long timestamp = (long)(message.getDouble("timestamp") * 1000); // Convert to milliseconds
+                    long timestamp = (long)(message.getDouble("timestamp") * 1000);
 
                     for (WebSocketCallback callback : callbacks) {
                         if ("interim".equals(type)) {
@@ -186,5 +183,24 @@ public class WebSocketStreamManager {
 
     public boolean isConnected() {
         return isConnected;
+    }
+
+    public void sendVadStatus(boolean isSpeaking) {
+        Log.d(TAG, "Sending VAD status");
+        if (!isConnected || webSocket == null) return;
+
+        // Avoid redundant messages
+        if (lastVadState == isSpeaking) return;
+        lastVadState = isSpeaking;
+
+        JSONObject vadMessage = new JSONObject();
+        try {
+            vadMessage.put("type", "VAD");
+            vadMessage.put("status", isSpeaking ? "true" : "false");
+            webSocket.send(vadMessage.toString());
+            Log.d(TAG, "Sent VAD status: " + vadMessage);
+        } catch (JSONException e) {
+            Log.e(TAG, "Error creating VAD message", e);
+        }
     }
 }
