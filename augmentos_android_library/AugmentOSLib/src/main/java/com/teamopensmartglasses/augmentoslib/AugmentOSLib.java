@@ -102,6 +102,10 @@ public class AugmentOSLib {
         subscribe(new StartAsrStreamRequestEvent(language));
     }
 
+    public void stopTranscription(String language){
+        subscribe(new StopAsrStreamRequestEvent(language));
+    }
+
     public void subscribe(StartAsrStreamRequestEvent startAsrStreamRequestEvent) {
         EventBus.getDefault().post((StartAsrStreamRequestEvent) startAsrStreamRequestEvent);
     }
