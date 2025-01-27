@@ -59,7 +59,7 @@
     </receiver>
 
     <activity
-        android:name="com.teamopensmartglasses.convoscope.MainActivity"
+        android:name="com.augmentos.augmentos_core.MainActivity"
         android:exported="true"
         android:theme="@style/AppTheme">
       <intent-filter>
@@ -78,7 +78,7 @@
       </intent-filter>
     </activity>
     <activity
-        android:name="com.teamopensmartglasses.convoscope.PermissionsActivity"
+        android:name="com.augmentos.augmentos_core.PermissionsActivity"
         android:exported="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
@@ -101,7 +101,7 @@
     <service android:name=".ScreenCaptureService"
         android:exported="false"
         android:foregroundServiceType="mediaProjection" />
-    <service android:name="com.teamopensmartglasses.convoscope.AugmentosService"
+    <service android:name="com.augmentos.augmentos_core.AugmentosService"
         android:foregroundServiceType="microphone"
         android:exported="true"
         android:label="AugmentOS Main"
@@ -114,7 +114,7 @@
           <action android:name="ACTION_STOP_CORE" />  <!-- Must match the action used in the Manager -->
         </intent-filter>
     </service>
-    <service android:name="com.teamopensmartglasses.convoscope.AugmentosSmartGlassesService"
+    <service android:name="com.augmentos.augmentos_core.AugmentosSmartGlassesService"
         android:foregroundServiceType="microphone"
         android:exported="true"
         android:label="AugmentOS SGM"
@@ -129,11 +129,11 @@
     </service>
 
     <receiver
-        android:name="com.teamopensmartglasses.convoscope.tpa.AugmentOSLibBroadcastReceiver"
+        android:name="com.augmentos.augmentos_core.tpa.AugmentOSLibBroadcastReceiver"
         android:enabled="true"
         android:exported="true" >
       <intent-filter>
-        <action android:name="com.teamopensmartglasses.fromtpa" />
+        <action android:name="com.augmentos.fromtpa" />
       </intent-filter>
     </receiver>
 
@@ -162,7 +162,7 @@
   </queries>
 
   <queries>
-    <package android:name="com.teamopensmartglasses.augmentos_manager" />
+    <package android:name="com.augmentos.augmentos_manager" />
   </queries>
 
 </manifest>

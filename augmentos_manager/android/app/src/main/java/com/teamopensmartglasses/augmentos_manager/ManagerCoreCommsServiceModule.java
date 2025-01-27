@@ -1,4 +1,4 @@
-package com.teamopensmartglasses.augmentos_manager;
+package com.augmentos.augmentos_manager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -49,8 +49,8 @@ public class ManagerCoreCommsServiceModule extends ReactContextBaseJavaModule {
         try {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(
-                    "com.teamopensmartglasses.convoscope",
-                    "com.teamopensmartglasses.convoscope.AugmentosService"));
+                    "com.augmentos.augmentos_core",
+                    "com.augmentos.augmentos_core.AugmentosService"));
             intent.setAction("ACTION_START_CORE");
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 getReactApplicationContext().startService(intent);

@@ -6,7 +6,7 @@ import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { AppState } from 'react-native';
 import { ENABLE_PHONE_NOTIFICATIONS_DEFAULT, MOCK_CONNECTION, SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from './consts';
 import { loadSetting, saveSetting } from './augmentos_core_comms/SettingsHelper';
-import { startExternalService } from './augmentos_core_comms/CoreServiceStarter';
+import { openCorePermissionsActivity, startExternalService } from './augmentos_core_comms/CoreServiceStarter';
 import ManagerCoreCommsService from './augmentos_core_comms/ManagerCoreCommsService';
 import GlobalEventEmitter from './logic/GlobalEventEmitter';
 import {
@@ -586,6 +586,10 @@ export class BluetoothService extends EventEmitter {
         GlobalEventEmitter.emit('APP_INFO_RESULT', { appInfo: jsonData.app_info });
       } else if ('app_is_downloaded' in jsonData) {
           GlobalEventEmitter.emit('APP_IS_DOWNLOADED_RESULT', { appIsDownloaded: jsonData.app_is_downloaded });
+      } else if ('need_permissions' in jsonData) {
+        // TODO: Do some nicer UX here
+        console.log("GOT 'NEED PERMISSIONS' FROM CORE... OPENING PERMISSIONS ACTIVITY...");
+        openCorePermissionsActivity();
       }
     } catch (e) {
       console.log('Some error parsing data from AugmentOS_Core...');
@@ -780,7 +784,9 @@ export class BluetoothService extends EventEmitter {
       return true;
     }).catch((error) => {
       if (this.simulatedPuck) {
-        ManagerCoreCommsService.startService();
+        if (!ManagerCoreCommsService.isServiceRunning) {
+          ManagerCoreCommsService.startService();
+        }
         startExternalService();
       } else {
         this.handleDisconnectedPeripheral({

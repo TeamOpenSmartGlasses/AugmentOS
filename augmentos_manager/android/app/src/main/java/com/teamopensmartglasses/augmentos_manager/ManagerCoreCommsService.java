@@ -1,12 +1,12 @@
-package com.teamopensmartglasses.augmentos_manager;
+package com.augmentos.augmentos_manager;
 
 import android.content.ComponentName;
 import android.content.Intent;
 import android.service.notification.NotificationListenerService;
 import android.util.Log;
 
-import com.teamopensmartglasses.augmentoslib.SmartGlassesAndroidService;
-import com.teamopensmartglasses.augmentoslib.AugmentOSLib;
+import com.augmentos.augmentoslib.SmartGlassesAndroidService;
+import com.augmentos.augmentoslib.AugmentOSLib;
 
 import org.greenrobot.eventbus.Subscribe;
 
