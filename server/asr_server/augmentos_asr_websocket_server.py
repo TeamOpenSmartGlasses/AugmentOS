@@ -97,13 +97,13 @@ class ASRStream:
 
             if text:
                 result = {
-                    "stream_id": self.stream_id,
                     "type": "interim",
                     "text": text,
                     "timestamp": time.time(),
-                    "language": self.transcribeLanguage,
-                    "translateLanguage": self.translateLanguage if self.streamType == "translation" else None
+                    "language": self.transcribeLanguage
                 }
+                if self.streamType == "translation":
+                    result["translateLanguage"] = self.translateLanguage
                 asyncio.run_coroutine_threadsafe(
                     self.websocket.send(json.dumps(result)), self.loop
                 )
@@ -120,13 +120,13 @@ class ASRStream:
 
             if text:
                 result = {
-                    "stream_id": self.stream_id,
                     "type": "final",
                     "text": text,
                     "timestamp": time.time(),
-                    "language": self.transcribeLanguage,
-                    "translateLanguage": self.translateLanguage if self.streamType == "translation" else None
+                    "language": self.transcribeLanguage
                 }
+                if self.streamType == "translation":
+                    result["translateLanguage"] = self.translateLanguage
                 asyncio.run_coroutine_threadsafe(
                     self.websocket.send(json.dumps(result)), self.loop
                 )

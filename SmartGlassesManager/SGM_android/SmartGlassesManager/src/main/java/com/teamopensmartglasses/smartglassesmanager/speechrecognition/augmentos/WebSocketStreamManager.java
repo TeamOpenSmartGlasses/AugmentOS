@@ -36,10 +36,10 @@ public class WebSocketStreamManager {
     private boolean lastVadState = false; // Track last sent VAD state to avoid redundant messages
 
     public interface WebSocketCallback {
-        void onInterimTranscript(String text, long timestamp);
-        void onInterimTranslation(String translatedText, long timestamp);
-        void onFinalTranscript(String text, long timestamp);
-        void onFinalTranslation(String translatedText, long timestamp);
+        void onInterimTranscript(String text, String language, long timestamp);
+        void onInterimTranslation(String translatedText, String fromLanguage, String toLanguage, long timestamp);
+        void onFinalTranscript(String text, String language, long timestamp);
+        void onFinalTranslation(String translatedText, String fromLanguage, String toLanguage, long timestamp);
         void onError(String error);
     }
 
@@ -122,25 +122,42 @@ public class WebSocketStreamManager {
                     JSONObject message = new JSONObject(text);
                     String type = message.getString("type");
                     long timestamp = (long)(message.getDouble("timestamp") * 1000);
+                    String transcribeLanguage = message.getString("language");
+                    String translateLanguage = message.optString("translateLanguage", null);
+                    boolean isTranslation = translateLanguage != null;
 
-                    // Check if this is a translation message
-                    boolean isTranslation = message.has("text_translated");
                     Log.d(TAG, message.toString());
 
                     for (WebSocketCallback callback : callbacks) {
                         if ("interim".equals(type)) {
                             if (isTranslation) {
-                                // Only send translated text for translation callbacks
-                                callback.onInterimTranslation(message.getString("text_translated"), timestamp);
+                                callback.onInterimTranslation(
+                                        message.getString("text"),
+                                        transcribeLanguage,
+                                        translateLanguage,
+                                        timestamp
+                                );
                             } else {
-                                // Only send original text for transcript callbacks
-                                callback.onInterimTranscript(message.getString("text"), timestamp);
+                                callback.onInterimTranscript(
+                                        message.getString("text"),
+                                        transcribeLanguage,
+                                        timestamp
+                                );
                             }
                         } else if ("final".equals(type)) {
                             if (isTranslation) {
-                                callback.onFinalTranslation(message.getString("text_translated"), timestamp);
+                                callback.onFinalTranslation(
+                                        message.getString("text"),
+                                        transcribeLanguage,
+                                        translateLanguage,
+                                        timestamp
+                                );
                             } else {
-                                callback.onFinalTranscript(message.getString("text"), timestamp);
+                                callback.onFinalTranscript(
+                                        message.getString("text"),
+                                        transcribeLanguage,
+                                        timestamp
+                                );
                             }
                         }
                     }

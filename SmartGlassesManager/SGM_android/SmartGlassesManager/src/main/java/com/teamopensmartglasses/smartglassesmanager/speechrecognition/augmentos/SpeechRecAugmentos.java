@@ -3,7 +3,6 @@ package com.teamopensmartglasses.smartglassesmanager.speechrecognition.augmentos
 import android.content.Context;
 import android.util.Log;
 
-import com.teamopensmartglasses.augmentoslib.SpeechRecUtils;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.TranslateOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.AsrStreamKey;
@@ -26,9 +25,6 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     private static SpeechRecAugmentos instance;
 
     private final Context mContext;
-    private final String currentLanguageCode;
-    private final String targetLanguageCode;
-    private final boolean isTranslation;
     private final WebSocketStreamManager webSocketManager;
     private final BlockingQueue<byte[]> rollingBuffer;
     private final int bufferMaxSize;
@@ -37,11 +33,8 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     private VadGateSpeechPolicy vadPolicy;
     private volatile boolean isSpeaking = false; // Track VAD state
 
-    private SpeechRecAugmentos(Context context, String languageLocale) {
+    private SpeechRecAugmentos(Context context) {
         this.mContext = context;
-        this.currentLanguageCode = SpeechRecUtils.languageToLocale(languageLocale);
-        this.targetLanguageCode = null;
-        this.isTranslation = false;
         this.webSocketManager = WebSocketStreamManager.getInstance(getServerUrl());
 
         // Rolling buffer stores last 3 seconds of audio
@@ -55,31 +48,6 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
         startVadProcessingThread();
 
         setupWebSocketCallbacks();
-    }
-
-    //translation mode
-    private SpeechRecAugmentos(Context context, String currentLanguageLocale, String targetLanguageLocale) {
-        this.mContext = context;
-        this.currentLanguageCode = SpeechRecUtils.languageToLocale(currentLanguageLocale);
-        this.targetLanguageCode = SpeechRecUtils.languageToLocale(targetLanguageLocale);
-        this.isTranslation = true;
-        this.webSocketManager = WebSocketStreamManager.getInstance(getServerUrl());
-
-        // Rolling buffer stores last 3 seconds of audio
-        this.bufferMaxSize = (16000 * 3 * 2) / 512; // ~3 sec buffer (assuming 512-byte chunks)
-        this.rollingBuffer = new LinkedBlockingQueue<>(bufferMaxSize);
-
-        //VAD
-        this.vadPolicy = new VadGateSpeechPolicy(mContext);
-        this.vadPolicy.init(512);
-        setupVadListener();
-        startVadProcessingThread();
-
-        setupWebSocketCallbacks();
-
-        if (isTranslation) {
-            Log.d(TAG, "Translation requested but not yet implemented");
-        }
     }
 
     private String getServerUrl() {
@@ -118,34 +86,50 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     private void setupWebSocketCallbacks() {
         webSocketManager.addCallback(new WebSocketStreamManager.WebSocketCallback() {
             @Override
-            public void onInterimTranscript(String text, long timestamp) {
-                Log.d(TAG, "Got intermediate transcription: " + text);
+            public void onInterimTranscript(String text, String language, long timestamp) {
+                Log.d(TAG, "Got intermediate transcription: " + text + " (language: " + language + ")");
                 if (text != null && !text.trim().isEmpty()) {
-                    EventBus.getDefault().post(new SpeechRecOutputEvent(text, currentLanguageCode, timestamp, false));
+                    EventBus.getDefault().post(new SpeechRecOutputEvent(text, language, timestamp, false));
                 }
             }
 
             @Override
-            public void onFinalTranscript(String text, long timestamp) {
-                Log.d(TAG, "Got final transcription: " + text);
+            public void onFinalTranscript(String text, String language, long timestamp) {
+                Log.d(TAG, "Got final transcription: " + text + " (language: " + language + ")");
                 if (text != null && !text.trim().isEmpty()) {
-                    EventBus.getDefault().post(new SpeechRecOutputEvent(text, currentLanguageCode, timestamp, true));
+                    EventBus.getDefault().post(new SpeechRecOutputEvent(text, language, timestamp, true));
                 }
             }
 
             @Override
-            public void onInterimTranslation(String translatedText, long timestamp) {
-                Log.d(TAG, "Got intermediate translation: " + translatedText);
+            public void onInterimTranslation(String translatedText, String fromLanguage, String toLanguage, long timestamp) {
+                Log.d(TAG, "Got intermediate translation: " + translatedText +
+                        " (from: " + fromLanguage + ", to: " + toLanguage + ")");
                 if (translatedText != null && !translatedText.trim().isEmpty()) {
-                    EventBus.getDefault().post(new TranslateOutputEvent(translatedText, currentLanguageCode, timestamp, false, true));
+                    EventBus.getDefault().post(new TranslateOutputEvent(
+                            translatedText,
+                            fromLanguage,
+                            toLanguage,
+                            timestamp,
+                            false,  // not final
+                            true    // is translation
+                    ));
                 }
             }
 
             @Override
-            public void onFinalTranslation(String translatedText, long timestamp) {
-                Log.d(TAG, "Got final translation: " + translatedText);
+            public void onFinalTranslation(String translatedText, String fromLanguage, String toLanguage, long timestamp) {
+                Log.d(TAG, "Got final translation: " + translatedText +
+                        " (from: " + fromLanguage + ", to: " + toLanguage + ")");
                 if (translatedText != null && !translatedText.trim().isEmpty()) {
-                    EventBus.getDefault().post(new TranslateOutputEvent(translatedText, currentLanguageCode, timestamp, true, true));
+                    EventBus.getDefault().post(new TranslateOutputEvent(
+                            translatedText,
+                            fromLanguage,
+                            toLanguage,
+                            timestamp,
+                            true,   // is final
+                            true    // is translation
+                    ));
                 }
             }
 
@@ -260,7 +244,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     @Override
     public void start() {
         Log.d(TAG, "Starting Speech Recognition Service");
-        webSocketManager.connect(currentLanguageCode);
+        webSocketManager.connect();
     }
 
     @Override
@@ -269,25 +253,11 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
         webSocketManager.disconnect();
     }
 
-    public static synchronized SpeechRecAugmentos getInstance(Context context, String languageLocale) {
-        if (instance == null || instance.isTranslation || !instance.currentLanguageCode.equals(languageLocale)) {
-            if (instance != null) {
-                instance.destroy();
-            }
-            instance = new SpeechRecAugmentos(context, languageLocale);
+    public static synchronized SpeechRecAugmentos getInstance(Context context) {
+        if (instance != null) {
+            instance.destroy();
         }
-        return instance;
-    }
-
-    public static synchronized SpeechRecAugmentos getInstance(Context context, String currentLanguageLocale, String targetLanguageLocale) {
-        if (instance == null || !instance.isTranslation ||
-                !instance.currentLanguageCode.equals(currentLanguageLocale) ||
-                !instance.targetLanguageCode.equals(targetLanguageLocale)) {
-            if (instance != null) {
-                instance.destroy();
-            }
-            instance = new SpeechRecAugmentos(context, currentLanguageLocale, targetLanguageLocale);
-        }
+        instance = new SpeechRecAugmentos(context);
         return instance;
     }
 

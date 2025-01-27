@@ -10,14 +10,14 @@ public class TranslateOutputEvent implements Serializable {
     public boolean isTranslated = false;
     public static final String eventId = "TranslateOutputEvent";
 
-    public TranslateOutputEvent(String text, String languageCode, long timestamp, boolean isFinal){
+    public TranslateOutputEvent(String text, String fromLanguageCode, String toLanguageCode, long timestamp, boolean isFinal){
         this.text = text;
         this.languageCode = languageCode;
         this.timestamp = timestamp;
         this.isFinal = isFinal;
     }
 
-    public TranslateOutputEvent(String text, String languageCode, long timestamp, boolean isFinal, boolean isTranslated){
+    public TranslateOutputEvent(String text, String fromLanguageCode, String toLanguageCode, long timestamp, boolean isFinal, boolean isTranslated){
         this.text = text;
         this.languageCode = languageCode;
         this.timestamp = timestamp;

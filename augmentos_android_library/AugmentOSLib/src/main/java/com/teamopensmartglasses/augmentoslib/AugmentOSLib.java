@@ -102,8 +102,16 @@ public class AugmentOSLib {
         subscribe(new StartAsrStreamRequestEvent(language));
     }
 
+    public void requestTranslation(String fromLanguage, String toLanguage){
+        subscribe(new StartAsrStreamRequestEvent(fromLanguage, toLanguage));
+    }
+
     public void stopTranscription(String language){
         subscribe(new StopAsrStreamRequestEvent(language));
+    }
+
+    public void stopTranslation(String fromLanguage, String toLanguage){
+        subscribe(new StopAsrStreamRequestEvent(fromLanguage, toLanguage));
     }
 
     public void subscribe(StartAsrStreamRequestEvent startAsrStreamRequestEvent) {
