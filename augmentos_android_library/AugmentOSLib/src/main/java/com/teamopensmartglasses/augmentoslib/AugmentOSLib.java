@@ -29,6 +29,7 @@ import com.teamopensmartglasses.augmentoslib.events.SendBitmapViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.StartAsrStreamRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.StopAsrStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;

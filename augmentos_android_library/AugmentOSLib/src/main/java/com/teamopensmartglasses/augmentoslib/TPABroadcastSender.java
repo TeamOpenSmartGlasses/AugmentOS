@@ -25,6 +25,7 @@ import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStartReques
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStopRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SendBitmapViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.StartAsrStreamRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.StopAsrStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
