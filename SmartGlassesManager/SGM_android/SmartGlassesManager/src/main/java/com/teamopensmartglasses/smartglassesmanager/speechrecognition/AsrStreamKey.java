@@ -1,4 +1,4 @@
-package com.teamopensmartglasses.convoscope;
+package com.teamopensmartglasses.smartglassesmanager.speechrecognition;
 
 import androidx.annotation.NonNull;
 

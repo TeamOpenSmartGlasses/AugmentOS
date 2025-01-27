@@ -21,6 +21,7 @@ import androidx.lifecycle.LifecycleService;
 import androidx.preference.PreferenceManager;
 
 import com.teamopensmartglasses.augmentoslib.events.SmartGlassesConnectedEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
 import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.teamopensmartglasses.smartglassesmanager.comms.MessageTypes;
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
@@ -703,4 +704,10 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     }
 
     public void setFontSize(SmartGlassesFontSize fontSize) { EventBus.getDefault().post(new SetFontSizeEvent(fontSize)); }
+
+
+    @Subscribe
+    public void handleNewAsrLanguagesEvent(NewAsrLanguagesEvent event) {
+        Log.d(TAG, "NewAsrLanguages: " + event.languages.toString());
+    }
 }

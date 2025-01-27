@@ -73,6 +73,7 @@ import com.teamopensmartglasses.convoscope.events.AugmentosSmartGlassesDisconnec
 import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
@@ -94,6 +95,8 @@ import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesDisp
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHeadDownEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesHeadUpEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.AsrStreamKey;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecFramework;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 
@@ -264,7 +267,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private boolean showingDashboardNow = false;
     private boolean contextualDashboardEnabled;
     private final Map<AsrStreamKey, Set<String>> activeStreams = new HashMap<>();
-//    private final Map<AsrStreamKey, AsrFramework> activeAsrFrameworks = new HashMap<>();
+    private final Map<AsrStreamKey, SpeechRecFramework> activeSpeechRecFrameworks = new HashMap<>();
 
     public AugmentosService() {
     }
@@ -324,28 +327,18 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             subscribers = new HashSet<>();
             activeStreams.put(key, subscribers);
 
-//             Start the underlying ASR engine
-//            activeAsrFrameworks = startAsrEngine(key);
+            // Start the underlying ASR engine
+            updateAsrLanguages();
         }
 
         subscribers.add(packageName);
         Log.d(TAG, "addAsrStream: " + packageName + " subscribed to " + key);
     }
 
-//    private AsrFramework startAsrEngine(AsrStreamKey key) {
-//        // Start the underlying ASR engine
-//        AsrFramework asrFramework = new AsrFramework(key);
-//        activeAsrFrameworks.put(key, asrFramework);
-//        return asrFramework;
-//    }
-
-//    private void stopAsrEngine(AsrStreamKey key) {
-//        AsrFramework asrFramework = activeAsrFrameworks.get(key);
-//        if (asrFramework != null) {
-//            asrFramework.stop();
-//            activeAsrFrameworks.remove(key);
-//        }
-//    }
+    private void updateAsrLanguages() {
+        //send the minimal list of languages to the speech rec framework
+        EventBus.getDefault().post(new NewAsrLanguagesEvent(getActiveFilteredStreamKeys()));
+    }
 
     private void removeAsrStream(String packageName, AsrStreamKey key) {
         Set<String> subscribers = activeStreams.get(key);
@@ -359,7 +352,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         if (subscribers.isEmpty()) {
             // Stop the underlying ASR
-//            stopAsrEngine(key);
+            updateAsrLanguages();
 
             activeStreams.remove(key);
         }
@@ -417,8 +410,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         for (AsrStreamKey removableKey : keysToRemove) {
             activeStreams.remove(removableKey);
-            // stopAsrEngine(removableKey);
         }
+        updateAsrLanguages();
     }
 
     @Subscribe
@@ -605,9 +598,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         // Init TPA broadcast receivers
         tpaSystem = new TPASystem(this, smartGlassesService);
 
+        //setup english as an ASR language
         AsrStreamKey enKey = new AsrStreamKey("English");
         addAsrStream("AugmentOS_INTERNAL", enKey);
-        // Optionally startAsrEngine(enKey);
 
         // Initialize BLE Peripheral
         blePeripheral = new AugmentosBlePeripheral(this, this);
