@@ -15,6 +15,8 @@ import com.teamopensmartglasses.smartglassesmanager.speechrecognition.google.Spe
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.util.List;
+
 //send audio to one of the built in ASR frameworks.
 public class SpeechRecSwitchSystem {
     private final String TAG = "WearableAi_SpeechRecSwitchSystem";
@@ -135,5 +137,10 @@ public class SpeechRecSwitchSystem {
         }
         EventBus.getDefault().unregister(this);
     }
+
+    public void updateConfig(List<AsrStreamKey> languages){
+        speechRecFramework.updateConfig(languages);
+    }
+
 }
 

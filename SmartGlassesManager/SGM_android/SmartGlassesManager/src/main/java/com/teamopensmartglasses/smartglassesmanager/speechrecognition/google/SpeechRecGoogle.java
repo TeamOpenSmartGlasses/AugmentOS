@@ -14,6 +14,7 @@ import com.google.audio.asr.SpeechRecognitionModelOptions;
 import com.google.audio.asr.TranscriptionResultFormatterOptions;
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.AsrStreamKey;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecFramework;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.google.asr.RepeatingRecognitionSession;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.google.asr.SafeTranscriptionResultFormatter;
@@ -23,6 +24,8 @@ import com.teamopensmartglasses.smartglassesmanager.speechrecognition.google.gcl
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.vad.VadGateSpeechPolicy;
 
 import org.greenrobot.eventbus.EventBus;
+
+import java.util.List;
 
 public class SpeechRecGoogle extends SpeechRecFramework {
     public String TAG = "WearableAi_SpeechRecGoogle";
@@ -165,5 +168,8 @@ public class SpeechRecGoogle extends SpeechRecFramework {
                         .setNetworkConnectionChecker(networkChecker);
         recognizer = recognizerBuilder.build();
         recognizer.registerCallback(transcriptUpdater, TranscriptionResultUpdatePublisher.ResultSource.MOST_RECENT_SEGMENT);
+    }
+
+    public void updateConfig(List<AsrStreamKey> languages){
     }
 }

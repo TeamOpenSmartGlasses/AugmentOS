@@ -1137,6 +1137,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         //stop BLE scanning
         stopScan();
 
+        if (bondingReceiver != null) {
+            context.unregisterReceiver(bondingReceiver);
+        }
+
         //disable the microphone
         setMicEnabled(false, 0);
 
@@ -1161,10 +1165,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             rightGlassGatt.disconnect();
             rightGlassGatt.close();
             rightGlassGatt = null;
-        }
-
-        if (bondingReceiver != null) {
-            context.unregisterReceiver(bondingReceiver);
         }
 
         if (handler != null)

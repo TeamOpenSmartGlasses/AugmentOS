@@ -4,12 +4,15 @@ import android.content.Context;
 import android.util.Log;
 
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.AsrStreamKey;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecFramework;
 
 import org.greenrobot.eventbus.EventBus;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -236,5 +239,8 @@ public class SpeechRecDeepgram extends SpeechRecFramework {
                 currentLanguageCode = "en";
                 break;
         }
+    }
+
+    public void updateConfig(List<AsrStreamKey> languages){
     }
 }

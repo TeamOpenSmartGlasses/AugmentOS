@@ -63,6 +63,7 @@ import com.teamopensmartglasses.augmentoslib.PhoneNotification;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
 import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
+import com.teamopensmartglasses.augmentoslib.events.TranslateOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.NotificationEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.StartAsrStreamRequestEvent;
@@ -155,7 +156,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private FirebaseAuth.IdTokenListener idTokenListener;
-
     private final String notificationAppName = "AugmentOS Core";
     private final String notificationDescription = "Running in foreground";
     private final String myChannelId = "augmentos_core";
@@ -599,7 +599,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         tpaSystem = new TPASystem(this, smartGlassesService);
 
         //setup english as an ASR language
-        AsrStreamKey enKey = new AsrStreamKey("English");
+        AsrStreamKey enKey = new AsrStreamKey("en-US");
         addAsrStream("AugmentOS_INTERNAL", enKey);
 
         // Initialize BLE Peripheral
@@ -779,6 +779,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d(TAG, "****************** SENDING REFERENCE CARD: CONNECTED TO AUGMENT OS");
         if (smartGlassesService != null)
             smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS"), 6);
+
+        //start transcribing
+        updateAsrLanguages();
 
         Map<String, Object> props = new HashMap<>();
         props.put("glasses_model_name", event.device.deviceModelName);

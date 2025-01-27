@@ -41,6 +41,7 @@ import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartGlasse
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.TextToSpeechEvent;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.AsrStreamKey;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.EvenRealitiesG1;
@@ -709,5 +710,6 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     @Subscribe
     public void handleNewAsrLanguagesEvent(NewAsrLanguagesEvent event) {
         Log.d(TAG, "NewAsrLanguages: " + event.languages.toString());
+        speechRecSwitchSystem.updateConfig(event.languages);
     }
 }

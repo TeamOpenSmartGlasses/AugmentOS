@@ -2,6 +2,10 @@ package com.teamopensmartglasses.smartglassesmanager.speechrecognition.augmentos
 
 import android.util.Log;
 
+import com.teamopensmartglasses.augmentoslib.enums.AsrStreamType;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.AsrStreamKey;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -33,7 +37,9 @@ public class WebSocketStreamManager {
 
     public interface WebSocketCallback {
         void onInterimTranscript(String text, long timestamp);
+        void onInterimTranslation(String translatedText, long timestamp);
         void onFinalTranscript(String text, long timestamp);
+        void onFinalTranslation(String translatedText, long timestamp);
         void onError(String error);
     }
 
@@ -99,8 +105,10 @@ public class WebSocketStreamManager {
 
                 JSONObject config = new JSONObject();
                 try {
-                    config.put("language", languageCode);
+                    config.put("type", "config"); // Add the missing "type" field
+                    config.put("streams", new JSONArray()); // Ensure "streams" exists (even empty)
                     webSocket.send(config.toString());
+                    Log.d(TAG, "Sent initial ASR config: " + config);
                 } catch (JSONException e) {
                     Log.e(TAG, "Error creating config message", e);
                 }
@@ -113,14 +121,27 @@ public class WebSocketStreamManager {
                 try {
                     JSONObject message = new JSONObject(text);
                     String type = message.getString("type");
-                    String transcriptText = message.getString("text");
                     long timestamp = (long)(message.getDouble("timestamp") * 1000);
+
+                    // Check if this is a translation message
+                    boolean isTranslation = message.has("text_translated");
+                    Log.d(TAG, message.toString());
 
                     for (WebSocketCallback callback : callbacks) {
                         if ("interim".equals(type)) {
-                            callback.onInterimTranscript(transcriptText, timestamp);
+                            if (isTranslation) {
+                                // Only send translated text for translation callbacks
+                                callback.onInterimTranslation(message.getString("text_translated"), timestamp);
+                            } else {
+                                // Only send original text for transcript callbacks
+                                callback.onInterimTranscript(message.getString("text"), timestamp);
+                            }
                         } else if ("final".equals(type)) {
-                            callback.onFinalTranscript(transcriptText, timestamp);
+                            if (isTranslation) {
+                                callback.onFinalTranslation(message.getString("text_translated"), timestamp);
+                            } else {
+                                callback.onFinalTranscript(message.getString("text"), timestamp);
+                            }
                         }
                     }
                 } catch (JSONException e) {
@@ -203,4 +224,42 @@ public class WebSocketStreamManager {
             Log.e(TAG, "Error creating VAD message", e);
         }
     }
+
+    public void updateConfig(List<AsrStreamKey> languages) {
+        Log.d(TAG, "Updating ASR config");
+
+        if (!isConnected || webSocket == null) {
+            Log.e(TAG, "WebSocket not connected. Cannot send config update.");
+            return;
+        }
+
+        JSONObject configMessage = new JSONObject();
+        JSONArray streamsArray = new JSONArray();
+
+        try {
+            configMessage.put("type", "config");
+
+            for (AsrStreamKey key : languages) {
+                JSONObject streamObject = new JSONObject();
+                if (key.streamType == AsrStreamType.TRANSCRIPTION){
+                    streamObject.put("streamType", "transcription");
+                } else {
+                    streamObject.put("streamType", "translation");
+                }
+                streamObject.put("transcribeLanguage", key.transcribeLanguage);
+                if (key.streamType == AsrStreamType.TRANSLATION) {
+                    streamObject.put("translateLanguage", key.translateLanguage);
+                }
+                streamsArray.put(streamObject);
+            }
+
+            configMessage.put("streams", streamsArray);
+            webSocket.send(configMessage.toString());
+            Log.d(TAG, "Sent ASR config: " + configMessage);
+
+        } catch (JSONException e) {
+            Log.e(TAG, "Error creating ASR config message", e);
+        }
+    }
+
 }

@@ -13,12 +13,14 @@ import com.microsoft.cognitiveservices.speech.translation.SpeechTranslationConfi
 import com.microsoft.cognitiveservices.speech.translation.TranslationRecognizer;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.TranslateOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.AsrStreamKey;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecFramework;
 import com.teamopensmartglasses.smartglassesmanager.utils.EnvHelper;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.math.BigInteger;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -598,5 +600,8 @@ public class SpeechRecAzure extends SpeechRecFramework {
             default:
                 return "en-US";
         }
+    }
+
+    public void updateConfig(List<AsrStreamKey> languages){
     }
 }
