@@ -36,7 +36,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
-import android.content.pm.PackageManager;
 import android.content.SharedPreferences;
 import android.hardware.display.VirtualDisplay;
 import android.media.projection.MediaProjection;
@@ -50,9 +49,7 @@ import android.service.notification.NotificationListenerService;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
-import androidx.core.content.FileProvider;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -65,11 +62,11 @@ import com.teamopensmartglasses.augmentoslib.DataStreamType;
 import com.teamopensmartglasses.augmentoslib.PhoneNotification;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.ThirdPartyAppType;
+import com.teamopensmartglasses.augmentoslib.events.KillTpaEvent;
 import com.teamopensmartglasses.augmentoslib.events.NotificationEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.StartAsrStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.StopAsrStreamRequestEvent;
-import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
 import com.teamopensmartglasses.convoscope.comms.AugmentOsActionsCallback;
 import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
 import com.teamopensmartglasses.convoscope.events.AugmentosSmartGlassesDisconnectedEvent;
@@ -114,14 +111,11 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
@@ -129,6 +123,7 @@ import java.util.Objects;
 import java.util.LinkedList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 //SpeechRecIntermediateOutputEvent
 import net.sourceforge.pinyin4j.PinyinHelper;
@@ -140,6 +135,7 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
 import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.SegToken;
 import com.teamopensmartglasses.smartglassesmanager.utils.EnvHelper;
+import com.teamopensmartglasses.augmentoslib.enums.AsrStreamType;
 
 import android.app.DownloadManager;
 import android.net.Uri;
@@ -169,8 +165,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private BatteryStatusHelper batteryStatusHelper;
     private WifiStatusHelper wifiStatusHelper;
     private GsmStatusHelper gsmStatusHelper;
-
-
 
     //Convoscope stuff
     String authToken = "";
@@ -269,6 +263,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     private boolean showingDashboardNow = false;
     private boolean contextualDashboardEnabled;
+    private final Map<AsrStreamKey, Set<String>> activeStreams = new HashMap<>();
 
     public AugmentosService() {
     }
@@ -302,10 +297,97 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Subscribe
     public synchronized void onSubscribeStartAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
+        AsrStreamKey key;
+        if (event.asrStreamType == AsrStreamType.TRANSLATION) {
+            key = new AsrStreamKey(event.transcribeLanguage, event.translateLanguage);
+        } else {
+            key = new AsrStreamKey(event.transcribeLanguage);
+        }
+        addAsrStream(event.packageName, key);
     }
 
     @Subscribe
-    public synchronized void onSubscribeStopAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
+    public synchronized void onSubscribeStopAsrStreamRequestEvent(StopAsrStreamRequestEvent event) {
+        AsrStreamKey key;
+        if (event.asrStreamType == AsrStreamType.TRANSLATION) {
+            key = new AsrStreamKey(event.transcribeLanguage, event.translateLanguage);
+        } else {
+            key = new AsrStreamKey(event.transcribeLanguage);
+        }
+        removeAsrStream(event.packageName, key);
+    }
+
+    private void addAsrStream(String packageName, AsrStreamKey key) {
+        Set<String> subscribers = activeStreams.get(key);
+        if (subscribers == null) {
+            subscribers = new HashSet<>();
+            activeStreams.put(key, subscribers);
+
+//             Start the underlying ASR engine
+//            startAsrEngine(key);
+        }
+
+        subscribers.add(packageName);
+        Log.d(TAG, "addAsrStream: " + packageName + " subscribed to " + key);
+    }
+
+    private void removeAsrStream(String packageName, AsrStreamKey key) {
+        Set<String> subscribers = activeStreams.get(key);
+        if (subscribers == null) {
+            Log.d(TAG, "removeAsrStream: Key " + key + " not active. Nothing to stop.");
+            return;
+        }
+
+        subscribers.remove(packageName);
+        Log.d(TAG, "removeAsrStream: " + packageName + " unsubscribed from " + key);
+
+        if (subscribers.isEmpty()) {
+//            // Stop the underlying ASR
+//            stopAsrEngine(key);
+
+            activeStreams.remove(key);
+        }
+    }
+
+    public List<String> getActiveStreamStrings() {
+        List<String> activeStreamStrings = new ArrayList<>();
+        for (AsrStreamKey key : activeStreams.keySet()) {
+            activeStreamStrings.add(key.toString());
+        }
+        return activeStreamStrings;
+    }
+
+    @Subscribe
+    public void onKillTpaEvent(KillTpaEvent event) {
+        String tpaPackageName = event.tpa.packageName;
+        Log.d(TAG, "TPA KILLING SELF: " + tpaPackageName);
+        unsubscribeTpaFromAllStreams(tpaPackageName);
+    }
+
+    private void unsubscribeTpaFromAllStreams(String packageName) {
+        for (Map.Entry<AsrStreamKey, Set<String>> entry : activeStreams.entrySet()) {
+            entry.getValue().remove(packageName);
+        }
+
+        List<AsrStreamKey> keysToRemove = new ArrayList<>();
+        for (Map.Entry<AsrStreamKey, Set<String>> entry : activeStreams.entrySet()) {
+            AsrStreamKey key = entry.getKey();
+            Set<String> subscribers = entry.getValue();
+
+            if (subscribers.isEmpty()) {
+                if (key.streamType == AsrStreamType.TRANSCRIPTION
+                        && "en-US".equals(key.transcribeLanguage)) {
+                    subscribers.add("AugmentOS_INTERNAL");
+                } else {
+                    keysToRemove.add(key);
+                }
+            }
+        }
+
+        for (AsrStreamKey removableKey : keysToRemove) {
+            activeStreams.remove(removableKey);
+            // stopAsrEngine(removableKey);
+        }
     }
 
     @Subscribe
@@ -491,6 +573,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         // Init TPA broadcast receivers
         tpaSystem = new TPASystem(this, smartGlassesService);
+
+        AsrStreamKey enKey = new AsrStreamKey("English");
+        addAsrStream("AugmentOS_INTERNAL", enKey);
+        // Optionally startAsrEngine(enKey);
 
         // Initialize BLE Peripheral
         blePeripheral = new AugmentosBlePeripheral(this, this);

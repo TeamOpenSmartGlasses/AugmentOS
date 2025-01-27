@@ -98,11 +98,11 @@ public class AugmentOSLib {
         subscribedDataStreams.put(DataStreamType.CORE_SYSTEM_MESSAGE, callback);
     }
 
-    public void subscribe(StartAsrStreamRequestEvent startAsrStreamRequestEvent){
+    public void subscribe(StartAsrStreamRequestEvent startAsrStreamRequestEvent) {
         EventBus.getDefault().post((StartAsrStreamRequestEvent) startAsrStreamRequestEvent);
     }
 
-    public void subscribe(StopAsrStreamRequestEvent stopAsrStreamRequestEvent){
+    public void subscribe(StopAsrStreamRequestEvent stopAsrStreamRequestEvent) {
         EventBus.getDefault().post((StopAsrStreamRequestEvent) stopAsrStreamRequestEvent);
     }
 
