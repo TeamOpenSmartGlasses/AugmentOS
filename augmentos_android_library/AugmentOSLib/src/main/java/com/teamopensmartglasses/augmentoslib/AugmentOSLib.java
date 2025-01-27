@@ -98,6 +98,10 @@ public class AugmentOSLib {
         subscribedDataStreams.put(DataStreamType.CORE_SYSTEM_MESSAGE, callback);
     }
 
+    public void requestTranscription(String language){
+        subscribe(new StartAsrStreamRequestEvent(language));
+    }
+
     public void subscribe(StartAsrStreamRequestEvent startAsrStreamRequestEvent) {
         EventBus.getDefault().post((StartAsrStreamRequestEvent) startAsrStreamRequestEvent);
     }
