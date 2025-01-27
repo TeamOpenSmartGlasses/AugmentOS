@@ -4,7 +4,6 @@ import websockets
 import json
 import time
 import datetime
-import numpy as np
 import threading
 from dataclasses import dataclass
 from typing import Optional, Dict
@@ -12,123 +11,137 @@ from pathlib import Path
 
 @dataclass
 class StreamConfig:
+    """Holds ASR stream configuration settings (e.g., language, translation settings)."""
     language: str
     translation_language: Optional[str] = None
 
 class ASRStream:
+    """
+    Handles an active ASR session with Azure Speech-to-Text.
+    Uses a WebSocket connection to receive audio data and send recognized text.
+    """
+
     def __init__(self, speech_key: str, service_region: str, config: StreamConfig, websocket):
+        """
+        Initializes an ASR stream with Azure's Speech SDK.
+
+        :param speech_key: Azure Speech API key
+        :param service_region: Azure service region (e.g., "eastus")
+        :param config: Language configuration for ASR
+        :param websocket: WebSocket connection to send recognition results
+        """
         self.speech_config = speechsdk.SpeechConfig(
             subscription=speech_key, 
             region=service_region
         )
         self.speech_config.speech_recognition_language = config.language
         
-        # Configure for more aggressive recognition
+        # Set aggressive silence detection (500ms)
         self.speech_config.set_property(
             speechsdk.PropertyId.Speech_SegmentationSilenceTimeoutMs, "500"
         )
         
-        # Create custom audio stream class
+        # Create a PushAudioInputStream for feeding audio dynamically
         self.push_stream = speechsdk.audio.PushAudioInputStream()
         self.audio_config = speechsdk.audio.AudioConfig(stream=self.push_stream)
         
-        # Create the speech recognizer
+        # Create a speech recognizer
         self.recognizer = speechsdk.SpeechRecognizer(
             speech_config=self.speech_config, 
             audio_config=self.audio_config
         )
-        
-        self.results = []
-        self.start_time = None
-        self.is_active = False
-        self.loop = asyncio.get_running_loop()
-        self._setup_callbacks(websocket)
-        
-        # Start recognition in a separate thread
-        self.recognition_thread = threading.Thread(target=self._run_recognition)
-        self.recognition_thread.daemon = True
-        self.recognition_thread.start()
 
-    def _setup_callbacks(self, websocket):
+        self.websocket = websocket  # WebSocket connection for sending recognized text
+        self.results = []  # Stores recognition results
+        self.is_active = False  # Tracks if ASR is running
+        self.loop = asyncio.get_running_loop()  # Get current event loop
+
+        self._setup_callbacks()  # Initialize event handlers
+        self.recognition_task = None  # Track async recognition process
+
+    def _setup_callbacks(self):
+        """Registers event handlers for receiving ASR results."""
+        
         def handle_interim(evt):
-            if self.start_time is None:
+            """Handles interim ASR results (partial transcriptions)."""
+            if not self.is_active:
                 return
-                
+
             result = {
                 'type': 'interim',
                 'text': evt.result.text,
-                'timestamp': time.time() - self.start_time
+                'timestamp': time.time()
             }
             self.results.append(result)
-            print(f"[{self._format_timestamp(result['timestamp'])}] Interim: {result['text']}")
-            
-            # Properly schedule the coroutine on the event loop
+
+            # Send result asynchronously over WebSocket
             asyncio.run_coroutine_threadsafe(
-                websocket.send(json.dumps(result)),
+                self.websocket.send(json.dumps(result)),
                 self.loop
             )
 
         def handle_final(evt):
-            if self.start_time is None:
+            """Handles final ASR results (completed sentences)."""
+            if not self.is_active:
                 return
-                
+
             result = {
                 'type': 'final',
                 'text': evt.result.text,
-                'timestamp': time.time() - self.start_time
+                'timestamp': time.time()
             }
             self.results.append(result)
-            print(f"[{self._format_timestamp(result['timestamp'])}] Final: {result['text']}")
-            
-            # Properly schedule the coroutine on the event loop
+
+            # Send result asynchronously over WebSocket
             asyncio.run_coroutine_threadsafe(
-                websocket.send(json.dumps(result)),
+                self.websocket.send(json.dumps(result)),
                 self.loop
             )
 
         def handle_canceled(evt):
-            print(f"Recognition canceled: {evt.result.cancellation_details.reason}")
-            print(f"Error details: {evt.result.cancellation_details.error_details}")
+            """Handles errors and cancellations from Azure ASR."""
+            print(f"[ASR] Recognition canceled: {evt.result.cancellation_details.reason}")
 
+        # Connect event handlers to the recognizer
         self.recognizer.recognizing.connect(handle_interim)
         self.recognizer.recognized.connect(handle_final)
         self.recognizer.canceled.connect(handle_canceled)
 
-    def _format_timestamp(self, seconds):
-        return datetime.datetime.fromtimestamp(seconds).strftime('%H:%M:%S.%f')[:-3]
+    async def start(self):
+        """Starts ASR using a non-blocking callback approach."""
+        if not self.is_active:
+            self.is_active = True
+            print("[ASR] Starting ASR...")
+            self.recognizer.start_continuous_recognition_async().get()  # ✅ Call `.get()` instead
 
-    def _run_recognition(self):
-        """Run continuous recognition in a separate thread"""
-        self.recognizer.start_continuous_recognition()
-        while self.is_active:
-            time.sleep(0.1)  # Prevent busy waiting
-        self.recognizer.stop_continuous_recognition()
-
-    def start(self):
-        """Start recognition"""
-        self.is_active = True
-        self.start_time = time.time()
-
-    def stop(self):
-        """Stop recognition"""
-        self.is_active = False
-        self.recognition_thread.join()
+    async def stop(self):
+        """Stops ASR using a non-blocking callback approach."""
+        if self.is_active:
+            self.is_active = False
+            print("[ASR] Stopping ASR...")
+            self.recognizer.stop_continuous_recognition_async().get()  # ✅ Call `.get()` instead
 
     def write_audio_data(self, audio_data: bytes):
-        """Write audio data to the stream"""
-        # Write in smaller chunks to encourage more frequent processing
+        """
+        Feeds incoming audio data into the ASR engine.
+
+        :param audio_data: Raw audio bytes (16-bit PCM, 16kHz)
+        """
         CHUNK_SIZE = 3200  # 100ms of audio at 16kHz, 16-bit
-        
+
         for i in range(0, len(audio_data), CHUNK_SIZE):
             chunk = audio_data[i:i+CHUNK_SIZE]
             self.push_stream.write(chunk)
 
-    def close(self):
-        """Close the stream and cleanup"""
-        self.stop()
+    async def close(self):
+        """Gracefully shuts down the ASR stream and releases resources."""
+        await self.stop()
         self.push_stream.close()
 
+
 class ASRWebSocketServer:
+    """Manages the ASR WebSocket server and active client streams."""
+
     def __init__(self, speech_key: str, service_region: str, max_concurrent: int):
         self.speech_key = speech_key
         self.service_region = service_region
@@ -136,9 +149,9 @@ class ASRWebSocketServer:
         self.max_concurrent = max_concurrent
 
     async def handle_client(self, websocket):
-        """Handle a new WebSocket client connection"""
+        """Handles a new WebSocket client connection."""
         client_id = str(id(websocket))
-        print(f"New client connected: {client_id}")
+        print(f"[Server] New client connected: {client_id}")
         
         try:
             # Wait for configuration message
@@ -153,68 +166,74 @@ class ASRWebSocketServer:
                 websocket
             )
             self.active_streams[client_id] = asr_stream
-            
+
             # Start the recognition
-            asr_stream.start()
-            
+            await asr_stream.start()
+
             # Handle incoming audio data
             async for message in websocket:
                 if isinstance(message, bytes):
                     asr_stream.write_audio_data(message)
                 else:
-                    print(f"Received non-binary message: {message}")
-                    
+                    try:
+                        msg_json = json.loads(message)
+                        if msg_json.get("type") == "VAD":
+                            vad_status = msg_json.get("status")
+                            print(f"[VAD] Received VAD status: {vad_status}")  
+
+                            if vad_status == "false":
+                                print("[VAD] Silence detected, stopping ASR...")
+                                await asr_stream.stop()
+                            elif vad_status == "true":
+                                print("[VAD] Speech detected, resuming ASR...")
+                                await asr_stream.start()
+
+                    except json.JSONDecodeError:
+                        print(f"[Server] Invalid JSON message: {message}")
+
         except websockets.exceptions.ConnectionClosed:
-            print(f"Client disconnected: {client_id}")  # This is here but we need more cleanup
+            print(f"[Server] Client disconnected: {client_id}")  
         except Exception as e:
-            print(f"Error handling client {client_id}: {e}")
+            print(f"[Server] Error handling client {client_id}: {e}")
         finally:
-            # Cleanup when client disconnects
-            print(f"Client disconnected: {client_id}")  # This is here but we need more cleanup
+            print(f"[Server] Cleaning up client {client_id}")
             if client_id in self.active_streams:
-                print(f"Cleaning up stream for client {client_id}")
-                self.active_streams[client_id].close()
+                await self.active_streams[client_id].close()
                 del self.active_streams[client_id]
-                print(f"Active streams remaining: {len(self.active_streams)}")
+                print(f"[Server] Active streams remaining: {len(self.active_streams)}")
+
 
 def load_config(config_path: str = "config.json") -> dict:
-    """Load configuration from JSON file"""
+    """Loads configuration from a JSON file."""
     try:
         with open(config_path) as f:
-            config = json.load(f)
-        return config
+            return json.load(f)
     except FileNotFoundError:
         raise FileNotFoundError(f"Config file not found: {config_path}")
     except json.JSONDecodeError:
         raise ValueError(f"Invalid JSON in config file: {config_path}")
 
+
 async def main():
-    # Load configuration
+    """Main entry point to start the ASR WebSocket server."""
     config = load_config()
-    
-    # Create server
+
     server = ASRWebSocketServer(
         speech_key=config['azure_speech']['key'],
         service_region=config['azure_speech']['region'],
         max_concurrent=config['server']['max_concurrent']
     )
-    
-    try:
-        # Start WebSocket server
-        print("Starting WebSocket server...")
-        websocket_server = await websockets.serve(
-            server.handle_client,
-            config['server']['host'],
-            config['server']['port']
-        )
-        print(f"WebSocket ASR Server started on ws://{config['server']['host']}:{config['server']['port']}")
-        
-        await websocket_server.wait_closed()
-    except Exception as e:
-        print(f"Server error: {e}")
-        raise
+
+    print("[Server] Starting WebSocket ASR Server...")
+    websocket_server = await websockets.serve(
+        server.handle_client,
+        config['server']['host'],
+        config['server']['port']
+    )
+    print(f"[Server] Running on ws://{config['server']['host']}:{config['server']['port']}")
+
+    await websocket_server.wait_closed()
+
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-
