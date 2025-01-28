@@ -56,7 +56,8 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
         if (host == null || port == null) {
             throw new IllegalStateException("AugmentOS ASR config not found. Please ensure AUGMENTOS_ASR_HOST and AUGMENTOS_ASR_PORT are set.");
         }
-        return String.format("ws://%s:%s", host, port);
+        // Use wss:// for secure WebSocket connection
+        return String.format("wss://%s", host);
     }
 
     private void setupVadListener() {

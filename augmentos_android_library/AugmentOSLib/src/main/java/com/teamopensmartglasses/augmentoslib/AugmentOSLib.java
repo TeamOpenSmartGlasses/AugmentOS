@@ -98,11 +98,14 @@ public class AugmentOSLib {
     }
 
     public void requestTranscription(String language){
-        subscribe(new StartAsrStreamRequestEvent(language));
+        String languageLocale = SpeechRecUtils.languageToLocale(language);
+        subscribe(new StartAsrStreamRequestEvent(languageLocale));
     }
 
     public void requestTranslation(String fromLanguage, String toLanguage){
-        subscribe(new StartAsrStreamRequestEvent(fromLanguage, toLanguage));
+        String fromLanguageLocale = SpeechRecUtils.languageToLocale(fromLanguage);
+        String toLanguageLocale = SpeechRecUtils.languageToLocale(toLanguage);
+        subscribe(new StartAsrStreamRequestEvent(fromLanguageLocale, toLanguageLocale));
     }
 
     public void stopTranscription(String language){
