@@ -78,6 +78,7 @@ import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
+import com.teamopensmartglasses.convoscope.events.ThirdPartyAppErrorEvent;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
 import com.teamopensmartglasses.convoscope.events.TriggerSendStatusToAugmentOsManagerEvent;
 import com.teamopensmartglasses.convoscope.statushelpers.BatteryStatusHelper;
@@ -462,6 +463,20 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
     }
 
+    @Subscribe
+    public void onThirdPartyAppErrorEvent(ThirdPartyAppErrorEvent event) {
+        if (blePeripheral != null) {
+            blePeripheral.sendNotifyManager(event.text, "error");
+        }
+        if (tpaSystem != null) {
+            tpaSystem.stopThirdPartyAppByPackageName(event.packageName);
+        }
+        if (smartGlassesService != null) {
+            smartGlassesService.windowManager.showAppLayer("system", () -> AugmentosSmartGlassesService.sendReferenceCard("App error", event.text), 10);
+        }
+        sendStatusToAugmentOsManager();
+    }
+
     //TODO NO MORE PASTA
     public ArrayList<String> notificationList = new ArrayList<String>();
     @Subscribe
@@ -476,7 +491,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         String currentTime = timeFormat.format(new Date());
         String currentDate = dateFormat.format(new Date());
 
-            // Get battery level
+        // Get battery level
 //            IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
 //            Intent batteryStatus = this.registerReceiver(null, iFilter);
 //            int level = batteryStatus != null ?
@@ -487,9 +502,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         // Build dashboard string with fancy formatting
         StringBuilder dashboard = new StringBuilder();
-       //     dashboard.append("Dashboard - AugmentOS\n");
-            dashboard.append(String.format(Locale.getDefault(), "│ %s, %s, %d%%\n", currentDate, currentTime, batteryLevel));
-            //dashboard.append(String.format("│ Date      │ %s\n", currentDate));
+        //     dashboard.append("Dashboard - AugmentOS\n");
+        dashboard.append(String.format(Locale.getDefault(), "│ %s, %s, %d%%\n", currentDate, currentTime, batteryLevel));
+        //dashboard.append(String.format("│ Date      │ %s\n", currentDate));
 //            dashboard.append(String.format("│ Battery │ %.0f%%\n", batteryPct));
 //            dashboard.append("│ BLE       │ ON\n");
 
@@ -1357,7 +1372,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         notificationList.clear();
 //        Log.d(TAG, "Got notifications: " + sortedNotifications.toString());
 
-         for (int i = 0; i < sortedNotifications.size(); i++) {
+        for (int i = 0; i < sortedNotifications.size(); i++) {
             JSONObject notification = sortedNotifications.get(i);
             String summary = notification.getString("summary");
             notificationList.add(summary);
@@ -2191,7 +2206,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         try{
             JSONObject settingsObj = new JSONObject();
             settingsObj.put("current_mode", currentModeString);
-       //     sendSettings(settingsObj);
+            //     sendSettings(settingsObj);
         } catch (JSONException e){
             e.printStackTrace();
         }
@@ -2789,7 +2804,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void startApp(String packageName) {
         Log.d("AugmentOsService", "Starting app: " + packageName);
         // Logic to start the app by package name
-        
+
         // Only allow starting apps if glasses are connected
         if (smartGlassesService != null && smartGlassesService.getConnectedSmartGlasses() != null) {
             tpaSystem.startThirdPartyAppByPackageName(packageName);

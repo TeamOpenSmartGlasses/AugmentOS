@@ -159,10 +159,18 @@ public class PermissionsActivity extends AppCompatActivity {
 
     private void showBatteryOptimizationSettings() {
         if (!isFinishing()) {
+            String backgroundProcessingMessage = "This application needs to remain active in the background to function properly. " +
+                    "Please disable battery optimization for better performance and reliability.";
+            if (Build.VERSION.SDK_INT >= 34) {//Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+                // Add any Android 15 specific permissions here
+                backgroundProcessingMessage = "This application needs to remain active in the background to function properly. " +
+                        "First, enable \"Allow background usage\", then select \"Allow background usage\" and set background usage to \"Unrestricted\" for better performance and reliability.";
+            }
+
+
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Disable Battery Optimization")
-                    .setMessage("This application needs to remain active in the background to function properly. " +
-                            "Please disable battery optimization for better performance and reliability.")
+                    .setMessage(backgroundProcessingMessage)
                     .setPositiveButton("Go to Settings", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

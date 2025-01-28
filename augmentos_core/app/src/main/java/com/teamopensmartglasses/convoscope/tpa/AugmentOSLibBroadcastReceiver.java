@@ -6,16 +6,12 @@ import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.APP
 import static com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants.EVENT_BUNDLE;
 
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.ServiceConnection;
-import android.os.IBinder;
 import android.util.Log;
 
 import com.teamopensmartglasses.augmentoslib.AugmentOSGlobalConstants;
-import com.teamopensmartglasses.augmentoslib.ThirdPartyApp;
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.CenteredTextViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.DisplayCustomContentRequestEvent;
@@ -37,6 +33,7 @@ import com.teamopensmartglasses.augmentoslib.events.StopAsrStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
+import com.teamopensmartglasses.convoscope.events.ThirdPartyAppErrorEvent;
 import com.teamopensmartglasses.convoscope.tpa.eventbusmessages.TPARequestEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -62,8 +59,17 @@ public class AugmentOSLibBroadcastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String eventId = intent.getStringExtra(EVENT_ID);
         String sendingPackage = intent.getStringExtra(APP_PKG_NAME);
-        Serializable serializedEvent = intent.getSerializableExtra(EVENT_BUNDLE);
+        Serializable serializedEvent;
+        try {
+            serializedEvent = intent.getSerializableExtra(EVENT_BUNDLE);
 //        Log.d(TAG, "GOT EVENT ID: " + eventId);
+        } catch (Exception e) {
+            Log.d(TAG, "ERROR: TPA BUILT FOR INCOMPATIBLE AUGMENTOSLIB VERSION");
+            Log.d(TAG, "THE OFFENDING PACKAGE: " + sendingPackage);
+            Log.d(TAG, e.getMessage());
+            EventBus.getDefault().post(new ThirdPartyAppErrorEvent(sendingPackage, sendingPackage + " is not compatible with your version of AugmentOS. Please update or uninstall the app."));
+            return;
+        }
 
         //map from id to event
         switch (eventId) {

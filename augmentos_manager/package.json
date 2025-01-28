@@ -54,6 +54,8 @@
 
     "react-native-bluetooth-classic": "^1.73.0-rc.12",
 
+    "react-native-elements": "^3.4.3",
+
     "react-native-gesture-handler": "^2.20.1",
 
     "react-native-image-picker": "^7.1.2",

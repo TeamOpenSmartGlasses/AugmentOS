@@ -106,7 +106,7 @@ public class AugmentOSLibBroadcastSender {
 
         //blank the screen
 //        EventBus.getDefault().post(new ReferenceCardSimpleViewRequestEvent("AugmentOS stopped app:", tpa.appName, 6));
-        EventBus.getDefault().post(new HomeScreenEvent());
+        //EventBus.getDefault().post(new HomeScreenEvent());
     }
 
     public boolean isThirdPartyAppRunning(ThirdPartyApp tpa) {

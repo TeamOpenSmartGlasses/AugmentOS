@@ -448,28 +448,6 @@ public class MainActivity extends AppCompatActivity {
 //    transaction.commit();
 //  }
 
-      public void saveCurrentMode(Context context, String currentModeString) {
-        //update the features for the new mode
-        if (mService != null) {
-          mService.saveCurrentMode(this, currentModeString);
-        } else {
-          //save the new mode
-          PreferenceManager.getDefaultSharedPreferences(context)
-                  .edit()
-                  .putString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), currentModeString)
-                  .apply();
-        }
-    }
-
-    public String getCurrentMode(Context context) {
-        String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
-        if (currentModeString.equals("")){
-            saveCurrentMode(context, "Proactive Agents");
-            currentModeString = "Proactive Agents";
-        }
-        return currentModeString;
-   }
-
   public boolean isAppInstalled(String packageName) {
     PackageManager pm = getPackageManager();
     try {

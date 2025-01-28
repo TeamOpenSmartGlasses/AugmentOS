@@ -74,7 +74,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
     boolean hasUltraliteControl;
     boolean screenIsClear;
     SmartGlassesDevice smartGlassesDevice;
-    private static final long TAP_DEBOUNCE_TIME = 300; // milliseconds
+    private static final long TAP_DEBOUNCE_TIME = 80; // milliseconds
     private long lastTapTime = 0;
     private int totalDashboardsIdk = 0;
 
