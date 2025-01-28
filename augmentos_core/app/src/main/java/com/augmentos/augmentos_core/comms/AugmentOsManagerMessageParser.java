@@ -33,6 +33,7 @@ public class AugmentOsManagerMessageParser {
                 break;
 
                 case "connect_wearable":
+                    Log.d(TAG,"GOT A COMMAND TO CONNECT TO WEARABLE????");
                     String modelName = commandObject.getJSONObject("params").getString("model_name");
                     String deviceName = commandObject.getJSONObject("params").getString("device_name");
                     callback.connectToWearable(modelName, deviceName);

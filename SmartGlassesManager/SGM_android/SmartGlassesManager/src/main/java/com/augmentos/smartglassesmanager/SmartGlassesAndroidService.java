@@ -148,13 +148,23 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     protected abstract void onGlassesConnected(SmartGlassesDevice device);
 
     public void connectToSmartGlasses(SmartGlassesDevice device) {
-        //this represents the smart glasses - it handles the connection, sending data to them, etc
         LifecycleService currContext = this;
+
+        // If we already have a representative for the same device, reuse it
+        if (smartGlassesRepresentative == null || !smartGlassesRepresentative.smartGlassesDevice.deviceModelName.equals(device.deviceModelName)) {
+            smartGlassesRepresentative = new SmartGlassesRepresentative(
+                    currContext,
+                    device,
+                    currContext,
+                    dataObservable
+            );
+        }
+
+        // Use connectHandler to do the connecting
         connectHandler.post(new Runnable() {
             @Override
             public void run() {
                 Log.d(TAG, "CONNECTING TO SMART GLASSES");
-                smartGlassesRepresentative = new SmartGlassesRepresentative(currContext, device, currContext, dataObservable);
                 smartGlassesRepresentative.connectToSmartGlasses();
             }
         });
@@ -162,8 +172,25 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 
     public void findCompatibleDeviceNames(SmartGlassesDevice device) {
         LifecycleService currContext = this;
-        smartGlassesRepresentative = new SmartGlassesRepresentative(currContext, device, currContext, dataObservable);
-        smartGlassesRepresentative.findCompatibleDeviceNames();
+
+        // Same check as above: do not re-create the representative if it’s the same device
+        if (smartGlassesRepresentative == null || !smartGlassesRepresentative.smartGlassesDevice.deviceModelName.equals(device.deviceModelName)) {
+            smartGlassesRepresentative = new SmartGlassesRepresentative(
+                    currContext,
+                    device,
+                    currContext,
+                    dataObservable
+            );
+        }
+
+        // Just call findCompatibleDeviceNames on the same instance
+        connectHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG, "FINDING COMPATIBLE SMART GLASSES DEVICE NAMES");
+                smartGlassesRepresentative.findCompatibleDeviceNames();
+            }
+        });
     }
 
 //    public boolean tryConnectToPreferredWearable() {

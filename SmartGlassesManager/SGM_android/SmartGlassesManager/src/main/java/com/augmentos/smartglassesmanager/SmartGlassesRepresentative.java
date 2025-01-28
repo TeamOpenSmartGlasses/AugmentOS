@@ -83,50 +83,66 @@ class SmartGlassesRepresentative {
     }
 
     public void findCompatibleDeviceNames(){
-        SmartGlassesCommunicator temporarySmartGlassesCommunicator = null;
-        switch (smartGlassesDevice.getGlassesOs()){
-            case ANDROID_OS_GLASSES:
-                temporarySmartGlassesCommunicator = new AndroidSGC(context, smartGlassesDevice, dataObservable);
-                break;
-            case AUDIO_WEARABLE_GLASSES:
-                temporarySmartGlassesCommunicator = new AudioWearableSGC(context, smartGlassesDevice);
-                break;
-            case ULTRALITE_MCU_OS_GLASSES:
-                temporarySmartGlassesCommunicator = new UltraliteSGC(context, smartGlassesDevice, lifecycleOwner);
-                break;
-            case EVEN_REALITIES_G1_MCU_OS_GLASSES:
-                temporarySmartGlassesCommunicator = new EvenRealitiesG1SGC(context, smartGlassesDevice);
-                break;
+        // If we have not created a communicator yet (or the device changed), create it once
+        //if (smartGlassesCommunicator == null || !isSameDevice(smartGlassesDevice, smartGlassesCommunicator)) {
+        if (smartGlassesCommunicator == null) {
+            smartGlassesCommunicator = createCommunicator();
         }
 
-        temporarySmartGlassesCommunicator.findCompatibleDeviceNames();
+        if (smartGlassesCommunicator != null) {
+            smartGlassesCommunicator.findCompatibleDeviceNames();
+        } else {
+            Log.d(TAG, "SmartGlassesCommunicator is NULL, something truly awful must have transpired");
+        }
     }
 
     public void connectToSmartGlasses(){
-        switch (smartGlassesDevice.getGlassesOs()){
-            case ANDROID_OS_GLASSES:
-                smartGlassesCommunicator = new AndroidSGC(context, smartGlassesDevice, dataObservable);
-                break;
-            case AUDIO_WEARABLE_GLASSES:
-                smartGlassesCommunicator = new AudioWearableSGC(context, smartGlassesDevice);
-                break;
-            case ULTRALITE_MCU_OS_GLASSES:
-                smartGlassesCommunicator = new UltraliteSGC(context, smartGlassesDevice, lifecycleOwner);
-                break;
-            case EVEN_REALITIES_G1_MCU_OS_GLASSES:
-                smartGlassesCommunicator = new EvenRealitiesG1SGC(context, smartGlassesDevice);
-                break;
+        // Same approach: if the communicator is null, create it
+        //if (smartGlassesCommunicator == null || !isSameDevice(smartGlassesDevice, smartGlassesCommunicator)) {
+        if (smartGlassesCommunicator == null) {
+            smartGlassesCommunicator = createCommunicator();
         }
 
-        smartGlassesCommunicator.connectToSmartGlasses();
+        if (smartGlassesCommunicator != null) {
+            smartGlassesCommunicator.connectToSmartGlasses();
+        } else {
+            Log.d(TAG, "SmartGlassesCommunicator is NULL, something truly awful must have transpired");
+        }
 
-        //if the glasses don't support a microphone, this Representative handles local microphone
+        // If the glasses don't support a microphone, handle local microphone
         if (smartGlassesDevice.useScoMic) {
             connectAndStreamLocalMicrophone(true);
         } else if (!smartGlassesDevice.getHasInMic() && !smartGlassesDevice.getHasOutMic()) {
             connectAndStreamLocalMicrophone(false);
         }
     }
+
+    /**
+     * Helper to create the appropriate communicator once.
+     */
+    private SmartGlassesCommunicator createCommunicator() {
+        switch (smartGlassesDevice.getGlassesOs()) {
+            case ANDROID_OS_GLASSES:
+                return new AndroidSGC(context, smartGlassesDevice, dataObservable);
+            case AUDIO_WEARABLE_GLASSES:
+                return new AudioWearableSGC(context, smartGlassesDevice);
+            case ULTRALITE_MCU_OS_GLASSES:
+                return new UltraliteSGC(context, smartGlassesDevice, lifecycleOwner);
+            case EVEN_REALITIES_G1_MCU_OS_GLASSES:
+                return new EvenRealitiesG1SGC(context, smartGlassesDevice);
+            default:
+                return null;  // or throw an exception
+        }
+    }
+
+    /**
+     * Optional helper to check if the communicator is for the same device.
+     * Some communicator classes might have a method or field to check device identity.
+     */
+    //private boolean isSameDevice(SmartGlassesDevice device, SmartGlassesCommunicator comm) {
+    //    return comm != null && comm. != null
+    //            && comm.getDevice().equals(device);
+    //}
 
     public void updateGlassesBrightness(int brightness) {
         if (smartGlassesCommunicator != null) {
@@ -184,6 +200,10 @@ class SmartGlassesRepresentative {
         if (smartGlassesCommunicator != null){
             smartGlassesCommunicator.destroy();
             smartGlassesCommunicator = null;
+        }
+
+        if (uiHandler != null) {
+            uiHandler.removeCallbacksAndMessages(null);
         }
 
         Log.d(TAG, "SG rep destroy complete");

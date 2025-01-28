@@ -152,12 +152,12 @@ public class MicrophoneLocalAndBluetooth {
     }
 
     private void startBluetoothSco() {
-        mContext.registerReceiver(bluetoothStateReceiver, new IntentFilter(
-                AudioManager.ACTION_SCO_AUDIO_STATE_UPDATED));
-        mContext.registerReceiver(bluetoothStateReceiver,
-                new IntentFilter(BluetoothDevice.ACTION_ACL_CONNECTED));
-        mContext.registerReceiver(bluetoothStateReceiver,
-                new IntentFilter(BluetoothDevice.ACTION_ACL_DISCONNECTED));
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(AudioManager.ACTION_SCO_AUDIO_STATE_UPDATED);
+        filter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);
+        filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
+
+        mContext.registerReceiver(bluetoothStateReceiver, filter);
 
         mIsCountDownOn = true;
         mCountDown.start();
