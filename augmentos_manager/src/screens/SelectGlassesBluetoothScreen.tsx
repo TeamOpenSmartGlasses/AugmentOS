@@ -71,6 +71,10 @@ const SelectGlassesBluetoothScreen: React.FC<SelectGlassesBluetoothScreenProps> 
 
       if(deviceName === "NOTREQUIREDSKIP") {
         console.log("SKIPPING");
+
+        // Quick hack // bugfix => we get NOTREQUIREDSKIP twice in some cases, so just stop after the initial one
+        GlobalEventEmitter.removeListener('COMPATIBLE_GLASSES_SEARCH_RESULT', handleSearchResult);
+        
         triggerGlassesPairingGuide(glassesModelName, "");
         return;
       }

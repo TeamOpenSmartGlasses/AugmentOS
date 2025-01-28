@@ -13,7 +13,7 @@ export async function checkAndRequestNotificationAccessSpecialPermission() {
       Alert.alert(
         'Enable Notification Access',
         'We need permission to read your phone notifications and display them on the glasses. ' +
-         'On the next screen, please find AugmentOS_Manager in the list and toggle it on.',
+         'On the next screen, please find \"AugmentOS Manager\" in the list and toggle it on.',
         [
           {
             text: 'OK, Take Me There',
