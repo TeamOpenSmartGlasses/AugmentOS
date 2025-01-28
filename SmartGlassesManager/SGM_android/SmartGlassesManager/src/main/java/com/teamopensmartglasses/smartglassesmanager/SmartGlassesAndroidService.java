@@ -21,6 +21,7 @@ import androidx.lifecycle.LifecycleService;
 import androidx.preference.PreferenceManager;
 
 import com.teamopensmartglasses.augmentoslib.events.SmartGlassesConnectedEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
 import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.teamopensmartglasses.smartglassesmanager.comms.MessageTypes;
 import com.teamopensmartglasses.augmentoslib.events.BulletPointListViewRequestEvent;
@@ -40,6 +41,7 @@ import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartGlasse
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.TextToSpeechEvent;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.AsrStreamKey;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.EvenRealitiesG1;
@@ -117,10 +119,10 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         String targetLanguage = getChosenTargetLanguage(this.getApplicationContext());
         String sourceLanguage = getChosenSourceLanguage(this.getApplicationContext());
         int selectedLiveCaptionsTranslation = getSelectedLiveCaptionsTranslation(this.getApplicationContext());
-        if (selectedLiveCaptionsTranslation != 2) speechRecSwitchSystem.startAsrFramework(asrFramework, transcribeLanguage);
+        if (selectedLiveCaptionsTranslation != 2) speechRecSwitchSystem.startAsrFramework(asrFramework);
         else {
-            if (transcribeLanguage.equals(sourceLanguage)) speechRecSwitchSystem.startAsrFramework(asrFramework, transcribeLanguage, targetLanguage); // If transcribe language and source language are the same translate to the target language
-            else speechRecSwitchSystem.startAsrFramework(asrFramework, transcribeLanguage, sourceLanguage);
+            if (transcribeLanguage.equals(sourceLanguage)) speechRecSwitchSystem.startAsrFramework(asrFramework); // If transcribe language and source language are the same translate to the target language
+            else speechRecSwitchSystem.startAsrFramework(asrFramework);
         }
 //        speechRecSwitchSystem.startAsrFramework(asrFramework, "Chinese (Hanzi)", "English");
 
@@ -282,8 +284,8 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     public static ASR_FRAMEWORKS getChosenAsrFramework(Context context) {
         String asrString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_ASR_KEY), "");
         if (asrString.equals("")){
-            saveChosenAsrFramework(context, ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK);
-            asrString = ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK.name();
+            saveChosenAsrFramework(context, ASR_FRAMEWORKS.AUGMENTOS_ASR_FRAMEWORK);
+            asrString = ASR_FRAMEWORKS.AUGMENTOS_ASR_FRAMEWORK.name();
         }
         return ASR_FRAMEWORKS.valueOf(asrString);
     }
@@ -402,7 +404,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             public void run() {
                 speechRecSwitchSystem = new SpeechRecSwitchSystem(context);
                 ASR_FRAMEWORKS asrFramework = getChosenAsrFramework(context);
-                speechRecSwitchSystem.startAsrFramework(asrFramework, language);
+                speechRecSwitchSystem.startAsrFramework(asrFramework);
                 if (translationLanguage != null) {
                     startTranslationStream(translationLanguage);
                 }
@@ -438,7 +440,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             public void run() {
                 speechRecSwitchSystem = new SpeechRecSwitchSystem(context);
                 ASR_FRAMEWORKS asrFramework = getChosenAsrFramework(context);
-                speechRecSwitchSystem.startAsrFramework(ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK, language, toTranslateLanguage); //force azure because translation
+                speechRecSwitchSystem.startAsrFramework(ASR_FRAMEWORKS.AUGMENTOS_ASR_FRAMEWORK);
             }
         }, 2000);
         Log.d(TAG, "SSTOPPING TRANSCRIBE LANGUAGE IN n seconds");
@@ -586,35 +588,6 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         }
     };
 
-    public void aioConnectSmartGlasses(){
-        if (getChosenAsrFramework(this) == ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK) {
-            String apiKey = getApiKey(getApplicationContext());
-            if (apiKey == null || apiKey.equals("")) {
-                showNoGoogleAsrDialog();
-                return;
-            }
-        }
-
-        String preferred = getPreferredWearable(this.getApplicationContext());
-        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new EvenRealitiesG1(), new VuzixUltralite(), new MentraMach1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
-//        smartGlassesDevices = new ArrayList<SmartGlassesDevice>(Arrays.asList(new VuzixUltralite(), new MentraMach1(), new VuzixShield(),  new InmoAirOne(), new TCLRayNeoXTwo()));
-        for (int i = 0; i < smartGlassesDevices.size(); i++){
-            if (smartGlassesDevices.get(i).deviceModelName.equals(preferred)){
-                // Move to start for earliest search priority
-                smartGlassesDevices.add(0, smartGlassesDevices.remove(i));
-                break;
-            }
-        }
-
-        // Check for Audio Wearable
-        if (preferred.equals(new AudioWearable().deviceModelName))
-            smartGlassesDevices.add(0, new AudioWearable());
-
-        //start loop
-        aioRetryConnectionTask.run();
-        connectedCheckerHandler.post(connectedCheckerTask); // Start connected checker
-    }
-
     public void updateGlassesBrightness(int brightness) {
         if (smartGlassesRepresentative != null) {
             smartGlassesRepresentative.updateGlassesBrightness(brightness);
@@ -703,4 +676,11 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     }
 
     public void setFontSize(SmartGlassesFontSize fontSize) { EventBus.getDefault().post(new SetFontSizeEvent(fontSize)); }
+
+
+    @Subscribe
+    public void handleNewAsrLanguagesEvent(NewAsrLanguagesEvent event) {
+        Log.d(TAG, "NewAsrLanguages: " + event.languages.toString());
+        speechRecSwitchSystem.updateConfig(event.languages);
+    }
 }

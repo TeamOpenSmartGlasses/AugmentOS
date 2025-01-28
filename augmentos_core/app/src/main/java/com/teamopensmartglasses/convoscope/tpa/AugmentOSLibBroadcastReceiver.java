@@ -28,6 +28,8 @@ import com.teamopensmartglasses.augmentoslib.events.RowsCardViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStartRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStopRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SendBitmapViewRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.StartAsrStreamRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.StopAsrStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
@@ -89,6 +91,8 @@ public class AugmentOSLibBroadcastReceiver extends BroadcastReceiver {
             case SendBitmapViewRequestEvent.eventId:
             case HomeScreenEvent.eventId:
             case DisplayCustomContentRequestEvent.eventId:
+            case StartAsrStreamRequestEvent.eventId:
+            case StopAsrStreamRequestEvent.eventId:
 //                Log.d(TAG, "Piping command event to ThirdPartyAppSystem for verification before broadcast.");
                 EventBus.getDefault().post(new TPARequestEvent(eventId, serializedEvent, sendingPackage));
                 break;

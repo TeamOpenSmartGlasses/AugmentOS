@@ -2,6 +2,8 @@ package com.teamopensmartglasses.smartglassesmanager.speechrecognition;
 
 import android.content.Context;
 
+import java.util.List;
+
 public abstract class SpeechRecFramework {
     private ASR_FRAMEWORKS asrFramework;
     private Context mContext;
@@ -14,4 +16,6 @@ public abstract class SpeechRecFramework {
     public void pauseAsr(boolean pauseAsrFlag){
         this.pauseAsrFlag = pauseAsrFlag;
     }
+
+    public abstract void updateConfig(List<AsrStreamKey> languages);
 }

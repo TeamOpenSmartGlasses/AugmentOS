@@ -44,6 +44,8 @@ import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStartReques
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStopRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.StartAsrStreamRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.StopAsrStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
@@ -298,8 +300,7 @@ public class TPASystem {
     }
 
     @Subscribe
-    public void onKillTpaEvent(KillTpaEvent killTpaEvent)
-    {
+    public void onKillTpaEvent(KillTpaEvent killTpaEvent) {
         augmentOsLibBroadcastSender.sendEventToTPAs(KillTpaEvent.eventId, killTpaEvent, killTpaEvent.tpa.packageName);
     }
 
@@ -329,25 +330,17 @@ public class TPASystem {
         augmentOsLibBroadcastSender.sendEventToTPAs(CoreToManagerOutputEvent.eventId, event, AugmentOSManagerPackageName);
     }
 
-    @Subscribe
-    public void onTranscript(SpeechRecOutputEvent event){
-        boolean tpaIsSubscribed = true;
-        if(tpaIsSubscribed){
-            augmentOsLibBroadcastSender.sendEventToAllTPAs(SpeechRecOutputEvent.eventId, event);
-        }
+    public void sendTranscriptEventToTpa(SpeechRecOutputEvent event, String packageName) {
+        augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecOutputEvent.eventId, event, packageName);
+    }
+
+    public void sendTranslateEventToTpa(TranslateOutputEvent event, String packageName) {
+        augmentOsLibBroadcastSender.sendEventToTPAs(TranslateOutputEvent.eventId, event, packageName);
     }
 
     @Subscribe
     public void onNotificationEvent(NotificationEvent event){
         augmentOsLibBroadcastSender.sendEventToAllTPAs(NotificationEvent.eventId, event);
-    }
-
-    @Subscribe
-    public void onTranslateTranscript(TranslateOutputEvent event){
-        boolean tpaIsSubscribed = true;
-        if(tpaIsSubscribed){
-            augmentOsLibBroadcastSender.sendEventToAllTPAs(TranslateOutputEvent.eventId, event);
-        }
     }
 
     @Subscribe
@@ -457,6 +450,21 @@ public class TPASystem {
             return;
         }
 
+        switch (receivedEvent.eventId) {
+            case StartAsrStreamRequestEvent.eventId:
+                StartAsrStreamRequestEvent oldStartAsrEvent = (StartAsrStreamRequestEvent) receivedEvent.serializedEvent;
+
+                StartAsrStreamRequestEvent enrichedStartAsrEvent = oldStartAsrEvent.withPackageName(receivedEvent.sendingPackage);
+                EventBus.getDefault().post((StartAsrStreamRequestEvent) enrichedStartAsrEvent);
+                break;
+            case StopAsrStreamRequestEvent.eventId:
+                StopAsrStreamRequestEvent oldStopAsrEvent = (StopAsrStreamRequestEvent) receivedEvent.serializedEvent;
+
+                StopAsrStreamRequestEvent enrichedStopAsrEvent = oldStopAsrEvent.withPackageName(receivedEvent.sendingPackage);
+                EventBus.getDefault().post((StopAsrStreamRequestEvent) enrichedStopAsrEvent);
+                break;
+        }
+
         // For display-related commands
         if (smartGlassesService != null) {
             switch (receivedEvent.eventId) {
@@ -507,7 +515,6 @@ public class TPASystem {
                 case DisplayCustomContentRequestEvent.eventId:
                     smartGlassesService.windowManager.showAppLayer(receivedEvent.sendingPackage, () -> EventBus.getDefault().post((DisplayCustomContentRequestEvent) receivedEvent.serializedEvent), -1);
                     //EventBus.getDefault().post((DisplayCustomContentRequestEvent) receivedEvent.serializedEvent);
-
             }
         } else {
             Log.d(TAG, "smartGlassesService in TPASystem is null!");

@@ -21,13 +21,14 @@ import com.teamopensmartglasses.augmentoslib.events.ManagerToCoreRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardImageViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ReferenceCardSimpleViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.RegisterCommandRequestEvent;
-import com.teamopensmartglasses.augmentoslib.events.RegisterTpaRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.RowsCardViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStartRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.ScrollingTextViewStopRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SendBitmapViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
+import com.teamopensmartglasses.augmentoslib.events.StartAsrStreamRequestEvent;
+import com.teamopensmartglasses.augmentoslib.events.StopAsrStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextLineViewRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.TextWallViewRequestEvent;
@@ -94,6 +95,30 @@ public class AugmentOSLib {
         };
 
         subscribedDataStreams.put(DataStreamType.CORE_SYSTEM_MESSAGE, callback);
+    }
+
+    public void requestTranscription(String language){
+        subscribe(new StartAsrStreamRequestEvent(language));
+    }
+
+    public void requestTranslation(String fromLanguage, String toLanguage){
+        subscribe(new StartAsrStreamRequestEvent(fromLanguage, toLanguage));
+    }
+
+    public void stopTranscription(String language){
+        subscribe(new StopAsrStreamRequestEvent(language));
+    }
+
+    public void stopTranslation(String fromLanguage, String toLanguage){
+        subscribe(new StopAsrStreamRequestEvent(fromLanguage, toLanguage));
+    }
+
+    public void subscribe(StartAsrStreamRequestEvent startAsrStreamRequestEvent) {
+        EventBus.getDefault().post((StartAsrStreamRequestEvent) startAsrStreamRequestEvent);
+    }
+
+    public void subscribe(StopAsrStreamRequestEvent stopAsrStreamRequestEvent) {
+        EventBus.getDefault().post((StopAsrStreamRequestEvent) stopAsrStreamRequestEvent);
     }
 
     public void subscribe(DataStreamType dataStreamType, TranscriptCallback callback){
@@ -220,24 +245,12 @@ public class AugmentOSLib {
         String text = event.text;
         String languageCode = event.languageCode;
         long time = event.timestamp;
-//        ((TranscriptCallback)subscribedDataStreams.get(subscribedDataStreams.get)).call(text, languageCode, time, event.isFinal);
-        if (subscribedDataStreams.containsKey(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM) && (languageCode.equals("en-US"))) {
-            ((TranscriptCallback)subscribedDataStreams.get(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM)).call(text, languageCode, time, event.isFinal);
-        }
-        if (subscribedDataStreams.containsKey(DataStreamType.TRANSCRIPTION_CHINESE_STREAM) && (languageCode.equals("zh"))) {
-            ((TranscriptCallback)subscribedDataStreams.get(DataStreamType.TRANSCRIPTION_CHINESE_STREAM)).call(text, languageCode, time, event.isFinal);
-        }
+
     }
 
     @Subscribe
     public void onTranslateTranscript(TranslateOutputEvent event) {
         String text = event.text;
-        String languageCode = event.languageCode;
-        long time = event.timestamp;
-
-        if (subscribedDataStreams.containsKey(DataStreamType.TRANSLATION_ENGLISH_STREAM) && (languageCode.equals("zh"))) {
-            ((TranslateCallback)subscribedDataStreams.get(DataStreamType.TRANSLATION_ENGLISH_STREAM)).call(text, languageCode, time, event.isFinal, true);
-        }
     }
 
     @Subscribe
@@ -280,7 +293,6 @@ public class AugmentOSLib {
             ((GlassesPovImageCallback)subscribedDataStreams.get(DataStreamType.GLASSES_POV_IMAGE)).call(event.encodedImgString);
         }
     }
-
 
     public void deinit(){
         EventBus.getDefault().unregister(this);

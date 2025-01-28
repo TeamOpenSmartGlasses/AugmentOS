@@ -29,11 +29,10 @@ public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
        isCurrentlySpeech = false;
     }
 
-    //custom - divide by 3, gives us best of both worlds - vosk runs best at ~0.2 second buffer, this runs best at 512-1024 size frame, so we run at 0.192second buffer and divide by 3
     public void startVad(int blockSizeSamples){
         vad = Vad.builder();
 
-        blockSizeSamples = blockSizeSamples / 3;
+        blockSizeSamples = blockSizeSamples;
 
         Log.d(TAG, "VAD looking for block size samples: " + blockSizeSamples);
         //find the proper frame size
@@ -55,7 +54,8 @@ public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
                 .setFrameSize(fsToUse)
 //                .setMode(Mode.VERY_AGGRESSIVE)
                 .setMode(Mode.AGGRESSIVE)
-                .setSilenceDurationMs(1350)
+//                .setMode(Mode.NORMAL)
+                .setSilenceDurationMs(12000) //very long pause so we don't keep turning on/off ASR
                 .setSpeechDurationMs(50)
                 .setContext(mContext)
                 .build();
@@ -85,23 +85,29 @@ public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
 
     @Override
     public void processAudioBytes(byte[] bytes, int offset, int length) {
-        short [] audioBytesFull = bytesToShort(bytes);
-        int windowLen = audioBytesFull.length / 3;
-        for (int i = 0; i < 3; i++) {
-            int moffset = i * windowLen;
-            short [] audioBytesPartial = Arrays.copyOfRange(audioBytesFull, moffset, moffset + windowLen);
+        short[] audioBytesFull = bytesToShort(bytes);
+
+        // Ensure we process only full 512-sample frames
+        int totalSamples = audioBytesFull.length;
+        int frameSize = 512;
+
+        if (totalSamples % frameSize != 0) {
+            Log.e(TAG, "Invalid audio frame size: " + totalSamples + " samples. Needs to be multiple of 512.");
+            return; // Skip processing if we have an invalid size
+        }
+
+        for (int i = 0; i < totalSamples / frameSize; i++) {
+            int startIdx = i * frameSize;
+            short[] audioBytesPartial = Arrays.copyOfRange(audioBytesFull, startIdx, startIdx + frameSize);
+
             vadModel.setContinuousSpeechListener(audioBytesPartial, new VadListener() {
                 @Override
                 public void onSpeechDetected() {
-                    //speech detected!
-//                    Log.d(TAG, "Speech detected.");
                     isCurrentlySpeech = true;
                 }
 
                 @Override
                 public void onNoiseDetected() {
-                    //noise detected!
-//                    Log.d(TAG, "Noise detected!");
                     isCurrentlySpeech = false;
                 }
             });

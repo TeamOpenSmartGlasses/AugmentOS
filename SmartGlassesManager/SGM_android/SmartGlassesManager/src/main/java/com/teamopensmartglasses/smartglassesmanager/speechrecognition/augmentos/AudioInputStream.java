@@ -1,4 +1,4 @@
-package com.teamopensmartglasses.smartglassesmanager.speechrecognition.azure;
+package com.teamopensmartglasses.smartglassesmanager.speechrecognition.augmentos;
 
 import com.microsoft.cognitiveservices.speech.audio.AudioStreamFormat;
 import com.microsoft.cognitiveservices.speech.audio.PullAudioInputStreamCallback;
@@ -6,29 +6,26 @@ import com.microsoft.cognitiveservices.speech.audio.PullAudioInputStreamCallback
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-public class AzureAudioInputStream extends PullAudioInputStreamCallback {
+public class AudioInputStream {
+    public static final int SAMPLE_RATE = 16000;
+    public static final short BITS_PER_SAMPLE = 16;
+    public static final short CHANNELS = 1;
 
-    private static final int SAMPLE_RATE = 16000;
-    private static final short BITS_PER_SAMPLE = 16;
-    private static final short CHANNELS = 1;
-
-    private final AudioStreamFormat format;
     private final BlockingQueue<byte[]> audioQueue;
     private byte[] leftoverChunk;
     private int leftoverOffset;
 
-    private static AzureAudioInputStream instance;
+    private static AudioInputStream instance;
 
-    private AzureAudioInputStream() {
-        this.format = AudioStreamFormat.getWaveFormatPCM(SAMPLE_RATE, BITS_PER_SAMPLE, CHANNELS);
+    private AudioInputStream() {
         this.audioQueue = new LinkedBlockingQueue<>();
         this.leftoverChunk = null;
         this.leftoverOffset = 0;
     }
 
-    public static synchronized AzureAudioInputStream getInstance() {
+    public static synchronized AudioInputStream getInstance() {
         if (instance == null) {
-            instance = new AzureAudioInputStream();
+            instance = new AudioInputStream();
         }
         return instance;
     }
@@ -37,13 +34,13 @@ public class AzureAudioInputStream extends PullAudioInputStreamCallback {
         audioQueue.add(audioChunk);
     }
 
-    @Override
-    public int read(byte[] dataBuffer) {
+    public byte[] read(int bufferSize) {
+        byte[] dataBuffer = new byte[bufferSize];
         int bytesRead = 0;
 
         try {
             if (leftoverChunk != null) {
-                int length = Math.min(leftoverChunk.length - leftoverOffset, dataBuffer.length);
+                int length = Math.min(leftoverChunk.length - leftoverOffset, bufferSize);
                 System.arraycopy(leftoverChunk, leftoverOffset, dataBuffer, 0, length);
                 leftoverOffset += length;
                 bytesRead = length;
@@ -54,9 +51,9 @@ public class AzureAudioInputStream extends PullAudioInputStreamCallback {
                 }
             }
 
-            while (bytesRead < dataBuffer.length) {
-                byte[] chunk = audioQueue.take(); // Blocks if queue is empty
-                int length = Math.min(chunk.length, dataBuffer.length - bytesRead);
+            while (bytesRead < bufferSize) {
+                byte[] chunk = audioQueue.take();
+                int length = Math.min(chunk.length, bufferSize - bytesRead);
                 System.arraycopy(chunk, 0, dataBuffer, bytesRead, length);
                 bytesRead += length;
 
@@ -66,20 +63,25 @@ public class AzureAudioInputStream extends PullAudioInputStreamCallback {
                     break;
                 }
             }
+
+            if (bytesRead < bufferSize) {
+                byte[] trimmedBuffer = new byte[bytesRead];
+                System.arraycopy(dataBuffer, 0, trimmedBuffer, 0, bytesRead);
+                return trimmedBuffer;
+            }
+
+            return dataBuffer;
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            return 0;
+            return new byte[0];
         }
-
-        return bytesRead;
     }
 
-    @Override
     public void close() {
         audioQueue.clear();
     }
 
-    public AudioStreamFormat getFormat() {
-        return this.format;
+    public boolean hasData() {
+        return !audioQueue.isEmpty() || leftoverChunk != null;
     }
 }
