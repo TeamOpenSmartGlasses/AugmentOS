@@ -68,6 +68,7 @@ import com.teamopensmartglasses.augmentoslib.events.NotificationEvent;
 import com.teamopensmartglasses.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.StartAsrStreamRequestEvent;
 import com.teamopensmartglasses.augmentoslib.events.StopAsrStreamRequestEvent;
+import com.teamopensmartglasses.augmentoslib.SpeechRecUtils;
 import com.teamopensmartglasses.convoscope.comms.AugmentOsActionsCallback;
 import com.teamopensmartglasses.convoscope.comms.AugmentosBlePeripheral;
 import com.teamopensmartglasses.convoscope.events.AugmentosSmartGlassesDisconnectedEvent;
@@ -302,10 +303,12 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Subscribe
     public synchronized void onSubscribeStartAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
         AsrStreamKey key;
+        String transcribeLanguage = event.transcribeLanguage;
         if (event.asrStreamType == AsrStreamType.TRANSLATION) {
-            key = new AsrStreamKey(event.transcribeLanguage, event.translateLanguage);
+            String translateLanguage = event.translateLanguage;
+            key = new AsrStreamKey(transcribeLanguage, translateLanguage);
         } else {
-            key = new AsrStreamKey(event.transcribeLanguage);
+            key = new AsrStreamKey(transcribeLanguage);
         }
         addAsrStream(event.packageName, key);
     }
@@ -313,10 +316,12 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Subscribe
     public synchronized void onSubscribeStopAsrStreamRequestEvent(StopAsrStreamRequestEvent event) {
         AsrStreamKey key;
+        String transcribeLanguage = event.transcribeLanguage;
         if (event.asrStreamType == AsrStreamType.TRANSLATION) {
-            key = new AsrStreamKey(event.transcribeLanguage, event.translateLanguage);
+            String translateLanguage = event.translateLanguage;
+            key = new AsrStreamKey(transcribeLanguage, translateLanguage);
         } else {
-            key = new AsrStreamKey(event.transcribeLanguage);
+            key = new AsrStreamKey(transcribeLanguage);
         }
         removeAsrStream(event.packageName, key);
     }
@@ -1151,109 +1156,54 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Subscribe
     public void onTranscript(SpeechRecOutputEvent event) {
         String text = event.text;
-//        long time = event.timestamp;
+        String languageCode = event.languageCode;
         boolean isFinal = event.isFinal;
-        boolean isTranslated = event.isTranslated;
-//        Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + text);
 
-        if (isFinal && !isTranslated) {
-            transcriptsBuffer.add(text);
-     //       sendFinalTranscriptToActivity(text);
+        AsrStreamKey streamKey = new AsrStreamKey(languageCode);
+
+        if (activeStreams.containsKey(streamKey)) {
+            Set<String> activeStreamElements = activeStreams.get(streamKey);
+
+            if (activeStreamElements != null) {
+                for (String packageName : activeStreamElements) {
+                    if (Objects.equals(packageName, "AugmentOS_INTERNAL")) {
+                        continue;
+                    }
+                    Log.d(TAG, "Active stream element processed: " + packageName);
+                    tpaSystem.sendTranscriptEventToTpa(event, packageName);
+                }
+            } else {
+                Log.w(TAG, "Active stream elements are null, nothing to process.");
+            }
         }
 
-        if(smartGlassesService == null) return;
-//
-//        if (Objects.equals(getCurrentMode(this), "Language Learning")) {
-//            //debounce and then send to backend
-//            if (!isTranslated && smartGlassesService.getSelectedLiveCaptionsTranslation(this) != 2) debounceAndSendTranscript(text, isFinal);
-//    //        getSettings();
-//            // Send transcript to user if live captions are enabled
-//            if (smartGlassesService.getSelectedLiveCaptionsTranslation(this) != 0) { // 0 is language learning mode
-//    //            showTranscriptsToUser(text, isFinal);
-//                debounceAndShowTranscriptOnGlasses(text, isFinal, isTranslated);
-//            }
-//        }
+        if (isFinal) {
+            transcriptsBuffer.add(text);
+        }
     }
 
-    private Handler glassesTranscriptDebounceHandler = new Handler(Looper.getMainLooper());
-    private Runnable glassesTranscriptDebounceRunnable;
-    private long glassesTranscriptLastSentTime = 0;
-    private long glassesTranslatedTranscriptLastSentTime = 0;
-    private final long GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY = 400; // in milliseconds
+    @Subscribe
+    public void onTranslate(TranslateOutputEvent event){
+        String fromLanguageCode = event.fromLanguageCode;
+        String toLanguageCode = event.toLanguageCode;
+        AsrStreamKey streamKey = new AsrStreamKey(fromLanguageCode, toLanguageCode);
 
-//    private void debounceAndShowTranscriptOnGlasses(String transcript, boolean isFinal, boolean isTranslated) {
-//        glassesTranscriptDebounceHandler.removeCallbacks(glassesTranscriptDebounceRunnable);
-//        long currentTime = System.currentTimeMillis();
-//
-//        if (isFinal) {
-//            showTranscriptsToUser(transcript, isTranslated, true);
-//            return;
-//        }
-//
-//        // if intermediate
-//        if (smartGlassesService != null && smartGlassesService.getSelectedLiveCaptionsTranslation(this) == 2) {
-//            if (isTranslated) {
-//                if (currentTime - glassesTranslatedTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-//                    showTranscriptsToUser(transcript, true, false);
-//                    glassesTranslatedTranscriptLastSentTime = currentTime;
-//                } else {
-//                    glassesTranscriptDebounceRunnable = () -> {
-//                        showTranscriptsToUser(transcript, true, false);
-//                        glassesTranslatedTranscriptLastSentTime = System.currentTimeMillis();
-//                    };
-//                    glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
-//                }
-//            } else {
-//                if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-//                    showTranscriptsToUser(transcript, false, false);
-//                    glassesTranscriptLastSentTime = currentTime;
-//                } else {
-//                    glassesTranscriptDebounceRunnable = () -> {
-//                        showTranscriptsToUser(transcript, false, false);
-//                        glassesTranscriptLastSentTime = System.currentTimeMillis();
-//                    };
-//                    glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
-//                }
-//            }
-//        } else {
-//            if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
-//                showTranscriptsToUser(transcript, false, false);
-//                glassesTranscriptLastSentTime = currentTime;
-//            } else {
-//                glassesTranscriptDebounceRunnable = () -> {
-//                    showTranscriptsToUser(transcript, false, false);
-//                    glassesTranscriptLastSentTime = System.currentTimeMillis();
-//                };
-//                glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
-//            }
-//        }
-//    }
+        if (activeStreams.containsKey(streamKey)) {
+            Set<String> activeStreamElements = activeStreams.get(streamKey);
 
-//    private void showTranscriptsToUser(final String transcript, final boolean isTranslated, final boolean isFinal) {
-//        String processed_transcript = transcript;
-//
-//        if (!isTranslated && AugmentosSmartGlassesService.getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") ||
-//            isTranslated && (
-//                getChosenSourceLanguage(this).equals("Chinese (Pinyin)") ||
-//                getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && AugmentosSmartGlassesService.getChosenTranscribeLanguage(this).equals(getChosenSourceLanguage(this)))
-//        ) {
-//            if(segmenterLoaded) {
-//                processed_transcript = convertToPinyin(transcript);
-//            } else if (!segmenterLoading) {
-//                new Thread(this::loadSegmenter).start();
-//                hasUserBeenNotified = true;
-//                if (smartGlassesService != null)
-//                    smartGlassesService.windowManager.addTask(new WindowManager.Task(() -> smartGlassesService.sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false, false));
-//            } else if (!hasUserBeenNotified) {  //tell user we are loading the pinyin converter
-//                hasUserBeenNotified = true;
-//                if (smartGlassesService != null)
-//                    smartGlassesService.windowManager.addTask(new WindowManager.Task(() -> smartGlassesService.sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false, false));
-//            }
-//        }
-//
-//        if (AugmentosSmartGlassesService.getSelectedLiveCaptionsTranslation(this) == 2) sendTextWallLiveTranslationLiveCaption(processed_transcript, isTranslated, isFinal);
-//        else sendTextWallLiveCaptionLL(processed_transcript, "", isFinal);
-//    }
+            if (activeStreamElements != null) {
+                for (String packageName : activeStreamElements) {
+                    if (Objects.equals(packageName, "AugmentOS_INTERNAL")) {
+                        continue;
+                    }
+                    Log.d(TAG, "Active stream element processed: " + packageName);
+                    tpaSystem.sendTranslateEventToTpa(event, packageName);
+                }
+            } else {
+                Log.w(TAG, "Active stream elements are null, nothing to process.");
+            }
+        }
+    }
 
     private void loadSegmenter() {
         segmenterLoading = true;

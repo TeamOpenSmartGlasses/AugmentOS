@@ -111,8 +111,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
                             fromLanguage,
                             toLanguage,
                             timestamp,
-                            false,  // not final
-                            true    // is translation
+                            false  // not final
                     ));
                 }
             }
@@ -127,8 +126,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
                             fromLanguage,
                             toLanguage,
                             timestamp,
-                            true,   // is final
-                            true    // is translation
+                            true   // is final
                     ));
                 }
             }

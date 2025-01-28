@@ -328,25 +328,17 @@ public class TPASystem {
         augmentOsLibBroadcastSender.sendEventToTPAs(CoreToManagerOutputEvent.eventId, event, AugmentOSManagerPackageName);
     }
 
-    @Subscribe
-    public void onTranscript(SpeechRecOutputEvent event){
-        boolean tpaIsSubscribed = true;
-        if(tpaIsSubscribed){
-            augmentOsLibBroadcastSender.sendEventToAllTPAs(SpeechRecOutputEvent.eventId, event);
-        }
+    public void sendTranscriptEventToTpa(SpeechRecOutputEvent event, String packageName) {
+        augmentOsLibBroadcastSender.sendEventToTPAs(SpeechRecOutputEvent.eventId, event, packageName);
+    }
+
+    public void sendTranslateEventToTpa(TranslateOutputEvent event, String packageName) {
+        augmentOsLibBroadcastSender.sendEventToTPAs(TranslateOutputEvent.eventId, event, packageName);
     }
 
     @Subscribe
     public void onNotificationEvent(NotificationEvent event){
         augmentOsLibBroadcastSender.sendEventToAllTPAs(NotificationEvent.eventId, event);
-    }
-
-    @Subscribe
-    public void onTranslateTranscript(TranslateOutputEvent event){
-        boolean tpaIsSubscribed = true;
-        if(tpaIsSubscribed){
-            augmentOsLibBroadcastSender.sendEventToAllTPAs(TranslateOutputEvent.eventId, event);
-        }
     }
 
     @Subscribe
