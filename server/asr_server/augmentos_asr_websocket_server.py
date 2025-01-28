@@ -102,7 +102,7 @@ class ASRStream:
                 base_lang = self.translateLanguage.split('-')[0]
                 text = evt.result.translations.get(base_lang, "")
                 original_text = evt.result.text
-                print(f"[ASR] Translation interim: Original='{original_text}' Translated='{text}' (to {self.translateLanguage})")
+                print(f"[ASR] Translation interim: Original='{original_text}' (from {self.transcribeLanguage}) Translated='{text}' (to {self.translateLanguage})")
             else:
                 text = evt.result.text
                 print(f"[ASR] Transcription interim: '{text}'")
@@ -136,7 +136,7 @@ class ASRStream:
                 print(f"[ASR] Translation final: Original='{original_text}' Translated='{text}' (to {self.translateLanguage})")
             else:
                 text = evt.result.text
-                print(f"[ASR] Transcription final: '{text}'")
+                print(f"[ASR] Transcription final: '{text}' {self.transcribeLanguage}")
 
             if text:
                 result = {
@@ -181,22 +181,6 @@ class ASRStream:
         await self.stop()
         self.push_stream.close()
 
-    def _get_language_code(self, language: str) -> str:
-        """Convert common language names to BCP-47 codes."""
-        language_map = {
-            "English": "en-US",
-            "Spanish": "es-ES",
-            "French": "fr-FR",
-            "German": "de-DE",
-            "Italian": "it-IT",
-            "Portuguese": "pt-PT",
-            "Chinese": "zh-CN",
-            "Japanese": "ja-JP",
-            "Korean": "ko-KR",
-            "Russian": "ru-RU"
-        }
-        return language_map.get(language, language)  # If not found, return original value
-
 class ASRWebSocketServer:
     """Manages the ASR WebSocket server and active client streams."""
 
@@ -205,22 +189,6 @@ class ASRWebSocketServer:
         self.service_region = service_region
         self.active_streams: Dict[str, Dict[str, ASRStream]] = {}  # {client_id: {stream_id: ASRStream}}
         self.max_concurrent = max_concurrent
-        self.language_map = {
-            "English": "en-US",
-            "Spanish": "es-ES",
-            "French": "fr-FR",
-            "German": "de-DE",
-            "Italian": "it-IT",
-            "Portuguese": "pt-PT",
-            "Chinese": "zh-CN",
-            "Japanese": "ja-JP",
-            "Korean": "ko-KR",
-            "Russian": "ru-RU"
-        }
-
-    def _get_language_code(self, language: str) -> str:
-        """Convert common language names to BCP-47 codes."""
-        return self.language_map.get(language, language)  # If not found, return original value
 
     async def handle_client(self, websocket):
         """Handles a new WebSocket client connection."""
@@ -274,8 +242,8 @@ class ASRWebSocketServer:
             config = StreamConfig(
                 stream_id=stream_id,
                 streamType=stream_config["streamType"],
-                transcribeLanguage=self._get_language_code(stream_config["transcribeLanguage"]),
-                translateLanguage=self._get_language_code(stream_config.get("translateLanguage")) if stream_config.get("translateLanguage") else None
+                transcribeLanguage=stream_config["transcribeLanguage"],
+                translateLanguage=stream_config.get("translateLanguage") if stream_config.get("translateLanguage") else None
             )
             
             asr_stream = ASRStream(
