@@ -12,6 +12,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 
 import com.augmentos.smartglassesmanager.R;
+import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 import com.augmentos.smartglassesmanager.eventbusmessages.BatteryLevelEvent;
@@ -124,7 +125,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         this.lifecycleOwner = lifecycleOwner;
         this.context = context;
 
-        mConnectState = 0;
+        mConnectState = SmartGlassesConnectionState.DISCONNECTED;
         hasUltraliteControl = false;
         screenIsClear = true;
         goHomeHandler = new Handler();
@@ -180,10 +181,10 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
                 return;
             }
             Log.d(TAG, "Ultralite RESULT control request: " + isControlled);
-            connectionEvent(2);
+            connectionEvent(SmartGlassesConnectionState.CONNECTED);
         } else {
             Log.d(TAG, "Ultralite not connected.");
-            connectionEvent(0);
+            connectionEvent(SmartGlassesConnectionState.DISCONNECTED);
         }
     }
 
@@ -191,7 +192,7 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         Log.d(TAG, "Ultralite CONTROL changed to: " + isControlledByMe);
         if(isControlledByMe) {
             hasUltraliteControl = true;
-            connectionEvent(2);
+            connectionEvent(SmartGlassesConnectionState.CONNECTED);
         } else {
             hasUltraliteControl = false;
         }

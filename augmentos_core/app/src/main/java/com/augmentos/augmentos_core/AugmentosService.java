@@ -52,6 +52,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
+import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 //import com.google.firebase.auth.FirebaseAuth;
@@ -2541,7 +2542,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     public boolean getIsSearchingForGlasses() {
-        return isSmartGlassesServiceBound && smartGlassesService.getConnectedSmartGlasses() == null;
+        //return isSmartGlassesServiceBound && smartGlassesService.getConnectedSmartGlasses() == null;
+        return smartGlassesService != null
+                && smartGlassesService.getSmartGlassesConnectState() != SmartGlassesConnectionState.DISCONNECTED
+                && smartGlassesService.getSmartGlassesConnectState() != SmartGlassesConnectionState.CONNECTED;
     }
 
     private void executeOnceSmartGlassesServiceReady(Context context, Runnable action) {

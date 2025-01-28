@@ -16,6 +16,7 @@ import com.augmentos.augmentoslib.events.GlassesPovImageEvent;
 import com.augmentos.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.augmentos.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.augmentos.smartglassesmanager.utils.NetworkUtils;
+import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
 
 import org.greenrobot.eventbus.EventBus;
 import org.json.JSONArray;
@@ -103,7 +104,7 @@ public class AndroidSGC extends SmartGlassesCommunicator {
         killme = false;
         this.smartGlassesDevice = smartGlassesDevice;
         //state information
-        mConnectState = 0;
+        mConnectState = SmartGlassesConnectionState.DISCONNECTED;
     }
 
     //not used/valid yet
@@ -175,7 +176,7 @@ public class AndroidSGC extends SmartGlassesCommunicator {
         Log.d(TAG, "socket val in startSocket: " + socket);
         if (socket == null) {
             Log.d(TAG, "starting new SocketThread" + socket);
-            connectionEvent(1);
+            connectionEvent(SmartGlassesConnectionState.CONNECTING);
             SocketThread = new Thread(new SocketThread());
             SocketThread.start();
 
@@ -238,7 +239,7 @@ public class AndroidSGC extends SmartGlassesCommunicator {
                     //output = new PrintWriter(socket.getOutputStream(), true);
                     output = new DataOutputStream(socket.getOutputStream());
                     input = new DataInputStream(new DataInputStream(socket.getInputStream()));
-                    connectionEvent(2);
+                    connectionEvent(SmartGlassesConnectionState.CONNECTED);
                     if (ReceiveThread == null) { //if the thread is null, make a new one (the first one)
                         ReceiveThread = new Thread(new ReceiveThread());
                         ReceiveThread.start();
@@ -265,11 +266,11 @@ public class AndroidSGC extends SmartGlassesCommunicator {
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
-                    connectionEvent(0);
+                    connectionEvent(SmartGlassesConnectionState.DISCONNECTED);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-                connectionEvent(0);
+                connectionEvent(SmartGlassesConnectionState.DISCONNECTED);
             }
         }
     }
@@ -279,10 +280,10 @@ public class AndroidSGC extends SmartGlassesCommunicator {
         //check if we are still connected.
         //if not , reconnect,
         //if we are connected, send a heart beat to make sure we are still connected
-        if (mConnectState == 0 && !killme) {
+        if (mConnectState == SmartGlassesConnectionState.DISCONNECTED && !killme) {
             Log.d(TAG, "heartBeat failing");
             restartSocket();
-        } else if (mConnectState == 2){
+        } else if (mConnectState == SmartGlassesConnectionState.CONNECTED){
             //make sure we don't have a ton of outbound heart beats unresponded to
             if (outbound_heart_beats > 5) {
                 Log.d(TAG, "heartBeat outbounds failing");
@@ -307,7 +308,7 @@ public class AndroidSGC extends SmartGlassesCommunicator {
                 if (killme){
                     return;
                 }
-                if (mConnectState != 2){
+                if (mConnectState != SmartGlassesConnectionState.CONNECTED){
                     break;
                 }
                 byte b1, b2;
@@ -381,7 +382,7 @@ public class AndroidSGC extends SmartGlassesCommunicator {
 
     public void restartSocket(){
         Log.d(TAG, "Restarting socket.");
-        connectionEvent(1);
+        connectionEvent(SmartGlassesConnectionState.CONNECTING);
 
         outbound_heart_beats = 0;
 
@@ -458,7 +459,7 @@ public class AndroidSGC extends SmartGlassesCommunicator {
             }
             outputStream.write(goodbye);
         } catch (IOException e){
-            connectionEvent(0);
+            connectionEvent(SmartGlassesConnectionState.DISCONNECTED);
             return;
         }
         byte [] payload = outputStream.toByteArray();
@@ -479,7 +480,7 @@ public class AndroidSGC extends SmartGlassesCommunicator {
                 if (killme){
                     return;
                 }
-                if (mConnectState != 2){
+                if (mConnectState != SmartGlassesConnectionState.CONNECTED){
                     break;
                 }
                 if (queue.size() > 10){
@@ -508,16 +509,12 @@ public class AndroidSGC extends SmartGlassesCommunicator {
     }
 
     public  void throwBrokenSocket(){
-        if (mConnectState == 2){
+        if (mConnectState != SmartGlassesConnectionState.DISCONNECTED){
             Log.d(TAG, "Throwing broken socket");
-            connectionEvent(0);
+            connectionEvent(SmartGlassesConnectionState.DISCONNECTED);
         }
     }
     //^^^ SOCKET STUFF
-
-    public int getConnectionState(){
-        return mConnectState;
-    }
 
     public void destroy(){
         Log.d(TAG, "Destroying AndroidSGC");

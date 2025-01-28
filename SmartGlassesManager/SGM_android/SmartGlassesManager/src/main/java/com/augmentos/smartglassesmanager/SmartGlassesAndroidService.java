@@ -51,6 +51,7 @@ import com.augmentos.smartglassesmanager.supportedglasses.TCLRayNeoXTwo;
 import com.augmentos.smartglassesmanager.supportedglasses.VuzixShield;
 import com.augmentos.smartglassesmanager.supportedglasses.VuzixUltralite;
 import com.augmentos.smartglassesmanager.texttospeech.TextToSpeechSystem;
+import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.EventBusException;
@@ -252,23 +253,23 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         EventBus.getDefault().post(new ReferenceCardSimpleViewRequestEvent(title, body));
     }
 
-    public int getSmartGlassesConnectState() {
+    public SmartGlassesConnectionState getSmartGlassesConnectState() {
         if (smartGlassesRepresentative != null) {
             return smartGlassesRepresentative.getConnectionState();
         } else {
-            return 0;
+            return SmartGlassesConnectionState.DISCONNECTED;
         }
     }
 
     public SmartGlassesDevice getConnectedSmartGlasses() {
         if (smartGlassesRepresentative == null) return null;
-        if(smartGlassesRepresentative.getConnectionState() != 2) return null;
+        if(smartGlassesRepresentative.getConnectionState() != SmartGlassesConnectionState.CONNECTED) return null;
         return smartGlassesRepresentative.smartGlassesDevice;
     }
 
     public SmartGlassesOperatingSystem getConnectedDeviceModelOs(){
         if (smartGlassesRepresentative == null) return null;
-        if(smartGlassesRepresentative.getConnectionState() != 2) return null;
+        if(smartGlassesRepresentative.getConnectionState() != SmartGlassesConnectionState.CONNECTED) return null;
         return smartGlassesRepresentative.smartGlassesDevice.glassesOs;
     }
 
@@ -277,20 +278,20 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         Intent intent = new Intent();
         intent.setAction(MessageTypes.GLASSES_STATUS_UPDATE);
         // Set the optional additional information in extra field.
-        int connectionState;
+        SmartGlassesConnectionState connectionState;
         if (smartGlassesRepresentative != null) {
             connectionState = smartGlassesRepresentative.getConnectionState();
             intent.putExtra(MessageTypes.CONNECTION_GLASSES_GLASSES_OBJECT, smartGlassesRepresentative.smartGlassesDevice);
 
             // Update preferred wearable if connected
-            if(connectionState == 2){
+            if(connectionState == SmartGlassesConnectionState.CONNECTED){
                 Log.d(TAG, "sendUiUpdate updates preferred wearable");
                 savePreferredWearable(this, smartGlassesRepresentative.smartGlassesDevice.deviceModelName);
                 onGlassesConnected(smartGlassesRepresentative.smartGlassesDevice);
                 EventBus.getDefault().post(new SmartGlassesConnectedEvent(smartGlassesRepresentative.smartGlassesDevice));
             }
         } else {
-            connectionState = 0;
+            connectionState = SmartGlassesConnectionState.DISCONNECTED;
         }
         intent.putExtra(MessageTypes.CONNECTION_GLASSES_STATUS_UPDATE, connectionState);
         sendBroadcast(intent);
@@ -564,7 +565,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     Runnable aioRetryConnectionTask = new Runnable() {
         @Override
         public void run() {
-            if (smartGlassesRepresentative == null || smartGlassesRepresentative.getConnectionState() != 2) { // If still disconnected
+            if (smartGlassesRepresentative == null || smartGlassesRepresentative.getConnectionState() != SmartGlassesConnectionState.CONNECTED) { // If still disconnected
                 if(!smartGlassesDevices.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Searching for glasses...", Toast.LENGTH_LONG).show();
                     // EventBus.getDefault().post(new PostGenericGlobalMessageEvent("Searching for glasses..."));
@@ -597,7 +598,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     Runnable connectedCheckerTask = new Runnable() {
         @Override
         public void run() {
-            if (smartGlassesRepresentative != null && smartGlassesRepresentative.getConnectionState() == 2) { // Check if connected
+            if (smartGlassesRepresentative != null && smartGlassesRepresentative.getConnectionState() == SmartGlassesConnectionState.CONNECTED) { // Check if connected
                 Toast.makeText(getApplicationContext(), "Connected to " + smartGlassesRepresentative.smartGlassesDevice.deviceModelName, Toast.LENGTH_LONG).show();
                 Log.d(TAG, "Connected to: " + smartGlassesRepresentative.smartGlassesDevice.deviceModelName);
 //                sendReferenceCard("Connected", "Connected to AugmentOS");

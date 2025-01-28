@@ -6,12 +6,13 @@ import android.os.Looper;
 
 import com.augmentos.augmentoslib.events.GlassesTapOutputEvent;
 import com.augmentos.smartglassesmanager.eventbusmessages.SmartGlassesConnectionEvent;
+import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
 
 import org.greenrobot.eventbus.EventBus;
 
 public abstract class SmartGlassesCommunicator {
     //basic glasses utils/settings
-    public int mConnectState = 0;
+    public SmartGlassesConnectionState mConnectState = SmartGlassesConnectionState.DISCONNECTED;
     protected SmartGlassesModes currentMode;
     public abstract void connectToSmartGlasses();
     public abstract void findCompatibleDeviceNames();
@@ -74,20 +75,20 @@ public abstract class SmartGlassesCommunicator {
     //must be run and set font sizes
     protected abstract void setFontSizes();
 
-    public int getConnectionState(){
+    public SmartGlassesConnectionState getConnectionState(){
         return mConnectState;
     }
 
     protected boolean isConnected(){
-        return (mConnectState == 2);
+        return (mConnectState == SmartGlassesConnectionState.CONNECTED);
     }
 
     private static final long DEBOUNCE_DELAY_MS = 500; // Adjust as needed
     private final Handler debounceHandler = new Handler(Looper.getMainLooper());
-    private int lastConnectState = -1; // Tracks the last state processed
+    private SmartGlassesConnectionState lastConnectState = null; // Tracks the last state processed
     private boolean isPending = false;
 
-    public void connectionEvent(int connectState) {
+    public void connectionEvent(SmartGlassesConnectionState connectState) {
         if (connectState == lastConnectState && isPending) {
             // Ignore duplicate calls within debounce period
             return;

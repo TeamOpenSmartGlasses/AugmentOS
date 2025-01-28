@@ -7,6 +7,7 @@ import android.util.Log;
 import com.augmentos.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
 import com.augmentos.smartglassesmanager.eventbusmessages.TextToSpeechEvent;
 import com.augmentos.smartglassesmanager.supportedglasses.SmartGlassesDevice;
+import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -23,7 +24,7 @@ public class AudioWearableSGC extends SmartGlassesCommunicator {
 
         //state information
         killme = false;
-        mConnectState = 0;
+        mConnectState = SmartGlassesConnectionState.DISCONNECTED;
         this.smartGlassesDevice = smartGlassesDevice;
     }
 
@@ -31,7 +32,7 @@ public class AudioWearableSGC extends SmartGlassesCommunicator {
     }
 
     public void connectToSmartGlasses(){
-        connectionEvent(2);
+        connectionEvent(SmartGlassesConnectionState.CONNECTED);
     }
 
     public void blankScreen(){
@@ -45,7 +46,7 @@ public class AudioWearableSGC extends SmartGlassesCommunicator {
     public void destroy() {
         // Reset killme flag and connection state
         killme = true;
-        mConnectState = 0;
+        mConnectState = SmartGlassesConnectionState.DISCONNECTED;
 
         // Clear references to avoid memory leaks
         this.context = null;

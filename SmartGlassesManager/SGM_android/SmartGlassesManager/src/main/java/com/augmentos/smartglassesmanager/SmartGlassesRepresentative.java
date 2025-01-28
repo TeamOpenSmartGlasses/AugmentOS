@@ -40,6 +40,7 @@ import com.augmentos.smartglassesmanager.smartglassescommunicators.AndroidSGC;
 import com.augmentos.smartglassesmanager.smartglassescommunicators.SmartGlassesCommunicator;
 import com.augmentos.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.augmentos.augmentoslib.events.TextLineViewRequestEvent;
+import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
 
 //rxjava
 import java.nio.ByteBuffer;
@@ -210,9 +211,9 @@ class SmartGlassesRepresentative {
     }
 
     //are our smart glasses currently connected?
-    public int getConnectionState(){
+    public SmartGlassesConnectionState getConnectionState(){
         if (smartGlassesCommunicator == null){
-            return 0;
+            return SmartGlassesConnectionState.DISCONNECTED;
         } else {
             return smartGlassesCommunicator.getConnectionState();
         }

@@ -36,6 +36,7 @@ import java.util.stream.Collectors;
 import java.util.zip.CRC32;
 import java.nio.ByteBuffer;
 
+import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
 import com.google.gson.Gson;
 import com.augmentos.augmentoslib.events.AudioChunkNewEvent;
 import com.augmentos.smartglassesmanager.R;
@@ -83,6 +84,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private BluetoothGattCharacteristic rightTxChar;
     private BluetoothGattCharacteristic leftRxChar;
     private BluetoothGattCharacteristic rightRxChar;
+    private SmartGlassesConnectionState connectionState = SmartGlassesConnectionState.DISCONNECTED;
     private final Handler handler = new Handler(Looper.getMainLooper());
     private final Handler queryBatterStatusHandler = new Handler(Looper.getMainLooper());
     private final Handler sendBrightnessCommandHandler = new Handler(Looper.getMainLooper());
@@ -177,7 +179,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public EvenRealitiesG1SGC(Context context, SmartGlassesDevice smartGlassesDevice) {
         super();
         this.context = context;
-        mConnectState = 0;
         loadPairedDeviceNames();
         goHomeHandler = new Handler();
         this.smartGlassesDevice = smartGlassesDevice;
@@ -465,18 +466,18 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     private void updateConnectionState() {
         if (isLeftConnected && isRightConnected) {
-            mConnectState = 2;
+            connectionState = SmartGlassesConnectionState.CONNECTED;
             Log.d(TAG, "Both glasses connected");
             lastConnectionTimestamp = System.currentTimeMillis();
-            connectionEvent(2);
+            connectionEvent(connectionState);
         } else if (isLeftConnected || isRightConnected) {
-            mConnectState = 1;
+            connectionState = SmartGlassesConnectionState.CONNECTING;
             Log.d(TAG, "One glass connected");
-            connectionEvent(1);
+            connectionEvent(connectionState);
         } else {
-            mConnectState = 0;
+            connectionState = SmartGlassesConnectionState.DISCONNECTED;
             Log.d(TAG, "No glasses connected");
-            connectionEvent(0);
+            connectionEvent(connectionState);
         }
     }
 
@@ -727,10 +728,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 if (isLeft && !isLeftPairing && !isLeftBonded) {
 //                    Log.d(TAG, "Bonding with Left Glass...");
                     isLeftPairing = true;
+                    connectionState = SmartGlassesConnectionState.BONDING;
                     bondDevice(device);
                 } else if (!isLeft && !isRightPairing && !isRightBonded) {
 //                    Log.d(TAG, "Bonding with Right Glass...");
                     isRightPairing = true;
+                    connectionState = SmartGlassesConnectionState.BONDING;
                     bondDevice(device);
                 } else {
                     Log.d(TAG, "Not running a53dd");
@@ -775,6 +778,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
 
         // Start scanning for devices
+        connectionState = SmartGlassesConnectionState.SCANNING;
         startScan();
     }
 
@@ -829,6 +833,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             Log.d(TAG, "Cannot connect to GATT: Both devices are not bonded yet");
             return;
         }
+
+        connectionState = SmartGlassesConnectionState.CONNECTING;
 
         if (device.getName().contains("_L_") && leftGlassGatt == null) {
             Log.d(TAG, "Connecting to GATT for Left Glass...");
@@ -1215,7 +1221,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     @Override
     public boolean isConnected() {
-        return mConnectState == 2;
+        return connectionState == SmartGlassesConnectionState.CONNECTED;
     }
 
     // Remaining methods

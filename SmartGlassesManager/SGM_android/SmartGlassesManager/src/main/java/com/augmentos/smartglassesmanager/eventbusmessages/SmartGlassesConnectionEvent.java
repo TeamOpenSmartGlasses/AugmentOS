@@ -1,9 +1,11 @@
 package com.augmentos.smartglassesmanager.eventbusmessages;
 
-public class SmartGlassesConnectionEvent {
-    public final int connectionStatus;
+import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
 
-    public SmartGlassesConnectionEvent(int connectionStatus) {
-        this.connectionStatus = connectionStatus;
+public class SmartGlassesConnectionEvent {
+    public final SmartGlassesConnectionState connectionStatus;
+
+    public SmartGlassesConnectionEvent(SmartGlassesConnectionState newSmartGlassesConnectionState) {
+        this.connectionStatus = newSmartGlassesConnectionState;
     }
 }
