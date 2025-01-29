@@ -33,6 +33,9 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     private VadGateSpeechPolicy vadPolicy;
     private volatile boolean isSpeaking = false; // Track VAD state
 
+    //don't setup web socket callbacks twice
+    private boolean haveSetupCallbacks = false;
+
     private SpeechRecAugmentos(Context context) {
         this.mContext = context;
         this.webSocketManager = WebSocketStreamManager.getInstance(getServerUrl());
@@ -85,6 +88,12 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     }
 
     private void setupWebSocketCallbacks() {
+        //make sure we don't setup the callback twice
+        if (haveSetupCallbacks){
+            return;
+        }
+        haveSetupCallbacks = true;
+
         webSocketManager.addCallback(new WebSocketStreamManager.WebSocketCallback() {
             @Override
             public void onInterimTranscript(String text, String language, long timestamp) {
