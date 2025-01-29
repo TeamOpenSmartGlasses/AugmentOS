@@ -52,6 +52,11 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
 
     @Override
     public void onCreate() {
+        //setup keys/settings before super
+        String asrApiKey = getResources().getString(R.string.google_api_key);
+        saveApiKey(this, asrApiKey);
+        saveChosenAsrFramework(this, ASR_FRAMEWORKS.AUGMENTOS_ASR_FRAMEWORK);
+
         super.onCreate();
 
         //setup event bus subscribers
@@ -64,10 +69,6 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
                 } // what to do when globally timed out
         );
 
-        String asrApiKey = getResources().getString(R.string.google_api_key);
-        saveApiKey(this, asrApiKey);
-
-        saveChosenAsrFramework(this, ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK);
     }
 
     @Override

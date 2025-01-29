@@ -6,9 +6,11 @@ import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
@@ -18,6 +20,8 @@ import com.augmentos.augmentoslib.events.KillTpaEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+
+import java.util.Objects;
 import java.util.UUID;
 
 //a service provided for third party apps to extend, that make it easier to create a service in Android that will continually run in the background
@@ -79,7 +83,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             Bundle extras = intent.getExtras();
            
             //True when service is started from AugmentOS
-            if(action == INTENT_ACTION && extras != null){
+            if(Objects.equals(action, INTENT_ACTION) && extras != null){
                 action = (String) extras.get(TPA_ACTION);
             }
 
@@ -110,6 +114,23 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             stopSelf();
             Log.d(TAG, "Self stopped, service should end.");
         }
+    }
+
+    protected String getUserId() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String userId = prefs.getString("user_id", "");
+
+        if (userId.isEmpty()) {
+            // Generate a random UUID string if no userId exists
+            userId = UUID.randomUUID().toString();
+
+            // Save the new userId to SharedPreferences
+            prefs.edit()
+                    .putString("user_id", userId)
+                    .apply();
+        }
+
+        return userId;
     }
 
     @Override

@@ -95,6 +95,33 @@ public class AugmentOSLib {
         subscribedDataStreams.put(DataStreamType.CORE_SYSTEM_MESSAGE, callback);
     }
 
+    public void requestTranscription(String language){
+        String languageLocale = SpeechRecUtils.languageToLocale(language);
+        subscribe(new StartAsrStreamRequestEvent(languageLocale));
+    }
+
+    public void requestTranslation(String fromLanguage, String toLanguage){
+        String fromLanguageLocale = SpeechRecUtils.languageToLocale(fromLanguage);
+        String toLanguageLocale = SpeechRecUtils.languageToLocale(toLanguage);
+        subscribe(new StartAsrStreamRequestEvent(fromLanguageLocale, toLanguageLocale));
+    }
+
+    public void stopTranscription(String language){
+        subscribe(new StopAsrStreamRequestEvent(language));
+    }
+
+    public void stopTranslation(String fromLanguage, String toLanguage){
+        subscribe(new StopAsrStreamRequestEvent(fromLanguage, toLanguage));
+    }
+
+    public void subscribe(StartAsrStreamRequestEvent startAsrStreamRequestEvent) {
+        EventBus.getDefault().post((StartAsrStreamRequestEvent) startAsrStreamRequestEvent);
+    }
+
+    public void subscribe(StopAsrStreamRequestEvent stopAsrStreamRequestEvent) {
+        EventBus.getDefault().post((StopAsrStreamRequestEvent) stopAsrStreamRequestEvent);
+    }
+
     public void subscribe(DataStreamType dataStreamType, TranscriptCallback callback){
         subscribedDataStreams.put(dataStreamType, callback);
 
@@ -219,24 +246,12 @@ public class AugmentOSLib {
         String text = event.text;
         String languageCode = event.languageCode;
         long time = event.timestamp;
-//        ((TranscriptCallback)subscribedDataStreams.get(subscribedDataStreams.get)).call(text, languageCode, time, event.isFinal);
-        if (subscribedDataStreams.containsKey(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM) && (languageCode.equals("en-US"))) {
-            ((TranscriptCallback)subscribedDataStreams.get(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM)).call(text, languageCode, time, event.isFinal);
-        }
-        if (subscribedDataStreams.containsKey(DataStreamType.TRANSCRIPTION_CHINESE_STREAM) && (languageCode.equals("zh"))) {
-            ((TranscriptCallback)subscribedDataStreams.get(DataStreamType.TRANSCRIPTION_CHINESE_STREAM)).call(text, languageCode, time, event.isFinal);
-        }
+
     }
 
     @Subscribe
     public void onTranslateTranscript(TranslateOutputEvent event) {
         String text = event.text;
-        String languageCode = event.languageCode;
-        long time = event.timestamp;
-
-        if (subscribedDataStreams.containsKey(DataStreamType.TRANSLATION_ENGLISH_STREAM) && (languageCode.equals("zh"))) {
-            ((TranslateCallback)subscribedDataStreams.get(DataStreamType.TRANSLATION_ENGLISH_STREAM)).call(text, languageCode, time, event.isFinal, true);
-        }
     }
 
     @Subscribe
@@ -279,7 +294,6 @@ public class AugmentOSLib {
             ((GlassesPovImageCallback)subscribedDataStreams.get(DataStreamType.GLASSES_POV_IMAGE)).call(event.encodedImgString);
         }
     }
-
 
     public void deinit(){
         EventBus.getDefault().unregister(this);

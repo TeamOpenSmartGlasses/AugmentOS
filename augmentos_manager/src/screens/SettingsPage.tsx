@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Slider from '@react-native-community/slider'; // Added Slider import
+import { Slider } from 'react-native-elements';
 import { useStatus } from '../AugmentOSStatusProvider';
 import { BluetoothService } from '../BluetoothService';
 import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
@@ -388,16 +388,27 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               Adjust the brightness level of your smart glasses.
             </Text>
             <Slider
-              disabled={!status.glasses_info?.model_name || status.glasses_info?.brightness === '-' || !status.glasses_info.model_name.toLowerCase().includes('even')}
+              disabled={
+                !status.glasses_info?.model_name ||
+                status.glasses_info?.brightness === '-' ||
+                !status.glasses_info.model_name.toLowerCase().includes('even')
+              }
               style={styles.slider}
               minimumValue={0}
               maximumValue={100}
+              thumbTouchSize={styles.thumbTouchSize}
+              trackStyle={styles.trackStyle}
+              thumbStyle={styles.thumbStyle}
               step={1}
               onSlidingComplete={value => changeBrightness(value)}
               value={brightness}
-              minimumTrackTintColor="#2196F3"
-              maximumTrackTintColor={isDarkTheme ? '#666666' : '#D1D1D6'}
-              thumbTintColor="#FFFFFF"
+              minimumTrackTintColor={styles.minimumTrackTintColor.color}
+              maximumTrackTintColor={
+                isDarkTheme
+                  ? styles.maximumTrackTintColorDark.color
+                  : styles.maximumTrackTintColorLight.color
+              }
+              thumbTintColor={styles.thumbTintColor.color}
             />
           </View>
         </View>
@@ -639,7 +650,30 @@ const styles = StyleSheet.create({
   },
   slider: {
     width: '100%',
-    height: 50,
+    height: 40,
+  },
+  thumbTouchSize: {
+    width: 40,
+    height: 40,
+  },
+  trackStyle: {
+    height: 5,
+  },
+  thumbStyle: {
+    height: 20,
+    width: 20,
+  },
+  minimumTrackTintColor: {
+    color: '#2196F3',
+  },
+  maximumTrackTintColorDark: {
+    color: '#666666',
+  },
+  maximumTrackTintColorLight: {
+    color: '#D1D1D6',
+  },
+  thumbTintColor: {
+    color: '#FFFFFF',
   },
 });
 

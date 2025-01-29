@@ -28,7 +28,7 @@ public class MicrophoneLocalAndBluetooth {
     private static final int SAMPLING_RATE_IN_HZ = 16000;
     private static final int CHANNEL_CONFIG = AudioFormat.CHANNEL_IN_MONO;
     private static final int AUDIO_FORMAT = AudioFormat.ENCODING_PCM_16BIT;
-    private final static float BUFFER_SIZE_SECONDS = 0.192f; // gives us 1024*3 = 3072 samples
+    private final static float BUFFER_SIZE_SECONDS = 0.128f; // gives us 2048
     private static final int BUFFER_SIZE_FACTOR = 2;
     private final int bufferSize;
     private boolean bluetoothAudio = false; // are we using local audio or bluetooth audio?

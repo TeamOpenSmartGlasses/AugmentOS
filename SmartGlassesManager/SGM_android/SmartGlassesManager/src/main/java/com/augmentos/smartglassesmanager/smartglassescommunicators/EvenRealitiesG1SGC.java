@@ -100,7 +100,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private boolean shouldUseAutoBrightness = false;
     private int brightnessValue;
 
-    private static final long DELAY_BETWEEN_SENDS_MS = 25;
+    private static final long DELAY_BETWEEN_SENDS_MS = 30;
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 5;
     private static final long DELAY_BETWEEN_ACTIONS_SEND = 250;
     private static final long HEARTBEAT_INTERVAL_MS = 30000;
@@ -386,7 +386,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             if (deviceName.contains("R_")) {
                                 //Log.d(TAG, "Ignoring...");
 //                                Log.d(TAG, "Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
-//                                Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName);
+//                                Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName + ", length: " + pcmData.length);
                                 EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
                             } else {
 //                                Log.d(TAG, "Lc3 Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(lc3) + ", from: " + deviceName);
@@ -1143,6 +1143,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         //stop BLE scanning
         stopScan();
 
+        if (bondingReceiver != null) {
+            context.unregisterReceiver(bondingReceiver);
+        }
+
         //disable the microphone
         setMicEnabled(false, 0);
 
@@ -1157,6 +1161,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
         if (leftGlassGatt != null) {
             leftGlassGatt.disconnect();
+        }
+
+        if (leftGlassGatt != null) {
             leftGlassGatt.close();
             leftGlassGatt = null;
         }
@@ -1164,10 +1171,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             rightGlassGatt.disconnect();
             rightGlassGatt.close();
             rightGlassGatt = null;
-        }
-
-        if (bondingReceiver != null) {
-            context.unregisterReceiver(bondingReceiver);
         }
 
         if (handler != null)
