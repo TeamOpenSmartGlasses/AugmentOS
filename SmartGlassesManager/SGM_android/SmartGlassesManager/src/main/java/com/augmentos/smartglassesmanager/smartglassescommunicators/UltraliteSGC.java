@@ -747,21 +747,21 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         screenIsClear = false;
     }
 
-    public void homeScreenInNSeconds(int n){
-        if (n == -1){
-            return;
-        }
-
-       //disconnect after slight delay, so our above text gets a chance to show up
-       goHomeHandler.removeCallbacksAndMessages(null);
-       goHomeHandler.removeCallbacksAndMessages(goHomeRunnable);
-       goHomeRunnable = new Runnable() {
-           @Override
-           public void run() {
-               showHomeScreen();
-        }};
-       goHomeHandler.postDelayed(goHomeRunnable, n * 1000);
-    }
+//    public void homeScreenInNSeconds(int n){
+//        if (n == -1){
+//            return;
+//        }
+//
+//       //disconnect after slight delay, so our above text gets a chance to show up
+//       goHomeHandler.removeCallbacksAndMessages(null);
+//       goHomeHandler.removeCallbacksAndMessages(goHomeRunnable);
+//       goHomeRunnable = new Runnable() {
+//           @Override
+//           public void run() {
+//               showHomeScreen();
+//        }};
+//       goHomeHandler.postDelayed(goHomeRunnable, n * 1000);
+//    }
 
     public void displayBitmap(Bitmap bmp) {
         Bitmap resizedBmp = Bitmap.createScaledBitmap(bmp, 620, 460, true); // 640 x 480

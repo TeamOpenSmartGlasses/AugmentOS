@@ -49,6 +49,8 @@ import android.util.Log;
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
+import com.augmentos.augmentoslib.events.SmartGlassesConnectionStateChangedEvent;
+import com.augmentos.smartglassesmanager.eventbusmessages.SmartGlassesConnectionEvent;
 import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
 //import com.google.firebase.auth.FirebaseAuth;
 //import com.google.firebase.auth.FirebaseUser;
@@ -96,7 +98,6 @@ import com.augmentos.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 
 import com.augmentos.augmentoslib.events.DiarizationOutputEvent;
 import com.augmentos.augmentoslib.events.GlassesTapOutputEvent;
-import com.augmentos.augmentoslib.events.SmartGlassesConnectedEvent;
 import com.augmentos.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.augmentos.augmentoslib.events.SpeechRecOutputEvent;
 
@@ -194,6 +195,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     PostHog postHog;
 
     private String userId;
+    public SmartGlassesConnectionState previousSmartGlassesConnectionState = SmartGlassesConnectionState.DISCONNECTED;
+
 
     private AugmentosBlePeripheral blePeripheral;
 
@@ -611,6 +614,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             if (preferredDevice != null) {
                 executeOnceSmartGlassesServiceReady(this, () -> {
                     smartGlassesService.connectToSmartGlasses(preferredDevice);
+                    sendStatusToAugmentOsManager();
                 });
             } else {
                 // We have some invalid device saved... delete from preferences
@@ -714,22 +718,27 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("AugmentOS Connected", "Screen back on"), 4);
         }
     }
+
     @Subscribe
-    public void onGlassesConnnected(SmartGlassesConnectedEvent event) {
-        Log.d(TAG, "Got event for onGlassesConnected....");
+    public void onSmartGlassesConnnectionEvent(SmartGlassesConnectionStateChangedEvent event) {
+        if (event.connectionState == previousSmartGlassesConnectionState) return;
+
         sendStatusToAugmentOsManager();
+        if (event.connectionState == SmartGlassesConnectionState.CONNECTED) {
+            Log.d(TAG, "Got event for onGlassesConnected.. CONNECTED ..");
 
-        Log.d(TAG, "****************** SENDING REFERENCE CARD: CONNECTED TO AUGMENT OS");
-        if (smartGlassesService != null)
-            smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS"), 6);
+            Log.d(TAG, "****************** SENDING REFERENCE CARD: CONNECTED TO AUGMENT OS");
+            if (smartGlassesService != null)
+                smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS"), 6);
 
-        //start transcribing
-        updateAsrLanguages();
+            //start transcribing
+            updateAsrLanguages();
 
-        Map<String, Object> props = new HashMap<>();
-        props.put("glasses_model_name", event.device.deviceModelName);
-        props.put("timestamp", System.currentTimeMillis());
-        postHog.capture(userId, "glasses_connected", props);
+            Map<String, Object> props = new HashMap<>();
+            props.put("glasses_model_name", event.device.deviceModelName);
+            props.put("timestamp", System.currentTimeMillis());
+            postHog.capture(userId, "glasses_connected", props);
+        }
     }
 
     public void getSettings(){

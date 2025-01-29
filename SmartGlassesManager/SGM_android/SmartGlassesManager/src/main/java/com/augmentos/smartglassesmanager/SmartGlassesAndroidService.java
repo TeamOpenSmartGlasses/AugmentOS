@@ -20,7 +20,6 @@ import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.LifecycleService;
 import androidx.preference.PreferenceManager;
 
-import com.augmentos.augmentoslib.events.SmartGlassesConnectedEvent;
 import com.augmentos.smartglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
 import com.augmentos.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.augmentos.smartglassesmanager.comms.MessageTypes;
@@ -41,7 +40,6 @@ import com.augmentos.smartglassesmanager.eventbusmessages.SmartGlassesConnection
 import com.augmentos.augmentoslib.events.TextLineViewRequestEvent;
 import com.augmentos.smartglassesmanager.eventbusmessages.TextToSpeechEvent;
 import com.augmentos.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
-import com.augmentos.smartglassesmanager.speechrecognition.AsrStreamKey;
 import com.augmentos.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.augmentos.smartglassesmanager.supportedglasses.AudioWearable;
 import com.augmentos.smartglassesmanager.supportedglasses.EvenRealitiesG1;
@@ -148,7 +146,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         sendUiUpdate();
     }
 
-    protected abstract void onGlassesConnected(SmartGlassesDevice device);
+    protected abstract void onGlassesConnectionStateChanged(SmartGlassesDevice device, SmartGlassesConnectionState connectionState);
 
     public void connectToSmartGlasses(SmartGlassesDevice device) {
         LifecycleService currContext = this;
@@ -289,9 +287,9 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             if(connectionState == SmartGlassesConnectionState.CONNECTED){
                 Log.d(TAG, "sendUiUpdate updates preferred wearable");
                 savePreferredWearable(this, smartGlassesRepresentative.smartGlassesDevice.deviceModelName);
-                onGlassesConnected(smartGlassesRepresentative.smartGlassesDevice);
-                EventBus.getDefault().post(new SmartGlassesConnectedEvent(smartGlassesRepresentative.smartGlassesDevice));
             }
+
+            onGlassesConnectionStateChanged(smartGlassesRepresentative.smartGlassesDevice, connectionState);
         } else {
             connectionState = SmartGlassesConnectionState.DISCONNECTED;
         }

@@ -8,6 +8,7 @@ import android.util.Log;
 import com.augmentos.augmentos_core.events.AugmentosSmartGlassesDisconnectedEvent;
 import com.augmentos.augmentos_core.ui.AugmentosCoreUi;
 import com.augmentos.augmentoslib.events.DiarizationOutputEvent;
+import com.augmentos.augmentoslib.events.SmartGlassesConnectionStateChangedEvent;
 import com.augmentos.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.augmentos.augmentoslib.events.SpeechRecOutputEvent;
 
@@ -19,6 +20,7 @@ import com.augmentos.smartglassesmanager.SmartGlassesAndroidService;
 import com.augmentos.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.augmentos.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 import com.augmentos.smartglassesmanager.supportedglasses.SmartGlassesDevice;
+import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
 
 public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
     public final String TAG = "AugmentOS_AugmentOSService";
@@ -72,10 +74,10 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
     }
 
     @Override
-    protected void onGlassesConnected(SmartGlassesDevice device) {
+    protected void onGlassesConnectionStateChanged(SmartGlassesDevice device, SmartGlassesConnectionState connectionState) {
         Log.d(TAG, "Glasses connected successfully: " + device.deviceModelName);
         setFontSize(SmartGlassesFontSize.MEDIUM);
-        //windowManager.startQueue();
+        EventBus.getDefault().post(new SmartGlassesConnectionStateChangedEvent(device, connectionState));
     }
 
     @Override

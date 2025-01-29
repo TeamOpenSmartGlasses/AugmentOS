@@ -154,8 +154,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private String preferredG1DeviceId = null;
 
     //handler to turn off screen
-    Handler goHomeHandler;
-    Runnable goHomeRunnable;
+    //Handler goHomeHandler;
+    //Runnable goHomeRunnable;
 
     //Retry handler
     Handler retryBondHandler;
@@ -181,7 +181,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         super();
         this.context = context;
         loadPairedDeviceNames();
-        goHomeHandler = new Handler();
+        //goHomeHandler = new Handler();
         this.smartGlassesDevice = smartGlassesDevice;
         preferredG1DeviceId = getPreferredG1DeviceId(context);
         brightnessValue = getSavedBrightnessValue(context);
@@ -731,11 +731,13 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 //                    Log.d(TAG, "Bonding with Left Glass...");
                     isLeftPairing = true;
                     connectionState = SmartGlassesConnectionState.BONDING;
+                    connectionEvent(connectionState);
                     bondDevice(device);
                 } else if (!isLeft && !isRightPairing && !isRightBonded) {
 //                    Log.d(TAG, "Bonding with Right Glass...");
                     isRightPairing = true;
                     connectionState = SmartGlassesConnectionState.BONDING;
+                    connectionEvent(connectionState);
                     bondDevice(device);
                 } else {
                     Log.d(TAG, "Not running a53dd");
@@ -784,6 +786,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
         // Start scanning for devices
         connectionState = SmartGlassesConnectionState.SCANNING;
+        connectionEvent(connectionState);
         startScan();
     }
 
@@ -840,6 +843,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
 
         connectionState = SmartGlassesConnectionState.CONNECTING;
+        connectionEvent(connectionState);
 
         if (device.getName().contains("_L_") && leftGlassGatt == null) {
             Log.d(TAG, "Connecting to GATT for Left Glass...");
@@ -1191,8 +1195,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             notificationHandler.removeCallbacks(notificationRunnable);
         if (textWallHandler != null)
             textWallHandler.removeCallbacks(textWallRunnable);
-        if (goHomeHandler != null)
-            goHomeHandler.removeCallbacks(goHomeRunnable);
+        //if (goHomeHandler != null)
+        //    goHomeHandler.removeCallbacks(goHomeRunnable);
         if (findCompatibleDevicesHandler != null)
             findCompatibleDevicesHandler.removeCallbacksAndMessages(null);
         if (connectHandler != null)
@@ -1291,8 +1295,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public void displayReferenceCardImage(String title, String body, String imgUrl) {}
 
     public void displayTextWall(String a) {
-        goHomeHandler.removeCallbacksAndMessages(goHomeRunnable);
-        goHomeHandler.removeCallbacksAndMessages(null);
+        //goHomeHandler.removeCallbacksAndMessages(goHomeRunnable);
+        //goHomeHandler.removeCallbacksAndMessages(null);
         List<byte[]> chunks = createTextWallChunks(a);
         sendChunks(chunks);
 //        Log.d(TAG, "Sent text wall");
@@ -1897,26 +1901,26 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
     }
 
-    public int DEFAULT_CARD_SHOW_TIME = 6;
-    public void homeScreenInNSeconds(int n){
-        if (n == -1){
-            return;
-        }
-
-        if (n == 0){
-            n = DEFAULT_CARD_SHOW_TIME;
-        }
-
-        //disconnect after slight delay, so our above text gets a chance to show up
-        goHomeHandler.removeCallbacksAndMessages(goHomeRunnable);
-        goHomeHandler.removeCallbacksAndMessages(null);
-        goHomeRunnable = new Runnable() {
-            @Override
-            public void run() {
-                showHomeScreen();
-            }};
-        goHomeHandler.postDelayed(goHomeRunnable, n * 1000);
-    }
+//    public int DEFAULT_CARD_SHOW_TIME = 6;
+//    public void homeScreenInNSeconds(int n){
+//        if (n == -1){
+//            return;
+//        }
+//
+//        if (n == 0){
+//            n = DEFAULT_CARD_SHOW_TIME;
+//        }
+//
+//        //disconnect after slight delay, so our above text gets a chance to show up
+//        goHomeHandler.removeCallbacksAndMessages(goHomeRunnable);
+//        goHomeHandler.removeCallbacksAndMessages(null);
+//        goHomeRunnable = new Runnable() {
+//            @Override
+//            public void run() {
+//                showHomeScreen();
+//            }};
+//        goHomeHandler.postDelayed(goHomeRunnable, n * 1000);
+//    }
 
 
     //BMP handling
