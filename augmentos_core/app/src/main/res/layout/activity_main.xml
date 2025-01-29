@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/main_container"
     android:theme="@style/AppTheme"
-    tools:context="com.teamopensmartglasses.convoscope.MainActivity">
+    tools:context="com.augmentos.augmentos_core.MainActivity">
 
   <androidx.fragment.app.FragmentContainerView
       android:id="@+id/nav_host_fragment"

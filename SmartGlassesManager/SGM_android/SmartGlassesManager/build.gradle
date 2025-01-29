@@ -13,7 +13,7 @@ ext {
 }
 
 android {
-    namespace "com.teamopensmartglasses.smartglassesmanager"
+    namespace "com.augmentos.smartglassesmanager"
     compileSdk 33
 
 //    aaptOptions {

@@ -1,4 +1,4 @@
-package com.teamopensmartglasses.augmentos_manager;
+package com.augmentos.augmentos_manager;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;

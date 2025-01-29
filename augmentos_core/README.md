@@ -9,8 +9,6 @@ This is the Android code that runs on the Puck device.
 
 - AugmentOS_Core currently depends on the "SmartGlassesManager" repo being next to it. Eventually, this will be a typical library, but for now it must be manually installed. To do this, clone the "SmartGlassesManager" repository into the same parent directory as this `augmentos_core` directory.
 
-- If AugmentOS_Core still uses firebase by the time you're reading this, you'll need to figure out your own firebase setup, otherwise AugmentOS_Core will not function correctly :)
-
 ##### Building OGG/Orbis C++ for ASP
 
 (Disregard this section unless you are an OG H4CK3R... if you have to ask, you are not an OG H4CK3R)

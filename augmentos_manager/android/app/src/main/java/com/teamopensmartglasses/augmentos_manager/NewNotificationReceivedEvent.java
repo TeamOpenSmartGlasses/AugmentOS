@@ -1,4 +1,4 @@
-package com.teamopensmartglasses.augmentos_manager;
+package com.augmentos.augmentos_manager;
 
 public class NewNotificationReceivedEvent {
     public String appName;
