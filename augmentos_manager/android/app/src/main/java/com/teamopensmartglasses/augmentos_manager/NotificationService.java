@@ -1,4 +1,4 @@
-package com.teamopensmartglasses.augmentos_manager;
+package com.augmentos.augmentos_manager;
 
 import android.app.Notification;
 import android.content.Intent;
@@ -45,9 +45,9 @@ public class NotificationService extends NotificationListenerService {
             "com.samsung.android.app.smartcapture",
             "com.sec.android.app.camera",
             "com.sec.android.gallery3d",
-            "com.teamopensmartglasses.augmentos",
+            "com.augmentos.augmentos",
             "com.osp.app.signin",
-            "com.teamopensmartglasses.augmentos_manager");
+            "com.augmentos.augmentos_manager");
 
     private final List<String> categoryBlacklist = Arrays.asList(
             Notification.CATEGORY_REMINDER,

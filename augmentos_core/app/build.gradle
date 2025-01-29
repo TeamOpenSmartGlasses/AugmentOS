@@ -1,14 +1,14 @@
 plugins {
     id 'com.android.application'
-    id 'com.google.gms.google-services'
+    //id 'com.google.gms.google-services'
 }
 
 android {
-    namespace 'com.teamopensmartglasses.convoscope'
+    namespace 'com.augmentos.augmentos_core'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.teamopensmartglasses.convoscope"
+        applicationId "com.augmentos.augmentos_core"
         minSdk 28
         targetSdk 33
         versionCode 1
@@ -49,7 +49,7 @@ android {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1,DEPENDENCIES}'
             excludes += '/META-INF/INDEX.LIST'
-            excludes += "com/teamopensmartglasses/augmentoslib/DataStreamType.class"
+            excludes += "com/augmentos/augmentoslib/DataStreamType.class"
         }
     }
 
@@ -82,10 +82,10 @@ dependencies {
     implementation "androidx.fragment:fragment:1.2.0"
 
     // firebase
-    implementation platform('com.google.firebase:firebase-bom:32.7.1')
-    implementation "com.google.firebase:firebase-auth"
-    implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
-    apply plugin: 'com.google.gms.google-services'
+    //implementation platform('com.google.firebase:firebase-bom:32.7.1')
+    //implementation "com.google.firebase:firebase-auth"
+    //implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
+    //apply plugin: 'com.google.gms.google-services'
 
     //for lifecycle service that stays alive forever
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"

@@ -1,4 +1,4 @@
-package com.teamopensmartglasses.augmentos_manager
+package com.augmentos.augmentos_manager
 
 import android.app.Application
 import android.content.IntentFilter
@@ -22,7 +22,7 @@ import it.innove.BleManagerPackage
 import kjd.reactnative.bluetooth.RNBluetoothClassicPackage
 import com.reactnativecommunity.slider.ReactSliderPackage
 
-// import com.teamopensmartglasses.augmentos_manager.NotificationServicePackage
+// import com.augmentos.augmentos_manager.NotificationServicePackage
 
 class MainApplication : Application(), ReactApplication {
 

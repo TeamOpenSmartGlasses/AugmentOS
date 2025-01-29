@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace "com.teamopensmartglasses.augmentoslibdebugapp"
+    namespace "com.augmentos.augmentoslibdebugapp"
     compileSdk 33
 
     defaultConfig {
@@ -24,7 +24,7 @@ android {
     }
 
     packagingOptions {
-        exclude "com/teamopensmartglasses/augmentoslibdebugapp/BuildConfig.class"
+        exclude "com/augmentos/augmentoslibdebugapp/BuildConfig.class"
     }
 
     buildFeatures {

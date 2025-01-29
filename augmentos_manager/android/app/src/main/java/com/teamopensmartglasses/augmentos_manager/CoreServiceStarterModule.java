@@ -1,4 +1,4 @@
-package com.teamopensmartglasses.augmentos_manager;
+package com.augmentos.augmentos_manager;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -27,8 +27,8 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
         try {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(
-                    "com.teamopensmartglasses.convoscope",
-                    "com.teamopensmartglasses.convoscope.AugmentosService"));
+                    "com.augmentos.augmentos_core",
+                    "com.augmentos.augmentos_core.AugmentosService"));
             intent.setAction("ACTION_START_CORE");
 
             Log.d(TAG, "Intent: " + intent.toString());
@@ -52,8 +52,8 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
         try {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(
-                    "com.teamopensmartglasses.convoscope",
-                    "com.teamopensmartglasses.convoscope.AugmentosService"));
+                    "com.augmentos.augmentos_core",
+                    "com.augmentos.augmentos_core.AugmentosService"));
             intent.setAction("ACTION_STOP_CORE");
 
             Log.d(TAG, "Stopping service with intent: " + intent.toString());
@@ -69,9 +69,9 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
         try {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(
-                    "com.teamopensmartglasses.convoscope",
-                    "com.teamopensmartglasses.convoscope.MainActivity"));
-                    // "com.teamopensmartglasses.convoscope.PermissionsActivity"));
+                    "com.augmentos.augmentos_core",
+                    "com.augmentos.augmentos_core.MainActivity"));
+                    // "com.augmentos.augmentos_core.PermissionsActivity"));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             getReactApplicationContext().startActivity(intent);
         } catch (Exception e) {
@@ -84,7 +84,7 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
         try {
             getReactApplicationContext()
                     .getPackageManager()
-                    .getPackageInfo("com.teamopensmartglasses.convoscope", 0);
+                    .getPackageInfo("com.augmentos.augmentos_core", 0);
             return true;
         } catch (PackageManager.NameNotFoundException e) {
             return false;

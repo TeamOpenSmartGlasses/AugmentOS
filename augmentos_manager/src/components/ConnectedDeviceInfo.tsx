@@ -180,11 +180,13 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                 <>
                   <Animated.View style={[styles.statusBar, { opacity: fadeAnim }]}>
                     <View style={styles.statusInfo}>
-                      {status.glasses_info?.battery_life != null && status.glasses_info?.battery_life >= 0 &&
+                      {status.glasses_info?.battery_life != null && typeof status.glasses_info?.battery_life === 'number' &&
                         <>
                           <Text style={[styles.statusLabel, { color: themeStyles.statusLabelColor }]}>Battery</Text>
                           <View style={styles.batteryContainer}>
+                          {status.glasses_info?.battery_life >= 0 &&
                             <Icon name={batteryIcon} size={16} color={batteryColor} style={styles.batteryIcon} />
+                          }
                             <Text style={[styles.batteryValue, { color: batteryColor }]}>
                               {status.glasses_info.battery_life == -1
                                 ? "-"
