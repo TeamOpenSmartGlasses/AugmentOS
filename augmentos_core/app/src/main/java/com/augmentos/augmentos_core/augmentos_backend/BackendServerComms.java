@@ -9,6 +9,7 @@ import static com.augmentos.augmentos_core.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.augmentos.augmentos_core.Constants.GET_USER_SETTINGS_ENDPOINT;
 import static com.augmentos.augmentos_core.Constants.LLM_QUERY_ENDPOINT;
 import static com.augmentos.augmentos_core.Constants.REQUEST_APP_BY_PACKAGE_NAME_DOWNLOAD_LINK_ENDPOINT;
+import static com.augmentos.augmentos_core.Constants.SEND_NOTIFICATIONS_ENDPOINT;
 import static com.augmentos.augmentos_core.Constants.SET_USER_SETTINGS_ENDPOINT;
 import static com.augmentos.augmentos_core.Constants.UI_POLL_ENDPOINT;
 import static com.augmentos.augmentos_core.augmentos_backend.Config.devServerUrl;
@@ -68,13 +69,13 @@ public class BackendServerComms {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            if (Objects.equals(endpoint, UI_POLL_ENDPOINT)) {
+                            if (Objects.equals(endpoint, UI_POLL_ENDPOINT) || Objects.equals(endpoint, REQUEST_APP_BY_PACKAGE_NAME_DOWNLOAD_LINK_ENDPOINT) || Objects.equals(endpoint, SEND_NOTIFICATIONS_ENDPOINT)) {
                                 if (response.getBoolean("success")) {
                                     callback.onSuccess(response);
                                 } else {
                                     callback.onFailure(-1);
                                 }
-                            } else if (Objects.equals(endpoint, LLM_QUERY_ENDPOINT) || Objects.equals(endpoint, BUTTON_EVENT_ENDPOINT) || Objects.equals(endpoint, SET_USER_SETTINGS_ENDPOINT) || Objects.equals(endpoint, GET_USER_SETTINGS_ENDPOINT) || Objects.equals(endpoint, REQUEST_APP_BY_PACKAGE_NAME_DOWNLOAD_LINK_ENDPOINT)) {
+                            } else if (Objects.equals(endpoint, LLM_QUERY_ENDPOINT) || Objects.equals(endpoint, BUTTON_EVENT_ENDPOINT) || Objects.equals(endpoint, SET_USER_SETTINGS_ENDPOINT) || Objects.equals(endpoint, GET_USER_SETTINGS_ENDPOINT)) {
                                 if (response.has("message")) {
                                     callback.onSuccess(response);
                                 } else {
@@ -82,7 +83,7 @@ public class BackendServerComms {
                                 }
                             } else {
                                 // Handle other endpoints if necessary
-                                Log.e(TAG, "Unhandled endpoint response");
+                                Log.e(TAG, "Unhandled endpoint response" + endpoint);
                                 callback.onFailure(-1);
                             }
                         } catch (JSONException e) {
