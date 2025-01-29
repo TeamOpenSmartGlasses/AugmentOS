@@ -21,7 +21,7 @@ import androidx.lifecycle.LifecycleService;
 import androidx.preference.PreferenceManager;
 
 import com.augmentos.augmentoslib.events.SmartGlassesConnectedEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
+import com.augmentos.smartglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
 import com.augmentos.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.augmentos.smartglassesmanager.comms.MessageTypes;
 import com.augmentos.augmentoslib.events.BulletPointListViewRequestEvent;
@@ -41,7 +41,7 @@ import com.augmentos.smartglassesmanager.eventbusmessages.SmartGlassesConnection
 import com.augmentos.augmentoslib.events.TextLineViewRequestEvent;
 import com.augmentos.smartglassesmanager.eventbusmessages.TextToSpeechEvent;
 import com.augmentos.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
-import com.teamopensmartglasses.smartglassesmanager.speechrecognition.AsrStreamKey;
+import com.augmentos.smartglassesmanager.speechrecognition.AsrStreamKey;
 import com.augmentos.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.augmentos.smartglassesmanager.supportedglasses.AudioWearable;
 import com.augmentos.smartglassesmanager.supportedglasses.EvenRealitiesG1;

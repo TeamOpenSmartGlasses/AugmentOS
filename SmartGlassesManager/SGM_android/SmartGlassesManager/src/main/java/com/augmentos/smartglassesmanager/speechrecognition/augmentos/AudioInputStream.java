@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:SmartGlassesManager/SGM_android/SmartGlassesManager/src/main/java/com/augmentos/smartglassesmanager/speechrecognition/azure/AzureAudioInputStream.java
-package com.augmentos.smartglassesmanager.speechrecognition.azure;
-========
-package com.teamopensmartglasses.smartglassesmanager.speechrecognition.augmentos;
->>>>>>>> origin/dev:SmartGlassesManager/SGM_android/SmartGlassesManager/src/main/java/com/augmentos/smartglassesmanager/speechrecognition/augmentos/AudioInputStream.java
+package com.augmentos.smartglassesmanager.speechrecognition.augmentos;
 
 import com.microsoft.cognitiveservices.speech.audio.AudioStreamFormat;
 import com.microsoft.cognitiveservices.speech.audio.PullAudioInputStreamCallback;

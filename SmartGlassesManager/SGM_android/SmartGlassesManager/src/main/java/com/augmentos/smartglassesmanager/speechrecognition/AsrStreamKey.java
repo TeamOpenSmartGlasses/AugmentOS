@@ -1,8 +1,8 @@
-package com.teamopensmartglasses.smartglassesmanager.speechrecognition;
+package com.augmentos.smartglassesmanager.speechrecognition;
 
 import androidx.annotation.NonNull;
 
-import com.teamopensmartglasses.augmentoslib.enums.AsrStreamType;
+import com.augmentos.augmentoslib.enums.AsrStreamType;
 
 import java.util.Objects;
 

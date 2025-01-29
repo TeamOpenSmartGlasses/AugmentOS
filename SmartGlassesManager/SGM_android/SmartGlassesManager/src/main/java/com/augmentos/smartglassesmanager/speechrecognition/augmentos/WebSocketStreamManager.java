@@ -1,9 +1,9 @@
-package com.teamopensmartglasses.smartglassesmanager.speechrecognition.augmentos;
+package com.augmentos.smartglassesmanager.speechrecognition.augmentos;
 
 import android.util.Log;
 
-import com.teamopensmartglasses.augmentoslib.enums.AsrStreamType;
-import com.teamopensmartglasses.smartglassesmanager.speechrecognition.AsrStreamKey;
+import com.augmentos.augmentoslib.enums.AsrStreamType;
+import com.augmentos.smartglassesmanager.speechrecognition.AsrStreamKey;
 
 import org.json.JSONArray;
 import org.json.JSONException;

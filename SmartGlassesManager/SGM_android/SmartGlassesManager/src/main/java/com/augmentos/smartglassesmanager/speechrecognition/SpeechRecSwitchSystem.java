@@ -4,16 +4,16 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import com.teamopensmartglasses.augmentoslib.events.AudioChunkNewEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.PauseAsrEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
-import com.teamopensmartglasses.smartglassesmanager.speechrecognition.augmentos.SpeechRecAugmentos;
 import com.augmentos.augmentoslib.events.AudioChunkNewEvent;
 import com.augmentos.smartglassesmanager.eventbusmessages.PauseAsrEvent;
 import com.augmentos.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
-import com.augmentos.smartglassesmanager.speechrecognition.azure.SpeechRecAzure;
-import com.augmentos.smartglassesmanager.speechrecognition.deepgram.SpeechRecDeepgram;
-import com.augmentos.smartglassesmanager.speechrecognition.google.SpeechRecGoogle;
+import com.augmentos.smartglassesmanager.speechrecognition.augmentos.SpeechRecAugmentos;
+import com.augmentos.augmentoslib.events.AudioChunkNewEvent;
+import com.augmentos.smartglassesmanager.eventbusmessages.PauseAsrEvent;
+import com.augmentos.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
+//import com.augmentos.smartglassesmanager.speechrecognition.azure.SpeechRecAzure;
+//import com.augmentos.smartglassesmanager.speechrecognition.deepgram.SpeechRecDeepgram;
+//import com.augmentos.smartglassesmanager.speechrecognition.google.SpeechRecGoogle;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

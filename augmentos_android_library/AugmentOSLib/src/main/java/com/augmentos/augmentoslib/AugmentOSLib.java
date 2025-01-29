@@ -27,6 +27,8 @@ import com.augmentos.augmentoslib.events.ScrollingTextViewStopRequestEvent;
 import com.augmentos.augmentoslib.events.SendBitmapViewRequestEvent;
 import com.augmentos.augmentoslib.events.SmartRingButtonOutputEvent;
 import com.augmentos.augmentoslib.events.SpeechRecOutputEvent;
+import com.augmentos.augmentoslib.events.StartAsrStreamRequestEvent;
+import com.augmentos.augmentoslib.events.StopAsrStreamRequestEvent;
 import com.augmentos.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.augmentos.augmentoslib.events.TextLineViewRequestEvent;
 import com.augmentos.augmentoslib.events.TextWallViewRequestEvent;

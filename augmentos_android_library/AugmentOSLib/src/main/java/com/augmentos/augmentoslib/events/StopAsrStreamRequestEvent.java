@@ -1,6 +1,6 @@
-package com.teamopensmartglasses.augmentoslib.events;
+package com.augmentos.augmentoslib.events;
 
-import com.teamopensmartglasses.augmentoslib.enums.AsrStreamType;
+import com.augmentos.augmentoslib.enums.AsrStreamType;
 
 import java.io.Serializable;
 

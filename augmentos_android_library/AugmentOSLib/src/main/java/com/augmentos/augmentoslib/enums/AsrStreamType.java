@@ -1,4 +1,4 @@
-package com.teamopensmartglasses.augmentoslib.enums;
+package com.augmentos.augmentoslib.enums;
 
 public enum AsrStreamType {
     TRANSCRIPTION,

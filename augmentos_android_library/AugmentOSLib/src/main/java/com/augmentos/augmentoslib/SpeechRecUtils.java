@@ -1,4 +1,4 @@
-package com.teamopensmartglasses.augmentoslib;
+package com.augmentos.augmentoslib;
 
 public class SpeechRecUtils {
 

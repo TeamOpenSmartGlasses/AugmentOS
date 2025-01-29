@@ -1,4 +1,4 @@
-package com.teamopensmartglasses.augmentoslib;
+package com.augmentos.augmentoslib;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

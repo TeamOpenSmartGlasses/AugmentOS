@@ -1,14 +1,14 @@
-package com.teamopensmartglasses.smartglassesmanager.speechrecognition.augmentos;
+package com.augmentos.smartglassesmanager.speechrecognition.augmentos;
 
 import android.content.Context;
 import android.util.Log;
 
-import com.teamopensmartglasses.augmentoslib.events.SpeechRecOutputEvent;
-import com.teamopensmartglasses.augmentoslib.events.TranslateOutputEvent;
-import com.teamopensmartglasses.smartglassesmanager.speechrecognition.AsrStreamKey;
-import com.teamopensmartglasses.smartglassesmanager.speechrecognition.SpeechRecFramework;
-import com.teamopensmartglasses.smartglassesmanager.speechrecognition.vad.VadGateSpeechPolicy;
-import com.teamopensmartglasses.smartglassesmanager.utils.EnvHelper;
+import com.augmentos.augmentoslib.events.SpeechRecOutputEvent;
+import com.augmentos.augmentoslib.events.TranslateOutputEvent;
+import com.augmentos.smartglassesmanager.speechrecognition.AsrStreamKey;
+import com.augmentos.smartglassesmanager.speechrecognition.SpeechRecFramework;
+import com.augmentos.smartglassesmanager.speechrecognition.vad.VadGateSpeechPolicy;
+import com.augmentos.smartglassesmanager.utils.EnvHelper;
 
 import org.greenrobot.eventbus.EventBus;
 

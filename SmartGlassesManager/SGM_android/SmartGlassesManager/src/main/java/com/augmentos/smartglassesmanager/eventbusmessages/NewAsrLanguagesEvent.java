@@ -1,6 +1,6 @@
-package com.teamopensmartglasses.smartglassesmanager.eventbusmessages;
+package com.augmentos.smartglassesmanager.eventbusmessages;
 
-import com.teamopensmartglasses.smartglassesmanager.speechrecognition.AsrStreamKey;
+import com.augmentos.smartglassesmanager.speechrecognition.AsrStreamKey;
 
 import java.util.List;
 
