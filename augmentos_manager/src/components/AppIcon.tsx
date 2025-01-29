@@ -34,19 +34,19 @@ const AppIcon: React.FC<AppIconProps> = ({
                     return require('../assets/app-icons/mentra-link.png');
                 case 'com.mentra.adhdaid':
                     return require('../assets/app-icons/ADHD-aid.png');
-                case 'com.mentra.livetranslation':
+                case 'com.augmentos.livetranslation':
                     return require('../assets/app-icons/translation.png');
                 case 'com.example.placeholder':
-                case 'com.mentra.screenmirror':
+                case 'com.augmentos.screenmirror':
                     return require('../assets/app-icons/screen-mirror.png');
-                case 'com.mentra.livecaptions':
+                case 'com.augmentos.livecaptions':
                     return require('../assets/app-icons/captions.png');
-                case 'com.mentra.miraai':
+                case 'com.augmentos.miraai':
                     return require('../assets/app-icons/mira-ai.png');
                 case 'com.google.android.apps.maps':
-                case 'com.mentra.navigation':
+                case 'com.augmentos.navigation':
                     return require('../assets/app-icons/navigation.png');
-                case 'com.mentra.shownotifications':
+                case 'com.augmentos.shownotifications':
                     return require('../assets/app-icons/phone-notifications.png');
                 default:
                     return require('../assets/app-icons/navigation.png');
