@@ -175,6 +175,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     // Runnable tasks for handling timeouts
     private Runnable leftConnectionTimeoutRunnable;
     private Runnable rightConnectionTimeoutRunnable;
+    private boolean isBondingReceiverRegistered = false;
 
     public EvenRealitiesG1SGC(Context context, SmartGlassesDevice smartGlassesDevice) {
         super();
@@ -698,11 +699,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
 //            Log.d(TAG, "PREFERRED ID: " + preferredG1DeviceId);
             if (preferredG1DeviceId == null || !name.contains(preferredG1DeviceId + "_")) {
-//                Log.d(TAG, "NOT PAIRED GLASSES");
+                Log.d(TAG, "NOT PAIRED GLASSES");
                 return;
             }
 
-//            Log.d(TAG, "FOUND OUR PREFERRED ID: " + preferredG1DeviceId);
+
+            Log.d(TAG, "FOUND OUR PREFERRED ID: " + preferredG1DeviceId);
 
             boolean isLeft = name.contains("_L_");
 
@@ -771,6 +773,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         // Register bonding receiver
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
         context.registerReceiver(bondingReceiver, filter);
+        isBondingReceiverRegistered=true;
+
+        preferredG1DeviceId = getPreferredG1DeviceId(context);
 
         if(!bluetoothAdapter.isEnabled()) {
             
@@ -1143,8 +1148,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         //stop BLE scanning
         stopScan();
 
-        if (bondingReceiver != null) {
+        if (bondingReceiver != null && isBondingReceiverRegistered) {
             context.unregisterReceiver(bondingReceiver);
+            isBondingReceiverRegistered = false;
         }
 
         //disable the microphone
