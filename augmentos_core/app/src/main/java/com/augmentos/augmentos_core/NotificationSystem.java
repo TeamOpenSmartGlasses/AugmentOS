@@ -3,7 +3,10 @@ package com.augmentos.augmentos_core;
 import static com.augmentos.augmentos_core.Constants.SEND_NOTIFICATIONS_ENDPOINT;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
+
+import androidx.preference.PreferenceManager;
 
 import com.augmentos.augmentoslib.PhoneNotification;
 import com.augmentos.augmentoslib.events.NotificationEvent;
@@ -19,6 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class NotificationSystem {
     private static final String TAG = "NotificationSystem";
@@ -26,11 +30,13 @@ public class NotificationSystem {
     private final ArrayList<PhoneNotification> notificationQueue;
     private BackendServerComms backendServerComms;
     private long lastDataSentTime = 0;
+    Context context;
 
     public NotificationSystem(Context context) {
         notificationQueue = new ArrayList<>();
         backendServerComms = BackendServerComms.getInstance(context);
         EventBus.getDefault().register(this);
+        this.context = context;
     }
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
@@ -75,6 +81,7 @@ public class NotificationSystem {
                 notificationsArray.put(notifJson);
             }
             requestWrapper.put("notifications", notificationsArray);
+            requestWrapper.put("userId", getUserId());
 
             backendServerComms.restRequest(SEND_NOTIFICATIONS_ENDPOINT, requestWrapper, new VolleyJsonCallback() {
                 @Override
@@ -93,6 +100,25 @@ public class NotificationSystem {
         } catch (JSONException e) {
             Log.e(TAG, "Error sending notifications: " + e.getMessage());
         }
+    }
+
+    private String getUserId() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String userId = prefs.getString("user_id", "");
+
+        Log.d(TAG, "User ID: " + userId);
+
+        if (userId.isEmpty()) {
+            // Generate a random UUID string if no userId exists
+            userId = UUID.randomUUID().toString();
+
+            // Save the new userId to SharedPreferences
+            prefs.edit()
+                    .putString("user_id", userId)
+                    .apply();
+        }
+
+        return userId;
     }
 
     public void parseSendNotificationsResult(JSONObject response) {

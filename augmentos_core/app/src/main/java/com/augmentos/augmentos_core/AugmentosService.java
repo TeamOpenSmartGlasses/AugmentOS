@@ -527,7 +527,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         transcriptsBuffer = new ArrayList<>();
 
         //setup backend comms
-        backendServerComms = new BackendServerComms(this);
+        backendServerComms = BackendServerComms.getInstance(this);
         batteryStatusHelper = new BatteryStatusHelper(this);
         wifiStatusHelper = new WifiStatusHelper(this);
         gsmStatusHelper = new GsmStatusHelper(this);
@@ -737,6 +737,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             Log.d(TAG, "Runnign get settings");
             Context mContext = this.getApplicationContext();
             JSONObject getSettingsObj = new JSONObject();
+            getSettingsObj.put("userId", userId);
             backendServerComms.restRequest(GET_USER_SETTINGS_ENDPOINT, getSettingsObj, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
@@ -860,6 +861,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("transcript_meta_data", event.diarizationData);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
+            jsonQuery.put("userId", userId);
             backendServerComms.restRequest(DIARIZE_QUERY_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
@@ -936,6 +938,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         try{
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("deviceId", deviceId);
+            jsonQuery.put("userId", userId);
             backendServerComms.restRequest(UI_POLL_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result) throws JSONException {
@@ -1008,6 +1011,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("deviceId", deviceId);
+            jsonQuery.put("userId", userId);
             jsonQuery.put("lat", latitude);
             jsonQuery.put("lng", longitude);
 
@@ -1196,6 +1200,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             jsonQuery.put("button_num", buttonNumber);
             jsonQuery.put("button_activity", downUp);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
+            jsonQuery.put("userId", userId);
             backendServerComms.restRequest(BUTTON_EVENT_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
