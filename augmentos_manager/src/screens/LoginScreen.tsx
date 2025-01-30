@@ -17,6 +17,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import GoogleIcon from '../icons/GoogleIcon';
 import AppleIcon from '../icons/AppleIcon';
 import { supabase } from '../supabaseClient';
+import { Linking } from 'react-native';
 
 interface LoginScreenProps {
   navigation: any;
@@ -62,6 +63,12 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   }, [formScale, isSigningUp]);
 
   const handleGoogleSignIn = async () => {
+    console.log('Google button pressed!');
+    // Right after returning from the browser (or in the subscription):
+    //const { data: sessionData } = await supabase.auth.getSession();
+    //console.log('OG session:', sessionData.session);
+
+
     try {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
@@ -70,22 +77,37 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
           redirectTo: 'com.augmentos://auth/callback',
         },
       });
-  
+
+      // 2) If there's an error, handle it
       if (error) {
         console.error('Supabase Google sign-in error:', error);
         Alert.alert('Authentication Error', error.message);
         return;
       }
-  
+
+      // 3) If we get a `url` back, we must open it ourselves in RN
+      if (data?.url) {
+        console.log("Opening browser with:", data.url);
+        await Linking.openURL(data.url);
+      }
+
+      // Right after returning from the browser (or in the subscription):
+      const { data: sessionData } = await supabase.auth.getSession();
+      console.log('Current session:', sessionData.session);
+
+
       // This will open the default browser (Chrome, etc.) to the Google OAuth page.
       // After a successful sign-in, Google redirects the user to:
       //   com.augmentos://auth/callback
       // Android sees that intent-filter in your Manifest, and opens your app again.
-  
+
     } catch (err) {
       console.error('Google sign in failed:', err);
       Alert.alert('Authentication Error', 'Google sign in failed. Please try again.');
     }
+
+    console.log('signInWithOAuth call finished');
+
   };
 
 
@@ -167,17 +189,24 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   }, [backPressCount]);
 
   useEffect(() => {
-    const checkSession = async () => {
-      const { data: sessionData } = await supabase.auth.getSession();
-      if (sessionData.session) {
-        // The user is logged in! Navigate to your Home or do something else.
+    // Subscribe to auth state changes:
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log('onAuthStateChange event:', event, session);
+      if (session) {
+        // If session is present, user is authenticated
         navigation.replace('Home');
       }
+    });
+
+    // Cleanup subscription on unmount
+    return () => {
+      subscription.unsubscribe();
     };
-  
-    checkSession();
   }, []);
-  
+
+
 
   return (
     <LinearGradient colors={['#EFF6FF', '#FFFFFF']} style={styles.container}>

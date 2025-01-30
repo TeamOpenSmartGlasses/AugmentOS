@@ -21,7 +21,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({}) => {
       const previouslyBondedPuck = await loadSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, false);
       const authenticated = false;
       
-      if (user) {
+      if (user || true) {
         if (previouslyBondedPuck) {
           navigation.reset({
             index: 0,
