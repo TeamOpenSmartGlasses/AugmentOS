@@ -435,6 +435,28 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         else if (data.length > 0 && data[0] == 0x25) {
 //                            Log.d(TAG, "Heartbeat response received");
                         }
+                        //TAPS
+                        else if (data.length > 0 && data[0] == 0xf5) {
+                                int taps = -1;
+                                switch (data[1]) {
+                                    case 0x01:
+                                        taps = 1;
+                                        break;
+                                    case 0x00:
+                                        taps = 2;
+                                        break;
+                                    case 0x04:
+                                    case 0x05:
+                                        taps = 3;
+                                        break;
+                                }
+
+                                if (taps != -1) {  
+                                    boolean isRight = deviceName.contains("R_"); 
+                                    EventBus.getDefault().post(new GlassesTapOutputEvent(taps, isRight, System.currentTimeMillis()));
+                                }
+                            }
+                        }                       
                         // Handle other non-audio responses
                         else {
 //                            Log.d(TAG, "Received other Even Realities response: " + bytesToHex(data) + ", from: " + deviceName);
