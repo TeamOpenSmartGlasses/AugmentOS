@@ -37,6 +37,7 @@ export interface AugmentOSMainStatus {
   puck_charging_status: boolean;
   default_wearable: string | null,
   sensing_enabled: boolean;
+  force_core_onboard_mic: boolean;
   contextual_dashboard_enabled: boolean;
   glasses_info: Glasses | null;
   wifi: WifiConnection | null;
@@ -50,6 +51,8 @@ export class AugmentOSParser {
     puck_battery_life: null,
     puck_charging_status: false,
     sensing_enabled: false,
+    force_core_onboard_mic: false,
+    contextual_dashboard_enabled: false,
     default_wearable: null,
     glasses_info: null,
     wifi: { is_connected: false, ssid: '', signal_strength: 0 },
@@ -62,6 +65,8 @@ export class AugmentOSParser {
     puck_battery_life: 88,
     puck_charging_status: true,
     sensing_enabled: true,
+    force_core_onboard_mic: false,
+    contextual_dashboard_enabled: true,
    // default_wearable: 'Vuzix Z100',
    default_wearable: 'evenrealities_g1',
     glasses_info: {
@@ -177,6 +182,7 @@ export class AugmentOSParser {
         puck_battery_life: status.puck_battery_life ?? null,
         puck_charging_status: status.charging_status ?? false,
         sensing_enabled: status.sensing_enabled ?? false,
+        force_core_onboard_mic: status.force_core_onboard_mic ?? false,
         contextual_dashboard_enabled: status.contextual_dashboard_enabled ?? true,
         default_wearable: status.default_wearable ?? null,
         glasses_info: status.connected_glasses

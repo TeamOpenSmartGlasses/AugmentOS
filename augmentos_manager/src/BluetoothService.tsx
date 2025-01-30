@@ -881,6 +881,16 @@ export class BluetoothService extends EventEmitter {
     });
   }
 
+  async sendToggleForceCoreOnboardMic(enabled: boolean) {
+    console.log('sendToggleSensing');
+    return await this.sendDataToAugmentOs({
+      command: 'force_core_onboard_mic',
+      params: {
+        enabled: enabled,
+      },
+    });
+  }
+
   async sendToggleContextualDashboard(enabled: boolean) {
     console.log('sendToggleContextualDashboard');
     return await this.sendDataToAugmentOs({

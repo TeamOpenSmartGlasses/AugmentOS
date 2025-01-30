@@ -38,6 +38,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   const [isSensingEnabled, setIsSensingEnabled] = React.useState(
     status.sensing_enabled,
   );
+  const [forceCoreOnboardMic, setForceCoreOnboardMic] = React.useState(status.force_core_onboard_mic);
   const [isContextualDashboardEnabled, setIsContextualDashboardEnabled] = React.useState(
     status.contextual_dashboard_enabled,
   );
@@ -58,6 +59,12 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     let newSensing = !isSensingEnabled;
     await BluetoothService.getInstance().sendToggleSensing(newSensing);
     setIsSensingEnabled(newSensing);
+  };
+
+  const toggleForceCoreOnboardMic = async () => {
+    let newForceCoreOnboardMic = !forceCoreOnboardMic;
+    await BluetoothService.getInstance().sendToggleForceCoreOnboardMic(newForceCoreOnboardMic);
+    setForceCoreOnboardMic(newForceCoreOnboardMic);
   };
 
   const toggleContextualDashboard = async () => {
@@ -274,6 +281,37 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
             />
           </TouchableOpacity>
         )} */}
+
+<View style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text
+              style={[
+                styles.label,
+                isDarkTheme ? styles.lightText : styles.darkText,
+                (!status.puck_connected || !status.glasses_info?.model_name) &&
+                  styles.disabledItem,
+              ]}>
+              Force Onboard Microphone
+            </Text>
+            <Text
+              style={[
+                styles.value,
+                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
+                (!status.puck_connected || !status.glasses_info?.model_name) &&
+                  styles.disabledItem,
+              ]}>
+              Force the use of the onboard microphone instead of your glasses' microphone (if applicable).
+            </Text>
+          </View>
+          <Switch
+            disabled={!status.glasses_info?.model_name}
+            value={isSensingEnabled}
+            onValueChange={toggleForceCoreOnboardMic}
+            trackColor={switchColors.trackColor}
+            thumbColor={switchColors.thumbColor}
+            ios_backgroundColor={switchColors.ios_backgroundColor}
+          />
+        </View>
 
         <TouchableOpacity
           style={styles.settingItem}

@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   Text,
@@ -10,6 +10,7 @@ import {
   SafeAreaView,
   Alert,
   BackHandler,
+  Platform,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -21,7 +22,7 @@ interface LoginScreenProps {
   navigation: any;
 }
 
-const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
+const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   const [isSigningUp, setIsSigningUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -62,14 +63,31 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
 
   const handleGoogleSignIn = async () => {
     try {
-      // Implement Google sign in logic
-      console.log('Google sign in');
-      // After successful sign in
-      navigation.replace('Home');
-    } catch (error) {
-      console.error('Google sign in failed:', error);
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          // Must match the deep link scheme/host/path in your AndroidManifest.xml
+          redirectTo: 'com.augmentos://auth/callback',
+        },
+      });
+  
+      if (error) {
+        console.error('Supabase Google sign-in error:', error);
+        Alert.alert('Authentication Error', error.message);
+        return;
+      }
+  
+      // This will open the default browser (Chrome, etc.) to the Google OAuth page.
+      // After a successful sign-in, Google redirects the user to:
+      //   com.augmentos://auth/callback
+      // Android sees that intent-filter in your Manifest, and opens your app again.
+  
+    } catch (err) {
+      console.error('Google sign in failed:', err);
+      Alert.alert('Authentication Error', 'Google sign in failed. Please try again.');
     }
   };
+
 
   const handleAppleSignIn = async () => {
     try {
@@ -84,10 +102,10 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
 
   const handleEmailSignUp = async (email: string, password: string) => {
     setIsFormLoading(true);
-    
+
     try {
       //const redirectUrl = encodeURIComponent("com.augmentos.augmentos_manager://verify_email/");
-      const redirectUrl = "https://augmentos.org/verify_email"; // No encoding needed
+      const redirectUrl = "https://augmentos.org/verify-email"; // No encoding needed
       //const redirectUrl = "com.augmentos.augmentos_manager://verify_email/";
 
       const { data, error } = await supabase.auth.signUp({
@@ -97,7 +115,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
           emailRedirectTo: redirectUrl,
         },
       });
-  
+
       if (error) {
         Alert.alert("Error", error.message);
       } else if (!data.session) {
@@ -113,7 +131,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
       setIsFormLoading(false);
     }
   };
-  
+
 
   const handleEmailSignIn = async (email: string, password: string) => {
     setIsFormLoading(true)
@@ -121,59 +139,71 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
       email,
       password,
     });
-  
+
     if (error) {
       Alert.alert(error.message);
       // Handle sign-in error
     } else {
       console.log('Sign-in successful:', data);
-      navigation.replace('Home');
+      //navigation.replace('Home');
     }
     setIsFormLoading(false)
   }
 
-useEffect(() => {
-  const backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
-    if (backPressCount === 0) {
-      setBackPressCount(1);
-      setTimeout(() => setBackPressCount(0), 2000);
-      Alert.alert('Press back again to exit');
-      return true;
-    } else {
-      BackHandler.exitApp();
-      return true;
-    }
-  });
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
+      if (backPressCount === 0) {
+        setBackPressCount(1);
+        setTimeout(() => setBackPressCount(0), 2000);
+        Alert.alert('Press back again to exit');
+        return true;
+      } else {
+        BackHandler.exitApp();
+        return true;
+      }
+    });
 
-  return () => backHandler.remove();
-}, [backPressCount]);
+    return () => backHandler.remove();
+  }, [backPressCount]);
 
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data: sessionData } = await supabase.auth.getSession();
+      if (sessionData.session) {
+        // The user is logged in! Navigate to your Home or do something else.
+        navigation.replace('Home');
+      }
+    };
+  
+    checkSession();
+  }, []);
+  
 
   return (
     <LinearGradient colors={['#EFF6FF', '#FFFFFF']} style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.card}>
           <Animated.Text
-            style={[styles.title, {opacity, transform: [{translateY}]}]}>
+            style={[styles.title, { opacity, transform: [{ translateY }] }]}>
             AugmentOS
           </Animated.Text>
           <Animated.Text
-            style={[styles.subtitle, {opacity, transform: [{translateY}]}]}>
+            style={[styles.subtitle, { opacity, transform: [{ translateY }] }]}>
             The future of smart glasses starts here
           </Animated.Text>
           <Animated.View
-            style={[styles.header, {opacity, transform: [{translateY}]}]}>
+            style={[styles.header, { opacity, transform: [{ translateY }] }]}>
             <Animated.Image
               source={require('../assets/AOS.png')}
-              style={[styles.image, {opacity, transform: [{translateY}]}]}
+              style={[styles.image, { opacity, transform: [{ translateY }] }]}
             />
           </Animated.View>
 
           <Animated.View
-            style={[styles.content, {opacity, transform: [{translateY}]}]}>
+            style={[styles.content, { opacity, transform: [{ translateY }] }]}>
             {isSigningUp ? (
               <Animated.View
-                style={[styles.form, {transform: [{scale: formScale}]}]}>
+                style={[styles.form, { transform: [{ scale: formScale }] }]}>
 
 
                 <View style={styles.inputGroup}>
@@ -219,7 +249,7 @@ useEffect(() => {
 
                 <TouchableOpacity
                   style={styles.enhancedPrimaryButton}
-                  onPress={() => {handleEmailSignIn(email,password)}}
+                  onPress={() => { handleEmailSignIn(email, password) }}
                   disabled={isFormLoading}>
                   <LinearGradient
                     colors={['#2196F3', '#1E88E5']}
@@ -232,7 +262,7 @@ useEffect(() => {
 
                 <TouchableOpacity
                   style={styles.enhancedPrimaryButton}
-                  onPress={() => {handleEmailSignUp(email,password)}}
+                  onPress={() => { handleEmailSignUp(email, password) }}
                   disabled={isFormLoading}>
                   <LinearGradient
                     colors={['#2196F3', '#1E88E5']}
@@ -259,34 +289,39 @@ useEffect(() => {
               </Animated.View>
             ) : (
               <View style={styles.signInOptions}>
-                {/* <TouchableOpacity
-                  style={[styles.socialButton, styles.googleButton]}
-                  onPress={handleGoogleSignIn}>
-                  <View style={styles.socialIconContainer}>
-                    <GoogleIcon />
-                  </View>
-                  <Text style={styles.socialButtonText}>
-                    Continue with Google
-                  </Text>
-                </TouchableOpacity>
 
-                <TouchableOpacity
-                  style={[styles.socialButton, styles.appleButton]}
-                  onPress={handleAppleSignIn}>
-                  <View style={styles.socialIconContainer}>
-                    <AppleIcon />
-                  </View>
-                  <Text
-                    style={[styles.socialButtonText, styles.appleButtonText]}>
-                    Continue with Apple
-                  </Text>
-                </TouchableOpacity>
+                {Platform.OS == 'android' && (
+                  <TouchableOpacity
+                    style={[styles.socialButton, styles.googleButton]}
+                    onPress={handleGoogleSignIn}>
+                    <View style={styles.socialIconContainer}>
+                      <GoogleIcon />
+                    </View>
+                    <Text style={styles.socialButtonText}>
+                      Continue with Google
+                    </Text>
+                  </TouchableOpacity>
+                )}
+
+                {Platform.OS == 'ios' && (
+                  <TouchableOpacity
+                    style={[styles.socialButton, styles.appleButton]}
+                    onPress={handleAppleSignIn}>
+                    <View style={styles.socialIconContainer}>
+                      <AppleIcon />
+                    </View>
+                    <Text
+                      style={[styles.socialButtonText, styles.appleButtonText]}>
+                      Continue with Apple
+                    </Text>
+                  </TouchableOpacity>
+                )}
 
                 <View style={styles.dividerContainer}>
                   <View style={styles.divider} />
                   <Text style={styles.dividerText}>Or</Text>
                   <View style={styles.divider} />
-                </View> */}
+                </View>
 
                 <TouchableOpacity
                   style={styles.enhancedEmailButton}
@@ -309,7 +344,7 @@ useEffect(() => {
             )}
           </Animated.View>
 
-          <Animated.Text style={[styles.termsText, {opacity}]}>
+          <Animated.Text style={[styles.termsText, { opacity }]}>
             By continuing, you agree to our Terms of Service and Privacy Policy
           </Animated.Text>
         </View>
@@ -318,7 +353,7 @@ useEffect(() => {
   );
 };
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {

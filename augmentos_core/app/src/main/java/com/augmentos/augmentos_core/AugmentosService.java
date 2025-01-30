@@ -1346,8 +1346,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             status.put("charging_status", batteryStatusHelper.isBatteryCharging());
             status.put("sensing_enabled", SpeechRecSwitchSystem.sensing_enabled);
             status.put("contextual_dashboard_enabled", this.contextualDashboardEnabled);
+            status.put("force_core_onboard_mic", AugmentosSmartGlassesService.getForceCoreOnboardMic(this));
             status.put("default_wearable", AugmentosSmartGlassesService.getPreferredWearable(this));
-            Log.d(TAG, "PREFER - Got default wearabe: " + AugmentosSmartGlassesService.getPreferredWearable(this));
+            // Log.d(TAG, "PREFER - Got default wearable: " + AugmentosSmartGlassesService.getPreferredWearable(this));
 
             // Adding connected glasses object
             JSONObject connectedGlasses = new JSONObject();
@@ -1527,6 +1528,16 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         props.put("package_name", packageName);
         props.put("timestamp", System.currentTimeMillis());
         postHog.capture(userId, "stop_app", props);
+    }
+
+    @Override
+    public void setForceCoreOnboardMic(boolean toForceCoreOnboardMic) {
+        AugmentosSmartGlassesService.saveForceCoreOnboardMic(this, toForceCoreOnboardMic);
+        blePeripheral.sendNotifyManager("Setting will apply next time you connect to glasses", "error");
+        Map<String, Object> props = new HashMap<>();
+        props.put("set_force_core_onboard_mic", toForceCoreOnboardMic);
+        props.put("timestamp", System.currentTimeMillis());
+        postHog.capture(userId, "set_force_core_onboard_mic", props);
     }
 
     @Override
