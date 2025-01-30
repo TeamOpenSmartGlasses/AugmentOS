@@ -38,6 +38,7 @@ public class WebSocketStreamManager {
     private boolean isReconnecting = false;
     private static final int RECONNECT_DELAY_MS = 500;
     private final Object reconnectLock = new Object();
+    private boolean isKiled = false;
 
     public interface WebSocketCallback {
         void onInterimTranscript(String text, String language, long timestamp);
@@ -70,7 +71,14 @@ public class WebSocketStreamManager {
         callbacks.remove(callback);
     }
 
+    public void removeAllCallbacks() {
+        callbacks.clear();
+    }
+
     public void disconnect() {
+        isKiled = true;
+        removeAllCallbacks();
+
         synchronized (reconnectLock) {
             isReconnecting = false;
         }
@@ -105,6 +113,10 @@ public class WebSocketStreamManager {
                 Log.d(TAG, "Attempting to reconnect...");
                 try {
                     Thread.sleep(RECONNECT_DELAY_MS);
+                    if(isKiled){
+                        return;
+                    }
+
                     connect(); // languageCode parameter not used anymore
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
@@ -207,7 +219,9 @@ public class WebSocketStreamManager {
                 Log.d(TAG, "WebSocket Closing: " + reason);
                 isConnected = false;
                 stopAudioSender();
-                attemptReconnect();
+                if (!isKiled){
+                    attemptReconnect();
+                }
             }
 
             @Override
