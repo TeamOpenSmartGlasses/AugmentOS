@@ -32,6 +32,7 @@ export interface AppInfo {
 }
 
 export interface AugmentOSMainStatus {
+  augmentos_core_version: string | null;
   puck_connected: boolean;
   puck_battery_life: number | null;
   puck_charging_status: boolean;
@@ -173,6 +174,7 @@ export class AugmentOSParser {
       console.log('432432432' , status.connected_glasses.brightness);
 
       return {
+        augmentos_core_version: status.augmentos_core_version ?? null,
         puck_connected: true,
         puck_battery_life: status.puck_battery_life ?? null,
         puck_charging_status: status.charging_status ?? false,
