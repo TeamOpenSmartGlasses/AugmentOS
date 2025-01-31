@@ -4,6 +4,14 @@ sidebar_position: 1
 
 # AugmentOSLib Basics
 
+AugmentOSLib has two libraries: Edge, and Cloud.
+
+The Edge library runs on and interfaces with AugmentOS Core on an Android device.
+
+The Cloud library enables cloud-based AugmentOS apps, can be used in either Python or TypeScript, and will be released in approximately 2 weeks.
+
+The following information pertains to the Edge library.
+
 ## **How AugmentOSLib Works**
 
 ### **Service-Based Architecture**
