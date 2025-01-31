@@ -68,7 +68,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
           resolve(data);
         },
         onFailure: (error: any) => {
-          console.error('Failed to fetch app store data:', error);
+          console.log('Failed to fetch app store data:', error);
           reject(error);
         },
       };
@@ -79,11 +79,11 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
         backendServerComms
           .restRequest(GET_APP_STORE_DATA_ENDPOINT, null, callback)
           .catch((error: any) => {
-            console.error('Error during restRequest:', error);
+            console.log('Error during restRequest:', error);
             reject(error);
           });
       } catch (error) {
-        console.error('Error during restRequest:', error);
+        console.log('Error during restRequest:', error);
         reject(error);
       }
     });
