@@ -6,7 +6,7 @@
 
 # AugmentOS - smart glasses OS and super app.
 
-**AugmentOS is the home base for your smart glasses, where you gain instant access to dozens of your favourite apps, like:**
+**The open source operating system for your smart glasses. Access the best apps and AI agents on your smart glasses and build new apps and agents:**
 
 ![AugmentOS Smart Glasses](./images/glasses_banner_TOSG_AugmentOS_Cayden_low_res.jpg)
 
@@ -25,9 +25,7 @@ AugmentOS is the *the* way to build apps for smart glasses. For developers, it's
 - Run always - run your app for days straight, guaranteed.
 - Get seen - get your app in front of everyone using smart glasses.
 
-AugmentOS enables you to run multiple apps *at the same time* so you can truly take advantage of AI-first wearables apps. Apps that run proactively based on context.
-
-*Launching January 2025 on iOS and Android, supporting all common smart glasses.*  
+AugmentOS enables you to run multiple apps *at the same time* so you can truly take advantage of AI-first wearables apps. Apps that run proactively based on context. That's the power of a smart glasses operating system.
 
 ## Apps
 
@@ -90,6 +88,8 @@ The community is working on many more apps - fully open source - join us and hel
 
 ## Developer Guide | How to build your own AugmentOS app
 
+Documentation: [docs.AugmentOS.org](https://docs.AugmentOS.org).
+
 For developers,
 
 AugmentOS is the best way to write a smart glasses app because it enables:
@@ -120,19 +120,15 @@ To get started, check out our [Example App](https://github.com/TeamOpenSmartGlas
 
 **Android:** 
 
-[Google Play Link (Coming Soon)](#)
+[Install Now](https://AugmentOS.org/install)
 
-**iOS** 
+**iPhone / iOS** 
 
-[App Store Link (Coming Soon)](#)
-
-### Puck
-
-The Puck is a small, wearable device that acts as a bridge between your smart glasses and smartphone, enabling seamless connectivity and enhanced functionality. You can buy one from any of the companies that builds a compatible puck listed on the [AugmentOS website](https://AugmentOS.org/).
+Coming February/March 2025
 
 ## Authors / Team
 
-AugmentOS is made by a decentralized community of contributors, and headed up by [TeamOpenSmartGlasses](https://teamopensmartglasses.com).
+AugmentOS is made by a decentralized community of contributors, and managed by [Mentra](https://mentra.glass).
 
 #### Lead Dev Team
 
@@ -142,10 +138,10 @@ AugmentOS is made by a decentralized community of contributors, and headed up by
 
 Contributions welcome! Our team is growing and we have a lot to do! Join our Discord and reach out!
 
-## TeamOpenSmartGlasses (TOSG)
+## AugmentOS Community
 
-TeamOpenSmartGlasses is a team building open-source smart glasses tech towards an open, self-empowered, intercognitive, augmented future. Our industry partners include companies like Vuzix, Activelook, TCL, and others. To get involved, check out our website https://teamopensmartglasses.com and join our [Discord server](https://discord.gg/bAKsjh8CtE).
+The AugmentOS Community is a team building open-source smart glasses tech towards an open, self-empowered, intercognitive, augmented future. Our industry partners include companies like Vuzix, Activelook, TCL, and others. To get involved, check out our website https://AugmentOS.org and join our [Discord server](https://discord.gg/bAKsjh8CtE).
 
 ## License
 
-MIT License Copyright 2024 TeamOpenSmartGlasses
+MIT License Copyright 2025 AugmentOS Community
