@@ -38,6 +38,7 @@ public class WebSocketStreamManager {
     private boolean isReconnecting = false;
     private static final int RECONNECT_DELAY_MS = 500;
     private final Object reconnectLock = new Object();
+    private boolean isKilled = false;
 
     public interface WebSocketCallback {
         void onInterimTranscript(String text, String language, long timestamp);
@@ -56,8 +57,9 @@ public class WebSocketStreamManager {
     }
 
     public static synchronized WebSocketStreamManager getInstance(String url) {
-        if (instance == null) {
+        if (instance == null || instance.isKilled) {
             instance = new WebSocketStreamManager(url);
+            instance.isKilled = false; // Reset
         }
         return instance;
     }
@@ -70,7 +72,15 @@ public class WebSocketStreamManager {
         callbacks.remove(callback);
     }
 
+    public void removeAllCallbacks() {
+        callbacks.clear();
+    }
+
     public void disconnect() {
+        Log.d(TAG, "Web socket disconnect called");
+        isKilled = true;
+        removeAllCallbacks();
+
         synchronized (reconnectLock) {
             isReconnecting = false;
         }
@@ -95,29 +105,39 @@ public class WebSocketStreamManager {
     private void attemptReconnect() {
         synchronized (reconnectLock) {
             if (isReconnecting) {
+                Log.d(TAG, "Reconnect attempt skipped - already reconnecting");
                 return;
             }
             isReconnecting = true;
+            Log.d(TAG, "Setting isReconnecting=true");
         }
 
         new Thread(() -> {
             while (isReconnecting && !isConnected) {
-                Log.d(TAG, "Attempting to reconnect...");
+                Log.d(TAG, "attemptReconnect() loop. isReconnecting=" + isReconnecting + ", isConnected=" + isConnected + ", isKiled=" + isKilled);
+
                 try {
                     Thread.sleep(RECONNECT_DELAY_MS);
-                    connect(); // languageCode parameter not used anymore
+                    if (isKilled) {
+                        Log.d(TAG, "Reconnection aborted. isKiled=true");
+                        return;
+                    }
+                    connect();
                 } catch (InterruptedException e) {
+                    Log.d(TAG, "Reconnect thread interrupted, exiting loop");
                     Thread.currentThread().interrupt();
-                    break;
+                    return;
                 }
             }
+            Log.d(TAG, "Exited reconnect loop. isReconnecting=" + isReconnecting + ", isConnected=" + isConnected + ", isKiled=" + isKilled);
         }).start();
     }
 
     public void connect() {
         if (client == null) {
             client = new OkHttpClient.Builder()
-                    .readTimeout(0, TimeUnit.MILLISECONDS)
+                    .readTimeout(5, TimeUnit.SECONDS)
+                    .pingInterval(4, TimeUnit.SECONDS)
                     .build();
         }
 
@@ -204,15 +224,17 @@ public class WebSocketStreamManager {
 
             @Override
             public void onClosing(WebSocket webSocket, int code, String reason) {
-                Log.d(TAG, "WebSocket Closing: " + reason);
+                Log.d(TAG, "WebSocket Closing, code=" + code + " reason=" + reason);
                 isConnected = false;
                 stopAudioSender();
-                attemptReconnect();
+                if (!isKilled){
+                    attemptReconnect();
+                }
             }
 
             @Override
             public void onFailure(WebSocket webSocket, Throwable t, Response response) {
-                Log.e(TAG, "WebSocket Failure", t);
+                Log.e(TAG, "WebSocket Failure: " + t.getMessage());
                 isConnected = false;
                 stopAudioSender();
 
