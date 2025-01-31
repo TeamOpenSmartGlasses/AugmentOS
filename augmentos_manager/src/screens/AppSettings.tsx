@@ -77,7 +77,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       [key]: value,
     }));
     // Optionally, send the updated setting back via Bluetooth
-    let settingObj = {[key]: value}
+    let settingObj = { [key]: value }
     bluetoothService.sendUpdateAppSetting(packageName, settingObj);
   };
 
@@ -94,7 +94,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'toggle':
         return (
           <ToggleSetting
-            key={setting.key}
+            key={index}
             label={setting.label}
             value={settingsState[setting.key]}
             onValueChange={(val) => handleSettingChange(setting.key, val)}
@@ -104,7 +104,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'text':
         return (
           <TextSetting
-            key={setting.key}
+          key={index}
             label={setting.label}
             value={settingsState[setting.key]}
             onChangeText={(text) => handleSettingChange(setting.key, text)}
@@ -114,7 +114,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'slider':
         return (
           <SliderSetting
-            key={setting.key}
+          key={index}
             label={setting.label}
             value={settingsState[setting.key]}
             min={setting.min}
@@ -132,7 +132,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'select':
         return (
           <SelectSetting
-            key={setting.key}
+          key={index}
             label={setting.label}
             value={settingsState[setting.key]}
             options={setting.options}
@@ -143,7 +143,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'multiselect':
         return (
           <MultiSelectSetting
-            key={setting.key}
+          key={index}
             label={setting.label}
             values={settingsState[setting.key]}
             options={setting.options}
@@ -154,7 +154,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'titleValue':
         return (
           <TitleValueSetting
-            key={setting.key}
+          key={index}
             label={setting.label}
             value={setting.value}
             theme={theme}
@@ -165,64 +165,64 @@ const AppSettings: React.FC<AppSettingsProps> = ({
     }
   };
 
-    if (!appInfo) {
-          return <LoadingComponent message="Loading App Settings..." theme={theme} />;
-    } else {
-      if (appInfo.instructions && appInfo.settings?.length > 0) {
-        return (
-          <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-            <ScrollView contentContainerStyle={styles.mainContainer}>
-              <View style={[styles.instructionsContainer, { marginBottom: 20 }]}>
-                <Text style={[styles.title, { color: theme.textColor }]}>
-                  Instructions
-                </Text>
-                <Text style={[styles.instructionsText, { color: theme.textColor }]}>
-                  {appInfo.instructions}
-                </Text>
-              </View>
-              {appInfo.settings.map((setting: any, index: number) =>
-                renderSetting(setting, index)
-              )}
-            </ScrollView>
-          </SafeAreaView>
-        );
-      } else if (appInfo.instructions) {
-        return (
-          <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-            <ScrollView contentContainerStyle={styles.mainContainer}>
-              <View style={[styles.instructionsContainer, { marginBottom: 20 }]}>
-                <Text style={[styles.title, { color: theme.textColor }]}>
-                  Description
-                </Text>
-                <Text style={[styles.instructionsText, { color: theme.textColor }]}>
-                  {appInfo.instructions}
-                </Text>
-              </View>
-            </ScrollView>
-          </SafeAreaView>
-        );
-      } else if (appInfo.settings?.length === 0) {
-        return (
-          <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-            <View style={styles.loadingContainer}>
-              <Text style={[styles.text, { color: theme.textColor }]}>
-                {appName} doesn't have any settings
+  if (!appInfo) {
+    return <LoadingComponent message="Loading App Settings..." theme={theme} />;
+  } else {
+    if (appInfo.instructions && appInfo.settings?.length > 0) {
+      return (
+        <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+          <ScrollView contentContainerStyle={styles.mainContainer}>
+            <View style={[styles.instructionsContainer, { marginBottom: 20 }]}>
+              <Text style={[styles.title, { color: theme.textColor }]}>
+                Instructions
+              </Text>
+              <Text style={[styles.instructionsText, { color: theme.textColor }]}>
+                {appInfo.instructions}
               </Text>
             </View>
-          </SafeAreaView>
-        );
-      } else {
-        return (
-          <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-            <ScrollView contentContainerStyle={styles.mainContainer}>
-              {appInfo.settings.map((setting: any, index: number) =>
-                renderSetting(setting, index)
-              )}
-            </ScrollView>
-          </SafeAreaView>
-        );
-      }
+            {appInfo.settings.map((setting: any, index: number) =>
+              renderSetting({ ...setting, uniqueKey: `${setting.key}-${index}` }, index)
+            )}
+          </ScrollView>
+        </SafeAreaView>
+      );
+    } else if (appInfo.instructions) {
+      return (
+        <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+          <ScrollView contentContainerStyle={styles.mainContainer}>
+            <View style={[styles.instructionsContainer, { marginBottom: 20 }]}>
+              <Text style={[styles.title, { color: theme.textColor }]}>
+                Description
+              </Text>
+              <Text style={[styles.instructionsText, { color: theme.textColor }]}>
+                {appInfo.instructions}
+              </Text>
+            </View>
+          </ScrollView>
+        </SafeAreaView>
+      );
+    } else if (appInfo.settings?.length === 0) {
+      return (
+        <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+          <View style={styles.loadingContainer}>
+            <Text style={[styles.text, { color: theme.textColor }]}>
+              {appName} doesn't have any settings
+            </Text>
+          </View>
+        </SafeAreaView>
+      );
+    } else {
+      return (
+        <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+          <ScrollView contentContainerStyle={styles.mainContainer}>
+            {appInfo.settings.map((setting: any, index: number) =>
+              renderSetting(setting, index)
+            )}
+          </ScrollView>
+        </SafeAreaView>
+      );
     }
+  }
 };
 
 const styles = StyleSheet.create({
@@ -234,20 +234,20 @@ const styles = StyleSheet.create({
     padding: 16,
     alignItems: 'stretch',
   },
-    instructionsContainer: {
-      marginTop: 10,
-      marginBottom: 20,
-      alignItems: 'flex-start',
-    },
-    title: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      marginBottom: 10,
-    },
-    instructionsText: {
-      fontSize: 16,
-      lineHeight: 22,
-    },
+  instructionsContainer: {
+    marginTop: 10,
+    marginBottom: 20,
+    alignItems: 'flex-start',
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  instructionsText: {
+    fontSize: 16,
+    lineHeight: 22,
+  },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',

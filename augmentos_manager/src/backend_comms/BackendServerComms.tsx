@@ -49,11 +49,11 @@ export default class BackendServerComms {
                     callback.onFailure(-1);
                 }
             } else {
-                console.error(`${this.TAG}: Error - ${response.statusText}`);
+                console.log(`${this.TAG}: Error - ${response.statusText}`);
                 callback.onFailure(response.status);
             }
         } catch (error: any) {
-            console.error(`${this.TAG}: Network Error -`, error.message || error);
+            console.log(`${this.TAG}: Network Error -`, error.message || error);
             callback.onFailure(-1);
         }
     }

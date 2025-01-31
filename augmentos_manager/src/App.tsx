@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -13,8 +13,8 @@ import NotificationListener from './components/NotificationListener';
 import AppStore from './screens/AppStore';
 import AppDetails from './screens/AppDetails';
 import Reviews from './screens/ReviewSection.tsx';
-import { StyleSheet } from 'react-native';
-import { RootStackParamList } from './components/types'; // Update path as needed
+import {StyleSheet, Text, View} from 'react-native';
+import {AppStoreItem, RootStackParamList } from './components/types'; // Update path as needed
 import MessageBanner from './components/MessageBanner.tsx';
 import SimulatedPuckSettings from './screens/SimulatedPuckSettings.tsx';
 import SimulatedPuckOnboard from './screens/SimulatedPuckOnboard.tsx';
@@ -74,7 +74,7 @@ const App: React.FC = () => {
                   component={VerifyEmailScreen}
                   options={{ headerShown: false }}
                 />
-                
+
                 <Stack.Screen name="Home" options={{ headerShown: false }}>
                   {() => (
                     <Homepage
