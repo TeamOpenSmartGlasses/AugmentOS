@@ -16,7 +16,7 @@ import NavigationBar from '../components/NavigationBar';
 import BluetoothService from '../BluetoothService.tsx';
 import semver from 'semver';
 import { NativeModules } from 'react-native';
-const { InstallApkModule, TpaHelpers } = NativeModules;
+const { InstallApkModule, FetchConfigHelperModule, TpaHelpers } = NativeModules;
 import GlobalEventEmitter from '../logic/GlobalEventEmitter';
 type AppDetailsProps = NativeStackScreenProps<
   RootStackParamList,
@@ -27,6 +27,9 @@ type AppDetailsProps = NativeStackScreenProps<
 };
 import { useStatus } from '../AugmentOSStatusProvider';
 import appStore from "./AppStore.tsx";
+
+const AUGMENTOS_MANAGER_PACKAGE_NAME = 'com.augmentos.augmentos_manager';
+const AUGMENTOS_CORE_PACKAGE_NAME = 'com.augmentos.augmentos_core';
 
 const AppDetails: React.FC<AppDetailsProps> = ({
   route,
@@ -40,7 +43,28 @@ const AppDetails: React.FC<AppDetailsProps> = ({
   >('Install');
   const { status } = useStatus();
 
-  const checkVersionAndSetState = useCallback(() => {
+  const fetchConfig = async (packageName: string): Promise<string | null> => {
+    try {
+      const configJson = await FetchConfigHelperModule.fetchConfig(packageName);
+      const parsedConfig = JSON.parse(configJson);
+      const version = parsedConfig.version;
+      console.log('Local App Version:', version);
+      return version;
+    } catch (error) {
+      console.error(
+        'Failed to load config for package name ' + packageName,
+        error,
+      );
+      return '0.0.0';
+    }
+  };
+
+  const fetchVersionFromStatus = (): string | null => {
+    console.log('AugmentOS Core Version:', status.augmentos_core_version);
+    return status?.augmentos_core_version ?? '0.0.0';
+  };
+
+  const checkVersionAndSetState = useCallback(async () => {
     if (!status || !status.apps) {
       return; // Status not loaded yet; keep default or show fallback
     }
@@ -49,21 +73,34 @@ const AppDetails: React.FC<AppDetailsProps> = ({
       (a) => a.packageName === app.packageName
     );
 
-    if(installState === 'Downloading...') {return;}
-
-    if (!installedApp) {
-      setInstallState('Install');
+    if (installState === 'Downloading...') {
       return;
     }
 
-    const installedVersion = installedApp.version || '0.0.0';
+    let installedVersion: string | null;
+
+    if (app.packageName === AUGMENTOS_MANAGER_PACKAGE_NAME) {
+      // Await the promise here
+      installedVersion = await fetchConfig(AUGMENTOS_MANAGER_PACKAGE_NAME);
+    } else if (app.packageName === AUGMENTOS_CORE_PACKAGE_NAME) {
+      installedVersion = fetchVersionFromStatus();
+      console.log('Installed Version:', installedVersion);
+    } else {
+      if (!installedApp) {
+        setInstallState('Install');
+        return;
+      }
+      installedVersion = installedApp.version || '0.0.0';
+    }
+
     const storeVersion = app.version || '0.0.0';
 
-    // console.log('Installed version:', installedVersion);
-    // console.log('Store version:', storeVersion);
-
-    if (semver.valid(installedVersion) && semver.valid(storeVersion)) {
-
+    // Check that installedVersion is not null before passing to semver
+    if (
+      installedVersion &&
+      semver.valid(installedVersion) &&
+      semver.valid(storeVersion)
+    ) {
       if (semver.lt(installedVersion, storeVersion)) {
         setInstallState('Update');
       } else {
