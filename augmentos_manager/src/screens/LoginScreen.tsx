@@ -116,7 +116,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       // Implement Apple sign in logic
       console.log('Apple sign in');
       // After successful sign in
-      navigation.replace('Home');
+      navigation.replace('SplashScreen');
     } catch (error) {
       console.error('Apple sign in failed:', error);
     }
@@ -144,7 +144,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
         Alert.alert("Please check your inbox for email verification!");
       } else {
         console.log("Sign-up successful:", data);
-        navigation.replace("Home");
+        navigation.replace("SplashScreen");
       }
     } catch (err) {
       console.error("Error during sign-up:", err);
@@ -167,7 +167,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       // Handle sign-in error
     } else {
       console.log('Sign-in successful:', data);
-      //navigation.replace('Home');
+      //navigation.replace('SplashScreen');
     }
     setIsFormLoading(false)
   }
@@ -196,7 +196,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       console.log('onAuthStateChange event:', event, session);
       if (session) {
         // If session is present, user is authenticated
-        navigation.replace('Home');
+        navigation.replace('SplashScreen');
       }
     });
 

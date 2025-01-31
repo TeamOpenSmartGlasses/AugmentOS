@@ -29,6 +29,7 @@ import SplashScreen from './screens/SplashScreen.tsx';
 import 'react-native-url-polyfill/auto';
 import { AuthProvider } from './AuthContext.tsx';
 import VerifyEmailScreen from './screens/VerifyEmail.tsx';
+import PrivacySettingsScreen from './screens/PrivacySettingsScreen.tsx';
 
 const linking = {
   prefixes: ['https://augmentos.org'],
@@ -94,6 +95,17 @@ const App: React.FC = () => {
                       {...props}
                       isDarkTheme={isDarkTheme}
                       toggleTheme={toggleTheme}
+                    />
+                  )}
+                </Stack.Screen>
+                <Stack.Screen name="PrivacySettingsScreen"
+                  options={{ title: 'Privacy Settings' }}
+                >
+                  {props => (
+                    <PrivacySettingsScreen
+                      {...props}
+                      toggleTheme={toggleTheme}
+                      isDarkTheme={isDarkTheme}
                     />
                   )}
                 </Stack.Screen>

@@ -6,6 +6,7 @@ import { SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from '../consts';
 import { NavigationProps } from '../components/types';
 import { supabase } from '../supabaseClient';
 import { useAuth } from '../AuthContext';
+import { useStatus } from '../AugmentOSStatusProvider';
 
 interface SplashScreenProps {
   //navigation: any;
@@ -14,6 +15,7 @@ interface SplashScreenProps {
 const SplashScreen: React.FC<SplashScreenProps> = ({}) => {
   const navigation = useNavigation<NavigationProps>();
   const { user, loading } = useAuth();
+  const { startBluetoothAndCore } = useStatus();
 
   useEffect(() => {
     const initializeApp = async () => {
@@ -22,6 +24,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({}) => {
       const authenticated = false;
       
       if (user || true) {
+        startBluetoothAndCore();
         if (previouslyBondedPuck) {
           navigation.reset({
             index: 0,

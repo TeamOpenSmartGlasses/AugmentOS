@@ -729,7 +729,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             Log.d(TAG, "****************** SENDING REFERENCE CARD: CONNECTED TO AUGMENT OS");
             if (smartGlassesService != null)
-                smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS"), 6);
+                smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("", "*** Connected to AugmentOS ***"), 6);
 
             //start transcribing
             updateAsrLanguages();

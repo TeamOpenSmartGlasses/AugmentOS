@@ -10,7 +10,7 @@ import { openCorePermissionsActivity, startExternalService } from './augmentos_c
 import ManagerCoreCommsService from './augmentos_core_comms/ManagerCoreCommsService';
 import GlobalEventEmitter from './logic/GlobalEventEmitter';
 import {
-  checkAndRequestNotificationPermission,
+  checkNotificationPermission,
   NotificationEventEmitter,
   NotificationService,
 } from './augmentos_core_comms/NotificationServiceUtils';
@@ -70,7 +70,7 @@ export class BluetoothService extends EventEmitter {
     }
 
     let enablePhoneNotifications = await loadSetting(SETTINGS_KEYS.ENABLE_PHONE_NOTIFICATIONS, ENABLE_PHONE_NOTIFICATIONS_DEFAULT);
-    if (enablePhoneNotifications && await checkAndRequestNotificationPermission() && !(await NotificationService.isNotificationListenerEnabled())) {
+    if (enablePhoneNotifications && await checkNotificationPermission() && !(await NotificationService.isNotificationListenerEnabled())) {
       await NotificationService.startNotificationListenerService();
     }
 

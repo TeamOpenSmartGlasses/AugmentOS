@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated, Alert, PermissionsAndroid, Platform } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated, Alert, PermissionsAndroid, Permission, Platform } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { BluetoothService } from '../BluetoothService';
@@ -7,7 +7,7 @@ import { useStatus } from '../AugmentOSStatusProvider';
 import { NavigationProps } from '../components/types';
 import { useNavigation } from '@react-navigation/native';
 import { getGlassesImage } from '../logic/getGlassesImage';
-import { checkAndRequestNotificationPermission } from '../augmentos_core_comms/NotificationServiceUtils';
+import { checkNotificationPermission, NotificationService } from '../augmentos_core_comms/NotificationServiceUtils';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { checkAndRequestNotificationAccessSpecialPermission } from '../utils/NotificationServiceUtils.tsx';
 
@@ -56,12 +56,12 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
 
       // Request permissions on Android
       if (Platform.OS === 'android' && Platform.Version >= 23) {
-        PermissionsAndroid.requestMultiple([
-          PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
-          PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        ]).then(async (result) => {
+        PermissionsAndroid.requestMultiple(getAndroidPermissions()).then(async (result) => {
           console.log('Permissions granted:', result);
+
+          if (await checkNotificationPermission() && !(await NotificationService.isNotificationListenerEnabled())) {
+            await NotificationService.startNotificationListenerService()
+          }
 
           const allGranted = Object.values(result).every(
             (value) => value === PermissionsAndroid.RESULTS.GRANTED
@@ -127,6 +127,28 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     try {
       await bluetoothService.sendDisconnectWearable();
     } catch (error) { }
+  }
+
+  const getAndroidPermissions = () : Permission[] => {
+    const list = [];
+
+    if (Platform.OS === 'android') {
+      if (Platform.Version >= 23) {
+        list.push(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
+      }
+
+      if (Platform.Version >= 31) {
+        list.push(PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN);
+        list.push(PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT);
+        list.push(PermissionsAndroid.PERMISSIONS.BLUETOOTH_ADVERTISE);
+      }
+
+      if (Platform.Version >= 33) {
+        list.push(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
+      }
+    }
+
+    return list as Permission[];
   }
 
   const themeStyles = {

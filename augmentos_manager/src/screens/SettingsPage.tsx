@@ -316,7 +316,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
         <TouchableOpacity
           style={styles.settingItem}
           onPress={() => {
-            navigation.navigate('PhoneNotificationSettings');
+            navigation.navigate('PrivacySettingsScreen');
           }}>
           <View style={styles.settingTextContainer}>
             <Text
@@ -324,7 +324,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
                 styles.label,
                 isDarkTheme ? styles.lightText : styles.darkText,
               ]}>
-              Notifications
+              Privacy Settings
             </Text>
           </View>
           <Icon
@@ -334,36 +334,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
           />
         </TouchableOpacity>
 
-        <View style={styles.settingItem}>
-          <View style={styles.settingTextContainer}>
-            <Text
-              style={[
-                styles.label,
-                isDarkTheme ? styles.lightText : styles.darkText,
-                (!status.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
-              ]}>
-              Sensing
-            </Text>
-            <Text
-              style={[
-                styles.value,
-                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-                (!status.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
-              ]}>
-              Enable microphones & cameras.
-            </Text>
-          </View>
-          <Switch
-            disabled={!status.glasses_info?.model_name}
-            value={isSensingEnabled}
-            onValueChange={toggleSensing}
-            trackColor={switchColors.trackColor}
-            thumbColor={switchColors.thumbColor}
-            ios_backgroundColor={switchColors.ios_backgroundColor}
-          />
-        </View>
         <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
               <Text
