@@ -29,10 +29,6 @@ import SplashScreen from './screens/SplashScreen.tsx';
 import 'react-native-url-polyfill/auto';
 import { AuthProvider } from './AuthContext.tsx';
 import VerifyEmailScreen from './screens/VerifyEmail.tsx';
-import { NativeModules } from 'react-native';
-import BackendServerComms from "./backend_comms/BackendServerComms.tsx";
-import {GET_APP_STORE_DATA_ENDPOINT} from "./consts.tsx";
-const { FetchConfigHelperModule } = NativeModules;
 
 const linking = {
   prefixes: ['https://augmentos.org'],
@@ -47,54 +43,12 @@ const linking = {
 // Assign the RootStackParamList to the navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-const AUGMENTOS_MANAGER_PACKAGE_NAME = 'com.augmentos.augmentos_manager';
-const AUGMENTOS_CORE_PACKAGE_NAME = 'com.augmentos.augmentos_core';
-
 const App: React.FC = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
-  const [isAugmentOSNotUpdatedString, setIsAugmentOSNotUpdatedString] = useState('');
-  const backendServerComms = BackendServerComms.getInstance();
-  const [filteredApps, setFilteredApps] = useState<AppStoreItem[]>([]);
 
   const toggleTheme = () => {
     setIsDarkTheme(prevTheme => !prevTheme);
   };
-
-  const fetchAppStoreData = async () => {
-    const backendServerComms = BackendServerComms.getInstance();
-
-    const callback = {
-      onSuccess: (data: any) => {
-        setFilteredApps(data); // Assuming the API returns a list of AppStoreItem
-      },
-      onFailure: () => {},
-    };
-
-    backendServerComms.restRequest(GET_APP_STORE_DATA_ENDPOINT, null, callback);
-  };
-
-  useEffect(() => {
-    const fetchConfig = async (packageName: string) => {
-      try {
-        const configJson = await FetchConfigHelperModule.fetchConfig(packageName);
-        const configData = JSON.parse(configJson);
-        console.log('Config file contents:', configData);
-      } catch (error) {
-        console.error('Failed to load config:', error);
-      }
-    };
-
-    fetchConfig(AUGMENTOS_MANAGER_PACKAGE_NAME);
-    fetchConfig(AUGMENTOS_MANAGER_PACKAGE_NAME);
-  }, []);
-
-  if (isAugmentOSNotUpdatedString) {
-    return (
-      <View style={styles.container}>
-        <Text>{isAugmentOSNotUpdatedString}</Text>
-      </View>
-    );
-  }
 
   return (
     <GestureHandlerRootView style={styles.container}>

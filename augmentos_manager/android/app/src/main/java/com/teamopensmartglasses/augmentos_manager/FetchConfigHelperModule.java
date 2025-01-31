@@ -28,7 +28,7 @@ public class FetchConfigHelperModule extends ReactContextBaseJavaModule {
             Resources res = context.getResources();
 
             // Get resource ID dynamically using packageName
-            int resId = res.getIdentifier("augmentos_manager_config", "raw", packageName);
+            int resId = res.getIdentifier("config", "raw", packageName);
 
             if (resId == 0) {
                 promise.reject("CONFIG_NOT_FOUND", "Config file not found in raw resources.");
