@@ -51,6 +51,7 @@ class MainApplication : Application(), ReactApplication {
                 ReactSliderPackage(),
                 NotificationAccessPackage(),
                 TpaHelpersPackage(),
+                FetchConfigHelperPackage(),
             )
         }
 
