@@ -25,7 +25,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     private static SpeechRecAugmentos instance;
 
     private final Context mContext;
-    private final WebSocketStreamManager webSocketManager;
+    private WebSocketStreamManager webSocketManager;
     private final BlockingQueue<byte[]> rollingBuffer;
     private final int bufferMaxSize;
 
@@ -38,7 +38,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
 
     private SpeechRecAugmentos(Context context) {
         this.mContext = context;
-        this.webSocketManager = WebSocketStreamManager.getInstance(getServerUrl());
+        webSocketManager = WebSocketStreamManager.getInstance(getServerUrl());
 
         // Rolling buffer stores last 3 seconds of audio
         this.bufferMaxSize = (int) ((16000 * 0.15 * 2) / 512); // ~150ms buffer (assuming 512-byte chunks)
@@ -258,7 +258,10 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     @Override
     public void destroy() {
         Log.d(TAG, "Destroying Speech Recognition Service");
-        webSocketManager.disconnect();
+        if (webSocketManager != null) {
+            webSocketManager.disconnect();
+            webSocketManager = null;
+        }
     }
 
     public static synchronized SpeechRecAugmentos getInstance(Context context) {

@@ -42,9 +42,9 @@ import java.util.HashMap;
 public class AugmentOSLib {
     public String TAG = "AugmentOSLib_AugmentOSLib";
 
-    private TPABroadcastReceiver augmentosReceiver;
-    private TPABroadcastSender augmentosSender;
-    private Context mContext;
+    private final TPABroadcastReceiver augmentosReceiver;
+    private final TPABroadcastSender augmentosSender;
+    private final Context mContext;
     private AugmentOSCallbackMapper augmentosCallbackMapper;
     private FocusCallback focusCallback;
 
@@ -102,18 +102,21 @@ public class AugmentOSLib {
         subscribe(new StartAsrStreamRequestEvent(languageLocale));
     }
 
+    public void stopTranscription(String language){
+        String languageLocale = SpeechRecUtils.languageToLocale(language);
+        subscribe(new StopAsrStreamRequestEvent(languageLocale));
+    }
+
     public void requestTranslation(String fromLanguage, String toLanguage){
         String fromLanguageLocale = SpeechRecUtils.languageToLocale(fromLanguage);
         String toLanguageLocale = SpeechRecUtils.languageToLocale(toLanguage);
         subscribe(new StartAsrStreamRequestEvent(fromLanguageLocale, toLanguageLocale));
     }
 
-    public void stopTranscription(String language){
-        subscribe(new StopAsrStreamRequestEvent(language));
-    }
-
     public void stopTranslation(String fromLanguage, String toLanguage){
-        subscribe(new StopAsrStreamRequestEvent(fromLanguage, toLanguage));
+        String fromLanguageLocale = SpeechRecUtils.languageToLocale(fromLanguage);
+        String toLanguageLocale = SpeechRecUtils.languageToLocale(toLanguage);
+        subscribe(new StopAsrStreamRequestEvent(fromLanguageLocale, toLanguageLocale));
     }
 
     public void subscribe(StartAsrStreamRequestEvent startAsrStreamRequestEvent) {
@@ -297,7 +300,7 @@ public class AugmentOSLib {
         }
     }
 
-    public void deinit(){
+    public void deinit() {
         EventBus.getDefault().unregister(this);
         if (augmentosReceiver != null) {
             augmentosReceiver.destroy();
