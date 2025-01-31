@@ -71,6 +71,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public static final String LEFT_DEVICE_KEY = "SavedG1LeftName";
     public static final String RIGHT_DEVICE_KEY = "SavedG1RightName";
 
+    private boolean isKilled = false;
 
     private static final UUID UART_SERVICE_UUID = UUID.fromString("6E400001-B5A3-F393-E0A9-E50E24DCCA9E");
     private static final UUID UART_TX_CHAR_UUID = UUID.fromString("6E400002-B5A3-F393-E0A9-E50E24DCCA9E");
@@ -627,6 +628,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     }
 
     private void reconnectToGatt(BluetoothDevice device) {
+        if (isKilled){
+            return;
+        }
         connectToGatt(device); // Reuse the connectToGatt method
     }
 
@@ -1148,6 +1152,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     @Override
     public void destroy() {
         Log.d(TAG, "EvenRealitiesG1SGC ONDESTROY");
+        isKilled = true;
 
         //stop BLE scanning
         stopScan();
@@ -1179,6 +1184,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
         if (rightGlassGatt != null) {
             rightGlassGatt.disconnect();
+        }
+        if (rightGlassGatt != null) {
             rightGlassGatt.close();
             rightGlassGatt = null;
         }
@@ -1215,11 +1222,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         if (rightConnectionTimeoutHandler != null && rightConnectionTimeoutRunnable != null) {
             rightConnectionTimeoutHandler.removeCallbacks(rightConnectionTimeoutRunnable);
         }
-        if (reconnectHandler != null && reconnectHandler != null) {
+        if (reconnectHandler != null) {
             reconnectHandler.removeCallbacksAndMessages(null);
         }
         if (queryBatterStatusHandler != null && queryBatterStatusHandler!= null) {
-            reconnectHandler.removeCallbacksAndMessages(null);
+            queryBatterStatusHandler.removeCallbacksAndMessages(null);
         }
 
         sendQueue.clear();

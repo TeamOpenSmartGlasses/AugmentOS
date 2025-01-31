@@ -756,14 +756,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                         Boolean useDynamicTranscribeLanguage = settings.getBoolean("use_dynamic_transcribe_language");
                         String dynamicTranscribeLanguage = settings.getString("dynamic_transcribe_language");
                         Log.d(TAG, "Should use dynamic? " + useDynamicTranscribeLanguage);
-                        if (useDynamicTranscribeLanguage){
-                            Log.d(TAG, "Switching running transcribe language to: " + dynamicTranscribeLanguage);
-                            if (smartGlassesService != null)
-                                smartGlassesService.switchRunningTranscribeLanguage(dynamicTranscribeLanguage);
-                        } else {
-                            if (smartGlassesService != null)
-                                smartGlassesService.switchRunningTranscribeLanguage(smartGlassesService.getChosenTranscribeLanguage(mContext));
-                        }
+//                        if (useDynamicTranscribeLanguage){
+//                            Log.d(TAG, "Switching running transcribe language to: " + dynamicTranscribeLanguage);
+//                            if (smartGlassesService != null)
+//                                smartGlassesService.switchRunningTranscribeLanguage(dynamicTranscribeLanguage);
+//                        } else {
+//                            if (smartGlassesService != null)
+//                                smartGlassesService.switchRunningTranscribeLanguage(smartGlassesService.getChosenTranscribeLanguage(mContext));
+//                        }
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
