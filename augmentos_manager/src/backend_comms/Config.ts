@@ -1,3 +1,3 @@
 export const Config = {
-    serverUrl: 'https://api.augmentos.org/dev',
+    serverUrl: 'https://api.augmentos.org',
 };
