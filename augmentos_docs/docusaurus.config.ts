@@ -56,11 +56,11 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/augmentos-social-card.jpg',
     navbar: {
       title: 'My Site',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'AugmentOS Logo',
         src: 'img/logo.svg',
       },
       // Only docs in the navbar
