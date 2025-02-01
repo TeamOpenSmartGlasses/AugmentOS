@@ -98,7 +98,7 @@ public class AugmentosBlePeripheral {
     @Subscribe
     public void onManagerToCoreRequestEvent(ManagerToCoreRequestEvent event) {
         try {
-            Log.d(TAG,"Received ManagerToCoreRequestEvent: " + event.jsonData);
+//            Log.d(TAG,"Received ManagerToCoreRequestEvent: " + event.jsonData);
             this.parser.parseMessage(event.jsonData);
 
             if (!isSimulatedPuck) {
@@ -486,7 +486,7 @@ public class AugmentosBlePeripheral {
     @SuppressLint("MissingPermission")
     public void sendDataToAugmentOsManager(String jsonData) {
         if(isSimulatedPuck){
-            Log.d(TAG, "Simulated puck is active, sending data to AugmentOS Manager: " + jsonData);
+//            Log.d(TAG, "Simulated puck is active, sending data to AugmentOS Manager: " + jsonData);
             EventBus.getDefault().post(new CoreToManagerOutputEvent(jsonData));
             return;
         }
