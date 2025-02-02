@@ -26,14 +26,21 @@ interface SettingsPageProps {
   navigation: any;
 }
 
+const parseBrightness = (brightnessStr: string | null | undefined): number => {
+  if (!brightnessStr || brightnessStr.includes('-')) {
+    return 50;
+  }
+  const parsed = parseInt(brightnessStr.replace('%', ''), 10);
+  return isNaN(parsed) ? 50 : parsed;
+};
+
 const SettingsPage: React.FC<SettingsPageProps> = ({
   isDarkTheme,
   toggleTheme,
   navigation,
 }) => {
   const [isDoNotDisturbEnabled, setDoNotDisturbEnabled] = React.useState(false);
-  const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] =
-    React.useState(false);
+  const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] = React.useState(false);
   const { status } = useStatus();
   const [isSensingEnabled, setIsSensingEnabled] = React.useState(
     status.sensing_enabled,
@@ -42,10 +49,8 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     status.contextual_dashboard_enabled,
   );
 
-  const [brightness, setBrightness] = useState(
-    status.glasses_info && status.glasses_info.brightness && !(status.glasses_info.brightness.includes('-'))
-      ? parseInt(status.glasses_info.brightness.replace('%', ''), 10)
-      : 50
+  const [brightness, setBrightness] = useState<number>(
+    parseBrightness(status.glasses_info?.brightness)
   );
 
   React.useEffect(() => {
@@ -55,29 +60,29 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   }, []);
 
   const toggleSensing = async () => {
-    let newSensing = !isSensingEnabled;
+    const newSensing = !isSensingEnabled;
     await BluetoothService.getInstance().sendToggleSensing(newSensing);
     setIsSensingEnabled(newSensing);
   };
 
   const toggleContextualDashboard = async () => {
-    let newContextualDashboardSetting = !isContextualDashboardEnabled;
+    const newContextualDashboardSetting = !isContextualDashboardEnabled;
     await BluetoothService.getInstance().sendToggleContextualDashboard(newContextualDashboardSetting);
     setIsContextualDashboardEnabled(newContextualDashboardSetting);
   };
 
   const changeBrightness = async (newBrightness: number) => {
-    if (status.glasses_info?.brightness === '-') {return;}
+    if (status.glasses_info?.brightness === '-') {
+      return;
+    }
     await BluetoothService.getInstance().setGlassesBrightnessMode(newBrightness, false);
-
     console.log(`Brightness set to: ${newBrightness}`);
   };
-
 
   React.useEffect(() => {
     setIsSensingEnabled(status.sensing_enabled);
     if (status.glasses_info && status.glasses_info.brightness) {
-        setBrightness(parseInt(status.glasses_info.brightness.replace('%', ''), 10));
+      setBrightness(parseBrightness(status.glasses_info.brightness));
     } else {
         console.log('No brightness info found');
     }

@@ -162,6 +162,8 @@ export class BluetoothService extends EventEmitter {
   handleAppStateChange(nextAppState: string) {
     if (nextAppState === 'active') {
       console.log('App became active. Checking connection...');
+      console.log('Connected device:', this.connectedDevice);
+      console.log('Simulated puck:', this.simulatedPuck);
       if (!this.connectedDevice && !this.simulatedPuck) {
         this.scanForDevices();
       }
@@ -779,7 +781,7 @@ export class BluetoothService extends EventEmitter {
           this.removeListener('dataReceived', dataReceivedListener);
           reject(new Error('Response timeout.'));
         }
-      }, 6000);
+      }, 1000);
     }).then(() => {
       return true;
     }).catch((error) => {

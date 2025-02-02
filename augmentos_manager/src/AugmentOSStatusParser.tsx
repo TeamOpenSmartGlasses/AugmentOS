@@ -171,7 +171,6 @@ export class AugmentOSParser {
     if (data && 'status' in data) {
       console.log('data good?');
       let status = data.status;
-      console.log('432432432' , status.connected_glasses.brightness);
 
       return {
         augmentos_core_version: status.augmentos_core_version ?? null,

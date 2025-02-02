@@ -115,7 +115,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
    *    you want to keep it for display in the component.
    */
   const fetchVersionFromStatus = (): string | null => {
-    console.log('AugmentOS Core Version:', status.augmentos_core_version);
+    // console.log('AugmentOS Core Version:', status.augmentos_core_version);
     setLocalVersion(status?.augmentos_core_version);
     return status?.augmentos_core_version ?? null;
   };
@@ -125,7 +125,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
    *    using the local variables (rather than waiting on setState).
    */
   const compareVersions = async (packageName: string) => {
-    console.log('Checking for updates for package:', packageName);
+    // console.log('Checking for updates for package:', packageName);
 
     // Fetch the store data (returns a fresh copy).
     const data = await fetchAppStoreData();
@@ -139,7 +139,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
     }
 
     if (!local) {
-      console.warn('Local version not available for ' + packageName);
+      // console.warn('Local version not available for ' + packageName);
       return '';
     }
 
@@ -157,12 +157,12 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
     }
 
     const storeVer = String(matchedApp.version);
-    console.log('Store App Version:', storeVer);
+    // console.log('Store App Version:', storeVer);
     setStoreVersion(storeVer); // If you need it in your component state
 
-    console.log(
-      `Comparing local version (${local}) with store version (${storeVer})`,
-    );
+    // console.log(
+    //   `Comparing local version (${local}) with store version (${storeVer})`,
+    // );
 
     const appString = packageName === AUGMENTOS_MANAGER_PACKAGE_NAME ? 'AugmentOS Manager' : 'AugmentOS Core';
 
