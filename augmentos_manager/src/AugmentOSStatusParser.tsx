@@ -49,6 +49,8 @@ export class AugmentOSParser {
   static defaultStatus: AugmentOSMainStatus = {
     puck_connected: false,
     puck_battery_life: null,
+    augmentos_core_version: null,
+    contextual_dashboard_enabled: true,
     puck_charging_status: false,
     sensing_enabled: false,
     default_wearable: null,
