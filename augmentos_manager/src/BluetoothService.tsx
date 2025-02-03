@@ -4,7 +4,7 @@ import { EventEmitter } from 'events';
 import { TextDecoder } from 'text-encoding';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { AppState } from 'react-native';
-import { ENABLE_PHONE_NOTIFICATIONS_DEFAULT, MOCK_CONNECTION, SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from './consts';
+import { ENABLE_PHONE_NOTIFICATIONS_DEFAULT, INTENSE_LOGGING, MOCK_CONNECTION, SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from './consts';
 import { loadSetting, saveSetting } from './augmentos_core_comms/SettingsHelper';
 import { openCorePermissionsActivity, startExternalService } from './augmentos_core_comms/CoreServiceStarter';
 import ManagerCoreCommsService from './augmentos_core_comms/ManagerCoreCommsService';
@@ -57,6 +57,9 @@ export class BluetoothService extends EventEmitter {
   async initialize() {
     if (MOCK_CONNECTION) return;
 
+    console.trace();
+    console.log(console.trace());
+    
     // TODO: Temporarily default this to be true
     this.simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, SIMULATED_PUCK_DEFAULT);
 
@@ -106,7 +109,10 @@ export class BluetoothService extends EventEmitter {
 
   initializeCoreMessageIntentReader() {
     eventEmitter.addListener('CoreMessageIntentEvent', jsonString => {
-      console.log('Received message from core:', jsonString);
+      if (INTENSE_LOGGING)
+        console.log('Received message from core:', jsonString);
+      else
+        console.log("Received message from core")
       try {
         let data = JSON.parse(jsonString);
         if (!this.connectedDevice) {
@@ -1009,12 +1015,13 @@ export class BluetoothService extends EventEmitter {
   }
 
   private static bluetoothService: BluetoothService | null = null;
-  public static getInstance(start: boolean = true): BluetoothService {
+  public static getInstance(start: boolean = false): BluetoothService {
     if (!BluetoothService.bluetoothService) {
       BluetoothService.bluetoothService = new BluetoothService();
-      if (start)
+      if (start) {
         BluetoothService.bluetoothService.initialize();
-    }
+      }
+      }
     return BluetoothService.bluetoothService;
   }
 

@@ -7,9 +7,6 @@ import { useStatus } from '../AugmentOSStatusProvider';
 import { NavigationProps } from '../components/types';
 import { useNavigation } from '@react-navigation/native';
 import { getGlassesImage } from '../logic/getGlassesImage';
-import { checkNotificationPermission, NotificationService } from '../augmentos_core_comms/NotificationServiceUtils';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { checkAndRequestNotificationAccessSpecialPermission } from '../utils/NotificationServiceUtils.tsx';
 
 
 interface ConnectedDeviceInfoProps {
@@ -54,42 +51,6 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
         ]).start();
       }
 
-      // Request permissions on Android
-      if (Platform.OS === 'android' && Platform.Version >= 23) {
-        PermissionsAndroid.requestMultiple(getAndroidPermissions()).then(async (result) => {
-          console.log('Permissions granted:', result);
-
-          if (await checkNotificationPermission() && !(await NotificationService.isNotificationListenerEnabled())) {
-            await NotificationService.startNotificationListenerService()
-          }
-
-          const allGranted = Object.values(result).every(
-            (value) => value === PermissionsAndroid.RESULTS.GRANTED
-          );
-
-          if (allGranted) {
-            try {
-              await checkAndRequestNotificationAccessSpecialPermission();
-            } catch (error) {
-              console.warn('Notification permission request error:', error);
-            }
-          } else {
-            console.warn('Some permissions were denied:', result);
-            // Optionally handle partial denial here
-            Alert.alert(
-              'Permissions Required',
-              'Some permissions were denied. Please go to Settings and enable all required permissions for the app to function properly.',
-              [
-                { text: 'OK', style: 'default' }
-              ]
-            );
-          }
-        })
-          .catch((error) => {
-            console.error('Error requesting permissions:', error);
-          });
-      }
-
       // Cleanup function
       return () => {
         fadeAnim.stopAnimation();
@@ -127,28 +88,6 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     try {
       await bluetoothService.sendDisconnectWearable();
     } catch (error) { }
-  }
-
-  const getAndroidPermissions = () : Permission[] => {
-    const list = [];
-
-    if (Platform.OS === 'android') {
-      if (Platform.Version >= 23) {
-        list.push(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
-      }
-
-      if (Platform.Version >= 31) {
-        list.push(PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN);
-        list.push(PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT);
-        list.push(PermissionsAndroid.PERMISSIONS.BLUETOOTH_ADVERTISE);
-      }
-
-      if (Platform.Version >= 33) {
-        list.push(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
-      }
-    }
-
-    return list as Permission[];
   }
 
   const themeStyles = {

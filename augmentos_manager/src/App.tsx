@@ -30,6 +30,7 @@ import 'react-native-url-polyfill/auto';
 import { AuthProvider } from './AuthContext.tsx';
 import VerifyEmailScreen from './screens/VerifyEmail.tsx';
 import PrivacySettingsScreen from './screens/PrivacySettingsScreen.tsx';
+import GrantPermissionsScreen from './screens/GrantPermissionsScreen.tsx';
 
 const linking = {
   prefixes: ['https://augmentos.org'],
@@ -103,6 +104,17 @@ const App: React.FC = () => {
                 >
                   {props => (
                     <PrivacySettingsScreen
+                      {...props}
+                      toggleTheme={toggleTheme}
+                      isDarkTheme={isDarkTheme}
+                    />
+                  )}
+                </Stack.Screen>
+                <Stack.Screen name="GrantPermissionsScreen"
+                  options={{ title: 'Grant Permissions' }}
+                >
+                  {props => (
+                    <GrantPermissionsScreen
                       {...props}
                       toggleTheme={toggleTheme}
                       isDarkTheme={isDarkTheme}

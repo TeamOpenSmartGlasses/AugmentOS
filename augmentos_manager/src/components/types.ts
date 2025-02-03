@@ -18,6 +18,7 @@ export type RootStackParamList = {
   SimulatedPuckOnboard: undefined;
   PhoneNotificationSettings: undefined;
   PrivacySettingsScreen: undefined;
+  GrantPermissionsScreen: undefined;
   SelectGlassesModelScreen: undefined;
   SelectGlassesBluetoothScreen: { glassesModelName: string };
   GlassesPairingGuideScreen: { glassesModelName: string };

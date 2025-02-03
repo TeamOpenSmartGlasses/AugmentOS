@@ -19,6 +19,7 @@ import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper
 import { SETTINGS_KEYS } from '../consts';
 import NavigationBar from '../components/NavigationBar';
 import { supabase } from '../supabaseClient';
+import ManagerCoreCommsService from '../augmentos_core_comms/ManagerCoreCommsService';
 
 interface SettingsPageProps {
   isDarkTheme: boolean;
@@ -45,7 +46,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
 
   const [brightness, setBrightness] = useState(
     status.glasses_info && status.glasses_info.brightness && !(status.glasses_info.brightness.includes('-'))
-      ? parseInt(status.glasses_info.brightness.replace('%', ''), 10)
+      ? 5//parseInt(status.glasses_info.brightness.replace('%', ''), 10)
       : 50
   );
 
@@ -84,7 +85,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   React.useEffect(() => {
     setIsSensingEnabled(status.sensing_enabled);
     if (status.glasses_info && status.glasses_info.brightness) {
-        setBrightness(parseInt(status.glasses_info.brightness.replace('%', ''), 10));
+        setBrightness(safelyParseBrightness(status.glasses_info.brightness));
     } else {
         console.log('No brightness info found');
     }
@@ -99,6 +100,28 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
       Platform.OS === 'ios' ? undefined : isDarkTheme ? '#FFFFFF' : '#FFFFFF',
     ios_backgroundColor: isDarkTheme ? '#666666' : '#D1D1D6',
   };
+
+    // Utility function to safely parse brightness
+  const safelyParseBrightness = (brightnessStr?: string) => {
+    if (!brightnessStr) {
+      // No brightness info => return a default
+      return 50;
+    }
+    // If the brightness includes '-' or any other invalid format, parseInt might fail
+    // so do an explicit check
+    if (brightnessStr.includes('-')) {
+      return 50;
+    }
+
+    // Remove '%' and parse
+    const parsed = parseInt(brightnessStr.replace('%', ''), 10);
+
+    // If parseInt fails, fallback to 50
+    if (isNaN(parsed)) {
+      return 50;
+    }
+    return parsed;
+  }
 
   const sendDisconnectWearable = async () => {
     throw new Error('Function not implemented.');
@@ -135,6 +158,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
       // Handle sign-out error
     } else {
       console.log('Sign-out successful');
+      ManagerCoreCommsService.stopService();
       BluetoothService.resetInstance();
       navigation.reset({
         index: 0,

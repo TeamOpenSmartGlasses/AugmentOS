@@ -16,7 +16,7 @@ import NavigationBar from '../components/NavigationBar';
 import BluetoothService from '../BluetoothService.tsx';
 import semver from 'semver';
 import { NativeModules } from 'react-native';
-const { InstallApkModule, TpaHelpers } = NativeModules;
+const { TpaHelpers } = NativeModules;
 import GlobalEventEmitter from '../logic/GlobalEventEmitter';
 type AppDetailsProps = NativeStackScreenProps<
   RootStackParamList,
@@ -27,6 +27,7 @@ type AppDetailsProps = NativeStackScreenProps<
 };
 import { useStatus } from '../AugmentOSStatusProvider';
 import appStore from "./AppStore.tsx";
+import InstallApkModule from '../logic/InstallApkModule.tsx';
 
 const AppDetails: React.FC<AppDetailsProps> = ({
   route,

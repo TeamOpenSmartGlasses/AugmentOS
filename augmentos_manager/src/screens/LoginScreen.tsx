@@ -62,6 +62,49 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
     }
   }, [formScale, isSigningUp]);
 
+  useEffect(() => {
+    const handleDeepLink = async (event: any) => {
+      console.log('Deep link URL:', event.url);
+      const authParams = parseAuthParams(event.url);
+      if (authParams && authParams.access_token && authParams.refresh_token) {
+        try {
+          // Update the Supabase session manually
+          const { data, error } = await supabase.auth.setSession({
+            access_token: authParams.access_token,
+            refresh_token: authParams.refresh_token,
+          });
+          if (error) {
+            console.error('Error setting session:', error);
+          } else {
+            console.log('Session updated:', data.session);
+          }
+        } catch (err) {
+          console.error('Exception during setSession:', err);
+        }
+      }
+    };
+  
+    const linkingSubscription = Linking.addEventListener('url', handleDeepLink);
+    return () => {
+      linkingSubscription.remove();
+    };
+  }, []);
+
+  const parseAuthParams = (url: string) => {
+    const parts = url.split('#');
+    if (parts.length < 2) return null;
+    const paramsString = parts[1];
+    const params = new URLSearchParams(paramsString);
+    return {
+      access_token: params.get('access_token'),
+      refresh_token: params.get('refresh_token'),
+      token_type: params.get('token_type'),
+      expires_in: params.get('expires_in'),
+      // Add any other parameters you might need
+    };
+  };
+  
+
   const handleGoogleSignIn = async () => {
     console.log('Google button pressed!');
     // Right after returning from the browser (or in the subscription):
@@ -134,7 +177,9 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
         email,
         password,
         options: {
-          emailRedirectTo: redirectUrl,
+      //    emailRedirectTo: redirectUrl,
+          emailRedirectTo: 'com.augmentos://auth/callback',
+
         },
       });
 
@@ -220,13 +265,13 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
             style={[styles.subtitle, { opacity, transform: [{ translateY }] }]}>
             The future of smart glasses starts here
           </Animated.Text>
-          <Animated.View
+          {/* <Animated.View
             style={[styles.header, { opacity, transform: [{ translateY }] }]}>
             <Animated.Image
               source={require('../assets/AOS.png')}
               style={[styles.image, { opacity, transform: [{ translateY }] }]}
             />
-          </Animated.View>
+          </Animated.View> */}
 
           <Animated.View
             style={[styles.content, { opacity, transform: [{ translateY }] }]}>
@@ -318,19 +363,16 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
               </Animated.View>
             ) : (
               <View style={styles.signInOptions}>
-
-                {Platform.OS == 'android' && (
-                  <TouchableOpacity
-                    style={[styles.socialButton, styles.googleButton]}
-                    onPress={handleGoogleSignIn}>
-                    <View style={styles.socialIconContainer}>
-                      <GoogleIcon />
-                    </View>
-                    <Text style={styles.socialButtonText}>
-                      Continue with Google
-                    </Text>
-                  </TouchableOpacity>
-                )}
+                <TouchableOpacity
+                  style={[styles.socialButton, styles.googleButton]}
+                  onPress={handleGoogleSignIn}>
+                  <View style={styles.socialIconContainer}>
+                    <GoogleIcon />
+                  </View>
+                  <Text style={styles.socialButtonText}>
+                    Continue with Google
+                  </Text>
+                </TouchableOpacity>
 
                 {Platform.OS == 'ios' && (
                   <TouchableOpacity
@@ -458,7 +500,7 @@ const styles = StyleSheet.create({
     height: 48,
     borderWidth: 1,
     borderColor: '#E5E7EB',
-    borderRadius: 12,
+    borderRadius: 8,
     paddingHorizontal: 16,
     backgroundColor: 'white',
     shadowColor: '#000',
@@ -528,12 +570,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 12,
-    padding: 14,
+    height: 44, // Add this line
+    paddingHorizontal: 16, // Change from padding to paddingHorizontal
+    borderRadius: 8,
   },
   enhancedPrimaryButton: {
     marginTop: 8,
-    borderRadius: 12,
+    borderRadius: 8,
     overflow: 'hidden',
     shadowColor: '#2196F3',
     shadowOffset: {
@@ -545,7 +588,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   enhancedEmailButton: {
-    borderRadius: 12,
+    borderRadius: 8,
     overflow: 'hidden',
     shadowColor: '#2196F3',
     shadowOffset: {
@@ -571,7 +614,7 @@ const styles = StyleSheet.create({
   enhancedGhostButton: {
     flexDirection: 'row',
     height: 48,
-    borderRadius: 12,
+    borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 16,
