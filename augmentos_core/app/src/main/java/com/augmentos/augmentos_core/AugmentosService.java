@@ -35,6 +35,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.hardware.display.VirtualDisplay;
 import android.media.projection.MediaProjection;
 import android.os.Binder;
@@ -45,6 +48,10 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.service.notification.NotificationListenerService;
 import android.util.Log;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
@@ -120,6 +127,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.UUID;
 //SpeechRecIntermediateOutputEvent
@@ -756,14 +764,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                         Boolean useDynamicTranscribeLanguage = settings.getBoolean("use_dynamic_transcribe_language");
                         String dynamicTranscribeLanguage = settings.getString("dynamic_transcribe_language");
                         Log.d(TAG, "Should use dynamic? " + useDynamicTranscribeLanguage);
-                        if (useDynamicTranscribeLanguage){
-                            Log.d(TAG, "Switching running transcribe language to: " + dynamicTranscribeLanguage);
-                            if (smartGlassesService != null)
-                                smartGlassesService.switchRunningTranscribeLanguage(dynamicTranscribeLanguage);
-                        } else {
-                            if (smartGlassesService != null)
-                                smartGlassesService.switchRunningTranscribeLanguage(smartGlassesService.getChosenTranscribeLanguage(mContext));
-                        }
+//                        if (useDynamicTranscribeLanguage){
+//                            Log.d(TAG, "Switching running transcribe language to: " + dynamicTranscribeLanguage);
+//                            if (smartGlassesService != null)
+//                                smartGlassesService.switchRunningTranscribeLanguage(dynamicTranscribeLanguage);
+//                        } else {
+//                            if (smartGlassesService != null)
+//                                smartGlassesService.switchRunningTranscribeLanguage(smartGlassesService.getChosenTranscribeLanguage(mContext));
+//                        }
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
@@ -970,7 +978,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         JSONArray rootArray = jsonResponse.getJSONArray(notificationFilterKey);
 
         if (rootArray.length() == 0) {
-            Log.d(TAG, "No data found in response");
             return;
         }
 
@@ -1336,12 +1343,37 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
     }
 
+    private String getCoreVersion() {
+        try {
+
+            int resId = this.getResources().getIdentifier("config", "raw", this.getPackageName());
+            if (resId == 0) {
+                Log.w(TAG, "No tpa_config.json found in res/raw!");
+                return "Unknown";
+            }
+
+            InputStream inputStream = this.getResources().openRawResource(resId);
+            Scanner s = new Scanner(inputStream).useDelimiter("\\A");
+            String jsonString = s.hasNext() ? s.next() : "";
+            inputStream.close();
+
+            JSONObject root = new JSONObject(jsonString);
+            String version = root.optString("version");
+            return version;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public JSONObject generateStatusJson() {
         try {
             // Creating the main status object
             JSONObject status = new JSONObject();
 
             // Adding puck battery life and charging status
+            status.put("augmentos_core_version", getCoreVersion());
             status.put("puck_battery_life", batteryStatusHelper.getBatteryLevel());
             status.put("charging_status", batteryStatusHelper.isBatteryCharging());
             status.put("sensing_enabled", SpeechRecSwitchSystem.sensing_enabled);
@@ -1433,13 +1465,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Override
     public void requestPing() {
-        Log.d("AugmentOsService", "Requesting ping: ");
         blePeripheral.sendPing();
     }
 
     @Override
     public void requestStatus() {
-        Log.d("AugmentOsService", "Requesting status: ");
         sendStatusToAugmentOsManager();
     }
 

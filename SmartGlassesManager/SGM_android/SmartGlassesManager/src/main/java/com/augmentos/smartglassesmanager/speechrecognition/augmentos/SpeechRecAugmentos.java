@@ -25,7 +25,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     private static SpeechRecAugmentos instance;
 
     private final Context mContext;
-    private final WebSocketStreamManager webSocketManager;
+    private WebSocketStreamManager webSocketManager;
     private final BlockingQueue<byte[]> rollingBuffer;
     private final int bufferMaxSize;
 
@@ -38,7 +38,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
 
     private SpeechRecAugmentos(Context context) {
         this.mContext = context;
-        this.webSocketManager = WebSocketStreamManager.getInstance(getServerUrl());
+        webSocketManager = WebSocketStreamManager.getInstance(getServerUrl());
 
         // Rolling buffer stores last 3 seconds of audio
         this.bufferMaxSize = (int) ((16000 * 0.15 * 2) / 512); // ~150ms buffer (assuming 512-byte chunks)
@@ -97,7 +97,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
         webSocketManager.addCallback(new WebSocketStreamManager.WebSocketCallback() {
             @Override
             public void onInterimTranscript(String text, String language, long timestamp) {
-                Log.d(TAG, "Got intermediate transcription: " + text + " (language: " + language + ")");
+//                Log.d(TAG, "Got intermediate transcription: " + text + " (language: " + language + ")");
                 if (text != null && !text.trim().isEmpty()) {
                     EventBus.getDefault().post(new SpeechRecOutputEvent(text, language, timestamp, false));
                 }
@@ -105,7 +105,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
 
             @Override
             public void onFinalTranscript(String text, String language, long timestamp) {
-                Log.d(TAG, "Got final transcription: " + text + " (language: " + language + ")");
+//                Log.d(TAG, "Got final transcription: " + text + " (language: " + language + ")");
                 if (text != null && !text.trim().isEmpty()) {
                     EventBus.getDefault().post(new SpeechRecOutputEvent(text, language, timestamp, true));
                 }
@@ -113,8 +113,8 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
 
             @Override
             public void onInterimTranslation(String translatedText, String fromLanguage, String toLanguage, long timestamp) {
-                Log.d(TAG, "Got intermediate translation: " + translatedText +
-                        " (from: " + fromLanguage + ", to: " + toLanguage + ")");
+//                Log.d(TAG, "Got intermediate translation: " + translatedText +
+//                        " (from: " + fromLanguage + ", to: " + toLanguage + ")");
                 if (translatedText != null && !translatedText.trim().isEmpty()) {
                     EventBus.getDefault().post(new TranslateOutputEvent(
                             translatedText,
@@ -128,8 +128,8 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
 
             @Override
             public void onFinalTranslation(String translatedText, String fromLanguage, String toLanguage, long timestamp) {
-                Log.d(TAG, "Got final translation: " + translatedText +
-                        " (from: " + fromLanguage + ", to: " + toLanguage + ")");
+//                Log.d(TAG, "Got final translation: " + translatedText +
+//                        " (from: " + fromLanguage + ", to: " + toLanguage + ")");
                 if (translatedText != null && !translatedText.trim().isEmpty()) {
                     EventBus.getDefault().post(new TranslateOutputEvent(
                             translatedText,
@@ -150,7 +150,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     }
 
     private void sendBufferedAudio() {
-        Log.d(TAG, "Sending buffered audio...");
+//        Log.d(TAG, "Sending buffered audio...");
 
         List<byte[]> bufferDump = new ArrayList<>();
         rollingBuffer.drainTo(bufferDump);
@@ -258,7 +258,10 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     @Override
     public void destroy() {
         Log.d(TAG, "Destroying Speech Recognition Service");
-        webSocketManager.disconnect();
+        if (webSocketManager != null) {
+            webSocketManager.disconnect();
+            webSocketManager = null;
+        }
     }
 
     public static synchronized SpeechRecAugmentos getInstance(Context context) {
