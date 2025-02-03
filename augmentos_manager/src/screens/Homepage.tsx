@@ -17,6 +17,8 @@ import PuckConnection from '../components/PuckConnection';
 import { useStatus } from '../AugmentOSStatusProvider';
 import { ScrollView } from 'react-native-gesture-handler';
 import {
+  AUGMENTOS_CORE_PACKAGE_NAME,
+  AUGMENTOS_MANAGER_PACKAGE_NAME,
   GET_APP_STORE_DATA_ENDPOINT,
   SETTINGS_KEYS,
   SIMULATED_PUCK_DEFAULT,
@@ -36,9 +38,6 @@ interface HomepageProps {
 interface AnimatedSectionProps extends PropsWithChildren {
   delay?: number;
 }
-
-const AUGMENTOS_MANAGER_PACKAGE_NAME = 'com.augmentos.augmentos_manager';
-const AUGMENTOS_CORE_PACKAGE_NAME = 'com.augmentos.augmentos_core';
 
 const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
   const navigation = useNavigation<NavigationProp<any>>();

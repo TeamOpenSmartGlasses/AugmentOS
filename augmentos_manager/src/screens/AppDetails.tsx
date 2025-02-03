@@ -28,6 +28,7 @@ type AppDetailsProps = NativeStackScreenProps<
 import { useStatus } from '../AugmentOSStatusProvider';
 import appStore from "./AppStore.tsx";
 import InstallApkModule from '../logic/InstallApkModule.tsx';
+import { AUGMENTOS_MANAGER_PACKAGE_NAME, AUGMENTOS_CORE_PACKAGE_NAME } from '../consts.tsx';
 
 const AppDetails: React.FC<AppDetailsProps> = ({
   route,
