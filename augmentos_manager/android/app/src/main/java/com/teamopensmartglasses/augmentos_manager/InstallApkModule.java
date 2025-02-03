@@ -1,6 +1,11 @@
 package com.augmentos.augmentos_manager;
 
+import android.app.DownloadManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.Cursor;  // Required for Cursor
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -12,13 +17,6 @@ import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-
-import android.app.DownloadManager;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-
 
 import java.io.File;
 
@@ -34,77 +32,14 @@ public class InstallApkModule extends ReactContextBaseJavaModule {
         return REACT_CLASS; // This is the name used in JS: NativeModules.InstallApkModule
     }
 
-//    @ReactMethod
-//    public void installApk(String packageName, Promise promise) {
-//        try {
-//            // Log the package name being installed
-//            Log.d(REACT_CLASS, "Requested installation of package: " + packageName);
-//
-//            // Define the APK file location
-//            File apkFile = new File(
-//                    Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-//                    packageName + ".apk"
-//            );
-//
-//            // Log the APK file path
-//            Log.d(REACT_CLASS, "APK file path: " + apkFile.getAbsolutePath());
-//
-//            // Ensure the file exists and is not empty
-//            if (!apkFile.exists() || apkFile.length() == 0) {
-//                Log.e(REACT_CLASS, "APK file is missing or 0 bytes: " + apkFile.getAbsolutePath());
-//                promise.reject("APK_FILE_ERROR", "APK file is missing or 0 bytes.");
-//                return;
-//            }
-//
-//            // Use FileProvider for Android 7.0+ and a direct URI for older versions
-//            Uri apkUri;
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-//                apkUri = FileProvider.getUriForFile(
-//                        getReactApplicationContext(),
-//                        getReactApplicationContext().getPackageName() + ".provider",
-//                        apkFile
-//                );
-//            } else {
-//                apkUri = Uri.fromFile(apkFile);
-//            }
-//
-//            // Log the URI generated
-//            Log.d(REACT_CLASS, "APK URI: " + apkUri.toString());
-//
-//            // Create the intent to install the APK
-//            Intent intent = new Intent(Intent.ACTION_VIEW);
-//            intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
-//            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//
-//            // Log before starting the installation intent
-//            Log.d(REACT_CLASS, "Starting installation intent");
-//
-//            // Start the installation process
-//            getReactApplicationContext().startActivity(intent);
-//
-//            // Resolve the promise to indicate success
-//            promise.resolve("Installation started successfully");
-//        } catch (Exception e) {
-//            Log.e(REACT_CLASS, "Error installing APK: ", e);
-//            promise.reject("INSTALL_ERROR", e);
-//        }
-//    }
-
+    // This method currently opens the Downloads folder.
     @ReactMethod
     public void installApk(String packageName, Promise promise) {
         try {
-            // Log the request
             Log.d(REACT_CLASS, "Requested to open the Downloads folder");
-
-            // Create an Intent to view the downloads (system Download Manager screen)
             Intent intent = new Intent(android.app.DownloadManager.ACTION_VIEW_DOWNLOADS);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            // Start the activity
             getReactApplicationContext().startActivity(intent);
-
-            // Let JS know we succeeded
             promise.resolve("Downloads folder opened successfully");
         } catch (Exception e) {
             Log.e(REACT_CLASS, "Error opening Downloads folder: ", e);
@@ -143,10 +78,11 @@ public class InstallApkModule extends ReactContextBaseJavaModule {
                         DownloadManager.Query query = new DownloadManager.Query();
                         query.setFilterById(downloadId);
                         Cursor cursor = downloadManager.query(query);
-                        
+
                         if (cursor.moveToFirst()) {
                             int status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
                             if (status == DownloadManager.STATUS_SUCCESSFUL) {
+                                // Now call the helper method with three parameters.
                                 installDownloadedApk(packageName, downloadedAppName, promise);
                             } else {
                                 promise.reject("DOWNLOAD_FAILED", "Download failed with status: " + status);
@@ -166,8 +102,9 @@ public class InstallApkModule extends ReactContextBaseJavaModule {
         }
     }
 
-    // Helper method to install the downloaded APK
-    private void installDownloadedApk(String packageName, String downloadedFileName) {
+    // Helper method to install the downloaded APK.
+    // The signature is updated to accept a Promise so we can notify the JS side.
+    private void installDownloadedApk(String packageName, String downloadedFileName, Promise promise) {
         try {
             File apkFile = new File(
                     Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
@@ -176,6 +113,7 @@ public class InstallApkModule extends ReactContextBaseJavaModule {
             Log.d(REACT_CLASS, "APK file path: " + apkFile.getAbsolutePath());
             if (!apkFile.exists() || apkFile.length() == 0) {
                 Log.e(REACT_CLASS, "APK file is missing or 0 bytes: " + apkFile.getAbsolutePath());
+                promise.reject("APK_FILE_ERROR", "APK file is missing or 0 bytes.");
                 return;
             }
 
@@ -195,8 +133,10 @@ public class InstallApkModule extends ReactContextBaseJavaModule {
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             getReactApplicationContext().startActivity(intent);
+            promise.resolve("APK installation intent started successfully");
         } catch (Exception e) {
             Log.e(REACT_CLASS, "Error installing downloaded APK: ", e);
+            promise.reject("INSTALL_ERROR", e);
         }
     }
 }
