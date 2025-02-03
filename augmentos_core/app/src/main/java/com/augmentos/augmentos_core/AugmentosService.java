@@ -978,7 +978,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         JSONArray rootArray = jsonResponse.getJSONArray(notificationFilterKey);
 
         if (rootArray.length() == 0) {
-            Log.d(TAG, "No data found in response");
             return;
         }
 
@@ -1360,7 +1359,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             JSONObject root = new JSONObject(jsonString);
             String version = root.optString("version");
-            Log.d(TAG, "Got core version: " + version);
             return version;
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -1381,7 +1379,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             status.put("sensing_enabled", SpeechRecSwitchSystem.sensing_enabled);
             status.put("contextual_dashboard_enabled", this.contextualDashboardEnabled);
             status.put("default_wearable", AugmentosSmartGlassesService.getPreferredWearable(this));
-            Log.d(TAG, "PREFER - Got default wearabe: " + AugmentosSmartGlassesService.getPreferredWearable(this));
 
             // Adding connected glasses object
             JSONObject connectedGlasses = new JSONObject();
@@ -1466,13 +1463,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Override
     public void requestPing() {
-        Log.d("AugmentOsService", "Requesting ping: ");
         blePeripheral.sendPing();
     }
 
     @Override
     public void requestStatus() {
-        Log.d("AugmentOsService", "Requesting status: ");
         sendStatusToAugmentOsManager();
     }
 

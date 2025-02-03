@@ -182,8 +182,6 @@ public class WebSocketStreamManager {
                     String translateLanguage = message.optString("translateLanguage", null);
                     boolean isTranslation = translateLanguage != null;
 
-                    Log.d(TAG, message.toString());
-
                     for (WebSocketCallback callback : callbacks) {
                         if ("interim".equals(type)) {
                             if (isTranslation) {
@@ -284,7 +282,7 @@ public class WebSocketStreamManager {
     }
 
     public void sendVadStatus(boolean isSpeaking) {
-        Log.d(TAG, "Sending VAD status");
+//        Log.d(TAG, "Sending VAD status");
         if (!isConnected || webSocket == null) return;
 
         // Avoid redundant messages
