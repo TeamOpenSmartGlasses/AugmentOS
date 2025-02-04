@@ -143,7 +143,7 @@ public class AuthHandler {
         // 5) If we transitioned from anonymous -> verified, do an alias
         if (tokenValid && !oldAnalyticsId.equals(newAnalyticsId)) {
             // Merge old ID's events into new ID's profile
-            AugmentosService.postHog.alias(newAnalyticsId, oldAnalyticsId);
+            AugmentosService.postHog.alias(oldAnalyticsId, newAnalyticsId);
 
             Log.d(TAG, "Aliased from old: " + oldAnalyticsId + " to new: " + newAnalyticsId);
         }
