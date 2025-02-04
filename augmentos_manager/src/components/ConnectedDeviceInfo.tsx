@@ -21,7 +21,8 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   const bluetoothService = BluetoothService.getInstance();
   const { status, isSearchingForPuck, isConnectingToPuck, refreshStatus } = useStatus();
   const navigation = useNavigation<NavigationProps>();
-  const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [isConnectButtonDisabled, setConnectButtonDisabled] = useState(false);
+  const [isDisconnectButtonDisabled, setDisconnectButtonDisabled] = useState(false);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -67,20 +68,21 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     } catch (error) {
       // Alert.alert('Error', 'Failed to start scanning for devices');
       // console.error('Scanning error:', error);
-      bluetoothService.emit('SHOW_BANNER', { message: 'Failed to start scanning for devices', type: 'error' })
+      bluetoothService.emit('SHOW_BANNER', { message: 'Failed to start scanning for devices', type: 'error' });
     }
   };
 
   const connectGlasses = async () => {
-    if (status.default_wearable == undefined || status.default_wearable == "") {
+    if (status.default_wearable === undefined || status.default_wearable === '') {
       navigation.navigate('SelectGlassesModelScreen');
       return;
     }
 
-    setButtonDisabled(true);
+    setConnectButtonDisabled(true);
+    setDisconnectButtonDisabled(false);
 
     setTimeout(() => {
-      setButtonDisabled(false);
+      setConnectButtonDisabled(false);
     }, 6000);
 
     try {
@@ -91,10 +93,16 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   };
 
   const sendDisconnectWearable = async () => {
+    setDisconnectButtonDisabled(true);
+    setConnectButtonDisabled(false);
+
+    setTimeout(() => {
+      setDisconnectButtonDisabled(false);
+    }, 5000);
     try {
       await bluetoothService.sendDisconnectWearable();
     } catch (error) { }
-  }
+  };
 
   const themeStyles = {
     backgroundColor: isDarkTheme ? '#333333' : '#F2F2F7',
@@ -177,11 +185,14 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                       }
                     </View>
                     <TouchableOpacity
-                      style={styles.disconnectButton}
+                      style={[styles.disconnectButton, isDisconnectButtonDisabled && styles.disabledButton]}
                       onPress={sendDisconnectWearable}
+                      disabled={isDisconnectButtonDisabled}
                     >
                       <Icon name="power-off" size={18} color="white" style={styles.icon} />
-                      <Text style={styles.disconnectText}>Disconnect</Text>
+                      <Text style={styles.disconnectText}>
+                        {isDisconnectButtonDisabled ? 'Disconnecting..' : 'Disconnect'}
+                      </Text>
                     </TouchableOpacity>
                   </Animated.View>
                 </>
@@ -194,12 +205,12 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                   ) : (
                     <View style={styles.noGlassesContent}>
                         <TouchableOpacity
-                          style={[styles.connectButton, isButtonDisabled && styles.disabledButton]}
+                          style={[styles.connectButton, isConnectButtonDisabled && styles.disabledButton]}
                           onPress={connectGlasses}
-                          disabled={isButtonDisabled}
+                          disabled={isConnectButtonDisabled}
                         >
                           <Text style={styles.buttonText}>
-                            {isButtonDisabled ? 'Connecting...' : 'Connect'}
+                            {isConnectButtonDisabled ? 'Connecting...' : 'Connect'}
                           </Text>
                         </TouchableOpacity>
                       </View>
