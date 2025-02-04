@@ -2,13 +2,11 @@ import React, { createContext, useContext, useState, ReactNode, useCallback, use
 import { AugmentOSParser, AugmentOSMainStatus } from './AugmentOSStatusParser';
 import { BluetoothService } from './BluetoothService';
 import { MOCK_CONNECTION } from './consts';
-import GlobalEventEmitter from "./logic/GlobalEventEmitter.tsx";
 
 interface AugmentOSStatusContextType {
     status: AugmentOSMainStatus;
     isSearchingForPuck: boolean;
     isConnectingToPuck: boolean;
-    startBluetoothAndCore: () => void;
     refreshStatus: (data: any) => void;
     screenMirrorItems: { id: string; name: string }[]
 }
@@ -17,11 +15,10 @@ const AugmentOSStatusContext = createContext<AugmentOSStatusContextType | undefi
 
 export const StatusProvider = ({ children }: { children: ReactNode }) => {
     const [status, setStatus] = useState(AugmentOSParser.parseStatus({}));
-    const [isInitialized, setIsInitialized] = useState(false)
     const [isSearchingForPuck, setIsSearching] = useState(false);
     const [isConnectingToPuck, setIsConnecting] = useState(false);
     const [screenMirrorItems, setScreenMirrorItems] = useState<{ id: string; name: string }[]>([]);
-    const bluetoothService = BluetoothService.getInstance(false); // do not initialize yet
+    const bluetoothService = BluetoothService.getInstance();
 
     const refreshStatus = useCallback((data: any) => {
         if (!(data && 'status' in data)) {return;}
@@ -32,16 +29,6 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
     }, []);
 
     useEffect(() => {
-      const handleDeviceDisconnected = () => {
-        console.log('Device disconnected');
-        setStatus(AugmentOSParser.defaultStatus);
-      };
-      GlobalEventEmitter.on('PUCK_DISCONNECTED', handleDeviceDisconnected);
-    }, [bluetoothService]);
-
-    useEffect(() => {
-        if (!isInitialized) return;
-
         const handleStatusUpdateReceived = (data: any) => {
             console.log('Handling received data.. refreshing status..');
             refreshStatus(data);
@@ -73,18 +60,10 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
                 bluetoothService.removeListener('connectingStatusChanged', handleConnectingStatusChanged);
             }
         };
-    }, [bluetoothService, refreshStatus, isInitialized]);
-
-    // 3) Provide a helper function that sets isInitialized,
-    //    calls bluetoothService.initialize(), etc.
-    const startBluetoothAndCore = React.useCallback(() => {
-        console.log("\n\n\nWE CALLED STARTBTANDCORE\n\n\n");
-        bluetoothService.initialize();
-        setIsInitialized(true);
-    }, [bluetoothService]);
+    }, [bluetoothService, refreshStatus]);
 
     return (
-        <AugmentOSStatusContext.Provider value={{ startBluetoothAndCore, isConnectingToPuck, screenMirrorItems, status, isSearchingForPuck, refreshStatus }}>
+        <AugmentOSStatusContext.Provider value={{ isConnectingToPuck, screenMirrorItems, status, isSearchingForPuck, refreshStatus }}>
             {children}
         </AugmentOSStatusContext.Provider>
     );

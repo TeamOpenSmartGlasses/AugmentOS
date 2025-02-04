@@ -13,8 +13,8 @@ import NotificationListener from './components/NotificationListener';
 import AppStore from './screens/AppStore';
 import AppDetails from './screens/AppDetails';
 import Reviews from './screens/ReviewSection.tsx';
-import { StyleSheet, Text, View } from 'react-native';
-import { AppStoreItem, RootStackParamList } from './components/types'; // Update path as needed
+import {StyleSheet, Text, View} from 'react-native';
+import {AppStoreItem, RootStackParamList } from './components/types'; // Update path as needed
 import MessageBanner from './components/MessageBanner.tsx';
 import SimulatedPuckSettings from './screens/SimulatedPuckSettings.tsx';
 import SimulatedPuckOnboard from './screens/SimulatedPuckOnboard.tsx';
@@ -29,9 +29,6 @@ import SplashScreen from './screens/SplashScreen.tsx';
 import 'react-native-url-polyfill/auto';
 import { AuthProvider } from './AuthContext.tsx';
 import VerifyEmailScreen from './screens/VerifyEmail.tsx';
-import PrivacySettingsScreen from './screens/PrivacySettingsScreen.tsx';
-import GrantPermissionsScreen from './screens/GrantPermissionsScreen.tsx';
-import ConnectingToPuckComponent from './components/ConnectingToPuckComponent.tsx';
 
 const linking = {
   prefixes: ['https://augmentos.org'],
@@ -86,16 +83,6 @@ const App: React.FC = () => {
                     />
                   )}
                 </Stack.Screen>
-
-                <Stack.Screen name="ConnectingToPuck" options={{ headerShown: false }}>
-                  {() => (
-                    <ConnectingToPuckComponent
-                      isDarkTheme={isDarkTheme}
-                      toggleTheme={toggleTheme}
-                    />
-                  )}
-                </Stack.Screen>
-
                 <Stack.Screen
                   name="Register"
                   component={RegisterScreen}
@@ -107,28 +94,6 @@ const App: React.FC = () => {
                       {...props}
                       isDarkTheme={isDarkTheme}
                       toggleTheme={toggleTheme}
-                    />
-                  )}
-                </Stack.Screen>
-                <Stack.Screen name="PrivacySettingsScreen"
-                  options={{ title: 'Privacy Settings' }}
-                >
-                  {props => (
-                    <PrivacySettingsScreen
-                      {...props}
-                      toggleTheme={toggleTheme}
-                      isDarkTheme={isDarkTheme}
-                    />
-                  )}
-                </Stack.Screen>
-                <Stack.Screen name="GrantPermissionsScreen"
-                  options={{ title: 'Grant Permissions' }}
-                >
-                  {props => (
-                    <GrantPermissionsScreen
-                      {...props}
-                      toggleTheme={toggleTheme}
-                      isDarkTheme={isDarkTheme}
                     />
                   )}
                 </Stack.Screen>

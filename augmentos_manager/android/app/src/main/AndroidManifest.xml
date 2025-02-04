@@ -59,9 +59,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
         <data
-            android:scheme="com.augmentos"
-            android:host="auth"
-            android:pathPrefix="/callback" />
+            android:scheme="https"
+            android:host="augmentos.org"
+            android:pathPrefix="/verify_email" />
             </intent-filter>
 
         </activity>
