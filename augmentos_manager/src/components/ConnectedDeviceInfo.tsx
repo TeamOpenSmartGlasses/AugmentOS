@@ -83,7 +83,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
 
     setTimeout(() => {
       setConnectButtonDisabled(false);
-    }, 6000);
+    }, 10000);
 
     try {
       if (status.default_wearable && status.default_wearable != "") {
@@ -100,7 +100,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
 
     setTimeout(() => {
       setDisconnectButtonDisabled(false);
-    }, 5000);
+    }, 10000);
     try {
       await bluetoothService.sendDisconnectWearable();
     } catch (error) { }
@@ -193,7 +193,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                     >
                       <Icon name="power-off" size={18} color="white" style={styles.icon} />
                       <Text style={styles.disconnectText}>
-                        {isDisconnectButtonDisabled ? 'Disconnecting..' : 'Disconnect'}
+                        {isDisconnectButtonDisabled ? 'Disconnecting...' : 'Disconnect'}
                       </Text>
                     </TouchableOpacity>
                   </Animated.View>
@@ -404,7 +404,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     justifyContent: 'center',
     marginRight: 5,
-    width: '35%',
+    width: '45%',
   },
   disconnectText: {
     color: '#fff',

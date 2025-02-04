@@ -45,12 +45,21 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
         this.rollingBuffer = new LinkedBlockingQueue<>(bufferMaxSize);
 
         //VAD
-        this.vadPolicy = new VadGateSpeechPolicy(mContext);
-        this.vadPolicy.init(512);
-        setupVadListener();
-        startVadProcessingThread();
+        initVadAsync();
 
         setupWebSocketCallbacks();
+    }
+
+    private void initVadAsync() {
+        new Thread(() -> {
+            // Create and initialize VAD on a background thread
+            vadPolicy = new VadGateSpeechPolicy(mContext);
+            vadPolicy.init(512);
+
+            // Setup VAD listener and processing thread (these should be thread-safe)
+            setupVadListener();
+            startVadProcessingThread();
+        }).start();
     }
 
     private String getServerUrl() {
