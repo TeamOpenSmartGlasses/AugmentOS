@@ -111,7 +111,7 @@ class SmartGlassesRepresentative {
         }
 
         // If the glasses don't support a microphone, handle local microphone
-        if (smartGlassesDevice.useScoMic) {
+        if (smartGlassesDevice.useScoMic || SmartGlassesAndroidService.getForceCoreOnboardMic(context)) {
             connectAndStreamLocalMicrophone(true);
         } else if (!smartGlassesDevice.getHasInMic() && !smartGlassesDevice.getHasOutMic()) {
             connectAndStreamLocalMicrophone(false);

@@ -13,6 +13,7 @@ public interface AugmentOsActionsCallback {
     void startApp(String packageName);
     void stopApp(String packageName);
     void setSensingEnabled(boolean sensingEnabled);
+    void setForceCoreOnboardMic(boolean forceCoreOnboardMic);
     void setContextualDashboardEnabled(boolean contextualDashboardEnabled);
     void installAppFromRepository(String repository, String packageName) throws JSONException;
     void uninstallApp(String packageName);
