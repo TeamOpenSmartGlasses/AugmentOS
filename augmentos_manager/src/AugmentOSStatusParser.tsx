@@ -48,6 +48,7 @@ export interface AugmentOSMainStatus {
 
 export class AugmentOSParser {
   static defaultStatus: AugmentOSMainStatus = {
+    augmentos_core_version: null,
     puck_connected: false,
     puck_battery_life: null,
     puck_charging_status: false,
@@ -62,6 +63,7 @@ export class AugmentOSParser {
   };
 
   static mockStatus: AugmentOSMainStatus = {
+    augmentos_core_version: '1.0.0',
     puck_connected: true,
     puck_battery_life: 88,
     puck_charging_status: true,
@@ -176,7 +178,7 @@ export class AugmentOSParser {
     if (data && 'status' in data) {
       console.log('data good?');
       let status = data.status;
-      console.log('432432432' , status.connected_glasses.brightness);
+      // console.log('432432432' , status.connected_glasses.brightness);
 
       return {
         augmentos_core_version: status.augmentos_core_version ?? null,

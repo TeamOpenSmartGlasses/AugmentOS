@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, ReactNode, useCallback, use
 import { AugmentOSParser, AugmentOSMainStatus } from './AugmentOSStatusParser';
 import { BluetoothService } from './BluetoothService';
 import { MOCK_CONNECTION } from './consts';
+import GlobalEventEmitter from "./logic/GlobalEventEmitter.tsx";
 
 interface AugmentOSStatusContextType {
     status: AugmentOSMainStatus;
@@ -29,6 +30,14 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
         console.log('Parsed status:', parsedStatus);
         setStatus(parsedStatus);
     }, []);
+
+    useEffect(() => {
+      const handleDeviceDisconnected = () => {
+        console.log('Device disconnected');
+        setStatus(AugmentOSParser.defaultStatus);
+      };
+      GlobalEventEmitter.on('PUCK_DISCONNECTED', handleDeviceDisconnected);
+    }, [bluetoothService]);
 
     useEffect(() => {
         if (!isInitialized) return;

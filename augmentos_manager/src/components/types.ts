@@ -16,6 +16,7 @@ export type RootStackParamList = {
   Reviews: { appId: string; appName: string }; // Add appName here
   SimulatedPuckSettings: undefined;
   SimulatedPuckOnboard: undefined;
+  ConnectingToPuck: undefined;
   PhoneNotificationSettings: undefined;
   PrivacySettingsScreen: undefined;
   GrantPermissionsScreen: undefined;
