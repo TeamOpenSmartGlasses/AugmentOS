@@ -525,7 +525,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         authHandler = new AuthHandler(this);
 
-        userId = authHandler.getCoreTokenOwner();
+        userId = authHandler.getUniqueIdForAnalytics();
 
         postHog = new PostHog.Builder(POSTHOG_API_KEY).host(POSTHOG_HOST).build();
 
@@ -945,7 +945,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         try{
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("deviceId", deviceId);
+            Log.d(TAG, "Requesting UI Poll" + userId);
             jsonQuery.put("userId", userId);
+            Log.d(TAG, "Requesting UI Poll" + jsonQuery.toString());
             backendServerComms.restRequest(UI_POLL_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result) throws JSONException {
