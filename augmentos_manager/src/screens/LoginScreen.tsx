@@ -263,7 +263,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
           </Animated.Text>
           <Animated.Text
             style={[styles.subtitle, { opacity, transform: [{ translateY }] }]}>
-            The future of smart glasses starts here
+            The future of smart glasses starts here.
           </Animated.Text>
           {/* <Animated.View
             style={[styles.header, { opacity, transform: [{ translateY }] }]}>
