@@ -27,14 +27,21 @@ interface SettingsPageProps {
   navigation: any;
 }
 
+const parseBrightness = (brightnessStr: string | null | undefined): number => {
+  if (!brightnessStr || brightnessStr.includes('-')) {
+    return 50;
+  }
+  const parsed = parseInt(brightnessStr.replace('%', ''), 10);
+  return isNaN(parsed) ? 50 : parsed;
+};
+
 const SettingsPage: React.FC<SettingsPageProps> = ({
   isDarkTheme,
   toggleTheme,
   navigation,
 }) => {
   const [isDoNotDisturbEnabled, setDoNotDisturbEnabled] = React.useState(false);
-  const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] =
-    React.useState(false);
+  const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] = React.useState(false);
   const { status } = useStatus();
   const [isSensingEnabled, setIsSensingEnabled] = React.useState(
     status.sensing_enabled,
@@ -44,10 +51,8 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     status.contextual_dashboard_enabled,
   );
 
-  const [brightness, setBrightness] = useState(
-    status.glasses_info && status.glasses_info.brightness && !(status.glasses_info.brightness.includes('-'))
-      ? 5//parseInt(status.glasses_info.brightness.replace('%', ''), 10)
-      : 50
+  const [brightness, setBrightness] = useState<number>(
+    parseBrightness(status.glasses_info?.brightness)
   );
 
   React.useEffect(() => {
@@ -57,7 +62,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   }, []);
 
   const toggleSensing = async () => {
-    let newSensing = !isSensingEnabled;
+    const newSensing = !isSensingEnabled;
     await BluetoothService.getInstance().sendToggleSensing(newSensing);
     setIsSensingEnabled(newSensing);
   };
@@ -69,23 +74,24 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   };
 
   const toggleContextualDashboard = async () => {
-    let newContextualDashboardSetting = !isContextualDashboardEnabled;
+    const newContextualDashboardSetting = !isContextualDashboardEnabled;
     await BluetoothService.getInstance().sendToggleContextualDashboard(newContextualDashboardSetting);
     setIsContextualDashboardEnabled(newContextualDashboardSetting);
   };
 
   const changeBrightness = async (newBrightness: number) => {
-    if (status.glasses_info?.brightness === '-') {return;}
+    if (status.glasses_info?.brightness === '-') {
+      return;
+    }
     await BluetoothService.getInstance().setGlassesBrightnessMode(newBrightness, false);
 
     console.log(`Brightness set to: ${newBrightness}`);
   };
 
-
   React.useEffect(() => {
     setIsSensingEnabled(status.sensing_enabled);
     if (status.glasses_info && status.glasses_info.brightness) {
-        setBrightness(safelyParseBrightness(status.glasses_info.brightness));
+      setBrightness(parseBrightness(status.glasses_info.brightness));
     } else {
         console.log('No brightness info found');
     }
@@ -100,28 +106,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
       Platform.OS === 'ios' ? undefined : isDarkTheme ? '#FFFFFF' : '#FFFFFF',
     ios_backgroundColor: isDarkTheme ? '#666666' : '#D1D1D6',
   };
-
-    // Utility function to safely parse brightness
-  const safelyParseBrightness = (brightnessStr?: string) => {
-    if (!brightnessStr) {
-      // No brightness info => return a default
-      return 50;
-    }
-    // If the brightness includes '-' or any other invalid format, parseInt might fail
-    // so do an explicit check
-    if (brightnessStr.includes('-')) {
-      return 50;
-    }
-
-    // Remove '%' and parse
-    const parsed = parseInt(brightnessStr.replace('%', ''), 10);
-
-    // If parseInt fails, fallback to 50
-    if (isNaN(parsed)) {
-      return 50;
-    }
-    return parsed;
-  }
 
   const sendDisconnectWearable = async () => {
     throw new Error('Function not implemented.');

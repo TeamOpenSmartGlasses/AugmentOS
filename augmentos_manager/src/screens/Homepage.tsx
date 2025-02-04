@@ -17,14 +17,12 @@ import PuckConnection from '../components/PuckConnection';
 import { useStatus } from '../AugmentOSStatusProvider';
 import { ScrollView } from 'react-native-gesture-handler';
 import {
-  AUGMENTOS_CORE_PACKAGE_NAME,
-  AUGMENTOS_MANAGER_PACKAGE_NAME,
   GET_APP_STORE_DATA_ENDPOINT,
   SETTINGS_KEYS,
   SIMULATED_PUCK_DEFAULT,
 } from '../consts';
 import { loadSetting } from '../augmentos_core_comms/SettingsHelper';
-import { AppStoreItem } from '../components/types.ts';
+import { AppStoreItem,NavigationProps } from '../components/types.ts';
 import { NativeModules } from 'react-native';
 import BackendServerComms from '../backend_comms/BackendServerComms.tsx';
 const { FetchConfigHelperModule } = NativeModules;
@@ -38,6 +36,9 @@ interface HomepageProps {
 interface AnimatedSectionProps extends PropsWithChildren {
   delay?: number;
 }
+
+const AUGMENTOS_MANAGER_PACKAGE_NAME = 'com.augmentos.augmentos_manager';
+const AUGMENTOS_CORE_PACKAGE_NAME = 'com.augmentos.augmentos_core';
 
 const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
   const navigation = useNavigation<NavigationProp<any>>();
@@ -54,6 +55,15 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
   const backendServerComms = BackendServerComms.getInstance();
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(-50)).current;
+
+  useEffect(() => {
+    if (!status.puck_connected) {
+      navigation.reset({
+        index: 0,
+        routes: [{name: 'ConnectingToPuck'}],
+      });
+    }
+  }, [navigation, status]);
 
   /**
    * 1) Return the fetched store data in a promise so that we can await it
@@ -97,7 +107,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
       const configJson = await FetchConfigHelperModule.fetchConfig(packageName);
       const parsedConfig = JSON.parse(configJson);
       const version = parsedConfig.version;
-      console.log('Local App Version:', version);
+      // console.log('Local App Version:', version);
       setLocalVersion(version); // If you want to display or store it
       return version;
     } catch (error) {
@@ -114,7 +124,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
    *    you want to keep it for display in the component.
    */
   const fetchVersionFromStatus = (): string | null => {
-    console.log('AugmentOS Core Version:', status.augmentos_core_version);
+    // console.log('AugmentOS Core Version:', status.augmentos_core_version);
     setLocalVersion(status?.augmentos_core_version);
     return status?.augmentos_core_version ?? null;
   };
@@ -124,7 +134,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
    *    using the local variables (rather than waiting on setState).
    */
   const compareVersions = async (packageName: string) => {
-    console.log('Checking for updates for package:', packageName);
+    // console.log('Checking for updates for package:', packageName);
 
     // Fetch the store data (returns a fresh copy).
     const data = await fetchAppStoreData();
@@ -138,7 +148,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
     }
 
     if (!local) {
-      console.warn('Local version not available for ' + packageName);
+      // console.warn('Local version not available for ' + packageName);
       return '';
     }
 
@@ -156,12 +166,12 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
     }
 
     const storeVer = String(matchedApp.version);
-    console.log('Store App Version:', storeVer);
+    // console.log('Store App Version:', storeVer);
     setStoreVersion(storeVer); // If you need it in your component state
 
-    console.log(
-      `Comparing local version (${local}) with store version (${storeVer})`,
-    );
+    // console.log(
+    //   `Comparing local version (${local}) with store version (${storeVer})`,
+    // );
 
     const appString = packageName === AUGMENTOS_MANAGER_PACKAGE_NAME ? 'AugmentOS Manager' : 'AugmentOS Core';
 
@@ -173,7 +183,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
       console.log('Local version is ahead of store version.');
       return '';
     } else {
-      console.log('Local version is up-to-date.');
+      // console.log('Local version is up-to-date.');
       return '';
     }
   };

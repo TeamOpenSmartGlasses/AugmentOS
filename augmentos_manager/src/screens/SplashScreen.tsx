@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect,useRef, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
@@ -17,20 +17,20 @@ interface SplashScreenProps {
 const SplashScreen: React.FC<SplashScreenProps> = ({}) => {
   const navigation = useNavigation<NavigationProps>();
   const { user, loading } = useAuth();
-  const { startBluetoothAndCore } = useStatus();
+  const { status, startBluetoothAndCore } = useStatus();
 
   useEffect(() => {
     const initializeApp = async () => {
       const simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, SIMULATED_PUCK_DEFAULT);
       let previouslyBondedPuck = await loadSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, false);
-      
+
       // Handle core being uninstalled
       if (simulatedPuck && !(await isAugmentOsCoreInstalled())) {
         await saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, false);
         previouslyBondedPuck = false;
       }
 
-      /* 
+      /*
       The purpose of SplashScreen is to route the user wherever the user needs to be
       If they're not logged in => login screen
       If they're logged in, but no perms => perm screen
@@ -40,15 +40,30 @@ const SplashScreen: React.FC<SplashScreenProps> = ({}) => {
         if (await doesHaveAllPermissions()) {
           startBluetoothAndCore();
           if (previouslyBondedPuck) {
-            navigation.reset({
-              index: 0,
-              routes: [{ name: 'Home' }],
-            });
+            if(status.puck_connected) {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'Home' }],
+              });
+            } else {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'ConnectingToPuck' }],
+              });
+            }
           } else if (simulatedPuck) {
-            navigation.reset({
-              index: 0,
-              routes: [{ name: 'SimulatedPuckOnboard' }],
-            });
+            if (status.puck_connected) {
+              navigation.reset({
+                index: 0,
+                routes: [{name: 'SimulatedPuckOnboard'}],
+              });
+            } else {
+              console.log('Status:', status);
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'ConnectingToPuck' }],
+              });
+            }
           } else {
             navigation.reset({
               index: 0,
@@ -69,9 +84,10 @@ const SplashScreen: React.FC<SplashScreenProps> = ({}) => {
       }
     };
 
-    if (!loading)
+    if (!loading) {
       initializeApp();
-  }, [navigation, user, loading]);
+    }
+  }, [navigation, user, loading, status, startBluetoothAndCore]);
 
   return (
     <View style={styles.container}>

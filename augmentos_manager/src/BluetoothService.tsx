@@ -59,7 +59,7 @@ export class BluetoothService extends EventEmitter {
 
     console.trace();
     console.log(console.trace());
-    
+
     // TODO: Temporarily default this to be true
     this.simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, SIMULATED_PUCK_DEFAULT);
 
@@ -251,7 +251,7 @@ export class BluetoothService extends EventEmitter {
         //this.sendHeartbeat();
         this.reconnectionTimer = setTimeout(
           performScan,
-          this.connectedDevice ? 30000 : 500,
+          this.connectedDevice ? 500 : 500,
         );
       }
 
@@ -782,10 +782,11 @@ export class BluetoothService extends EventEmitter {
       const timeout = setTimeout(() => {
         if (!responseReceived) {
           console.log('validateResponseFromCore: No response. Triggering reconnection...');
+          GlobalEventEmitter.emit('PUCK_DISCONNECTED', { message: 'Response timeout.' });
           this.removeListener('dataReceived', dataReceivedListener);
           reject(new Error('Response timeout.'));
         }
-      }, 6000);
+      }, 4500);
     }).then(() => {
       return true;
     }).catch((error) => {

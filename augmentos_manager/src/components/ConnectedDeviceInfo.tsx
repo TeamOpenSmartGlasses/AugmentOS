@@ -21,6 +21,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   const bluetoothService = BluetoothService.getInstance();
   const { status, isSearchingForPuck, isConnectingToPuck, refreshStatus } = useStatus();
   const navigation = useNavigation<NavigationProps>();
+  const [isButtonDisabled, setButtonDisabled] = useState(false);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -76,6 +77,11 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
       return;
     }
 
+    setButtonDisabled(true);
+
+    setTimeout(() => {
+      setButtonDisabled(false);
+    }, 6000);
 
     try {
       await bluetoothService.sendConnectWearable(status.default_wearable);
@@ -187,10 +193,16 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                     </View>
                   ) : (
                     <View style={styles.noGlassesContent}>
-                      <TouchableOpacity style={styles.connectButton} onPress={connectGlasses}>
-                        <Text style={styles.buttonText}>Connect</Text>
-                      </TouchableOpacity>
-                    </View>
+                        <TouchableOpacity
+                          style={[styles.connectButton, isButtonDisabled && styles.disabledButton]}
+                          onPress={connectGlasses}
+                          disabled={isButtonDisabled}
+                        >
+                          <Text style={styles.buttonText}>
+                            {isButtonDisabled ? 'Connecting...' : 'Connect'}
+                          </Text>
+                        </TouchableOpacity>
+                      </View>
                   )}
                 </View>
               )}
@@ -357,6 +369,9 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 8,
     width: '80%',
+  },
+  disabledButton: {
+    backgroundColor: '#A9A9A9',
   },
   icon: {
     marginRight: 4,
