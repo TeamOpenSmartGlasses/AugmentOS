@@ -83,7 +83,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
 
     setTimeout(() => {
       setConnectButtonDisabled(false);
-    }, 6000);
+    }, 10000);
 
     try {
       await bluetoothService.sendConnectWearable(status.default_wearable);
@@ -98,7 +98,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
 
     setTimeout(() => {
       setDisconnectButtonDisabled(false);
-    }, 5000);
+    }, 10000);
     try {
       await bluetoothService.sendDisconnectWearable();
     } catch (error) { }
