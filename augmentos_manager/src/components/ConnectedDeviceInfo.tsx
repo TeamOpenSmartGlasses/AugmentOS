@@ -193,7 +193,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                     >
                       <Icon name="power-off" size={18} color="white" style={styles.icon} />
                       <Text style={styles.disconnectText}>
-                        {isDisconnectButtonDisabled ? 'Disconnecting...' : 'Disconnect'}
+                        {isDisconnectButtonDisabled ? 'Disconnecting' : 'Disconnect'}
                       </Text>
                     </TouchableOpacity>
                   </Animated.View>
@@ -404,7 +404,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     justifyContent: 'center',
     marginRight: 5,
-    width: '45%',
+    width: '40%',
   },
   disconnectText: {
     color: '#fff',
