@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {
   View,
   Text,
@@ -10,20 +10,18 @@ import {
   SafeAreaView,
   Alert,
   BackHandler,
-  Platform,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import GoogleIcon from '../icons/GoogleIcon';
 import AppleIcon from '../icons/AppleIcon';
 import { supabase } from '../supabaseClient';
-import { Linking } from 'react-native';
 
 interface LoginScreenProps {
   navigation: any;
 }
 
-const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
+const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
   const [isSigningUp, setIsSigningUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -62,104 +60,23 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
     }
   }, [formScale, isSigningUp]);
 
-  useEffect(() => {
-    const handleDeepLink = async (event: any) => {
-      console.log('Deep link URL:', event.url);
-      const authParams = parseAuthParams(event.url);
-      if (authParams && authParams.access_token && authParams.refresh_token) {
-        try {
-          // Update the Supabase session manually
-          const { data, error } = await supabase.auth.setSession({
-            access_token: authParams.access_token,
-            refresh_token: authParams.refresh_token,
-          });
-          if (error) {
-            console.error('Error setting session:', error);
-          } else {
-            console.log('Session updated:', data.session);
-          }
-        } catch (err) {
-          console.error('Exception during setSession:', err);
-        }
-      }
-    };
-  
-    const linkingSubscription = Linking.addEventListener('url', handleDeepLink);
-    return () => {
-      linkingSubscription.remove();
-    };
-  }, []);
-
-  const parseAuthParams = (url: string) => {
-    const parts = url.split('#');
-    if (parts.length < 2) return null;
-    const paramsString = parts[1];
-    const params = new URLSearchParams(paramsString);
-    return {
-      access_token: params.get('access_token'),
-      refresh_token: params.get('refresh_token'),
-      token_type: params.get('token_type'),
-      expires_in: params.get('expires_in'),
-      // Add any other parameters you might need
-    };
-  };
-  
-
   const handleGoogleSignIn = async () => {
-    console.log('Google button pressed!');
-    // Right after returning from the browser (or in the subscription):
-    //const { data: sessionData } = await supabase.auth.getSession();
-    //console.log('OG session:', sessionData.session);
-
-
     try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-          // Must match the deep link scheme/host/path in your AndroidManifest.xml
-          redirectTo: 'com.augmentos://auth/callback',
-        },
-      });
-
-      // 2) If there's an error, handle it
-      if (error) {
-        console.error('Supabase Google sign-in error:', error);
-        Alert.alert('Authentication Error', error.message);
-        return;
-      }
-
-      // 3) If we get a `url` back, we must open it ourselves in RN
-      if (data?.url) {
-        console.log("Opening browser with:", data.url);
-        await Linking.openURL(data.url);
-      }
-
-      // Right after returning from the browser (or in the subscription):
-      const { data: sessionData } = await supabase.auth.getSession();
-      console.log('Current session:', sessionData.session);
-
-
-      // This will open the default browser (Chrome, etc.) to the Google OAuth page.
-      // After a successful sign-in, Google redirects the user to:
-      //   com.augmentos://auth/callback
-      // Android sees that intent-filter in your Manifest, and opens your app again.
-
-    } catch (err) {
-      console.error('Google sign in failed:', err);
-      Alert.alert('Authentication Error', 'Google sign in failed. Please try again.');
+      // Implement Google sign in logic
+      console.log('Google sign in');
+      // After successful sign in
+      navigation.replace('Home');
+    } catch (error) {
+      console.error('Google sign in failed:', error);
     }
-
-    console.log('signInWithOAuth call finished');
-
   };
-
 
   const handleAppleSignIn = async () => {
     try {
       // Implement Apple sign in logic
       console.log('Apple sign in');
       // After successful sign in
-      navigation.replace('SplashScreen');
+      navigation.replace('Home');
     } catch (error) {
       console.error('Apple sign in failed:', error);
     }
@@ -167,29 +84,27 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
   const handleEmailSignUp = async (email: string, password: string) => {
     setIsFormLoading(true);
-
+    
     try {
       //const redirectUrl = encodeURIComponent("com.augmentos.augmentos_manager://verify_email/");
-      const redirectUrl = "https://augmentos.org/verify-email"; // No encoding needed
+      const redirectUrl = "https://augmentos.org/verify_email"; // No encoding needed
       //const redirectUrl = "com.augmentos.augmentos_manager://verify_email/";
 
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
-      //    emailRedirectTo: redirectUrl,
-          emailRedirectTo: 'com.augmentos://auth/callback',
-
+          emailRedirectTo: redirectUrl,
         },
       });
-
+  
       if (error) {
         Alert.alert("Error", error.message);
       } else if (!data.session) {
         Alert.alert("Please check your inbox for email verification!");
       } else {
         console.log("Sign-up successful:", data);
-        navigation.replace("SplashScreen");
+        navigation.replace("Home");
       }
     } catch (err) {
       console.error("Error during sign-up:", err);
@@ -198,7 +113,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       setIsFormLoading(false);
     }
   };
-
+  
 
   const handleEmailSignIn = async (email: string, password: string) => {
     setIsFormLoading(true)
@@ -206,51 +121,32 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       email,
       password,
     });
-
+  
     if (error) {
       Alert.alert(error.message);
       // Handle sign-in error
     } else {
       console.log('Sign-in successful:', data);
-      //navigation.replace('SplashScreen');
+      navigation.replace('Home');
     }
     setIsFormLoading(false)
   }
 
-  useEffect(() => {
-    const backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
-      if (backPressCount === 0) {
-        setBackPressCount(1);
-        setTimeout(() => setBackPressCount(0), 2000);
-        Alert.alert('Press back again to exit');
-        return true;
-      } else {
-        BackHandler.exitApp();
-        return true;
-      }
-    });
+useEffect(() => {
+  const backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
+    if (backPressCount === 0) {
+      setBackPressCount(1);
+      setTimeout(() => setBackPressCount(0), 2000);
+      Alert.alert('Press back again to exit');
+      return true;
+    } else {
+      BackHandler.exitApp();
+      return true;
+    }
+  });
 
-    return () => backHandler.remove();
-  }, [backPressCount]);
-
-  useEffect(() => {
-    // Subscribe to auth state changes:
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log('onAuthStateChange event:', event, session);
-      if (session) {
-        // If session is present, user is authenticated
-        navigation.replace('SplashScreen');
-      }
-    });
-
-    // Cleanup subscription on unmount
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, []);
-
+  return () => backHandler.remove();
+}, [backPressCount]);
 
 
   return (
@@ -258,26 +154,26 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.card}>
           <Animated.Text
-            style={[styles.title, { opacity, transform: [{ translateY }] }]}>
+            style={[styles.title, {opacity, transform: [{translateY}]}]}>
             AugmentOS
           </Animated.Text>
           <Animated.Text
-            style={[styles.subtitle, { opacity, transform: [{ translateY }] }]}>
+            style={[styles.subtitle, {opacity, transform: [{translateY}]}]}>
             The future of smart glasses starts here
           </Animated.Text>
-          {/* <Animated.View
-            style={[styles.header, { opacity, transform: [{ translateY }] }]}>
+          <Animated.View
+            style={[styles.header, {opacity, transform: [{translateY}]}]}>
             <Animated.Image
               source={require('../assets/AOS.png')}
-              style={[styles.image, { opacity, transform: [{ translateY }] }]}
+              style={[styles.image, {opacity, transform: [{translateY}]}]}
             />
-          </Animated.View> */}
+          </Animated.View>
 
           <Animated.View
-            style={[styles.content, { opacity, transform: [{ translateY }] }]}>
+            style={[styles.content, {opacity, transform: [{translateY}]}]}>
             {isSigningUp ? (
               <Animated.View
-                style={[styles.form, { transform: [{ scale: formScale }] }]}>
+                style={[styles.form, {transform: [{scale: formScale}]}]}>
 
 
                 <View style={styles.inputGroup}>
@@ -323,7 +219,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
                 <TouchableOpacity
                   style={styles.enhancedPrimaryButton}
-                  onPress={() => { handleEmailSignIn(email, password) }}
+                  onPress={() => {handleEmailSignIn(email,password)}}
                   disabled={isFormLoading}>
                   <LinearGradient
                     colors={['#2196F3', '#1E88E5']}
@@ -336,7 +232,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
                 <TouchableOpacity
                   style={styles.enhancedPrimaryButton}
-                  onPress={() => { handleEmailSignUp(email, password) }}
+                  onPress={() => {handleEmailSignUp(email,password)}}
                   disabled={isFormLoading}>
                   <LinearGradient
                     colors={['#2196F3', '#1E88E5']}
@@ -363,7 +259,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
               </Animated.View>
             ) : (
               <View style={styles.signInOptions}>
-                <TouchableOpacity
+                {/* <TouchableOpacity
                   style={[styles.socialButton, styles.googleButton]}
                   onPress={handleGoogleSignIn}>
                   <View style={styles.socialIconContainer}>
@@ -374,25 +270,23 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
                   </Text>
                 </TouchableOpacity>
 
-                {Platform.OS == 'ios' && (
-                  <TouchableOpacity
-                    style={[styles.socialButton, styles.appleButton]}
-                    onPress={handleAppleSignIn}>
-                    <View style={styles.socialIconContainer}>
-                      <AppleIcon />
-                    </View>
-                    <Text
-                      style={[styles.socialButtonText, styles.appleButtonText]}>
-                      Continue with Apple
-                    </Text>
-                  </TouchableOpacity>
-                )}
+                <TouchableOpacity
+                  style={[styles.socialButton, styles.appleButton]}
+                  onPress={handleAppleSignIn}>
+                  <View style={styles.socialIconContainer}>
+                    <AppleIcon />
+                  </View>
+                  <Text
+                    style={[styles.socialButtonText, styles.appleButtonText]}>
+                    Continue with Apple
+                  </Text>
+                </TouchableOpacity>
 
                 <View style={styles.dividerContainer}>
                   <View style={styles.divider} />
                   <Text style={styles.dividerText}>Or</Text>
                   <View style={styles.divider} />
-                </View>
+                </View> */}
 
                 <TouchableOpacity
                   style={styles.enhancedEmailButton}
@@ -415,7 +309,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
             )}
           </Animated.View>
 
-          <Animated.Text style={[styles.termsText, { opacity }]}>
+          <Animated.Text style={[styles.termsText, {opacity}]}>
             By continuing, you agree to our Terms of Service and Privacy Policy
           </Animated.Text>
         </View>
@@ -424,7 +318,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   );
 };
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
@@ -500,7 +394,7 @@ const styles = StyleSheet.create({
     height: 48,
     borderWidth: 1,
     borderColor: '#E5E7EB',
-    borderRadius: 8,
+    borderRadius: 12,
     paddingHorizontal: 16,
     backgroundColor: 'white',
     shadowColor: '#000',
@@ -570,13 +464,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 44, // Add this line
-    paddingHorizontal: 16, // Change from padding to paddingHorizontal
-    borderRadius: 8,
+    borderRadius: 12,
+    padding: 14,
   },
   enhancedPrimaryButton: {
     marginTop: 8,
-    borderRadius: 8,
+    borderRadius: 12,
     overflow: 'hidden',
     shadowColor: '#2196F3',
     shadowOffset: {
@@ -588,7 +481,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   enhancedEmailButton: {
-    borderRadius: 8,
+    borderRadius: 12,
     overflow: 'hidden',
     shadowColor: '#2196F3',
     shadowOffset: {
@@ -614,7 +507,7 @@ const styles = StyleSheet.create({
   enhancedGhostButton: {
     flexDirection: 'row',
     height: 48,
-    borderRadius: 8,
+    borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 16,

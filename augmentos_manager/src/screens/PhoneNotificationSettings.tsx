@@ -19,7 +19,7 @@ import { ENABLE_PHONE_NOTIFICATIONS_DEFAULT, SETTINGS_KEYS } from '../consts';
 import ManagerCoreCommsService from '../augmentos_core_comms/ManagerCoreCommsService';
 import { openCorePermissionsActivity, stopExternalService } from '../augmentos_core_comms/CoreServiceStarter';
 import { ScrollView } from 'react-native-gesture-handler';
-import { checkNotificationPermission, NotificationService, requestNotificationPermission, } from '../augmentos_core_comms/NotificationServiceUtils';
+import { checkAndRequestNotificationPermission, NotificationService, } from '../augmentos_core_comms/NotificationServiceUtils';
 import GlobalEventEmitter from '../logic/GlobalEventEmitter';
 
 interface PhoneNotificationSettingsProps {
@@ -51,18 +51,22 @@ const PhoneNotificationSettings: React.FC<PhoneNotificationSettingsProps> = ({
   const toggleEnablePhoneNotification = async () => {
     let newEnablePhoneNotification = !isEnablePhoneNotification;
     if (newEnablePhoneNotification) {
-      if ((await checkNotificationPermission()) && (await requestNotificationPermission())) {
+      let hasPermission = await checkAndRequestNotificationPermission();
+      if (hasPermission) {
         console.log("We have notification perms!!!")
-        if (await NotificationService.isNotificationListenerEnabled()) {
-          console.log('Notification listener already enabled');
-        } else {
-          await NotificationService.startNotificationListenerService();
-        }
       } else {
         console.log("Don't have permissions oh well sad")
         GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Lacking permissions to display notifications', type: 'error' });
-        newEnablePhoneNotification = false;
+        // TODO: Bring up permissions screen
         return;
+      }
+    }
+
+    if (newEnablePhoneNotification) {
+      if (await NotificationService.isNotificationListenerEnabled()) {
+        console.log('Notification listener already enabled');
+      } else {
+        await NotificationService.startNotificationListenerService();
       }
     } else {
       await NotificationService.stopNotificationListenerService();
@@ -135,9 +139,9 @@ const PhoneNotificationSettings: React.FC<PhoneNotificationSettingsProps> = ({
       {isEnablePhoneNotification && (
         <View style={{ marginTop: 20 }}>
           <Text style={[
-            styles.stepNumber,
-            isDarkTheme ? styles.lightText : styles.darkText,
-          ]}>Coming soon: Edit notification settings for individual apps here</Text>
+                styles.stepNumber,
+                isDarkTheme ? styles.lightText : styles.darkText,
+              ]}>Coming soon: Edit notification settings for individual apps here</Text>
         </View>
       )}
     </ScrollView>

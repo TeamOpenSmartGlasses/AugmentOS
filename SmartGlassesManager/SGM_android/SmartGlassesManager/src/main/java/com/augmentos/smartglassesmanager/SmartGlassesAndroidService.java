@@ -307,21 +307,6 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     }
 
     /** Gets the preferred wearable from shared preference. */
-    public static boolean getForceCoreOnboardMic(Context context) {
-//        Log.d(TAG, "GETTING PREFERRED WEARABLE");
-        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(context.getResources().getString(R.string.FORCE_CORE_ONBOARD_MIC), false);
-    }
-
-    /** Saves the preferred wearable in user shared preference. */
-    public static void saveForceCoreOnboardMic(Context context, boolean toForce) {
-//        Log.d(TAG, "SAVING PREFERRED WEARABLE");
-        PreferenceManager.getDefaultSharedPreferences(context)
-                .edit()
-                .putBoolean(context.getResources().getString(R.string.FORCE_CORE_ONBOARD_MIC), toForce)
-                .apply();
-    }
-
-    /** Gets the preferred wearable from shared preference. */
     public static String getPreferredWearable(Context context) {
 //        Log.d(TAG, "GETTING PREFERRED WEARABLE");
         return PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.PREFERRED_WEARABLE), "");

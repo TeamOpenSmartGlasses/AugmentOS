@@ -64,11 +64,6 @@ public class AugmentOsManagerMessageParser {
                     callback.setSensingEnabled(sensingEnabled);
                     break;
 
-                case "force_core_onboard_mic":
-                    boolean toForceCoreOnboardMic = commandObject.getJSONObject("params").getBoolean("enabled");
-                    callback.setForceCoreOnboardMic(toForceCoreOnboardMic);
-                    break;
-
                 case "enable_contextual_dashboard":
                     boolean dashboardEnabled = commandObject.getJSONObject("params").getBoolean("enabled");
                     callback.setContextualDashboardEnabled(dashboardEnabled);
