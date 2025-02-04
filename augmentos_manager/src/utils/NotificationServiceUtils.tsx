@@ -2,6 +2,14 @@ import { Alert, NativeModules, Platform } from 'react-native';
 
 const { NotificationAccess } = NativeModules;
 
+export async function checkNotificationAccessSpecialPermission() {
+  if (Platform.OS !== 'android') {
+    return false;
+  }
+
+  return await NotificationAccess.hasNotificationAccess();
+}
+
 export async function checkAndRequestNotificationAccessSpecialPermission() {
   if (Platform.OS !== 'android') {
     return;
@@ -20,6 +28,7 @@ export async function checkAndRequestNotificationAccessSpecialPermission() {
             onPress: () => {
               NotificationAccess.requestNotificationAccess()
                 .then(() => {
+                  console.log("YAY THE THING DID THE THING")
                 })
                 .catch((err: any) => {
                   console.error('Error opening notification settings:', err);
