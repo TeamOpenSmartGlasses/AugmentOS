@@ -532,7 +532,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Map<String, Object> props = new HashMap<>();
         props.put("timestamp", System.currentTimeMillis());
         props.put("device_info", DeviceInfo.getDeviceInfo());
-        postHog.capture(userId, "augmentos_service_started", props);
+        postHog.capture(authHandler.getUniqueIdForAnalytics(), "augmentos_service_started", props);
 
         //make responses holder
         responsesBuffer = new ArrayList<>();
@@ -1151,11 +1151,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
 
         //see if we should update user settings
-        boolean shouldUpdateSettingsResult = response.has(shouldUpdateSettingsKey) && response.getBoolean(shouldUpdateSettingsKey);
-        if (shouldUpdateSettingsResult){
-            Log.d(TAG, "Running get settings because shouldUpdateSettings true");
-            getSettings();
-        }
+//        boolean shouldUpdateSettingsResult = response.has(shouldUpdateSettingsKey) && response.getBoolean(shouldUpdateSettingsKey);
+//        if (shouldUpdateSettingsResult){
+//            Log.d(TAG, "Running get settings because shouldUpdateSettings true");
+//            getSettings();
+//        }
     }
 
     public void parseLocationResults(JSONObject response) throws JSONException {
@@ -1765,10 +1765,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Override
-    public void setAuthSecretKey(String authSecretKey) {
+    public void setAuthSecretKey(String uniqueUserId, String authSecretKey) {
         Log.d("AugmentOsService", "Setting auth secret key: " + authSecretKey);
         authHandler.setAuthSecretKey(authSecretKey);
-        authHandler.verifyAuthSecretKey();
+        authHandler.verifyAuthSecretKey(uniqueUserId);
         sendStatusToAugmentOsManager();
     }
 
@@ -1777,8 +1777,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Deleting auth secret key");
         // Logic to verify the authentication key
         // (Ping a server /login or /verify route & return the result to aosManager)
-        authHandler.verifyAuthSecretKey();
-        sendStatusToAugmentOsManager();
+        //authHandler.verifyAuthSecretKey();
+        //sendStatusToAugmentOsManager();
     }
 
     @Override

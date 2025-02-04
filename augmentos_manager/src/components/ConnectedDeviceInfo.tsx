@@ -86,7 +86,9 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     }, 6000);
 
     try {
-      await bluetoothService.sendConnectWearable(status.default_wearable);
+      if (status.default_wearable && status.default_wearable != "") {
+        await bluetoothService.sendConnectWearable(status.default_wearable);
+      }
     } catch (error) {
       console.error('connect 2 glasses error:', error);
     }

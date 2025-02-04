@@ -92,8 +92,9 @@ public class AugmentOsManagerMessageParser {
                     break;
 
                 case "set_auth_secret_key":
+                    String userId = commandObject.getJSONObject("params").getString("userId");
                     String authKey = commandObject.getJSONObject("params").getString("authSecretKey");
-                    callback.setAuthSecretKey(authKey);
+                    callback.setAuthSecretKey(userId, authKey);
                     break;
 
                 case "verify_auth_secret_key":

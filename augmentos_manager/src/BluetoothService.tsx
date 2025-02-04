@@ -953,11 +953,12 @@ export class BluetoothService extends EventEmitter {
     await this.validateResponseFromCore();
   }
 
-  async setAuthenticationSecretKey(authSecretKey: string) {
+  async setAuthenticationSecretKey(userId: string, authSecretKey: string) {
     console.log('setAuthenticationSecretKey');
     return await this.sendDataToAugmentOs({
       command: 'set_auth_secret_key',
       params: {
+        userId: userId,
         authSecretKey: authSecretKey,
       },
     });

@@ -18,7 +18,7 @@ public interface AugmentOsActionsCallback {
     void installAppFromRepository(String repository, String packageName) throws JSONException;
     void uninstallApp(String packageName);
     void handleNotificationData(JSONObject notificationData);
-    void setAuthSecretKey(String authSecretKey);
+    void setAuthSecretKey(String userId, String authSecretKey);
     void verifyAuthSecretKey();
     void deleteAuthSecretKey();
     void updateAppSettings(String targetApp, JSONObject settings);

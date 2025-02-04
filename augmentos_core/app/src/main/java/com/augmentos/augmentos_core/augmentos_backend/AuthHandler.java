@@ -108,7 +108,8 @@ public class AuthHandler {
         saveToStorage();
     }
 
-    public void verifyAuthSecretKey() {
+    // TODO: This is a hacky stopgap- in the future, get this fro. the backend
+    public void verifyAuthSecretKey(String uniqueUserId) {
         Log.d(TAG, "Verifying auth secret key");
         if (coreToken == null || coreToken.isEmpty()) {
             Log.w(TAG, "No auth secret key set, cannot verify.");
@@ -121,7 +122,8 @@ public class AuthHandler {
 
         // TODO:  "fake" verification logic
         boolean tokenValid = true; // Imagine a real API call to /verify
-        String tokenOwner = "bob@gmail.com"; // Returned by server
+        String tokenOwner = uniqueUserId;
+        //String tokenOwner = "bob@gmail.com"; // Returned by server
 
         String oldAnalyticsId = getUniqueIdForAnalytics();
 

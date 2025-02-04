@@ -31,6 +31,12 @@ export interface AppInfo {
   type: string;
 }
 
+export interface CoreAuthInfo {
+  core_token_owner: string;
+  core_token_status: string;
+  last_verification_timestamp: number;
+}
+
 export interface AugmentOSMainStatus {
   augmentos_core_version: string | null;
   puck_connected: boolean;
@@ -44,6 +50,7 @@ export interface AugmentOSMainStatus {
   wifi: WifiConnection | null;
   gsm: GSMConnection | null;
   apps: AppInfo[];
+  auth: CoreAuthInfo;
 }
 
 export class AugmentOSParser {
@@ -60,6 +67,11 @@ export class AugmentOSParser {
     wifi: { is_connected: false, ssid: '', signal_strength: 0 },
     gsm: { is_connected: false, carrier: '', signal_strength: 0 },
     apps: [],
+    auth: {
+      core_token_owner: '',
+      core_token_status: '',
+      last_verification_timestamp: 0
+    }
   };
 
   static mockStatus: AugmentOSMainStatus = {
@@ -171,6 +183,11 @@ export class AugmentOSParser {
         type: 'APP'
       },
     ],
+    auth: {
+      core_token_owner: '',
+      core_token_status: '',
+      last_verification_timestamp: 0
+    }
   };
 
   static parseStatus(data: any): AugmentOSMainStatus {
@@ -209,6 +226,11 @@ export class AugmentOSParser {
           icon: app.icon || '/assets/icons/default-app.png',
           type: app.type || 'APP',
         })) || [],
+        auth: {
+          core_token_owner: status.auth.core_token_owner,
+          core_token_status: status.auth.core_token_status,
+          last_verification_timestamp: status.auth.last_verification_timestamp,
+        },
       };
     }
     return AugmentOSParser.defaultStatus;
