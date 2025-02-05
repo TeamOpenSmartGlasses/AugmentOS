@@ -11,6 +11,10 @@ import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import androidx.core.content.FileProvider;
 
 import com.facebook.react.bridge.Promise;
@@ -65,7 +69,12 @@ public class InstallApkModule extends ReactContextBaseJavaModule {
             DownloadManager.Request request = new DownloadManager.Request(uri);
             request.setTitle("Downloading " + appName);
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-            String downloadedAppName = appName.replace(" ", "") + "_" + version + ".apk";
+            
+            // Generate unique filename with timestamp
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
+            String timestamp = sdf.format(new Date());
+            String downloadedAppName = appName.replace(" ", "") + "_" + version + "_" + timestamp + ".apk";
+        
             request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, downloadedAppName);
 
             long downloadId = downloadManager.enqueue(request);
