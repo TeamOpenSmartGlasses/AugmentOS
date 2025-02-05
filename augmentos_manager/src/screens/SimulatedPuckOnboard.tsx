@@ -1,28 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
   StyleSheet,
-  Switch,
-  TouchableOpacity,
-  Platform,
-  Linking,
-  Alert,
-  BackHandler,
   AppState,
+  ActivityIndicator,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useStatus } from '../AugmentOSStatusProvider';
-import BluetoothService from '../BluetoothService';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
-import { SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from '../consts';
-import ManagerCoreCommsService from '../augmentos_core_comms/ManagerCoreCommsService';
-import { isAugmentOsCoreInstalled, openCorePermissionsActivity, stopExternalService } from '../augmentos_core_comms/CoreServiceStarter';
+import { loadSetting } from '../augmentos_core_comms/SettingsHelper';
+import {
+  SETTINGS_KEYS,
+  SIMULATED_PUCK_DEFAULT,
+  AUGMENTOS_CORE_PACKAGE_NAME,
+} from '../consts';
+import {
+  isAugmentOsCoreInstalled,
+  openCorePermissionsActivity,
+} from '../augmentos_core_comms/CoreServiceStarter';
 import { ScrollView } from 'react-native-gesture-handler';
 import { NavigationProps } from '../components/types';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from '../components/Button';
 import InstallApkModule from '../logic/InstallApkModule';
+import { fetchAppStoreData } from '../utils/backendUtils.ts';
 
 interface SimulatedPuckOnboardProps {
   isDarkTheme: boolean;
@@ -31,129 +32,205 @@ interface SimulatedPuckOnboardProps {
 
 const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
   isDarkTheme,
-  toggleTheme
+  toggleTheme,
 }) => {
-  const [isSimulatedPuck, setIsSimulatedPuck] = React.useState(false);
-  const [isCoreInstalled, setIsCoreInstalled] = React.useState(false);
+  const [isSimulatedPuck, setIsSimulatedPuck] = useState(false);
+  const [isCoreInstalled, setIsCoreInstalled] = useState(false);
+  const [isCoreOutdated, setIsCoreOutdated] = useState(true);
+  const [isDownloadingCore, setIsDownloadingCore] = useState(false);
+  const [appStoreVersion, setAppStoreVersion] = useState<string | null>(null);
+  // Single loading gate
+  const [isLoading, setIsLoading] = useState(true);
+
   const { status } = useStatus();
-  const [isDownloadingCore, setIsDownloadingCore] = React.useState(false);
-  //const bluetoothService = BluetoothService.getInstance();
   const navigation = useNavigation<NavigationProps>();
 
-  const handleInstallLink = () => {
-    //const url = 'https://augmentos.org/install-augmentos-core';
-    //Linking.openURL(url).catch(err =>
-    //  console.error('Failed to open URL:', err),
-    //);
-    setIsDownloadingCore(true);
-    InstallApkModule.downloadCoreApk().then(()=>{
+  // Use a ref flag to ensure we only fetch the app store data once.
+  const didFetchStoreData = useRef(false);
 
-    }).finally(() => {
-      setIsDownloadingCore(false);
-    });
+  // ---------------------------------------------------------------
+  // 1) On mount or when status changes, initialize:
+  //    load settings, (conditionally) fetch store data,
+  //    and check installation status.
+  // ---------------------------------------------------------------
+  useEffect(() => {
+    const initialize = async () => {
+      try {
+        // 1. Load the "simulated puck" setting
+        const simulatedPuck = await loadSetting(
+          SETTINGS_KEYS.SIMULATED_PUCK,
+          SIMULATED_PUCK_DEFAULT
+        );
+        setIsSimulatedPuck(simulatedPuck);
 
-  };
+        // 2. Fetch data from app store only once.
+        if (!didFetchStoreData.current) {
+          didFetchStoreData.current = true;
+          const storeData = await fetchAppStoreData();
+          const matchedApp = storeData.find(
+            (app) => app.packageName === AUGMENTOS_CORE_PACKAGE_NAME
+          );
+          const storeVersion = matchedApp?.version ?? null;
+          setAppStoreVersion(storeVersion);
+        }
 
-  React.useEffect(() => {
-    const loadSimulatedPuckSetting = async () => {
-      const simulatedPuck = await loadSetting(
-        SETTINGS_KEYS.SIMULATED_PUCK,
-        SIMULATED_PUCK_DEFAULT,
-      );
-      setIsSimulatedPuck(simulatedPuck);
+        // 3. Check if core is installed
+        const installed = await isAugmentOsCoreInstalled();
+        setIsCoreInstalled(installed);
+      } catch (error) {
+        console.error('Error in initialization:', error);
+      }
+
+      // 4. Done loading everything we need for the initial screen
+      setIsLoading(false);
     };
 
-    loadSimulatedPuckSetting();
-  }, []);
+    initialize();
+  }, [status]); // status remains in dependencies
 
+  // ---------------------------------------------------------------
+  // 2) When status, appStoreVersion, or isCoreInstalled change,
+  //    compare the local core version with the store version.
+  // ---------------------------------------------------------------
+  useEffect(() => {
+    if (isCoreInstalled && appStoreVersion && status?.augmentos_core_version) {
+      if (status.augmentos_core_version === appStoreVersion) {
+        setIsCoreOutdated(false);
+        // Open permission screen immediately if needed.
+        openCorePermissionsActivity();
+      } else {
+        setIsCoreOutdated(true);
+      }
+    }
+  }, [status, appStoreVersion, isCoreInstalled]);
+
+  // ---------------------------------------------------------------
+  // 3) If we detect the puck connected, the core is installed, and it
+  //    is not outdated => navigate to Home.
+  // ---------------------------------------------------------------
+  useEffect(() => {
+    if (!isLoading && status?.puck_connected && isCoreInstalled && !isCoreOutdated) {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Home' }],
+      });
+    }
+  }, [status, isCoreInstalled, isCoreOutdated, isLoading, navigation]);
+
+  // ---------------------------------------------------------------
+  // 4) Listen for app state changes to update installation status,
+  //    but do *not* set isLoading to true again.
+  // ---------------------------------------------------------------
   useEffect(() => {
     const subscription = AppState.addEventListener('change', async (nextAppState) => {
       if (nextAppState === 'active') {
+        // Re-check installation state quickly (no isLoading flip)
         const installed = await isAugmentOsCoreInstalled();
-        if (installed) {
+        setIsCoreInstalled(installed);
+        // If installed and no need to update => open permission screen
+        if (installed && !isCoreOutdated) {
           openCorePermissionsActivity();
         }
       }
     });
 
     return () => {
-      // Clean up the subscription when the component unmounts
       subscription.remove();
     };
-  }, []);
+  }, [isCoreOutdated]);
 
-  // Initial check for core installation
-  useEffect(() => {
-    const checkCoreInstallation = async () => {
-      const installed = await isAugmentOsCoreInstalled();
-      setIsCoreInstalled(installed);
-      openCorePermissionsActivity();
+  // ---------------------------------------------------------------
+  // 5) Handler for installing/updating the core
+  // ---------------------------------------------------------------
+  const handleInstallLink = () => {
+    setIsDownloadingCore(true);
+    InstallApkModule.downloadCoreApk()
+      .then(() => {
+        // Optionally re-check installation/version after download.
+      })
+      .finally(() => {
+        setIsDownloadingCore(false);
+      });
+  };
 
-      // If not installed, start polling
-      if (!installed) {
-        const intervalId = setInterval(async () => {
-          const currentStatus = await isAugmentOsCoreInstalled();
-          if (currentStatus) {
-            setIsCoreInstalled(true);
-            clearInterval(intervalId);
-            openCorePermissionsActivity();
-          }
-        }, 1000);
+  // ---------------------------------------------------------------
+  // If "isLoading" is true, show ONE smooth loader
+  // ---------------------------------------------------------------
+  if (isLoading) {
+    return (
+      <View style={[styles.container, styles.loadingContainer]}>
+        <ActivityIndicator
+          size="large"
+          color={isDarkTheme ? '#FFFFFF' : '#2196F3'}
+        />
+        <Text
+          style={[
+            styles.loadingText,
+            isDarkTheme ? styles.lightText : styles.darkText,
+          ]}
+        >
+          Loading...
+        </Text>
+      </View>
+    );
+  }
 
-        // Cleanup interval on component unmount
-        return () => clearInterval(intervalId);
-      }
-    };
+  // ---------------------------------------------------------------
+  // Past this point, we show the normal UI
+  // ---------------------------------------------------------------
+  const instructionText = isCoreInstalled
+    ? 'Your AugmentOS Core is outdated. Please update AugmentOS Core to continue.'
+    : "To use AugmentOS, you'll need to install AugmentOS Core.";
 
-    checkCoreInstallation();
-  }, []);
-
-  useEffect(() => {
-    const doCoreConnectionCheck = async () => {
-      if (status.puck_connected) {
-        navigation.reset({
-          index: 0,
-          routes: [{ name: 'Home' }],
-        });
-      }
-    };
-
-    doCoreConnectionCheck();
-  }, [status]);
+  const buttonText = isCoreInstalled
+    ? 'Update AugmentOS Core'
+    : 'Install AugmentOS Core';
 
   return (
     <View
       style={[
         styles.container,
         isDarkTheme ? styles.darkBackground : styles.lightBackground,
-      ]}>
+      ]}
+    >
       <ScrollView style={styles.scrollViewContainer}>
         <View style={styles.contentContainer}>
           <View style={styles.iconContainer}>
-            <Icon name="cellphone-link" size={80} color={isDarkTheme ? '#FFFFFF' : '#2196F3'} />
+            <Icon
+              name="cellphone-link"
+              size={80}
+              color={isDarkTheme ? '#FFFFFF' : '#2196F3'}
+            />
           </View>
 
-          <Text style={[styles.title, isDarkTheme ? styles.lightText : styles.darkText]}>
+          <Text
+            style={[
+              styles.title,
+              isDarkTheme ? styles.lightText : styles.darkText,
+            ]}
+          >
             AugmentOS Setup
           </Text>
-          
-          <Text style={[styles.description, isDarkTheme ? styles.lightSubtext : styles.darkSubtext]}>
-            To use AugmentOS, you'll need to install AugmentOS Core
+
+          <Text
+            style={[
+              styles.description,
+              isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
+            ]}
+          >
+            {instructionText}
           </Text>
 
           {isSimulatedPuck && (
             <View style={styles.setupContainer}>
-                <Button
-              onPress={handleInstallLink}
-              isDarkTheme={isDarkTheme}
-              disabled={isDownloadingCore}
-              iconName="download">
-              Install AugmentOS Core
-            </Button>
-
-              {/* <Text style={[styles.statusText, isDarkTheme ? styles.lightText : styles.darkText]}>
-                Connection Status: {status.puck_connected ? 'Connected' : 'Not Connected'}
-              </Text> */}
+              <Button
+                onPress={handleInstallLink}
+                isDarkTheme={isDarkTheme}
+                disabled={isDownloadingCore}
+                iconName="download"
+              >
+                {buttonText}
+              </Button>
             </View>
           )}
         </View>
@@ -163,8 +240,14 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  container: { flex: 1 },
+  loadingContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    marginTop: 16,
+    fontSize: 16,
   },
   scrollViewContainer: {
     flex: 1,
@@ -203,41 +286,6 @@ const styles = StyleSheet.create({
   setupContainer: {
     width: '100%',
     alignItems: 'center',
-  },
-  button: {
-    width: '100%',
-    maxWidth: 300,
-    height: 44,
-    backgroundColor: '#2196F3',
-    borderRadius: 8,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-  },
-  buttonDark: {
-    backgroundColor: '#1976D2',
-  },
-  buttonIcon: {
-    marginRight: 8,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
-    fontFamily: 'Montserrat-Bold',
-  },
-  statusText: {
-    fontSize: 16,
-    textAlign: 'center',
-    marginTop: 24,
   },
   darkBackground: {
     backgroundColor: '#1c1c1c',

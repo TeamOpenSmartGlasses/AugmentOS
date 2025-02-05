@@ -41,7 +41,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
         webSocketManager = WebSocketStreamManager.getInstance(getServerUrl());
 
         // Rolling buffer stores last 3 seconds of audio
-        this.bufferMaxSize = (int) ((16000 * 0.15 * 2) / 512); // ~150ms buffer (assuming 512-byte chunks)
+        this.bufferMaxSize = (int) ((16000 * 0.22 * 2) / 512); // ~150ms buffer (assuming 512-byte chunks)
         this.rollingBuffer = new LinkedBlockingQueue<>(bufferMaxSize);
 
         //VAD

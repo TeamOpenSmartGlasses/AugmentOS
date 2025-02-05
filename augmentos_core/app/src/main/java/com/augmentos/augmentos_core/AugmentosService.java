@@ -548,7 +548,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         wifiStatusHelper = new WifiStatusHelper(this);
         gsmStatusHelper = new GsmStatusHelper(this);
 
-        notificationSystem = new NotificationSystem(this);
+        notificationSystem = new NotificationSystem(this, userId);
 
         contextualDashboardEnabled = getContextualDashboardEnabled();
         //startNotificationService();

@@ -22,11 +22,13 @@ import {
   SIMULATED_PUCK_DEFAULT,
 } from '../consts';
 import { loadSetting } from '../augmentos_core_comms/SettingsHelper';
-import { AppStoreItem,NavigationProps } from '../components/types.ts';
+import { AppStoreItem, NavigationProps } from '../components/types.ts';
 import { NativeModules } from 'react-native';
 import BackendServerComms from '../backend_comms/BackendServerComms.tsx';
 const { FetchConfigHelperModule } = NativeModules;
 import semver from 'semver';
+import { AUGMENTOS_MANAGER_PACKAGE_NAME, AUGMENTOS_CORE_PACKAGE_NAME } from '../consts';
+import { fetchAppStoreData } from '../utils/backendUtils.ts';
 
 interface HomepageProps {
   isDarkTheme: boolean;
@@ -36,9 +38,6 @@ interface HomepageProps {
 interface AnimatedSectionProps extends PropsWithChildren {
   delay?: number;
 }
-
-const AUGMENTOS_MANAGER_PACKAGE_NAME = 'com.augmentos.augmentos_manager';
-const AUGMENTOS_CORE_PACKAGE_NAME = 'com.augmentos.augmentos_core';
 
 const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
   const navigation = useNavigation<NavigationProp<any>>();
@@ -52,7 +51,6 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
   const [isAugmentOSNotUpdatedString, setIsAugmentOSNotUpdatedString] =
     useState('');
 
-  const backendServerComms = BackendServerComms.getInstance();
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(-50)).current;
 
@@ -64,39 +62,6 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
       });
     }
   }, [navigation, status]);
-
-  /**
-   * 1) Return the fetched store data in a promise so that we can await it
-   *    and reliably proceed once the data is actually available.
-   */
-  const fetchAppStoreData = async (): Promise<AppStoreItem[]> => {
-    return new Promise<AppStoreItem[]>((resolve, reject) => {
-      const callback = {
-        onSuccess: (data: AppStoreItem[]) => {
-          setAppStoreData(data);
-          resolve(data);
-        },
-        onFailure: (error: any) => {
-          console.log('Failed to fetch app store data:', error);
-          reject(error);
-        },
-      };
-
-      // Wrap the restRequest call in a try/catch just like you had, but
-      // also reject on error so we can handle it in the Promise chain.
-      try {
-        backendServerComms
-          .restRequest(GET_APP_STORE_DATA_ENDPOINT, null, callback)
-          .catch((error: any) => {
-            console.log('Error during restRequest:', error);
-            reject(error);
-          });
-      } catch (error) {
-        console.log('Error during restRequest:', error);
-        reject(error);
-      }
-    });
-  };
 
   /**
    * 2) Fetch the local config for the manager; return the version instead
@@ -134,8 +99,6 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
    *    using the local variables (rather than waiting on setState).
    */
   const compareVersions = async (packageName: string) => {
-    // console.log('Checking for updates for package:', packageName);
-
     // Fetch the store data (returns a fresh copy).
     const data = await fetchAppStoreData();
 
@@ -188,25 +151,38 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
     }
   };
 
+  useEffect(() => {
+      const checkCoreUpdates = async () => {
+          const isCoreNotUpToDateString = await compareVersions(
+                AUGMENTOS_CORE_PACKAGE_NAME,
+          );
+
+          if (isCoreNotUpToDateString) {
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'SimulatedPuckOnboard' }],
+            });
+          }
+      };
+
+      checkCoreUpdates();
+  }, []);
+
   // Call both checks and concatenate any "update needed" messages
   useEffect(() => {
     const checkUpdates = async () => {
-
       const isManagerNotUpToDateString = await compareVersions(
         AUGMENTOS_MANAGER_PACKAGE_NAME,
-      );
-      const isCoreNotUpToDateString = await compareVersions(
-        AUGMENTOS_CORE_PACKAGE_NAME,
       );
 
       // If either returned a string, show them together
       setIsAugmentOSNotUpdatedString(
-        ((isManagerNotUpToDateString + '\n' ?? '') + (isCoreNotUpToDateString ?? '')).trim(),
+        (isManagerNotUpToDateString + '\n' ?? '').trim(),
       );
     };
 
     checkUpdates();
-  }, [status]);
+  }, []);
 
 
   // Simple animated wrapper so we do not duplicate logic

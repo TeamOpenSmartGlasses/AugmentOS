@@ -31,10 +31,12 @@ public class NotificationSystem {
     private BackendServerComms backendServerComms;
     private long lastDataSentTime = 0;
     Context context;
+    private final String userId;
 
-    public NotificationSystem(Context context) {
+    public NotificationSystem(Context context, String userId) {
         notificationQueue = new ArrayList<>();
         backendServerComms = BackendServerComms.getInstance(context);
+        this.userId = userId;
         EventBus.getDefault().register(this);
         this.context = context;
     }
@@ -81,7 +83,7 @@ public class NotificationSystem {
                 notificationsArray.put(notifJson);
             }
             requestWrapper.put("notifications", notificationsArray);
-            requestWrapper.put("userId", getUserId());
+            requestWrapper.put("userId", userId);
 
             backendServerComms.restRequest(SEND_NOTIFICATIONS_ENDPOINT, requestWrapper, new VolleyJsonCallback() {
                 @Override
@@ -100,25 +102,6 @@ public class NotificationSystem {
         } catch (JSONException e) {
             Log.e(TAG, "Error sending notifications: " + e.getMessage());
         }
-    }
-
-    private String getUserId() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String userId = prefs.getString("user_id", "");
-
-        Log.d(TAG, "User ID: " + userId);
-
-        if (userId.isEmpty()) {
-            // Generate a random UUID string if no userId exists
-            userId = UUID.randomUUID().toString();
-
-            // Save the new userId to SharedPreferences
-            prefs.edit()
-                    .putString("user_id", userId)
-                    .apply();
-        }
-
-        return userId;
     }
 
     public void parseSendNotificationsResult(JSONObject response) {
