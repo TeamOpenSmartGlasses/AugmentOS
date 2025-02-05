@@ -36,7 +36,7 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
 }) => {
   const [isSimulatedPuck, setIsSimulatedPuck] = useState(false);
   const [isCoreInstalled, setIsCoreInstalled] = useState(false);
-  const [isCoreOutdated, setIsCoreOutdated] = useState(false);
+  const [isCoreOutdated, setIsCoreOutdated] = useState(true);
   const [isDownloadingCore, setIsDownloadingCore] = useState(false);
   const [appStoreVersion, setAppStoreVersion] = useState<string | null>(null);
   // Single loading gate
