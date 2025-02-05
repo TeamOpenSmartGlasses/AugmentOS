@@ -249,7 +249,7 @@ export class BluetoothService extends EventEmitter {
         //this.sendHeartbeat();
         this.reconnectionTimer = setTimeout(
           performScan,
-          this.connectedDevice ? 5000 : 5000,
+          this.connectedDevice ? 4000 : 4000,
         );
       }
 
