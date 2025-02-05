@@ -105,6 +105,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 8; //super small just in case
     private static final long DELAY_BETWEEN_ACTIONS_SEND = 250; //not using now
     private static final long HEARTBEAT_INTERVAL_MS = 30000;
+    private static final long MICBEAT_INTERVAL_MS = (1000 * 60) * 30; //micbeat every 30 minutes
 
     private int leftReconnectAttempts = 0;
     private int rightReconnectAttempts = 0;
@@ -119,6 +120,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private boolean isScanning = false;
 
     private Runnable heartbeatRunnable;
+
+    //mic heartbeat turn on
+    private Handler micBeatHandler = new Handler();
+    private Runnable micBeatRunnable;
 
     //white list sender
     private Handler whiteListHandler = new Handler();
@@ -238,6 +243,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         }
 
                         stopHeartbeat();
+                        stopMicBeat();
                         sendQueue.clear();
                         updateConnectionState();
 
@@ -282,6 +288,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     }
                 } else {
                     stopHeartbeat();
+                    stopMicBeat();
                     sendQueue.clear();
 
                     Log.e(TAG, side + " glass connection failed with status: " + status);
@@ -354,6 +361,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             //start heartbeat
                             startHeartbeat(3000);
 
+                            //start mic beat
+                            startMicBeat(30000);
+
                             //start sending debug notifications
                             //                        startPeriodicNotifications(302);
                             //start sending debug notifications
@@ -368,7 +378,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             @Override
             public void onCharacteristicWrite(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
                 if (status == BluetoothGatt.GATT_SUCCESS) {
-                    Log.d(TAG, side + " glass write successful");
+//                    Log.d(TAG, side + " glass write successful");
                 } else {
                     Log.e(TAG, side + " glass write failed with status: " + status);
 
@@ -413,7 +423,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                                 throw new IllegalStateException("Failed to decode LC3 data");
                             }
 
-                            Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName);
+//                            Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName);
                             if (deviceName.contains("R_")) {
                                 //Log.d(TAG, "Ignoring...");
 //                                Log.d(TAG, "Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
@@ -1252,6 +1262,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         //stop sending heartbeat
         stopHeartbeat();
 
+        //stop sending micbeat
+        stopMicBeat();
+
         // Stop periodic notifications
         stopPeriodicNotifications();
 
@@ -1429,6 +1442,20 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         heartbeatHandler.postDelayed(heartbeatRunnable, delay);
     }
 
+    //periodically send a mic ON request so it never turns off
+    private void startMicBeat(int delay) {
+        micBeatRunnable = new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG, "SENDING MIC BEAT");
+                setMicEnabled(true, 1);
+                micBeatHandler.postDelayed(this, MICBEAT_INTERVAL_MS);
+            }
+        };
+
+        micBeatHandler.postDelayed(micBeatRunnable, delay);
+    }
+
     @Override
     public void findCompatibleDeviceNames() {
         if (isScanningForCompatibleDevices) {
@@ -1537,9 +1564,13 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         if (heartbeatHandler != null) {
             heartbeatHandler.removeCallbacksAndMessages(null);
             heartbeatHandler.removeCallbacksAndMessages(heartbeatRunnable);
+        }
+    }
 
-            // TODO: Evaluate this but pretty sure we should not set this to null here, only ondestroy
-            //heartbeatHandler = null;
+    private void stopMicBeat() {
+        if (micBeatHandler != null) {
+            micBeatHandler.removeCallbacksAndMessages(null);
+            micBeatHandler.removeCallbacksAndMessages(micBeatRunnable);
         }
     }
 
@@ -1561,7 +1592,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         byte[] batteryQueryPacket = constructBatteryLevelQuery();
 //        Log.d(TAG, "Sending battery status query: " + bytesToHex(batteryQueryPacket));
 
-        sendDataSequentially(batteryQueryPacket, false);
+        sendDataSequentially(batteryQueryPacket, false, 150);
     }
 
     public void sendBrightnessCommand(int brightness, boolean autoLight) {
@@ -1618,7 +1649,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 buffer.put(command);
                 buffer.put(enableByte);
 
-                sendDataSequentially(buffer.array(), false, true, 150); //wait some time to setup the mic
+                sendDataSequentially(buffer.array(), false, true, 300); //wait some time to setup the mic
                 Log.d(TAG, "Sent MIC command: " + bytesToHex(buffer.array()));
             }
         }, delay);

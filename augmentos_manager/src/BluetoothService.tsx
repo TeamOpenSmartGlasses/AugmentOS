@@ -251,7 +251,7 @@ export class BluetoothService extends EventEmitter {
         //this.sendHeartbeat();
         this.reconnectionTimer = setTimeout(
           performScan,
-          this.connectedDevice ? 700 : 700,
+          this.connectedDevice ? 5000 : 5000,
         );
       }
 

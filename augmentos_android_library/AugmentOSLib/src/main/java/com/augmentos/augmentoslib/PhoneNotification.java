@@ -42,7 +42,7 @@ public class PhoneNotification {
 
     @Override
     public String toString() {
-        return String.format("Notification{title='%s', text='%s', appName='%s', uuuuid='%s'}",
+        return String.format("Notification{title='%s', text='%s', appName='%s', uuid='%s'}",
                 title, message, appName, uuid);
     }
 }
