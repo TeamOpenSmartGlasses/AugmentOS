@@ -36,7 +36,7 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
 }) => {
   const [isSimulatedPuck, setIsSimulatedPuck] = useState(false);
   const [isCoreInstalled, setIsCoreInstalled] = useState(false);
-  const [isCoreOutdated, setIsCoreOutdated] = useState(true);
+  const [isCoreOutdated, setIsCoreOutdated] = useState(false);
   const [isDownloadingCore, setIsDownloadingCore] = useState(false);
   const [appStoreVersion, setAppStoreVersion] = useState<string | null>(null);
   // Single loading gate
@@ -94,7 +94,7 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
   // ---------------------------------------------------------------
   useEffect(() => {
     if (isCoreInstalled && appStoreVersion && status?.augmentos_core_version) {
-      if (status.augmentos_core_version === appStoreVersion) {
+      if (status.augmentos_core_version >= appStoreVersion) {
         setIsCoreOutdated(false);
         // Open permission screen immediately if needed.
         openCorePermissionsActivity();
