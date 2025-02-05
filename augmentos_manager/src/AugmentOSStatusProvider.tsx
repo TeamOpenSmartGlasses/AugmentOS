@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode, useCallback, useEffect } from 'react';
 import { AugmentOSParser, AugmentOSMainStatus } from './AugmentOSStatusParser';
 import { BluetoothService } from './BluetoothService';
-import { MOCK_CONNECTION } from './consts';
+import { INTENSE_LOGGING, MOCK_CONNECTION } from './consts';
 import GlobalEventEmitter from "./logic/GlobalEventEmitter.tsx";
 
 interface AugmentOSStatusContextType {
@@ -27,23 +27,17 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
         if (!(data && 'status' in data)) {return;}
 
         const parsedStatus = AugmentOSParser.parseStatus(data);
-        console.log('Parsed status:', parsedStatus);
+        if (INTENSE_LOGGING)
+            console.log('Parsed status:', parsedStatus);
         setStatus(parsedStatus);
     }, []);
-
-    useEffect(() => {
-      const handleDeviceDisconnected = () => {
-        console.log('Device disconnected');
-        setStatus(AugmentOSParser.defaultStatus);
-      };
-      GlobalEventEmitter.on('PUCK_DISCONNECTED', handleDeviceDisconnected);
-    }, [bluetoothService]);
 
     useEffect(() => {
         if (!isInitialized) return;
 
         const handleStatusUpdateReceived = (data: any) => {
-            console.log('Handling received data.. refreshing status..');
+            if (INTENSE_LOGGING)
+                console.log('Handling received data.. refreshing status..');
             refreshStatus(data);
         };
 
@@ -62,6 +56,7 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
             bluetoothService.on('scanStopped', handleScanStopped);
             bluetoothService.on('deviceDisconnected', handleDeviceDisconnected);
             bluetoothService.on('connectingStatusChanged', handleConnectingStatusChanged);
+            GlobalEventEmitter.on('PUCK_DISCONNECTED', handleDeviceDisconnected);
         }
 
         return () => {
@@ -71,6 +66,7 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
                 bluetoothService.removeListener('scanStopped', handleScanStopped);
                 bluetoothService.removeListener('deviceDisconnected', handleDeviceDisconnected);
                 bluetoothService.removeListener('connectingStatusChanged', handleConnectingStatusChanged);
+                GlobalEventEmitter.removeListener('PUCK_DISCONNECTED', handleDeviceDisconnected);
             }
         };
     }, [bluetoothService, refreshStatus, isInitialized]);

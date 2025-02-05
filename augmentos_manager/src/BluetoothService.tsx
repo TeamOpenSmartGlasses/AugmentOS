@@ -111,8 +111,6 @@ export class BluetoothService extends EventEmitter {
     eventEmitter.addListener('CoreMessageIntentEvent', jsonString => {
       if (INTENSE_LOGGING)
         console.log('Received message from core:', jsonString);
-      else
-        console.log("Received message from core")
       try {
         let data = JSON.parse(jsonString);
         if (!this.connectedDevice) {
@@ -599,6 +597,7 @@ export class BluetoothService extends EventEmitter {
       }
     } catch (e) {
       console.log('Some error parsing data from AugmentOS_Core...');
+      GlobalEventEmitter.emit('STATUS_PARSE_ERROR');
     }
   }
 
@@ -765,7 +764,8 @@ export class BluetoothService extends EventEmitter {
       return this.validationInProgress;
     }
 
-    console.log('validateResponseFromCore: Data written, waiting for response...');
+    if (INTENSE_LOGGING)
+      console.log('validateResponseFromCore: Data written, waiting for response...');
 
     this.validationInProgress = new Promise((resolve, reject) => {
       let responseReceived = false;
@@ -773,7 +773,8 @@ export class BluetoothService extends EventEmitter {
       const dataReceivedListener = () => {
         responseReceived = true;
         clearTimeout(timeout);
-        console.log('Core is alive!');
+        if (INTENSE_LOGGING)
+          console.log('Core is alive!');
         resolve(true);
       };
 
@@ -818,7 +819,8 @@ export class BluetoothService extends EventEmitter {
   }
 
   async sendRequestStatus() {
-    console.log('Send Request Status');
+    if (INTENSE_LOGGING)
+      console.log('Send Request Status');
     await this.sendDataToAugmentOs({ command: 'request_status' });
     await this.validateResponseFromCore();
   }

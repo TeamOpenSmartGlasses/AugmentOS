@@ -36,6 +36,7 @@ import java.util.stream.Collectors;
 import java.util.zip.CRC32;
 import java.nio.ByteBuffer;
 
+import com.augmentos.smartglassesmanager.SmartGlassesAndroidService;
 import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
 import com.google.gson.Gson;
 import com.augmentos.augmentoslib.events.AudioChunkNewEvent;
@@ -176,6 +177,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private Runnable leftConnectionTimeoutRunnable;
     private Runnable rightConnectionTimeoutRunnable;
     private boolean isBondingReceiverRegistered = false;
+    private boolean forceCoreOnboardMic;
 
     // lock writing until the last write is successful
 
@@ -188,6 +190,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         preferredG1DeviceId = getPreferredG1DeviceId(context);
         brightnessValue = getSavedBrightnessValue(context);
         this.bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        this.forceCoreOnboardMic = SmartGlassesAndroidService.getForceCoreOnboardMic(context);
     }
 
     private final BluetoothGattCallback leftGattCallback = createGattCallback("Left");
@@ -345,8 +348,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             //setup brightness
                             sendBrightnessCommandHandler.postDelayed(() -> sendBrightnessCommand(brightnessValue, shouldUseAutoBrightness), 10);
 
+
                             // Start MIC streaming
-                            setMicEnabled(true, 10); // Enable the MIC
+                            if (!forceCoreOnboardMic) {
+                                setMicEnabled(true, 10); // Enable the MIC
+                            }
 
                             //enable our AugmentOS notification key
                             sendWhiteListCommand(10);
@@ -418,11 +424,15 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                                 //Log.d(TAG, "Ignoring...");
 //                                Log.d(TAG, "Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
 //                                Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName + ", length: " + pcmData.length);
-                                EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
+                                if (!forceCoreOnboardMic) {
+                                    EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
+                                }
                             } else {
 //                                Log.d(TAG, "Lc3 Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(lc3) + ", from: " + deviceName);
 //                                Log.d(TAG, "PCM Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
-//                                EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
+//                                if (!forceCoreOnboardMic) {
+//                                  EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
+//                                }
                             }
 //                          Log.d(this.getClass().getSimpleName(), "============Lc3 data = " + Arrays.toString(lc3) + ", Pcm = " + Arrays.toString(pcmData));
                         }

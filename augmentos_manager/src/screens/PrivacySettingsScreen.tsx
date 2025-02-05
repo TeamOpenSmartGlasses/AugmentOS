@@ -72,9 +72,9 @@ const PrivacySettingsScreen: React.FC<PrivacySettingsScreenProps> = ({
   };
 
 
-  React.useEffect(() => {
-    setIsSensingEnabled(status.sensing_enabled);
-  }, [status]);
+  // React.useEffect(() => {
+  //   setIsSensingEnabled(status.sensing_enabled);
+  // }, [status]);
 
   const switchColors = {
     trackColor: {
@@ -107,21 +107,6 @@ const PrivacySettingsScreen: React.FC<PrivacySettingsScreenProps> = ({
         styles.container,
         isDarkTheme ? styles.darkBackground : styles.lightBackground,
       ]}>
-      <View
-        style={[
-          styles.titleContainer,
-          isDarkTheme ? styles.titleContainerDark : styles.titleContainerLight,
-        ]}>
-        <Text
-          style={[
-            styles.title,
-            isDarkTheme ? styles.lightText : styles.darkText,
-            {},
-          ]}>
-          Privacy Settings
-        </Text>
-      </View>
-      {/* Margin bottom is 60 as super quick ugly hack for navbar */}
       <ScrollView style={styles.scrollViewContainer}>
 
         <TouchableOpacity
@@ -176,7 +161,6 @@ const PrivacySettingsScreen: React.FC<PrivacySettingsScreenProps> = ({
           />
         </View>
       </ScrollView>
-      <NavigationBar toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
     </View>
   );
 };

@@ -46,7 +46,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   const [isSensingEnabled, setIsSensingEnabled] = React.useState(
     status.sensing_enabled,
   );
-  const [forceCoreOnboardMic, setForceCoreOnboardMic] = React.useState(status.force_core_onboard_mic);
+  const [forceCoreOnboardMic, setForceCoreOnboardMic] = React.useState(status.force_core_onboard_mic,);
   const [isContextualDashboardEnabled, setIsContextualDashboardEnabled] = React.useState(
     status.contextual_dashboard_enabled,
   );
@@ -88,14 +88,14 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     console.log(`Brightness set to: ${newBrightness}`);
   };
 
-  React.useEffect(() => {
-    setIsSensingEnabled(status.sensing_enabled);
-    if (status.glasses_info && status.glasses_info.brightness) {
-      setBrightness(parseBrightness(status.glasses_info.brightness));
-    } else {
-        console.log('No brightness info found');
-    }
-  }, [status]);
+  // React.useEffect(() => {
+  //   // setIsSensingEnabled(status.sensing_enabled);
+  //   if (status.glasses_info && status.glasses_info.brightness) {
+  //     setBrightness(parseBrightness(status.glasses_info.brightness));
+  //   } else {
+  //       console.log('No brightness info found');
+  //   }
+  // }, [status]);
 
   const switchColors = {
     trackColor: {
@@ -313,7 +313,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
           </View>
           <Switch
             disabled={!status.glasses_info?.model_name}
-            value={isSensingEnabled}
+            value={forceCoreOnboardMic}
             onValueChange={toggleForceCoreOnboardMic}
             trackColor={switchColors.trackColor}
             thumbColor={switchColors.thumbColor}

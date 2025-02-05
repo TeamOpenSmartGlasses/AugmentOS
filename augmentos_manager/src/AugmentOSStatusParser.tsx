@@ -193,7 +193,6 @@ export class AugmentOSParser {
   static parseStatus(data: any): AugmentOSMainStatus {
     if (MOCK_CONNECTION) {return AugmentOSParser.mockStatus;}
     if (data && 'status' in data) {
-      console.log('data good?');
       let status = data.status;
       // console.log('432432432' , status.connected_glasses.brightness);
 
