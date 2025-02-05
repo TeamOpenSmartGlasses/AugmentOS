@@ -16,7 +16,7 @@ import NavigationBar from '../components/NavigationBar';
 import BluetoothService from '../BluetoothService.tsx';
 import semver from 'semver';
 import { NativeModules } from 'react-native';
-const { InstallApkModule, FetchConfigHelperModule, TpaHelpers } = NativeModules;
+const { FetchConfigHelperModule, TpaHelpers } = NativeModules;
 import GlobalEventEmitter from '../logic/GlobalEventEmitter';
 type AppDetailsProps = NativeStackScreenProps<
   RootStackParamList,
@@ -27,9 +27,8 @@ type AppDetailsProps = NativeStackScreenProps<
 };
 import { useStatus } from '../AugmentOSStatusProvider';
 import appStore from "./AppStore.tsx";
-
-const AUGMENTOS_MANAGER_PACKAGE_NAME = 'com.augmentos.augmentos_manager';
-const AUGMENTOS_CORE_PACKAGE_NAME = 'com.augmentos.augmentos_core';
+import InstallApkModule from '../logic/InstallApkModule.tsx';
+import { AUGMENTOS_MANAGER_PACKAGE_NAME, AUGMENTOS_CORE_PACKAGE_NAME } from '../consts.tsx';
 
 const AppDetails: React.FC<AppDetailsProps> = ({
   route,

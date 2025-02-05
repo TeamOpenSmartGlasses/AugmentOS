@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect,useRef, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { loadSetting } from '../augmentos_core_comms/SettingsHelper';
+import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from '../consts';
 import { NavigationProps } from '../components/types';
 import { supabase } from '../supabaseClient';
 import { useAuth } from '../AuthContext';
+import { useStatus } from '../AugmentOSStatusProvider';
+import { doesHaveAllPermissions } from '../logic/PermissionsUtils';
+import { isAugmentOsCoreInstalled, openCorePermissionsActivity, stopExternalService } from '../augmentos_core_comms/CoreServiceStarter';
 
 interface SplashScreenProps {
   //navigation: any;
@@ -14,28 +17,55 @@ interface SplashScreenProps {
 const SplashScreen: React.FC<SplashScreenProps> = ({}) => {
   const navigation = useNavigation<NavigationProps>();
   const { user, loading } = useAuth();
+  const { status, startBluetoothAndCore } = useStatus();
 
   useEffect(() => {
     const initializeApp = async () => {
       const simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, SIMULATED_PUCK_DEFAULT);
-      const previouslyBondedPuck = await loadSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, false);
-      const authenticated = false;
-      
-      if (user || true) {
-        if (previouslyBondedPuck) {
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'Home' }],
-          });
-        } else if (simulatedPuck) {
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'SimulatedPuckOnboard' }],
-          });
+      let previouslyBondedPuck = await loadSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, false);
+
+      // Handle core being uninstalled
+      if (simulatedPuck && !(await isAugmentOsCoreInstalled())) {
+        await saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, false);
+        previouslyBondedPuck = false;
+      }
+
+      /*
+      The purpose of SplashScreen is to route the user wherever the user needs to be
+      If they're not logged in => login screen
+      If they're logged in, but no perms => perm screen
+      If they're logged in + perms => SimulatedPucK setup
+      */
+      if (user) {
+        if (await doesHaveAllPermissions()) {
+          startBluetoothAndCore();
+          if (previouslyBondedPuck) {
+            if (status.puck_connected) {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'Home' }],
+              });
+            } else {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'ConnectingToPuck' }],
+              });
+            }
+          } else if (simulatedPuck) {
+              navigation.reset({
+              index: 0,
+              routes: [{ name: 'SimulatedPuckOnboard' }],
+            });
+          } else {
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'Home' }],
+            });
+          }
         } else {
           navigation.reset({
             index: 0,
-            routes: [{ name: 'Home' }],
+            routes: [{ name: 'GrantPermissionsScreen' }],
           });
         }
       } else {
@@ -46,9 +76,10 @@ const SplashScreen: React.FC<SplashScreenProps> = ({}) => {
       }
     };
 
-    if (!loading)
+    if (!loading) {
       initializeApp();
-  }, [navigation, user, loading]);
+    }
+  }, [navigation, user, loading, status, startBluetoothAndCore]);
 
   return (
     <View style={styles.container}>

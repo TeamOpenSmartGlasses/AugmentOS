@@ -19,6 +19,7 @@ import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper
 import { SETTINGS_KEYS } from '../consts';
 import NavigationBar from '../components/NavigationBar';
 import { supabase } from '../supabaseClient';
+import ManagerCoreCommsService from '../augmentos_core_comms/ManagerCoreCommsService';
 
 interface SettingsPageProps {
   isDarkTheme: boolean;
@@ -26,26 +27,32 @@ interface SettingsPageProps {
   navigation: any;
 }
 
+const parseBrightness = (brightnessStr: string | null | undefined): number => {
+  if (!brightnessStr || brightnessStr.includes('-')) {
+    return 50;
+  }
+  const parsed = parseInt(brightnessStr.replace('%', ''), 10);
+  return isNaN(parsed) ? 50 : parsed;
+};
+
 const SettingsPage: React.FC<SettingsPageProps> = ({
   isDarkTheme,
   toggleTheme,
   navigation,
 }) => {
   const [isDoNotDisturbEnabled, setDoNotDisturbEnabled] = React.useState(false);
-  const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] =
-    React.useState(false);
+  const [isBrightnessAutoEnabled, setBrightnessAutoEnabled] = React.useState(false);
   const { status } = useStatus();
   const [isSensingEnabled, setIsSensingEnabled] = React.useState(
     status.sensing_enabled,
   );
+  const [forceCoreOnboardMic, setForceCoreOnboardMic] = React.useState(status.force_core_onboard_mic,);
   const [isContextualDashboardEnabled, setIsContextualDashboardEnabled] = React.useState(
     status.contextual_dashboard_enabled,
   );
 
-  const [brightness, setBrightness] = useState(
-    status.glasses_info && status.glasses_info.brightness && !(status.glasses_info.brightness.includes('-'))
-      ? parseInt(status.glasses_info.brightness.replace('%', ''), 10)
-      : 50
+  const [brightness, setBrightness] = useState<number>(
+    parseBrightness(status.glasses_info?.brightness)
   );
 
   React.useEffect(() => {
@@ -55,33 +62,40 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   }, []);
 
   const toggleSensing = async () => {
-    let newSensing = !isSensingEnabled;
+    const newSensing = !isSensingEnabled;
     await BluetoothService.getInstance().sendToggleSensing(newSensing);
     setIsSensingEnabled(newSensing);
   };
 
+  const toggleForceCoreOnboardMic = async () => {
+    let newForceCoreOnboardMic = !forceCoreOnboardMic;
+    await BluetoothService.getInstance().sendToggleForceCoreOnboardMic(newForceCoreOnboardMic);
+    setForceCoreOnboardMic(newForceCoreOnboardMic);
+  };
+
   const toggleContextualDashboard = async () => {
-    let newContextualDashboardSetting = !isContextualDashboardEnabled;
+    const newContextualDashboardSetting = !isContextualDashboardEnabled;
     await BluetoothService.getInstance().sendToggleContextualDashboard(newContextualDashboardSetting);
     setIsContextualDashboardEnabled(newContextualDashboardSetting);
   };
 
   const changeBrightness = async (newBrightness: number) => {
-    if (status.glasses_info?.brightness === '-') {return;}
+    if (status.glasses_info?.brightness === '-') {
+      return;
+    }
     await BluetoothService.getInstance().setGlassesBrightnessMode(newBrightness, false);
 
     console.log(`Brightness set to: ${newBrightness}`);
   };
 
-
-  React.useEffect(() => {
-    setIsSensingEnabled(status.sensing_enabled);
-    if (status.glasses_info && status.glasses_info.brightness) {
-        setBrightness(parseInt(status.glasses_info.brightness.replace('%', ''), 10));
-    } else {
-        console.log('No brightness info found');
-    }
-  }, [status]);
+  // React.useEffect(() => {
+  //   // setIsSensingEnabled(status.sensing_enabled);
+  //   if (status.glasses_info && status.glasses_info.brightness) {
+  //     setBrightness(parseBrightness(status.glasses_info.brightness));
+  //   } else {
+  //       console.log('No brightness info found');
+  //   }
+  // }, [status]);
 
   const switchColors = {
     trackColor: {
@@ -128,6 +142,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
       // Handle sign-out error
     } else {
       console.log('Sign-out successful');
+      ManagerCoreCommsService.stopService();
       BluetoothService.resetInstance();
       navigation.reset({
         index: 0,
@@ -275,10 +290,41 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
           </TouchableOpacity>
         )} */}
 
+<View style={styles.settingItem}>
+          <View style={styles.settingTextContainer}>
+            <Text
+              style={[
+                styles.label,
+                isDarkTheme ? styles.lightText : styles.darkText,
+                (!status.puck_connected || !status.glasses_info?.model_name) &&
+                  styles.disabledItem,
+              ]}>
+              Force Onboard Microphone
+            </Text>
+            <Text
+              style={[
+                styles.value,
+                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
+                (!status.puck_connected || !status.glasses_info?.model_name) &&
+                  styles.disabledItem,
+              ]}>
+              Force the use of the onboard microphone instead of your glasses' microphone (if applicable).
+            </Text>
+          </View>
+          <Switch
+            disabled={!status.glasses_info?.model_name}
+            value={forceCoreOnboardMic}
+            onValueChange={toggleForceCoreOnboardMic}
+            trackColor={switchColors.trackColor}
+            thumbColor={switchColors.thumbColor}
+            ios_backgroundColor={switchColors.ios_backgroundColor}
+          />
+        </View>
+
         <TouchableOpacity
           style={styles.settingItem}
           onPress={() => {
-            navigation.navigate('PhoneNotificationSettings');
+            navigation.navigate('PrivacySettingsScreen');
           }}>
           <View style={styles.settingTextContainer}>
             <Text
@@ -286,7 +332,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
                 styles.label,
                 isDarkTheme ? styles.lightText : styles.darkText,
               ]}>
-              Notifications
+              Privacy Settings
             </Text>
           </View>
           <Icon
@@ -296,36 +342,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
           />
         </TouchableOpacity>
 
-        <View style={styles.settingItem}>
-          <View style={styles.settingTextContainer}>
-            <Text
-              style={[
-                styles.label,
-                isDarkTheme ? styles.lightText : styles.darkText,
-                (!status.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
-              ]}>
-              Sensing
-            </Text>
-            <Text
-              style={[
-                styles.value,
-                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-                (!status.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
-              ]}>
-              Enable microphones & cameras.
-            </Text>
-          </View>
-          <Switch
-            disabled={!status.glasses_info?.model_name}
-            value={isSensingEnabled}
-            onValueChange={toggleSensing}
-            trackColor={switchColors.trackColor}
-            thumbColor={switchColors.thumbColor}
-            ios_backgroundColor={switchColors.ios_backgroundColor}
-          />
-        </View>
         <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
               <Text

@@ -1,25 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
   StyleSheet,
-  Switch,
-  TouchableOpacity,
-  Platform,
-  Linking,
-  Alert,
-  BackHandler,
+  AppState,
+  ActivityIndicator,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { useStatus } from '../AugmentOSStatusProvider';
-import BluetoothService from '../BluetoothService';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
-import { SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from '../consts';
-import ManagerCoreCommsService from '../augmentos_core_comms/ManagerCoreCommsService';
-import { isAugmentOsCoreInstalled, openCorePermissionsActivity, stopExternalService } from '../augmentos_core_comms/CoreServiceStarter';
+import { loadSetting } from '../augmentos_core_comms/SettingsHelper';
+import {
+  SETTINGS_KEYS,
+  SIMULATED_PUCK_DEFAULT,
+  AUGMENTOS_CORE_PACKAGE_NAME,
+} from '../consts';
+import {
+  isAugmentOsCoreInstalled,
+  openCorePermissionsActivity,
+} from '../augmentos_core_comms/CoreServiceStarter';
 import { ScrollView } from 'react-native-gesture-handler';
 import { NavigationProps } from '../components/types';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Button from '../components/Button';
+import InstallApkModule from '../logic/InstallApkModule';
+import { fetchAppStoreData } from '../utils/backendUtils.ts';
 
 interface SimulatedPuckOnboardProps {
   isDarkTheme: boolean;
@@ -28,300 +32,278 @@ interface SimulatedPuckOnboardProps {
 
 const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
   isDarkTheme,
-  toggleTheme
+  toggleTheme,
 }) => {
-  const [isSimulatedPuck, setIsSimulatedPuck] = React.useState(false);
-  const [isCoreInstalled, setIsCoreInstalled] = React.useState(false);
+  const [isSimulatedPuck, setIsSimulatedPuck] = useState(false);
+  const [isCoreInstalled, setIsCoreInstalled] = useState(false);
+  const [isCoreOutdated, setIsCoreOutdated] = useState(true);
+  const [isDownloadingCore, setIsDownloadingCore] = useState(false);
+  const [appStoreVersion, setAppStoreVersion] = useState<string | null>(null);
+  // Single loading gate
+  const [isLoading, setIsLoading] = useState(true);
+
   const { status } = useStatus();
-  //const bluetoothService = BluetoothService.getInstance();
   const navigation = useNavigation<NavigationProps>();
 
+  // Use a ref flag to ensure we only fetch the app store data once.
+  const didFetchStoreData = useRef(false);
+
+  // ---------------------------------------------------------------
+  // 1) On mount or when status changes, initialize:
+  //    load settings, (conditionally) fetch store data,
+  //    and check installation status.
+  // ---------------------------------------------------------------
+  useEffect(() => {
+    const initialize = async () => {
+      try {
+        // 1. Load the "simulated puck" setting
+        const simulatedPuck = await loadSetting(
+          SETTINGS_KEYS.SIMULATED_PUCK,
+          SIMULATED_PUCK_DEFAULT
+        );
+        setIsSimulatedPuck(simulatedPuck);
+
+        // 2. Fetch data from app store only once.
+        if (!didFetchStoreData.current) {
+          didFetchStoreData.current = true;
+          const storeData = await fetchAppStoreData();
+          const matchedApp = storeData.find(
+            (app) => app.packageName === AUGMENTOS_CORE_PACKAGE_NAME
+          );
+          const storeVersion = matchedApp?.version ?? null;
+          setAppStoreVersion(storeVersion);
+        }
+
+        // 3. Check if core is installed
+        const installed = await isAugmentOsCoreInstalled();
+        setIsCoreInstalled(installed);
+      } catch (error) {
+        console.error('Error in initialization:', error);
+      }
+
+      // 4. Done loading everything we need for the initial screen
+      setIsLoading(false);
+    };
+
+    initialize();
+  }, [status]); // status remains in dependencies
+
+  // ---------------------------------------------------------------
+  // 2) When status, appStoreVersion, or isCoreInstalled change,
+  //    compare the local core version with the store version.
+  // ---------------------------------------------------------------
+  useEffect(() => {
+    if (isCoreInstalled && appStoreVersion && status?.augmentos_core_version) {
+      if (status.augmentos_core_version >= appStoreVersion) {
+        setIsCoreOutdated(false);
+        // Open permission screen immediately if needed.
+        openCorePermissionsActivity();
+      } else {
+        setIsCoreOutdated(true);
+      }
+    }
+  }, [status, appStoreVersion, isCoreInstalled]);
+
+  // ---------------------------------------------------------------
+  // 3) If we detect the puck connected, the core is installed, and it
+  //    is not outdated => navigate to Home.
+  // ---------------------------------------------------------------
+  useEffect(() => {
+    if (!isLoading && status?.puck_connected && isCoreInstalled && !isCoreOutdated) {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Home' }],
+      });
+    }
+  }, [status, isCoreInstalled, isCoreOutdated, isLoading, navigation]);
+
+  // ---------------------------------------------------------------
+  // 4) Listen for app state changes to update installation status,
+  //    but do *not* set isLoading to true again.
+  // ---------------------------------------------------------------
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', async (nextAppState) => {
+      if (nextAppState === 'active') {
+        // Re-check installation state quickly (no isLoading flip)
+        const installed = await isAugmentOsCoreInstalled();
+        setIsCoreInstalled(installed);
+        // If installed and no need to update => open permission screen
+        if (installed && !isCoreOutdated) {
+          openCorePermissionsActivity();
+        }
+      }
+    });
+
+    return () => {
+      subscription.remove();
+    };
+  }, [isCoreOutdated]);
+
+  // ---------------------------------------------------------------
+  // 5) Handler for installing/updating the core
+  // ---------------------------------------------------------------
   const handleInstallLink = () => {
-    const url = 'https://augmentos.org/install-augmentos-core';
-    Linking.openURL(url).catch(err =>
-      console.error('Failed to open URL:', err),
-    );
+    setIsDownloadingCore(true);
+    InstallApkModule.downloadCoreApk()
+      .then(() => {
+        // Optionally re-check installation/version after download.
+      })
+      .finally(() => {
+        setIsDownloadingCore(false);
+      });
   };
 
-  React.useEffect(() => {
-    const loadSimulatedPuckSetting = async () => {
-      const simulatedPuck = await loadSetting(
-        SETTINGS_KEYS.SIMULATED_PUCK,
-        SIMULATED_PUCK_DEFAULT,
-      );
-      setIsSimulatedPuck(simulatedPuck);
-    };
+  // ---------------------------------------------------------------
+  // If "isLoading" is true, show ONE smooth loader
+  // ---------------------------------------------------------------
+  if (isLoading) {
+    return (
+      <View style={[styles.container, styles.loadingContainer]}>
+        <ActivityIndicator
+          size="large"
+          color={isDarkTheme ? '#FFFFFF' : '#2196F3'}
+        />
+        <Text
+          style={[
+            styles.loadingText,
+            isDarkTheme ? styles.lightText : styles.darkText,
+          ]}
+        >
+          Loading...
+        </Text>
+      </View>
+    );
+  }
 
-    loadSimulatedPuckSetting();
-  }, []);
+  // ---------------------------------------------------------------
+  // Past this point, we show the normal UI
+  // ---------------------------------------------------------------
+  const instructionText = isCoreInstalled
+    ? 'Your AugmentOS Core is outdated. Please update AugmentOS Core to continue.'
+    : "To use AugmentOS, you'll need to install AugmentOS Core.";
 
-  // Initial check for core installation
-  React.useEffect(() => {
-    const checkCoreInstallation = async () => {
-      const installed = await isAugmentOsCoreInstalled();
-      setIsCoreInstalled(installed);
-      openCorePermissionsActivity();
-
-      // If not installed, start polling
-      if (!installed) {
-        const intervalId = setInterval(async () => {
-          const currentStatus = await isAugmentOsCoreInstalled();
-          if (currentStatus) {
-            setIsCoreInstalled(true);
-            clearInterval(intervalId);
-            openCorePermissionsActivity();
-          }
-        }, 1000);
-
-        // Cleanup interval on component unmount
-        return () => clearInterval(intervalId);
-      }
-    };
-
-    checkCoreInstallation();
-  }, []);
-
-  React.useEffect(() => {
-    const doCoreConnectionCheck = async () => {
-      if (status.puck_connected) {
-        navigation.reset({
-          index: 0,
-          routes: [{ name: 'Home' }],
-        });
-      }
-    };
-
-    doCoreConnectionCheck();
-  }, [status]);
+  const buttonText = isCoreInstalled
+    ? 'Update AugmentOS Core'
+    : 'Install AugmentOS Core';
 
   return (
-    <ScrollView
+    <View
       style={[
         styles.container,
         isDarkTheme ? styles.darkBackground : styles.lightBackground,
-      ]}>
-      <View style={{ marginTop: 20 }}>
-        <Text
-          style={[
-            styles.title,
-            isDarkTheme ? styles.lightText : styles.darkText,
-          ]}>
-          AugmentOS Setup
-        </Text>
-        <Text
-          style={[
-            styles.description,
-            isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-          ]}>
-          On some Android devices, you can use AugmentOS without a dedicated
-          Puck.
-        </Text>
-        <Text
-          style={[
-            styles.notice,
-            isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-          ]}>
-          Please note that this feature is primarily intended for development
-          purposes. Not all features will work, some things may break, and using
-          this will increase battery usage.
-        </Text>
-
-      </View>
-      {isSimulatedPuck && (
-        <View style={{ marginTop: 20 }}>
-          <Text
-            style={[
-              styles.subtitle,
-              isDarkTheme ? styles.lightText : styles.darkText,
-            ]}>
-            AugmentOS Core Setup
-          </Text>
-
-          <View style={styles.step}>
-            <Text
-              style={[
-                styles.stepNumber,
-                isDarkTheme ? styles.lightText : styles.darkText,
-              ]}>
-              1.
-            </Text>
-            <TouchableOpacity onPress={handleInstallLink}>
-              <Text
-                style={[
-                  styles.link,
-                  isDarkTheme ? styles.lightText : styles.darkText,
-                ]}>
-                Install AugmentOS_Core
-              </Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.step}>
-            <Text
-              style={[
-                styles.stepNumber,
-                isDarkTheme ? styles.lightText : styles.darkText,
-              ]}>
-              2.
-            </Text>
-            <Text
-              style={[
-                styles.stepText,
-                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-              ]}>
-              Launch AugmentOS_Core, and make sure to accept all permissions,
-              and disable all battery optimizations when prompted.
-            </Text>
-          </View>
-
-          <View style={styles.step}>
-            <Text
-              style={[
-                styles.stepNumber,
-                isDarkTheme ? styles.lightText : styles.darkText,
-              ]}>
-              3.
-            </Text>
-            <Text
-              style={[
-                styles.stepText,
-                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-              ]}>
-              Check below to see if the simulated puck has been connected...
-            </Text>
-          </View>
-
-          <View style={styles.step}>
-            <Text
-              style={[
-                styles.stepNumber,
-                isDarkTheme ? styles.lightText : styles.darkText,
-              ]}>
-              3.
-            </Text>
-            <Text
-              style={[
-                styles.stepText,
-                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-              ]}>
-              Check below to see if the simulated puck has been connected...
-            </Text>
+      ]}
+    >
+      <ScrollView style={styles.scrollViewContainer}>
+        <View style={styles.contentContainer}>
+          <View style={styles.iconContainer}>
+            <Icon
+              name="cellphone-link"
+              size={80}
+              color={isDarkTheme ? '#FFFFFF' : '#2196F3'}
+            />
           </View>
 
           <Text
             style={[
-              styles.subtitle,
+              styles.title,
               isDarkTheme ? styles.lightText : styles.darkText,
-            ]}>
-            Simulated puck connection status:{' '}
-            {status.puck_connected ? '\nConnected' : '\nNot Connected'}
+            ]}
+          >
+            AugmentOS Setup
           </Text>
+
+          <Text
+            style={[
+              styles.description,
+              isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
+            ]}
+          >
+            {instructionText}
+          </Text>
+
+          {isSimulatedPuck && (
+            <View style={styles.setupContainer}>
+              <Button
+                onPress={handleInstallLink}
+                isDarkTheme={isDarkTheme}
+                disabled={isDownloadingCore}
+                iconName="download"
+              >
+                {buttonText}
+              </Button>
+            </View>
+          )}
         </View>
-      )}
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 20,
+  container: { flex: 1 },
+  loadingContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  link: {
+  loadingText: {
+    marginTop: 16,
     fontSize: 16,
-    color: '#007AFF',
-    textDecorationLine: 'underline',
+  },
+  scrollViewContainer: {
+    flex: 1,
+  },
+  contentContainer: {
+    flex: 1,
+    padding: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minHeight: '100%',
+  },
+  iconContainer: {
+    marginBottom: 32,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 10,
+    fontFamily: 'Montserrat-Bold',
     textAlign: 'center',
+    marginBottom: 16,
   },
   description: {
     fontSize: 16,
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 16,
+    lineHeight: 24,
+    paddingHorizontal: 24,
   },
   notice: {
     fontSize: 14,
     textAlign: 'center',
-    color: '#888',
-    marginBottom: 30,
+    marginBottom: 40,
+    lineHeight: 20,
+    paddingHorizontal: 24,
   },
-  subtitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 15,
-  },
-  step: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    marginBottom: 15,
-  },
-  stepNumber: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginRight: 10,
-  },
-  stepText: {
-    fontSize: 16,
-    flex: 1,
+  setupContainer: {
+    width: '100%',
+    alignItems: 'center',
   },
   darkBackground: {
     backgroundColor: '#1c1c1c',
   },
   lightBackground: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#f8f9fa',
   },
   darkText: {
-    color: 'black',
+    color: '#1a1a1a',
   },
   lightText: {
-    color: 'white',
+    color: '#FFFFFF',
   },
   darkSubtext: {
-    color: '#666666',
+    color: '#4a4a4a',
   },
   lightSubtext: {
-    color: '#999999',
-  },
-  darkIcon: {
-    color: '#333333',
-  },
-  lightIcon: {
-    color: '#666666',
-  },
-  backButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  backButtonText: {
-    marginLeft: 10,
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  settingItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 20,
-    borderBottomColor: '#333',
-    borderBottomWidth: 1,
-  },
-  settingTextContainer: {
-    flex: 1,
-    paddingRight: 10,
-  },
-  label: {
-    fontSize: 16,
-    flexWrap: 'wrap',
-  },
-  value: {
-    fontSize: 12,
-    marginTop: 5,
-    flexWrap: 'wrap',
+    color: '#e0e0e0',
   },
 });
 

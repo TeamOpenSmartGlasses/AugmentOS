@@ -31,6 +31,12 @@ export interface AppInfo {
   type: string;
 }
 
+export interface CoreAuthInfo {
+  core_token_owner: string;
+  core_token_status: string;
+  last_verification_timestamp: number;
+}
+
 export interface AugmentOSMainStatus {
   augmentos_core_version: string | null;
   puck_connected: boolean;
@@ -38,31 +44,44 @@ export interface AugmentOSMainStatus {
   puck_charging_status: boolean;
   default_wearable: string | null,
   sensing_enabled: boolean;
+  force_core_onboard_mic: boolean;
   contextual_dashboard_enabled: boolean;
   glasses_info: Glasses | null;
   wifi: WifiConnection | null;
   gsm: GSMConnection | null;
   apps: AppInfo[];
+  auth: CoreAuthInfo;
 }
 
 export class AugmentOSParser {
   static defaultStatus: AugmentOSMainStatus = {
+    augmentos_core_version: null,
     puck_connected: false,
     puck_battery_life: null,
     puck_charging_status: false,
     sensing_enabled: false,
+    force_core_onboard_mic: false,
+    contextual_dashboard_enabled: false,
     default_wearable: null,
     glasses_info: null,
     wifi: { is_connected: false, ssid: '', signal_strength: 0 },
     gsm: { is_connected: false, carrier: '', signal_strength: 0 },
     apps: [],
+    auth: {
+      core_token_owner: '',
+      core_token_status: '',
+      last_verification_timestamp: 0
+    }
   };
 
   static mockStatus: AugmentOSMainStatus = {
+    augmentos_core_version: '1.0.0',
     puck_connected: true,
     puck_battery_life: 88,
     puck_charging_status: true,
     sensing_enabled: true,
+    force_core_onboard_mic: false,
+    contextual_dashboard_enabled: true,
    // default_wearable: 'Vuzix Z100',
    default_wearable: 'evenrealities_g1',
     glasses_info: {
@@ -164,14 +183,18 @@ export class AugmentOSParser {
         type: 'APP'
       },
     ],
+    auth: {
+      core_token_owner: '',
+      core_token_status: '',
+      last_verification_timestamp: 0
+    }
   };
 
   static parseStatus(data: any): AugmentOSMainStatus {
     if (MOCK_CONNECTION) {return AugmentOSParser.mockStatus;}
     if (data && 'status' in data) {
-      console.log('data good?');
       let status = data.status;
-      console.log('432432432' , status.connected_glasses.brightness);
+      // console.log('432432432' , status.connected_glasses.brightness);
 
       return {
         augmentos_core_version: status.augmentos_core_version ?? null,
@@ -179,6 +202,7 @@ export class AugmentOSParser {
         puck_battery_life: status.puck_battery_life ?? null,
         puck_charging_status: status.charging_status ?? false,
         sensing_enabled: status.sensing_enabled ?? false,
+        force_core_onboard_mic: status.force_core_onboard_mic ?? false,
         contextual_dashboard_enabled: status.contextual_dashboard_enabled ?? true,
         default_wearable: status.default_wearable ?? null,
         glasses_info: status.connected_glasses
@@ -201,6 +225,11 @@ export class AugmentOSParser {
           icon: app.icon || '/assets/icons/default-app.png',
           type: app.type || 'APP',
         })) || [],
+        auth: {
+          core_token_owner: status.auth.core_token_owner,
+          core_token_status: status.auth.core_token_status,
+          last_verification_timestamp: status.auth.last_verification_timestamp,
+        },
       };
     }
     return AugmentOSParser.defaultStatus;

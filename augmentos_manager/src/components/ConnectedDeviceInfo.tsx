@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated, Alert, PermissionsAndroid, Platform } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated, Alert, PermissionsAndroid, Permission, Platform } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { BluetoothService } from '../BluetoothService';
@@ -7,9 +7,6 @@ import { useStatus } from '../AugmentOSStatusProvider';
 import { NavigationProps } from '../components/types';
 import { useNavigation } from '@react-navigation/native';
 import { getGlassesImage } from '../logic/getGlassesImage';
-import { checkAndRequestNotificationPermission } from '../augmentos_core_comms/NotificationServiceUtils';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { checkAndRequestNotificationAccessSpecialPermission } from '../utils/NotificationServiceUtils.tsx';
 
 
 interface ConnectedDeviceInfoProps {
@@ -24,6 +21,8 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   const bluetoothService = BluetoothService.getInstance();
   const { status, isSearchingForPuck, isConnectingToPuck, refreshStatus } = useStatus();
   const navigation = useNavigation<NavigationProps>();
+  const [isConnectButtonDisabled, setConnectButtonDisabled] = useState(false);
+  const [isDisconnectButtonDisabled, setDisconnectButtonDisabled] = useState(false);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -54,42 +53,6 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
         ]).start();
       }
 
-      // Request permissions on Android
-      if (Platform.OS === 'android' && Platform.Version >= 23) {
-        PermissionsAndroid.requestMultiple([
-          PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
-          PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        ]).then(async (result) => {
-          console.log('Permissions granted:', result);
-
-          const allGranted = Object.values(result).every(
-            (value) => value === PermissionsAndroid.RESULTS.GRANTED
-          );
-
-          if (allGranted) {
-            try {
-              await checkAndRequestNotificationAccessSpecialPermission();
-            } catch (error) {
-              console.warn('Notification permission request error:', error);
-            }
-          } else {
-            console.warn('Some permissions were denied:', result);
-            // Optionally handle partial denial here
-            Alert.alert(
-              'Permissions Required',
-              'Some permissions were denied. Please go to Settings and enable all required permissions for the app to function properly.',
-              [
-                { text: 'OK', style: 'default' }
-              ]
-            );
-          }
-        })
-          .catch((error) => {
-            console.error('Error requesting permissions:', error);
-          });
-      }
-
       // Cleanup function
       return () => {
         fadeAnim.stopAnimation();
@@ -105,29 +68,43 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     } catch (error) {
       // Alert.alert('Error', 'Failed to start scanning for devices');
       // console.error('Scanning error:', error);
-      bluetoothService.emit('SHOW_BANNER', { message: 'Failed to start scanning for devices', type: 'error' })
+      bluetoothService.emit('SHOW_BANNER', { message: 'Failed to start scanning for devices', type: 'error' });
     }
   };
 
   const connectGlasses = async () => {
-    if (status.default_wearable == undefined || status.default_wearable == "") {
+    if (status.default_wearable === undefined || status.default_wearable === '') {
       navigation.navigate('SelectGlassesModelScreen');
       return;
     }
 
+    setConnectButtonDisabled(true);
+    setDisconnectButtonDisabled(false);
+
+    setTimeout(() => {
+      setConnectButtonDisabled(false);
+    }, 10000);
 
     try {
-      await bluetoothService.sendConnectWearable(status.default_wearable);
+      if (status.default_wearable && status.default_wearable != "") {
+        await bluetoothService.sendConnectWearable(status.default_wearable);
+      }
     } catch (error) {
       console.error('connect 2 glasses error:', error);
     }
   };
 
   const sendDisconnectWearable = async () => {
+    setDisconnectButtonDisabled(true);
+    setConnectButtonDisabled(false);
+
+    setTimeout(() => {
+      setDisconnectButtonDisabled(false);
+    }, 10000);
     try {
       await bluetoothService.sendDisconnectWearable();
     } catch (error) { }
-  }
+  };
 
   const themeStyles = {
     backgroundColor: isDarkTheme ? '#333333' : '#F2F2F7',
@@ -210,11 +187,14 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                       }
                     </View>
                     <TouchableOpacity
-                      style={styles.disconnectButton}
+                      style={[styles.disconnectButton, isDisconnectButtonDisabled && styles.disabledButton]}
                       onPress={sendDisconnectWearable}
+                      disabled={isDisconnectButtonDisabled}
                     >
                       <Icon name="power-off" size={18} color="white" style={styles.icon} />
-                      <Text style={styles.disconnectText}>Disconnect</Text>
+                      <Text style={styles.disconnectText}>
+                        Disconnect
+                      </Text>
                     </TouchableOpacity>
                   </Animated.View>
                 </>
@@ -226,10 +206,16 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                     </View>
                   ) : (
                     <View style={styles.noGlassesContent}>
-                      <TouchableOpacity style={styles.connectButton} onPress={connectGlasses}>
-                        <Text style={styles.buttonText}>Connect</Text>
-                      </TouchableOpacity>
-                    </View>
+                        <TouchableOpacity
+                          style={[styles.connectButton, isConnectButtonDisabled && styles.disabledButton]}
+                          onPress={connectGlasses}
+                          disabled={isConnectButtonDisabled}
+                        >
+                          <Text style={styles.buttonText}>
+                            {isConnectButtonDisabled ? 'Connecting...' : 'Connect'}
+                          </Text>
+                        </TouchableOpacity>
+                      </View>
                   )}
                 </View>
               )}
@@ -397,6 +383,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     width: '80%',
   },
+  disabledButton: {
+    backgroundColor: '#A9A9A9',
+  },
   icon: {
     marginRight: 4,
   },
@@ -415,7 +404,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     justifyContent: 'center',
     marginRight: 5,
-    width: '35%',
+    width: '40%',
   },
   disconnectText: {
     color: '#fff',

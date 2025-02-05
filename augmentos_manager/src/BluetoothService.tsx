@@ -4,13 +4,13 @@ import { EventEmitter } from 'events';
 import { TextDecoder } from 'text-encoding';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { AppState } from 'react-native';
-import { ENABLE_PHONE_NOTIFICATIONS_DEFAULT, MOCK_CONNECTION, SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from './consts';
+import { ENABLE_PHONE_NOTIFICATIONS_DEFAULT, INTENSE_LOGGING, MOCK_CONNECTION, SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from './consts';
 import { loadSetting, saveSetting } from './augmentos_core_comms/SettingsHelper';
 import { openCorePermissionsActivity, startExternalService } from './augmentos_core_comms/CoreServiceStarter';
 import ManagerCoreCommsService from './augmentos_core_comms/ManagerCoreCommsService';
 import GlobalEventEmitter from './logic/GlobalEventEmitter';
 import {
-  checkAndRequestNotificationPermission,
+  checkNotificationPermission,
   NotificationEventEmitter,
   NotificationService,
 } from './augmentos_core_comms/NotificationServiceUtils';
@@ -57,6 +57,9 @@ export class BluetoothService extends EventEmitter {
   async initialize() {
     if (MOCK_CONNECTION) return;
 
+    console.trace();
+    console.log(console.trace());
+
     // TODO: Temporarily default this to be true
     this.simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, SIMULATED_PUCK_DEFAULT);
 
@@ -70,7 +73,7 @@ export class BluetoothService extends EventEmitter {
     }
 
     let enablePhoneNotifications = await loadSetting(SETTINGS_KEYS.ENABLE_PHONE_NOTIFICATIONS, ENABLE_PHONE_NOTIFICATIONS_DEFAULT);
-    if (enablePhoneNotifications && await checkAndRequestNotificationPermission() && !(await NotificationService.isNotificationListenerEnabled())) {
+    if (enablePhoneNotifications && await checkNotificationPermission() && !(await NotificationService.isNotificationListenerEnabled())) {
       await NotificationService.startNotificationListenerService();
     }
 
@@ -106,7 +109,8 @@ export class BluetoothService extends EventEmitter {
 
   initializeCoreMessageIntentReader() {
     eventEmitter.addListener('CoreMessageIntentEvent', jsonString => {
-      console.log('Received message from core:', jsonString);
+      if (INTENSE_LOGGING)
+        console.log('Received message from core:', jsonString);
       try {
         let data = JSON.parse(jsonString);
         if (!this.connectedDevice) {
@@ -245,7 +249,7 @@ export class BluetoothService extends EventEmitter {
         //this.sendHeartbeat();
         this.reconnectionTimer = setTimeout(
           performScan,
-          this.connectedDevice ? 30000 : 500,
+          this.connectedDevice ? 4000 : 1000,
         );
       }
 
@@ -593,6 +597,7 @@ export class BluetoothService extends EventEmitter {
       }
     } catch (e) {
       console.log('Some error parsing data from AugmentOS_Core...');
+      GlobalEventEmitter.emit('STATUS_PARSE_ERROR');
     }
   }
 
@@ -759,7 +764,8 @@ export class BluetoothService extends EventEmitter {
       return this.validationInProgress;
     }
 
-    console.log('validateResponseFromCore: Data written, waiting for response...');
+    if (INTENSE_LOGGING)
+      console.log('validateResponseFromCore: Data written, waiting for response...');
 
     this.validationInProgress = new Promise((resolve, reject) => {
       let responseReceived = false;
@@ -767,7 +773,8 @@ export class BluetoothService extends EventEmitter {
       const dataReceivedListener = () => {
         responseReceived = true;
         clearTimeout(timeout);
-        console.log('Core is alive!');
+        if (INTENSE_LOGGING)
+          console.log('Core is alive!');
         resolve(true);
       };
 
@@ -776,10 +783,11 @@ export class BluetoothService extends EventEmitter {
       const timeout = setTimeout(() => {
         if (!responseReceived) {
           console.log('validateResponseFromCore: No response. Triggering reconnection...');
+          GlobalEventEmitter.emit('PUCK_DISCONNECTED', { message: 'Response timeout.' });
           this.removeListener('dataReceived', dataReceivedListener);
           reject(new Error('Response timeout.'));
         }
-      }, 6000);
+      }, 4500);
     }).then(() => {
       return true;
     }).catch((error) => {
@@ -811,7 +819,8 @@ export class BluetoothService extends EventEmitter {
   }
 
   async sendRequestStatus() {
-    console.log('Send Request Status');
+    if (INTENSE_LOGGING)
+      console.log('Send Request Status');
     await this.sendDataToAugmentOs({ command: 'request_status' });
     await this.validateResponseFromCore();
   }
@@ -881,6 +890,16 @@ export class BluetoothService extends EventEmitter {
     });
   }
 
+  async sendToggleForceCoreOnboardMic(enabled: boolean) {
+    console.log('sendToggleSensing');
+    return await this.sendDataToAugmentOs({
+      command: 'force_core_onboard_mic',
+      params: {
+        enabled: enabled,
+      },
+    });
+  }
+
   async sendToggleContextualDashboard(enabled: boolean) {
     console.log('sendToggleContextualDashboard');
     return await this.sendDataToAugmentOs({
@@ -936,11 +955,12 @@ export class BluetoothService extends EventEmitter {
     await this.validateResponseFromCore();
   }
 
-  async setAuthenticationSecretKey(authSecretKey: string) {
+  async setAuthenticationSecretKey(userId: string, authSecretKey: string) {
     console.log('setAuthenticationSecretKey');
     return await this.sendDataToAugmentOs({
       command: 'set_auth_secret_key',
       params: {
+        userId: userId,
         authSecretKey: authSecretKey,
       },
     });
@@ -999,12 +1019,13 @@ export class BluetoothService extends EventEmitter {
   }
 
   private static bluetoothService: BluetoothService | null = null;
-  public static getInstance(start: boolean = true): BluetoothService {
+  public static getInstance(start: boolean = false): BluetoothService {
     if (!BluetoothService.bluetoothService) {
       BluetoothService.bluetoothService = new BluetoothService();
-      if (start)
+      if (start) {
         BluetoothService.bluetoothService.initialize();
-    }
+      }
+      }
     return BluetoothService.bluetoothService;
   }
 

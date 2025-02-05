@@ -64,6 +64,11 @@ public class AugmentOsManagerMessageParser {
                     callback.setSensingEnabled(sensingEnabled);
                     break;
 
+                case "force_core_onboard_mic":
+                    boolean toForceCoreOnboardMic = commandObject.getJSONObject("params").getBoolean("enabled");
+                    callback.setForceCoreOnboardMic(toForceCoreOnboardMic);
+                    break;
+
                 case "enable_contextual_dashboard":
                     boolean dashboardEnabled = commandObject.getJSONObject("params").getBoolean("enabled");
                     callback.setContextualDashboardEnabled(dashboardEnabled);
@@ -87,8 +92,9 @@ public class AugmentOsManagerMessageParser {
                     break;
 
                 case "set_auth_secret_key":
+                    String userId = commandObject.getJSONObject("params").getString("userId");
                     String authKey = commandObject.getJSONObject("params").getString("authSecretKey");
-                    callback.setAuthSecretKey(authKey);
+                    callback.setAuthSecretKey(userId, authKey);
                     break;
 
                 case "verify_auth_secret_key":

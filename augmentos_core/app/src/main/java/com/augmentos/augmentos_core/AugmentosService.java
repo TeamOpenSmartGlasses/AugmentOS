@@ -56,6 +56,7 @@ import java.nio.charset.StandardCharsets;
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
+import com.augmentos.augmentos_core.augmentos_backend.AuthHandler;
 import com.augmentos.augmentoslib.events.SmartGlassesConnectionStateChangedEvent;
 import com.augmentos.smartglassesmanager.eventbusmessages.SmartGlassesConnectionEvent;
 import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
@@ -166,6 +167,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     //AugmentOS stuff
     String authToken = "";
     private BackendServerComms backendServerComms;
+    private AuthHandler authHandler;
     ArrayList<String> responsesBuffer;
     ArrayList<String> transcriptsBuffer;
     ArrayList<String> responsesToShare;
@@ -200,7 +202,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     public TPASystem tpaSystem;
 
-    PostHog postHog;
+    public static PostHog postHog;
 
     private String userId;
     public SmartGlassesConnectionState previousSmartGlassesConnectionState = SmartGlassesConnectionState.DISCONNECTED;
@@ -521,13 +523,16 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         //setup event bus subscribers
         EventBus.getDefault().register(this);
 
-        getUserId();
+        authHandler = new AuthHandler(this);
+
+        userId = authHandler.getUniqueIdForAnalytics();
+
         postHog = new PostHog.Builder(POSTHOG_API_KEY).host(POSTHOG_HOST).build();
 
         Map<String, Object> props = new HashMap<>();
         props.put("timestamp", System.currentTimeMillis());
         props.put("device_info", DeviceInfo.getDeviceInfo());
-        postHog.capture(userId, "augmentos_service_started", props);
+        postHog.capture(authHandler.getUniqueIdForAnalytics(), "augmentos_service_started", props);
 
         //make responses holder
         responsesBuffer = new ArrayList<>();
@@ -543,7 +548,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         wifiStatusHelper = new WifiStatusHelper(this);
         gsmStatusHelper = new GsmStatusHelper(this);
 
-        notificationSystem = new NotificationSystem(this);
+        notificationSystem = new NotificationSystem(this, userId);
 
         contextualDashboardEnabled = getContextualDashboardEnabled();
         //startNotificationService();
@@ -566,21 +571,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
 
         completeInitialization();
-    }
-
-    private void getUserId() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        userId = prefs.getString("user_id", "");
-
-        if (userId.isEmpty()) {
-            // Generate a random UUID string if no userId exists
-            userId = UUID.randomUUID().toString();
-
-            // Save the new userId to SharedPreferences
-            prefs.edit()
-                    .putString("user_id", userId)
-                    .apply();
-        }
     }
 
     private void createNotificationChannel() {
@@ -737,7 +727,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             Log.d(TAG, "****************** SENDING REFERENCE CARD: CONNECTED TO AUGMENT OS");
             if (smartGlassesService != null)
-                smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("Connected", "Connected to AugmentOS"), 6);
+                smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("", "/// AugmentOS Connected \\\\\\"), 6);
 
             //start transcribing
             updateAsrLanguages();
@@ -745,7 +735,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             Map<String, Object> props = new HashMap<>();
             props.put("glasses_model_name", event.device.deviceModelName);
             props.put("timestamp", System.currentTimeMillis());
-            postHog.capture(userId, "glasses_connected", props);
+            postHog.capture(authHandler.getUniqueIdForAnalytics(), "glasses_connected", props);
         }
     }
 
@@ -978,7 +968,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         JSONArray rootArray = jsonResponse.getJSONArray(notificationFilterKey);
 
         if (rootArray.length() == 0) {
-            Log.d(TAG, "No data found in response");
             return;
         }
 
@@ -1162,11 +1151,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
 
         //see if we should update user settings
-        boolean shouldUpdateSettingsResult = response.has(shouldUpdateSettingsKey) && response.getBoolean(shouldUpdateSettingsKey);
-        if (shouldUpdateSettingsResult){
-            Log.d(TAG, "Running get settings because shouldUpdateSettings true");
-            getSettings();
-        }
+//        boolean shouldUpdateSettingsResult = response.has(shouldUpdateSettingsKey) && response.getBoolean(shouldUpdateSettingsKey);
+//        if (shouldUpdateSettingsResult){
+//            Log.d(TAG, "Running get settings because shouldUpdateSettings true");
+//            getSettings();
+//        }
     }
 
     public void parseLocationResults(JSONObject response) throws JSONException {
@@ -1360,7 +1349,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             JSONObject root = new JSONObject(jsonString);
             String version = root.optString("version");
-            Log.d(TAG, "Got core version: " + version);
             return version;
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -1380,8 +1368,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             status.put("charging_status", batteryStatusHelper.isBatteryCharging());
             status.put("sensing_enabled", SpeechRecSwitchSystem.sensing_enabled);
             status.put("contextual_dashboard_enabled", this.contextualDashboardEnabled);
+            status.put("force_core_onboard_mic", AugmentosSmartGlassesService.getForceCoreOnboardMic(this));
             status.put("default_wearable", AugmentosSmartGlassesService.getPreferredWearable(this));
-            Log.d(TAG, "PREFER - Got default wearabe: " + AugmentosSmartGlassesService.getPreferredWearable(this));
+            // Log.d(TAG, "PREFER - Got default wearable: " + AugmentosSmartGlassesService.getPreferredWearable(this));
 
             // Adding connected glasses object
             JSONObject connectedGlasses = new JSONObject();
@@ -1438,7 +1427,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             // Adding apps array to the status object
             status.put("apps", apps);
 
-
+            // Add auth to status object
+            status.put("auth", authHandler.toJson());
 
             // Wrapping the status object inside a main object (as shown in your example)
             JSONObject mainObject = new JSONObject();
@@ -1446,7 +1436,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             try {
                 Map<String, Object> props = convertJsonToMap(status);
-                postHog.capture(userId, "status", props);
+                postHog.capture(authHandler.getUniqueIdForAnalytics(), "status", props);
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
@@ -1466,13 +1456,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Override
     public void requestPing() {
-        Log.d("AugmentOsService", "Requesting ping: ");
         blePeripheral.sendPing();
     }
 
     @Override
     public void requestStatus() {
-        Log.d("AugmentOsService", "Requesting status: ");
         sendStatusToAugmentOsManager();
     }
 
@@ -1548,7 +1536,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Map<String, Object> props = new HashMap<>();
         props.put("package_name", packageName);
         props.put("timestamp", System.currentTimeMillis());
-        postHog.capture(userId, "start_app", props);
+        postHog.capture(authHandler.getUniqueIdForAnalytics(), "start_app", props);
     }
 
     @Override
@@ -1560,7 +1548,17 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Map<String, Object> props = new HashMap<>();
         props.put("package_name", packageName);
         props.put("timestamp", System.currentTimeMillis());
-        postHog.capture(userId, "stop_app", props);
+        postHog.capture(authHandler.getUniqueIdForAnalytics(), "stop_app", props);
+    }
+
+    @Override
+    public void setForceCoreOnboardMic(boolean toForceCoreOnboardMic) {
+        AugmentosSmartGlassesService.saveForceCoreOnboardMic(this, toForceCoreOnboardMic);
+        blePeripheral.sendNotifyManager("Setting will apply next time you connect to glasses", "error");
+        Map<String, Object> props = new HashMap<>();
+        props.put("set_force_core_onboard_mic", toForceCoreOnboardMic);
+        props.put("timestamp", System.currentTimeMillis());
+        postHog.capture(authHandler.getUniqueIdForAnalytics(), "set_force_core_onboard_mic", props);
     }
 
     @Override
@@ -1574,7 +1572,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Map<String, Object> props = new HashMap<>();
         props.put("sensing_enabled", sensingEnabled);
         props.put("timestamp", System.currentTimeMillis());
-        postHog.capture(userId, "set_sensing_enabled", props);
+        postHog.capture(authHandler.getUniqueIdForAnalytics(), "set_sensing_enabled", props);
     }
 
     @Override
@@ -1634,6 +1632,12 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 Log.d(TAG, "SOME FAILURE HAPPENED (installAppFromRepository)");
             }
         });
+
+        Map<String, Object> props = new HashMap<>();
+        props.put("timestamp", System.currentTimeMillis());
+        props.put("respository", repository);
+        props.put("package_name", packageName);
+        postHog.capture(authHandler.getUniqueIdForAnalytics(), "install_app_from_repo", props);
     }
 
     private void downloadApk(String downloadLink, String packageName, String appName, String version) { // TODO: Add fallback if the download doesn't succeed
@@ -1700,6 +1704,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void uninstallApp(String uninstallPackageName) {
         Log.d(TAG, "uninstallApp not implemented");
         blePeripheral.sendNotifyManager("Uninstalling is not implemented yet", "error");
+
+        Map<String, Object> props = new HashMap<>();
+        props.put("timestamp", System.currentTimeMillis());
+        props.put("package_name", uninstallPackageName);
+        postHog.capture(authHandler.getUniqueIdForAnalytics(), "install_app_from_repo", props);
     }
 
     @Override
@@ -1720,7 +1729,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Map<String, Object> props = new HashMap<>();
         props.put("package_name", packageNameToGetDetails);
         props.put("timestamp", System.currentTimeMillis());
-        postHog.capture(userId, "request_app_info", props);
+        postHog.capture(authHandler.getUniqueIdForAnalytics(),"request_app_info", props);
     }
 
     @Override
@@ -1756,12 +1765,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Override
-    public void setAuthSecretKey(String authSecretKey) {
+    public void setAuthSecretKey(String uniqueUserId, String authSecretKey) {
         Log.d("AugmentOsService", "Setting auth secret key: " + authSecretKey);
-        // Logic to set the authentication key
-        // Save the new authSecretKey & verify it
-
-        // NOTE: This wont be used until phase 2
+        authHandler.setAuthSecretKey(authSecretKey);
+        authHandler.verifyAuthSecretKey(uniqueUserId);
+        sendStatusToAugmentOsManager();
     }
 
     @Override
@@ -1769,17 +1777,15 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Deleting auth secret key");
         // Logic to verify the authentication key
         // (Ping a server /login or /verify route & return the result to aosManager)
-
-        // NOTE: This wont be used until phase 2
+        //authHandler.verifyAuthSecretKey();
+        //sendStatusToAugmentOsManager();
     }
 
     @Override
     public void deleteAuthSecretKey() {
         Log.d("AugmentOsService", "Deleting auth secret key");
-        // Logic to delete the authentication key
-        // Delete our authSecretKey
-
-        // NOTE: This wont be used until phase 2
+        authHandler.deleteAuthSecretKey();
+        sendStatusToAugmentOsManager();
     }
 
     @Override
@@ -1809,6 +1815,16 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         if (!allSuccess) {
             blePeripheral.sendNotifyManager("Error updating settings", "error");
+        }
+
+        try {
+            Map<String, Object> props = new HashMap<>();
+            props.put("timestamp", System.currentTimeMillis());
+            props.put("package_name", targetApp);
+            props.put("settings", convertJsonToMap(settings));
+            postHog.capture(authHandler.getUniqueIdForAnalytics(), "update_app_settings", props);
+        } catch (JSONException e) {
+            Log.d(TAG, "JSONEXCEPTION IN UPDATEAPPSETTINGS???");
         }
     }
 

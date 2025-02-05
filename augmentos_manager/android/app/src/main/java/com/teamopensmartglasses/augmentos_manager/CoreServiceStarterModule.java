@@ -79,7 +79,7 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
         }
     }
 
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public boolean isAugmentOsCoreInstalled() {
         try {
             getReactApplicationContext()

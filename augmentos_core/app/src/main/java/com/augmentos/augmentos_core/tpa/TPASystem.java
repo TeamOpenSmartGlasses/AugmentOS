@@ -64,7 +64,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class TPASystem {
-    private String TAG = "WearableAi_TPASystem";
+    private String TAG = "AugmentOS_TPASystem";
     private Context mContext;
     private AugmentOSLibBroadcastSender augmentOsLibBroadcastSender;
     private AugmentOSLibBroadcastReceiver augmentOsLibBroadcastReceiver;
@@ -387,6 +387,7 @@ public class TPASystem {
     }
 
     public void loadThirdPartyAppsFromStorage() {
+        Log.d(TAG, "LOADING - third party apps from storage. : " + System.currentTimeMillis());
         HashMap<String, ThirdPartyApp> newThirdPartyAppList = new HashMap<>();
 
         ArrayList<String> preinstalledPackageNames = getAllInstalledPackageNames(mContext);
@@ -406,6 +407,7 @@ public class TPASystem {
 
         // Save the filtered list back to storage
         saveThirdPartyAppsToStorage();
+        Log.d(TAG, "LOADED - third party apps from storage. : " + System.currentTimeMillis());
     }
 
     public static ArrayList<String> getAllInstalledPackageNames(Context context) {
