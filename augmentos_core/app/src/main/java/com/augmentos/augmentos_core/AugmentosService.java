@@ -214,6 +214,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private boolean isSmartGlassesServiceBound = false;
     private final List<Runnable> serviceReadyListeners = new ArrayList<>();
     private NotificationSystem notificationSystem;
+    private CalendarSystem calendarSystem;
 
     private Integer batteryLevel;
     private Integer brightnessLevel;
@@ -434,38 +435,60 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             return;
         }
 
-        // Get current time and date
-        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm", Locale.getDefault());
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd", Locale.getDefault());
-        String currentTime = timeFormat.format(new Date());
-        String currentDate = dateFormat.format(new Date());
+        // Retrieve the next upcoming event
+        CalendarItem calendarItem = calendarSystem.getNextUpcomingEvent();
 
-        // Get battery level
-//            IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
-//            Intent batteryStatus = this.registerReceiver(null, iFilter);
-//            int level = batteryStatus != null ?
-//                    batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) : -1;
-//            int scale = batteryStatus != null ?
-//                    batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1) : -1;
-//            float batteryPct = level * 100 / (float)scale;
+        // Get current time in milliseconds
+        long now = System.currentTimeMillis();
+        long diffMillis = calendarItem.getDtStart() - now;
+        String timeUntil;
 
-        // Build dashboard string with fancy formatting
+        // Choose the appropriate unit to display the time difference
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
+        String eventDate = simpleDateFormat.format(new Date(calendarItem.getDtStart()));
+        String todayDate = simpleDateFormat.format(new Date(now));
+
+        if (eventDate.equals(todayDate)) {
+            // Event is today -> just show the time
+            SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a", Locale.getDefault());
+            timeUntil = timeFormat.format(new Date(calendarItem.getDtStart()));
+        } else if (eventDate.equals(simpleDateFormat.format(new Date(now + 24 * 60 * 60 * 1000)))) {
+            // Event is tomorrow -> show 'tmr' and time
+            SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a", Locale.getDefault());
+            timeUntil = "tmr at " + timeFormat.format(new Date(calendarItem.getDtStart()));
+        } else {
+            // Event is after tomorrow -> do not show time
+            timeUntil = "";
+        }
+
+        // Get current time and date strings
+        SimpleDateFormat currentTimeFormat = new SimpleDateFormat("h:mm", Locale.getDefault());
+        SimpleDateFormat currentDateFormat = new SimpleDateFormat("MMM dd", Locale.getDefault());
+        String currentTime = currentTimeFormat.format(new Date());
+        String currentDate = currentDateFormat.format(new Date());
+        String calendarItemTitle = calendarItem.getTitle().
+                replace("-", " ").
+                replace("\n", " ").
+                replaceAll("\\s+", " ").
+                substring(0, Math.min(calendarItem.getTitle().length(), 17))
+                .trim();
+
+        // Build the dashboard string with event information on the same line as time and date
         StringBuilder dashboard = new StringBuilder();
-        //     dashboard.append("Dashboard - AugmentOS\n");
-        dashboard.append(String.format(Locale.getDefault(), "│ %s, %s, %d%%\n", currentDate, currentTime, batteryLevel));
-        //dashboard.append(String.format("│ Date      │ %s\n", currentDate));
-//            dashboard.append(String.format("│ Battery │ %.0f%%\n", batteryPct));
-//            dashboard.append("│ BLE       │ ON\n");
+        dashboard.append(String.format(Locale.getDefault(),
+                "%s, %s, %d%% | %s %s\n",
+                currentDate, currentTime, batteryLevel,
+                calendarItemTitle, timeUntil));
 
+        // Process notifications (as before)
         boolean recentNotificationFound = false;
         ArrayList<PhoneNotification> notifications = notificationSystem.getNotificationQueue();
         PhoneNotification mostRecentNotification = null;
         long mostRecentTime = 0;
-        long now = System.currentTimeMillis();
 
         for (PhoneNotification notification : notifications) {
             long notificationTime = notification.getTimestamp();
-            if ((notificationTime + 5000) > now) {  // 5 seconds in milliseconds
+            if ((notificationTime + 5000) > now) {
                 if (mostRecentTime == 0 || notificationTime > mostRecentTime) {
                     mostRecentTime = notificationTime;
                     mostRecentNotification = notification;
@@ -480,7 +503,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             recentNotificationFound = true;
         }
 
-        // If no recent notification was found, display from the list
+        // If no recent notification was found, display from the notificationList
         if (!recentNotificationFound) {
             int notificationCount = Math.min(2, notificationList.size());
             for (int i = 0; i < notificationCount; i++) {
@@ -490,7 +513,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         // Send to text wall
         if (smartGlassesService != null) {
-            smartGlassesService.windowManager.showDashboard(()-> smartGlassesService.sendTextWall(dashboard.toString()), -1);
+            smartGlassesService.windowManager.showDashboard(() ->
+                    smartGlassesService.sendTextWall(dashboard.toString()), -1);
         }
         Log.d(TAG, "Dashboard displayed: " + dashboard);
     }
@@ -549,6 +573,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         gsmStatusHelper = new GsmStatusHelper(this);
 
         notificationSystem = new NotificationSystem(this, userId);
+        calendarSystem = CalendarSystem.getInstance(this);
 
         contextualDashboardEnabled = getContextualDashboardEnabled();
         //startNotificationService();

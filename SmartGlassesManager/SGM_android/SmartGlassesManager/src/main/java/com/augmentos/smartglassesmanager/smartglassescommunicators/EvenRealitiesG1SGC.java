@@ -1746,7 +1746,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     // Constants for text wall display
     private static final int TEXT_COMMAND = 0x4E;  // Text command
     private static final int DISPLAY_WIDTH = 640;  // Display width in pixels
-    private static final int DISPLAY_USE_WIDTH = 340;  // How much of the display to use
+    private static final int DISPLAY_USE_WIDTH = 640;  // How much of the display to use
     private static final int FONT_SIZE = 21;      // Font size
     private static final float FONT_DIVIDER = 2.0f;
     private static final int LINES_PER_SCREEN = 5; // Lines per screen
