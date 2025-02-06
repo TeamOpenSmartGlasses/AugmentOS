@@ -1,5 +1,7 @@
 package com.augmentos.smartglassesmanager.speechrecognition.augmentos;
 
+import android.util.Log;
+
 import com.microsoft.cognitiveservices.speech.audio.AudioStreamFormat;
 import com.microsoft.cognitiveservices.speech.audio.PullAudioInputStreamCallback;
 

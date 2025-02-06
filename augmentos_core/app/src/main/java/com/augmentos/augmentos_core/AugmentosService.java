@@ -1530,6 +1530,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             tpaSystem.startThirdPartyAppByPackageName(packageName);
             sendStatusToAugmentOsManager();
         } else {
+            Log.d(TAG, "Not starting app because glasses aren't connected.");
             blePeripheral.sendNotifyManager("Must connect glasses to start an app", "error");
         }
 

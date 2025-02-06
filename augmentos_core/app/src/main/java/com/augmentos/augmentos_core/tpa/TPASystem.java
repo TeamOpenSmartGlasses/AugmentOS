@@ -228,8 +228,10 @@ public class TPASystem {
     }
 
     public boolean startThirdPartyAppByPackageName(String packageName){
-        if(runningApps.contains(packageName))
+        if(runningApps.contains(packageName)){
+            Log.d(TAG, "Not starting because already running: " + packageName);
             return false;
+        }
 
         if (thirdPartyApps.containsKey(packageName) && isAppInstalled(packageName)) {
             ThirdPartyApp tpa = thirdPartyApps.get(packageName);
