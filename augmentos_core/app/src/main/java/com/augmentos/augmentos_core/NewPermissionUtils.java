@@ -45,6 +45,11 @@ public final class NewPermissionUtils {
             permissionsList.add(Manifest.permission.READ_EXTERNAL_STORAGE);
         }
 
+        // Add calendar permissions if your app requires calendar access
+        permissionsList.add(Manifest.permission.READ_CALENDAR);
+        // Optionally add WRITE_CALENDAR if you plan to modify calendar events
+        permissionsList.add(Manifest.permission.WRITE_CALENDAR);
+
         return permissionsList.toArray(new String[0]);
     }
 
