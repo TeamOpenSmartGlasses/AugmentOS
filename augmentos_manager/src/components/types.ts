@@ -35,6 +35,7 @@ export type AppStoreItem = {
   version: string;
   description: string;
   iconImageUrl: string;
+  showInAppStore: boolean;
   identifierCode: string;
   downloadUrl: string;
   rating: number;

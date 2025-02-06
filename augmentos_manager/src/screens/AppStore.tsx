@@ -69,7 +69,8 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
 
     const callback = {
       onSuccess: (data: any) => {
-        setFilteredApps(data); // Assuming the API returns a list of AppStoreItem
+        const visibleApps = data.filter((app: AppStoreItem) => app.showInAppStore);
+        setFilteredApps(visibleApps); // Assuming the API returns a list of AppStoreItem
         setIsError(false); // Reset error state on success
         setIsLoading(false); // Stop loading
       },
@@ -79,7 +80,7 @@ const AppStore: React.FC<AppStoreProps> = ({ isDarkTheme }) => {
       },
     };
 
-    backendServerComms.restRequest(GET_APP_STORE_DATA_ENDPOINT, null, callback);
+    await backendServerComms.restRequest(GET_APP_STORE_DATA_ENDPOINT, null, callback);
   };
 
   const handleSearch = (text: string) => {
