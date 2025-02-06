@@ -94,4 +94,6 @@ public class ManagerCoreCommsService extends SmartGlassesAndroidService {
             Log.d(TAG, "Failed to create JSON object from notification event: " + e.toString());
         }
     }
+
+    public void setup() {}
 }
