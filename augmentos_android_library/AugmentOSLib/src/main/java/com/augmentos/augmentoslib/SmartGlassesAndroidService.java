@@ -92,6 +92,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
                     // start the service in the foreground
                     Log.d("TEST", "starting foreground");
                     startForeground(NOTIFICATION_ID, updateNotification());
+                    setup();
                     break;
                 case ACTION_STOP_FOREGROUND_SERVICE:
                     stopForeground(true);
@@ -146,4 +147,6 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         super.onDestroy();
         Log.d(TAG, "ran onDestroy");
     }
+
+    public abstract void setup();
 }

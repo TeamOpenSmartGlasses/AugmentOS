@@ -140,7 +140,6 @@ public class TPABroadcastSender {
         sendEventToAugmentOS(e.eventId, e);
     }
 
-
     @Subscribe
     public void onSendHomeScreen(HomeScreenEvent e){
         sendEventToAugmentOS(e.eventId, e);
