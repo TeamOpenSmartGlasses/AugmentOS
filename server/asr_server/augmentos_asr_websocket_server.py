@@ -8,6 +8,7 @@ import threading
 from dataclasses import dataclass
 from typing import Optional, Dict, List
 from pathlib import Path
+from azure.cognitiveservices.speech import ProfanityOption
 
 @dataclass
 class StreamConfig:
@@ -60,6 +61,7 @@ class ASRStream:
             self.speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
             self.speech_config.speech_recognition_language = self.transcribeLanguage
             self.speech_config.set_property(speechsdk.PropertyId.Speech_SegmentationSilenceTimeoutMs, "500")
+            self.speech_config.set_profanity(speechsdk.ProfanityOption.Raw)
             
             self.push_stream = speechsdk.audio.PushAudioInputStream()
             self.audio_config = speechsdk.audio.AudioConfig(stream=self.push_stream)

@@ -72,9 +72,9 @@ You're now running an AugmentOS TPA!
 
 ## **AugmentOSLib installation**
 
-1. Clone the [AugmentOS repository](https://github.com/augmentos/augmentos) next to your app's directory (default setup)
+1. Clone the [AugmentOS repository](https://github.com/AugmentOS-Community/AugmentOS) next to your app's directory (default setup)
 
-2. If you cloned the [AugmentOS repository](https://github.com/augmentos/augmentos) elsewhere, update the path to AugmentOSLib in `settings.gradle`:
+2. If you cloned the [AugmentOS repository](https://github.com/AugmentOS-Community/AugmentOS) elsewhere, update the path to AugmentOSLib in `settings.gradle`:
    ```
    project(':AugmentOSLib').projectDir = new File(rootProject.projectDir, '../AugmentOS/augmentos_android_library/AugmentOSLib')
    ```
