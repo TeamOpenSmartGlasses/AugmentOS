@@ -450,12 +450,12 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         if (eventDate.equals(todayDate)) {
             // Event is today -> just show the time
-            SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a", Locale.getDefault());
+            SimpleDateFormat timeFormat = new SimpleDateFormat("h:mma", Locale.getDefault());
             timeUntil = timeFormat.format(new Date(calendarItem.getDtStart()));
         } else if (eventDate.equals(simpleDateFormat.format(new Date(now + 24 * 60 * 60 * 1000)))) {
             // Event is tomorrow -> show 'tmr' and time
-            SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a", Locale.getDefault());
-            timeUntil = "tmr at " + timeFormat.format(new Date(calendarItem.getDtStart()));
+            SimpleDateFormat timeFormat = new SimpleDateFormat("h:mma", Locale.getDefault());
+            timeUntil = "tmrw@" + timeFormat.format(new Date(calendarItem.getDtStart()));
         } else {
             // Event is after tomorrow -> do not show time
             timeUntil = "";
@@ -466,12 +466,15 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         SimpleDateFormat currentDateFormat = new SimpleDateFormat("MMM dd", Locale.getDefault());
         String currentTime = currentTimeFormat.format(new Date());
         String currentDate = currentDateFormat.format(new Date());
-        String calendarItemTitle = calendarItem.getTitle().
-                replace("-", " ").
-                replace("\n", " ").
-                replaceAll("\\s+", " ").
-                substring(0, Math.min(calendarItem.getTitle().length(), 17))
+        String calendarItemTitle = calendarItem.getTitle()
+                .replace("-", " ")
+                .replace("\n", " ")
+                .replaceAll("\\s+", " ")
+                .substring(0, Math.min(calendarItem.getTitle().length(), 10))
                 .trim();
+        if (calendarItem.getTitle().length() > 10) {
+            calendarItemTitle += "...";
+        }
 
         // Build the dashboard string with event information on the same line as time and date
         StringBuilder dashboard = new StringBuilder();

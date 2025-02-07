@@ -231,63 +231,70 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
                         Log.d(TAG, side + " glass disconnected, stopping heartbeats");
 
-                        //set services as not ready
+                        // Mark both sides as not ready (you could also clear both if one disconnects)
                         leftServicesWaiter.setTrue();
                         rightServicesWaiter.setTrue();
 
+                        // Force disconnection from the other side if necessary
                         if ("Left".equals(side)) {
                             isLeftConnected = false;
                             leftReconnectAttempts++;
                             leftGlassGatt = null;
-                        } else {
+                            // If right is still connected, disconnect it too
+                            if (rightGlassGatt != null) {
+                                Log.d(TAG, "Left glass disconnected - forcing disconnection from right glass.");
+                                rightGlassGatt.disconnect();
+                                rightGlassGatt.close();
+                                rightGlassGatt = null;
+                                isRightConnected = false;
+                                rightReconnectAttempts++;
+                            }
+                        } else { // side equals "Right"
                             isRightConnected = false;
                             rightReconnectAttempts++;
                             rightGlassGatt = null;
+                            // If left is still connected, disconnect it too
+                            if (leftGlassGatt != null) {
+                                Log.d(TAG, "Right glass disconnected - forcing disconnection from left glass.");
+                                leftGlassGatt.disconnect();
+                                leftGlassGatt.close();
+                                leftGlassGatt = null;
+                                isLeftConnected = false;
+                                leftReconnectAttempts++;
+                            }
                         }
 
+                        // Stop any periodic transmissions
                         stopHeartbeat();
                         stopMicBeat();
                         sendQueue.clear();
                         updateConnectionState();
 
-                        long delay;
-                        if ("Left".equals(side)) {
-                            delay = Math.min(BASE_RECONNECT_DELAY_MS * (1L << leftReconnectAttempts), MAX_RECONNECT_DELAY_MS);
-                            Log.d(TAG, side + " glass disconnected. Attempting to reconnect " + side + " in " + delay + " ms (Attempt " + leftReconnectAttempts + ")");
-                        } else {
-                            delay = Math.min(BASE_RECONNECT_DELAY_MS * (1L << rightReconnectAttempts), MAX_RECONNECT_DELAY_MS);
-                            Log.d(TAG, side + " glass disconnected. Attempting to reconnect " + side + " in " + delay + " ms (Attempt " + rightReconnectAttempts + ")");
-                        }
-//                    reconnectHandler.postDelayed(() -> {
-//                        if (gatt.getDevice() != null) {
-//                            gatt.close();
-//                            Log.d(TAG, "Reconnecting to gatt. Are we scanning?: " + isScanning);
-//                            reconnectToGatt(gatt.getDevice());
-//                        }
-//                    }, delay);
+                        // Compute reconnection delay for both sides (here you could choose the maximum of the two delays or a new delay)
+                        long delayLeft = Math.min(BASE_RECONNECT_DELAY_MS * (1L << leftReconnectAttempts), MAX_RECONNECT_DELAY_MS);
+                        long delayRight = Math.min(BASE_RECONNECT_DELAY_MS * (1L << rightReconnectAttempts), MAX_RECONNECT_DELAY_MS);
+                        long delay = Math.max(delayLeft, delayRight); // or choose another strategy
 
-                        // Do this ~carefully~ to compensate for old BLE stacks
-                        // reconnectHandler.postDelayed(() -> {
-                        //Log.d(TAG, "Manually disconnecting gatt. Are we scanning?: " + isScanning);
-                        // gatt.disconnect();
-                        // }, 0);
+                        Log.d(TAG, side + " glass disconnected. Scheduling reconnection for both glasses in " + delay + " ms (Left attempts: " + leftReconnectAttempts + ", Right attempts: " + rightReconnectAttempts + ")");
 
                         if (gatt.getDevice() != null) {
-                            Log.d(TAG, "Closing gatt. Are we scanning?: " + isScanning);
-                            //gatt.disconnect();
+                            // Close the current gatt connection
                             gatt.close();
                         }
 
+                        // Schedule a reconnection for both devices after the delay
                         reconnectHandler.postDelayed(() -> {
-                            if (gatt.getDevice() != null) {
-                                if (isKilled){
-                                    return;
+                            if (gatt.getDevice() != null && !isKilled) {
+                                Log.d(TAG, "Reconnecting to both glasses.");
+                                // Assuming you have stored references to both devices:
+                                if (leftDevice != null) {
+                                    reconnectToGatt(leftDevice);
                                 }
-                                Log.d(TAG, "Reconnecting to gatt. Are we scanning?: " + isScanning);
-                                reconnectToGatt(gatt.getDevice());
+                                if (rightDevice != null) {
+                                    reconnectToGatt(rightDevice);
+                                }
                             }
-                        }, delay); // 2 seconds after close
-
+                        }, delay);
                     }
                 } else {
                     stopHeartbeat();
@@ -1746,7 +1753,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     // Constants for text wall display
     private static final int TEXT_COMMAND = 0x4E;  // Text command
     private static final int DISPLAY_WIDTH = 640;  // Display width in pixels
-    private static final int DISPLAY_USE_WIDTH = 640;  // How much of the display to use
+    private static final int DISPLAY_USE_WIDTH = 380;  // How much of the display to use
     private static final int FONT_SIZE = 21;      // Font size
     private static final float FONT_DIVIDER = 2.0f;
     private static final int LINES_PER_SCREEN = 5; // Lines per screen
