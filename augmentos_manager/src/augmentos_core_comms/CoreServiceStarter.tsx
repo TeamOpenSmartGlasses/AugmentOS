@@ -8,7 +8,7 @@ export const startExternalService = () => {
 
 export const stopExternalService = () => {
     ServiceStarter.stopService();
-}
+};
 
 export const openCorePermissionsActivity = () => {
     ServiceStarter.openPermissionsActivity();

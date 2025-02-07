@@ -13,7 +13,7 @@ import static com.augmentos.augmentos_core.Constants.explicitAgentQueriesKey;
 import static com.augmentos.augmentos_core.Constants.explicitAgentResultsKey;
 import static com.augmentos.augmentos_core.Constants.glassesCardTitle;
 import static com.augmentos.augmentos_core.Constants.notificationFilterKey;
-import static com.augmentos.augmentos_core.Constants.shouldUpdateSettingsKey;
+import static com.augmentos.augmentos_core.Constants.newsSummaryKey;
 import static com.augmentos.augmentos_core.Constants.displayRequestsKey;
 import static com.augmentos.augmentos_core.Constants.wakeWordTimeKey;
 import static com.augmentos.augmentos_core.Constants.augmentOsMainServiceNotificationId;
@@ -35,9 +35,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.hardware.display.VirtualDisplay;
 import android.media.projection.MediaProjection;
 import android.os.Binder;
@@ -51,18 +48,13 @@ import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
 import com.augmentos.augmentos_core.augmentos_backend.AuthHandler;
 import com.augmentos.augmentoslib.events.SmartGlassesConnectionStateChangedEvent;
-import com.augmentos.smartglassesmanager.eventbusmessages.SmartGlassesConnectionEvent;
 import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
-//import com.google.firebase.auth.FirebaseAuth;
-//import com.google.firebase.auth.FirebaseUser;
-//import com.google.firebase.auth.GetTokenResult;
 import com.posthog.java.PostHog;
 import com.augmentos.augmentoslib.PhoneNotification;
 import com.augmentos.augmentoslib.ThirdPartyApp;
@@ -130,7 +122,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.UUID;
 //SpeechRecIntermediateOutputEvent
 import com.augmentos.smartglassesmanager.utils.EnvHelper;
 import com.augmentos.augmentoslib.enums.AsrStreamType;
@@ -214,6 +205,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private boolean isSmartGlassesServiceBound = false;
     private final List<Runnable> serviceReadyListeners = new ArrayList<>();
     private NotificationSystem notificationSystem;
+    private CalendarSystem calendarSystem;
 
     private Integer batteryLevel;
     private Integer brightnessLevel;
@@ -428,44 +420,90 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     //TODO NO MORE PASTA
     public ArrayList<String> notificationList = new ArrayList<String>();
+    public JSONArray latestNewsArray = new JSONArray();
+    private int latestNewsIndex = 0;
     @Subscribe
-    public void onDisplayGlassesDashboardEvent(DisplayGlassesDashboardEvent event) {
+    public void onDisplayGlassesDashboardEvent(DisplayGlassesDashboardEvent event) throws JSONException {
         if (!contextualDashboardEnabled) {
             return;
         }
 
-        // Get current time and date
-        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm", Locale.getDefault());
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd", Locale.getDefault());
-        String currentTime = timeFormat.format(new Date());
-        String currentDate = dateFormat.format(new Date());
+        // Retrieve the next upcoming event
+        CalendarItem calendarItem = calendarSystem.getNextUpcomingEvent();
 
-        // Get battery level
-//            IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
-//            Intent batteryStatus = this.registerReceiver(null, iFilter);
-//            int level = batteryStatus != null ?
-//                    batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) : -1;
-//            int scale = batteryStatus != null ?
-//                    batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1) : -1;
-//            float batteryPct = level * 100 / (float)scale;
+        // Get current time in milliseconds
+        long now = System.currentTimeMillis();
+        long diffMillis = calendarItem.getDtStart() - now;
+        String timeUntil;
 
-        // Build dashboard string with fancy formatting
+        // Choose the appropriate unit to display the time difference
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
+        String eventDate = simpleDateFormat.format(new Date(calendarItem.getDtStart()));
+        String todayDate = simpleDateFormat.format(new Date(now));
+
+        if (eventDate.equals(todayDate)) {
+            // Event is today -> just show the time
+            SimpleDateFormat timeFormat = new SimpleDateFormat("h:mma", Locale.getDefault());
+            timeUntil = timeFormat.format(new Date(calendarItem.getDtStart()));
+        } else if (eventDate.equals(simpleDateFormat.format(new Date(now + 24 * 60 * 60 * 1000)))) {
+            // Event is tomorrow -> show 'tmr' and time
+            SimpleDateFormat timeFormat = new SimpleDateFormat("h:mma", Locale.getDefault());
+            timeUntil = "tmrw@" + timeFormat.format(new Date(calendarItem.getDtStart()));
+        } else {
+            // Event is after tomorrow -> do not show time
+            timeUntil = "";
+        }
+
+        // Get current time and date strings
+        SimpleDateFormat currentTimeFormat = new SimpleDateFormat("h:mm", Locale.getDefault());
+        SimpleDateFormat currentDateFormat = new SimpleDateFormat("MMM dd", Locale.getDefault());
+        String currentTime = currentTimeFormat.format(new Date());
+        String currentDate = currentDateFormat.format(new Date());
+        String calendarItemTitle = "";
+        if (!timeUntil.isEmpty()) { // Only show the event tittle if the event is today or tomorrow
+            calendarItemTitle = "| " + calendarItem.getTitle()
+                    .replace("-", " ")
+                    .replace("\n", " ")
+                    .replaceAll("\\s+", " ")
+                    .substring(0, Math.min(calendarItem.getTitle().length(), 12))
+                    .trim();
+            if (calendarItem.getTitle().length() > 12) {
+                calendarItemTitle += "...";
+            }
+        }
+
+        // Build the dashboard string with event information on the same line as time and date
         StringBuilder dashboard = new StringBuilder();
-        //     dashboard.append("Dashboard - AugmentOS\n");
-        dashboard.append(String.format(Locale.getDefault(), "│ %s, %s, %d%%\n", currentDate, currentTime, batteryLevel));
-        //dashboard.append(String.format("│ Date      │ %s\n", currentDate));
-//            dashboard.append(String.format("│ Battery │ %.0f%%\n", batteryPct));
-//            dashboard.append("│ BLE       │ ON\n");
+        dashboard.append(String.format(Locale.getDefault(),
+                "%s, %s, %d%% %s %s\n",
+                currentDate, currentTime, batteryLevel,
+                calendarItemTitle, timeUntil));
 
+        if (latestNewsIndex >= latestNewsArray.length()) {
+            latestNewsIndex = 0;
+        } else {
+            latestNewsIndex ++;
+        }
+
+        String latestNews = latestNewsArray.getString(latestNewsIndex);
+
+        if (latestNews != null && !latestNews.isEmpty()) {
+            String newsToDisplay = latestNews.substring(0, Math.min(latestNews.length(), 30)).trim();
+            if (latestNews.length() > 30) {
+                newsToDisplay += "...";
+            }
+            dashboard.append(String.format("News: %s\n", newsToDisplay));
+        }
+
+        // Process notifications (as before)
         boolean recentNotificationFound = false;
         ArrayList<PhoneNotification> notifications = notificationSystem.getNotificationQueue();
         PhoneNotification mostRecentNotification = null;
         long mostRecentTime = 0;
-        long now = System.currentTimeMillis();
 
         for (PhoneNotification notification : notifications) {
             long notificationTime = notification.getTimestamp();
-            if ((notificationTime + 5000) > now) {  // 5 seconds in milliseconds
+            if ((notificationTime + 5000) > now) {
                 if (mostRecentTime == 0 || notificationTime > mostRecentTime) {
                     mostRecentTime = notificationTime;
                     mostRecentNotification = notification;
@@ -480,7 +518,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             recentNotificationFound = true;
         }
 
-        // If no recent notification was found, display from the list
+        // If no recent notification was found, display from the notificationList
         if (!recentNotificationFound) {
             int notificationCount = Math.min(2, notificationList.size());
             for (int i = 0; i < notificationCount; i++) {
@@ -490,7 +528,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         // Send to text wall
         if (smartGlassesService != null) {
-            smartGlassesService.windowManager.showDashboard(()-> smartGlassesService.sendTextWall(dashboard.toString()), -1);
+            smartGlassesService.windowManager.showDashboard(() ->
+                    smartGlassesService.sendTextWall(dashboard.toString()), -1);
         }
         Log.d(TAG, "Dashboard displayed: " + dashboard);
     }
@@ -549,6 +588,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         gsmStatusHelper = new GsmStatusHelper(this);
 
         notificationSystem = new NotificationSystem(this, userId);
+        calendarSystem = CalendarSystem.getInstance(this);
 
         contextualDashboardEnabled = getContextualDashboardEnabled();
         //startNotificationService();
@@ -946,6 +986,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("deviceId", deviceId);
             jsonQuery.put("userId", userId);
+            Log.d(TAG, userId);
             backendServerComms.restRequest(UI_POLL_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result) throws JSONException {
@@ -965,41 +1006,44 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     private void parseAugmentosResults(JSONObject jsonResponse) throws JSONException {
-        JSONArray rootArray = jsonResponse.getJSONArray(notificationFilterKey);
+        JSONArray notificationArray = jsonResponse.getJSONArray(notificationFilterKey);
+        JSONArray newsSummaryArray = jsonResponse.getJSONArray(newsSummaryKey);
 
-        if (rootArray.length() == 0) {
-            return;
-        }
+        if (notificationArray.length() > 0) {
+            JSONArray notifications = notificationArray.getJSONObject(0).getJSONArray("notification_data");
+            Log.d(TAG, "Got notifications: " + notifications);
 
-        JSONObject firstEntry = rootArray.getJSONObject(0);
-
-        JSONArray notifications = firstEntry.getJSONArray("notification_data");
-        Log.d(TAG, "Got notifications: " + notifications);
-
-        List<JSONObject> sortedNotifications = new ArrayList<>();
-        for (int i = 0; i < notifications.length(); i++) {
-            sortedNotifications.add(notifications.getJSONObject(i));
-        }
-
-        Collections.sort(sortedNotifications, new Comparator<JSONObject>() {
-            @Override
-            public int compare(JSONObject a, JSONObject b) {
-                try {
-                    return Integer.compare(a.getInt("rank"), b.getInt("rank"));
-                } catch (JSONException e) {
-                    // If a rank is missing or unparsable, treat as equal
-                    return 0;
-                }
+            List<JSONObject> sortedNotifications = new ArrayList<>();
+            for (int i = 0; i < notifications.length(); i++) {
+                sortedNotifications.add(notifications.getJSONObject(i));
             }
-        });
 
-        notificationList.clear();
+            Collections.sort(sortedNotifications, new Comparator<JSONObject>() {
+                @Override
+                public int compare(JSONObject a, JSONObject b) {
+                    try {
+                        return Integer.compare(a.getInt("rank"), b.getInt("rank"));
+                    } catch (JSONException e) {
+                        // If a rank is missing or unparsable, treat as equal
+                        return 0;
+                    }
+                }
+            });
+
+            notificationList.clear();
 //        Log.d(TAG, "Got notifications: " + sortedNotifications.toString());
 
-        for (int i = 0; i < sortedNotifications.size(); i++) {
-            JSONObject notification = sortedNotifications.get(i);
-            String summary = notification.getString("summary");
-            notificationList.add(summary);
+            for (int i = 0; i < sortedNotifications.size(); i++) {
+                JSONObject notification = sortedNotifications.get(i);
+                String summary = notification.getString("summary");
+                notificationList.add(summary);
+            }
+        }
+
+        if (newsSummaryArray.length() > 0) {
+            JSONObject newsSummary = newsSummaryArray.getJSONObject(0);
+            latestNewsArray = newsSummary.getJSONObject("news_data").getJSONArray("news_summaries");
+            Log.d(TAG, "Latest news: " + latestNewsArray);
         }
     }
 
