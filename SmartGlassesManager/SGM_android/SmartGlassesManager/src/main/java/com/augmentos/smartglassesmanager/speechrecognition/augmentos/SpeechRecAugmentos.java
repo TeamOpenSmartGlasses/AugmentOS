@@ -114,7 +114,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
 
             @Override
             public void onFinalTranscript(String text, String language, long timestamp) {
-//                Log.d(TAG, "Got final transcription: " + text + " (language: " + language + ")");
+                Log.d(TAG, "Got final transcription: " + text + " (language: " + language + ")");
                 if (text != null && !text.trim().isEmpty()) {
                     EventBus.getDefault().post(new SpeechRecOutputEvent(text, language, timestamp, true));
                 }

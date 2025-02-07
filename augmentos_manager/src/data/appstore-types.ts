@@ -3,6 +3,7 @@ export interface AppStoreItem {
     packageName: string;
     description: string;
     iconImageUrl: string;
+    showInAppStore: boolean;
     identifierCode: string;
     rating: number;
     downloads: number;

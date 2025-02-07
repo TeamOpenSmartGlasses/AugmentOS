@@ -153,6 +153,7 @@ public class SpeechRecUtils {
                 return "eu-ES";
             case "Persian (Iran)":
                 return "fa-IR";
+            case "Finnish":
             case "Finnish (Finland)":
                 return "fi-FI";
             case "Filipino (Philippines)":
@@ -311,5 +312,4 @@ public class SpeechRecUtils {
                 return "en-US";
         }
     }
-
 }
