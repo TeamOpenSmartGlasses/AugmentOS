@@ -3,7 +3,6 @@ package com.augmentos.augmentos_core;
 import static com.augmentos.augmentos_core.Constants.SEND_NOTIFICATIONS_ENDPOINT;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.preference.PreferenceManager;
@@ -22,10 +21,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.UUID;
+import java.util.Arrays;
+import java.util.List;
 
 public class NotificationSystem {
     private static final String TAG = "NotificationSystem";
+
+    // Define the blacklist list
+    private static final List<String> BLACKLIST = Arrays.asList("augment", "maps");
 
     private final ArrayList<PhoneNotification> notificationQueue;
     private BackendServerComms backendServerComms;
@@ -49,7 +52,16 @@ public class NotificationSystem {
     }
 
     public synchronized void addNotification(PhoneNotification notif) {
-        // Remove existing notification with same title and appName
+        // Check if appName contains any blacklisted keyword
+        String appNameLower = notif.getAppName() != null ? notif.getAppName().toLowerCase() : "";
+        for (String keyword : BLACKLIST) {
+            if (appNameLower.contains(keyword)) {
+                Log.d(TAG, "Notification not added due to blacklist match: " + notif.getAppName());
+                return;
+            }
+        }
+
+        // Remove existing notification with the same title and appName
         notificationQueue.removeIf(existing ->
                 existing.getTitle().equals(notif.getTitle()) &&
                         existing.getAppName().equals(notif.getAppName())
