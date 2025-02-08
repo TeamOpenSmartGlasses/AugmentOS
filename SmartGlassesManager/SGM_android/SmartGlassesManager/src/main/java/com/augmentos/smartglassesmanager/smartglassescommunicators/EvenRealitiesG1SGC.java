@@ -352,8 +352,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
                         if (isLeftConnected && isRightConnected) {
                             //no idea why but it's in the Even app - Cayden
-                            Log.d(TAG, "Sending 0xF4 Command");
-                            sendDataSequentially(new byte[]{(byte) 0xF4, (byte) 0x01});
+//                            Log.d(TAG, "Sending 0xF4 Command");
+//                            sendDataSequentially(new byte[]{(byte) 0xF4, (byte) 0x01});
 
                             //no longer need to be staggered as we fixed the sender
                             //do first battery status query
@@ -391,7 +391,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             @Override
             public void onCharacteristicWrite(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
                 if (status == BluetoothGatt.GATT_SUCCESS) {
-//                    Log.d(TAG, side + " glass write successful");
+                    Log.d(TAG, side + " glass write successful");
                 } else {
                     Log.e(TAG, side + " glass write failed with status: " + status);
 
@@ -504,27 +504,22 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     }
 
     private void enableNotification(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, String side) {
+
+        // Simply enable notifications
         gatt.setCharacteristicNotification(characteristic, true);
-        BluetoothGattDescriptor descriptor = characteristic.getDescriptor(CLIENT_CHARACTERISTIC_CONFIG_UUID);
-        if (descriptor != null) {
-            descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-            if ("Left".equals(side)) {
-                leftServicesWaiter.setTrue();
-            } else {
-                rightServicesWaiter.setTrue();
-            }
-            boolean result = gatt.writeDescriptor(descriptor);
-            if (result) {
-                Log.d(TAG, side + " SIDE," + "Descriptor write successful for characteristic: " + characteristic.getUuid());
-                if ("Left".equals(side)) isLeftConnected = true;
-                else isRightConnected = true;
-                updateConnectionState();
-            } else {
-                Log.e(TAG, side + " SIDE," + "Failed to write descriptor for characteristic: " + characteristic.getUuid());
-            }
+
+        // Set write type for the characteristic
+        characteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
+
+        // Mark as connected and release waiter immediately
+        if ("Left".equals(side)) {
+            isLeftConnected = true;
+            leftServicesWaiter.setFalse();
         } else {
-            Log.e(TAG, side + " SIDE," + "Descriptor not found for characteristic: " + characteristic.getUuid());
+            isRightConnected = true;
+            rightServicesWaiter.setFalse();
         }
+        updateConnectionState();
     }
 
     private void updateConnectionState() {
@@ -1080,16 +1075,22 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     private void processQueue() {
         //first wait until the services are setup and ready to receive data
+        Log.d(TAG, "PROC_QUEUE - waiting on services");
         try {
             leftServicesWaiter.waitWhileTrue();
             rightServicesWaiter.waitWhileTrue();
         } catch (InterruptedException e) {
-            Log.e(TAG, "Interrupted waiting for descriptor writes: " + e);
         }
+        Log.d(TAG, "PROC_QUEUE - DONE waiting on services");
 
         while (true) {
             SendRequest[] requests = sendQueue.poll();
             if (requests == null){
+                try {
+                    Thread.sleep(5);
+                } catch (InterruptedException e) {
+                    Log.e(TAG, "Error sending data: " + e.getMessage());
+                }
                 continue;
             }
 
@@ -1118,6 +1119,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
                     if (leftSuccess) {
                         leftWaiter.waitWhileTrue();
+                    } else {
+                        Log.d(TAG, "WRITE FAILED - left");
                     }
 
                     // Send to right glass
@@ -1130,6 +1133,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     //wait to make sure the right happens
                     if (rightSuccess) {
                         rightWaiter.waitWhileTrue();
+                    } else {
+                        Log.d(TAG, "WRITE FAILED - right");
                     }
                     Thread.sleep(DELAY_BETWEEN_CHUNKS_SEND);
 
@@ -2031,39 +2036,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         // Send each chunk with a delay between sends
         for (byte[] chunk : chunks) {
             sendDataSequentially(chunk);
-
-//            try {
-//                Thread.sleep(DELAY_BETWEEN_CHUNKS_SEND); // delay between chunks
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
         }
     }
 
-//    public int DEFAULT_CARD_SHOW_TIME = 6;
-//    public void homeScreenInNSeconds(int n){
-//        if (n == -1){
-//            return;
-//        }
-//
-//        if (n == 0){
-//            n = DEFAULT_CARD_SHOW_TIME;
-//        }
-//
-//        //disconnect after slight delay, so our above text gets a chance to show up
-//        goHomeHandler.removeCallbacksAndMessages(goHomeRunnable);
-//        goHomeHandler.removeCallbacksAndMessages(null);
-//        goHomeRunnable = new Runnable() {
-//            @Override
-//            public void run() {
-//                showHomeScreen();
-//            }};
-//        goHomeHandler.postDelayed(goHomeRunnable, n * 1000);
-//    }
-
-
     //BMP handling
-
     // Add these class variables
     private static final int BMP_CHUNK_SIZE = 194;
     private static final byte[] GLASSES_ADDRESS = new byte[]{0x00, 0x1c, 0x00, 0x00};
