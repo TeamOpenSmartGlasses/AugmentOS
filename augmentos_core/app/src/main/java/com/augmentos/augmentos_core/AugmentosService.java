@@ -485,7 +485,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             latestNewsIndex ++;
         }
 
-        String latestNews = latestNewsArray.getString(latestNewsIndex);
+        String latestNews = "";
+        if (latestNewsArray.length() > 0) {
+            latestNews = latestNewsArray.getString(latestNewsIndex);
+        }
 
         if (latestNews != null && !latestNews.isEmpty()) {
             String newsToDisplay = latestNews.substring(0, Math.min(latestNews.length(), 30)).trim();
