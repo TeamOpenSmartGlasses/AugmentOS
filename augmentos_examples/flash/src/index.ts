@@ -125,6 +125,6 @@ app.get('/health', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Captions TPA server running at http://localhost:${PORT}`);
+  console.log(`Flash TPA server running at http://localhost:${PORT}`);
   console.log(`Logo available at http://localhost:${PORT}/logo.png`);
 });
