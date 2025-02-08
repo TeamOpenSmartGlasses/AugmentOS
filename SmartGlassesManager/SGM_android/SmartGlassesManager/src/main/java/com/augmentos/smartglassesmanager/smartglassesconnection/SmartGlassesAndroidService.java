@@ -1,4 +1,4 @@
-package com.augmentos.smartglassesmanager;
+package com.augmentos.smartglassesmanager.smartglassesconnection;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -20,6 +20,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.LifecycleService;
 import androidx.preference.PreferenceManager;
 
+import com.augmentos.smartglassesmanager.R;
 import com.augmentos.smartglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
 import com.augmentos.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.augmentos.smartglassesmanager.comms.MessageTypes;

@@ -31,10 +31,10 @@ import org.json.JSONException;
 
 import java.util.Objects;
 
-public class BackendServerComms {
+public class OldBackendServerComms {
     private static final String TAG = "MXT2_BackendServerComms";
 
-    private static BackendServerComms restServerComms;
+    private static OldBackendServerComms restServerComms;
 
     // Volley variables
     private final RequestQueue mRequestQueue;
@@ -42,14 +42,14 @@ public class BackendServerComms {
     private final int requestTimeoutPeriod = 0; // Adjust as needed
 
     // Singleton pattern to get the instance
-    public static BackendServerComms getInstance(Context c){
+    public static OldBackendServerComms getInstance(Context c){
         if (restServerComms == null){
-            restServerComms = new BackendServerComms(c.getApplicationContext());
+            restServerComms = new OldBackendServerComms(c.getApplicationContext());
         }
         return restServerComms;
     }
 
-    private BackendServerComms(Context context) {
+    private OldBackendServerComms(Context context) {
         mContext = context;
         mRequestQueue = Volley.newRequestQueue(mContext);
     }

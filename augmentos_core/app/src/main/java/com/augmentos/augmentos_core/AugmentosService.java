@@ -18,8 +18,8 @@ import static com.augmentos.augmentos_core.Constants.displayRequestsKey;
 import static com.augmentos.augmentos_core.Constants.wakeWordTimeKey;
 import static com.augmentos.augmentos_core.Constants.augmentOsMainServiceNotificationId;
 import static com.augmentos.augmentos_core.statushelpers.JsonHelper.convertJsonToMap;
-import static com.augmentos.smartglassesmanager.SmartGlassesAndroidService.getSmartGlassesDeviceFromModelName;
-import static com.augmentos.smartglassesmanager.SmartGlassesAndroidService.savePreferredWearable;
+import static com.augmentos.smartglassesmanager.smartglassesconnection.SmartGlassesAndroidService.getSmartGlassesDeviceFromModelName;
+import static com.augmentos.smartglassesmanager.smartglassesconnection.SmartGlassesAndroidService.savePreferredWearable;
 import static com.augmentos.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.deleteEvenSharedPreferences;
 import static com.augmentos.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.savePreferredG1DeviceId;
 
@@ -64,7 +64,7 @@ import com.augmentos.augmentos_core.comms.AugmentOsActionsCallback;
 import com.augmentos.augmentos_core.comms.AugmentosBlePeripheral;
 import com.augmentos.augmentos_core.events.AugmentosSmartGlassesDisconnectedEvent;
 import com.augmentos.augmentos_core.events.GoogleAuthFailedEvent;
-import com.augmentos.augmentos_core.augmentos_backend.BackendServerComms;
+import com.augmentos.augmentos_core.augmentos_backend.OldBackendServerComms;
 import com.augmentos.augmentos_core.augmentos_backend.VolleyJsonCallback;
 import com.augmentos.augmentos_core.events.NewScreenImageEvent;
 import com.augmentos.augmentos_core.events.NewScreenTextEvent;
@@ -82,7 +82,7 @@ import com.augmentos.augmentoslib.events.StartAsrStreamRequestEvent;
 import com.augmentos.augmentoslib.events.StopAsrStreamRequestEvent;
 import com.augmentos.smartglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
 
-import com.augmentos.smartglassesmanager.SmartGlassesAndroidService;
+import com.augmentos.smartglassesmanager.smartglassesconnection.SmartGlassesAndroidService;
 import com.augmentos.smartglassesmanager.eventbusmessages.BrightnessLevelEvent;
 import com.augmentos.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
 import com.augmentos.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
@@ -157,7 +157,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     //AugmentOS stuff
     String authToken = "";
-    private BackendServerComms backendServerComms;
+    private OldBackendServerComms oldBackendServerComms;
     private AuthHandler authHandler;
     ArrayList<String> responsesBuffer;
     ArrayList<String> transcriptsBuffer;
@@ -582,7 +582,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         transcriptsBuffer = new ArrayList<>();
 
         //setup backend comms
-        backendServerComms = BackendServerComms.getInstance(this);
+        oldBackendServerComms = OldBackendServerComms.getInstance(this);
         batteryStatusHelper = new BatteryStatusHelper(this);
         wifiStatusHelper = new WifiStatusHelper(this);
         gsmStatusHelper = new GsmStatusHelper(this);
@@ -785,7 +785,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             Context mContext = this.getApplicationContext();
             JSONObject getSettingsObj = new JSONObject();
             getSettingsObj.put("userId", userId);
-            backendServerComms.restRequest(GET_USER_SETTINGS_ENDPOINT, getSettingsObj, new VolleyJsonCallback(){
+            oldBackendServerComms.restRequest(GET_USER_SETTINGS_ENDPOINT, getSettingsObj, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
@@ -909,7 +909,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             jsonQuery.put("transcript_meta_data", event.diarizationData);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
             jsonQuery.put("userId", userId);
-            backendServerComms.restRequest(DIARIZE_QUERY_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
+            oldBackendServerComms.restRequest(DIARIZE_QUERY_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
@@ -987,7 +987,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             jsonQuery.put("deviceId", deviceId);
             jsonQuery.put("userId", userId);
             Log.d(TAG, userId);
-            backendServerComms.restRequest(UI_POLL_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
+            oldBackendServerComms.restRequest(UI_POLL_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result) throws JSONException {
                     parseAugmentosResults(result);
@@ -1065,7 +1065,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             jsonQuery.put("lat", latitude);
             jsonQuery.put("lng", longitude);
 
-            backendServerComms.restRequest(GEOLOCATION_STREAM_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
+            oldBackendServerComms.restRequest(GEOLOCATION_STREAM_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
                     Log.d(TAG, "Request sent Successfully: " + result.toString());
@@ -1251,7 +1251,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             jsonQuery.put("button_activity", downUp);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
             jsonQuery.put("userId", userId);
-            backendServerComms.restRequest(BUTTON_EVENT_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
+            oldBackendServerComms.restRequest(BUTTON_EVENT_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
@@ -1644,7 +1644,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         JSONObject jsonQuery = new JSONObject();
         jsonQuery.put("packageName", packageName);
 
-        backendServerComms.restRequest(REQUEST_APP_BY_PACKAGE_NAME_DOWNLOAD_LINK_ENDPOINT, jsonQuery, new VolleyJsonCallback() {
+        oldBackendServerComms.restRequest(REQUEST_APP_BY_PACKAGE_NAME_DOWNLOAD_LINK_ENDPOINT, jsonQuery, new VolleyJsonCallback() {
             @Override
             public void onSuccess(JSONObject result) {
                 Log.d(TAG, "GOT INSTALL APP RESULT: " + result.toString());

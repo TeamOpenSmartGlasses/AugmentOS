@@ -16,7 +16,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import java.util.ArrayList;
 
-import com.augmentos.smartglassesmanager.SmartGlassesAndroidService;
+import com.augmentos.smartglassesmanager.smartglassesconnection.SmartGlassesAndroidService;
 import com.augmentos.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.augmentos.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 import com.augmentos.smartglassesmanager.supportedglasses.SmartGlassesDevice;

@@ -20,74 +20,96 @@ import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+/**
+ * SpeechRecAugmentos uses ServerComms for WebSocket interactions (single connection).
+ * This class retains all VAD logic, EventBus usage, and rolling buffer logic.
+ * It calls into ServerComms to send audio data, VAD status, etc.
+ */
 public class SpeechRecAugmentos extends SpeechRecFramework {
     private static final String TAG = "WearableAi_SpeechRecAugmentos";
     private static SpeechRecAugmentos instance;
 
     private final Context mContext;
-    private WebSocketStreamManager webSocketManager;
+    private final ServerComms serverComms;          // Single WebSocket interface
     private final BlockingQueue<byte[]> rollingBuffer;
     private final int bufferMaxSize;
 
-    //VAD
+    // VAD
     private VadGateSpeechPolicy vadPolicy;
     private volatile boolean isSpeaking = false; // Track VAD state
 
-    //don't setup web socket callbacks twice
-    private boolean haveSetupCallbacks = false;
+    // VAD buffer for chunking
+    private final BlockingQueue<Short> vadBuffer = new LinkedBlockingQueue<>();
+    private final int vadFrameSize = 512; // 512-sample frames for VAD
+    private volatile boolean vadRunning = true;
 
     private SpeechRecAugmentos(Context context) {
         this.mContext = context;
-        webSocketManager = WebSocketStreamManager.getInstance(getServerUrl());
 
-        // Rolling buffer stores last 3 seconds of audio
-        this.bufferMaxSize = (int) ((16000 * 0.22 * 2) / 512); // ~150ms buffer (assuming 512-byte chunks)
+        // 1) Create or fetch your single ServerComms (the new consolidated manager).
+        //    For example, we create a new instance here:
+        this.serverComms = new ServerComms();
+
+        // 2) Let ServerComms know it should forward "interim"/"final" messages to this class.
+        this.serverComms.setSpeechRecAugmentos(this);
+
+        // Rolling buffer to store ~150ms of audio for replay on VAD trigger
+        this.bufferMaxSize = (int) ((16000 * 0.22 * 2) / 512);
         this.rollingBuffer = new LinkedBlockingQueue<>(bufferMaxSize);
 
-        //VAD
+        // Initialize VAD asynchronously
         initVadAsync();
-
-        setupWebSocketCallbacks();
     }
 
+    /**
+     * Initializes the VAD model on a background thread, then sets up the VAD logic.
+     */
     private void initVadAsync() {
         new Thread(() -> {
-            // Create and initialize VAD on a background thread
             vadPolicy = new VadGateSpeechPolicy(mContext);
             vadPolicy.init(512);
-
-            // Setup VAD listener and processing thread (these should be thread-safe)
             setupVadListener();
             startVadProcessingThread();
         }).start();
     }
 
+    /**
+     * Reads env variables or returns a hardcoded dev URL:
+     * e.g. "ws://localhost:7002/glasses-ws"
+     * Not used directly here, but left in to show how you might retrieve a config.
+     */
+    @SuppressWarnings("unused")
     private String getServerUrl() {
         String host = EnvHelper.getEnv("AUGMENTOS_ASR_HOST");
         String port = EnvHelper.getEnv("AUGMENTOS_ASR_PORT");
         if (host == null || port == null) {
-            throw new IllegalStateException("AugmentOS ASR config not found. Please ensure AUGMENTOS_ASR_HOST and AUGMENTOS_ASR_PORT are set.");
+            throw new IllegalStateException("AugmentOS ASR config not found. Please set AUGMENTOS_ASR_HOST and AUGMENTOS_ASR_PORT.");
         }
-        // Use wss:// for secure WebSocket connection
-        return String.format("wss://%s", host);
+        // Could do "ws://" for dev or "wss://" for secure
+        return String.format("wss://%s:%s/glasses-ws", host, port);
     }
 
+    /**
+     * Sets up a loop that checks VAD state and sends VAD on/off to the server.
+     */
     private void setupVadListener() {
         new Thread(() -> {
             while (true) {
                 boolean newVadState = vadPolicy.shouldPassAudioToRecognizer();
 
                 if (newVadState && !isSpeaking) {
-                    webSocketManager.sendVadStatus(true);
+                    // VAD opened
+                    sendVadStatus(true);
                     sendBufferedAudio();
                     isSpeaking = true;
                 } else if (!newVadState && isSpeaking) {
+                    // VAD closed
+                    sendVadStatus(false);
                     isSpeaking = false;
-                    webSocketManager.sendVadStatus(false);
                 }
 
                 try {
-                    Thread.sleep(50); // Polling interval
+                    Thread.sleep(50); // Check VAD state ~20 times/s
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     return;
@@ -96,135 +118,35 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
         }).start();
     }
 
-    private void setupWebSocketCallbacks() {
-        //make sure we don't setup the callback twice
-        if (haveSetupCallbacks){
-            return;
-        }
-        haveSetupCallbacks = true;
-
-        webSocketManager.addCallback(new WebSocketStreamManager.WebSocketCallback() {
-            @Override
-            public void onInterimTranscript(String text, String language, long timestamp) {
-//                Log.d(TAG, "Got intermediate transcription: " + text + " (language: " + language + ")");
-                if (text != null && !text.trim().isEmpty()) {
-                    EventBus.getDefault().post(new SpeechRecOutputEvent(text, language, timestamp, false));
-                }
-            }
-
-            @Override
-            public void onFinalTranscript(String text, String language, long timestamp) {
-                Log.d(TAG, "Got final transcription: " + text + " (language: " + language + ")");
-                if (text != null && !text.trim().isEmpty()) {
-                    EventBus.getDefault().post(new SpeechRecOutputEvent(text, language, timestamp, true));
-                }
-            }
-
-            @Override
-            public void onInterimTranslation(String translatedText, String fromLanguage, String toLanguage, long timestamp) {
-//                Log.d(TAG, "Got intermediate translation: " + translatedText +
-//                        " (from: " + fromLanguage + ", to: " + toLanguage + ")");
-                if (translatedText != null && !translatedText.trim().isEmpty()) {
-                    EventBus.getDefault().post(new TranslateOutputEvent(
-                            translatedText,
-                            fromLanguage,
-                            toLanguage,
-                            timestamp,
-                            false  // not final
-                    ));
-                }
-            }
-
-            @Override
-            public void onFinalTranslation(String translatedText, String fromLanguage, String toLanguage, long timestamp) {
-//                Log.d(TAG, "Got final translation: " + translatedText +
-//                        " (from: " + fromLanguage + ", to: " + toLanguage + ")");
-                if (translatedText != null && !translatedText.trim().isEmpty()) {
-                    EventBus.getDefault().post(new TranslateOutputEvent(
-                            translatedText,
-                            fromLanguage,
-                            toLanguage,
-                            timestamp,
-                            true   // is final
-                    ));
-                }
-            }
-
-            @Override
-            public void onError(String error) {
-                Log.e(TAG, "WebSocket error: " + error);
-                // Could add error handling/retry logic here
-            }
-        });
-    }
-
+    /**
+     * Drains the rolling buffer (last ~150ms) and sends it immediately when VAD opens.
+     */
     private void sendBufferedAudio() {
-//        Log.d(TAG, "Sending buffered audio...");
-
         List<byte[]> bufferDump = new ArrayList<>();
         rollingBuffer.drainTo(bufferDump);
 
         for (byte[] chunk : bufferDump) {
-            webSocketManager.writeAudioChunk(chunk);
+            // Now we send audio chunks through ServerComms (single WebSocket).
+            serverComms.sendAudioChunk(chunk);
         }
     }
 
-    private final BlockingQueue<Short> vadBuffer = new LinkedBlockingQueue<>(); // VAD buffer
-    private final int vadFrameSize = 512;  // Silero expects 512-sample frames
-    private volatile boolean vadRunning = true; // Control VAD processing thread
-
-    @Override
-    public void ingestAudioChunk(byte[] audioChunk) {
-        if (vadPolicy == null) {
-            Log.e(TAG, "VAD policy is not initialized yet. Skipping audio processing.");
-            return;
-        }
-
-        if (!isVadInitialized()) {
-            Log.e(TAG, "VAD model is not initialized properly. Skipping audio processing.");
-            return;
-        }
-
-        // Convert byte[] to short[]
-        short[] audioSamples = bytesToShort(audioChunk);
-
-        // Add samples to the VAD buffer
-        for (short sample : audioSamples) {
-            if (vadBuffer.size() >= 16000) { // Keep max ~1 sec of audio
-                vadBuffer.poll(); // Drop the oldest sample
-            }
-            vadBuffer.offer(sample);
-        }
-
-        if (isSpeaking) {
-            webSocketManager.writeAudioChunk(audioChunk);
-        }
-
-        // Maintain rolling buffer for sending to WebSocket
-        if (rollingBuffer.size() >= bufferMaxSize) {
-            rollingBuffer.poll(); // Remove oldest chunk
-        }
-        rollingBuffer.offer(audioChunk);
-    }
-
+    /**
+     * Start a background thread that chunks up audio for VAD (512 frames).
+     */
     private void startVadProcessingThread() {
         new Thread(() -> {
             while (vadRunning) {
                 try {
-                    // Wait until we have at least 512 samples
                     while (vadBuffer.size() < vadFrameSize) {
-                        Thread.sleep(5); // Wait for more data to arrive
+                        Thread.sleep(5);
                     }
-
-                    // Extract exactly 512 samples
                     short[] vadChunk = new short[vadFrameSize];
                     for (int i = 0; i < vadFrameSize; i++) {
                         vadChunk[i] = vadBuffer.poll();
                     }
-
-                    // Send chunk to VAD
-                    vadPolicy.processAudioBytes(shortsToBytes(vadChunk), 0, vadChunk.length * 2);
-
+                    byte[] bytes = shortsToBytes(vadChunk);
+                    vadPolicy.processAudioBytes(bytes, 0, bytes.length);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     break;
@@ -233,19 +155,67 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
         }).start();
     }
 
-    // Utility method to convert short[] to byte[]
+    /**
+     * Tells the server whether VAD is "speaking" or not.
+     */
+    private void sendVadStatus(boolean isNowSpeaking) {
+        serverComms.sendVadStatus(isNowSpeaking);
+    }
+
+    /**
+     * Called by external code to feed raw PCM chunks (16-bit, 16kHz).
+     */
+    @Override
+    public void ingestAudioChunk(byte[] audioChunk) {
+        if (vadPolicy == null) {
+            Log.e(TAG, "VAD not initialized yet. Skipping audio.");
+            return;
+        }
+        if (!isVadInitialized()) {
+            Log.e(TAG, "VAD model not initialized. Skipping audio.");
+            return;
+        }
+        short[] audioSamples = bytesToShort(audioChunk);
+        for (short sample : audioSamples) {
+            if (vadBuffer.size() >= 16000) {
+                vadBuffer.poll();
+            }
+            vadBuffer.offer(sample);
+        }
+
+        // If currently speaking, send data live
+        if (isSpeaking) {
+            serverComms.sendAudioChunk(audioChunk);
+        }
+
+        // Maintain rolling buffer for "catch-up"
+        if (rollingBuffer.size() >= bufferMaxSize) {
+            rollingBuffer.poll();
+        }
+        rollingBuffer.offer(audioChunk);
+    }
+
+    /**
+     * Converts short[] -> byte[] (little-endian)
+     */
     private byte[] shortsToBytes(short[] shorts) {
         ByteBuffer byteBuffer = ByteBuffer.allocate(shorts.length * 2);
         byteBuffer.order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().put(shorts);
         return byteBuffer.array();
     }
 
+    /**
+     * Converts byte[] -> short[] (little-endian)
+     */
     private short[] bytesToShort(byte[] bytes) {
         short[] shorts = new short[bytes.length / 2];
         ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().get(shorts);
         return shorts;
     }
 
+    /**
+     * Simple reflection-based check to see if the VAD model is loaded.
+     */
     private boolean isVadInitialized() {
         try {
             Field vadModelField = vadPolicy.getClass().getDeclaredField("vadModel");
@@ -253,26 +223,34 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
             Object vadModel = vadModelField.get(vadPolicy);
             return vadModel != null;
         } catch (Exception e) {
-            Log.e(TAG, "Failed to check if VAD is initialized.", e);
+            Log.e(TAG, "Failed to check VAD model init state.", e);
             return false;
         }
     }
 
+    /**
+     * Called by your external code to start the recognition service (connect to WebSocket, etc.).
+     */
     @Override
     public void start() {
         Log.d(TAG, "Starting Speech Recognition Service");
-        webSocketManager.connect();
+        // Connect the single ServerComms' WebSocket if not already connected
+        serverComms.connectWebSocket("ws://localhost:7002/glasses-ws");
     }
 
+    /**
+     * Called by your external code to stop the recognition service.
+     */
     @Override
     public void destroy() {
         Log.d(TAG, "Destroying Speech Recognition Service");
-        if (webSocketManager != null) {
-            webSocketManager.disconnect();
-            webSocketManager = null;
-        }
+        vadRunning = false;
+        serverComms.disconnectWebSocket();
     }
 
+    /**
+     * Create a new instance, ensuring old one is destroyed.
+     */
     public static synchronized SpeechRecAugmentos getInstance(Context context) {
         if (instance != null) {
             instance.destroy();
@@ -281,7 +259,43 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
         return instance;
     }
 
-    public void updateConfig(List<AsrStreamKey> languages){
-        webSocketManager.updateConfig(languages);
+    /**
+     * If you had logic to update dynamic ASR config, you can call:
+     */
+    public void updateConfig(List<AsrStreamKey> languages) {
+        serverComms.updateAsrConfig(languages);
+    }
+
+    /**
+     * ServerComms calls this whenever it receives "interim"/"final" messages from the server
+     * that relate to speech or translation. We then post them to the EventBus.
+     */
+    public void handleSpeechJson(org.json.JSONObject msg) {
+        // Example parse logic for "interim"/"final"
+        try {
+            long timestamp = (long) (msg.getDouble("timestamp") * 1000);
+            String type = msg.getString("type"); // "interim" or "final"
+            String language = msg.getString("language");
+            String translateLanguage = msg.optString("translateLanguage", null);
+            boolean isTranslation = (translateLanguage != null);
+            String text = msg.getString("text");
+
+            if ("interim".equals(type)) {
+                if (isTranslation) {
+                    EventBus.getDefault().post(new TranslateOutputEvent(text, language, translateLanguage, timestamp, false));
+                } else {
+                    EventBus.getDefault().post(new SpeechRecOutputEvent(text, language, timestamp, false));
+                }
+            } else {
+                // "final"
+                if (isTranslation) {
+                    EventBus.getDefault().post(new TranslateOutputEvent(text, language, translateLanguage, timestamp, true));
+                } else {
+                    EventBus.getDefault().post(new SpeechRecOutputEvent(text, language, timestamp, true));
+                }
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error parsing speech JSON: " + msg, e);
+        }
     }
 }

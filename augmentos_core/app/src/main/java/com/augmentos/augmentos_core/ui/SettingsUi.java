@@ -18,7 +18,7 @@ import androidx.navigation.Navigation;
 
 import com.augmentos.augmentos_core.MainActivity;
 import com.augmentos.augmentos_core.R;
-import com.augmentos.smartglassesmanager.SmartGlassesAndroidService;
+import com.augmentos.smartglassesmanager.smartglassesconnection.SmartGlassesAndroidService;
 import com.augmentos.smartglassesmanager.supportedglasses.AudioWearable;
 
 public class SettingsUi extends Fragment {
