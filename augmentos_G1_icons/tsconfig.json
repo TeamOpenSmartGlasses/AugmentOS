@@ -19,9 +19,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "*": ["src/*"],
-      "@shared/*": ["../augmentos_cloud/src/types/*"],
     },
   },
-  "include": ["src", "../augmentos_cloud/src/types/**/*"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
