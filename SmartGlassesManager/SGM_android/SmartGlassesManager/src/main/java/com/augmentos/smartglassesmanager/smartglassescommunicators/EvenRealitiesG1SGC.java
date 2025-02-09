@@ -37,6 +37,7 @@ import java.util.zip.CRC32;
 import java.nio.ByteBuffer;
 
 import com.augmentos.smartglassesmanager.SmartGlassesAndroidService;
+import com.augmentos.smartglassesmanager.utils.G1FontLoader;
 import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
 import com.google.gson.Gson;
 import com.augmentos.augmentoslib.events.AudioChunkNewEvent;
@@ -185,6 +186,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private boolean forceCoreOnboardMic;
 
     // lock writing until the last write is successful
+    //fonts in G1
+    G1FontLoader fontLoader;
 
     public EvenRealitiesG1SGC(Context context, SmartGlassesDevice smartGlassesDevice) {
         super();
@@ -196,6 +199,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         brightnessValue = getSavedBrightnessValue(context);
         this.bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         this.forceCoreOnboardMic = SmartGlassesAndroidService.getForceCoreOnboardMic(context);
+
+        //setup fonts
+        fontLoader = new G1FontLoader(context);
     }
 
     private final BluetoothGattCallback leftGattCallback = createGattCallback("Left");
@@ -1414,7 +1420,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public void blankScreen() {}
 
     public void displayDoubleTextWall(String textTop, String textBottom) {
-        List<byte[]> chunks = createTextWallChunks(textTop + "\n\n" + textBottom);
+        List<byte[]> chunks = createDoubleTextWallChunks(textTop, textBottom);
         sendChunks(chunks);
 //        Log.d(TAG, "Send double text wall");
     }
@@ -1778,7 +1784,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     // Constants for text wall display
     private static final int TEXT_COMMAND = 0x4E;  // Text command
     private static final int DISPLAY_WIDTH = 640;  // Display width in pixels
-    private static final int DISPLAY_USE_WIDTH = 380;  // How much of the display to use
+    private static final int DISPLAY_USE_WIDTH = 640;  // How much of the display to use
     private static final int FONT_SIZE = 21;      // Font size
     private static final float FONT_DIVIDER = 2.0f;
     private static final int LINES_PER_SCREEN = 5; // Lines per screen
@@ -1858,6 +1864,92 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
 
 //        Log.d(TAG, "TOTAL PAGES: " + totalPages);
+
+        return allChunks;
+    }
+
+    private List<byte[]> createDoubleTextWallChunks(String text1, String text2) {
+        // Split both texts into lines
+        List<String> lines1 = splitIntoLines(text1);
+        List<String> lines2 = splitIntoLines(text2);
+
+        // Ensure we only take up to 5 lines per screen
+        while (lines1.size() < LINES_PER_SCREEN) lines1.add("");
+        while (lines2.size() < LINES_PER_SCREEN) lines2.add("");
+
+        lines1 = lines1.subList(0, LINES_PER_SCREEN);
+        lines2 = lines2.subList(0, LINES_PER_SCREEN);
+
+        // Get space width
+        int spaceWidth = fontLoader.getGlyph(' ').width;  // Each space is 2 pixels
+
+        // Calculate where the right column should start
+        int rightColumnStart = Math.round(DISPLAY_USE_WIDTH * 0.6f);
+
+        // Construct the text output by merging the lines
+        StringBuilder pageText = new StringBuilder();
+        for (int i = 0; i < LINES_PER_SCREEN; i++) {
+            String leftText = lines1.get(i);
+            String rightText = lines2.get(i);
+
+            // Calculate the actual width of the leftText, considering extra 1px per character
+            int leftTextWidth = 0;
+            for (char c : leftText.toCharArray()) {
+                G1FontLoader.FontGlyph glyph = fontLoader.getGlyph(c);
+                leftTextWidth += glyph.width;
+                Log.d("FontWidth", "Char: " + c + " Width: " + glyph.width);
+            }
+            leftTextWidth += leftText.length(); // Account for extra 1-pixel gaps
+
+            // Calculate how many spaces are needed
+            int neededSpacingPixels = rightColumnStart - leftTextWidth;
+            int neededSpaces = Math.max(neededSpacingPixels / spaceWidth, 3); // At least 3 spaces
+
+            // Avoid BLE breaking: Limit max spaces
+            int safeSpaces = Math.min(neededSpaces, 60);
+            Log.d(TAG, "Safe spaces: " + safeSpaces);
+
+            // Construct the full line
+            pageText.append(leftText)
+                    .append(" ".repeat(safeSpaces))  // Now dynamically calculated
+                    .append(rightText)
+                    .append("\n");
+        }
+
+        // Convert to bytes and process as before
+        byte[] textBytes = pageText.toString().getBytes(StandardCharsets.UTF_8);
+        int totalChunks = (int) Math.ceil((double) textBytes.length / MAX_CHUNK_SIZE);
+
+        List<byte[]> allChunks = new ArrayList<>();
+        for (int i = 0; i < totalChunks; i++) {
+            int start = i * MAX_CHUNK_SIZE;
+            int end = Math.min(start + MAX_CHUNK_SIZE, textBytes.length);
+            byte[] payloadChunk = Arrays.copyOfRange(textBytes, start, end);
+
+            // Create header with protocol specifications
+            byte screenStatus = 0x71; // New content (0x01) + Text Show (0x70)
+            byte[] header = new byte[]{
+                    (byte) TEXT_COMMAND,    // Command type
+                    (byte) textSeqNum,      // Sequence number
+                    (byte) totalChunks,     // Total packages
+                    (byte) i,               // Current package number
+                    screenStatus,           // Screen status
+                    (byte) 0x00,            // new_char_pos0 (high)
+                    (byte) 0x00,            // new_char_pos1 (low)
+                    (byte) 0x00,            // Current page number (always 0 for now)
+                    (byte) 0x01             // Max page number (always 1)
+            };
+
+            // Combine header and payload
+            ByteBuffer chunk = ByteBuffer.allocate(header.length + payloadChunk.length);
+            chunk.put(header);
+            chunk.put(payloadChunk);
+
+            allChunks.add(chunk.array());
+        }
+
+        // Increment sequence number for next page
+        textSeqNum = (textSeqNum + 1) % 256;
 
         return allChunks;
     }
