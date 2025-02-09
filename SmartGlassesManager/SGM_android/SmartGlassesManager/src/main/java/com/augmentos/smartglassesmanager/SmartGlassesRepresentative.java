@@ -151,6 +151,12 @@ class SmartGlassesRepresentative {
         }
     }
 
+    public void updateGlassesHeadUpAngle(int headUpAngle) {
+        if (smartGlassesCommunicator != null) {
+            smartGlassesCommunicator.updateGlassesHeadUpAngle(headUpAngle);
+        }
+    }
+
     @Subscribe
     public void onDisableBleScoEvent(DisableBleScoAudioEvent receivedEvent) {
         Log.d(TAG, "onDisableBleScoEvent called");

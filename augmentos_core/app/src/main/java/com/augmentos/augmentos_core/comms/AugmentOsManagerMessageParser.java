@@ -120,6 +120,11 @@ public class AugmentOsManagerMessageParser {
                     callback.updateGlassesBrightness(brightnessLevel);
                     break;
 
+                case "update_glasses_headUp_angle":
+                    int headUpAngle = commandObject.getJSONObject("params").getInt("headUpAngle");
+                    callback.updateGlassesHeadUpAngle(headUpAngle);
+                    break;
+
                 default:
                     Log.w(TAG, "Unknown command: " + command);
             }

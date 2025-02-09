@@ -484,6 +484,12 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         }
     }
 
+    public void updateGlassesHeadUpAngle(int headUpAngle) {
+        if (smartGlassesRepresentative != null) {
+            smartGlassesRepresentative.updateGlassesHeadUpAngle(headUpAngle);
+        }
+    }
+
     public void showNoGoogleAsrDialog(){
         new android.app.AlertDialog.Builder(getApplicationContext()).setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("No Google API Key Provided")
