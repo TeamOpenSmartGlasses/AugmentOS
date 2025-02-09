@@ -1,11 +1,11 @@
-package com.augmentos.augmentos_core;
+package com.augmentos.augmentos_core.augmentos_backend;
 
 import android.util.Log;
 
 import com.augmentos.augmentos_core.augmentos_backend.WebSocketManager;
+import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.AsrStreamKey;
+import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.augmentos.SpeechRecAugmentos;
 import com.augmentos.augmentoslib.enums.AsrStreamType;
-import com.augmentos.smartglassesmanager.speechrecognition.AsrStreamKey;
-import com.augmentos.smartglassesmanager.speechrecognition.augmentos.SpeechRecAugmentos;
 
 import org.json.JSONArray;
 import org.json.JSONException;

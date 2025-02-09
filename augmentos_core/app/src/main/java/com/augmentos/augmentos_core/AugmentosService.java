@@ -1,5 +1,9 @@
 package com.augmentos.augmentos_core;
 
+import static com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.deleteEvenSharedPreferences;
+import static com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.savePreferredG1DeviceId;
+import static com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService.getSmartGlassesDeviceFromModelName;
+import static com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService.savePreferredWearable;
 import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
 import static com.augmentos.augmentos_core.BatteryOptimizationHelper.handleBatteryOptimization;
 import static com.augmentos.augmentos_core.BatteryOptimizationHelper.isSystemApp;
@@ -18,10 +22,7 @@ import static com.augmentos.augmentos_core.Constants.displayRequestsKey;
 import static com.augmentos.augmentos_core.Constants.wakeWordTimeKey;
 import static com.augmentos.augmentos_core.Constants.augmentOsMainServiceNotificationId;
 import static com.augmentos.augmentos_core.statushelpers.JsonHelper.convertJsonToMap;
-import static com.augmentos.smartglassesmanager.smartglassesconnection.SmartGlassesAndroidService.getSmartGlassesDeviceFromModelName;
-import static com.augmentos.smartglassesmanager.smartglassesconnection.SmartGlassesAndroidService.savePreferredWearable;
-import static com.augmentos.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.deleteEvenSharedPreferences;
-import static com.augmentos.smartglassesmanager.smartglassescommunicators.EvenRealitiesG1SGC.savePreferredG1DeviceId;
+
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -53,8 +54,22 @@ import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
 import com.augmentos.augmentos_core.augmentos_backend.AuthHandler;
-import com.augmentos.augmentoslib.events.SmartGlassesConnectionStateChangedEvent;
-import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.BatteryLevelEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.BrightnessLevelEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.GlassesBluetoothSearchStopEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.GlassesHeadDownEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.GlassesHeadUpEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.SetSensingEnabledEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService;
+import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.AsrStreamKey;
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.GlassesDisplayPowerEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.SmartGlassesConnectionStateChangedEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.SpeechRecSwitchSystem;
+import com.augmentos.augmentos_core.smarterglassesmanager.supportedglasses.SmartGlassesDevice;
+import com.augmentos.augmentos_core.smarterglassesmanager.utils.SmartGlassesConnectionState;
 import com.posthog.java.PostHog;
 import com.augmentos.augmentoslib.PhoneNotification;
 import com.augmentos.augmentoslib.ThirdPartyApp;
@@ -80,21 +95,7 @@ import com.augmentos.augmentoslib.events.KillTpaEvent;
 import com.augmentos.augmentoslib.events.TranslateOutputEvent;
 import com.augmentos.augmentoslib.events.StartAsrStreamRequestEvent;
 import com.augmentos.augmentoslib.events.StopAsrStreamRequestEvent;
-import com.augmentos.smartglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
 
-import com.augmentos.smartglassesmanager.smartglassesconnection.SmartGlassesAndroidService;
-import com.augmentos.smartglassesmanager.eventbusmessages.BrightnessLevelEvent;
-import com.augmentos.smartglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
-import com.augmentos.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchDiscoverEvent;
-import com.augmentos.smartglassesmanager.eventbusmessages.GlassesBluetoothSearchStopEvent;
-import com.augmentos.smartglassesmanager.eventbusmessages.BatteryLevelEvent;
-import com.augmentos.smartglassesmanager.eventbusmessages.GlassesDisplayPowerEvent;
-import com.augmentos.smartglassesmanager.eventbusmessages.GlassesHeadDownEvent;
-import com.augmentos.smartglassesmanager.eventbusmessages.GlassesHeadUpEvent;
-import com.augmentos.smartglassesmanager.eventbusmessages.SetSensingEnabledEvent;
-import com.augmentos.smartglassesmanager.speechrecognition.AsrStreamKey;
-import com.augmentos.smartglassesmanager.speechrecognition.SpeechRecSwitchSystem;
-import com.augmentos.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 
 import com.augmentos.augmentoslib.events.DiarizationOutputEvent;
 import com.augmentos.augmentoslib.events.GlassesTapOutputEvent;
@@ -123,7 +124,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 //SpeechRecIntermediateOutputEvent
-import com.augmentos.smartglassesmanager.utils.EnvHelper;
+import com.augmentos.augmentos_core.smarterglassesmanager.utils.EnvHelper;
 import com.augmentos.augmentoslib.enums.AsrStreamType;
 
 import android.app.DownloadManager;
@@ -547,7 +548,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         brightnessLevel = event.brightnessLevel;
         PreferenceManager.getDefaultSharedPreferences(this)
                 .edit()
-                .putString(this.getResources().getString(com.augmentos.smartglassesmanager.R.string.SHARED_PREF_BRIGHTNESS), String.valueOf(brightnessLevel))
+                .putString(this.getResources().getString(R.string.SHARED_PREF_BRIGHTNESS), String.valueOf(brightnessLevel))
                 .apply();
         sendStatusToAugmentOsManager();
     }
@@ -648,7 +649,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         // TODO: Uncomment for auto-connect
         String preferredWearable = AugmentosSmartGlassesService.getPreferredWearable(this);
         if(!preferredWearable.isEmpty()) {
-            SmartGlassesDevice preferredDevice = AugmentosSmartGlassesService.getSmartGlassesDeviceFromModelName(preferredWearable);
+            SmartGlassesDevice preferredDevice = getSmartGlassesDeviceFromModelName(preferredWearable);
             if (preferredDevice != null) {
                 executeOnceSmartGlassesServiceReady(this, () -> {
                     smartGlassesService.connectToSmartGlasses(preferredDevice);
@@ -656,7 +657,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 });
             } else {
                 // We have some invalid device saved... delete from preferences
-                AugmentosSmartGlassesService.savePreferredWearable(this, "");
+                savePreferredWearable(this, "");
             }
         }
     }
