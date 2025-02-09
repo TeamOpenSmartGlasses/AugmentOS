@@ -19,6 +19,7 @@ public class Constants {
     public static String adhdStmbAgentKey = "adhd_stmb_agent_results";
     public static String notificationFilterKey = "notification_results";
     public static String newsSummaryKey = "news_summary_results";
+    public static String weatherForecastKey = "weather_forecast_results";
 
     //endpoints
     public static final String LLM_QUERY_ENDPOINT = "/chat";

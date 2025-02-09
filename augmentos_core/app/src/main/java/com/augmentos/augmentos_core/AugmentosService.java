@@ -1,5 +1,6 @@
 package com.augmentos.augmentos_core;
 
+import static com.augmentos.augmentos_core.Constants.weatherForecastKey;
 import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
 import static com.augmentos.augmentos_core.BatteryOptimizationHelper.handleBatteryOptimization;
 import static com.augmentos.augmentos_core.BatteryOptimizationHelper.isSystemApp;
@@ -424,6 +425,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     //TODO NO MORE PASTA
     public ArrayList<String> notificationList = new ArrayList<String>();
     public JSONArray latestNewsArray = new JSONArray();
+    public String weatherForecastString = "";
     private int latestNewsIndex = 0;
     @Subscribe
     public void onDisplayGlassesDashboardEvent(DisplayGlassesDashboardEvent event) throws JSONException {
@@ -497,6 +499,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 newsToDisplay += "...";
             }
             dashboard.append(String.format("News: %s\n", newsToDisplay));
+        }
+
+        if (weatherForecastString != null && !weatherForecastString.isEmpty()) {
+            dashboard.append(String.format("%s\n", weatherForecastString));
         }
 
         // Process notifications (as before)
@@ -646,15 +652,13 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
     }
 
-    public void completeInitialization(){
+    public void completeInitialization() {
         Log.d(TAG, "COMPLETE AUGMENTOS_CORE INITIALIZATION");
         setUpUiPolling();
-        // setUpLocationSending();
+        setUpLocationSending();
 
         getCurrentMode(this);
-
         saveCurrentMode(this, getCurrentMode(this));
-
         saveCurrentMode(this, "");
 
         // Whitelist AugmentOS from battery optimization when system app
@@ -1026,6 +1030,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private void parseAugmentosResults(JSONObject jsonResponse) throws JSONException {
         JSONArray notificationArray = jsonResponse.getJSONArray(notificationFilterKey);
         JSONArray newsSummaryArray = jsonResponse.getJSONArray(newsSummaryKey);
+        JSONArray weatherForecastArray = jsonResponse.getJSONArray(weatherForecastKey);
+
+        Log.d(TAG, "Parsing augmentos results" + weatherForecastArray);
 
         if (notificationArray.length() > 0) {
             JSONArray notifications = notificationArray.getJSONObject(0).getJSONArray("notification_data");
@@ -1063,9 +1070,17 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             latestNewsArray = newsSummary.getJSONObject("news_data").getJSONArray("news_summaries");
             Log.d(TAG, "Latest news: " + latestNewsArray);
         }
+
+        if (weatherForecastArray.length() > 0) {
+            JSONObject weatherForecast = weatherForecastArray.getJSONObject(0);
+            JSONObject weatherData = weatherForecast.getJSONObject("weather_forecast_data");
+            weatherForecastString = weatherData.getString("condition") + ", " + weatherData.getString("avg_temp_f") + "°F";
+
+            Log.d(TAG, "Weather data: " + weatherData.toString());
+        }
     }
 
-    public void requestLocation(){
+    public void requestLocation() {
 //        Log.d(TAG, "running request locatoin");
         try{
             // Get location data as JSONObject
