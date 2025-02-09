@@ -397,7 +397,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
                     if(status == 133) {
                         Log.d(TAG, "GOT THAT 133 STATUS!");
-                   
+
                     }
                 }
 
@@ -474,7 +474,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         else if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x03) {
                             if (deviceName.contains("R_")) {
                                 // Log.d(TAG, "HEAD DOWN MOVEMENT DETECTED");
-    //                                clearBmpDisplay();
+                                //                                clearBmpDisplay();
                                 EventBus.getDefault().post(new GlassesHeadDownEvent());
 
                             }
@@ -504,20 +504,25 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     }
 
     private void enableNotification(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, String side) {
+        Log.d(TAG, "PROC_QUEUE - Starting notification setup for " + side);
 
         // Simply enable notifications
-        gatt.setCharacteristicNotification(characteristic, true);
+        boolean result = gatt.setCharacteristicNotification(characteristic, true);
+        Log.d(TAG, "PROC_QUEUE - setCharacteristicNotification result for " + side + ": " + result);
 
         // Set write type for the characteristic
         characteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
+        Log.d(TAG, "PROC_QUEUE - write type set for " + side);
 
         // Mark as connected and release waiter immediately
         if ("Left".equals(side)) {
             isLeftConnected = true;
             leftServicesWaiter.setFalse();
+            Log.d(TAG, "PROC_QUEUE - left side setup complete");
         } else {
             isRightConnected = true;
             rightServicesWaiter.setFalse();
+            Log.d(TAG, "PROC_QUEUE - right side setup complete");
         }
         updateConnectionState();
     }
@@ -634,10 +639,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     }
 
     public static void savePreferredG1DeviceId(Context context, String deviceName){
-            context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
-                    .edit()
-                    .putString(SAVED_G1_ID_KEY, deviceName)
-                    .apply();
+        context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
+                .edit()
+                .putString(SAVED_G1_ID_KEY, deviceName)
+                .apply();
     }
 
     public static String getPreferredG1DeviceId(Context context){
@@ -821,11 +826,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
                     connectHandler.postDelayed(() -> {
                         attemptGattConnection(leftDevice);
-                        },0);
+                    },0);
 
                     connectHandler.postDelayed(() -> {
                         attemptGattConnection(rightDevice);
-                        },2000);
+                    },2000);
                 } else {
                     Log.d(TAG, "Not running a63dd");
                 }
@@ -848,7 +853,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         preferredG1DeviceId = getPreferredG1DeviceId(context);
 
         if(!bluetoothAdapter.isEnabled()) {
-            
+
             return;
         }
 
@@ -913,14 +918,20 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         connectionState = SmartGlassesConnectionState.CONNECTING;
         connectionEvent(connectionState);
 
+        // Connect left first
         if (device.getName().contains("_L_") && leftGlassGatt == null) {
             Log.d(TAG, "Connecting to GATT for Left Glass...");
             leftGlassGatt = device.connectGatt(context, false, leftGattCallback);
             isLeftConnected = true;
-        } else if (device.getName().contains("_R_") && rightGlassGatt == null) {
+        }
+        // Only connect right after left is fully connected
+        else if (device.getName().contains("_R_") && rightGlassGatt == null && isLeftConnected) {
             Log.d(TAG, "Connecting to GATT for Right Glass...");
             rightGlassGatt = device.connectGatt(context, false, rightGattCallback);
             isRightConnected = true;
+        }
+        else {
+            Log.d(TAG, "Waiting for left glass before connecting right");
         }
     }
 
@@ -1074,14 +1085,21 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final long INITIAL_CONNECTION_DELAY_MS = 350; // Adjust this value as needed
 
     private void processQueue() {
+        Log.d(TAG, "PROC_QUEUE - Starting process queue");
         //first wait until the services are setup and ready to receive data
-        Log.d(TAG, "PROC_QUEUE - waiting on services");
         try {
+            Log.d(TAG, "PROC_QUEUE - Waiting for left service...");
             leftServicesWaiter.waitWhileTrue();
+            Log.d(TAG, "PROC_QUEUE - Left service ready");
+
+            Log.d(TAG, "PROC_QUEUE - Waiting for right service...");
             rightServicesWaiter.waitWhileTrue();
+            Log.d(TAG, "PROC_QUEUE - Right service ready");
+
+            Log.d(TAG, "PROC_QUEUE - All services ready, starting main queue loop");
         } catch (InterruptedException e) {
+            Log.e(TAG, "PROC_QUEUE - Interrupted while waiting for services", e);
         }
-        Log.d(TAG, "PROC_QUEUE - DONE waiting on services");
 
         while (true) {
             SendRequest[] requests = sendQueue.poll();
@@ -1114,6 +1132,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     if (!request.onlyRight && leftGlassGatt != null && leftTxChar != null && isLeftConnected) {
                         leftWaiter.setTrue();
                         leftTxChar.setValue(request.data);
+                        leftTxChar.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
                         leftSuccess = leftGlassGatt.writeCharacteristic(leftTxChar);
                     }
 
@@ -1127,6 +1146,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     if (!request.onlyLeft && rightGlassGatt != null && rightTxChar != null && isRightConnected) {
                         rightWaiter.setTrue();
                         rightTxChar.setValue(request.data);
+                        rightTxChar.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
                         rightSuccess = rightGlassGatt.writeCharacteristic(rightTxChar);
                     }
 
