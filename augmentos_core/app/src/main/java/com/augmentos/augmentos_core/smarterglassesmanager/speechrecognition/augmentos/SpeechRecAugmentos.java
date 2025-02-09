@@ -16,6 +16,7 @@ import com.augmentos.augmentoslib.events.TranslateOutputEvent;
 //import com.augmentos.augmentos_core.smarterglassesmanager.utils.EnvHelper;
 
 import org.greenrobot.eventbus.EventBus;
+import org.json.JSONObject;
 
 import java.lang.reflect.Field;
 import java.nio.ByteBuffer;
@@ -250,7 +251,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     public void destroy() {
         Log.d(TAG, "Destroying Speech Recognition Service");
         vadRunning = false;
-        serverComms.disconnectWebSocket();
+        //serverComms.disconnectWebSocket();
     }
 
     /**
@@ -275,7 +276,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
      * ServerComms calls this whenever it receives "interim"/"final" messages from the server
      * that relate to speech or translation. We then post them to the EventBus.
      */
-    public void handleSpeechJson(org.json.JSONObject msg) {
+    public void handleSpeechJson(JSONObject msg) {
         // Example parse logic for "interim"/"final"
         try {
             long timestamp = (long) (msg.getDouble("timestamp") * 1000);

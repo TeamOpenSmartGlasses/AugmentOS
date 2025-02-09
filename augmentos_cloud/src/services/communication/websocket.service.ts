@@ -235,9 +235,15 @@ export class WebSocketService implements IWebSocketService {
 
     ws.on('message', async (message: Buffer | string, isBinary: boolean) => {
       try {
-        if (isBinary) {
-          // Handle audio data
-          this.sessionService.handleAudioData(sessionId, message as ArrayBuffer);
+        if (isBinary && Buffer.isBuffer(message)) {
+          // Convert Node.js Buffer to ArrayBuffer
+          const arrayBuf: ArrayBuffer = message.buffer.slice(
+            message.byteOffset,
+            message.byteOffset + message.byteLength
+          );
+    
+          // Pass the ArrayBuffer to Azure Speech or wherever you need it
+          this.sessionService.handleAudioData(sessionId, arrayBuf);
           return;
         }
 

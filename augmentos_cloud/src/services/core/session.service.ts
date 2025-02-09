@@ -70,7 +70,7 @@ export interface ISessionService {
   updateDisplay(sessionId: string, layout: Layout, durationMs?: number): void;
   addTranscriptSegment(sessionId: string, segment: TranscriptSegment): void;
   setAudioHandlers(sessionId: string, pushStream: any, recognizer: any): void;
-  handleAudioData(sessionId: string, audioData: ArrayBuffer): void;
+  handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void;
   endSession(sessionId: string): void;
   getAllSessions(): UserSession[];
 }
@@ -216,7 +216,7 @@ export class SessionService implements ISessionService {
    * @param sessionId - Session identifier
    * @param audioData - Raw audio data buffer
    */
-  handleAudioData(sessionId: string, audioData: ArrayBuffer): void {
+  handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void {
     const session = this.getSession(sessionId);
     if (!session) return console.error(`🔥🔥🔥 Session ${sessionId} not found`);
 

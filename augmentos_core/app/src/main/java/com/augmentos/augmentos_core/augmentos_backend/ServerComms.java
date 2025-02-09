@@ -36,7 +36,21 @@ public class ServerComms {
 
             @Override
             public void onConnectionOpen() {
-                // Optional: place logic if needed on successful connect
+                // As soon as the connection is open, send the "connection_init" message
+                // that your server expects.
+                try {
+                    JSONObject initMsg = new JSONObject();
+                    initMsg.put("type", "connection_init");
+                    // You can send any additional fields if your server needs them, e.g. "userId".
+                    initMsg.put("userId", "myUser123");
+                    // add more fields if needed, e.g. initMsg.put("someField", "someValue");
+
+                    // Send the JSON over the WebSocket
+                    wsManager.sendText(initMsg.toString());
+
+                } catch (JSONException e) {
+                    Log.e(TAG, "Error building connection_init JSON", e);
+                }
             }
 
             @Override
