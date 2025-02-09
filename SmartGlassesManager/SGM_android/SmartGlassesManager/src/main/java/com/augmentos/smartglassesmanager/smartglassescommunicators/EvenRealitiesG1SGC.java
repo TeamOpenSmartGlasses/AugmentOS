@@ -104,7 +104,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private int brightnessValue;
 
     private static final long DELAY_BETWEEN_SENDS_MS = 30; //not using now
-    private static final long DELAY_BETWEEN_CHUNKS_SEND = 8; //super small just in case
+    private static final long DELAY_BETWEEN_CHUNKS_SEND = 16; //super small just in case
     private static final long DELAY_BETWEEN_ACTIONS_SEND = 250; //not using now
     private static final long HEARTBEAT_INTERVAL_MS = 30000;
     private static final long MICBEAT_INTERVAL_MS = (1000 * 60) * 30; //micbeat every 30 minutes
@@ -1783,8 +1783,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     // Constants for text wall display
     private static final int TEXT_COMMAND = 0x4E;  // Text command
-    private static final int DISPLAY_WIDTH = 488;  // Display width in pixels
-    private static final int DISPLAY_USE_WIDTH = 488;  // How much of the display to use
+    private static final int DISPLAY_WIDTH = 240;  // Display width in pixels //I know, it's weird, but we printed a bunch of dots and this is the math
+    private static final int DISPLAY_USE_WIDTH = 240;  // How much of the display to use
     private static final int FONT_SIZE = 21;      // Font size
     private static final float FONT_DIVIDER = 2.0f;
     private static final int LINES_PER_SCREEN = 5; // Lines per screen
@@ -1886,21 +1886,21 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         while (lines1.size() < LINES_PER_SCREEN) lines1.add("");
         while (lines2.size() < LINES_PER_SCREEN) lines2.add("");
 
-        lines1 = lines1.subList(0, LINES_PER_SCREEN);
-        lines2 = lines2.subList(0, LINES_PER_SCREEN);
+        lines1 = lines1.subList(0, LINES_PER_SCREEN - 1); // Leave space for debug line
+        lines2 = lines2.subList(0, LINES_PER_SCREEN - 1);
 
         // Get space width (each space is 2 pixels + 1 extra padding pixel, so 3 total)
         int spaceWidth = fontLoader.getGlyph(' ').width + 1;
 
-        // Get dot width (dot is 2 pixels, +1 padding = 3 pixels total)
-        int dotWidth = 2 + 1;
+        // Get dot width (dot is 1 pixel, +1 padding = 3 pixels total)
+        int dotWidth = 1 + 1;
 
         // Calculate where the right column should start
-        int rightColumnStart = Math.round(DISPLAY_USE_WIDTH * 0.3f);
+        int rightColumnStart = Math.round(DISPLAY_USE_WIDTH * 0.6f);
 
         // Construct the text output by merging the lines
         StringBuilder pageText = new StringBuilder();
-        for (int i = 0; i < LINES_PER_SCREEN; i++) {
+        for (int i = 0; i < LINES_PER_SCREEN - 1; i++) {  // Leave last line for debug
             String leftText = lines1.get(i).replace("\u2002", ""); // Drop enspaces
             String rightText = lines2.get(i);
 
@@ -1936,7 +1936,14 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     .append("\n");
         }
 
-        // Convert to bytes and process as before
+        // **Debugging Line: Full Row of Dots (`˙`) Ending in a Pipe (`|`)**
+//        int numDots = (int) (DISPLAY_USE_WIDTH / dotWidth / 2.9); // Fill screen width
+//        String debugLine = "˙".repeat(numDots) + "|";
+//        pageText.append(debugLine).append("\n");
+//
+//        Log.d(TAG, "Debug Line: " + debugLine + ", is num dots: " + numDots);
+
+        // Convert **everything**, including debug line, into bytes and chunk it
         byte[] textBytes = pageText.toString().getBytes(StandardCharsets.UTF_8);
         int totalChunks = (int) Math.ceil((double) textBytes.length / MAX_CHUNK_SIZE);
 
@@ -1966,6 +1973,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             chunk.put(payloadChunk);
 
             allChunks.add(chunk.array());
+        }
+
+        // **Ensure BLE packet limit is respected**
+        if (allChunks.size() > totalChunks) {
+            Log.e(TAG, "Chunking error: Exceeded totalChunks!");
         }
 
         // Increment sequence number for next page
