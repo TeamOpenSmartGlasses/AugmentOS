@@ -397,7 +397,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             @Override
             public void onCharacteristicWrite(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
                 if (status == BluetoothGatt.GATT_SUCCESS) {
-                    Log.d(TAG, side + " glass write successful");
+//                    Log.d(TAG, side + " glass write successful");
                 } else {
                     Log.e(TAG, side + " glass write failed with status: " + status);
 
@@ -1783,8 +1783,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     // Constants for text wall display
     private static final int TEXT_COMMAND = 0x4E;  // Text command
-    private static final int DISPLAY_WIDTH = 640;  // Display width in pixels
-    private static final int DISPLAY_USE_WIDTH = 640;  // How much of the display to use
+    private static final int DISPLAY_WIDTH = 488;  // Display width in pixels
+    private static final int DISPLAY_USE_WIDTH = 488;  // How much of the display to use
     private static final int FONT_SIZE = 21;      // Font size
     private static final float FONT_DIVIDER = 2.0f;
     private static final int LINES_PER_SCREEN = 5; // Lines per screen
@@ -1868,6 +1868,15 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         return allChunks;
     }
 
+    private int calculateTextWidth(String text) {
+        int width = 0;
+        for (char c : text.toCharArray()) {
+            G1FontLoader.FontGlyph glyph = fontLoader.getGlyph(c);
+            width += glyph.width + 1; // Add 1 pixel per character for spacing
+        }
+        return width;
+    }
+
     private List<byte[]> createDoubleTextWallChunks(String text1, String text2) {
         // Split both texts into lines
         List<String> lines1 = splitIntoLines(text1);
@@ -1880,38 +1889,49 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         lines1 = lines1.subList(0, LINES_PER_SCREEN);
         lines2 = lines2.subList(0, LINES_PER_SCREEN);
 
-        // Get space width
-        int spaceWidth = fontLoader.getGlyph(' ').width;  // Each space is 2 pixels
+        // Get space width (each space is 2 pixels + 1 extra padding pixel, so 3 total)
+        int spaceWidth = fontLoader.getGlyph(' ').width + 1;
+
+        // Get dot width (dot is 2 pixels, +1 padding = 3 pixels total)
+        int dotWidth = 2 + 1;
 
         // Calculate where the right column should start
-        int rightColumnStart = Math.round(DISPLAY_USE_WIDTH * 0.6f);
+        int rightColumnStart = Math.round(DISPLAY_USE_WIDTH * 0.3f);
 
         // Construct the text output by merging the lines
         StringBuilder pageText = new StringBuilder();
         for (int i = 0; i < LINES_PER_SCREEN; i++) {
-            String leftText = lines1.get(i);
+            String leftText = lines1.get(i).replace("\u2002", ""); // Drop enspaces
             String rightText = lines2.get(i);
 
-            // Calculate the actual width of the leftText, considering extra 1px per character
-            int leftTextWidth = 0;
-            for (char c : leftText.toCharArray()) {
-                G1FontLoader.FontGlyph glyph = fontLoader.getGlyph(c);
-                leftTextWidth += glyph.width;
-                Log.d("FontWidth", "Char: " + c + " Width: " + glyph.width);
-            }
-            leftTextWidth += leftText.length(); // Account for extra 1-pixel gaps
+            // Calculate width of left text
+            int leftTextWidth = calculateTextWidth(leftText);
 
-            // Calculate how many spaces are needed
+            // Calculate spacing needed
             int neededSpacingPixels = rightColumnStart - leftTextWidth;
             int neededSpaces = Math.max(neededSpacingPixels / spaceWidth, 3); // At least 3 spaces
-
-            // Avoid BLE breaking: Limit max spaces
             int safeSpaces = Math.min(neededSpaces, 60);
-            Log.d(TAG, "Safe spaces: " + safeSpaces);
+
+            // Check if we are off by exactly 1 pixel
+            boolean useDot = (neededSpacingPixels % spaceWidth == 1 && safeSpaces > 3);
+
+            // Construct space padding with optional dot
+            String spacePadding;
+            if (useDot) {
+                int adjustedSpaces = safeSpaces - 1;  // Reduce spaces by 1 to insert the dot
+                int halfSpaces = adjustedSpaces / 2;
+                spacePadding = " ".repeat(halfSpaces) + "˙" + " ".repeat(adjustedSpaces - halfSpaces);
+            } else {
+                spacePadding = " ".repeat(safeSpaces);
+            }
+
+            // Log compressed info
+            Log.d(TAG, String.format("L: '%s' (W=%d) | Spaces=%d%s | R: '%s'",
+                    leftText, leftTextWidth, safeSpaces, useDot ? " + ˙" : "", rightText));
 
             // Construct the full line
             pageText.append(leftText)
-                    .append(" ".repeat(safeSpaces))  // Now dynamically calculated
+                    .append(spacePadding)  // Now dynamically calculated with dot fix
                     .append(rightText)
                     .append("\n");
         }
