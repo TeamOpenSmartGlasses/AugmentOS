@@ -123,5 +123,6 @@ public abstract class SmartGlassesCommunicator {
     }
 
     public void updateGlassesBrightness(int brightness) {}
+    public void updateGlassesHeadUpAngle(int headUpAngle) {}
     public void enableGlassesAutoBrightness() {}
 }

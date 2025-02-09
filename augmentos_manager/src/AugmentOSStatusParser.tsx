@@ -5,6 +5,7 @@ interface Glasses {
   battery_life: number;
   is_searching: boolean;
   brightness: string | null; // 0-100
+  headUp_angle: number | null; // 0-60
 }
 
 interface WifiConnection {
@@ -90,6 +91,7 @@ export class AugmentOSParser {
       battery_life: 60,
       is_searching: false,
       brightness: "87%",
+      headUp_angle: 20,
     },
     wifi: { is_connected: true, ssid: 'TP-LINK69', signal_strength: 100 },
     gsm: { is_connected: false, carrier: '', signal_strength: 0 },
@@ -194,7 +196,6 @@ export class AugmentOSParser {
     if (MOCK_CONNECTION) {return AugmentOSParser.mockStatus;}
     if (data && 'status' in data) {
       let status = data.status;
-      // console.log('432432432' , status.connected_glasses.brightness);
 
       return {
         augmentos_core_version: status.augmentos_core_version ?? null,
@@ -211,6 +212,7 @@ export class AugmentOSParser {
               battery_life: status.connected_glasses.battery_life,
               is_searching: status.connected_glasses.is_searching ?? false,
               brightness: status.connected_glasses.brightness,
+              headUp_angle: status.connected_glasses.headUp_angle,
             }
           : null,
         wifi: status.wifi ?? AugmentOSParser.defaultStatus.wifi,
