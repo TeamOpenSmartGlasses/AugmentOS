@@ -39,13 +39,6 @@ const parseBrightness = (brightnessStr: string | null | undefined): number => {
   return isNaN(parsed) ? 50 : parsed;
 };
 
-const parseHeadUpAngle = (angle: number | null | undefined): number => {
-    if (angle == null || angle < 0 || angle > 60) {
-        return 20;
-    }
-    return isNaN(angle as number) ? 0 : angle as number;
-};
-
 const SettingsPage: React.FC<SettingsPageProps> = ({
   isDarkTheme,
   toggleTheme,
@@ -63,15 +56,11 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   const [isContextualDashboardEnabled, setIsContextualDashboardEnabled] = useState(
     status.contextual_dashboard_enabled
   );
-  const [brightness, setBrightness] = useState<number>(
-    parseBrightness(status.glasses_info?.brightness)
-  );
+  const [brightness, setBrightness] = useState<number|null>(null);
 
   // -- HEAD UP ANGLE STATES --
   const [headUpAngleComponentVisible, setHeadUpAngleComponentVisible] = useState(false);
-  const [headUpAngle, setHeadUpAngle] = useState<number>(
-      parseHeadUpAngle(status.glasses_info?.headUp_angle)
-  ); // default or loaded
+  const [headUpAngle, setHeadUpAngle] = useState<number|null>(null); // default or loaded
 
   // -- Handlers for toggles, etc. --
   const toggleSensing = async () => {
@@ -92,17 +81,44 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     setIsContextualDashboardEnabled(newVal);
   };
 
+  useEffect(() => {
+    if (status.glasses_info) {
+      if (status.glasses_info?.headUp_angle != null) {
+        setHeadUpAngle(status.glasses_info.headUp_angle);
+      }
+      if (status.glasses_info?.brightness != null) {
+        setBrightness(parseBrightness(status.glasses_info.brightness));
+      }
+    }
+  }, [status.glasses_info?.headUp_angle, status.glasses_info?.brightness, status.glasses_info]);
+
   const changeBrightness = async (newBrightness: number) => {
-    if (status.glasses_info?.brightness === '-') return;
+    if (!status.glasses_info) {
+      Alert.alert('Glasses not connected', 'Please connect your smart glasses first.');
+      return;
+    }
+
+    if (newBrightness == null) {
+        return;
+    }
+
+    if (status.glasses_info.brightness === '-') {return;} // or handle accordingly
     await BluetoothService.getInstance().setGlassesBrightnessMode(newBrightness, false);
     setBrightness(newBrightness);
   };
 
   const onSaveHeadUpAngle = async (newHeadUpAngle: number) => {
-    const newHeadUpAngleParsed = parseHeadUpAngle(newHeadUpAngle);
+    if (!status.glasses_info) {
+      Alert.alert('Glasses not connected', 'Please connect your smart glasses first.');
+      return;
+    }
+    if (newHeadUpAngle == null) {
+        return;
+    }
+
     setHeadUpAngleComponentVisible(false);
-    await BluetoothService.getInstance().setGlassesHeadUpAngle(newHeadUpAngleParsed);
-    setHeadUpAngle(newHeadUpAngleParsed);
+    await BluetoothService.getInstance().setGlassesHeadUpAngle(newHeadUpAngle);
+    setHeadUpAngle(newHeadUpAngle);
   };
 
   const forgetGlasses = async () => {
@@ -374,7 +390,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               thumbStyle={styles.thumbStyle}
               step={1}
               onSlidingComplete={(value) => changeBrightness(value)}
-              value={brightness}
+              value={brightness ?? 50}
               minimumTrackTintColor={styles.minimumTrackTintColor.color}
               maximumTrackTintColor={
                 isDarkTheme
@@ -415,12 +431,14 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
       </ScrollView>
 
       {/* HEADUP ANGLE MODAL (the semicircle one) */}
-      <HeadUpAngleComponent
-        visible={headUpAngleComponentVisible}
-        initialAngle={headUpAngle}
-        onCancel={onCancelHeadUpAngle}
-        onSave={onSaveHeadUpAngle}
-      />
+      {headUpAngle !== null && (
+        <HeadUpAngleComponent
+          visible={headUpAngleComponentVisible}
+          initialAngle={headUpAngle}
+          onCancel={onCancelHeadUpAngle}
+          onSave={onSaveHeadUpAngle}
+        />
+      )}
 
       {/* Your app’s bottom navigation bar */}
       <NavigationBar toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
