@@ -188,8 +188,8 @@ export class AugmentOSParser {
     auth: {
       core_token_owner: '',
       core_token_status: '',
-      last_verification_timestamp: 0
-    }
+      last_verification_timestamp: 0,
+    },
   };
 
   static parseStatus(data: any): AugmentOSMainStatus {

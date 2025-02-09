@@ -69,7 +69,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
 
   // -- HEAD UP ANGLE STATES --
   const [headUpAngleComponentVisible, setHeadUpAngleComponentVisible] = useState(false);
- console.log('Sign-out successful' + status.glasses_info?.headUp_angle);
   const [headUpAngle, setHeadUpAngle] = useState<number>(
       parseHeadUpAngle(status.glasses_info?.headUp_angle)
   ); // default or loaded
@@ -312,6 +311,32 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
           />
         </View>
 
+        {/* HEADUP ANGLE SETTING (Button that opens the modal) */}
+        <TouchableOpacity
+          style={[
+            styles.settingItem,
+            disableHeadUpAngle && styles.disabledItem,
+          ]}
+          disabled={disableHeadUpAngle}
+          onPress={() => setHeadUpAngleComponentVisible(true)}
+        >
+          <View style={styles.settingTextContainer}>
+            <Text
+              style={[
+                styles.label,
+                isDarkTheme ? styles.lightText : styles.darkText,
+              ]}
+            >
+              HeadUp Settings
+            </Text>
+          </View>
+          <Icon
+            name="angle-right"
+            size={20}
+            color={isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color}
+          />
+        </TouchableOpacity>
+
         {/* Brightness Slider */}
         <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
@@ -360,40 +385,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
             />
           </View>
         </View>
-
-        {/* HEADUP ANGLE SETTING (Button that opens the modal) */}
-        <TouchableOpacity
-          style={[
-            styles.settingItem,
-            disableHeadUpAngle && styles.disabledItem,
-          ]}
-          disabled={disableHeadUpAngle}
-          onPress={() => setHeadUpAngleComponentVisible(true)}
-        >
-          <View style={styles.settingTextContainer}>
-            <Text
-              style={[
-                styles.label,
-                isDarkTheme ? styles.lightText : styles.darkText,
-              ]}
-            >
-              HeadUp Angle
-            </Text>
-            <Text
-              style={[
-                styles.value,
-                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-              ]}
-            >
-              Adjust the display angle for your HeadUp.
-            </Text>
-          </View>
-          <Icon
-            name="angle-right"
-            size={20}
-            color={isDarkTheme ? styles.lightIcon.color : styles.darkIcon.color}
-          />
-        </TouchableOpacity>
 
         {/* Forget Glasses */}
         <TouchableOpacity

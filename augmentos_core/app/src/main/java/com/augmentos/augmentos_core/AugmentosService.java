@@ -482,7 +482,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 currentDate, currentTime, batteryLevel,
                 calendarItemTitle, timeUntil));
 
-        String latestNews = "";
+        String latestNews;
         if (latestNewsArray != null && latestNewsArray.length() > 0) {
             latestNewsIndex = (latestNewsIndex + 1) % latestNewsArray.length();
 

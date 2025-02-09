@@ -67,7 +67,7 @@ const HeadUpAngleArcModal: React.FC<HeadUpAngleArcModalProps> = ({
     const dx = x - cx;
     const dy = cy - y;
     let theta = Math.atan2(dy, dx) * (180 / Math.PI);
-    if (theta < 0) {theta += 360;}
+    if (theta < 0) {theta = 0;}
     theta = Math.max(0, Math.min(theta, maxAngle));
     return theta;
   };
@@ -106,14 +106,13 @@ const HeadUpAngleArcModal: React.FC<HeadUpAngleArcModalProps> = ({
     >
       <View style={styles.overlay}>
         <View style={styles.container}>
-          <Text style={styles.title}>Set Your HeadUp Angle</Text>
-          <Text style={styles.subtitle}>Drag the knob to adjust</Text>
+          <Text style={styles.title}>Drag the slider to adjust your HeadUp angle.</Text>
 
           <View style={styles.svgWrapper} {...panResponder.panHandlers}>
             <Svg width={svgSize} height={svgSize}>
-              <Path d={backgroundArcPath} stroke="#ddd" strokeWidth={8} fill="none" />
-              <Path d={currentArcPath} stroke="#007AFF" strokeWidth={8} fill="none" />
-              <Circle cx={knobPos.x} cy={knobPos.y} r={20} fill="#007AFF" />
+              <Path d={backgroundArcPath} stroke="#ddd" strokeWidth={7} fill="none" />
+              <Path d={currentArcPath} stroke="#007AFF" strokeWidth={7} fill="none" />
+              <Circle cx={knobPos.x} cy={knobPos.y} r={15} fill="#007AFF" />
             </Svg>
           </View>
 
