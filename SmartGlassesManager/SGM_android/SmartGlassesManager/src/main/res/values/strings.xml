@@ -24,7 +24,7 @@
     <!-- Internal code use. -->
     <string name="SHARED_PREF_KEY">api_key</string>
     <string name="SHARED_PREF_BRIGHTNESS">brightness</string>
-    <string name="HEADUP_ANGLE">brightness</string>
+    <string name="HEADUP_ANGLE">headUp_Angle</string>
     <string name="PREFERRED_WEARABLE">preferred_wearable</string>
     <string name="FORCE_CORE_ONBOARD_MIC">force_core_onboard_mic</string>
     <string name="DEFAULT_COMMAND_SHARED_PREF_KEY">default_command_key</string>
