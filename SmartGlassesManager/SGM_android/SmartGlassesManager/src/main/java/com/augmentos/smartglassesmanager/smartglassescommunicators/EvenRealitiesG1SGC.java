@@ -37,6 +37,7 @@ import java.util.zip.CRC32;
 import java.nio.ByteBuffer;
 
 import com.augmentos.smartglassesmanager.SmartGlassesAndroidService;
+import com.augmentos.smartglassesmanager.eventbusmessages.HeadUpAngleEvent;
 import com.augmentos.smartglassesmanager.utils.SmartGlassesConnectionState;
 import com.google.gson.Gson;
 import com.augmentos.augmentoslib.events.AudioChunkNewEvent;
@@ -1655,10 +1656,37 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         EventBus.getDefault().post(new BrightnessLevelEvent(autoLight ? -1 : brightness));
     }
 
+    public void sendHeadUpAngleCommand(int headUpAngle) {
+        // Validate headUpAngle range (0 ~ 60)
+        if (headUpAngle < 0) {
+            headUpAngle = 0;
+        } else if (headUpAngle > 60) {
+            headUpAngle = 60;
+        }
+
+        // Construct the command
+        ByteBuffer buffer = ByteBuffer.allocate(3);
+        buffer.put((byte) 0x0B);        // Command for configuring headUp angle
+        buffer.put((byte) headUpAngle); // Angle value (0~60)
+        buffer.put((byte) 0x01);        // Level (fixed at 0x01)
+
+        sendDataSequentially(buffer.array(), false);
+
+        Log.d(TAG, "Sent headUp angle command => Angle: " + headUpAngle);
+        EventBus.getDefault().post(new HeadUpAngleEvent(headUpAngle));
+    }
+
     @Override
     public void updateGlassesBrightness(int brightness) {
         sendBrightnessCommand(brightness, false);
     }
+
+    @Override
+    public void updateGlassesHeadUpAngle(int headUpAngle) {
+        sendHeadUpAngleCommand(headUpAngle);
+    }
+
+
 
     @Override
     public void enableGlassesAutoBrightness() {
