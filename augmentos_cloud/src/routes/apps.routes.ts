@@ -1,17 +1,15 @@
 //backend/src/routes/apps.ts
 import express from 'express';
-import { AppService } from '../services/app.service';
-// import { initiateTpaSession } from '../tpa-websocket';
-// import userSessionService from '../services/session.service';
 import webSocketService from '../services/communication/websocket.service';
 import sessionService from '../services/core/session.service';
+import appService from '../services/core/app.service';
 
 const router = express.Router();
 
 // Get all available apps
 router.get('/', async (req, res) => {
   try {
-    const apps = await AppService.getAllApps();
+    const apps = await appService.getAllApps();
     res.json(apps);
   } catch (error) {
     console.error('Error fetching apps:', error);
@@ -31,7 +29,7 @@ router.post('/:appId/start', async (req, res) => {
       return res.status(404).json({ error: 'Session not found' });
     }
 
-    const app = await AppService.getApp(appId);
+    const app = await appService.getApp(appId);
     if (!app) {
       return res.status(404).json({ error: 'App not found' });
     }
