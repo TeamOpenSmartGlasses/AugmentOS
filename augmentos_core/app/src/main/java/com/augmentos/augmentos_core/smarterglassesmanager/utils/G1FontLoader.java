@@ -1,4 +1,4 @@
-package com.augmentos.smartglassesmanager.utils;
+package com.augmentos.augmentos_core.smarterglassesmanager.utils;
 
 
 import android.content.Context;
