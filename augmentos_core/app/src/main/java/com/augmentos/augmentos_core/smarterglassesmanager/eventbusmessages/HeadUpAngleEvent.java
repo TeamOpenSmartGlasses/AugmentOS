@@ -1,4 +1,4 @@
-package com.augmentos.smartglassesmanager.eventbusmessages;
+package com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages;
 
 public class HeadUpAngleEvent {
     public final int headUpAngle;

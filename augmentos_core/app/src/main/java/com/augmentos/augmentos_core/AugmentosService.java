@@ -8,16 +8,8 @@ import static com.augmentos.augmentos_core.statushelpers.CoreVersionHelper.getCo
 import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
 import static com.augmentos.augmentos_core.BatteryOptimizationHelper.handleBatteryOptimization;
 import static com.augmentos.augmentos_core.BatteryOptimizationHelper.isSystemApp;
-import static com.augmentos.augmentos_core.Constants.REQUEST_APP_BY_PACKAGE_NAME_DOWNLOAD_LINK_ENDPOINT;
-import static com.augmentos.augmentos_core.Constants.UI_POLL_ENDPOINT;
-import static com.augmentos.augmentos_core.Constants.GET_USER_SETTINGS_ENDPOINT;
-import static com.augmentos.augmentos_core.Constants.explicitAgentQueriesKey;
-import static com.augmentos.augmentos_core.Constants.explicitAgentResultsKey;
-import static com.augmentos.augmentos_core.Constants.glassesCardTitle;
 import static com.augmentos.augmentos_core.Constants.notificationFilterKey;
 import static com.augmentos.augmentos_core.Constants.newsSummaryKey;
-import static com.augmentos.augmentos_core.Constants.displayRequestsKey;
-import static com.augmentos.augmentos_core.Constants.wakeWordTimeKey;
 import static com.augmentos.augmentos_core.Constants.augmentOsMainServiceNotificationId;
 import static com.augmentos.augmentos_core.statushelpers.JsonHelper.convertJsonToMap;
 
@@ -27,11 +19,9 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.hardware.display.VirtualDisplay;
@@ -45,9 +35,7 @@ import android.os.Looper;
 import android.service.notification.NotificationListenerService;
 import android.util.Log;
 
-import java.io.Console;
 import java.io.IOException;
-import java.io.InputStream;
 
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
@@ -68,7 +56,7 @@ import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.SetSe
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.GlassesDisplayPowerEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.SmartGlassesConnectionStateChangedEvent;
-import com.augmentos.smartglassesmanager.eventbusmessages.HeadUpAngleEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.HeadUpAngleEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.augmentos.augmentos_core.smarterglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.SmartGlassesConnectionState;
@@ -78,9 +66,7 @@ import com.augmentos.augmentoslib.ThirdPartyApp;
 import com.augmentos.augmentos_core.comms.AugmentOsActionsCallback;
 import com.augmentos.augmentos_core.comms.AugmentosBlePeripheral;
 import com.augmentos.augmentos_core.events.AugmentosSmartGlassesDisconnectedEvent;
-import com.augmentos.augmentos_core.events.GoogleAuthFailedEvent;
 import com.augmentos.augmentos_core.augmentos_backend.OldBackendServerComms;
-import com.augmentos.augmentos_core.augmentos_backend.VolleyJsonCallback;
 import com.augmentos.augmentos_core.events.NewScreenImageEvent;
 import com.augmentos.augmentos_core.events.ThirdPartyAppErrorEvent;
 import com.augmentos.augmentos_core.events.TriggerSendStatusToAugmentOsManagerEvent;
@@ -100,7 +86,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -111,13 +96,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 //SpeechRecIntermediateOutputEvent
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.EnvHelper;
-
-import android.app.DownloadManager;
-import android.net.Uri;
-import android.os.Environment;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -152,21 +132,16 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     String authToken = "";
     private OldBackendServerComms oldBackendServerComms;
     private AuthHandler authHandler;
-    private final Handler locationSendingLoopHandler = new Handler(Looper.getMainLooper());
     private MediaProjection mediaProjection;
     private VirtualDisplay virtualDisplay;
     private final Handler screenCaptureHandler = new Handler();
     private Runnable screenCaptureRunnable;
-    private Runnable locationSendingRunnableCode;
     private long lastDataSentTime = 0;
     private final long POLL_INTERVAL_ACTIVE = 200; // 200ms when actively sending data
     private final long POLL_INTERVAL_INACTIVE = 5000; // 5000ms (5s) when inactive
     private final long DATA_SENT_THRESHOLD = 90000; // 90 seconds
     private LocationSystem locationSystem;
     static final String deviceId = "android";
-
-    private final long locationSendTime = 1000 * 10; // define in milliseconds
-
     long previousWakeWordTime = -1; // Initialize this at -1
     private long currTime = 0;
     private long lastPressed = 0;
@@ -428,18 +403,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         headUpAngle = event.headUpAngle;
         PreferenceManager.getDefaultSharedPreferences(this)
                 .edit()
-                .putString(this.getResources().getString(com.augmentos.smartglassesmanager.R.string.HEADUP_ANGLE), String.valueOf(headUpAngle))
-                .apply();
-        sendStatusToAugmentOsManager();
-    }
-
-    @Subscribe
-    public void onHeadUpAngleEvent(HeadUpAngleEvent event) {
-//        Log.d(TAG, "BRIGHTNESS received");
-        headUpAngle = event.headUpAngle;
-        PreferenceManager.getDefaultSharedPreferences(this)
-                .edit()
-                .putString(this.getResources().getString(com.augmentos.smartglassesmanager.R.string.HEADUP_ANGLE), String.valueOf(headUpAngle))
+                .putString(this.getResources().getString(R.string.HEADUP_ANGLE), String.valueOf(headUpAngle))
                 .apply();
         sendStatusToAugmentOsManager();
     }
@@ -470,8 +434,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         notificationSystem = new NotificationSystem(this, userId);
         calendarSystem = CalendarSystem.getInstance(this);
 
-        brightnessLevel = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString(getResources().getString(com.augmentos.smartglassesmanager.R.string.SHARED_PREF_BRIGHTNESS), "50"));
-        headUpAngle = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString(getResources().getString(com.augmentos.smartglassesmanager.R.string.HEADUP_ANGLE), "20"));
+        brightnessLevel = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString(getResources().getString(R.string.SHARED_PREF_BRIGHTNESS), "50"));
+        headUpAngle = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString(getResources().getString(R.string.HEADUP_ANGLE), "20"));
 
         contextualDashboardEnabled = getContextualDashboardEnabled();
 
@@ -526,6 +490,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             }
         });
 
+        locationSystem = new LocationSystem(this);
         locationSystem.startLocationSending();
     }
 
@@ -1244,8 +1209,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Override
     public void onDestroy(){
         locationSystem.stopLocationUpdates();
-        locationSendingLoopHandler.removeCallbacks(locationSendingRunnableCode);
-        locationSendingLoopHandler.removeCallbacksAndMessages(null);
         screenCaptureHandler.removeCallbacks(screenCaptureRunnable);
         if (virtualDisplay != null) virtualDisplay.release();
         if (mediaProjection != null) mediaProjection.stop();

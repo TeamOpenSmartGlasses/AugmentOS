@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
 
       //ask the service to send us all the Augmentos responses
       if (mService != null) {
-        mService.sendUiUpdateFull();
+        //mService.sendUiUpdateFull();
       }
     }
   }
@@ -301,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
       mBound = true;
 
       //get update for UI
-      mService.sendUiUpdateFull();
+     // mService.sendUiUpdateFull();
     }
     @Override
     public void onServiceDisconnected(ComponentName arg0) {

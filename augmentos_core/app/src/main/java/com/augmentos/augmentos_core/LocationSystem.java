@@ -4,6 +4,9 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Handler;
+import android.os.Looper;
+
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -24,6 +27,11 @@ public class LocationSystem {
     public double latestAccessedLong = 0;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private LocationCallback locationCallback;
+
+    private final Handler locationSendingLoopHandler = new Handler(Looper.getMainLooper());
+    private Runnable locationSendingRunnableCode;
+    private final long locationSendTime = 1000 * 10; // define in milliseconds
+
 
     public LocationSystem(Context context) {
         this.context = context;
@@ -75,6 +83,9 @@ public class LocationSystem {
         if (fusedLocationProviderClient != null && locationCallback != null) {
             fusedLocationProviderClient.removeLocationUpdates(locationCallback);
         }
+
+        locationSendingLoopHandler.removeCallbacks(locationSendingRunnableCode);
+        locationSendingLoopHandler.removeCallbacksAndMessages(null);
     }
 
     public double getNewLat() {
@@ -102,10 +113,6 @@ public class LocationSystem {
             }
         };
         locationSendingLoopHandler.post(locationSendingRunnableCode);
-    }
-
-    public void stopLocationSending() {
-        locationSendingLoopHandler.removeCallbacksAndMessages(this);
     }
 
     private void sendLocationToServer(){
