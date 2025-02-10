@@ -1,5 +1,7 @@
 package com.augmentos.augmentos_core.augmentos_backend;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
 import org.json.JSONObject;
@@ -21,6 +23,9 @@ import okio.ByteString;
  */
 public class WebSocketManager extends WebSocketListener {
     private static final String TAG = "WearableAi_WebSocketManager";
+    private static final int MAX_RETRY_ATTEMPTS = 9999999;
+    private static final long INITIAL_RETRY_DELAY_MS = 1000; // Start with 1 second
+    private static final long MAX_RETRY_DELAY_MS = 30000;    // Max 30 seconds
 
     // Callback interface to push messages/events back to ServerComms
     public interface IncomingMessageHandler {
@@ -34,6 +39,21 @@ public class WebSocketManager extends WebSocketListener {
     private OkHttpClient client;
     private WebSocket webSocket;
     private boolean connected = false;
+    private String serverUrl;
+    private int retryAttempts = 0;
+    private boolean intentionalDisconnect = false;
+    private final Handler reconnectHandler = new Handler(Looper.getMainLooper());
+
+    // Exponential backoff runnable
+    private final Runnable reconnectRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (!intentionalDisconnect && !connected && retryAttempts < MAX_RETRY_ATTEMPTS) {
+                Log.d(TAG, "Attempting to reconnect... Attempt " + (retryAttempts + 1));
+                connectInternal();
+            }
+        }
+    };
 
     public WebSocketManager(IncomingMessageHandler handler) {
         this.handler = handler;
@@ -43,16 +63,26 @@ public class WebSocketManager extends WebSocketListener {
      * Opens a connection to the given WebSocket URL.
      */
     public void connect(String url) {
+        this.serverUrl = url;
+        this.intentionalDisconnect = false;
+        this.retryAttempts = 0;
+        connectInternal();
+    }
+
+    private void connectInternal() {
         if (connected) {
             Log.d(TAG, "Already connected.");
             return;
         }
+
+        cleanup(); // Clean up any existing connections
+
         client = new OkHttpClient.Builder()
                 .readTimeout(0, TimeUnit.MILLISECONDS)
                 .pingInterval(15, TimeUnit.SECONDS)
                 .build();
 
-        Request request = new Request.Builder().url(url).build();
+        Request request = new Request.Builder().url(serverUrl).build();
         webSocket = client.newWebSocket(request, this);
     }
 
@@ -60,6 +90,8 @@ public class WebSocketManager extends WebSocketListener {
      * Closes the connection gracefully.
      */
     public void disconnect() {
+        intentionalDisconnect = true;
+        reconnectHandler.removeCallbacks(reconnectRunnable);
         if (webSocket != null && connected) {
             webSocket.close(1000, "Normal closure");
         }
@@ -95,6 +127,25 @@ public class WebSocketManager extends WebSocketListener {
         }
     }
 
+    private void scheduleReconnect() {
+        if (intentionalDisconnect || connected || retryAttempts >= MAX_RETRY_ATTEMPTS) {
+            return;
+        }
+
+        // Exponential backoff with jitter
+        long delay = Math.min(
+                INITIAL_RETRY_DELAY_MS * (long) Math.pow(2, retryAttempts) +
+                        (long) (Math.random() * 1000), // Add random jitter
+                MAX_RETRY_DELAY_MS
+        );
+
+        Log.d(TAG, "Scheduling reconnect attempt " + (retryAttempts + 1) +
+                " in " + delay + "ms");
+
+        reconnectHandler.postDelayed(reconnectRunnable, delay);
+        retryAttempts++;
+    }
+
     // -------------------------------------------
     // WebSocketListener callbacks
     // -------------------------------------------
@@ -102,12 +153,11 @@ public class WebSocketManager extends WebSocketListener {
     @Override
     public void onOpen(WebSocket webSocket, Response response) {
         connected = true;
+        retryAttempts = 0; // Reset retry counter on successful connection
         Log.d(TAG, "WebSocket opened: " + response);
         if (handler != null) {
             handler.onConnectionOpen();
         }
-        // Example handshake: you might do "connection_init" here,
-        // but in our design, we do it from ServerComms (or handleIncomingMessage).
     }
 
     @Override
@@ -138,6 +188,7 @@ public class WebSocketManager extends WebSocketListener {
             handler.onConnectionClosed();
         }
         cleanup();
+        scheduleReconnect();
     }
 
     @Override
@@ -148,6 +199,7 @@ public class WebSocketManager extends WebSocketListener {
             handler.onError("WebSocket failure: " + t.getMessage());
         }
         cleanup();
+        scheduleReconnect();
     }
 
     /**
