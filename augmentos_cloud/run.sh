@@ -80,10 +80,10 @@ echo -e "${GREEN}=== Starting AugmentOS Development Environment ===${NC}\n"
 trap kill_all_processes EXIT INT TERM
 
 # Run setup for all projects
-setup_and_run "captions" "$CAPTIONS_EMOJI" "$BLUE"
-setup_and_run "flash" "$FLASH_EMOJI" "$GREEN"
+setup_and_run "." "$CLOUD_EMOJI" "$RED"
+setup_and_run "../augmentos_tpas/captions" "$CAPTIONS_EMOJI" "$BLUE"
+setup_and_run "../augmentos_tpas/flash" "$FLASH_EMOJI" "$GREEN"
 setup_and_run "../augmentos_mock_client" "$MOCK_CLIENT_EMOJI" "$YELLOW"
-setup_and_run "../augmentos_cloud" "$CLOUD_EMOJI" "$RED"
 
 echo -e "\n${GREEN}All servers are now running!${NC}"
 echo -e "${YELLOW}Press Ctrl+C to stop all servers${NC}\n"
@@ -93,7 +93,6 @@ wait
 
 # directory structure
 # augmentos_examples
-# ├── run.sh
 # ├── captions
 # │   ├── package.json
 # │   └── src
@@ -108,6 +107,7 @@ wait
 # │       └── index.js
 # │
 # augmentos_cloud
+# │    ├──run.sh
 # │    ├── package.json
 # │    └── src
 # │        └── index.js
