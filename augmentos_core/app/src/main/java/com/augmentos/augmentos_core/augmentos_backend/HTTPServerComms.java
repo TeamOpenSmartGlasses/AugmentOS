@@ -51,7 +51,7 @@ public class HTTPServerComms {
                         for (int i = 0; i < appsArray.length(); i++) {
                             JSONObject appJson = appsArray.getJSONObject(i);
                             ThirdPartyCloudApp app = new ThirdPartyCloudApp(
-                                    appJson.optString("appId", "unknown.package"), // appId maps to packageName
+                                    appJson.optString("packageName", "unknown.package"),
                                     appJson.optString("name", "Unknown App"),
                                     appJson.optString("description", "No description available."),
                                     appJson.optString("webhookURL", ""),

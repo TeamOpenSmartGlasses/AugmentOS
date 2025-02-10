@@ -176,11 +176,11 @@ public class ServerComms {
     // APP LIFECYCLE (if needed)
     // ------------------------------------------------------------------------
 
-    public void startApp(String appId) {
+    public void startApp(String packageName) {
         try {
             JSONObject msg = new JSONObject();
             msg.put("type", "start_app");
-            msg.put("appId", appId);
+            msg.put("packageName", packageName);
             msg.put("timestamp", System.currentTimeMillis());
             wsManager.sendText(msg.toString());
         } catch (JSONException e) {
@@ -188,11 +188,11 @@ public class ServerComms {
         }
     }
 
-    public void stopApp(String appId) {
+    public void stopApp(String packageName) {
         try {
             JSONObject msg = new JSONObject();
             msg.put("type", "stop_app");
-            msg.put("appId", appId);
+            msg.put("packageName", packageName);
             msg.put("timestamp", System.currentTimeMillis());
             wsManager.sendText(msg.toString());
         } catch (JSONException e) {

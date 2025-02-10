@@ -83,13 +83,8 @@ export class DisplayService implements IDisplayService {
         priority
       };
 
-      const currentDisplay = this.activeDisplays.get(sessionId);
       
-      // Only show if nothing's showing or we have higher priority
-      if (!currentDisplay || priority > currentDisplay.record.priority) {
-        await this.showDisplay(record, durationMs);
-        return true;
-      }
+      await this.showDisplay(record, durationMs);
 
       // Still track attempts that weren't shown
       this.addToHistory(record);
