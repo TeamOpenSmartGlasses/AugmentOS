@@ -1540,9 +1540,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public void displayDoubleTextWall(String textTop, String textBottom) {
 //        List<byte[]> chunks = createDoubleTextWallChunks(textTop, textBottom);
 //        textTop = "...... ......\n. . . . .\n. . . . . . . . . . . . . \n......... ...............\nshe shaid shit show";
-//        textTop = "a fine bulgogi bowl man\n. .\u200B . . .\n◌. . . . . . . . . . . . . \n»......... ...............\nshe → shaid shit show";
-        textTop = "a fine bulgogi bowl man\n. .\u200B . . .\n. . . . . . . . . . . . . \n......... ...............\nshe shaid shit show";
-        textBottom = "|...\n| . .\n|. . . \n|....\n|asdf";
+//        textTop = "a fine bulgogi bowl man\n. .\u200B . . .\n. . . . . . . . . . . . . \n»......... ...............\nshe → shaid shit show";
+//        textTop = "a fine bulgogi bowl man\n. .\u200B . . .\n. . . . . . . . . . . . . \n......... ...............\nshe shaid shit show";
+//        textBottom = "|...\n| . .\n|. . . \n|....\n|asdf";
         List<byte[]> chunks = createDoubleTextWallChunks(textTop, textBottom);
         sendChunks(chunks);
 //        Log.d(TAG, "Send double text wall");
@@ -1813,8 +1813,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public void updateGlassesHeadUpAngle(int headUpAngle) {
         sendHeadUpAngleCommand(headUpAngle);
     }
-
-
 
     @Override
     public void enableGlassesAutoBrightness() {
