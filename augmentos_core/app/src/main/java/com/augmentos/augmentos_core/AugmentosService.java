@@ -434,77 +434,45 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         // Retrieve the next upcoming event
         CalendarItem calendarItem = calendarSystem.getNextUpcomingEvent();
 
-        // Get current time in milliseconds
         long now = System.currentTimeMillis();
-        long diffMillis = calendarItem.getDtStart() - now;
-        String timeUntil;
 
-        // Choose the appropriate unit to display the time difference
+        // --- Determine event display string (timeUntil) ---
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
         String eventDate = simpleDateFormat.format(new Date(calendarItem.getDtStart()));
         String todayDate = simpleDateFormat.format(new Date(now));
 
+        String timeUntil;
         if (eventDate.equals(todayDate)) {
-            // Event is today -> just show the time
+            // Event is today -> show the time
             SimpleDateFormat timeFormat = new SimpleDateFormat("h:mma", Locale.getDefault());
             timeUntil = timeFormat.format(new Date(calendarItem.getDtStart()));
         } else if (eventDate.equals(simpleDateFormat.format(new Date(now + 24 * 60 * 60 * 1000)))) {
-            // Event is tomorrow -> show 'tmr' and time
+            // Event is tomorrow
             SimpleDateFormat timeFormat = new SimpleDateFormat("h:mma", Locale.getDefault());
-            timeUntil = "tmrw@" + timeFormat.format(new Date(calendarItem.getDtStart()));
+            timeUntil = timeFormat.format(new Date(calendarItem.getDtStart())) + " tmrw, " ;
         } else {
-            // Event is after tomorrow -> do not show time
+            // Event is beyond tomorrow -> no time shown
             timeUntil = "";
         }
 
-        // Get current time and date strings
+        // --- Build date/time line ---
         SimpleDateFormat currentTimeFormat = new SimpleDateFormat("h:mm", Locale.getDefault());
-        SimpleDateFormat currentDateFormat = new SimpleDateFormat("MMM dd", Locale.getDefault());
+        SimpleDateFormat currentDateFormat = new SimpleDateFormat("MMM d", Locale.getDefault());
         String currentTime = currentTimeFormat.format(new Date());
         String currentDate = currentDateFormat.format(new Date());
-        String calendarItemTitle = "";
-        if (!timeUntil.isEmpty()) { // Only show the event tittle if the event is today or tomorrow
-            calendarItemTitle = "| " + calendarItem.getTitle()
-                    .replace("-", " ")
-                    .replace("\n", " ")
-                    .replaceAll("\\s+", " ")
-                    .substring(0, Math.min(calendarItem.getTitle().length(), 12))
-                    .trim();
-            if (calendarItem.getTitle().length() > 12) {
-                calendarItemTitle += "...";
-            }
-        }
 
-        // Build the dashboard string with event information on the same line as time and date
-        StringBuilder dashboard = new StringBuilder();
-        dashboard.append(String.format(Locale.getDefault(),
-                "%s, %s, %d%% %s %s\n",
-                currentDate, currentTime, batteryLevel,
-                calendarItemTitle, timeUntil));
+        // Battery, date/time, etc.
+        String leftHeaderLine = String.format(Locale.getDefault(), "◌ %s %s, %d%%\n", currentTime, currentDate, batteryLevel);
 
-        String latestNews;
-        if (latestNewsArray != null && latestNewsArray.length() > 0) {
-            latestNewsIndex = (latestNewsIndex + 1) % latestNewsArray.length();
+        // --- Build “left text” (notifications) ---
+        StringBuilder leftBuilder = new StringBuilder();
+        leftBuilder.append(leftHeaderLine);
 
-            latestNews = latestNewsArray.getString(latestNewsIndex);
-        } else {
-            latestNews = "";
-        }
-
-        if (latestNews != null && !latestNews.isEmpty()) {
-            String newsToDisplay = latestNews.substring(0, Math.min(latestNews.length(), 30)).trim();
-            if (latestNews.length() > 30) {
-                newsToDisplay += "...";
-            }
-            dashboard.append(String.format("News: %s\n", newsToDisplay));
-        }
-
-        // Process notifications (as before)
+        // Check notifications in the last 5s
         boolean recentNotificationFound = false;
         ArrayList<PhoneNotification> notifications = notificationSystem.getNotificationQueue();
         PhoneNotification mostRecentNotification = null;
         long mostRecentTime = 0;
-
         for (PhoneNotification notification : notifications) {
             long notificationTime = notification.getTimestamp();
             if ((notificationTime + 5000) > now) {
@@ -514,28 +482,128 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 }
             }
         }
-
         if (mostRecentNotification != null) {
-            dashboard.append(String.format("│ %s - %s\n",
+            String mostRecentNotificationString = String.format("%s - %s\n",
                     mostRecentNotification.getTitle(),
-                    mostRecentNotification.getText()));
+                    mostRecentNotification.getText());
+            String wrappedRecentNotification = wrapText(mostRecentNotificationString, 25, 4);
+            leftBuilder.append(wrappedRecentNotification);
             recentNotificationFound = true;
         }
 
-        // If no recent notification was found, display from the notificationList
         if (!recentNotificationFound) {
+            // No super-recent notifications: show up to 2 from notificationList
             int notificationCount = Math.min(2, notificationList.size());
             for (int i = 0; i < notificationCount; i++) {
-                dashboard.append(String.format("│ %s\n", notificationList.get(i)));
+                String wrappedNotification = wrapText(notificationList.get(i), 25, 2);
+                leftBuilder.append(String.format("| %s\n", wrappedNotification));
             }
         }
 
-        // Send to text wall
+        // Finalize leftText
+        String leftText = leftBuilder.toString();
+
+        // --- Build “right text” (calendar + news + fake weather) ---
+        StringBuilder rightBuilder = new StringBuilder();
+
+        // CALENDAR
+        // Calendar line (only if we have a “today/tmrw” event)
+        if (!timeUntil.isEmpty()) {
+            // Show a circle before the event
+            rightBuilder.append("@ ").append(timeUntil).append(" ");
+
+            // Truncate the calendar event title if needed
+            String truncatedTitle = calendarItem.getTitle()
+                    .replace("-", " ")
+                    .replace("\n", " ")
+                    .replaceAll("\\s+", " ")
+                    .trim();
+            if (truncatedTitle.length() > 12) {
+                truncatedTitle = truncatedTitle.substring(0, 12) + "...";
+            }
+            rightBuilder.append(truncatedTitle).append("\n");
+        }
+
+        // NEWS
+        String latestNews = null;
+        if (latestNewsArray != null && latestNewsArray.length() > 0) {
+            latestNewsIndex = (latestNewsIndex + 1) % latestNewsArray.length();
+            latestNews = latestNewsArray.getString(latestNewsIndex);
+        }
+
+        if (latestNews != null && !latestNews.isEmpty()) {
+            // Truncate if too long
+            String newsToDisplay = latestNews.substring(0, Math.min(latestNews.length(), 30)).trim();
+            if (latestNews.length() > 30) {
+                newsToDisplay += "...";
+            }
+            rightBuilder.append("↑ ").append(newsToDisplay).append("\n");
+        }
+
+        // Fake weather line
+//        rightBuilder.append("→ Partly Cloudy 42°F\n");
+
+        String rightText = rightBuilder.toString();
+
+        // --- Send the two-column text wall ---
         if (smartGlassesService != null) {
             smartGlassesService.windowManager.showDashboard(() ->
-                    smartGlassesService.sendTextWall(dashboard.toString()), -1);
+                            smartGlassesService.sendDoubleTextWall(leftText, rightText),
+                    -1
+            );
         }
-        Log.d(TAG, "Dashboard displayed: " + dashboard);
+
+        Log.d(TAG, "Dashboard displayed:\nLeft:\n" + leftText + "\nRight:\n" + rightText);
+    }
+
+    public static String wrapText(String text, int maxLineLength, int maxLines) {
+        StringBuilder wrappedText = new StringBuilder();
+        int start = 0;
+        int lineCount = 0;
+        int textLength = text.length();
+
+        while (start < textLength && lineCount < maxLines) {
+            // Tentative end index for this line
+            int end = Math.min(start + maxLineLength, textLength);
+
+            // If we've reached the end of the text, append the rest.
+            if (end == textLength) {
+                wrappedText.append(text.substring(start, end));
+                start = end;
+                lineCount++;
+                break;
+            }
+
+            // If the character at 'end' isn't a space, backtrack to the last space
+            if (text.charAt(end) != ' ') {
+                int lastSpace = text.lastIndexOf(' ', end);
+                if (lastSpace > start) {
+                    end = lastSpace;
+                }
+            }
+
+            // Append the segment for the current line
+            wrappedText.append(text.substring(start, end).trim());
+            lineCount++;
+
+            // Skip any additional spaces for the next line
+            start = end;
+            while (start < textLength && text.charAt(start) == ' ') {
+                start++;
+            }
+
+            // If we haven't reached the maximum lines and there is more text, add a newline
+            if (lineCount < maxLines && start < textLength) {
+                wrappedText.append("\n");
+            }
+        }
+
+        // If there's any remaining text, append "..." to indicate truncation.
+        if (start < textLength) {
+            wrappedText.append("...");
+        }
+
+        return wrappedText.toString();
     }
 
     @Subscribe
