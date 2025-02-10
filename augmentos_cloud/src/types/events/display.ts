@@ -34,5 +34,5 @@ export interface DisplayEvent extends WebSocketMessage {
   type: 'display_event';
   layout: Layout;
   durationMs?: number;
-  appId?: string;
+  packageName?: string;
 }

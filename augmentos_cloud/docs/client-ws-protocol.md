@@ -43,7 +43,7 @@ interface GlassesConnectionInitMessage {
 interface CloudConnectionAckMessage {
   type: "connection_ack";
   sessionId: string;
-  timestamp: Date;
+  timestamp?: Date;
 }
 
 // Example Implementation
@@ -59,7 +59,6 @@ class GlassesClient {
       const initMessage: GlassesConnectionInitMessage = {
         type: 'connection_init',
         userId: 'user123', // Optional
-        timestamp: new Date()
       };
       this.ws.send(JSON.stringify(initMessage));
     };
@@ -185,13 +184,13 @@ class HardwareEvents {
 // Types
 interface GlassesStartAppMessage {
   type: "start_app";
-  appId: string;
+  packageName: string;
   timestamp?: Date;
 }
 
 interface GlassesStopAppMessage {
   type: "stop_app";
-  appId: string;
+  packageName: string;
   timestamp?: Date;
 }
 
@@ -199,19 +198,19 @@ interface GlassesStopAppMessage {
 class AppManager {
   private ws: WebSocket;
 
-  startApp(appId: string) {
+  startApp(packageName: string) {
     const message: GlassesStartAppMessage = {
       type: 'start_app',
-      appId,
+      packageName,
       timestamp: new Date()
     };
     this.ws.send(JSON.stringify(message));
   }
 
-  stopApp(appId: string) {
+  stopApp(packageName: string) {
     const message: GlassesStopAppMessage = {
       type: 'stop_app',
-      appId,
+      packageName,
       timestamp: new Date()
     };
     this.ws.send(JSON.stringify(message));
@@ -401,10 +400,10 @@ export class AugmentOSClient {
   /**
    * Starts a TPA
    */
-  startApp(appId: string) {
+  startApp(packageName: string) {
     const message: GlassesStartAppMessage = {
       type: 'start_app',
-      appId,
+      packageName,
       timestamp: new Date()
     };
     this.send(message);
@@ -413,10 +412,10 @@ export class AugmentOSClient {
   /**
    * Stops a TPA
    */
-  stopApp(appId: string) {
+  stopApp(packageName: string) {
     const message: GlassesStopAppMessage = {
       type: 'stop_app',
-      appId,
+      packageName,
       timestamp: new Date()
     };
     this.send(message);

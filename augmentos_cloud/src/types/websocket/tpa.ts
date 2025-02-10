@@ -8,21 +8,21 @@ import { Language } from '../base';
 // TPA -> Cloud Messages
 export interface TpaConnectionInitMessage extends WebSocketMessage {
   type: "tpa_connection_init";
-  appId: string;
+  packageName: string;
   sessionId: string;
   apiKey: string;
 }
 
 export interface TpaDisplayEventMessage extends WebSocketMessage {
   type: "display_event";
-  appId: string;
+  packageName: string;
   layout: Layout;
   durationMs?: number;
 }
 
 export interface TpaSubscriptionUpdateMessage extends WebSocketMessage {
   type: "subscription_update";
-  appId: string;
+  packageName: string;
   subscriptions: Subscription[];
 }
 
@@ -59,7 +59,7 @@ export interface CloudDataStreamMessage extends WebSocketMessage {
 
 export interface CloudSettingsUpdateMessage extends WebSocketMessage {
   type: "settings_update";
-  appId: string;
+  packageName: string;
   settings: AppSettings;
 }
 

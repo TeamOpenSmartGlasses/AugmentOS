@@ -4,11 +4,11 @@ import { AppI } from '@shared/index';
 interface AppGridProps {
   apps: AppI[];
   activeApps: Array<{
-    appId: string;
+    packageName: string;
     status: 'starting' | 'active' | 'error';
   }>;
-  onAppStart: (appId: string) => void;
-  onAppStop: (appId: string) => void;
+  onAppStart: (packageName: string) => void;
+  onAppStop: (packageName: string) => void;
 }
 
 export const AppGrid: React.FC<AppGridProps> = ({
@@ -20,14 +20,14 @@ export const AppGrid: React.FC<AppGridProps> = ({
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4 bg-white/5 rounded-lg mt-auto">
       {apps.map(app => {
-        const activeApp = activeApps.find(a => a.appId === app.appId);
+        const activeApp = activeApps.find(a => a.packageName === app.packageName);
         return (
           <AppCard
-            key={app.appId}
+            key={app.packageName}
             app={app}
             status={activeApp?.status}
-            onStart={() => onAppStart(app.appId)}
-            onStop={() => onAppStop(app.appId)}
+            onStart={() => onAppStart(app.packageName)}
+            onStop={() => onAppStop(app.packageName)}
           />
         );
       })}

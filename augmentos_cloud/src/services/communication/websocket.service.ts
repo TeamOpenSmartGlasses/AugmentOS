@@ -56,7 +56,7 @@ const PING_TIMEOUT_MS = 5000;          // 5 seconds
 interface PendingTpaSession {
   userSessionId: string;  // ID of the user's glasses session
   userId: string;         // User identifier
-  appId: string;         // TPA identifier
+  packageName: string;         // TPA identifier
   timestamp: Date;       // When the session was initiated
 }
 
@@ -64,7 +64,7 @@ interface PendingTpaSession {
  * Interface for active TPA WebSocket connections.
  */
 interface TpaConnection {
-  appId: string;
+  packageName: string;
   userSessionId: string;
   websocket: WebSocket;
   lastPing?: Date;
@@ -76,7 +76,7 @@ interface TpaConnection {
 export interface IWebSocketService {
   setupWebSocketServers(server: Server): void;
   broadcastToTpa(userSessionId: string, streamType: Subscription, data: any): void; // TODO: Specify data type.
-  initiateTpaSession(userSessionId: string, userId: string, appId: string): Promise<string>;
+  initiateTpaSession(userSessionId: string, userId: string, packageName: string): Promise<string>;
 }
 
 /**
@@ -114,27 +114,27 @@ export class WebSocketService implements IWebSocketService {
    * 🚀🪝 Initiates a new TPA session and triggers the TPA's webhook.
    * @param userSessionId - ID of the user's glasses session
    * @param userId - User identifier
-   * @param appId - TPA identifier
+   * @param packageName - TPA identifier
    * @returns Promise resolving to the TPA session ID
    * @throws Error if app not found or webhook fails
    */
   async initiateTpaSession(
     userSessionId: string,
     userId: string,
-    appId: string
+    packageName: string
   ): Promise<string> {
-    const app = await this.appService.getApp(appId);
+    const app = await this.appService.getApp(packageName);
     if (!app) {
-      throw new Error(`App ${appId} not found`);
+      throw new Error(`App ${packageName} not found`);
     }
 
-    const tpaSessionId = `${userSessionId}-${appId}`;
+    const tpaSessionId = `${userSessionId}-${packageName}`;
 
     // Store pending session
     this.pendingTpaSessions.set(tpaSessionId, {
       userSessionId,
       userId,
-      appId,
+      packageName,
       timestamp: new Date()
     });
 
@@ -172,8 +172,8 @@ export class WebSocketService implements IWebSocketService {
     // TODO: don't use any for data type. Fix this.
     const subscribedApps = this.subscriptionService.getSubscribedApps(userSessionId, streamType);
 
-    for (const appId of subscribedApps) {
-      const tpaSessionId = `${userSessionId}-${appId}`;
+    for (const packageName of subscribedApps) {
+      const tpaSessionId = `${userSessionId}-${packageName}`;
       const connection = this.tpaConnections.get(tpaSessionId);
 
       if (connection?.websocket.readyState === WebSocket.OPEN) {
@@ -316,19 +316,32 @@ private async handleGlassesMessage(
 
       case 'start_app': {
         const startMessage = message as GlassesStartAppMessage;
-        console.log(`Starting app ${startMessage.appId}`);
+        console.log(`Starting app ${startMessage.packageName}`);
         await this.initiateTpaSession(
           userSessionId,
           this.sessionService.getSession(userSessionId)?.userId || 'anonymous',
-          startMessage.appId
+          startMessage.packageName
         );
         break;
       }
 
       case 'stop_app': {
         const stopMessage = message as GlassesStopAppMessage;
-        console.log(`Stopping app ${stopMessage.appId}`);
-        this.subscriptionService.removeSubscriptions(userSessionId, stopMessage.appId);
+        console.log(`Stopping app ${stopMessage.packageName}`);
+        // Remove subscriptions for the app.
+        this.subscriptionService.removeSubscriptions(userSessionId, stopMessage.packageName);
+
+        // Close TPA connection.
+        const tpaSessionId = `${userSessionId}-${stopMessage.packageName}`;
+        const connection = this.tpaConnections.get(tpaSessionId);
+        if (connection) {
+          connection.websocket.close();
+        }
+
+        // Remove TPA connection.
+        this.tpaConnections.delete(tpaSessionId);
+
+        // TODO(isaiahb): Optionally send a message to the client that the app has stopped (e.g. for UI updates).
         break;
       }
 
@@ -401,7 +414,7 @@ private async handleGlassesMessage(
         if (connection) {
           this.subscriptionService.removeSubscriptions(
             connection.userSessionId,
-            connection.appId
+            connection.packageName
           );
         }
         this.tpaConnections.delete(currentAppSession);
@@ -465,7 +478,7 @@ private async handleGlassesMessage(
 
         this.subscriptionService.updateSubscriptions(
           connection.userSessionId,
-          connection.appId,
+          connection.packageName,
           userSession.userId,
           subMessage.subscriptions
         );
@@ -484,7 +497,7 @@ private async handleGlassesMessage(
 
         await this.displayService.handleDisplayEvent(
           connection.userSessionId,
-          connection.appId,
+          connection.packageName,
           displayMessage.layout,
           displayMessage.durationMs
         );
@@ -492,7 +505,6 @@ private async handleGlassesMessage(
       }
     }
   }
-
 
   /**
    * 🤝 Handles TPA connection initialization.
@@ -512,12 +524,12 @@ private async handleGlassesMessage(
       return;
     }
 
-    const { userSessionId, userId, appId } = pendingSession;
-    const connectionId = `${userSessionId}-${appId}`;
+    const { userSessionId, userId, packageName } = pendingSession;
+    const connectionId = `${userSessionId}-${packageName}`;
 
     // TODO: 🔐 Authenticate TPA with API key !important 😳.
     this.pendingTpaSessions.delete(initMessage.sessionId);
-    this.tpaConnections.set(connectionId, { appId, userSessionId, websocket: ws });
+    this.tpaConnections.set(connectionId, { packageName, userSessionId, websocket: ws });
 
     setCurrentSessionId(connectionId);
 
@@ -528,7 +540,7 @@ private async handleGlassesMessage(
     };
     ws.send(JSON.stringify(ackMessage));
 
-    console.log(`TPA ${appId} connected for session ${initMessage.sessionId}`);
+    console.log(`TPA ${packageName} connected for session ${initMessage.sessionId}`);
   }
 
   /**

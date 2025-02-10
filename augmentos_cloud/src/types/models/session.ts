@@ -20,7 +20,7 @@ export interface TranscriptI extends DatabaseModel {
 
 export interface AppSessionI extends DatabaseModel {
   userId: string;
-  appId: string;
+  packageName: string;
   state: AppState;
   subscriptions: string[];
   translateToLanguages?: Language[];

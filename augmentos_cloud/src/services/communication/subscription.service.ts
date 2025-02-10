@@ -27,12 +27,12 @@ import {
    * Interface defining the public API of the subscription service
    */
   export interface ISubscriptionService {
-    updateSubscriptions(sessionId: string, appId: string, userId: string, subscriptions: Subscription[]): void;
+    updateSubscriptions(sessionId: string, packageName: string, userId: string, subscriptions: Subscription[]): void;
     getSubscribedApps(sessionId: string, subscription: Subscription): string[];
-    getAppSubscriptions(sessionId: string, appId: string): Subscription[];
-    getSubscriptionHistory(sessionId: string, appId: string): SubscriptionHistory[];
-    removeSubscriptions(sessionId: string, appId: string): void;
-    hasSubscription(sessionId: string, appId: string, subscription: Subscription): boolean;
+    getAppSubscriptions(sessionId: string, packageName: string): Subscription[];
+    getSubscriptionHistory(sessionId: string, packageName: string): SubscriptionHistory[];
+    removeSubscriptions(sessionId: string, packageName: string): void;
+    hasSubscription(sessionId: string, packageName: string, subscription: Subscription): boolean;
   }
   
   /**
@@ -59,29 +59,29 @@ import {
     /**
      * Generates a unique key for subscription storage
      * @param sessionId - User session identifier
-     * @param appId - TPA identifier
+     * @param packageName - TPA identifier
      * @returns Unique key for the session-app pair
      * @private
      */
-    private getKey(sessionId: string, appId: string): string {
-      return `${sessionId}:${appId}`;
+    private getKey(sessionId: string, packageName: string): string {
+      return `${sessionId}:${packageName}`;
     }
   
     /**
      * Updates subscriptions for a TPA.
      * @param sessionId - User session identifier
-     * @param appId - TPA identifier
+     * @param packageName - TPA identifier
      * @param userId - User identifier for validation
      * @param subscriptions - New set of subscriptions
      * @throws If invalid subscription types are requested
      */
     updateSubscriptions(
       sessionId: string,
-      appId: string,
+      packageName: string,
       userId: string,
       subscriptions: Subscription[]
     ): void {
-      const key = this.getKey(sessionId, appId);
+      const key = this.getKey(sessionId, packageName);
       const currentSubs = this.subscriptions.get(key) || new Set();
       const action: SubscriptionHistory['action'] = 
         currentSubs.size === 0 ? 'add' : 'update';
@@ -103,7 +103,7 @@ import {
         action
       });
   
-      console.log(`Updated subscriptions for ${appId} in session ${sessionId}:`, subscriptions);
+      console.log(`Updated subscriptions for ${packageName} in session ${sessionId}:`, subscriptions);
     }
   
     /**
@@ -118,9 +118,9 @@ import {
       for (const [key, subs] of this.subscriptions.entries()) {
         if (!key.startsWith(sessionId)) continue;
   
-        const [, appId] = key.split(':');
+        const [, packageName] = key.split(':');
         if (subs.has(subscription) || subs.has('*') || subs.has('all')) {
-          subscribedApps.push(appId);
+          subscribedApps.push(packageName);
         }
       }
   
@@ -130,11 +130,11 @@ import {
     /**
      * Gets all active subscriptions for a TPA
      * @param sessionId - User session identifier
-     * @param appId - TPA identifier
+     * @param packageName - TPA identifier
      * @returns Array of active subscriptions
      */
-    getAppSubscriptions(sessionId: string, appId: string): Subscription[] {
-      const key = this.getKey(sessionId, appId);
+    getAppSubscriptions(sessionId: string, packageName: string): Subscription[] {
+      const key = this.getKey(sessionId, packageName);
       const subs = this.subscriptions.get(key);
       return subs ? Array.from(subs) : [];
     }
@@ -142,21 +142,21 @@ import {
     /**
      * Gets subscription history for a TPA
      * @param sessionId - User session identifier
-     * @param appId - TPA identifier
+     * @param packageName - TPA identifier
      * @returns Array of historical subscription changes
      */
-    getSubscriptionHistory(sessionId: string, appId: string): SubscriptionHistory[] {
-      const key = this.getKey(sessionId, appId);
+    getSubscriptionHistory(sessionId: string, packageName: string): SubscriptionHistory[] {
+      const key = this.getKey(sessionId, packageName);
       return this.history.get(key) || [];
     }
   
     /**
      * Removes all subscriptions for a TPA
      * @param sessionId - User session identifier
-     * @param appId - TPA identifier
+     * @param packageName - TPA identifier
      */
-    removeSubscriptions(sessionId: string, appId: string): void {
-      const key = this.getKey(sessionId, appId);
+    removeSubscriptions(sessionId: string, packageName: string): void {
+      const key = this.getKey(sessionId, packageName);
       
       if (this.subscriptions.has(key)) {
         const currentSubs = Array.from(this.subscriptions.get(key) || []);
@@ -168,23 +168,23 @@ import {
           action: 'remove'
         });
   
-        console.log(`Removed all subscriptions for ${appId} in session ${sessionId}`);
+        console.log(`Removed all subscriptions for ${packageName} in session ${sessionId}`);
       }
     }
   
     /**
      * Checks if a TPA has a specific subscription
      * @param sessionId - User session identifier
-     * @param appId - TPA identifier
+     * @param packageName - TPA identifier
      * @param subscription - Subscription type to check
      * @returns Boolean indicating if the subscription exists
      */
     hasSubscription(
       sessionId: string, 
-      appId: string, 
+      packageName: string, 
       subscription: Subscription
     ): boolean {
-      const key = this.getKey(sessionId, appId);
+      const key = this.getKey(sessionId, packageName);
       const subs = this.subscriptions.get(key);
       
       if (!subs) return false;
