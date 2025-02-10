@@ -45,6 +45,7 @@ import android.os.Looper;
 import android.service.notification.NotificationListenerService;
 import android.util.Log;
 
+import java.io.Console;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -67,6 +68,7 @@ import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.SetSe
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.GlassesDisplayPowerEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.SmartGlassesConnectionStateChangedEvent;
+import com.augmentos.smartglassesmanager.eventbusmessages.HeadUpAngleEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.augmentos.augmentos_core.smarterglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.SmartGlassesConnectionState;
@@ -192,6 +194,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     private Integer batteryLevel;
     private Integer brightnessLevel;
+    private Integer headUpAngle;
 
     private final boolean showingDashboardNow = false;
     private boolean contextualDashboardEnabled;
@@ -346,13 +349,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 currentDate, currentTime, batteryLevel,
                 calendarItemTitle, timeUntil));
 
-        if (latestNewsIndex >= latestNewsArray.length()) {
-            latestNewsIndex = 0;
-        } else {
-            latestNewsIndex ++;
-        }
+        String latestNews;
+        if (latestNewsArray != null && latestNewsArray.length() > 0) {
+            latestNewsIndex = (latestNewsIndex + 1) % latestNewsArray.length();
 
-        String latestNews = latestNewsArray.getString(latestNewsIndex);
+            latestNews = latestNewsArray.getString(latestNewsIndex);
+        } else {
+            latestNews = "";
+        }
 
         if (latestNews != null && !latestNews.isEmpty()) {
             String newsToDisplay = latestNews.substring(0, Math.min(latestNews.length(), 30)).trim();
@@ -418,6 +422,28 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         sendStatusToAugmentOsManager();
     }
 
+    @Subscribe
+    public void onHeadUpAngleEvent(HeadUpAngleEvent event) {
+//        Log.d(TAG, "BRIGHTNESS received");
+        headUpAngle = event.headUpAngle;
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .edit()
+                .putString(this.getResources().getString(com.augmentos.smartglassesmanager.R.string.HEADUP_ANGLE), String.valueOf(headUpAngle))
+                .apply();
+        sendStatusToAugmentOsManager();
+    }
+
+    @Subscribe
+    public void onHeadUpAngleEvent(HeadUpAngleEvent event) {
+//        Log.d(TAG, "BRIGHTNESS received");
+        headUpAngle = event.headUpAngle;
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .edit()
+                .putString(this.getResources().getString(com.augmentos.smartglassesmanager.R.string.HEADUP_ANGLE), String.valueOf(headUpAngle))
+                .apply();
+        sendStatusToAugmentOsManager();
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -443,6 +469,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         notificationSystem = new NotificationSystem(this, userId);
         calendarSystem = CalendarSystem.getInstance(this);
+
+        brightnessLevel = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString(getResources().getString(com.augmentos.smartglassesmanager.R.string.SHARED_PREF_BRIGHTNESS), "50"));
+        headUpAngle = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString(getResources().getString(com.augmentos.smartglassesmanager.R.string.HEADUP_ANGLE), "20"));
 
         contextualDashboardEnabled = getContextualDashboardEnabled();
 
@@ -821,6 +850,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                     brightnessString = brightnessLevel + "%";
                 }
                 connectedGlasses.put("brightness", brightnessString);
+                Log.d(TAG, "Connected glasses info: " + headUpAngle);
+                if (headUpAngle == null) {
+                    headUpAngle = 20;
+                }
+                connectedGlasses.put("headUp_angle", headUpAngle);
             }
             else {
                 connectedGlasses.put("is_searching", getIsSearchingForGlasses());
@@ -1130,6 +1164,16 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             smartGlassesService.updateGlassesBrightness(brightness);
         } else {
             blePeripheral.sendNotifyManager("Connect glasses to update brightness", "error");
+        }
+    }
+
+    @Override
+    public void updateGlassesHeadUpAngle(int headUpAngle) {
+        Log.d("AugmentOsService", "Updating glasses head up angle: " + headUpAngle);
+        if (smartGlassesService != null) {
+            smartGlassesService.updateGlassesHeadUpAngle(headUpAngle);
+        } else {
+            blePeripheral.sendNotifyManager("Connect glasses to update head up angle", "error");
         }
     }
 

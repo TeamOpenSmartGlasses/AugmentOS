@@ -6,7 +6,7 @@ import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { AppState } from 'react-native';
 import { ENABLE_PHONE_NOTIFICATIONS_DEFAULT, INTENSE_LOGGING, MOCK_CONNECTION, SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from './consts';
 import { loadSetting, saveSetting } from './augmentos_core_comms/SettingsHelper';
-import { openCorePermissionsActivity, startExternalService } from './augmentos_core_comms/CoreServiceStarter';
+import {isAugmentOsCoreInstalled, openCorePermissionsActivity, startExternalService } from './augmentos_core_comms/CoreServiceStarter';
 import ManagerCoreCommsService from './augmentos_core_comms/ManagerCoreCommsService';
 import GlobalEventEmitter from './logic/GlobalEventEmitter';
 import {
@@ -760,7 +760,7 @@ export class BluetoothService extends EventEmitter {
   }
 
   async validateResponseFromCore() {
-    if (this.validationInProgress) {
+    if (this.validationInProgress || await isAugmentOsCoreInstalled()) {
       return this.validationInProgress;
     }
 
@@ -917,6 +917,16 @@ export class BluetoothService extends EventEmitter {
       params: {
         brightness: brightness,
         autoLight: autoLight,
+      },
+    });
+  }
+
+  async setGlassesHeadUpAngle(headUpAngle: number) {
+    console.log('setGlassesHeadUpAngle');
+    return await this.sendDataToAugmentOs({
+      command: 'update_glasses_headUp_angle',
+      params: {
+        headUpAngle: headUpAngle,
       },
     });
   }
