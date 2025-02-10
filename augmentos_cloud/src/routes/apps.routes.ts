@@ -18,8 +18,8 @@ router.get('/', async (req, res) => {
 });
 
 // Start an app for a session
-router.post('/:appId/start', async (req, res) => {
-  const { appId } = req.params;
+router.post('/:packageName/start', async (req, res) => {
+  const { packageName } = req.params;
   const { sessionId } = req.body;
 
   try {
@@ -29,16 +29,16 @@ router.post('/:appId/start', async (req, res) => {
       return res.status(404).json({ error: 'Session not found' });
     }
 
-    const app = await appService.getApp(appId);
+    const app = await appService.getApp(packageName);
     if (!app) {
       return res.status(404).json({ error: 'App not found' });
     }
 
     // Initiate TPA session
-    const tpaSessionId = await webSocketService.initiateTpaSession(sessionId, session.userId, appId);
+    const tpaSessionId = await webSocketService.initiateTpaSession(sessionId, session.userId, packageName);
     res.json({ status: 'initiated', tpaSessionId });
   } catch (error) {
-    console.error(`Error starting app ${appId}:`, error);
+    console.error(`Error starting app ${packageName}:`, error);
     res.status(500).json({ error: 'Error starting app' });
   }
 });

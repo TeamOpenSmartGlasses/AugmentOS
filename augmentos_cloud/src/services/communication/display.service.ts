@@ -27,7 +27,7 @@ interface DisplayRecord {
   layout: Layout;
   timestamp: Date;
   durationMs?: number;
-  appId: string;
+  packageName: string;
   sessionId: string;
   priority: DisplayPriority;
 }
@@ -36,16 +36,16 @@ interface DisplayRecord {
 export interface IDisplayService {
   handleDisplayEvent(
     sessionId: string,
-    appId: string,
+    packageName: string,
     layout: Layout,
     priority?: DisplayPriority,
     durationMs?: number
   ): Promise<boolean>;
-  getDisplayHistory(sessionId: string, appId: string): DisplayRecord[];
+  getDisplayHistory(sessionId: string, packageName: string): DisplayRecord[];
   // These exist for compatibility but aren't used
   getRecentDisplays(sessionId: string, limit?: number): DisplayRecord[];
-  clearHistory(sessionId: string, appId: string): void;
-  getDisplayStats(sessionId: string, appId: string): any;
+  clearHistory(sessionId: string, packageName: string): void;
+  getDisplayStats(sessionId: string, packageName: string): any;
 }
 
 /** What's showing right now in a session */
@@ -68,7 +68,7 @@ export class DisplayService implements IDisplayService {
    */
   async handleDisplayEvent(
     sessionId: string,
-    appId: string,
+    packageName: string,
     layout: Layout,
     priority: DisplayPriority = DisplayPriority.MEDIUM,
     durationMs?: number
@@ -78,7 +78,7 @@ export class DisplayService implements IDisplayService {
         layout,
         timestamp: new Date(),
         durationMs,
-        appId,
+        packageName: packageName,
         sessionId,
         priority
       };
@@ -127,15 +127,15 @@ export class DisplayService implements IDisplayService {
 
   /** Keep track of all attempts (shown or not) for debugging */
   private addToHistory(record: DisplayRecord): void {
-    const key = `${record.sessionId}:${record.appId}`;
+    const key = `${record.sessionId}:${record.packageName}`;
     const history = this.displayHistory.get(key) || [];
     history.push(record);
     this.displayHistory.set(key, history);
   }
 
   /** Get what a TPA has tried to show (for debugging) */
-  getDisplayHistory(sessionId: string, appId: string): DisplayRecord[] {
-    const key = `${sessionId}:${appId}`;
+  getDisplayHistory(sessionId: string, packageName: string): DisplayRecord[] {
+    const key = `${sessionId}:${packageName}`;
     return this.displayHistory.get(key) || [];
   }
 
@@ -144,8 +144,8 @@ export class DisplayService implements IDisplayService {
     return [];
   }
 
-  clearHistory(sessionId: string, appId: string): void {
-    const key = `${sessionId}:${appId}`;
+  clearHistory(sessionId: string, packageName: string): void {
+    const key = `${sessionId}:${packageName}`;
     this.displayHistory.delete(key);
   }
 

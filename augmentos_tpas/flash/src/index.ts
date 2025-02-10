@@ -13,7 +13,7 @@ dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT || 7011;
-const APP_ID = process.env.APP_ID || 'org.mentra.flash';
+const PACKAGE_NAME = process.env.PACKAGE_NAME || 'org.mentra.flash';
 const API_KEY = process.env.API_KEY || 'test_key';
 const AUGMENTOS_CLOUD_TPA_WS = process.env.AUGMENTOS_CLOUD_TPA_WS || 'ws://localhost:7002/tpa-ws';
 
@@ -38,7 +38,7 @@ app.post('/webhook', async (req, res) => {
       const initMessage: TpaConnectionInitMessage = {
         type: 'tpa_connection_init',
         sessionId,
-        appId: APP_ID,
+        packageName: PACKAGE_NAME,
         apiKey: API_KEY
       };
       ws.send(JSON.stringify(initMessage));
@@ -67,7 +67,7 @@ app.post('/webhook', async (req, res) => {
   }
 });
 
-// Serve static files from the public directory
+// Serve static files from the public directory - this is where the logo.png file is stored
 app.use(express.static(path.join(__dirname, './public')));
 
 function handleMessage(sessionId: string, ws: WebSocket, message: any) {
@@ -76,7 +76,7 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
       // Connection acknowledged, subscribe to transcription
       const subMessage: TpaSubscriptionUpdateMessage = {
         type: 'subscription_update',
-        appId: APP_ID,
+        packageName: PACKAGE_NAME,
         sessionId,
         subscriptions: ['transcription']
       };
@@ -102,7 +102,7 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
   // Create a display event for the transcription
   const displayEvent: TpaDisplayEventMessage = {
     type: 'display_event',
-    appId: APP_ID,
+    packageName: PACKAGE_NAME,
     sessionId,
     layout: {
       layoutType: 'text_rows',
@@ -121,7 +121,7 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
 
 // Add a route to verify the server is running
 app.get('/health', (req, res) => {
-  res.json({ status: 'healthy', app: APP_ID });
+  res.json({ status: 'healthy', app: PACKAGE_NAME });
 });
 
 app.listen(PORT, () => {

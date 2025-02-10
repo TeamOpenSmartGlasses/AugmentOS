@@ -12,7 +12,7 @@ import {
 const app = express();
 const PORT = 7010;
 
-const APP_ID = 'org.mentra.captions';
+const PACKAGE_NAME = 'org.mentra.captions';
 const API_KEY = 'test_key'; // In production, this would be securely stored
 
 // Parse JSON bodies
@@ -36,7 +36,7 @@ app.post('/webhook', async (req, res) => {
       const initMessage: TpaConnectionInitMessage = {
         type: 'tpa_connection_init',
         sessionId,
-        appId: APP_ID,
+        packageName: PACKAGE_NAME,
         apiKey: API_KEY
       };
       ws.send(JSON.stringify(initMessage));
@@ -74,7 +74,7 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
       // Connection acknowledged, subscribe to transcription
       const subMessage: TpaSubscriptionUpdateMessage = {
         type: 'subscription_update',
-        appId: APP_ID,
+        packageName: PACKAGE_NAME,
         sessionId,
         subscriptions: ['transcription']
       };
@@ -100,7 +100,7 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
   // Create a display event for the transcription
   const displayEvent: TpaDisplayEventMessage = {
     type: 'display_event',
-    appId: APP_ID,
+    packageName: PACKAGE_NAME,
     sessionId,
     layout: {
       layoutType: 'text_rows',
@@ -119,7 +119,7 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
 
 // Add a route to verify the server is running
 app.get('/health', (req, res) => {
-  res.json({ status: 'healthy', app: APP_ID });
+  res.json({ status: 'healthy', app: PACKAGE_NAME });
 });
 
 app.listen(PORT, () => {

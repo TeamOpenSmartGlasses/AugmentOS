@@ -50,7 +50,7 @@ export interface UserSession {
  * Represents an active TPA session within a user session.
  */
 export interface AppSession {
-  appId: string;
+  packageName: string;
   userId: string;
   subscriptions: Subscription[];
   settings: AppSettings;

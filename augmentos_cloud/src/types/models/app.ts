@@ -11,7 +11,7 @@ export type AppState =
   | 'error';         // Error state
 
 export interface AppI extends DatabaseModel {
-  appId: string;
+  packageName: string;
   name: string;
   webhookURL: string;
   logoURL: string;

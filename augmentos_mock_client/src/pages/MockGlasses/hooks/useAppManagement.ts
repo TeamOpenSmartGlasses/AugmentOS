@@ -3,7 +3,7 @@ import { GlassesToCloudMessage } from '@shared/websocket/client';
 import { useState, useEffect, useCallback } from 'react';
 
 interface ActiveApp {
-  appId: string;
+  packageName: string;
   name: string;
   tpaSessionId?: string;
   status: 'starting' | 'active' | 'error';
@@ -31,21 +31,21 @@ export const useAppManagement = (
     fetchApps();
   }, [sessionId]);
 
-  const startApp = useCallback(async (appId: string) => {
+  const startApp = useCallback(async (packageName: string) => {
     if (!sessionId) return;
 
     try {
       setActiveApps(prev => [
         ...prev,
         {
-          appId,
-          name: availableApps.find(a => a.appId === appId)?.name || appId,
+          packageName,
+          name: availableApps.find(a => a.packageName === packageName)?.name || packageName,
           status: 'starting'
         }
       ]);
 
-      console.log(`Starting app ${appId}... sessionId: ${sessionId}`);
-      const response = await fetch(`http://localhost:7002/apps/${appId}/start`, {
+      console.log(`Starting app ${packageName}... sessionId: ${sessionId}`);
+      const response = await fetch(`http://localhost:7002/apps/${packageName}/start`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -58,41 +58,41 @@ export const useAppManagement = (
       if (response.ok) {
         setActiveApps(prev =>
           prev.map(app =>
-            app.appId === appId
+            app.packageName === packageName
               ? { ...app, status: 'active', tpaSessionId: result.tpaSessionId }
               : app
           )
         );
 
         // Notify WebSocket about app start
-        sendMessage({ type: 'start_app', appId });
+        sendMessage({ type: 'start_app', packageName });
       } else {
         throw new Error(result.error);
       }
     } catch (error) {
-      console.error(`Error starting app ${appId}:`, error);
+      console.error(`Error starting app ${packageName}:`, error);
       setActiveApps(prev =>
         prev.map(app =>
-          app.appId === appId ? { ...app, status: 'error' } : app
+          app.packageName === packageName ? { ...app, status: 'error' } : app
         )
       );
     }
   }, [sessionId, availableApps, sendMessage]);
 
-  const stopApp = useCallback(async (appId: string) => {
+  const stopApp = useCallback(async (packageName: string) => {
     if (!sessionId) return;
 
     try {
       // Notify WebSocket about app stop
       sendMessage({
         type: 'stop_app',
-        appId,
+        packageName,
         sessionId
       });
 
-      setActiveApps(prev => prev.filter(app => app.appId !== appId));
+      setActiveApps(prev => prev.filter(app => app.packageName !== packageName));
     } catch (error) {
-      console.error(`Error stopping app ${appId}:`, error);
+      console.error(`Error stopping app ${packageName}:`, error);
     }
   }, [sessionId, sendMessage]);
 

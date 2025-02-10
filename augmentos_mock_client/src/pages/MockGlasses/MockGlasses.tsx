@@ -52,7 +52,7 @@ const MockGlasses: React.FC = () => {
         <div className="flex gap-2 justify-center mb-4">
           {activeApps.map(app => (
             <div
-              key={app.appId}
+              key={app.packageName}
               className={`px-3 py-1 rounded-full flex items-center gap-2 ${
                 app.status === 'active'
                   ? 'bg-green-900'

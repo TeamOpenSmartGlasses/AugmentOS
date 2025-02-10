@@ -17,14 +17,14 @@ import axios, { AxiosError } from 'axios';
  */
 const SYSTEM_TPAS: AppI[] = [
   {
-    appId: "org.mentra.captions",
+    packageName: "org.mentra.captions",
     name: "Captions",
     description: "Constant Live captions from your device microphone",
     webhookURL: "http://localhost:7010/webhook",
     logoURL: "http://localhost:7010/logo.png",
   },
   {
-    appId: "org.mentra.flash",
+    packageName: "org.mentra.flash",
     name: "Flash",
     description: "Welcome to the future",
     webhookURL: "http://localhost:7011/webhook",
@@ -48,11 +48,11 @@ interface WebhookPayload {
  */
 export interface IAppService {
   getAllApps(): Promise<AppI[]>;
-  getApp(appId: string): Promise<AppI | undefined>;
+  getApp(packageName: string): Promise<AppI | undefined>;
   createApp(app: AppI): Promise<AppI>;
   triggerWebhook(url: string, payload: WebhookPayload): Promise<void>;
-  validateApiKey(appId: string, apiKey: string): Promise<boolean>;
-  getAppState(appId: string, userId: string): Promise<AppState>;
+  validateApiKey(packageName: string, apiKey: string): Promise<boolean>;
+  getAppState(packageName: string, userId: string): Promise<AppState>;
 }
 
 /**
@@ -68,7 +68,7 @@ export class AppService implements IAppService {
   private userTpas: AppI[] = [];
 
   // In-memory cache for app states
-  // Map of userId to Map of appId to AppState
+  // Map of userId to Map of packageName to AppState
   private appStates = new Map<string, Map<string, AppState>>();
 
   /**
@@ -81,23 +81,23 @@ export class AppService implements IAppService {
 
   /**
    * Gets a specific TPA by ID.
-   * @param appId - TPA identifier
+   * @param packageName - TPA identifier
    * @returns Promise resolving to app if found
    */
-  async getApp(appId: string): Promise<AppI | undefined> {
-    return [...SYSTEM_TPAS, ...this.userTpas].find(app => app.appId === appId);
+  async getApp(packageName: string): Promise<AppI | undefined> {
+    return [...SYSTEM_TPAS, ...this.userTpas].find(app => app.packageName === packageName);
   }
 
   /**
    * Creates a new TPA.
    * @param app - TPA to create
    * @returns Promise resolving to created app
-   * @throws If appId already exists
+   * @throws If packageName already exists
    */
   async createApp(app: AppI): Promise<AppI> {
-    const existingApp = await this.getApp(app.appId);
+    const existingApp = await this.getApp(app.packageName);
     if (existingApp) {
-      throw new Error(`App with ID ${app.appId} already exists`);
+      throw new Error(`App with ID ${app.packageName} already exists`);
     }
 
     // Validate required fields
@@ -146,12 +146,12 @@ export class AppService implements IAppService {
 
   /**
    * Validates a TPA's API key.
-   * @param appId - TPA identifier
+   * @param packageName - TPA identifier
    * @param apiKey - API key to validate
    * @returns Promise resolving to validation result
    */
-  async validateApiKey(appId: string, apiKey: string): Promise<boolean> {
-    const app = await this.getApp(appId);
+  async validateApiKey(packageName: string, apiKey: string): Promise<boolean> {
+    const app = await this.getApp(packageName);
     if (!app) return false;
 
     // TODO: Implement proper API key validation
@@ -161,31 +161,31 @@ export class AppService implements IAppService {
 
   /**
    * Gets the current state of a TPA for a user.
-   * @param appId - TPA identifier
+   * @param packageName - TPA identifier
    * @param userId - User identifier
    * @returns Promise resolving to app state
    */
-  async getAppState(appId: string, userId: string): Promise<AppState> {
+  async getAppState(packageName: string, userId: string): Promise<AppState> {
     const userStates = this.appStates.get(userId) || new Map<string, AppState>();
     
     // Return existing state or default to not_installed
-    return userStates.get(appId) || 'not_installed';
+    return userStates.get(packageName) || 'not_installed';
   }
 
   /**
    * Updates the state of a TPA for a user.
-   * @param appId - TPA identifier
+   * @param packageName - TPA identifier
    * @param userId - User identifier
    * @param state - New state
    * @private
    */
-  private async updateAppState(appId: string, userId: string, state: AppState): Promise<void> {
+  private async updateAppState(packageName: string, userId: string, state: AppState): Promise<void> {
     const userStates = this.appStates.get(userId) || new Map<string, AppState>();
-    userStates.set(appId, state);
+    userStates.set(packageName, state);
     this.appStates.set(userId, userStates);
 
     // Log state change
-    console.log(`App ${appId} state changed to ${state} for user ${userId}`);
+    console.log(`App ${packageName} state changed to ${state} for user ${userId}`);
   }
 
   /**
@@ -196,7 +196,7 @@ export class AppService implements IAppService {
    */
   private validateAppFields(app: AppI): void {
     const requiredFields: (keyof AppI)[] = [
-      'appId',
+      'packageName',
       'name',
       'webhookURL',
       'logoURL'
@@ -208,9 +208,9 @@ export class AppService implements IAppService {
       }
     }
 
-    // Validate appId format
-    if (!app.appId.match(/^[a-z0-9.-]+$/)) {
-      throw new Error('Invalid appId format. Use lowercase letters, numbers, dots, and hyphens only.');
+    // Validate packageName format
+    if (!app.packageName.match(/^[a-z0-9.-]+$/)) {
+      throw new Error('Invalid packageName format. Use lowercase letters, numbers, dots, and hyphens only.');
     }
 
     // Validate URLs

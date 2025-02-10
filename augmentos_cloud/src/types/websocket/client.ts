@@ -12,12 +12,12 @@ export interface GlassesConnectionInitMessage extends WebSocketMessage {
 
 export interface GlassesStartAppMessage extends WebSocketMessage {
   type: "start_app";
-  appId: string;
+  packageName: string;
 }
 
 export interface GlassesStopAppMessage extends WebSocketMessage {
   type: "stop_app";
-  appId: string;
+  packageName: string;
 }
 
 export interface GlassesDashboardStateMessage extends WebSocketMessage {
@@ -52,7 +52,7 @@ export interface CloudDisplayEventMessage extends WebSocketMessage {
 
 export interface CloudAppStateUpdateMessage extends WebSocketMessage {
   type: "app_state_update";
-  appId: string;
+  packageName: string;
   status: 'not_installed' | 'installed' | 'booting' | 'running' | 'stopped' | 'error';
   error?: string;
 }
