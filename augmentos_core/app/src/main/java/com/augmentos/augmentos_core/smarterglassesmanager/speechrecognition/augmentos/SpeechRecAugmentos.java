@@ -36,7 +36,6 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     private static SpeechRecAugmentos instance;
 
     private final Context mContext;
-    private final ServerComms serverComms;          // Single WebSocket interface
     private final BlockingQueue<byte[]> rollingBuffer;
     private final int bufferMaxSize;
 
@@ -54,10 +53,9 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
 
         // 1) Create or fetch your single ServerComms (the new consolidated manager).
         //    For example, we create a new instance here:
-        this.serverComms = new ServerComms();
 
         // 2) Let ServerComms know it should forward "interim"/"final" messages to this class.
-        this.serverComms.setSpeechRecAugmentos(this);
+        ServerComms.getInstance().setSpeechRecAugmentos(this);
 
         // Rolling buffer to store ~150ms of audio for replay on VAD trigger
         this.bufferMaxSize = (int) ((16000 * 0.22 * 2) / 512);
@@ -133,7 +131,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
 
         for (byte[] chunk : bufferDump) {
             // Now we send audio chunks through ServerComms (single WebSocket).
-            serverComms.sendAudioChunk(chunk);
+            ServerComms.getInstance().sendAudioChunk(chunk);
         }
     }
 
@@ -165,7 +163,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
      * Tells the server whether VAD is "speaking" or not.
      */
     private void sendVadStatus(boolean isNowSpeaking) {
-        serverComms.sendVadStatus(isNowSpeaking);
+        ServerComms.getInstance().sendVadStatus(isNowSpeaking);
     }
 
     /**
@@ -191,7 +189,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
 
         // If currently speaking, send data live
         if (isSpeaking) {
-            serverComms.sendAudioChunk(audioChunk);
+            ServerComms.getInstance().sendAudioChunk(audioChunk);
         }
 
         // Maintain rolling buffer for "catch-up"
@@ -241,7 +239,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     public void start() {
         Log.d(TAG, "Starting Speech Recognition Service");
         // Connect the single ServerComms' WebSocket if not already connected
-        serverComms.connectWebSocket("ws://localhost:7002/glasses-ws");
+        ServerComms.getInstance().connectWebSocket();
     }
 
     /**
@@ -251,7 +249,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     public void destroy() {
         Log.d(TAG, "Destroying Speech Recognition Service");
         vadRunning = false;
-        //serverComms.disconnectWebSocket();
+        //ServerComms.getInstance().disconnectWebSocket();
     }
 
     /**
@@ -269,7 +267,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
      * If you had logic to update dynamic ASR config, you can call:
      */
     public void updateConfig(List<AsrStreamKey> languages) {
-        serverComms.updateAsrConfig(languages);
+        ServerComms.getInstance().updateAsrConfig(languages);
     }
 
     /**

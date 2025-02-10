@@ -6,6 +6,12 @@ export interface TextWall {
   text: string;
 }
 
+export interface DoubleTextWall {
+  layoutType: 'double_text_wall';
+  topText: string;
+  bottomText: string;
+}
+
 export interface TextRows {
   layoutType: 'text_rows';
   text: string[];
@@ -35,4 +41,9 @@ export interface DisplayEvent extends WebSocketMessage {
   layout: Layout;
   durationMs?: number;
   packageName?: string;
+}
+
+export interface DashboardDisplayEvent extends WebSocketMessage {
+  type: 'dashboard_display_event';
+  layout: Layout;
 }

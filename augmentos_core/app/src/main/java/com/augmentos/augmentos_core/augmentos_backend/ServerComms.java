@@ -5,6 +5,7 @@ import android.util.Log;
 import com.augmentos.augmentos_core.augmentos_backend.WebSocketManager;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.AsrStreamKey;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.augmentos.SpeechRecAugmentos;
+import com.augmentos.augmentos_core.smarterglassesmanager.utils.EnvHelper;
 import com.augmentos.augmentoslib.enums.AsrStreamType;
 
 import org.json.JSONArray;
@@ -25,8 +26,23 @@ public class ServerComms {
 
     private final WebSocketManager wsManager;
     private SpeechRecAugmentos speechRecAugmentos; // callback for speech messages
+    private ServerCommsCallback serverCommsCallback;
+    // 1) Keep a private static reference
+    private static ServerComms instance;
 
-    public ServerComms() {
+    // 2) Provide a global accessor
+    public static synchronized ServerComms getInstance() {
+        if (instance == null) {
+            instance = new ServerComms(); // calls private constructor
+        }
+        return instance;
+    }
+
+    public void setServerCommsCallback(ServerCommsCallback callback) {
+        this.serverCommsCallback = callback;
+    }
+
+    private ServerComms() {
         // Create the underlying WebSocketManager (OkHttp-based).
         this.wsManager = new WebSocketManager(new WebSocketManager.IncomingMessageHandler() {
             @Override
@@ -77,8 +93,8 @@ public class ServerComms {
     /**
      * Opens the WebSocket to the given URL (e.g. "ws://localhost:7002/glasses-ws").
      */
-    public void connectWebSocket(String url) {
-        wsManager.connect(url);
+    public void connectWebSocket() {
+        wsManager.connect(getServerUrl());
     }
 
     /**
@@ -249,6 +265,32 @@ public class ServerComms {
         }
     }
 
+    public void sendGlassesConnectionState(String modelName, String status) {
+        try {
+            JSONObject event = new JSONObject();
+            event.put("type", "glasses_connection_state");
+            event.put("modelName", modelName);
+            event.put("status", status);
+            event.put("timestamp", System.currentTimeMillis());
+            wsManager.sendText(event.toString());
+        } catch (JSONException e) {
+            Log.e(TAG, "Error building button_press JSON", e);
+        }
+    }
+
+    public void sendLocationUpdate(double lat, double lng) {
+        try {
+            JSONObject event = new JSONObject();
+            event.put("type", "location_update");
+            event.put("lat", lat);
+            event.put("lng", lng);
+            event.put("timestamp", System.currentTimeMillis());
+            wsManager.sendText(event.toString());
+        } catch (JSONException e) {
+            Log.e(TAG, "Error building location_update JSON", e);
+        }
+    }
+
     // ------------------------------------------------------------------------
     // INTERNAL: Message Handling
     // ------------------------------------------------------------------------
@@ -258,35 +300,52 @@ public class ServerComms {
      */
     private void handleIncomingMessage(JSONObject msg) {
         String type = msg.optString("type", "");
-        switch (type) {
-            case "connection_ack":
-                Log.d(TAG, "Received connection_ack. Possibly store sessionId if needed.");
-                // String sessionId = msg.optString("sessionId", null);
-                break;
+        try {
+            switch (type) {
+                case "connection_ack":
+                    Log.d(TAG, "Received connection_ack. Possibly store sessionId if needed.");
+                    // String sessionId = msg.optString("sessionId", null);
+                    break;
 
-            case "connection_error":
-                String errorMsg = msg.optString("message", "Unknown error");
-                Log.e(TAG, "connection_error from server: " + errorMsg);
-                break;
+                case "connection_error":
+                    String errorMsg = msg.optString("message", "Unknown error");
+                    Log.e(TAG, "connection_error from server: " + errorMsg);
+                    break;
 
-            case "display_event":
-                Log.d(TAG, "Received display_event: " + msg.toString());
-                // Could handle display updates if needed
-                break;
+                case "display_event":
+                    Log.d(TAG, "Received display_event: " + msg.toString());
+                    if (serverCommsCallback != null)
+                        serverCommsCallback.onDisplayEvent(msg);
+                    break;
 
-            case "interim":
-            case "final":
-                // Pass speech messages to SpeechRecAugmentos
-                if (speechRecAugmentos != null) {
-                    speechRecAugmentos.handleSpeechJson(msg);
-                } else {
-                    Log.w(TAG, "Received speech message but speechRecAugmentos is null!");
-                }
-                break;
+                case "interim":
+                case "final":
+                    // Pass speech messages to SpeechRecAugmentos
+                    if (speechRecAugmentos != null) {
+                        speechRecAugmentos.handleSpeechJson(msg);
+                    } else {
+                        Log.w(TAG, "Received speech message but speechRecAugmentos is null!");
+                    }
+                    break;
 
-            default:
-                Log.w(TAG, "Unknown message type: " + type + " / full: " + msg.toString());
-                break;
+                default:
+                    Log.w(TAG, "Unknown message type: " + type + " / full: " + msg.toString());
+                    break;
+            }
+        } catch (JSONException e) {
+            Log.d(TAG, "Error parsing incomming websocket json: " + e.toString());
         }
     }
+
+    private String getServerUrl() {
+        String host = EnvHelper.getEnv("AUGMENTOS_HOST");
+        String port = EnvHelper.getEnv("AUGMENTOS_PORT");
+        boolean secureServer = Boolean.parseBoolean(EnvHelper.getEnv("AUGMENTOS_SECURE"));
+        if (host == null || port == null) {
+            throw new IllegalStateException("AugmentOS Server Config Not Found");
+        }
+        // Could do "ws://" for dev or "wss://" for secure
+        return String.format("%s://%s:%s/glasses-ws", secureServer ? "wss" : "ws", host, port);
+    }
+
 }

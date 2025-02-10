@@ -7,6 +7,7 @@ import android.location.Location;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.augmentos.augmentos_core.augmentos_backend.ServerComms;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -18,6 +19,9 @@ public class LocationSystem {
     private Context context;
     public double lat = 0;
     public double lng = 0;
+
+    public double latestAccessedLat = 0;
+    public double latestAccessedLong = 0;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private LocationCallback locationCallback;
 
@@ -71,6 +75,46 @@ public class LocationSystem {
         if (fusedLocationProviderClient != null && locationCallback != null) {
             fusedLocationProviderClient.removeLocationUpdates(locationCallback);
         }
+    }
+
+    public double getNewLat() {
+        if (latestAccessedLat == lat) return -1;
+
+        latestAccessedLat = lat;
+        return latestAccessedLat;
+    }
+
+    public double getNewLng() {
+        if (latestAccessedLong == lng) return -1;
+
+        latestAccessedLong = lng;
+        return latestAccessedLong;
+    }
+
+    public void startLocationSending() {
+        locationSendingLoopHandler.removeCallbacksAndMessages(this);
+
+        locationSendingRunnableCode = new Runnable() {
+            @Override
+            public void run() {
+                    sendLocationToServer();
+                locationSendingLoopHandler.postDelayed(this, locationSendTime);
+            }
+        };
+        locationSendingLoopHandler.post(locationSendingRunnableCode);
+    }
+
+    public void stopLocationSending() {
+        locationSendingLoopHandler.removeCallbacksAndMessages(this);
+    }
+
+    private void sendLocationToServer(){
+        double latitude = getNewLat();
+        double longitude = getNewLng();
+
+        if(latitude == -1 && longitude == -1) return;
+
+        ServerComms.getInstance().sendLocationUpdate(latitude, longitude);
     }
 }
 
