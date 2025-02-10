@@ -304,9 +304,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         if (subscribers.isEmpty()) {
             // Stop the underlying ASR
-            updateAsrLanguages();
-
             activeStreams.remove(key);
+            updateAsrLanguages();
         }
     }
 
