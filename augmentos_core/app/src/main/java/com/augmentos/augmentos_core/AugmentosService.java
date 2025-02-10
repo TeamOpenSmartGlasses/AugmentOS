@@ -449,7 +449,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         } else if (eventDate.equals(simpleDateFormat.format(new Date(now + 24 * 60 * 60 * 1000)))) {
             // Event is tomorrow
             SimpleDateFormat timeFormat = new SimpleDateFormat("h:mma", Locale.getDefault());
-            timeUntil = "tmrw " + timeFormat.format(new Date(calendarItem.getDtStart()));
+            timeUntil = timeFormat.format(new Date(calendarItem.getDtStart())) + " tmrw, " ;
         } else {
             // Event is beyond tomorrow -> no time shown
             timeUntil = "";
@@ -538,7 +538,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
 
         // Fake weather line
-        rightBuilder.append("→ Partly Cloudy 42°F\n");
+//        rightBuilder.append("→ Partly Cloudy 42°F\n");
 
         String rightText = rightBuilder.toString();
 
