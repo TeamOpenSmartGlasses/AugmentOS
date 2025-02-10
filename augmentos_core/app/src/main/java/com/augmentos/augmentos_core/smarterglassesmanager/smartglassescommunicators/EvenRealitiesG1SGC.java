@@ -40,6 +40,7 @@ import com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicat
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.HeadUpAngleEvent;
+import com.augmentos.smartglassesmanager.utils.G1FontLoader;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.SmartGlassesConnectionState;
 import com.google.gson.Gson;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.AudioChunkNewEvent;
@@ -105,7 +106,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private int brightnessValue;
 
     private static final long DELAY_BETWEEN_SENDS_MS = 30; //not using now
-    private static final long DELAY_BETWEEN_CHUNKS_SEND = 8; //super small just in case
+    private static final long DELAY_BETWEEN_CHUNKS_SEND = 16; //super small just in case
     private static final long DELAY_BETWEEN_ACTIONS_SEND = 250; //not using now
     private static final long HEARTBEAT_INTERVAL_MS = 30000;
     private static final long MICBEAT_INTERVAL_MS = (1000 * 60) * 30; //micbeat every 30 minutes
@@ -187,6 +188,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private boolean forceCoreOnboardMic;
 
     // lock writing until the last write is successful
+    //fonts in G1
+    G1FontLoader fontLoader;
 
     public EvenRealitiesG1SGC(Context context, SmartGlassesDevice smartGlassesDevice) {
         super();
@@ -198,6 +201,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         brightnessValue = getSavedBrightnessValue(context);
         this.bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         this.forceCoreOnboardMic = SmartGlassesAndroidService.getForceCoreOnboardMic(context);
+
+        //setup fonts
+        fontLoader = new G1FontLoader(context);
     }
 
     private final BluetoothGattCallback leftGattCallback = createGattCallback("Left");
@@ -354,8 +360,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
                         if (isLeftConnected && isRightConnected) {
                             //no idea why but it's in the Even app - Cayden
-//                            Log.d(TAG, "Sending 0xF4 Command");
-//                            sendDataSequentially(new byte[]{(byte) 0xF4, (byte) 0x01});
+                            Log.d(TAG, "Sending 0xF4 Command");
+                            sendDataSequentially(new byte[]{(byte) 0xF4, (byte) 0x01});
 
                             //no longer need to be staggered as we fixed the sender
                             //do first battery status query
@@ -368,6 +374,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             // Start MIC streaming
                             if (!forceCoreOnboardMic) {
                                 setMicEnabled(true, 10); // Enable the MIC
+                            } else {
+                                setMicEnabled(false, 10); // Enable the MIC
                             }
 
                             //enable our AugmentOS notification key
@@ -393,7 +401,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             @Override
             public void onCharacteristicWrite(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
                 if (status == BluetoothGatt.GATT_SUCCESS) {
-                    Log.d(TAG, side + " glass write successful");
+                    Log.d(TAG, "PROC_QUEUE - " + side + " glass write successful");
                 } else {
                     Log.e(TAG, side + " glass write failed with status: " + status);
 
@@ -420,6 +428,18 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     rightServicesWaiter.setFalse();
                 }
             }
+
+            // In your BLE callback implementation:
+//            @Override
+//            public void onDescriptorWrite(BluetoothGatt gatt, BluetoothGattDescriptor descriptor, int status) {
+//                super.onDescriptorWrite(gatt, descriptor, status);
+//
+//                if (status == BluetoothGatt.GATT_SUCCESS) {
+//                    Log.d(TAG, "PROC_QUEUE - " + side + " SIDE: Descriptor write callback successful");
+//                } else {
+//                    Log.e(TAG, "PROC_QUEUE - " + side + " SIDE: Descriptor write callback failed with status: " + status);
+//                }
+//            }
 
             @Override
             public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
@@ -505,6 +525,86 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         };
     }
 
+//    private void enableNotification(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, String side) {
+//        gatt.setCharacteristicNotification(characteristic, true);
+//        BluetoothGattDescriptor descriptor = characteristic.getDescriptor(CLIENT_CHARACTERISTIC_CONFIG_UUID);
+//
+//        if (descriptor != null) {
+//            descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+//
+//            // Wait 200ms before setting false
+//            new Handler(Looper.getMainLooper()).postDelayed(() -> {
+//                if ("Left".equals(side)) {
+//                    leftServicesWaiter.setFalse();
+//                } else {
+//                    rightServicesWaiter.setFalse();
+//                }
+//            }, 200);
+//
+//            boolean result = gatt.writeDescriptor(descriptor);
+//            if (result) {
+//                Log.d(TAG, side + " SIDE, Descriptor write successful for characteristic: " + characteristic.getUuid());
+//                if ("Left".equals(side)) isLeftConnected = true;
+//                else isRightConnected = true;
+//                updateConnectionState();
+//            } else {
+//                Log.e(TAG, side + " SIDE, Failed to write descriptor for characteristic: " + characteristic.getUuid());
+//            }
+//        } else {
+//            Log.e(TAG, side + " SIDE, Descriptor not found for characteristic: " + characteristic.getUuid());
+//        }
+//    }
+
+    //OG enable notifications
+//    private void enableNotification(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, String side) {
+//        // Simply enable notifications
+//        boolean set_result = gatt.setCharacteristicNotification(characteristic, true);
+//        Log.d(TAG, "PROC_QUEUE - setCharacteristicNotification result for " + side + ": " + set_result);
+//
+//        // Set write type for the characteristic
+//        characteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
+//        Log.d(TAG, "PROC_QUEUE - write type set for " + side);
+//
+////        gatt.setCharacteristicNotification(characteristic, true);
+////        BluetoothGattDescriptor descriptor = characteristic.getDescriptor(CLIENT_CHARACTERISTIC_CONFIG_UUID);
+////        if (descriptor != null) {
+////            descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+////            if ("Left".equals(side)) {
+////                leftServicesWaiter.setTrue();
+////            } else {
+////                rightServicesWaiter.setTrue();
+////            }
+////            boolean result = gatt.writeDescriptor(descriptor);
+////            if (result) {
+////                Log.d(TAG, side + " SIDE," + "Descriptor write successful for characteristic: " + characteristic.getUuid());
+////                if ("Left".equals(side)) isLeftConnected = true;
+////                else isRightConnected = true;
+////                updateConnectionState();
+////            } else {
+////                Log.e(TAG, side + " SIDE," + "Failed to write descriptor for characteristic: " + characteristic.getUuid());
+////            }
+////        } else {
+////            Log.e(TAG, side + " SIDE," + "Descriptor not found for characteristic: " + characteristic.getUuid());
+////        }
+//
+//        //in case this things doesn't write the descriptor properly, do this
+//        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                Log.d(TAG, "PROC_QUEUE - Forcing " + side + " waiter to false after timeout");
+//                if (side.equals("Left")) {
+//                    leftServicesWaiter.setFalse();
+//                } else {
+//                    rightServicesWaiter.setFalse();
+//                }
+//            }
+//        }, 2000); // 2 seconds
+//        isLeftConnected = true;
+//        isRightConnected = true;
+//        updateConnectionState();
+//    }
+
+    //working on rare phones
     private void enableNotification(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, String side) {
         Log.d(TAG, "PROC_QUEUE - Starting notification setup for " + side);
 
@@ -528,6 +628,36 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
         updateConnectionState();
     }
+
+    //attempted combination of the 2
+//    private void enableNotification(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, String side) {
+//        Log.d(TAG, "PROC_QUEUE - Starting notification setup for " + side);
+//
+//        // Simply enable notifications
+//        boolean result = gatt.setCharacteristicNotification(characteristic, true);
+//        Log.d(TAG, "PROC_QUEUE - setCharacteristicNotification result for " + side + ": " + result);
+//
+//        if (!result) {
+//            Log.e(TAG, "PROC_QUEUE - Failed to enable notifications for " + side);
+//            return;
+//        }
+//
+//        // Set write type for the characteristic
+//        characteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
+//        Log.d(TAG, "PROC_QUEUE - write type set for " + side);
+//
+//        // Mark as connected and release waiter immediately
+//        if ("Left".equals(side)) {
+//            isLeftConnected = true;
+//            leftServicesWaiter.setFalse();
+//            Log.d(TAG, "PROC_QUEUE - left side setup complete");
+//        } else {
+//            isRightConnected = true;
+//            rightServicesWaiter.setFalse();
+//            Log.d(TAG, "PROC_QUEUE - right side setup complete");
+//        }
+//        updateConnectionState();
+//    }
 
     private void updateConnectionState() {
         if (isLeftConnected && isRightConnected) {
@@ -683,6 +813,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     private void connectToGatt(BluetoothDevice device) {
         Log.d(TAG, "connectToGatt called");
+
+        // re-set services waiter
+        leftServicesWaiter.setTrue();
+        rightServicesWaiter.setTrue();
+
         if (device.getName().contains("_L_") && leftGlassGatt == null) {
             Log.d(TAG, "Connect GATT to left side");
             leftGlassGatt = device.connectGatt(context, false, leftGattCallback);
@@ -1087,30 +1222,19 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final long INITIAL_CONNECTION_DELAY_MS = 350; // Adjust this value as needed
 
     private void processQueue() {
-        Log.d(TAG, "PROC_QUEUE - Starting process queue");
         //first wait until the services are setup and ready to receive data
+        Log.d(TAG, "PROC_QUEUE - waiting on services waiters");
         try {
-            Log.d(TAG, "PROC_QUEUE - Waiting for left service...");
             leftServicesWaiter.waitWhileTrue();
-            Log.d(TAG, "PROC_QUEUE - Left service ready");
-
-            Log.d(TAG, "PROC_QUEUE - Waiting for right service...");
             rightServicesWaiter.waitWhileTrue();
-            Log.d(TAG, "PROC_QUEUE - Right service ready");
-
-            Log.d(TAG, "PROC_QUEUE - All services ready, starting main queue loop");
         } catch (InterruptedException e) {
-            Log.e(TAG, "PROC_QUEUE - Interrupted while waiting for services", e);
+            Log.e(TAG, "Interrupted waiting for descriptor writes: " + e);
         }
+        Log.d(TAG, "PROC_QUEUE - DONE waiting on services waiters");
 
         while (true) {
             SendRequest[] requests = sendQueue.poll();
             if (requests == null){
-                try {
-                    Thread.sleep(5);
-                } catch (InterruptedException e) {
-                    Log.e(TAG, "Error sending data: " + e.getMessage());
-                }
                 continue;
             }
 
@@ -1134,21 +1258,19 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     if (!request.onlyRight && leftGlassGatt != null && leftTxChar != null && isLeftConnected) {
                         leftWaiter.setTrue();
                         leftTxChar.setValue(request.data);
-                        leftTxChar.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
                         leftSuccess = leftGlassGatt.writeCharacteristic(leftTxChar);
                     }
 
                     if (leftSuccess) {
                         leftWaiter.waitWhileTrue();
                     } else {
-                        Log.d(TAG, "WRITE FAILED - left");
+                        Log.d(TAG, "PROC_QUEUE - LEFT send fail");
                     }
 
                     // Send to right glass
                     if (!request.onlyLeft && rightGlassGatt != null && rightTxChar != null && isRightConnected) {
                         rightWaiter.setTrue();
                         rightTxChar.setValue(request.data);
-                        rightTxChar.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
                         rightSuccess = rightGlassGatt.writeCharacteristic(rightTxChar);
                     }
 
@@ -1156,8 +1278,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     if (rightSuccess) {
                         rightWaiter.waitWhileTrue();
                     } else {
-                        Log.d(TAG, "WRITE FAILED - right");
+                        Log.d(TAG, "PROC_QUEUE - LEFT send fail");
                     }
+
                     Thread.sleep(DELAY_BETWEEN_CHUNKS_SEND);
 
                     // if the packet asked us to do a delay, then do it
@@ -1416,7 +1539,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public void blankScreen() {}
 
     public void displayDoubleTextWall(String textTop, String textBottom) {
-        List<byte[]> chunks = createTextWallChunks(textTop + "\n\n" + textBottom);
+//        List<byte[]> chunks = createDoubleTextWallChunks(textTop, textBottom);
+//        textTop = "...... ......\n. . . . .\n. . . . . . . . . . . . . \n......... ...............\nshe shaid shit show";
+//        textTop = "a fine bulgogi bowl man\n. .\u200B . . .\n. . . . . . . . . . . . . \n»......... ...............\nshe → shaid shit show";
+//        textTop = "a fine bulgogi bowl man\n. .\u200B . . .\n. . . . . . . . . . . . . \n......... ...............\nshe shaid shit show";
+//        textBottom = "|...\n| . .\n|. . . \n|....\n|asdf";
+        List<byte[]> chunks = createDoubleTextWallChunks(textTop, textBottom);
         sendChunks(chunks);
 //        Log.d(TAG, "Send double text wall");
     }
@@ -1687,8 +1815,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         sendHeadUpAngleCommand(headUpAngle);
     }
 
-
-
     @Override
     public void enableGlassesAutoBrightness() {
         sendBrightnessCommand(50, true);
@@ -1806,8 +1932,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     // Constants for text wall display
     private static final int TEXT_COMMAND = 0x4E;  // Text command
-    private static final int DISPLAY_WIDTH = 640;  // Display width in pixels
-    private static final int DISPLAY_USE_WIDTH = 380;  // How much of the display to use
+    private static final int DISPLAY_WIDTH = 240;  // Display width in pixels //I know, it's weird, but we printed a bunch of dots and this is the math
+    private static final int DISPLAY_USE_WIDTH = 240;  // How much of the display to use
     private static final int FONT_SIZE = 21;      // Font size
     private static final float FONT_DIVIDER = 2.0f;
     private static final int LINES_PER_SCREEN = 5; // Lines per screen
@@ -1887,6 +2013,107 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
 
 //        Log.d(TAG, "TOTAL PAGES: " + totalPages);
+
+        return allChunks;
+    }
+
+    private int calculateTextWidth(String text) {
+        int width = 0;
+        for (char c : text.toCharArray()) {
+            G1FontLoader.FontGlyph glyph = fontLoader.getGlyph(c);
+            width += glyph.width + 1; // Add 1 pixel per character for spacing
+        }
+        return width;
+    }
+
+    private List<byte[]> createDoubleTextWallChunks(String text1, String text2) {
+        // Split both texts into lines
+        List<String> lines1 = splitIntoLines(text1);
+        List<String> lines2 = splitIntoLines(text2);
+
+        // Ensure we only take up to 5 lines per screen
+        while (lines1.size() < LINES_PER_SCREEN) lines1.add("");
+        while (lines2.size() < LINES_PER_SCREEN) lines2.add("");
+
+        lines1 = lines1.subList(0, LINES_PER_SCREEN);
+        lines2 = lines2.subList(0, LINES_PER_SCREEN);
+
+        // Get space width (each space is 2 pixels + 1 extra padding pixel, so 3 total)
+        int spaceWidth = fontLoader.getGlyph(' ').width + 1;
+
+        // Calculate where the right column should start
+        int rightColumnStart = Math.round(DISPLAY_USE_WIDTH * 0.6f);
+
+        // Construct the text output by merging the lines
+        StringBuilder pageText = new StringBuilder();
+        for (int i = 0; i < LINES_PER_SCREEN; i++) {  // Leave last line for debug
+            String leftText = lines1.get(i).replace("\u2002", ""); // Drop enspaces
+            String rightText = lines2.get(i).replace("\u2002", "");
+
+            // Calculate width of left text
+            int leftTextWidth = calculateTextWidth(leftText);
+
+            // Calculate spacing needed
+            int neededSpacingPixels = rightColumnStart - leftTextWidth;
+            // Base spaces (at least 3)
+            int baseSpaces = Math.max(neededSpacingPixels / spaceWidth, 3);
+            // Check remainder to see if we should add one extra space
+            int remainder = neededSpacingPixels % spaceWidth;
+            boolean addExtraSpace = (neededSpacingPixels >= 0) && (remainder == 1 || remainder == 2);
+            // Cap at 60 spaces
+            int safeSpaces = Math.min(baseSpaces + (addExtraSpace ? 1 : 0), 60);
+
+            // Log compressed info
+            Log.d(TAG, String.format("L: '%s' (W=%d) | Spaces=%d%s | R: '%s'",
+                    leftText, leftTextWidth, safeSpaces,
+                    addExtraSpace ? " + extra space" : "", rightText));
+
+            // Construct the full line
+            pageText.append(leftText)
+                    .append(" ".repeat(safeSpaces))
+                    .append(rightText)
+                    .append("\n");
+        }
+
+        // Convert **everything**, including debug line, into bytes and chunk it
+        byte[] textBytes = pageText.toString().getBytes(StandardCharsets.UTF_8);
+        int totalChunks = (int) Math.ceil((double) textBytes.length / MAX_CHUNK_SIZE);
+
+        List<byte[]> allChunks = new ArrayList<>();
+        for (int i = 0; i < totalChunks; i++) {
+            int start = i * MAX_CHUNK_SIZE;
+            int end = Math.min(start + MAX_CHUNK_SIZE, textBytes.length);
+            byte[] payloadChunk = Arrays.copyOfRange(textBytes, start, end);
+
+            // Create header with protocol specifications
+            byte screenStatus = 0x71; // New content (0x01) + Text Show (0x70)
+            byte[] header = new byte[]{
+                    (byte) TEXT_COMMAND,    // Command type
+                    (byte) textSeqNum,      // Sequence number
+                    (byte) totalChunks,     // Total packages
+                    (byte) i,               // Current package number
+                    screenStatus,           // Screen status
+                    (byte) 0x00,            // new_char_pos0 (high)
+                    (byte) 0x00,            // new_char_pos1 (low)
+                    (byte) 0x00,            // Current page number (always 0 for now)
+                    (byte) 0x01             // Max page number (always 1)
+            };
+
+            // Combine header and payload
+            ByteBuffer chunk = ByteBuffer.allocate(header.length + payloadChunk.length);
+            chunk.put(header);
+            chunk.put(payloadChunk);
+
+            allChunks.add(chunk.array());
+        }
+
+        // **Ensure BLE packet limit is respected**
+        if (allChunks.size() > totalChunks) {
+            Log.e(TAG, "Chunking error: Exceeded totalChunks!");
+        }
+
+        // Increment sequence number for next page
+        textSeqNum = (textSeqNum + 1) % 256;
 
         return allChunks;
     }
@@ -2085,10 +2312,39 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         // Send each chunk with a delay between sends
         for (byte[] chunk : chunks) {
             sendDataSequentially(chunk);
+
+//            try {
+//                Thread.sleep(DELAY_BETWEEN_CHUNKS_SEND); // delay between chunks
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 
+//    public int DEFAULT_CARD_SHOW_TIME = 6;
+//    public void homeScreenInNSeconds(int n){
+//        if (n == -1){
+//            return;
+//        }
+//
+//        if (n == 0){
+//            n = DEFAULT_CARD_SHOW_TIME;
+//        }
+//
+//        //disconnect after slight delay, so our above text gets a chance to show up
+//        goHomeHandler.removeCallbacksAndMessages(goHomeRunnable);
+//        goHomeHandler.removeCallbacksAndMessages(null);
+//        goHomeRunnable = new Runnable() {
+//            @Override
+//            public void run() {
+//                showHomeScreen();
+//            }};
+//        goHomeHandler.postDelayed(goHomeRunnable, n * 1000);
+//    }
+
+
     //BMP handling
+
     // Add these class variables
     private static final int BMP_CHUNK_SIZE = 194;
     private static final byte[] GLASSES_ADDRESS = new byte[]{0x00, 0x1c, 0x00, 0x00};
@@ -2221,3 +2477,4 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         sendDataSequentially(createTextWallChunks(text));
     }
 }
+
