@@ -483,9 +483,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             }
         }
         if (mostRecentNotification != null) {
-            leftBuilder.append(String.format("%s - %s\n",
+            String mostRecentNotificationString = String.format("%s - %s\n",
                     mostRecentNotification.getTitle(),
-                    mostRecentNotification.getText()));
+                    mostRecentNotification.getText());
+            String wrappedRecentNotification = wrapText(mostRecentNotificationString, 25, 4);
+            leftBuilder.append(wrappedRecentNotification);
             recentNotificationFound = true;
         }
 
@@ -493,7 +495,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             // No super-recent notifications: show up to 2 from notificationList
             int notificationCount = Math.min(2, notificationList.size());
             for (int i = 0; i < notificationCount; i++) {
-                leftBuilder.append(String.format("| %s\n", notificationList.get(i)));
+                String wrappedNotification = wrapText(notificationList.get(i), 25, 2);
+                leftBuilder.append(String.format("| %s\n", wrappedNotification));
             }
         }
 
@@ -551,6 +554,56 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
 
         Log.d(TAG, "Dashboard displayed:\nLeft:\n" + leftText + "\nRight:\n" + rightText);
+    }
+
+    public static String wrapText(String text, int maxLineLength, int maxLines) {
+        StringBuilder wrappedText = new StringBuilder();
+        int start = 0;
+        int lineCount = 0;
+        int textLength = text.length();
+
+        while (start < textLength && lineCount < maxLines) {
+            // Tentative end index for this line
+            int end = Math.min(start + maxLineLength, textLength);
+
+            // If we've reached the end of the text, append the rest.
+            if (end == textLength) {
+                wrappedText.append(text.substring(start, end));
+                start = end;
+                lineCount++;
+                break;
+            }
+
+            // If the character at 'end' isn't a space, backtrack to the last space
+            if (text.charAt(end) != ' ') {
+                int lastSpace = text.lastIndexOf(' ', end);
+                if (lastSpace > start) {
+                    end = lastSpace;
+                }
+            }
+
+            // Append the segment for the current line
+            wrappedText.append(text.substring(start, end).trim());
+            lineCount++;
+
+            // Skip any additional spaces for the next line
+            start = end;
+            while (start < textLength && text.charAt(start) == ' ') {
+                start++;
+            }
+
+            // If we haven't reached the maximum lines and there is more text, add a newline
+            if (lineCount < maxLines && start < textLength) {
+                wrappedText.append("\n");
+            }
+        }
+
+        // If there's any remaining text, append "..." to indicate truncation.
+        if (start < textLength) {
+            wrappedText.append("...");
+        }
+
+        return wrappedText.toString();
     }
 
     @Subscribe
