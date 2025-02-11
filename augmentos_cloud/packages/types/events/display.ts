@@ -16,7 +16,7 @@ export interface DashboardCard {
   layoutType: 'dashboard_card';
   title: string;
   text: string;
-}0
+}
 
 export interface TextRows {
   layoutType: 'text_rows';
