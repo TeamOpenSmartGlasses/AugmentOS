@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import okhttp3.*;
+import com.augmentos.augmentos_core.smarterglassesmanager.utils.EnvHelper;
 
 /**
  * HTTPServerComms handles all standard HTTP requests such as GET and POST.
@@ -16,10 +17,11 @@ import okhttp3.*;
 public class HTTPServerComms {
     private static final String TAG = "HTTPServerComms";
     private final OkHttpClient client;
-    private final String BASE_URL = "http://localhost:7002";
+    private String BASE_URL;// = "http://localhost:7002";
     private List<ThirdPartyCloudApp> cachedApps = new ArrayList<>(); // Cache apps list in memory
 
     public HTTPServerComms() {
+        BASE_URL = getServerUrl();
         this.client = new OkHttpClient();
     }
 
@@ -105,6 +107,16 @@ public class HTTPServerComms {
                 .build();
 
         client.newCall(request).enqueue(callback);
+    }
+
+    private String getServerUrl() {
+        String host = EnvHelper.getEnv("AUGMENTOS_HOST");
+        String port = EnvHelper.getEnv("AUGMENTOS_PORT");
+        boolean secureServer = Boolean.parseBoolean(EnvHelper.getEnv("AUGMENTOS_SECURE"));
+        if (host == null || port == null) {
+            throw new IllegalStateException("AugmentOS Server Config Not Found");
+        }
+        return String.format("%s://%s:%s", secureServer ? "https" : "http", host, port);
     }
 }
 
