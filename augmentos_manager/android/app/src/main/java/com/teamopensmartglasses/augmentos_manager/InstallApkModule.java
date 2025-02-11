@@ -54,7 +54,7 @@ public class InstallApkModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void downloadCoreApk(Promise promise) {
         DownloadManager downloadManager = (DownloadManager) getReactApplicationContext().getSystemService(Context.DOWNLOAD_SERVICE);
-        String downloadLink = "https://api.augmentos.org/download_apk?apkName=AugmentOSCore.apk";
+        String downloadLink = "https://api.augmentos.org/apks/AugmentOSCore.apk";
         String packageName = "com.augmentos.augmentos_core";
         String appName = "AugmentOS Core";
         String version = "latest";
