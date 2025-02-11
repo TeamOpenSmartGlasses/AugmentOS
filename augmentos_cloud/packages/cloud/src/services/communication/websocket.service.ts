@@ -36,7 +36,8 @@ import {
   GlassesStartAppMessage,
   GlassesStopAppMessage,
   HeadPositionEvent,
-  PhoneNotificationEvent
+  PhoneNotificationEvent,
+  DashboardDisplayEventMessage
 } from '../../types';
 
 import sessionService, { ISessionService } from '../core/session.service';
@@ -492,6 +493,25 @@ private async handleGlassesMessage(
         }
 
         const displayMessage = message as TpaDisplayEventMessage;
+        const connection = this.tpaConnections.get(currentSession);
+        if (!connection) return;
+
+        await this.displayService.handleDisplayEvent(
+          connection.userSessionId,
+          connection.packageName,
+          displayMessage.layout,
+          displayMessage.durationMs
+        );
+        break;
+      }
+ 
+      case 'dashboard_display_event': {
+        if (!currentSession) {
+          ws.close(1008, 'No active session');
+          return;
+        }
+
+        const displayMessage = message as DashboardDisplayEventMessage;
         const connection = this.tpaConnections.get(currentSession);
         if (!connection) return;
 

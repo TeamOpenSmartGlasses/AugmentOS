@@ -14,9 +14,11 @@ export interface DoubleTextWall {
 
 export interface DashboardCard {
   layoutType: 'dashboard_card';
-  title: string;
-  text: string;
-}0
+  timeDateAndBattery: string;
+  bottomLeft: string;
+  topRight: string;
+  bottomRight: string;
+}
 
 export interface TextRows {
   layoutType: 'text_rows';

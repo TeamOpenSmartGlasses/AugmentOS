@@ -8,6 +8,7 @@ import {
   TpaSubscriptionUpdateMessage,
   CloudDataStreamMessage,
   DashboardDisplayEventMessage,
+  DashboardCard,
 } from '@augmentos/types';
 
 import { NewsAgent } from './dashboard_modules/NewsAgent';  // lowercase 'n'
@@ -30,6 +31,17 @@ interface SessionInfo {
 }
 
 const activeSessions = new Map<string, SessionInfo>();
+const activeDashboards = new Map<string, DashboardCard>();
+
+function createDashboardLayout(card: DashboardCard) {
+  return {
+    layoutType: card.layoutType,
+    timeDateAndBattery: card.timeDateAndBattery,
+    topRight: card.topRight,
+    bottomRight: card.bottomRight,
+    bottomLeft: card.bottomLeft,
+  };
+}
 
 // Parse JSON bodies
 app.use(express.json());
@@ -45,6 +57,17 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     // 1) Create a new WebSocket connection to the cloud
     const ws = new WebSocket('ws://localhost:7002/tpa-ws');
 
+    // Create a new dashboard card
+    const dashboardCard: DashboardCard = {
+      layoutType: 'dashboard_card',
+      timeDateAndBattery: '02/12/2025 12:00:00 100%',
+      bottomRight: '100%',
+      topRight: 'Meeting with John',
+      bottomLeft: '',
+    };
+
+    activeDashboards.set(sessionId, dashboardCard);
+
     // 2) On open, send tpa_connection_init
     ws.on('open', () => {
       console.log(`[Session ${sessionId}] Connected to augmentos-cloud`);
@@ -56,6 +79,21 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
         apiKey: API_KEY,
       };
       ws.send(JSON.stringify(initMessage));
+
+      const dashboardLayout = createDashboardLayout(dashboardCard);
+
+      const displayEvent: DashboardDisplayEventMessage = {
+        type: 'dashboard_display_event',
+        packageName: PACKAGE_NAME,
+        sessionId,
+        layout: dashboardLayout,
+        durationMs: 4000,
+      };
+
+      console.log('Sending display event:', displayEvent);
+
+      ws.send(JSON.stringify(displayEvent));
+
     });
 
     // 3) On message, handle incoming data
@@ -72,6 +110,7 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     ws.on('close', () => {
       console.log(`[Session ${sessionId}] Disconnected`);
       activeSessions.delete(sessionId);
+      activeDashboards.delete(sessionId);
     });
 
     // Store session info
@@ -100,18 +139,6 @@ function handleMessage(sessionId: string, message: any) {
   }
 
   switch (message.type) {
-    case 'tpa_connection_ack': {
-      // 1) Now that we're connected, we can subscribe to streams
-      const subMessage: TpaSubscriptionUpdateMessage = {
-        type: 'subscription_update',
-        packageName: PACKAGE_NAME,
-        sessionId,
-        subscriptions: ['transcription'], // e.g. 
-      };
-      sessionInfo.ws.send(JSON.stringify(subMessage));
-      console.log(`[Session ${sessionId}] Subscribed to streams`);
-      break;
-    }
 
     case 'data_stream': {
       const streamMessage = message as CloudDataStreamMessage;

@@ -26,6 +26,13 @@ export interface TpaSubscriptionUpdateMessage extends WebSocketMessage {
   subscriptions: Subscription[];
 }
 
+export interface DashboardDisplayEventMessage extends WebSocketMessage {
+  type: "dashboard_display_event";
+  packageName: string;
+  layout: Layout;
+  durationMs?: number;
+}
+
 export interface TranslationConfig {
   sourceLang: Language;
   targetLangs: Language[];
@@ -34,10 +41,17 @@ export interface TranslationConfig {
   contextLength?: number;
 }
 
+export type TpaMessageType = 
+  | 'tpa_connection_init'
+  | 'display_event'
+  | 'subscription_update'
+  | 'dashboard_display_event';
+
 export type TpaToCloudMessage =
   | TpaConnectionInitMessage
   | TpaDisplayEventMessage
-  | TpaSubscriptionUpdateMessage;
+  | TpaSubscriptionUpdateMessage
+  | DashboardDisplayEventMessage;
 
 // Cloud -> TPA Messages
 export interface CloudTpaConnectionAckMessage extends WebSocketMessage {
