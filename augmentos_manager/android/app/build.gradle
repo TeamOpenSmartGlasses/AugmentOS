@@ -101,6 +101,7 @@ dependencies {
 
 
     implementation project(path: ":augmentos_core")
+    implementation 'com.facebook.react:hermes-android:0.75.4'
 }
 
 // Include custom vector icons fonts from react-native-vector-icons

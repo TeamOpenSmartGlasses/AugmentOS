@@ -6,11 +6,11 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.service.notification.NotificationListenerService;
+
 import com.facebook.react.bridge.ReactApplicationContext;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
 
-import androidx.core.app.NotificationCompat;
 // import androidx.preference.PreferenceManager;
 
 import org.json.JSONException;
@@ -19,14 +19,9 @@ import org.json.JSONObject;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import android.os.Bundle;
+
 import android.os.Handler;
 import android.os.Looper;
-import android.service.notification.StatusBarNotification;
-import android.util.Log;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -137,13 +137,13 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     @Override
     public void onCreate(){
         super.onCreate();
-        EventBus.getDefault().register(this);
+        AugmentOSLibBus.getInstance().register(this);
     }
     
     @Override
     public void onDestroy(){
         Log.d(TAG, "running onDestroy");
-        EventBus.getDefault().unregister(this);
+        AugmentOSLibBus.getInstance().unregister(this);
         super.onDestroy();
         Log.d(TAG, "ran onDestroy");
     }

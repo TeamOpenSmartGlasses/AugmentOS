@@ -945,7 +945,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             try {
                 Map<String, Object> props = convertJsonToMap(status);
-                postHog.capture(authHandler.getUniqueIdForAnalytics(), "status", props);
+             //   postHog.capture(authHandler.getUniqueIdForAnalytics(), "status", props);
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }

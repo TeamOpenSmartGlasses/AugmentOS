@@ -6,6 +6,8 @@ import android.util.Log;
 import android.content.pm.PackageManager;
 
 
+import com.augmentos.augmentos_core.AugmentosService;
+import com.augmentos.augmentos_core.MainActivity;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -25,10 +27,13 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void startService() {
         try {
-            Intent intent = new Intent();
-            intent.setComponent(new ComponentName(
-                    "com.augmentos.augmentos_core",
-                    "com.augmentos.augmentos_core.AugmentosService"));
+            //Intent intent = new Intent();
+            //intent.setComponent(new ComponentName(
+            //        "com.augmentos.augmentos_core",
+            //        "com.augmentos.augmentos_core.AugmentosService"));
+            Intent intent = new Intent(getReactApplicationContext(), AugmentosService.class);
+
+
             intent.setAction("ACTION_START_CORE");
 
             Log.d(TAG, "Intent: " + intent.toString());
@@ -50,10 +55,7 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void stopService() {
         try {
-            Intent intent = new Intent();
-            intent.setComponent(new ComponentName(
-                    "com.augmentos.augmentos_core",
-                    "com.augmentos.augmentos_core.AugmentosService"));
+            Intent intent = new Intent(getReactApplicationContext(), AugmentosService.class);
             intent.setAction("ACTION_STOP_CORE");
 
             Log.d(TAG, "Stopping service with intent: " + intent.toString());
@@ -67,11 +69,8 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void openPermissionsActivity() {
         try {
-            Intent intent = new Intent();
-            intent.setComponent(new ComponentName(
-                    "com.augmentos.augmentos_core",
-                    "com.augmentos.augmentos_core.MainActivity"));
-                    // "com.augmentos.augmentos_core.PermissionsActivity"));
+
+            Intent intent = new Intent(getReactApplicationContext(), MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             getReactApplicationContext().startActivity(intent);
         } catch (Exception e) {
@@ -81,14 +80,15 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
 
     @ReactMethod(isBlockingSynchronousMethod = true)
     public boolean isAugmentOsCoreInstalled() {
-        try {
-            getReactApplicationContext()
-                    .getPackageManager()
-                    .getPackageInfo("com.augmentos.augmentos_core", 0);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
+        return true;
+//        try {
+//            getReactApplicationContext()
+//                    .getPackageManager()
+//                    .getPackageInfo("com.augmentos.augmentos_core", 0);
+//            return true;
+//        } catch (PackageManager.NameNotFoundException e) {
+//            return false;
+//        }
     }
 
 }

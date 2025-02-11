@@ -60,7 +60,7 @@ public class AugmentOSLib {
         subscribedDataStreams = new HashMap<DataStreamType, SubscriptionCallback>();
 
         //register subscribers on EventBus
-        EventBus.getDefault().register(this);
+        AugmentOSLibBus.getInstance().register(this);
     }
 
     //register a new command
@@ -69,7 +69,7 @@ public class AugmentOSLib {
         augmentosCommand.serviceName = mContext.getClass().getName();
 
         augmentosCallbackMapper.putCommandWithCallback(augmentosCommand, callback);
-        EventBus.getDefault().post(new RegisterCommandRequestEvent(augmentosCommand));
+        AugmentOSLibBus.getInstance().post(new RegisterCommandRequestEvent(augmentosCommand));
     }
 
     //register our app with the AugmentOS
@@ -81,7 +81,7 @@ public class AugmentOSLib {
 //        String packageName = mContext.getPackageName();
 //        String serviceName = mContext.getClass().getName();
 //        ThirdPartyApp tpa = new ThirdPartyApp(appName, appDescription, packageName, serviceName, commandList);
-//        EventBus.getDefault().post(new RegisterTpaRequestEvent(tpa));
+//        AugmentOSLibBus.getInstance().post(new RegisterTpaRequestEvent(tpa));
 //
 //        for (AugmentOSCommand command : commandList) {
 //
@@ -120,25 +120,25 @@ public class AugmentOSLib {
     }
 
     public void subscribe(StartAsrStreamRequestEvent startAsrStreamRequestEvent) {
-        EventBus.getDefault().post((StartAsrStreamRequestEvent) startAsrStreamRequestEvent);
+        AugmentOSLibBus.getInstance().post((StartAsrStreamRequestEvent) startAsrStreamRequestEvent);
     }
 
     public void subscribe(StopAsrStreamRequestEvent stopAsrStreamRequestEvent) {
-        EventBus.getDefault().post((StopAsrStreamRequestEvent) stopAsrStreamRequestEvent);
+        AugmentOSLibBus.getInstance().post((StopAsrStreamRequestEvent) stopAsrStreamRequestEvent);
     }
 
     public void subscribe(DataStreamType dataStreamType, TranscriptCallback callback){
         subscribedDataStreams.put(dataStreamType, callback);
 
         //trigger event to change language if needed
-        EventBus.getDefault().post(new SubscribeDataStreamRequestEvent(dataStreamType));
+        AugmentOSLibBus.getInstance().post(new SubscribeDataStreamRequestEvent(dataStreamType));
     }
 
     public void subscribe(DataStreamType dataStreamType, TranslateCallback callback){
         subscribedDataStreams.put(dataStreamType, callback);
 
         //trigger event to change language if needed
-        EventBus.getDefault().post(new SubscribeDataStreamRequestEvent(dataStreamType));
+        AugmentOSLibBus.getInstance().post(new SubscribeDataStreamRequestEvent(dataStreamType));
     }
 
     public void subscribe(DataStreamType dataStreamType, ButtonCallback callback){
@@ -156,78 +156,78 @@ public class AugmentOSLib {
 //    //TPA request to be the app in focus - AugmentOS has to grant this request
 //    public void requestFocus(FocusCallback callback){
 //        focusCallback = callback;
-//        EventBus.getDefault().post(new FocusRequestEvent(true));
+//        AugmentOSLibBus.getInstance().post(new FocusRequestEvent(true));
 //    }
 
 
     public void sendCustomContent(String json) {
-        EventBus.getDefault().post(new DisplayCustomContentRequestEvent(json));
+        AugmentOSLibBus.getInstance().post(new DisplayCustomContentRequestEvent(json));
     }
 
     //show a reference card on the smart glasses with title and body text
     public void sendReferenceCard(String title, String body) {
-        EventBus.getDefault().post(new ReferenceCardSimpleViewRequestEvent(title, body));
+        AugmentOSLibBus.getInstance().post(new ReferenceCardSimpleViewRequestEvent(title, body));
     }
 
     //show a bullet point list card on the smart glasses with title and bullet points
     public void sendBulletPointList(String title, String [] bullets) {
-        EventBus.getDefault().post(new BulletPointListViewRequestEvent(title, bullets));
+        AugmentOSLibBus.getInstance().post(new BulletPointListViewRequestEvent(title, bullets));
     }
 
     public void sendReferenceCard(String title, String body, String imgUrl) {
-        EventBus.getDefault().post(new ReferenceCardImageViewRequestEvent(title, body, imgUrl));
+        AugmentOSLibBus.getInstance().post(new ReferenceCardImageViewRequestEvent(title, body, imgUrl));
     }
 
     public void startScrollingText(String title){
-        EventBus.getDefault().post(new ScrollingTextViewStartRequestEvent(title));
+        AugmentOSLibBus.getInstance().post(new ScrollingTextViewStartRequestEvent(title));
     }
 
     public void pushScrollingText(String text){
-        EventBus.getDefault().post(new FinalScrollingTextRequestEvent(text));
+        AugmentOSLibBus.getInstance().post(new FinalScrollingTextRequestEvent(text));
     }
 
     public void stopScrollingText(){
-        EventBus.getDefault().post(new ScrollingTextViewStopRequestEvent());
+        AugmentOSLibBus.getInstance().post(new ScrollingTextViewStopRequestEvent());
     }
 
     public void sendTextLine(String text) {
-        EventBus.getDefault().post(new TextLineViewRequestEvent(text));
+        AugmentOSLibBus.getInstance().post(new TextLineViewRequestEvent(text));
     }
 
     public void sendCenteredText(String text){
-        EventBus.getDefault().post(new CenteredTextViewRequestEvent(text));
+        AugmentOSLibBus.getInstance().post(new CenteredTextViewRequestEvent(text));
     }
 
     public void sendTextWall(String text){
-        EventBus.getDefault().post(new TextWallViewRequestEvent(text));
+        AugmentOSLibBus.getInstance().post(new TextWallViewRequestEvent(text));
     }
 
     public void sendDoubleTextWall(String textTop, String textBottom){
-        EventBus.getDefault().post(new DoubleTextWallViewRequestEvent(textTop, textBottom));
+        AugmentOSLibBus.getInstance().post(new DoubleTextWallViewRequestEvent(textTop, textBottom));
     }
 
     public void sendRowsCard(String[] rowStrings){
-        EventBus.getDefault().post(new RowsCardViewRequestEvent(rowStrings));
+        AugmentOSLibBus.getInstance().post(new RowsCardViewRequestEvent(rowStrings));
     }
 
     public void sendBitmap(Bitmap bmp){
-        EventBus.getDefault().post(new SendBitmapViewRequestEvent(bmp));
+        AugmentOSLibBus.getInstance().post(new SendBitmapViewRequestEvent(bmp));
     }
 
     public void sendHomeScreen(){
-        EventBus.getDefault().post(new HomeScreenEvent());
+        AugmentOSLibBus.getInstance().post(new HomeScreenEvent());
     }
 
     public void getSelectedLiveCaptionsTranslation(){
-        EventBus.getDefault().post(new HomeScreenEvent());
+        AugmentOSLibBus.getInstance().post(new HomeScreenEvent());
     }
 
     public void getChosenTranscribeLanguage(){
-        EventBus.getDefault().post(new HomeScreenEvent());
+        AugmentOSLibBus.getInstance().post(new HomeScreenEvent());
     }
 
     public void sendDataFromManagerToCore(String jsonData) {
-        EventBus.getDefault().post(new ManagerToCoreRequestEvent(jsonData));
+        AugmentOSLibBus.getInstance().post(new ManagerToCoreRequestEvent(jsonData));
     }
 
     @Subscribe
@@ -301,7 +301,7 @@ public class AugmentOSLib {
     }
 
     public void deinit() {
-        EventBus.getDefault().unregister(this);
+        AugmentOSLibBus.getInstance().unregister(this);
         if (augmentosReceiver != null) {
             augmentosReceiver.destroy();
         }

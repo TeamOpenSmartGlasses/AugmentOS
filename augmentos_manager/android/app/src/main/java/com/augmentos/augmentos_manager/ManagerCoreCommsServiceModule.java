@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import com.augmentos.augmentos_core.AugmentosService;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -47,10 +48,7 @@ public class ManagerCoreCommsServiceModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void startAugmentosCoreService() {
         try {
-            Intent intent = new Intent();
-            intent.setComponent(new ComponentName(
-                    "com.augmentos.augmentos_core",
-                    "com.augmentos.augmentos_core.AugmentosService"));
+            Intent intent = new Intent(getReactApplicationContext(), AugmentosService.class);
             intent.setAction("ACTION_START_CORE");
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 getReactApplicationContext().startService(intent);

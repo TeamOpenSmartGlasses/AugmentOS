@@ -43,34 +43,34 @@ public class TPABroadcastReceiver extends BroadcastReceiver {
         //map from id to event
         switch (eventId) {
             case CommandTriggeredEvent.eventId:
-                EventBus.getDefault().post((CommandTriggeredEvent) serializedEvent);
+                AugmentOSLibBus.getInstance().post((CommandTriggeredEvent) serializedEvent);
                 break;
             case KillTpaEvent.eventId:
-                EventBus.getDefault().post((KillTpaEvent) serializedEvent);
+                AugmentOSLibBus.getInstance().post((KillTpaEvent) serializedEvent);
                 break;
             case SpeechRecOutputEvent.eventId:
-                EventBus.getDefault().post((SpeechRecOutputEvent) serializedEvent);
+                AugmentOSLibBus.getInstance().post((SpeechRecOutputEvent) serializedEvent);
                 break;
             case TranslateOutputEvent.eventId:
-                EventBus.getDefault().post((TranslateOutputEvent) serializedEvent);
+                AugmentOSLibBus.getInstance().post((TranslateOutputEvent) serializedEvent);
                 break;
             case SmartRingButtonOutputEvent.eventId:
-                EventBus.getDefault().post((SmartRingButtonOutputEvent) serializedEvent);
+                AugmentOSLibBus.getInstance().post((SmartRingButtonOutputEvent) serializedEvent);
                 break;
             case GlassesTapOutputEvent.eventId:
-                EventBus.getDefault().post((GlassesTapOutputEvent) serializedEvent);
+                AugmentOSLibBus.getInstance().post((GlassesTapOutputEvent) serializedEvent);
                 break;
             case FocusChangedEvent.eventId:
-                EventBus.getDefault().post((FocusChangedEvent) serializedEvent);
+                AugmentOSLibBus.getInstance().post((FocusChangedEvent) serializedEvent);
                 break;
             case GlassesPovImageEvent.eventId:
-                EventBus.getDefault().post((GlassesPovImageEvent) serializedEvent);
+                AugmentOSLibBus.getInstance().post((GlassesPovImageEvent) serializedEvent);
                 break;
             case CoreToManagerOutputEvent.eventId:
-                EventBus.getDefault().post((CoreToManagerOutputEvent) serializedEvent);
+                AugmentOSLibBus.getInstance().post((CoreToManagerOutputEvent) serializedEvent);
                 break;
             case NotificationEvent.eventId:
-                EventBus.getDefault().post((NotificationEvent) serializedEvent);
+                AugmentOSLibBus.getInstance().post((NotificationEvent) serializedEvent);
                 break;
         }
     }
