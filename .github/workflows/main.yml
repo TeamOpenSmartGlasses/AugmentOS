@@ -1,7 +1,7 @@
 # Name of the workflow
 name: Deploy AugmentOS Cloud ☁️ Dev environment
 
-# Trigger on pushes to main branch
+# Trigger on pushes to isaiah/cloud branch
 on:
   push:
     branches: [ "isaiah/cloud" ]
