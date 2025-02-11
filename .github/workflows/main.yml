@@ -102,7 +102,7 @@ jobs:
         with:
           host: ${{ secrets.AZURE_HOST }}         # Azure VM IP or hostname
           username: ${{ secrets.AZURE_USERNAME }} # SSH username on Azure VM
-          key: ${{ secrets.AZURE_SSH_KEY }}       # Private SSH key for the VM (from secrets)
+          key: ${{ secrets.AZURE_DEV_RSA_KEY}}       # Private SSH key for the VM (from secrets)
           port: 22                                # SSH port (default 22)
           source: "augmentos_cloud/*"             # What to copy (all files in server folder)
           target: "~/augmentos_cloud/"            # Where to copy on the VM (adjust path as needed)
@@ -117,7 +117,7 @@ jobs:
         with:
           host: ${{ secrets.AZURE_HOST }}
           username: ${{ secrets.AZURE_USERNAME }}
-          key: ${{ secrets.AZURE_SSH_KEY }}
+          key: ${{ secrets.AZURE_DEV_RSA_KEY }}
           script: |
             set -e  # stop on error
             cd ~/augmentos_cloud/
