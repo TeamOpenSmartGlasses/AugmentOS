@@ -1,9 +1,9 @@
 // src/types/websocket/tpa.ts
-import { WebSocketMessage } from './common';
-import { Layout } from '../events/display';
-import { AppSettings } from '../models/app';
-import { Subscription } from './common';
-import { Language } from '../base';
+import type { WebSocketMessage } from './common';
+import type { Layout } from '../events/display';
+import type { AppSettings } from '../models/app';
+import type { Subscription } from './common';
+import type { Language } from '../base';
 
 // TPA -> Cloud Messages
 export interface TpaConnectionInitMessage extends WebSocketMessage {
@@ -15,6 +15,13 @@ export interface TpaConnectionInitMessage extends WebSocketMessage {
 
 export interface TpaDisplayEventMessage extends WebSocketMessage {
   type: "display_event";
+  packageName: string;
+  layout: Layout;
+  durationMs?: number;
+}
+
+export interface DashboardDisplayEventMessage extends WebSocketMessage {
+  type: "dashboard_display_event";
   packageName: string;
   layout: Layout;
   durationMs?: number;
