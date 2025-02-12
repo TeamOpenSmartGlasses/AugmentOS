@@ -1,4 +1,6 @@
 # AugmentOS TPA Integration Guide
+(outdated)
+This documentation needs to be updated.
 
 ## Overview
 

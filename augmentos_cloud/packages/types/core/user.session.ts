@@ -27,6 +27,7 @@ export interface UserSession {
   sessionId: string;
   userId: string;
   startTime: Date;
+  disconnectedAt: Date | null;
 
   installedApps: AppI[];
   activeAppSessions: Map<string, AppSession>;

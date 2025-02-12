@@ -1,4 +1,4 @@
-// tpa_servers/captions/src/index.ts
+// augmentos_cloud/packages/apps/captions/src/index.ts
 import express from 'express';
 import WebSocket from 'ws';
 import path from 'path';
@@ -105,10 +105,12 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
     layout: {
       layoutType: 'reference_card',
       title: "Captions",
-      text: transcriptionData.test_text 
+      text: transcriptionData.text 
     },
     durationMs: transcriptionData.isFinal ? 3000 : undefined
   };
+
+  console.log(`[Session ${sessionId}]: ${transcriptionData.text}`);
 
   // Send the display event back to the cloud
   ws.send(JSON.stringify(displayEvent));

@@ -37,7 +37,8 @@ import {
   HeadPositionEvent,
   PhoneNotificationEvent,
   CloudToTpaMessage,
-  CloudAppStateChangeMessage
+  CloudAppStateChangeMessage,
+  UserSession
 } from '@augmentos/types';
 
 import sessionService, { ISessionService } from '../core/session.service';
@@ -168,7 +169,6 @@ export class WebSocketService implements IWebSocketService {
    * @param data - Data to broadcast
    */
   broadcastToTpa(userSessionId: string, streamType: StreamType, data: CloudToTpaMessage): void {
-    // TODO: don't use any for data type. Fix this.
     const subscribedApps = this.subscriptionService.getSubscribedApps(userSessionId, streamType);
 
     for (const packageName of subscribedApps) {
@@ -227,11 +227,9 @@ export class WebSocketService implements IWebSocketService {
    * @private
    */
   private handleGlassesConnection(ws: WebSocket): void {
-    console.log('New glasses client attempting to connect...');
+    console.log('[websocket.service] New glasses client attempting to connect...');
 
     const session = this.sessionService.createSession(ws);
-    const sessionId = session.sessionId;
-
     ws.on('message', async (message: Buffer | string, isBinary: boolean) => {
       try {
         if (isBinary && Buffer.isBuffer(message)) {
@@ -242,12 +240,12 @@ export class WebSocketService implements IWebSocketService {
           );
 
           // Pass the ArrayBuffer to Azure Speech or wherever you need it
-          this.sessionService.handleAudioData(sessionId, arrayBuf);
+          this.sessionService.handleAudioData(session.sessionId, arrayBuf);
           return;
         }
 
         const parsedMessage = JSON.parse(message.toString()) as GlassesToCloudMessage;
-        await this.handleGlassesMessage(sessionId, ws, parsedMessage);
+        await this.handleGlassesMessage(session, ws, parsedMessage);
       } catch (error) {
         console.error(`Error handling glasses message:`, error);
         this.sendError(ws, {
@@ -257,14 +255,23 @@ export class WebSocketService implements IWebSocketService {
       }
     });
 
+    const RECONNECT_GRACE_PERIOD_MS = 1000 * 60 * 5; // 5 minutes
     ws.on('close', () => {
-      console.log(`Glasses WebSocket disconnected: ${sessionId}`);
-      this.sessionService.endSession(sessionId);
+      console.log(`Glasses WebSocket disconnected: ${session.sessionId}`);
+      // Mark the session as disconnected but do not remove it immediately.
+      this.sessionService.markSessionDisconnected(session.sessionId);
+      
+      // Optionally, set a timeout to eventually clean up the session if not reconnected.
+      setTimeout(() => {
+        if (this.sessionService.isItTimeToKillTheSession(session.sessionId)) {
+          this.sessionService.endSession(session.sessionId);
+        }
+      }, RECONNECT_GRACE_PERIOD_MS);
     });
 
     ws.on('error', (error) => {
       console.error(`Glasses WebSocket error:`, error);
-      this.sessionService.endSession(sessionId);
+      this.sessionService.endSession(session.sessionId);
       ws.close();
     });
   }
@@ -277,7 +284,7 @@ export class WebSocketService implements IWebSocketService {
    * @private
    */
   private async handleGlassesMessage(
-    userSessionId: string,
+    userSession: UserSession,
     ws: WebSocket,
     message: GlassesToCloudMessage
   ): Promise<void> {
@@ -285,42 +292,42 @@ export class WebSocketService implements IWebSocketService {
       switch (message.type) {
         case 'connection_init': {
           const initMessage = message as GlassesConnectionInitMessage;
-
-          this.sessionService.updateUserId(userSessionId, initMessage.userId || 'anonymous');
+          const userId = initMessage.userId;
+          if (!userId) {
+            throw new Error('User ID is required');
+          }
+          console.log(`[websocket.service] Glasses client connected: ${userId}`);
+          this.sessionService.handleReconnectUserSession(userSession, userId);
 
           // Start transcription
           const { recognizer, pushStream } = this.transcriptionService.startTranscription(
-            userSessionId,
+            userSession.sessionId,
             (result) => {
-              console.log(`[Session ${userSessionId}] Recognizing:`, result.text);
-              this.broadcastToTpa(userSessionId, "transcription", result as any);
+              console.log(`[Session ${userSession.sessionId}] Recognizing:`, result.text);
+              this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
             },
             (result) => {
-              console.log(`[Session ${userSessionId}] Final result:`, result.text);
-              this.broadcastToTpa(userSessionId, "transcription", result as any);
+              console.log(`[Session ${userSession.sessionId}] Final result:`, result.text);
+              this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
             }
           );
 
-          this.sessionService.setAudioHandlers(userSessionId, pushStream, recognizer);
+          this.sessionService.setAudioHandlers(userSession.sessionId, pushStream, recognizer);
 
-          // Send connection acknowledgment
-          const userSession = this.sessionService.getSession(userSessionId);
-          if (!userSession) {
-            throw new Error('[websoket.service.ts] Session not found');
-          }
+          const activeAppPackageNames = Array.from(userSession.activeAppSessions.keys());
 
           const userSessionData = {
             sessionId: userSession.sessionId,
             userId: userSession.userId,
             startTime: userSession.startTime,
             installedApps: await this.appService.getAllApps(),
-            activeAppSessions: userSession.activeAppSessions,
+            activeAppPackageNames,
             whatToStream: userSession.whatToStream,
           };
 
           const ackMessage: CloudConnectionAckMessage = {
             type: 'connection_ack',
-            sessionId: userSessionId, // TODO: Remove this field and check all references.
+            sessionId: userSession.sessionId,
             userSession: userSessionData,
             timestamp: new Date()
           };
@@ -332,16 +339,10 @@ export class WebSocketService implements IWebSocketService {
           const startMessage = message as GlassesStartAppMessage;
           console.log(`Starting app ${startMessage.packageName}`);
           await this.initiateTpaSession(
-            userSessionId,
-            this.sessionService.getSession(userSessionId)?.userId || 'anonymous',
+            userSession.sessionId,
+            userSession?.userId || 'anonymous',
             startMessage.packageName
           );
-
-          // Send connection acknowledgment
-          const userSession = this.sessionService.getSession(userSessionId);
-          if (!userSession) {
-            throw new Error('[websoket.service.ts] Session not found');
-          }
 
           const userSessionData = {
             sessionId: userSession.sessionId,
@@ -354,7 +355,7 @@ export class WebSocketService implements IWebSocketService {
 
           const clientResponse: CloudAppStateChangeMessage = {
             type: 'app_state_change',
-            sessionId: userSessionId, // TODO: Remove this field and check all references.
+            sessionId: userSession.sessionId, // TODO: Remove this field and check all references.
             userSession: userSessionData,
             timestamp: new Date()
           };
@@ -366,10 +367,10 @@ export class WebSocketService implements IWebSocketService {
           const stopMessage = message as GlassesStopAppMessage;
           console.log(`Stopping app ${stopMessage.packageName}`);
           // Remove subscriptions for the app.
-          this.subscriptionService.removeSubscriptions(userSessionId, stopMessage.packageName);
+          this.subscriptionService.removeSubscriptions(userSession.sessionId, stopMessage.packageName);
 
           // Close TPA connection.
-          const tpaSessionId = `${userSessionId}-${stopMessage.packageName}`;
+          const tpaSessionId = `${userSession.sessionId}-${stopMessage.packageName}`;
           const connection = this.tpaConnections.get(tpaSessionId);
           if (connection) {
             connection.websocket.close();
@@ -377,12 +378,6 @@ export class WebSocketService implements IWebSocketService {
 
           // Remove TPA connection.
           this.tpaConnections.delete(tpaSessionId);
-
-          // Send connection acknowledgment
-          const userSession = this.sessionService.getSession(userSessionId);
-          if (!userSession) {
-            throw new Error('[websoket.service.ts] Session not found');
-          }
 
           const userSessionData = {
             sessionId: userSession.sessionId,
@@ -395,7 +390,7 @@ export class WebSocketService implements IWebSocketService {
 
           const clientResponse: CloudAppStateChangeMessage = {
             type: 'app_state_change',
-            sessionId: userSessionId, // TODO: Remove this field and check all references.
+            sessionId: userSession.sessionId, // TODO: Remove this field and check all references.
             userSession: userSessionData,
             timestamp: new Date()
           };
@@ -405,28 +400,28 @@ export class WebSocketService implements IWebSocketService {
 
         case 'button_press': {
           const buttonMessage = message as ButtonPressEvent;
-          this.broadcastToTpa(userSessionId, 'button_press', buttonMessage as any);
+          this.broadcastToTpa(userSession.sessionId, 'button_press', buttonMessage as any);
           break;
         }
 
         case 'head_position': {
           const headMessage = message as HeadPositionEvent;
-          this.broadcastToTpa(userSessionId, 'head_position', headMessage as any);
+          this.broadcastToTpa(userSession.sessionId, 'head_position', headMessage as any);
           break;
         }
 
         case 'phone_notification': {
           const notifMessage = message as PhoneNotificationEvent;
-          this.broadcastToTpa(userSessionId, 'phone_notifications', notifMessage as any);
+          this.broadcastToTpa(userSession.sessionId, 'phone_notifications', notifMessage as any);
           break;
         }
 
         default: {
-          console.warn(`[Session ${userSessionId}] Unhandled message type:`, message.type);
+          console.warn(`[Session ${userSession.sessionId}] Unhandled message type:`, message.type);
         }
       }
     } catch (error) {
-      console.error(`[Session ${userSessionId}] Error handling message:`, error);
+      console.error(`[Session ${userSession.sessionId}] Error handling message:`, error);
       // Optionally send error to client
       const errorMessage: CloudConnectionErrorMessage = {
         type: 'connection_error',
@@ -587,7 +582,6 @@ export class WebSocketService implements IWebSocketService {
     // TODO: 🔐 Authenticate TPA with API key !important 😳.
     this.pendingTpaSessions.delete(initMessage.sessionId);
     this.tpaConnections.set(connectionId, { packageName, userSessionId, websocket: ws });
-
     setCurrentSessionId(connectionId);
 
     const ackMessage: CloudTpaConnectionAckMessage = {
@@ -596,7 +590,6 @@ export class WebSocketService implements IWebSocketService {
       timestamp: new Date()
     };
     ws.send(JSON.stringify(ackMessage));
-
     console.log(`TPA ${packageName} connected for session ${initMessage.sessionId}`);
   }
 

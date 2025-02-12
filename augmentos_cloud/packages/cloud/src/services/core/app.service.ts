@@ -16,7 +16,7 @@ import axios, { AxiosError } from 'axios';
  * These are core applications provided by the platform.
  * @Param developerId - leaving this undefined indicates a system app.
  */
-const SYSTEM_TPAS: AppI[] = [
+export const SYSTEM_TPAS: AppI[] = [
   {
     packageName: "org.mentra.captions",
     name: "Captions",
@@ -85,6 +85,14 @@ export class AppService implements IAppService {
    */
   async getAllApps(): Promise<AppI[]> {
     return [...SYSTEM_TPAS, ...this.userTpas];
+  }
+
+  /**
+   * Gets available system TPAs.
+   * @returns array of system apps.
+   */
+  getSystemApps(): AppI[] {
+    return SYSTEM_TPAS;
   }
 
   /**
