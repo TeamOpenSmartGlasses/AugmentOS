@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '@shared/index';
+import { Layout } from '@augmentos/types';
 import LayoutRenderer  from './LayoutRenderer';
 
 interface DisplayAreaProps {

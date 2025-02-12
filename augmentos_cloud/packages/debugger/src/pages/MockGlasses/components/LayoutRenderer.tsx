@@ -1,14 +1,14 @@
 // src/components/LayoutRenderer.tsx
 
 import React, { useMemo } from 'react';
-import { Layout, TextWall, DoubleTextWall, ReferenceCard } from '@shared/index';
+import { Layout, TextWall, DoubleTextWall, ReferenceCard } from '@augmentos/types';
 
 interface LayoutRendererProps {
   layout: Layout;
   className?: string;
 }
 
-export const LayoutRenderer: React.FC<LayoutRendererProps> = ({ 
+export const LayoutRenderer: React.FC<LayoutRendererProps> = ({
   layout,
   className = ''
 }) => {
@@ -17,7 +17,7 @@ export const LayoutRenderer: React.FC<LayoutRendererProps> = ({
       case 'text_wall':
         return <TextWallLayout layout={layout} />;
       case 'double_text_wall':
-        return <DoubleTextWall layout={layout} />;
+        return <DoubleTextWallLayout layout={layout} />;
       case 'reference_card':
         return <ReferenceCardLayout layout={layout} />;
       default:
@@ -49,14 +49,13 @@ interface DoubleTextWallLayoutProps {
 
 const DoubleTextWallLayout: React.FC<DoubleTextWallLayoutProps> = ({ layout }) => (
   <div>
-  <div className="text-wall whitespace-pre-wrap break-words">
-    {layout.textTop}
+    <div className="text-wall whitespace-pre-wrap break-words">
+      {layout.topText}
+    </div>
+    <div className="text-wall whitespace-pre-wrap break-words">
+      {layout.bottomText}
+    </div>
   </div>
-  <div className="text-wall whitespace-pre-wrap break-words">
-    {layout.textBottom}
-  </div>
-  </div>
-  
 );
 
 interface ReferenceCardLayoutProps {
