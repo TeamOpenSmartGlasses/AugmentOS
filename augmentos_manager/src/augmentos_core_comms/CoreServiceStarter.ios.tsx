@@ -9,3 +9,7 @@ export const stopExternalService = () => {
 export const openCorePermissionsActivity = () => {
     console.warn("CoreServiceStarter is not available on iOS");
 };
+
+export const areAllCorePermissionsGranted = () => {
+    console.warn("CoreServiceStarter is not available on iOS");
+}

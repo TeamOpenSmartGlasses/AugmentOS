@@ -149,3 +149,5 @@ dependencies {
     //Vuzix Ultralite OEM Platform / Vuzix Z100
     implementation 'com.vuzix:ultralite-sdk-android:1.8'
 }
+
+// apply from: rootProject.project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"

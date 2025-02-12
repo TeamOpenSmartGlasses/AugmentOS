@@ -451,7 +451,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Subscribe
     public void onGlassBatteryLevelEvent(BatteryLevelEvent event) {
         batteryLevel = event.batteryLevel;
-        ServerComms.getInstance().sendBatteryUpdate(event.batteryLevel, false, -1);
+        ServerComms.getInstance().sendGlassesBatteryUpdate(event.batteryLevel, false, -1);
         sendStatusToAugmentOsManager();
     }
 
@@ -867,7 +867,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             status.put("contextual_dashboard_enabled", this.contextualDashboardEnabled);
             status.put("force_core_onboard_mic", AugmentosSmartGlassesService.getForceCoreOnboardMic(this));
             status.put("default_wearable", AugmentosSmartGlassesService.getPreferredWearable(this));
-            // Log.d(TAG, "PREFER - Got default wearable: " + AugmentosSmartGlassesService.getPreferredWearable(this));
+            Log.d(TAG, "PREFER - Got default wearable: " + AugmentosSmartGlassesService.getPreferredWearable(this));
 
             // Adding connected glasses object
             JSONObject connectedGlasses = new JSONObject();

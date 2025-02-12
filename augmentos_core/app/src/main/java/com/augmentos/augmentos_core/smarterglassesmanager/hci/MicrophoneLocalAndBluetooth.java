@@ -2,11 +2,13 @@ package com.augmentos.augmentos_core.smarterglassesmanager.hci;
 
 //thanks to https://github.com/aahlenst/android-audiorecord-sample/blob/master/src/main/java/com/example/audiorecord/BluetoothRecordActivity.java
 
+import android.Manifest;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioRecord;
@@ -14,6 +16,9 @@ import android.media.MediaRecorder;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
 
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.ScoStartEvent;
 
@@ -186,8 +191,20 @@ public class MicrophoneLocalAndBluetooth {
             EventBus.getDefault().post(new ScoStartEvent(false));
         }
 
+        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this.mContext, "Need permissions to start audio", Toast.LENGTH_LONG).show();
+            stopRecording();
+            return;
+        }
         recorder = new AudioRecord(MediaRecorder.AudioSource.UNPROCESSED,
                 SAMPLING_RATE_IN_HZ, CHANNEL_CONFIG, AUDIO_FORMAT, bufferSize * 2);
+
+        if (recorder.getState() != AudioRecord.STATE_INITIALIZED) {
+            Log.e(TAG, "Failed to initialize AudioRecord");
+            Toast.makeText(this.mContext, "Error starting onboard microphone", Toast.LENGTH_LONG).show();
+            stopRecording();
+            return;
+        }
 
         recorder.startRecording();
 
