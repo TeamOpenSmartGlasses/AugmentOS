@@ -24,7 +24,7 @@ const activeSessions = new Map<string, WebSocket>();
 // Handle webhook call from AugmentOS Cloud
 app.post('/webhook', async (req, res) => {
   try {
-    const { sessionId, userId, timestamp } = req.body;
+    const { sessionId, userId } = req.body;
     console.log(`\n\n🗣️🗣️🗣️Received session request for user ${userId}, session ${sessionId}\n\n`);
 
     // Start WebSocket connection to cloud

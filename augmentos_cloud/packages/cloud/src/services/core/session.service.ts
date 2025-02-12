@@ -13,52 +13,10 @@
 
 import { WebSocket } from 'ws';
 import { v4 as uuidv4 } from 'uuid';
-import {
-  Layout,
-  DisplayHistory,
-  TranscriptSegment,
-  Subscription,
-  AppSettings,
-  CloudDisplayEventMessage,
-  AppState
-} from '../../types';
-
-/**
- * Represents an active user session with a glasses client.
- * Design decision: Keep all real-time state in memory for minimal latency.
- */
-export interface UserSession {
-  sessionId: string;
-  userId: string;
-  startTime: Date;
-  activeAppSessions: Map<string, AppSession>;
-  currentDisplay?: Layout;
-  displayHistory: DisplayHistory;
-  websocket: WebSocket;
-  transcript: {
-    segments: TranscriptSegment[];
-    lastUpdated: Date;
-  };
-  // Azure Speech Service handles
-  pushStream: any;
-  recognizer: any;
-  // Pre-initialization audio buffer
-  bufferedAudio: ArrayBuffer[];
-}
-
-/**
- * Represents an active TPA session within a user session.
- */
-export interface AppSession {
-  packageName: string;
-  userId: string;
-  subscriptions: Subscription[];
-  settings: AppSettings;
-  websocket?: WebSocket;
-  state: AppState;
-  startTime: Date;
-  lastActiveTime: Date;
-}
+import { UserSession } from '@augmentos/types';
+import { TranscriptSegment } from '@augmentos/types/core/transcript';
+import DisplayManager from '../layout/DisplayManager';
+import { DisplayRequest } from '@augmentos/types/events/display';
 
 /**
  * Interface defining the public API of the session service.
@@ -67,7 +25,7 @@ export interface ISessionService {
   createSession(ws: WebSocket, userId?: string): UserSession;
   getSession(sessionId: string): UserSession | null;
   updateUserId(sessionId: string, userId: string): void;
-  updateDisplay(sessionId: string, layout: Layout, durationMs?: number): void;
+  updateDisplay(sessionId: string, displayRequest: DisplayRequest): void;
   addTranscriptSegment(sessionId: string, segment: TranscriptSegment): void;
   setAudioHandlers(sessionId: string, pushStream: any, recognizer: any): void;
   handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void;
@@ -103,12 +61,9 @@ export class SessionService implements ISessionService {
       userId,
       startTime: new Date(),
       activeAppSessions: new Map(),
-      displayHistory: [],
-      websocket: ws,
-      transcript: {
-        segments: [],
-        lastUpdated: new Date()
-      },
+      displayManager: new DisplayManager(),
+      websocket: ws as any,
+      transcript: { segments: [] },
       pushStream: null,
       recognizer: null,
       bufferedAudio: []
@@ -143,35 +98,18 @@ export class SessionService implements ISessionService {
 
   /**
    * Updates the display state for a session and notifies the client.
-   * @param sessionId - Session identifier
-   * @param layout - New display layout
-   * @param durationMs - Optional duration for the display
+   * @param userSessionId - userSession identifier
+   * @param displayRequest - New display request
    */
-  updateDisplay(sessionId: string, layout: Layout, durationMs?: number): void {
-    const session = this.getSession(sessionId);
+  updateDisplay(userSessionId: string, displayRequest: DisplayRequest): void {
+    const session = this.getSession(userSessionId);
     if (!session) return;
 
-    // Update current display
-    session.currentDisplay = layout;
-
     // Add to display history
-    session.displayHistory.push({
-      layout,
-      timestamp: new Date(),
-      durationInMilliseconds: durationMs || 0
-    });
-
-    // Notify client
-    const displayMessage: CloudDisplayEventMessage = {
-      type: 'display_event',
-      sessionId,
-      layout,
-      durationMs,
-      timestamp: new Date()
-    };
+    session.displayManager.handleDisplayEvent(displayRequest);
 
     if (session.websocket.readyState === WebSocket.OPEN) {
-      session.websocket.send(JSON.stringify(displayMessage));
+      session.websocket.send(JSON.stringify(displayRequest));
     }
   }
 
@@ -184,7 +122,6 @@ export class SessionService implements ISessionService {
     const session = this.getSession(sessionId);
     if (session) {
       session.transcript.segments.push(segment);
-      session.transcript.lastUpdated = new Date();
     }
   }
 

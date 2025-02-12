@@ -1,55 +1,13 @@
-// src/types/events/display.ts
-import { WebSocketMessage } from '../websocket/common';
+import type { Layout } from "../layout/layout";
+import type { WebSocketMessage } from "../websocket/common";
 
-export interface TextWall {
-  layoutType: 'text_wall';
-  text: string;
+export interface DisplayRequest extends WebSocketMessage {
+    view: "main" | string;
+    type: 'display_event'; // not gonna make this match so we don't have to change it everywhere. maybe theres a better way to manage enums in typescript so we can leverage them.
+    layout: Layout;
+    timestamp: Date;
+    packageName: "system" | string;
+    durationMs?: number;
 }
 
-export interface DoubleTextWall {
-  layoutType: 'double_text_wall';
-  topText: string;
-  bottomText: string;
-}
-
-export interface DashboardCard {
-  layoutType: 'dashboard_card';
-  title: string;
-  text: string;
-}
-
-export interface TextRows {
-  layoutType: 'text_rows';
-  text: string[];
-}
-
-export interface TextLine {
-  layoutType: 'text_line';
-  text: string;
-}
-
-export interface ReferenceCard {
-  layoutType: 'reference_card';
-  title: string;
-  text: string;
-}
-
-export type Layout = TextWall | DashboardCard | TextRows | TextLine | ReferenceCard;
-
-export type DisplayHistory = {
-  layout: Layout;
-  timestamp: Date;
-  durationInMilliseconds: number;
-}[];
-
-export interface DisplayEvent extends WebSocketMessage {
-  type: 'display_event';
-  layout: Layout;
-  durationMs?: number;
-  packageName?: string;
-}
-
-export interface DashboardDisplayEvent extends WebSocketMessage {
-  type: 'dashboard_display_event';
-  layout: Layout;
-}
+export type DisplayHistory = DisplayRequest[];

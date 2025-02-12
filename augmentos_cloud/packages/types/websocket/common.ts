@@ -6,7 +6,7 @@ export interface WebSocketMessage {
   sessionId?: string;
 }
 
-export type Subscription = 
+export type StreamType = 
   | 'button_press' 
   | 'head_position'
   | 'phone_notifications' 

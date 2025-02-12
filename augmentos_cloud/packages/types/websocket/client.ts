@@ -1,8 +1,9 @@
 // src/types/websocket/client.ts
-import { WebSocketMessage } from './common';
-import { Layout } from '../events/display';
-import { HardwareEvent } from '../events/hardware';
-import { PhoneEvent } from '../events/phone';
+import type { WebSocketMessage } from './common';
+import type { Layout } from '../layout/layout';
+import type { HardwareEvent } from '../events/hardware';
+import type { PhoneEvent } from '../events/phone';
+import type { UserSession } from '../core/user.session';
 
 // Client -> Cloud Messages
 export interface GlassesConnectionInitMessage extends WebSocketMessage {
@@ -36,6 +37,7 @@ export type GlassesToCloudMessage =
 // Cloud -> Client Messages
 export interface CloudConnectionAckMessage extends WebSocketMessage {
   type: "connection_ack";
+  userSession: Partial<UserSession>;
   sessionId: string;
 }
 

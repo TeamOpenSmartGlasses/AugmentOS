@@ -26,29 +26,27 @@ import {
   CloudTpaConnectionAckMessage,
   TpaToCloudMessage,
   TpaSubscriptionUpdateMessage,
-  TpaDisplayEventMessage,
   CloudDataStreamMessage,
 
   // Common
   WebSocketError,
-  Subscription,
+  StreamType,
   ButtonPressEvent,
   GlassesStartAppMessage,
   GlassesStopAppMessage,
   HeadPositionEvent,
-  PhoneNotificationEvent
-} from '../../types';
+  PhoneNotificationEvent,
+  CloudToTpaMessage
+} from '@augmentos/types';
 
 import sessionService, { ISessionService } from '../core/session.service';
 import subscriptionService, { ISubscriptionService } from './subscription.service';
 import transcriptionService, { ITranscriptionService } from '../processing/transcription.service';
 import appService, { IAppService } from '../core/app.service';
-import displayService, { IDisplayService } from './display.service';
+import { DisplayRequest } from '@augmentos/types/events/display';
 
 // Constants
 const TPA_SESSION_TIMEOUT_MS = 5000;  // 30 seconds
-const PING_INTERVAL_MS = 30000;        // 30 seconds
-const PING_TIMEOUT_MS = 5000;          // 5 seconds
 
 /**
  * Interface for pending TPA sessions awaiting WebSocket connection.
@@ -75,7 +73,7 @@ interface TpaConnection {
  */
 export interface IWebSocketService {
   setupWebSocketServers(server: Server): void;
-  broadcastToTpa(userSessionId: string, streamType: Subscription, data: any): void; // TODO: Specify data type.
+  broadcastToTpa(userSessionId: string, streamType: StreamType, data: any): void; // TODO: Specify data type.
   initiateTpaSession(userSessionId: string, userId: string, packageName: string): Promise<string>;
 }
 
@@ -94,7 +92,7 @@ export class WebSocketService implements IWebSocketService {
     private readonly subscriptionService: ISubscriptionService,
     private readonly transcriptionService: ITranscriptionService,
     private readonly appService: IAppService,
-    private readonly displayService: IDisplayService
+    // private readonly displayService: IDisplayService
   ) {
     this.glassesWss = new WebSocketServer({ noServer: true });
     this.tpaWss = new WebSocketServer({ noServer: true });
@@ -168,7 +166,7 @@ export class WebSocketService implements IWebSocketService {
    * @param streamType - Type of data stream
    * @param data - Data to broadcast
    */
-  broadcastToTpa(userSessionId: string, streamType: Subscription, data: any): void {
+  broadcastToTpa(userSessionId: string, streamType: StreamType, data: CloudToTpaMessage): void {
     // TODO: don't use any for data type. Fix this.
     const subscribedApps = this.subscriptionService.getSubscribedApps(userSessionId, streamType);
 
@@ -237,7 +235,7 @@ export class WebSocketService implements IWebSocketService {
       try {
         if (isBinary && Buffer.isBuffer(message)) {
           // Convert Node.js Buffer to ArrayBuffer
-          const arrayBuf: ArrayBuffer = message.buffer.slice(
+          const arrayBuf: ArrayBufferLike = message.buffer.slice(
             message.byteOffset,
             message.byteOffset + message.byteLength
           );
@@ -294,20 +292,36 @@ private async handleGlassesMessage(
           userSessionId,
           (result) => { 
             console.log(`[Session ${userSessionId}] Recognizing:`, result.text);
-            this.broadcastToTpa(userSessionId, "transcription", result);
+            this.broadcastToTpa(userSessionId, "transcription", result as any);
           },
           (result) => {
             console.log(`[Session ${userSessionId}] Final result:`, result.text);
-            this.broadcastToTpa(userSessionId, "transcription", result);
+            this.broadcastToTpa(userSessionId, "transcription", result as any);
           }
         );
 
         this.sessionService.setAudioHandlers(userSessionId, pushStream, recognizer);
 
         // Send connection acknowledgment
+        const userSession = this.sessionService.getSession(userSessionId);
+        if (!userSession) {
+          throw new Error('[websoket.service.ts] Session not found');
+        }
+
+        const userSessionData = {
+          sessionId: userSession.sessionId,
+
+          userId: userSession.userId,
+          startTime: userSession.startTime,
+          installedApps: userSession.installedApps,
+          activeAppSessions: userSession.activeAppSessions,
+          whatToStream: userSession.whatToStream,
+        };
+
         const ackMessage: CloudConnectionAckMessage = {
           type: 'connection_ack',
-          sessionId: userSessionId,
+          sessionId: userSessionId, // TODO: Remove this field and check all references.
+          userSession: userSessionData,
           timestamp: new Date()
         };
         ws.send(JSON.stringify(ackMessage));
@@ -347,19 +361,19 @@ private async handleGlassesMessage(
 
       case 'button_press': {
         const buttonMessage = message as ButtonPressEvent;
-        this.broadcastToTpa(userSessionId, 'button_press', buttonMessage);
+        this.broadcastToTpa(userSessionId, 'button_press', buttonMessage as any);
         break;
       }
 
       case 'head_position': {
         const headMessage = message as HeadPositionEvent;
-        this.broadcastToTpa(userSessionId, 'head_position', headMessage);
+        this.broadcastToTpa(userSessionId, 'head_position', headMessage as any);
         break;
       }
 
       case 'phone_notification': {
         const notifMessage = message as PhoneNotificationEvent;
-        this.broadcastToTpa(userSessionId, 'phone_notifications', notifMessage);
+        this.broadcastToTpa(userSessionId, 'phone_notifications', notifMessage as any);
         break;
       }
 
@@ -491,16 +505,15 @@ private async handleGlassesMessage(
           return;
         }
 
-        const displayMessage = message as TpaDisplayEventMessage;
+        const displayMessage = message as DisplayRequest;
         const connection = this.tpaConnections.get(currentSession);
         if (!connection) return;
 
-        await this.displayService.handleDisplayEvent(
+        this.sessionService.updateDisplay(
           connection.userSessionId,
-          connection.packageName,
-          displayMessage.layout,
-          displayMessage.durationMs
+          displayMessage
         );
+
         break;
       }
     }
@@ -524,7 +537,7 @@ private async handleGlassesMessage(
       return;
     }
 
-    const { userSessionId, userId, packageName } = pendingSession;
+    const { userSessionId, packageName } = pendingSession;
     const connectionId = `${userSessionId}-${packageName}`;
 
     // TODO: 🔐 Authenticate TPA with API key !important 😳.
@@ -589,7 +602,6 @@ private async handleGlassesMessage(
  * @param subscriptionService - Service for managing TPA subscriptions
  * @param transcriptionService - Service for handling audio transcription
  * @param appService - Service for managing TPAs
- * @param displayService - Service for managing display state
  * @returns An initialized WebSocket service instance
  */
 export function createWebSocketService(
@@ -597,17 +609,14 @@ export function createWebSocketService(
   subscriptionService: ISubscriptionService,
   transcriptionService: ITranscriptionService,
   appService: IAppService,
-  displayService: IDisplayService
 ): IWebSocketService {
   return new WebSocketService(
     sessionService,
     subscriptionService,
     transcriptionService,
     appService,
-    displayService
   );
 }
-
 
 /**
  * ☝️ Singleton instance with actual service implementations.
@@ -619,7 +628,6 @@ export const webSocketService = createWebSocketService(
   subscriptionService,
   transcriptionService,
   appService,
-  displayService
 );
 console.log('✅ WebSocket Service');
 

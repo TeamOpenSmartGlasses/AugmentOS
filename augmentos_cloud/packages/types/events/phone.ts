@@ -1,5 +1,5 @@
 // src/types/events/phone.ts
-import { WebSocketMessage } from '../websocket/common';
+import type { WebSocketMessage } from '../websocket/common';
 
 export interface PhoneNotificationEvent extends WebSocketMessage {
   type: 'phone_notification';
