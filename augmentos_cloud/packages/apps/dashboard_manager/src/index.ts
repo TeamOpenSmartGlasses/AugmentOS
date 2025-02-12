@@ -12,6 +12,7 @@ import {
 } from '@augmentos/types';
 
 import { NewsAgent } from './dashboard_modules/NewsAgent';  // lowercase 'n'
+import { WeatherModule } from './dashboard_modules/WeatherModule';
 // e.g. { languageLearning: LanguageLearningAgent, news: NewsAgent, ... }
 
 const app = express();
@@ -19,6 +20,7 @@ const PORT = 7012; // your Dashboard Manager port
 
 const PACKAGE_NAME = 'org.mentra.dashboard';
 const API_KEY = 'test_key'; // In production, store securely
+const LOCATION = 'New York'; // Hardcoded for now
 
 // For demonstration, we'll keep session-based info in-memory.
 // In real usage, you might store persistent data in a DB.
@@ -26,13 +28,19 @@ interface SessionInfo {
   userId: string;
   ws: WebSocket;
   // track last agent calls
-  lastNewsUpdate?: number; 
+  lastNewsUpdate?: number;
+  // cache for transcription data (could be an array to accumulate multiple transcriptions)
+  transcriptionCache?: any[];
+  // embed the dashboard card into session info
+  dashboard: DashboardCard;
   [key: string]: any;
 }
 
 const activeSessions = new Map<string, SessionInfo>();
-const activeDashboards = new Map<string, DashboardCard>();
 
+/**
+ * Creates the dashboard layout from the provided card.
+ */
 function createDashboardLayout(card: DashboardCard) {
   return {
     layoutType: card.layoutType,
@@ -60,15 +68,22 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     // Create a new dashboard card
     const dashboardCard: DashboardCard = {
       layoutType: 'dashboard_card',
-      timeDateAndBattery: '02/12/2025 12:00:00 100%',
+      timeDateAndBattery: '02/12/2025 12:00 100%',
       bottomRight: '100%',
       topRight: 'Meeting with John',
       bottomLeft: '',
     };
 
-    activeDashboards.set(sessionId, dashboardCard);
+    // Store session info, including the dashboard card.
+    activeSessions.set(sessionId, {
+      userId,
+      ws,
+      lastNewsUpdate: Date.now(), // start time for e.g. news
+      transcriptionCache: [],
+      dashboard: dashboardCard,
+    });
 
-    // 2) On open, send tpa_connection_init
+    // 2) On open, send tpa_connection_init and initial dashboard display event
     ws.on('open', () => {
       console.log(`[Session ${sessionId}] Connected to augmentos-cloud`);
 
@@ -90,10 +105,7 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
         durationMs: 4000,
       };
 
-      console.log('Sending display event:', displayEvent);
-
       ws.send(JSON.stringify(displayEvent));
-
     });
 
     // 3) On message, handle incoming data
@@ -110,14 +122,6 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     ws.on('close', () => {
       console.log(`[Session ${sessionId}] Disconnected`);
       activeSessions.delete(sessionId);
-      activeDashboards.delete(sessionId);
-    });
-
-    // Store session info
-    activeSessions.set(sessionId, {
-      userId,
-      ws,
-      lastNewsUpdate: Date.now(), // start time for e.g. news
     });
 
     // Respond to the cloud
@@ -139,11 +143,11 @@ function handleMessage(sessionId: string, message: any) {
   }
 
   switch (message.type) {
-
     case 'data_stream': {
       const streamMessage = message as CloudDataStreamMessage;
       switch (streamMessage.streamType) {
         case 'transcription':
+          // Instead of immediately calling the NewsAgent, cache the transcription.
           handleTranscription(sessionId, streamMessage.data);
           break;
 
@@ -159,38 +163,17 @@ function handleMessage(sessionId: string, message: any) {
   }
 }
 
-// -----------------------------------
-// 3) Handle Transcription
-// -----------------------------------
-async function handleTranscription(sessionId: string, transcriptionData: any) {
-  // Create an instance of NewsAgent
-  const newsAgent = new NewsAgent();
-  try {
-    const sessionInfo = activeSessions.get(sessionId);
-    if (!sessionInfo) return;
-    
-    const result = await newsAgent.handleContext({});
 
-    // If you have something to display, send a display_event
-    if (result && result.translatedWords) {
-      const displayEvent: DashboardDisplayEventMessage = {
-        type: 'dashboard_display_event',
-        packageName: PACKAGE_NAME,
-        sessionId,
-        layout: {
-          layoutType: 'text_rows',
-          text: [
-            'Language Learning Agent Output:',
-            JSON.stringify(result.translatedWords),
-          ],
-        },
-        durationMs: 4000,
-      };
-      sessionInfo.ws.send(JSON.stringify(displayEvent));
-    }
-  } catch (err) {
-    console.error(`[Session ${sessionId}] handleTranscription error:`, err);
+function handleTranscription(sessionId: string, transcriptionData: any) {
+  const sessionInfo = activeSessions.get(sessionId);
+  if (!sessionInfo) return;
+  if (!sessionInfo.transcriptionCache) {
+    sessionInfo.transcriptionCache = [];
   }
+  sessionInfo.transcriptionCache.push(transcriptionData);
+  console.log(
+    `[Session ${sessionId}] Cached transcription. Total cached items: ${sessionInfo.transcriptionCache.length}`
+  );
 }
 
 // -----------------------------------
@@ -198,56 +181,73 @@ async function handleTranscription(sessionId: string, transcriptionData: any) {
 // -----------------------------------
 function handleSettings(sessionId: string, settingsData: any) {
   console.log(`[Session ${sessionId}] Received context_settings:`, settingsData);
-  // Optionally store them in session data, pass them to agents, etc.
   const sessionInfo = activeSessions.get(sessionId);
   if (sessionInfo) {
-    // maybe store these settings
     sessionInfo['currentSettings'] = settingsData;
   }
 }
 
 // -----------------------------------
-// 5) Periodic Checks (Internal Clock)
+// 7) Internal Dashboard Updater
 // -----------------------------------
-// For example, check every minute whether it's time to call the News Agent
 setInterval(async () => {
-  const now = Date.now();
-  console.log(`[Dashboard Manager] Checking for news updates at ${now}`);
-  for (const [sessionId, session] of activeSessions.entries()) {
-    const { lastNewsUpdate, ws } = session;
-    if (!ws || ws.readyState !== WebSocket.OPEN) continue;
+  // Use the hardcoded location to get the current time and date.
+  // Here we assume "New York" uses the "America/New_York" timezone.
+  const currentDateTime = new Date().toLocaleString("en-US", {
+    timeZone: "America/New_York",
+    hour: '2-digit',
+    minute: '2-digit',
+    month: 'numeric',
+    day: 'numeric',
+  });
+  console.log(`\n[Dashboard Updater] Updating dashboard time to ${currentDateTime}\n`);
 
-    // Check if 1 hour (3600000 ms) has passed
-    if (now - (lastNewsUpdate ?? 0) >= 60 * 60 * 1000) {
-      // time for a news update
-      try {
-        const newsAgent = new NewsAgent(); // Create instance
-        const result = await newsAgent.handleContext({});
-        
-        if (result && result.text) {
-          const displayEvent: TpaDisplayEventMessage = {
-            type: 'display_event',
-            packageName: PACKAGE_NAME,
-            sessionId,
-            layout: {
-              layoutType: 'text_rows',
-              text: [
-                'News Update:',
-                result.text,
-              ],
-            },
-            durationMs: 5000,
-          };
-          ws.send(JSON.stringify(displayEvent));
-        }
+  // Iterate through each active session.
+  for (const [sessionId, sessionInfo] of activeSessions.entries()) {
+    // Update the time and date in the session's dashboard.
+    sessionInfo.dashboard.timeDateAndBattery = `${currentDateTime} 100%`;
 
-        session.lastNewsUpdate = now; // update timestamp
-      } catch (err) {
-        console.error(`[Session ${sessionId}] News Agent error:`, err);
-      }
+    // Update news (as before)
+    const newsAgent = new NewsAgent();
+    // Create a context that includes the cached transcriptions.
+    const context = { transcriptions: sessionInfo.transcriptionCache };
+    
+    const newsResult = await newsAgent.fetchNewsSummaries(context);
+    sessionInfo.transcriptionCache = [];
+
+    if (newsResult && newsResult.news_summaries && newsResult.news_summaries.length > 0) {
+      // For example, update the bottomRight field with the news summaries (joined by commas).
+      sessionInfo.dashboard.bottomRight = newsResult.news_summaries.join(', ');
     }
+
+    // ----------------------------
+    // Add Weather Forecast Update
+    // ----------------------------
+    // For simplicity, here we use hardcoded New York coordinates.
+    const newYorkLatitude = 40.7128;
+    const newYorkLongitude = -74.0060;
+    const weatherAgent = new WeatherModule();
+    const weather = await weatherAgent.fetchWeatherForecast(newYorkLatitude, newYorkLongitude);
+    if (weather) {
+      sessionInfo.dashboard.bottomLeft = `Weather: ${weather.condition}, ${weather.avg_temp_f}°F`;
+    } else {
+      sessionInfo.dashboard.bottomLeft = 'Weather: N/A';
+    }
+
+    // Create a new dashboard layout using the updated dashboard card.
+    const dashboardLayout = createDashboardLayout(sessionInfo.dashboard);
+    const displayEvent: DashboardDisplayEventMessage = {
+      type: 'dashboard_display_event',
+      packageName: PACKAGE_NAME,
+      sessionId,
+      layout: dashboardLayout,
+      durationMs: 10000,
+    };
+
+    console.log(`[Session ${sessionId}] Sending updated dashboard:`, displayEvent);
+    sessionInfo.ws.send(JSON.stringify(displayEvent));
   }
-}, 60 * 1000); // check once every minute
+}, 4000);
 
 // -----------------------------------
 // 6) Health Check & Static
