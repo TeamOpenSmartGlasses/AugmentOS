@@ -275,7 +275,11 @@ class SmartGlassesRepresentative {
     public void onTextWallViewEvent(TextWallViewRequestEvent receivedEvent){
         if (smartGlassesCommunicator != null) {
             Log.d(TAG, "SINGLE TEXT WALL BOOM");
-            smartGlassesCommunicator.displayTextWall(receivedEvent.text);
+            if (receivedEvent.x_pos != -1) {
+                smartGlassesCommunicator.displayTextWall(receivedEvent.text);
+            } else {
+                smartGlassesCommunicator.displayTextWall(receivedEvent.text, receivedEvent.x_pos);
+            }
         }
     }
 

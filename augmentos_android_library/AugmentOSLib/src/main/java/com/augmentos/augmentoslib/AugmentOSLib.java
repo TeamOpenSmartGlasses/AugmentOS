@@ -202,6 +202,10 @@ public class AugmentOSLib {
         EventBus.getDefault().post(new TextWallViewRequestEvent(text));
     }
 
+    public void sendTextWall(String text, int x_pos){
+        EventBus.getDefault().post(new TextWallViewRequestEvent(text, x_pos));
+    }
+
     public void sendDoubleTextWall(String textTop, String textBottom){
         EventBus.getDefault().post(new DoubleTextWallViewRequestEvent(textTop, textBottom));
     }
