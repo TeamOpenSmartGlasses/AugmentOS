@@ -103,12 +103,9 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
     packageName: PACKAGE_NAME,
     sessionId,
     layout: {
-      layoutType: 'text_rows',
-      text: 
-      [
-        "Captions:",
-        transcriptionData.text,
-      ]
+      layoutType: 'reference_card',
+      title: "Captions",
+      text: transcriptionData.test_text 
     },
     durationMs: transcriptionData.isFinal ? 3000 : undefined
   };

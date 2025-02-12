@@ -11,20 +11,10 @@ export interface DoubleTextWall {
   bottomText: string;
 }
 
-export interface TextRows {
-  layoutType: 'text_rows';
-  text: string[];
-}
-
-export interface TextLine {
-  layoutType: 'text_line';
-  text: string;
-}
-
 export interface ReferenceCard {
   layoutType: 'reference_card';
   title: string;
   text: string;
 }
 
-export type Layout = TextWall | TextRows | TextLine | ReferenceCard;
+export type Layout = TextWall | DoubleTextWall | ReferenceCard;

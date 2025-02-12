@@ -151,11 +151,9 @@ async function handleTranscription(sessionId: string, transcriptionData: any) {
         packageName: PACKAGE_NAME,
         sessionId,
         layout: {
-          layoutType: 'text_rows',
-          text: [
-            'Language Learning Agent Output:',
-            JSON.stringify(result.translatedWords),
-          ],
+          layoutType: 'reference_card',
+          title: 'Language Learning Agent Output:',
+          text: JSON.stringify(result.translatedWords)
         },
         durationMs: 4000,
       };
@@ -203,11 +201,9 @@ setInterval(async () => {
             packageName: PACKAGE_NAME,
             sessionId,
             layout: {
-              layoutType: 'text_rows',
-              text: [
-                'News Update:',
-                result.text,
-              ],
+              layoutType: 'reference_card',
+              title: 'News Update:',
+              text: result.text
             },
             durationMs: 5000,
           };

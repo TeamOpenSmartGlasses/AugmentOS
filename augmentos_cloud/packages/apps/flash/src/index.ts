@@ -6,7 +6,7 @@ import {
   CloudDataStreamMessage,
   TpaDisplayEventMessage,
   TpaSubscriptionUpdateMessage,
-} from '../../../augmentos_cloud/src/types';
+} from '@augmentos/types';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -105,12 +105,9 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
     packageName: PACKAGE_NAME,
     sessionId,
     layout: {
-      layoutType: 'text_rows',
-      text: 
-      [
-        "⚡️ Flash:",
-        transcriptionData.text,
-      ]
+      layoutType: 'reference_card',
+      title: "⚡️ Flash:",
+      text: transcriptionData.text
     },
     durationMs: transcriptionData.isFinal ? 3000 : undefined
   };
