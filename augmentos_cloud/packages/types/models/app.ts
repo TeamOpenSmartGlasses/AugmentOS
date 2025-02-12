@@ -1,16 +1,6 @@
 // src/types/models/app.ts
-import { DatabaseModel } from '../base';
-import { Language } from '../base';
 
-export type AppState = 
-  | 'not_installed'  // Initial state
-  | 'installed'      // Installed but never run
-  | 'booting'        // Starting up
-  | 'running'        // Active and running
-  | 'stopped'        // Manually stopped
-  | 'error';         // Error state
-
-export interface AppI extends DatabaseModel {
+export interface AppI {
   packageName: string;
   name: string;
   webhookURL: string;
@@ -28,9 +18,9 @@ export interface AppI extends DatabaseModel {
 }
 
 // Setting types
-export type SettingType = 
+export type AppSettingType = 
   | { type: "toggle"; key: string; label: string; defaultValue: boolean }
   | { type: "text"; key: string; label: string; defaultValue?: string }
   | { type: "select"; key: string; label: string; options: { label: string; value: string }[]; defaultValue?: string };
 
-export type AppSettings = SettingType[];
+export type AppSettings = AppSettingType[];

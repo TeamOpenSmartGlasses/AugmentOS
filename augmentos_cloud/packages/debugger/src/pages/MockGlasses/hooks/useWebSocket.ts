@@ -1,5 +1,12 @@
 /* eslint-disable no-case-declarations */
-import { Layout, WebSocketMessage, GlassesConnectionInitMessage, CloudConnectionAckMessage, CloudDisplayEventMessage, CloudConnectionErrorMessage } from '@shared/index';
+import {
+  Layout,
+  WebSocketMessage,
+  GlassesConnectionInitMessage,
+  CloudConnectionAckMessage,
+  CloudDisplayEventMessage,
+  CloudConnectionErrorMessage
+} from '@augmentos/types';
 import { useState, useRef, useCallback, useEffect } from 'react';
 
 export const useWebSocket = () => {
@@ -11,7 +18,7 @@ export const useWebSocket = () => {
   const handleMessage = useCallback((event: MessageEvent) => {
     try {
       const message = JSON.parse(event.data as string) as WebSocketMessage;
-      
+
       switch (message.type) {
         case 'who_are_you':
           const initMessage: GlassesConnectionInitMessage = {
@@ -24,6 +31,7 @@ export const useWebSocket = () => {
         case 'connection_ack':
           const ackMessage = message as CloudConnectionAckMessage;
           setSessionId(ackMessage.sessionId);
+          console.log('Connected to session ⚡️🚀⚡️⚡️⚡️⚡️:', ackMessage);
           setIsConnected(true);
           break;
 

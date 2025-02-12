@@ -22,3 +22,37 @@ buildscript {
 
 apply plugin: "com.facebook.react.rootproject"
 
+// def envFile = rootProject.file(".env")
+// if (envFile.exists()) {
+//     def lines = envFile.readLines()
+
+//     subprojects {
+//         afterEvaluate { subproject ->
+//             if (subproject.plugins.hasPlugin('com.android.library') ||
+//                 subproject.plugins.hasPlugin('com.android.application')) {
+//                 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
+//                 // subproject.android.defaultConfig {
+//                 //     lines.each { line ->
+//                 //         if (line?.trim() && !line.startsWith('#')) {
+//                 //             def (key, value) = line.split('=', 2)
+//                 //             value = value.replace("\"", "").replace("\'", "").trim()
+//                 //             buildConfigField "String", key, "\"${value}\""
+//                 //         }
+//                 //     }
+//                 // }
+//             }
+//         }
+//     }
+// }
+
+subprojects { subproject ->
+    // Only apply to Android modules (apps/libraries):
+    if (subproject.plugins.hasPlugin('com.android.application') ||
+        subproject.plugins.hasPlugin('com.android.library')) {
+
+        // Just apply dotenv.gradle here
+        subproject.apply from: project(':react-native-config')
+            .projectDir.getPath() + "/dotenv.gradle"
+    }
+}

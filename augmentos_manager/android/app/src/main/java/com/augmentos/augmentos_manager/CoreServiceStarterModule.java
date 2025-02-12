@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 
 import com.augmentos.augmentos_core.AugmentosService;
 import com.augmentos.augmentos_core.MainActivity;
+import com.augmentos.augmentos_core.NewPermissionUtils;
+import com.augmentos.augmentos_core.PermissionsActivity;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -70,7 +72,7 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
     public void openPermissionsActivity() {
         try {
 
-            Intent intent = new Intent(getReactApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getReactApplicationContext(), PermissionsActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             getReactApplicationContext().startActivity(intent);
         } catch (Exception e) {
@@ -80,6 +82,7 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
 
     @ReactMethod(isBlockingSynchronousMethod = true)
     public boolean isAugmentOsCoreInstalled() {
+        // Core is just a library now, so it is always installed
         return true;
 //        try {
 //            getReactApplicationContext()
@@ -89,6 +92,11 @@ public class CoreServiceStarterModule extends ReactContextBaseJavaModule {
 //        } catch (PackageManager.NameNotFoundException e) {
 //            return false;
 //        }
+    }
+
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public boolean areAllCorePermissionsGranted() {
+        return NewPermissionUtils.areAllPermissionsGranted(getReactApplicationContext());
     }
 
 }

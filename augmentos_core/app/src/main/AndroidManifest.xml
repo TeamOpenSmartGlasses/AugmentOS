@@ -60,13 +60,14 @@
     </receiver>
 
     <activity
-        android:name="com.augmentos_core.MainActivity"
+        android:name="com.augmentos.augmentos_core.MainActivity"
         android:exported="true"
         android:theme="@style/AppTheme">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
+<!-- Comment these out to prevent Core from having its own launcher icon -->
+        <!--      <intent-filter>-->
+<!--        <action android:name="android.intent.action.MAIN"/>-->
+<!--        <category android:name="android.intent.category.LAUNCHER"/>-->
+<!--      </intent-filter>-->
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
 

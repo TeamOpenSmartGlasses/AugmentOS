@@ -1,9 +1,9 @@
 // src/types/websocket/tpa.ts
 import type { WebSocketMessage } from './common';
-import type { Layout } from '../events/display';
+import type { Layout } from '../layout/layout';
 import type { AppSettings } from '../models/app';
-import type { Subscription } from './common';
-import type { Language } from '../base';
+import type { StreamType } from './common';
+import type { Language } from '../core/app.session';
 
 // TPA -> Cloud Messages
 export interface TpaConnectionInitMessage extends WebSocketMessage {
@@ -30,8 +30,9 @@ export interface DashboardDisplayEventMessage extends WebSocketMessage {
 export interface TpaSubscriptionUpdateMessage extends WebSocketMessage {
   type: "subscription_update";
   packageName: string;
-  subscriptions: Subscription[];
+  subscriptions: StreamType[];
 }
+
 
 export interface TranslationConfig {
   sourceLang: Language;
@@ -60,7 +61,7 @@ export interface CloudTpaConnectionErrorMessage extends WebSocketMessage {
 
 export interface CloudDataStreamMessage extends WebSocketMessage {
   type: "data_stream";
-  streamType: Subscription;
+  streamType: StreamType;
   data: any; // Type depends on subscription type // TODO fix this any. it heavily allows potential bugs
 }
 

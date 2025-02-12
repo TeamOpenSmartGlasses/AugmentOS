@@ -1,5 +1,5 @@
 // src/types/events/hardware.ts
-import { WebSocketMessage } from '../websocket/common';
+import type { WebSocketMessage } from '../websocket/common';
 
 export interface ButtonPressEvent extends WebSocketMessage {
   type: 'button_press';

@@ -1,4 +1,4 @@
-// tpa_servers/captions/src/index.ts
+// augmentos_cloud/packages/apps/captions/src/index.ts
 import express from 'express';
 import WebSocket from 'ws';
 import path from 'path';
@@ -24,7 +24,7 @@ const activeSessions = new Map<string, WebSocket>();
 // Handle webhook call from AugmentOS Cloud
 app.post('/webhook', async (req, res) => {
   try {
-    const { sessionId, userId, timestamp } = req.body;
+    const { sessionId, userId } = req.body;
     console.log(`\n\n🗣️🗣️🗣️Received session request for user ${userId}, session ${sessionId}\n\n`);
 
     // Start WebSocket connection to cloud
@@ -103,15 +103,14 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
     packageName: PACKAGE_NAME,
     sessionId,
     layout: {
-      layoutType: 'text_rows',
-      text: 
-      [
-        "Captions:",
-        transcriptionData.text,
-      ]
+      layoutType: 'reference_card',
+      title: "Captions",
+      text: transcriptionData.text 
     },
     durationMs: transcriptionData.isFinal ? 3000 : undefined
   };
+
+  console.log(`[Session ${sessionId}]: ${transcriptionData.text}`);
 
   // Send the display event back to the cloud
   ws.send(JSON.stringify(displayEvent));

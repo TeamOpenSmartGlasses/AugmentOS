@@ -17,3 +17,7 @@ export const openCorePermissionsActivity = () => {
 export const isAugmentOsCoreInstalled = async () => {
     return ServiceStarter.isAugmentOsCoreInstalled();
 };
+
+export const areAllCorePermissionsGranted = async () => {
+    return ServiceStarter.areAllCorePermissionsGranted();
+}

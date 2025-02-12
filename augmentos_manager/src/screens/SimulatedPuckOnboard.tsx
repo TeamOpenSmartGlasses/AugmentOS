@@ -17,6 +17,7 @@ import {
 import {
   isAugmentOsCoreInstalled,
   openCorePermissionsActivity,
+  areAllCorePermissionsGranted
 } from '../augmentos_core_comms/CoreServiceStarter';
 import { ScrollView } from 'react-native-gesture-handler';
 import { NavigationProps } from '../components/types';
@@ -64,21 +65,30 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
           SIMULATED_PUCK_DEFAULT
         );
         setIsSimulatedPuck(simulatedPuck);
-
-        // 2. Fetch data from app store only once.
-        if (!didFetchStoreData.current) {
-          didFetchStoreData.current = true;
-          const storeData = await fetchAppStoreData();
-          const matchedApp = storeData.find(
-            (app) => app.packageName === AUGMENTOS_CORE_PACKAGE_NAME
-          );
-          const storeVersion = matchedApp?.version ?? null;
-          setAppStoreVersion(storeVersion);
+        setIsCoreInstalled(true);
+        if(await areAllCorePermissionsGranted()) {
+            navigation.reset({
+            index: 0,
+            routes: [{ name: 'Home' }],
+          });
+        } else {
+          openCorePermissionsActivity();
         }
 
-        // 3. Check if core is installed
-        const installed = await isAugmentOsCoreInstalled();
-        setIsCoreInstalled(installed);
+        // // 2. Fetch data from app store only once.
+        // if (!didFetchStoreData.current) {
+        //   didFetchStoreData.current = true;
+        //   const storeData = await fetchAppStoreData();
+        //   const matchedApp = storeData.find(
+        //     (app) => app.packageName === AUGMENTOS_CORE_PACKAGE_NAME
+        //   );
+        //   const storeVersion = matchedApp?.version ?? null;
+        //   setAppStoreVersion(storeVersion);
+        // }
+
+        // // 3. Check if core is installed
+        // const installed = await isAugmentOsCoreInstalled();
+        // setIsCoreInstalled(installed);
       } catch (error) {
         console.error('Error in initialization:', error);
       }
@@ -90,49 +100,52 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
     initialize();
   }, [status]); // status remains in dependencies
 
-  // ---------------------------------------------------------------
-  // 2) When status, appStoreVersion, or isCoreInstalled change,
-  //    compare the local core version with the store version.
-  // ---------------------------------------------------------------
-  useEffect(() => {
-    if (isCoreInstalled && appStoreVersion && status?.augmentos_core_version) {
-      if (status.augmentos_core_version >= appStoreVersion) {
-        setIsCoreOutdated(false);
-        // Open permission screen immediately if needed.
-        openCorePermissionsActivity();
-      } else {
-        setIsCoreOutdated(true);
-      }
-    }
-  }, [status, appStoreVersion, isCoreInstalled]);
+  // // ---------------------------------------------------------------
+  // // 2) When status, appStoreVersion, or isCoreInstalled change,
+  // //    compare the local core version with the store version.
+  // // ---------------------------------------------------------------
+  // useEffect(() => {
+  //   if (isCoreInstalled && appStoreVersion && status?.augmentos_core_version) {
+  //     if (status.augmentos_core_version >= appStoreVersion) {
+  //       setIsCoreOutdated(false);
+  //       // Open permission screen immediately if needed.
 
-  // ---------------------------------------------------------------
-  // 3) If we detect the puck connected, the core is installed, and it
-  //    is not outdated => navigate to Home.
-  // ---------------------------------------------------------------
-  useEffect(() => {
-    if (!isLoading && status?.puck_connected && isCoreInstalled && !isCoreOutdated) {
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'Home' }],
-      });
-    }
-  }, [status, isCoreInstalled, isCoreOutdated, isLoading, navigation]);
+  //     } else {
+  //       setIsCoreOutdated(true);
+  //     }
+  //   }
+  // }, [status, appStoreVersion, isCoreInstalled]);
 
-  // ---------------------------------------------------------------
-  // 4) Listen for app state changes to update installation status,
-  //    but do *not* set isLoading to true again.
-  // ---------------------------------------------------------------
+  // // ---------------------------------------------------------------
+  // // 3) If we detect the puck connected, the core is installed, and it
+  // //    is not outdated => navigate to Home.
+  // // ---------------------------------------------------------------
+  // useEffect(() => {
+  //   if (!isLoading && status?.puck_connected && isCoreInstalled && !isCoreOutdated) {
+  //     navigation.reset({
+  //       index: 0,
+  //       routes: [{ name: 'Home' }],
+  //     });
+  //   }
+  // }, [status, isCoreInstalled, isCoreOutdated, isLoading, navigation]);
+
+  // // ---------------------------------------------------------------
+  // // 4) Listen for app state changes to update installation status,
+  // //    but do *not* set isLoading to true again.
+  // // ---------------------------------------------------------------
   useEffect(() => {
     const subscription = AppState.addEventListener('change', async (nextAppState) => {
       if (nextAppState === 'active') {
-        // Re-check installation state quickly (no isLoading flip)
-        const installed = await isAugmentOsCoreInstalled();
-        setIsCoreInstalled(installed);
-        bluetoothService.sendRequestStatus();
-        // If installed and no need to update => open permission screen
-        if (installed && !isCoreOutdated) {
-          openCorePermissionsActivity();
+        if (await areAllCorePermissionsGranted()) {
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'Home' }],
+          });
+        } else {
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'GrantPermissionsScreen' }],
+          });
         }
       }
     });
@@ -140,21 +153,21 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
     return () => {
       subscription.remove();
     };
-  }, [isCoreOutdated]);
+  }, [status]);
 
-  // ---------------------------------------------------------------
-  // 5) Handler for installing/updating the core
-  // ---------------------------------------------------------------
-  const handleInstallLink = () => {
-    setIsDownloadingCore(true);
-    InstallApkModule.downloadCoreApk()
-      .then(() => {
-        // Optionally re-check installation/version after download.
-      })
-      .finally(() => {
-        setIsDownloadingCore(false);
-      });
-  };
+  // // ---------------------------------------------------------------
+  // // 5) Handler for installing/updating the core
+  // // ---------------------------------------------------------------
+  // const handleInstallLink = () => {
+  //   setIsDownloadingCore(true);
+  //   InstallApkModule.downloadCoreApk()
+  //     .then(() => {
+  //       // Optionally re-check installation/version after download.
+  //     })
+  //     .finally(() => {
+  //       setIsDownloadingCore(false);
+  //     });
+  // };
 
   // ---------------------------------------------------------------
   // If "isLoading" is true, show ONE smooth loader
@@ -227,7 +240,7 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
           {isSimulatedPuck && (
             <View style={styles.setupContainer}>
               <Button
-                onPress={handleInstallLink}
+                onPress={() => {}}
                 isDarkTheme={isDarkTheme}
                 disabled={isDownloadingCore}
                 iconName="download"

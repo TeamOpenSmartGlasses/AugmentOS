@@ -10,16 +10,16 @@
  */
 
 import { 
-    Subscription,
+    StreamType,
     WebSocketError
-  } from '../../types';
+  } from '@augmentos/types';
   
   /**
    * Record of a subscription change
    */
   interface SubscriptionHistory {
     timestamp: Date;
-    subscriptions: Subscription[];
+    subscriptions: StreamType[];
     action: 'add' | 'remove' | 'update';
   }
   
@@ -27,12 +27,12 @@ import {
    * Interface defining the public API of the subscription service
    */
   export interface ISubscriptionService {
-    updateSubscriptions(sessionId: string, packageName: string, userId: string, subscriptions: Subscription[]): void;
-    getSubscribedApps(sessionId: string, subscription: Subscription): string[];
-    getAppSubscriptions(sessionId: string, packageName: string): Subscription[];
+    updateSubscriptions(sessionId: string, packageName: string, userId: string, subscriptions: StreamType[]): void;
+    getSubscribedApps(sessionId: string, subscription: StreamType): string[];
+    getAppSubscriptions(sessionId: string, packageName: string): StreamType[];
     getSubscriptionHistory(sessionId: string, packageName: string): SubscriptionHistory[];
     removeSubscriptions(sessionId: string, packageName: string): void;
-    hasSubscription(sessionId: string, packageName: string, subscription: Subscription): boolean;
+    hasSubscription(sessionId: string, packageName: string, subscription: StreamType): boolean;
   }
   
   /**
@@ -48,7 +48,7 @@ import {
      * Map of active subscriptions keyed by session:app
      * @private
      */
-    private subscriptions = new Map<string, Set<Subscription>>();
+    private subscriptions = new Map<string, Set<StreamType>>();
   
     /**
      * Map of subscription history keyed by session:app
@@ -79,7 +79,7 @@ import {
       sessionId: string,
       packageName: string,
       userId: string,
-      subscriptions: Subscription[]
+      subscriptions: StreamType[]
     ): void {
       const key = this.getKey(sessionId, packageName);
       const currentSubs = this.subscriptions.get(key) || new Set();
@@ -112,7 +112,7 @@ import {
      * @param subscription - Subscription type to check
      * @returns Array of app IDs subscribed to the stream
      */
-    getSubscribedApps(sessionId: string, subscription: Subscription): string[] {
+    getSubscribedApps(sessionId: string, subscription: StreamType): string[] {
       const subscribedApps: string[] = [];
   
       for (const [key, subs] of this.subscriptions.entries()) {
@@ -133,7 +133,7 @@ import {
      * @param packageName - TPA identifier
      * @returns Array of active subscriptions
      */
-    getAppSubscriptions(sessionId: string, packageName: string): Subscription[] {
+    getAppSubscriptions(sessionId: string, packageName: string): StreamType[] {
       const key = this.getKey(sessionId, packageName);
       const subs = this.subscriptions.get(key);
       return subs ? Array.from(subs) : [];
@@ -182,7 +182,7 @@ import {
     hasSubscription(
       sessionId: string, 
       packageName: string, 
-      subscription: Subscription
+      subscription: StreamType
     ): boolean {
       const key = this.getKey(sessionId, packageName);
       const subs = this.subscriptions.get(key);
@@ -209,7 +209,7 @@ import {
      * @returns Boolean indicating if the subscription is valid
      * @private
      */
-    private isValidSubscription(subscription: Subscription): boolean {
+    private isValidSubscription(subscription: StreamType): boolean {
       const validTypes = new Set([
         'button_press',
         'phone_notifications',

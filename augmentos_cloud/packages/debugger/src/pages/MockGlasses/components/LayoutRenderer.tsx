@@ -2,12 +2,13 @@
 
 import React, { useMemo } from 'react';
 import { 
-  Layout, 
-  TextWall, 
-  TextRows, 
-  TextLine, 
-  ReferenceCard, 
-  DashboardCard 
+  Layout,
+  TextWall,
+  DoubleTextWall,
+  TextRows,
+  TextLine,
+  ReferenceCard,
+  DashboardCard
 } from '@augmentos/types';
 
 interface LayoutRendererProps {
@@ -15,7 +16,7 @@ interface LayoutRendererProps {
   className?: string;
 }
 
-export const LayoutRenderer: React.FC<LayoutRendererProps> = ({ 
+export const LayoutRenderer: React.FC<LayoutRendererProps> = ({
   layout,
   className = ''
 }) => {
@@ -23,10 +24,8 @@ export const LayoutRenderer: React.FC<LayoutRendererProps> = ({
     switch (layout.layoutType) {
       case 'text_wall':
         return <TextWallLayout layout={layout} />;
-      case 'text_rows':
-        return <TextRowsLayout layout={layout} />;
-      case 'text_line':
-        return <TextLineLayout layout={layout} />;
+      case 'double_text_wall':
+        return <DoubleTextWallLayout layout={layout} />;
       case 'reference_card':
         return <ReferenceCardLayout layout={layout} />;
       case 'dashboard_card':
@@ -53,27 +52,18 @@ const TextWallLayout: React.FC<TextWallLayoutProps> = ({ layout }) => (
   </div>
 );
 
-interface TextRowsLayoutProps {
-  layout: TextRows;
+interface DoubleTextWallLayoutProps {
+  layout: DoubleTextWall;
 }
 
-const TextRowsLayout: React.FC<TextRowsLayoutProps> = ({ layout }) => (
-  <div className="text-rows space-y-2">
-    {layout.text.map((row, index) => (
-      <div key={index} className="text-row">
-        {row}
-      </div>
-    ))}
-  </div>
-);
-
-interface TextLineLayoutProps {
-  layout: TextLine;
-}
-
-const TextLineLayout: React.FC<TextLineLayoutProps> = ({ layout }) => (
-  <div className="text-line text-lg font-medium">
-    {layout.text}
+const DoubleTextWallLayout: React.FC<DoubleTextWallLayoutProps> = ({ layout }) => (
+  <div>
+    <div className="text-wall whitespace-pre-wrap break-words">
+      {layout.topText}
+    </div>
+    <div className="text-wall whitespace-pre-wrap break-words">
+      {layout.bottomText}
+    </div>
   </div>
 );
 
