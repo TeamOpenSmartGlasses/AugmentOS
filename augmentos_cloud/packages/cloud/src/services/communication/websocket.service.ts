@@ -42,7 +42,7 @@ import {
 import sessionService, { ISessionService } from '../core/session.service';
 import subscriptionService, { ISubscriptionService } from './subscription.service';
 import transcriptionService, { ITranscriptionService } from '../processing/transcription.service';
-import appService, { IAppService } from '../core/app.service';
+import appService, { AppService, IAppService } from '../core/app.service';
 import { DisplayRequest } from '@augmentos/types/events/display';
 
 // Constants
@@ -308,12 +308,14 @@ private async handleGlassesMessage(
           throw new Error('[websoket.service.ts] Session not found');
         }
 
+
+        
         const userSessionData = {
           sessionId: userSession.sessionId,
 
           userId: userSession.userId,
           startTime: userSession.startTime,
-          installedApps: userSession.installedApps,
+          installedApps: await this.appService.getAllApps(),
           activeAppSessions: userSession.activeAppSessions,
           whatToStream: userSession.whatToStream,
         };
