@@ -22,6 +22,7 @@ import {
   AudioConfig,
   SpeechRecognizer
 } from 'microsoft-cognitiveservices-speech-sdk';
+import { AZURE_SPEECH_REGION, AZURE_SPEECH_KEY } from '../../env';
 
 /**
  * Base interface for transcription results.
@@ -107,8 +108,6 @@ export class TranscriptionService implements ITranscriptionService {
    * @throws Error if Azure credentials are missing
    */
   constructor(config: TranscriptionServiceConfig = {}) {
-    const AZURE_SPEECH_REGION='centralus';
-    const AZURE_SPEECH_KEY = process.env.AZURE_SPEECH_KEY;
     //const AZURE_SPEECH_REGION = process.env.AZURE_SPEECH_REGION;
     if (!AZURE_SPEECH_KEY || !AZURE_SPEECH_REGION) {
       throw new Error('Azure Speech key and region are required for TranscriptionService.');
