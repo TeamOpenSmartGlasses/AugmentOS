@@ -36,13 +36,14 @@ import {
   GlassesStopAppMessage,
   HeadPositionEvent,
   PhoneNotificationEvent,
-  CloudToTpaMessage
+  CloudToTpaMessage,
+  CloudAppStateChangeMessage
 } from '@augmentos/types';
 
 import sessionService, { ISessionService } from '../core/session.service';
 import subscriptionService, { ISubscriptionService } from './subscription.service';
 import transcriptionService, { ITranscriptionService } from '../processing/transcription.service';
-import appService, { AppService, IAppService } from '../core/app.service';
+import appService, { IAppService } from '../core/app.service';
 import { DisplayRequest } from '@augmentos/types/events/display';
 
 // Constants
@@ -239,7 +240,7 @@ export class WebSocketService implements IWebSocketService {
             message.byteOffset,
             message.byteOffset + message.byteLength
           );
-    
+
           // Pass the ArrayBuffer to Azure Speech or wherever you need it
           this.sessionService.handleAudioData(sessionId, arrayBuf);
           return;
@@ -268,132 +269,173 @@ export class WebSocketService implements IWebSocketService {
     });
   }
 
-/**
- * 🤓 Handles messages from glasses clients.
- * @param userSessionId - User Session identifier
- * @param ws - WebSocket connection
- * @param message - Parsed message from client
- * @private
- */
-private async handleGlassesMessage(
-  userSessionId: string, 
-  ws: WebSocket, 
-  message: GlassesToCloudMessage
-): Promise<void> {
-  try {
-    switch (message.type) {
-      case 'connection_init': {
-        const initMessage = message as GlassesConnectionInitMessage;
+  /**
+   * 🤓 Handles messages from glasses clients.
+   * @param userSessionId - User Session identifier
+   * @param ws - WebSocket connection
+   * @param message - Parsed message from client
+   * @private
+   */
+  private async handleGlassesMessage(
+    userSessionId: string,
+    ws: WebSocket,
+    message: GlassesToCloudMessage
+  ): Promise<void> {
+    try {
+      switch (message.type) {
+        case 'connection_init': {
+          const initMessage = message as GlassesConnectionInitMessage;
 
-        this.sessionService.updateUserId(userSessionId, initMessage.userId || 'anonymous');
+          this.sessionService.updateUserId(userSessionId, initMessage.userId || 'anonymous');
 
-        // Start transcription
-        const { recognizer, pushStream } = this.transcriptionService.startTranscription(
-          userSessionId,
-          (result) => { 
-            console.log(`[Session ${userSessionId}] Recognizing:`, result.text);
-            this.broadcastToTpa(userSessionId, "transcription", result as any);
-          },
-          (result) => {
-            console.log(`[Session ${userSessionId}] Final result:`, result.text);
-            this.broadcastToTpa(userSessionId, "transcription", result as any);
+          // Start transcription
+          const { recognizer, pushStream } = this.transcriptionService.startTranscription(
+            userSessionId,
+            (result) => {
+              console.log(`[Session ${userSessionId}] Recognizing:`, result.text);
+              this.broadcastToTpa(userSessionId, "transcription", result as any);
+            },
+            (result) => {
+              console.log(`[Session ${userSessionId}] Final result:`, result.text);
+              this.broadcastToTpa(userSessionId, "transcription", result as any);
+            }
+          );
+
+          this.sessionService.setAudioHandlers(userSessionId, pushStream, recognizer);
+
+          // Send connection acknowledgment
+          const userSession = this.sessionService.getSession(userSessionId);
+          if (!userSession) {
+            throw new Error('[websoket.service.ts] Session not found');
           }
-        );
 
-        this.sessionService.setAudioHandlers(userSessionId, pushStream, recognizer);
+          const userSessionData = {
+            sessionId: userSession.sessionId,
+            userId: userSession.userId,
+            startTime: userSession.startTime,
+            installedApps: await this.appService.getAllApps(),
+            activeAppSessions: userSession.activeAppSessions,
+            whatToStream: userSession.whatToStream,
+          };
 
-        // Send connection acknowledgment
-        const userSession = this.sessionService.getSession(userSessionId);
-        if (!userSession) {
-          throw new Error('[websoket.service.ts] Session not found');
+          const ackMessage: CloudConnectionAckMessage = {
+            type: 'connection_ack',
+            sessionId: userSessionId, // TODO: Remove this field and check all references.
+            userSession: userSessionData,
+            timestamp: new Date()
+          };
+          ws.send(JSON.stringify(ackMessage));
+          break;
         }
 
+        case 'start_app': {
+          const startMessage = message as GlassesStartAppMessage;
+          console.log(`Starting app ${startMessage.packageName}`);
+          await this.initiateTpaSession(
+            userSessionId,
+            this.sessionService.getSession(userSessionId)?.userId || 'anonymous',
+            startMessage.packageName
+          );
 
-        
-        const userSessionData = {
-          sessionId: userSession.sessionId,
+          // Send connection acknowledgment
+          const userSession = this.sessionService.getSession(userSessionId);
+          if (!userSession) {
+            throw new Error('[websoket.service.ts] Session not found');
+          }
 
-          userId: userSession.userId,
-          startTime: userSession.startTime,
-          installedApps: await this.appService.getAllApps(),
-          activeAppSessions: userSession.activeAppSessions,
-          whatToStream: userSession.whatToStream,
-        };
+          const userSessionData = {
+            sessionId: userSession.sessionId,
+            userId: userSession.userId,
+            startTime: userSession.startTime,
+            installedApps: await this.appService.getAllApps(),
+            activeAppSessions: userSession.activeAppSessions,
+            whatToStream: userSession.whatToStream,
+          };
 
-        const ackMessage: CloudConnectionAckMessage = {
-          type: 'connection_ack',
-          sessionId: userSessionId, // TODO: Remove this field and check all references.
-          userSession: userSessionData,
-          timestamp: new Date()
-        };
-        ws.send(JSON.stringify(ackMessage));
-        break;
-      }
-
-      case 'start_app': {
-        const startMessage = message as GlassesStartAppMessage;
-        console.log(`Starting app ${startMessage.packageName}`);
-        await this.initiateTpaSession(
-          userSessionId,
-          this.sessionService.getSession(userSessionId)?.userId || 'anonymous',
-          startMessage.packageName
-        );
-        break;
-      }
-
-      case 'stop_app': {
-        const stopMessage = message as GlassesStopAppMessage;
-        console.log(`Stopping app ${stopMessage.packageName}`);
-        // Remove subscriptions for the app.
-        this.subscriptionService.removeSubscriptions(userSessionId, stopMessage.packageName);
-
-        // Close TPA connection.
-        const tpaSessionId = `${userSessionId}-${stopMessage.packageName}`;
-        const connection = this.tpaConnections.get(tpaSessionId);
-        if (connection) {
-          connection.websocket.close();
+          const clientResponse: CloudAppStateChangeMessage = {
+            type: 'app_state_change',
+            sessionId: userSessionId, // TODO: Remove this field and check all references.
+            userSession: userSessionData,
+            timestamp: new Date()
+          };
+          ws.send(JSON.stringify(clientResponse));
+          break;
         }
 
-        // Remove TPA connection.
-        this.tpaConnections.delete(tpaSessionId);
+        case 'stop_app': {
+          const stopMessage = message as GlassesStopAppMessage;
+          console.log(`Stopping app ${stopMessage.packageName}`);
+          // Remove subscriptions for the app.
+          this.subscriptionService.removeSubscriptions(userSessionId, stopMessage.packageName);
 
-        // TODO(isaiahb): Optionally send a message to the client that the app has stopped (e.g. for UI updates).
-        break;
-      }
+          // Close TPA connection.
+          const tpaSessionId = `${userSessionId}-${stopMessage.packageName}`;
+          const connection = this.tpaConnections.get(tpaSessionId);
+          if (connection) {
+            connection.websocket.close();
+          }
 
-      case 'button_press': {
-        const buttonMessage = message as ButtonPressEvent;
-        this.broadcastToTpa(userSessionId, 'button_press', buttonMessage as any);
-        break;
-      }
+          // Remove TPA connection.
+          this.tpaConnections.delete(tpaSessionId);
 
-      case 'head_position': {
-        const headMessage = message as HeadPositionEvent;
-        this.broadcastToTpa(userSessionId, 'head_position', headMessage as any);
-        break;
-      }
+          // Send connection acknowledgment
+          const userSession = this.sessionService.getSession(userSessionId);
+          if (!userSession) {
+            throw new Error('[websoket.service.ts] Session not found');
+          }
 
-      case 'phone_notification': {
-        const notifMessage = message as PhoneNotificationEvent;
-        this.broadcastToTpa(userSessionId, 'phone_notifications', notifMessage as any);
-        break;
-      }
+          const userSessionData = {
+            sessionId: userSession.sessionId,
+            userId: userSession.userId,
+            startTime: userSession.startTime,
+            installedApps: await this.appService.getAllApps(),
+            activeAppSessions: userSession.activeAppSessions,
+            whatToStream: userSession.whatToStream,
+          };
 
-      default: {
-        console.warn(`[Session ${userSessionId}] Unhandled message type:`, message.type);
+          const clientResponse: CloudAppStateChangeMessage = {
+            type: 'app_state_change',
+            sessionId: userSessionId, // TODO: Remove this field and check all references.
+            userSession: userSessionData,
+            timestamp: new Date()
+          };
+          ws.send(JSON.stringify(clientResponse));
+          break;
+        }
+
+        case 'button_press': {
+          const buttonMessage = message as ButtonPressEvent;
+          this.broadcastToTpa(userSessionId, 'button_press', buttonMessage as any);
+          break;
+        }
+
+        case 'head_position': {
+          const headMessage = message as HeadPositionEvent;
+          this.broadcastToTpa(userSessionId, 'head_position', headMessage as any);
+          break;
+        }
+
+        case 'phone_notification': {
+          const notifMessage = message as PhoneNotificationEvent;
+          this.broadcastToTpa(userSessionId, 'phone_notifications', notifMessage as any);
+          break;
+        }
+
+        default: {
+          console.warn(`[Session ${userSessionId}] Unhandled message type:`, message.type);
+        }
       }
+    } catch (error) {
+      console.error(`[Session ${userSessionId}] Error handling message:`, error);
+      // Optionally send error to client
+      const errorMessage: CloudConnectionErrorMessage = {
+        type: 'connection_error',
+        message: error instanceof Error ? error.message : 'Error processing message',
+        timestamp: new Date()
+      };
+      ws.send(JSON.stringify(errorMessage));
     }
-  } catch (error) {
-    console.error(`[Session ${userSessionId}] Error handling message:`, error);
-    // Optionally send error to client
-    const errorMessage: CloudConnectionErrorMessage = {
-      type: 'connection_error',
-      message: error instanceof Error ? error.message : 'Error processing message',
-      timestamp: new Date()
-    };
-    ws.send(JSON.stringify(errorMessage));
   }
-}
   /**
    * 🥳 Handles new TPA connections.
    * @param ws - WebSocket connection

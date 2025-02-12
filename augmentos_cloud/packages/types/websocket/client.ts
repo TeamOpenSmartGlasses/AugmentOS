@@ -52,10 +52,9 @@ export interface CloudDisplayEventMessage extends WebSocketMessage {
   durationMs?: number;
 }
 
-export interface CloudAppStateUpdateMessage extends WebSocketMessage {
-  type: "app_state_update";
-  packageName: string;
-  status: 'not_installed' | 'installed' | 'booting' | 'running' | 'stopped' | 'error';
+export interface CloudAppStateChangeMessage extends WebSocketMessage {
+  type: "app_state_change";
+  userSession: Partial<UserSession>;
   error?: string;
 }
 
@@ -63,4 +62,4 @@ export type CloudToGlassesMessage =
   | CloudConnectionAckMessage
   | CloudConnectionErrorMessage
   | CloudDisplayEventMessage
-  | CloudAppStateUpdateMessage;
+  | CloudAppStateChangeMessage;

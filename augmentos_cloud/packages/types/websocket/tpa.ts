@@ -75,5 +75,4 @@ export type CloudToTpaMessage =
   | CloudTpaConnectionAckMessage
   | CloudTpaConnectionErrorMessage
   | CloudDataStreamMessage
-  | CloudSettingsUpdateMessage
-  ;
+  | CloudSettingsUpdateMessage;
