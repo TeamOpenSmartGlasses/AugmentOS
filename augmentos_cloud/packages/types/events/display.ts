@@ -12,6 +12,12 @@ export interface DoubleTextWall {
   bottomText: string;
 }
 
+export interface DashboardCard {
+  layoutType: 'dashboard_card';
+  title: string;
+  text: string;
+}
+
 export interface TextRows {
   layoutType: 'text_rows';
   text: string[];
@@ -28,7 +34,7 @@ export interface ReferenceCard {
   text: string;
 }
 
-export type Layout = TextWall | TextRows | TextLine | ReferenceCard;
+export type Layout = TextWall | DashboardCard | TextRows | TextLine | ReferenceCard;
 
 export type DisplayHistory = {
   layout: Layout;

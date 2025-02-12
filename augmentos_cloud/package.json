@@ -9,6 +9,7 @@
     "dev": "./run.sh"
   },
   "dependencies": {
-
+    "@langchain/core": "^0.3.39",
+    "langchain": "^0.3.15"
   }
 }
