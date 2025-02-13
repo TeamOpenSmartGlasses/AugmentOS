@@ -59,7 +59,6 @@ import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.HeadU
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.augmentos.augmentos_core.smarterglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.SmartGlassesConnectionState;
-import com.augmentos.augmentoslib.ThirdPartyAppType;
 import com.posthog.java.PostHog;
 import com.augmentos.augmentoslib.ThirdPartyEdgeApp;
 import com.augmentos.augmentos_core.comms.AugmentOsActionsCallback;
@@ -67,7 +66,7 @@ import com.augmentos.augmentos_core.comms.AugmentosBlePeripheral;
 import com.augmentos.augmentos_core.events.AugmentosSmartGlassesDisconnectedEvent;
 import com.augmentos.augmentos_core.augmentos_backend.OldBackendServerComms;
 import com.augmentos.augmentos_core.events.NewScreenImageEvent;
-import com.augmentos.augmentos_core.events.ThirdPartyAppErrorEvent;
+import com.augmentos.augmentos_core.events.ThirdPartyEdgeAppErrorEvent;
 import com.augmentos.augmentos_core.events.TriggerSendStatusToAugmentOsManagerEvent;
 import com.augmentos.augmentos_core.statushelpers.BatteryStatusHelper;
 import com.augmentos.augmentos_core.statushelpers.DeviceInfo;
@@ -246,7 +245,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     @Subscribe
-    public void onThirdPartyAppErrorEvent(ThirdPartyAppErrorEvent event) {
+    public void onThirdPartyAppErrorEvent(ThirdPartyEdgeAppErrorEvent event) {
         if (blePeripheral != null) {
             blePeripheral.sendNotifyManager(event.text, "error");
         }
