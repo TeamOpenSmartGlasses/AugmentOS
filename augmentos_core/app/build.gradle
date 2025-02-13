@@ -151,3 +151,4 @@ dependencies {
 }
 
 // apply from: rootProject.project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+apply from: rootProject.project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"

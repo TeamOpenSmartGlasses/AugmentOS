@@ -2,6 +2,7 @@ package com.augmentos.augmentos_core.augmentos_backend;
 
 import android.util.Log;
 
+import com.augmentos.augmentos_core.BuildConfig;
 import com.augmentos.augmentos_core.augmentos_backend.WebSocketManager;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.AsrStreamKey;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.augmentos.SpeechRecAugmentos;
@@ -375,9 +376,9 @@ public class ServerComms {
     }
 
     private String getServerUrl() {
-        String host = EnvHelper.getEnv("AUGMENTOS_HOST");
-        String port = EnvHelper.getEnv("AUGMENTOS_PORT");
-        boolean secureServer = Boolean.parseBoolean(EnvHelper.getEnv("AUGMENTOS_SECURE"));
+        String host = BuildConfig.AUGMENTOS_HOST;// EnvHelper.getEnv("AUGMENTOS_HOST");
+        String port = BuildConfig.AUGMENTOS_PORT;// EnvHelper.getEnv("AUGMENTOS_PORT");
+        boolean secureServer = Boolean.parseBoolean(BuildConfig.AUGMENTOS_SECURE);// Boolean.parseBoolean(EnvHelper.getEnv("AUGMENTOS_SECURE"));
         if (host == null || port == null) {
             throw new IllegalStateException("AugmentOS Server Config Not Found");
         }
