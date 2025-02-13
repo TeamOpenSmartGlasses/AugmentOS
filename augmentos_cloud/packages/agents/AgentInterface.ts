@@ -2,7 +2,8 @@ export interface Agent {
   agentId: string;
   agentName: string;
   agentDescription: string;
-  agentType: string;
+  agentPrompt: string;
+  agentTools: any[];
 
   handleContext(inputData: any): Promise<{
     [key: string]: any;

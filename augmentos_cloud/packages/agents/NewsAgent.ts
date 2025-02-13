@@ -26,6 +26,8 @@ interface NewsSummaries {
  */
 export class NewsAgent implements Agent {
   public agentId = 'news_summarize';
+  public agentName = 'News Summarizer';
+  public agentDescription = 'Fetches and summarizes recent news articles';
 
   /**
    * Main method from the `Agent` interface.
