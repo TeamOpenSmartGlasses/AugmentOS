@@ -11,3 +11,7 @@
 3. Launch the backend:
 
 From the augmentos_cloud folder: `./run.sh`
+
+4. If you're running the backend on localhost and want to access it from your connected phone:
+
+` adb reverse tcp:7002 tcp:7002`

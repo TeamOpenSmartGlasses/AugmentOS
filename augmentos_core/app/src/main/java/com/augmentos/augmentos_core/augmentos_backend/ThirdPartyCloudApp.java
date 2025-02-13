@@ -11,19 +11,19 @@ public class ThirdPartyCloudApp {
     String appName;
     String description;
     String webhookURL;
-    String logoURL;
+    String iconUrl;
     String appDescription;
     String appInstructions;
     public String version;
     String appType;
     boolean isRunning;
 
-    public ThirdPartyCloudApp(String packageName, String appName, String description, String webhookURL, String logoURL, boolean isRunning) {
+    public ThirdPartyCloudApp(String packageName, String appName, String description, String webhookURL, String iconUrl, boolean isRunning) {
         this.packageName = packageName;
         this.appName = appName;
         this.description = description;
         this.webhookURL = webhookURL;
-        this.logoURL = logoURL;
+        this.iconUrl = iconUrl;
         this.isRunning = isRunning;
         this.version = "1.0.0";
         this.appInstructions = "";
@@ -44,6 +44,7 @@ public class ThirdPartyCloudApp {
             tpaObj.put("packageName", packageName);
             tpaObj.put("type", appType);
             tpaObj.put("is_running", isRunning);
+            tpaObj.put("iconUrl", iconUrl);
 
             if(includeSettings) {
                 //tpaObj.put("settings", settings);

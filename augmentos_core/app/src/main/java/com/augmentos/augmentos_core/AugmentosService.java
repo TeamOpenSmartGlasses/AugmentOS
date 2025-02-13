@@ -31,7 +31,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.Looper;
 import android.service.notification.NotificationListenerService;
 import android.util.Log;
 
@@ -60,9 +59,9 @@ import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.HeadU
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.augmentos.augmentos_core.smarterglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.SmartGlassesConnectionState;
+import com.augmentos.augmentoslib.ThirdPartyAppType;
 import com.posthog.java.PostHog;
-import com.augmentos.augmentoslib.PhoneNotification;
-import com.augmentos.augmentoslib.ThirdPartyApp;
+import com.augmentos.augmentoslib.ThirdPartyEdgeApp;
 import com.augmentos.augmentos_core.comms.AugmentOsActionsCallback;
 import com.augmentos.augmentos_core.comms.AugmentosBlePeripheral;
 import com.augmentos.augmentos_core.events.AugmentosSmartGlassesDisconnectedEvent;
@@ -74,7 +73,7 @@ import com.augmentos.augmentos_core.statushelpers.BatteryStatusHelper;
 import com.augmentos.augmentos_core.statushelpers.DeviceInfo;
 import com.augmentos.augmentos_core.statushelpers.GsmStatusHelper;
 import com.augmentos.augmentos_core.statushelpers.WifiStatusHelper;
-import com.augmentos.augmentos_core.tpa.TPASystem;
+import com.augmentos.augmentos_core.tpa.EdgeTPASystem;
 
 
 import com.augmentos.augmentoslib.events.GlassesTapOutputEvent;
@@ -145,7 +144,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private final long doublePressTimeConst = 420;
     private final long doubleTapTimeConst = 600;
 
-    public TPASystem tpaSystem;
+    public EdgeTPASystem edgeTpaSystem;
 
     public static PostHog postHog;
 
@@ -182,7 +181,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             AugmentosSmartGlassesService.LocalBinder binder = (AugmentosSmartGlassesService.LocalBinder) service;
             smartGlassesService = (AugmentosSmartGlassesService) binder.getService();
             isSmartGlassesServiceBound = true;
-            tpaSystem.setSmartGlassesService(smartGlassesService);
+            edgeTpaSystem.setSmartGlassesService(smartGlassesService);
             for (Runnable action : serviceReadyListeners) {
                 action.run();
             }
@@ -194,11 +193,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             Log.d(TAG,"SMART GLASSES SERVICE DISCONNECTED!!!!");
             isSmartGlassesServiceBound = false;
             smartGlassesService = null;
-            tpaSystem.setSmartGlassesService(smartGlassesService);
+            edgeTpaSystem.setSmartGlassesService(smartGlassesService);
 
             // TODO: For now, stop all apps on disconnection
             // TODO: Future: Make this nicer
-            tpaSystem.stopAllThirdPartyApps();
+            edgeTpaSystem.stopAllThirdPartyApps();
             sendStatusToAugmentOsManager();
         }
     };
@@ -207,7 +206,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void onAugmentosSmartGlassesDisconnectedEvent(AugmentosSmartGlassesDisconnectedEvent event){
         // TODO: For now, stop all apps on disconnection
         // TODO: Future: Make this nicer
-        tpaSystem.stopAllThirdPartyApps();
+        edgeTpaSystem.stopAllThirdPartyApps();
         sendStatusToAugmentOsManager();
     }
 
@@ -251,8 +250,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         if (blePeripheral != null) {
             blePeripheral.sendNotifyManager(event.text, "error");
         }
-        if (tpaSystem != null) {
-            tpaSystem.stopThirdPartyAppByPackageName(event.packageName);
+        if (edgeTpaSystem != null) {
+            edgeTpaSystem.stopThirdPartyAppByPackageName(event.packageName);
         }
         if (smartGlassesService != null) {
             smartGlassesService.windowManager.showAppLayer("system", () -> AugmentosSmartGlassesService.sendReferenceCard("App error", event.text), 10);
@@ -532,12 +531,12 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         contextualDashboardEnabled = getContextualDashboardEnabled();
 
-        tpaSystem = new TPASystem(this, smartGlassesService);
-        asrPlanner = new AsrPlanner(tpaSystem);
+        edgeTpaSystem = new EdgeTPASystem(this, smartGlassesService);
+        asrPlanner = new AsrPlanner(edgeTpaSystem);
 
         // Initialize BLE Peripheral
         blePeripheral = new AugmentosBlePeripheral(this, this);
-        if (!tpaSystem.isAppInstalled(AugmentOSManagerPackageName)) {
+        if (!edgeTpaSystem.isAppInstalled(AugmentOSManagerPackageName)) {
             // TODO: While we use simulated puck, disable the BLE Peripheral for testing
             // TODO: For now, just disable peripheral if manager is installed on same device
             // blePeripheral.start();
@@ -626,7 +625,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
                 // Send out the status once AugmentOS_Core is ready :)
                 // tpaSystem.stopThirdPartyAppByPackageName(AugmentOSManagerPackageName);
-                tpaSystem.startThirdPartyAppByPackageName(AugmentOSManagerPackageName);
+                edgeTpaSystem.startThirdPartyAppByPackageName(AugmentOSManagerPackageName);
 
                 if (!NewPermissionUtils.areAllPermissionsGranted(this)) {
                     blePeripheral.sendPermissionsErrorToManager();
@@ -686,7 +685,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             unbindService(connection);  // Unbind from the service
             isSmartGlassesServiceBound = false;
             smartGlassesService = null;
-            tpaSystem.setSmartGlassesService(smartGlassesService);
+            edgeTpaSystem.setSmartGlassesService(smartGlassesService);
         }
         Intent intent = new Intent(this, AugmentosSmartGlassesService.class);
         stopService(intent);  // Stop the service
@@ -930,19 +929,17 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             // Adding apps array
             JSONArray apps = new JSONArray();
 
-        //    for (ThirdPartyApp tpa : tpaSystem.getThirdPartyApps()) {
-        //        if(tpa.appType != ThirdPartyAppType.APP) continue;
+//            for (ThirdPartyEdgeApp tpa : edgeTpaSystem.getThirdPartyApps()) {
+//                if(tpa.appType != ThirdPartyAppType.APP) continue;
+//
+//                JSONObject tpaObj = tpa.toJson(false);
+//                tpaObj.put("is_running", edgeTpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
+//                tpaObj.put("is_foreground", edgeTpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
+//                apps.put(tpaObj);
+//            }
 
-        //        JSONObject tpaObj = tpa.toJson(false);
-        //        tpaObj.put("is_running", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
-        //        tpaObj.put("is_foreground", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
-        //        tpaObj.put("version", tpa.version);
-        //        apps.put(tpaObj);
-        //    }
-
-            for (ThirdPartyCloudApp tpa : httpServerComms.getCachedApps()) {
+            for (ThirdPartyCloudApp tpa : cachedThirdPartyAppList) {
                 JSONObject tpaObj = tpa.toJson(false);
-                //tpaObj.put("is_running", false);//tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
                 tpaObj.put("is_foreground", false);//tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
                 apps.put(tpaObj);
             }
@@ -980,6 +977,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             @Override
             public void onAppStateChange(List<ThirdPartyCloudApp> appList) {
                 cachedThirdPartyAppList = appList;
+                sendStatusToAugmentOsManager();
             }
 
             @Override
@@ -1177,7 +1175,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Override
     public void requestAppInfo(String packageNameToGetDetails) {
-        ThirdPartyApp tpa = tpaSystem.getThirdPartyAppByPackageName(packageNameToGetDetails);
+        ThirdPartyEdgeApp tpa = edgeTpaSystem.getThirdPartyAppByPackageName(packageNameToGetDetails);
         if (tpa == null) {
             blePeripheral.sendNotifyManager("Could not find app", "error");
             sendStatusToAugmentOsManager();
@@ -1267,7 +1265,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Override
     public void updateAppSettings(String targetApp, JSONObject settings) {
         Log.d("AugmentOsService", "Updating settings for app: " + targetApp);
-        ThirdPartyApp tpa = tpaSystem.getThirdPartyAppByPackageName(targetApp);
+        ThirdPartyEdgeApp tpa = edgeTpaSystem.getThirdPartyAppByPackageName(targetApp);
         if (tpa == null) {
             blePeripheral.sendNotifyManager("Could not find app", "error");
             return;
@@ -1320,11 +1318,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             unbindService(connection);
             isSmartGlassesServiceBound = false;
             smartGlassesService = null;
-            tpaSystem.setSmartGlassesService(smartGlassesService);
+            edgeTpaSystem.setSmartGlassesService(smartGlassesService);
         }
 
-        if(tpaSystem != null) {
-            tpaSystem.destroy();
+        if(edgeTpaSystem != null) {
+            edgeTpaSystem.destroy();
         }
 
         postHog.shutdown();

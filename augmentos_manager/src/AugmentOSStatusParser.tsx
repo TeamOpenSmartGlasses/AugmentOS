@@ -224,7 +224,7 @@ export class AugmentOSParser {
           is_foreground: !!app.is_foreground,
           packageName: app.packageName || 'unknown.package',
           version: app.version || '1.0.0',
-          icon: app.icon || '/assets/icons/default-app.png',
+          icon: app.iconUrl || '/assets/icons/default-app.png',
           type: app.type || 'APP',
         })) || [],
         auth: {

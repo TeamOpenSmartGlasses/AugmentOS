@@ -98,7 +98,7 @@ public class ServerComms {
      * Opens the WebSocket to the given URL (e.g. "ws://localhost:7002/glasses-ws").
      */
     public void connectWebSocket() {
-        wsManager.connect(getServerUrl());
+         wsManager.connect(getServerUrl());
     }
 
     /**
@@ -323,7 +323,7 @@ public class ServerComms {
         String type = msg.optString("type", "");
         JSONObject userSession;
         JSONArray installedApps;
-        JSONArray activeAppSessions;
+        JSONArray activeAppPackageNames;
 
         switch (type) {
             case "connection_ack":
@@ -398,20 +398,20 @@ public class ServerComms {
             }
         }
 
-        // 3) Similarly, try to find activeAppSessions at top level or under userSession
-        JSONArray activeAppSessions = msg.optJSONArray("activeAppSessions");
-        if (activeAppSessions == null) {
+        // 3) Similarly, try to find activeAppPackageNames at top level or under userSession
+        JSONArray activeAppPackageNames = msg.optJSONArray("activeAppPackageNames");
+        if (activeAppPackageNames == null) {
             JSONObject userSession = msg.optJSONObject("userSession");
             if (userSession != null) {
-                activeAppSessions = userSession.optJSONArray("activeAppSessions");
+                activeAppPackageNames = userSession.optJSONArray("activeAppPackageNames");
             }
         }
 
-        // 4) Convert activeAppSessions into a Set for easy lookup
+        // 4) Convert activeAppPackageNames into a Set for easy lookup
         Set<String> runningPackageNames = new HashSet<>();
-        if (activeAppSessions != null) {
-            for (int i = 0; i < activeAppSessions.length(); i++) {
-                String packageName = activeAppSessions.optString(i, "");
+        if (activeAppPackageNames != null) {
+            for (int i = 0; i < activeAppPackageNames.length(); i++) {
+                String packageName = activeAppPackageNames.optString(i, "");
                 if (!packageName.isEmpty()) {
                     runningPackageNames.add(packageName);
                 }

@@ -18,11 +18,9 @@ import android.util.Log;
 import android.content.pm.PackageManager;
 import android.widget.Toast;
 
-import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.AsrStreamKey;
-import com.augmentos.augmentoslib.enums.AsrStreamType;
 import com.google.gson.Gson;
 import com.augmentos.augmentoslib.AugmentOSCommand;
-import com.augmentos.augmentoslib.ThirdPartyApp;
+import com.augmentos.augmentoslib.ThirdPartyEdgeApp;
 import com.augmentos.augmentoslib.ThirdPartyAppType;
 import com.augmentos.augmentoslib.events.BulletPointListViewRequestEvent;
 import com.augmentos.augmentoslib.events.CommandTriggeredEvent;
@@ -65,7 +63,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-public class TPASystem {
+public class EdgeTPASystem {
     private String TAG = "AugmentOS_TPASystem";
     private Context mContext;
     private AugmentOSLibBroadcastSender augmentOsLibBroadcastSender;
@@ -80,7 +78,7 @@ public class TPASystem {
 
     private SharedPreferences sharedPreferences;
     private Gson gson;
-    private Map<String, ThirdPartyApp> thirdPartyApps;
+    private Map<String, ThirdPartyEdgeApp> thirdPartyApps;
     private String dashboardAppPackageName;
     private Set<String> runningApps;
 
@@ -89,7 +87,7 @@ public class TPASystem {
     private Runnable healthCheckRunnable;
     private AugmentosSmartGlassesService smartGlassesService;
 
-    public TPASystem(Context context, AugmentosSmartGlassesService smartGlassesService){
+    public EdgeTPASystem(Context context, AugmentosSmartGlassesService smartGlassesService){
         mContext = context;
         this.smartGlassesService = smartGlassesService;
         augmentOsLibBroadcastSender = new AugmentOSLibBroadcastSender(mContext);
@@ -143,7 +141,7 @@ public class TPASystem {
         mContext.registerReceiver(packageInstallReceiver, filter);
     }
 
-    private ThirdPartyApp getThirdPartyAppIfAppIsAugmentOsThirdPartyApp(String packageName, Context context) {
+    private ThirdPartyEdgeApp getThirdPartyAppIfAppIsAugmentOsThirdPartyApp(String packageName, Context context) {
         PackageManager packageManager = context.getPackageManager();
         Intent augmentOsIntent = new Intent(INTENT_ACTION);
         String thisAppPackageName = context.getPackageName();
@@ -180,7 +178,7 @@ public class TPASystem {
                                 String version = jsonObject.has("version") ? jsonObject.getString("version") : "0.0.0";
                                 JSONArray settings = jsonObject.has("settings") ? jsonObject.getJSONArray("settings") : new JSONArray();
                                 String instructions = jsonObject.has("instructions") ? jsonObject.getString("instructions") : "";
-                                return new ThirdPartyApp(
+                                return new ThirdPartyEdgeApp(
                                         jsonObject.getString("name"),
                                         jsonObject.getString("description"),
                                         instructions,
@@ -203,8 +201,8 @@ public class TPASystem {
         return null;
     }
 
-    public ThirdPartyApp getDefaultDashboardApp() {
-        ThirdPartyApp defaultDashboard = new ThirdPartyApp(
+    public ThirdPartyEdgeApp getDefaultDashboardApp() {
+        ThirdPartyEdgeApp defaultDashboard = new ThirdPartyEdgeApp(
                 "Default Dashboard",
                 "A default dashboard",
                 "",
@@ -218,7 +216,7 @@ public class TPASystem {
         return defaultDashboard;
     }
 
-    public ThirdPartyApp getSelectedDashboardApp() {
+    public ThirdPartyEdgeApp getSelectedDashboardApp() {
         return thirdPartyApps.get(dashboardAppPackageName);
     }
     public boolean checkIsThirdPartyAppRunningByPackageName(String packageName) {
@@ -236,7 +234,7 @@ public class TPASystem {
         }
 
         if (thirdPartyApps.containsKey(packageName) && isAppInstalled(packageName)) {
-            ThirdPartyApp tpa = thirdPartyApps.get(packageName);
+            ThirdPartyEdgeApp tpa = thirdPartyApps.get(packageName);
             if(augmentOsLibBroadcastSender.startThirdPartyApp(Objects.requireNonNull(tpa))) {
                 runningApps.add(packageName);
                 if(smartGlassesService != null)
@@ -259,7 +257,7 @@ public class TPASystem {
         }
     }
 
-    public ThirdPartyApp getThirdPartyAppByPackageName(String packageName){
+    public ThirdPartyEdgeApp getThirdPartyAppByPackageName(String packageName){
         if (thirdPartyApps.containsKey(packageName)){
             return thirdPartyApps.get(packageName);
         }
@@ -267,7 +265,7 @@ public class TPASystem {
     }
 
     public void stopAllThirdPartyApps(){
-        for (ThirdPartyApp tpa : thirdPartyApps.values()) stopThirdPartyAppByPackageName(tpa.packageName);
+        for (ThirdPartyEdgeApp tpa : thirdPartyApps.values()) stopThirdPartyAppByPackageName(tpa.packageName);
     }
 
     public boolean isAppInstalled(String packageName) {
@@ -282,7 +280,7 @@ public class TPASystem {
 
     @Subscribe
     public void onRegisterTpaRequestEvent(RegisterTpaRequestEvent e){
-        registerThirdPartyApp((ThirdPartyApp) e.thirdPartyApp);
+        registerThirdPartyApp((ThirdPartyEdgeApp) e.thirdPartyEdgeApp);
     }
 
     @Subscribe
@@ -359,8 +357,8 @@ public class TPASystem {
         }
     }
 
-    public void registerThirdPartyApp(ThirdPartyApp app) {
-        ThirdPartyApp oldTpa = getThirdPartyAppByPackageName(app.packageName);
+    public void registerThirdPartyApp(ThirdPartyEdgeApp app) {
+        ThirdPartyEdgeApp oldTpa = getThirdPartyAppByPackageName(app.packageName);
         if (oldTpa != null) {
             Log.d(TAG, "Replacing third party app:" + app.packageName);
             Toast.makeText(mContext, "Replacing third party app:" + app.packageName, Toast.LENGTH_LONG);
@@ -392,11 +390,11 @@ public class TPASystem {
 
     public void loadThirdPartyAppsFromStorage() {
         Log.d(TAG, "LOADING - third party apps from storage. : " + System.currentTimeMillis());
-        HashMap<String, ThirdPartyApp> newThirdPartyAppList = new HashMap<>();
+        HashMap<String, ThirdPartyEdgeApp> newThirdPartyAppList = new HashMap<>();
 
         ArrayList<String> preinstalledPackageNames = getAllInstalledPackageNames(mContext);
         for (String packageName : preinstalledPackageNames){
-            ThirdPartyApp foundTpa = getThirdPartyAppIfAppIsAugmentOsThirdPartyApp(packageName, mContext);
+            ThirdPartyEdgeApp foundTpa = getThirdPartyAppIfAppIsAugmentOsThirdPartyApp(packageName, mContext);
             if(foundTpa != null) {
                 Log.d(TAG, "Discovered an unregistered TPA on device: " + packageName);
                 // Toast.makeText(mContext, "Discovered an unregistered TPA on device: " + packageName, Toast.LENGTH_LONG).show();
@@ -426,7 +424,7 @@ public class TPASystem {
         return packageNames;
     }
 
-    public ArrayList<ThirdPartyApp> getThirdPartyApps() {
+    public ArrayList<ThirdPartyEdgeApp> getThirdPartyApps() {
         return new ArrayList<>(thirdPartyApps.values());
     }
 
@@ -526,7 +524,7 @@ public class TPASystem {
     public void performHealthCheck() {
         boolean deltaFound = false;
         Log.d(TAG, "Performing health check") ;
-        for (ThirdPartyApp tpa : thirdPartyApps.values()) {
+        for (ThirdPartyEdgeApp tpa : thirdPartyApps.values()) {
             if (runningApps.contains(tpa.packageName) && !isThirdPartyAppServiceRunning(tpa)) {
                 Log.d(TAG, "Health Check: TPA " + tpa.packageName + " not matching expected state... " +
                         "expected: " + runningApps.contains(tpa.packageName) + ". " +
@@ -550,7 +548,7 @@ public class TPASystem {
         }
     }
 
-    private boolean isThirdPartyAppServiceRunning(ThirdPartyApp tpa) {
+    private boolean isThirdPartyAppServiceRunning(ThirdPartyEdgeApp tpa) {
         ActivityManager manager = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (tpa.packageName.equals(service.service.getPackageName()) &&
