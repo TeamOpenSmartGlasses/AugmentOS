@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * ServerComms is the single facade for all WebSocket interactions in AugmentOS_Core.
@@ -33,6 +35,13 @@ public class ServerComms {
     private ServerCommsCallback serverCommsCallback;
     // 1) Keep a private static reference
     private static ServerComms instance;
+
+    // ------------------------------------------------------------------------
+    // AUDIO QUEUE SYSTEM (ADDED)
+    // ------------------------------------------------------------------------
+    private final BlockingQueue<byte[]> audioQueue = new LinkedBlockingQueue<>();
+    private Thread audioSenderThread;
+    private volatile boolean audioSenderRunning = false;
 
     // 2) Provide a global accessor
     public static synchronized ServerComms getInstance() {
@@ -84,6 +93,11 @@ public class ServerComms {
                 Log.e(TAG, "WebSocket error: " + error);
             }
         });
+
+        // --------------------------------------------------------------------
+        // START THE AUDIO SENDER THREAD
+        // --------------------------------------------------------------------
+        startAudioSenderThread();
     }
 
     /**
@@ -98,7 +112,7 @@ public class ServerComms {
      * Opens the WebSocket to the given URL (e.g. "ws://localhost:7002/glasses-ws").
      */
     public void connectWebSocket() {
-         wsManager.connect(getServerUrl());
+        wsManager.connect(getServerUrl());
     }
 
     /**
@@ -106,6 +120,7 @@ public class ServerComms {
      */
     public void disconnectWebSocket() {
         wsManager.disconnect();
+        stopAudioSenderThread();  // Stop the audio queue thread
     }
 
     /**
@@ -123,7 +138,8 @@ public class ServerComms {
      * Sends a raw PCM audio chunk as binary data.
      */
     public void sendAudioChunk(byte[] audioData) {
-        wsManager.sendBinary(audioData);
+        // Instead of sending immediately, enqueue the data.
+        audioQueue.offer(audioData);
     }
 
     /**
@@ -445,6 +461,38 @@ public class ServerComms {
         }
 
         return appList;
+    }
+
+    // ------------------------------------------------------------------------
+    // AUDIO QUEUE SENDER THREAD (ADDED)
+    // ------------------------------------------------------------------------
+    private void startAudioSenderThread() {
+        audioSenderRunning = true;
+        audioSenderThread = new Thread(() -> {
+            while (audioSenderRunning) {
+                try {
+                    byte[] chunk = audioQueue.take();
+                    if (wsManager.isConnected()) {
+                        wsManager.sendBinary(chunk);
+                    } else {
+                        // Re-enqueue the chunk if not connected, then wait a bit
+                        audioQueue.offer(chunk);
+                        Thread.sleep(100);
+                    }
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }, "AudioSenderThread");
+        audioSenderThread.start();
+    }
+
+    private void stopAudioSenderThread() {
+        audioSenderRunning = false;
+        if (audioSenderThread != null) {
+            audioSenderThread.interrupt();
+            audioSenderThread = null;
+        }
     }
 
 }

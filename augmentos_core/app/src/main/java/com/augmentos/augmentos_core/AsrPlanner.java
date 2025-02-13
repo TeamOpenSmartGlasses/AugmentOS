@@ -42,13 +42,6 @@ public class AsrPlanner {
     }
 
     @Subscribe
-    public void onKillTpaEvent(KillTpaEvent event) {
-        String tpaPackageName = event.tpa.packageName;
-        Log.d(TAG, "TPA KILLING SELF: " + tpaPackageName);
-        unsubscribeTpaFromAllStreams(tpaPackageName);
-    }
-
-    @Subscribe
     public void onTranscript(SpeechRecOutputEvent event) {
         String text = event.text;
         String languageCode = event.languageCode;
@@ -99,48 +92,6 @@ public class AsrPlanner {
         }
     }
 
-
-    private void removeAsrStream(String packageName, AsrStreamKey key) {
-        Set<String> subscribers = activeStreams.get(key);
-        if (subscribers == null) {
-            Log.d(TAG, "removeAsrStream: Key " + key + " not active. Nothing to stop.");
-            return;
-        }
-
-        subscribers.remove(packageName);
-        Log.d(TAG, "removeAsrStream: " + packageName + " unsubscribed from " + key);
-
-        if (subscribers.isEmpty()) {
-            // Stop the underlying ASR
-            updateAsrLanguages();
-
-            activeStreams.remove(key);
-        }
-    }
-
-    public synchronized List<AsrStreamKey> getActiveFilteredStreamKeys() {
-        // 1) Find all languages that have at least one TRANSLATION active
-        Set<String> translationLanguages = new HashSet<>();
-        for (AsrStreamKey key : activeStreams.keySet()) {
-            if (key.streamType == AsrStreamType.TRANSLATION) {
-                translationLanguages.add(key.transcribeLanguage);
-            }
-        }
-
-        // 2) Build the filtered list
-        List<AsrStreamKey> filteredList = new ArrayList<>();
-        for (AsrStreamKey key : activeStreams.keySet()) {
-            if (key.streamType == AsrStreamType.TRANSLATION) {
-                filteredList.add(key);
-            } else if (key.streamType == AsrStreamType.TRANSCRIPTION) {
-                if (!translationLanguages.contains(key.transcribeLanguage)) {
-                    filteredList.add(key);
-                }
-            }
-        }
-        return filteredList;
-    }
-
     @Subscribe
     public synchronized void onSubscribeStartAsrStreamRequestEvent(StartAsrStreamRequestEvent event) {
         AsrStreamKey key;
@@ -181,6 +132,58 @@ public class AsrPlanner {
         Log.d(TAG, "addAsrStream: " + packageName + " subscribed to " + key);
     }
 
+    public void updateAsrLanguages() {
+        //send the minimal list of languages to the speech rec framework
+        EventBus.getDefault().post(new NewAsrLanguagesEvent(getActiveFilteredStreamKeys()));
+    }
+
+    private void removeAsrStream(String packageName, AsrStreamKey key) {
+        Set<String> subscribers = activeStreams.get(key);
+        if (subscribers == null) {
+            Log.d(TAG, "removeAsrStream: Key " + key + " not active. Nothing to stop.");
+            return;
+        }
+
+        subscribers.remove(packageName);
+        Log.d(TAG, "removeAsrStream: " + packageName + " unsubscribed from " + key);
+
+        if (subscribers.isEmpty()) {
+            // Stop the underlying ASR
+            activeStreams.remove(key);
+            updateAsrLanguages();
+        }
+    }
+
+    public synchronized List<AsrStreamKey> getActiveFilteredStreamKeys() {
+        // 1) Find all languages that have at least one TRANSLATION active
+        Set<String> translationLanguages = new HashSet<>();
+        for (AsrStreamKey key : activeStreams.keySet()) {
+            if (key.streamType == AsrStreamType.TRANSLATION) {
+                translationLanguages.add(key.transcribeLanguage);
+            }
+        }
+
+        // 2) Build the filtered list
+        List<AsrStreamKey> filteredList = new ArrayList<>();
+        for (AsrStreamKey key : activeStreams.keySet()) {
+            if (key.streamType == AsrStreamType.TRANSLATION) {
+                filteredList.add(key);
+            } else if (key.streamType == AsrStreamType.TRANSCRIPTION) {
+                if (!translationLanguages.contains(key.transcribeLanguage)) {
+                    filteredList.add(key);
+                }
+            }
+        }
+        return filteredList;
+    }
+
+    @Subscribe
+    public void onKillTpaEvent(KillTpaEvent event) {
+        String tpaPackageName = event.tpa.packageName;
+        Log.d(TAG, "TPA KILLING SELF: " + tpaPackageName);
+        unsubscribeTpaFromAllStreams(tpaPackageName);
+    }
+
     private void unsubscribeTpaFromAllStreams(String packageName) {
         for (Map.Entry<AsrStreamKey, Set<String>> entry : activeStreams.entrySet()) {
             entry.getValue().remove(packageName);
@@ -205,11 +208,6 @@ public class AsrPlanner {
             activeStreams.remove(removableKey);
         }
         updateAsrLanguages();
-    }
-
-    public void updateAsrLanguages() {
-        //send the minimal list of languages to the speech rec framework
-        EventBus.getDefault().post(new NewAsrLanguagesEvent(getActiveFilteredStreamKeys()));
     }
 
 }
