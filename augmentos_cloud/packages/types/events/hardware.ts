@@ -14,15 +14,40 @@ export interface HeadPositionEvent extends WebSocketMessage {
   timestamp: Date;
 }
 
-export interface BatteryUpdateEvent extends WebSocketMessage {
-  type: 'battery_update';
+export interface GlassesBatteryUpdateEvent extends WebSocketMessage {
+  type: 'glasses_battery_update';
   level: number;  // 0-100
   charging: boolean;
   timeRemaining?: number;  // minutes
   timestamp: Date;
 }
 
+export interface PhoneBatteryUpdateEvent extends WebSocketMessage {
+  type: 'phone_battery_update';
+  level: number;  // 0-100
+  charging: boolean;
+  timeRemaining?: number;  // minutes
+  timestamp: Date;
+}
+
+export interface GlassesConnectionStateEvent extends WebSocketMessage {
+  type: 'glasses_connection_state';
+  modelName: string;
+  status: string;
+  timestamp: Date;
+}
+
+export interface LocationUpdateEvent extends WebSocketMessage {
+  type: 'location_update';
+  lat: number;
+  lng: number;
+  timestamp: Date;
+}
+
 export type HardwareEvent = 
   | ButtonPressEvent 
   | HeadPositionEvent 
-  | BatteryUpdateEvent;
+  | GlassesBatteryUpdateEvent
+  | PhoneBatteryUpdateEvent
+  | GlassesConnectionStateEvent
+  | LocationUpdateEvent;
