@@ -31,7 +31,7 @@ public class ThirdPartyCloudApp {
 
     @Override
     public String toString() {
-        return "{\"packageName\":\"" + packageName + "\", \"name\":\"" + appName + "\", \"description\":\"" + description + "\", \"webhookURL\":\"" + webhookURL + "\", \"logoURL\":\"" + logoURL + "\"}";
+        return "{\"packageName\":\"" + packageName + "\", \"name\":\"" + appName + "\", \"description\":\"" + description + "\", \"webhookURL\":\"" + webhookURL + "\", \"iconUrl\":\"" + iconUrl + "\"}";
     }
 
     public JSONObject toJson(boolean includeSettings) {
