@@ -69,7 +69,7 @@ export class SessionService implements ISessionService {
       sessionId,
       userId,
       startTime: new Date(),
-      activeAppSessions: new Map(),
+      activeAppSessions: [],
       installedApps: appService.getSystemApps(),
       whatToStream: ["*"],
       OSSettings: { brightness: 50, volume: 50 },
@@ -254,11 +254,11 @@ export class SessionService implements ISessionService {
     }
 
     // Close all app sessions
-    session.activeAppSessions.forEach(appSession => {
-      if (appSession.websocket?.readyState === WebSocket.OPEN) {
-        appSession.websocket.close();
-      }
-    });
+    // session.activeAppSessions.forEach(appSession => {
+    //   if (appSession.websocket?.readyState === WebSocket.OPEN) {
+    //     appSession.websocket.close();
+    //   }
+    // });
 
     this.activeSessions.delete(sessionId);
     console.log(`Ended session ${sessionId}`);
