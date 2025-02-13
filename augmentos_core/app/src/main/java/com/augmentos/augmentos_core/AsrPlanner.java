@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.AsrStreamKey;
-import com.augmentos.augmentos_core.tpa.TPASystem;
+import com.augmentos.augmentos_core.tpa.EdgeTPASystem;
 import com.augmentos.augmentoslib.enums.AsrStreamType;
 import com.augmentos.augmentoslib.events.KillTpaEvent;
 import com.augmentos.augmentoslib.events.SpeechRecOutputEvent;
@@ -28,10 +28,10 @@ public class AsrPlanner {
     private final Map<AsrStreamKey, Set<String>> activeStreams = new HashMap<>();
     ArrayList<String> transcriptsBuffer;
 
-    TPASystem tpaSystem;
+    EdgeTPASystem edgeTpaSystem;
 
-    public AsrPlanner(TPASystem tpaSystemRef){
-        this.tpaSystem = tpaSystemRef;
+    public AsrPlanner(EdgeTPASystem edgeTpaSystemRef){
+        this.edgeTpaSystem = edgeTpaSystemRef;
 
         //make responses holder
         transcriptsBuffer = new ArrayList<>();
@@ -65,7 +65,7 @@ public class AsrPlanner {
                         continue;
                     }
                     Log.d(TAG, "Active stream element processed: " + packageName);
-                    tpaSystem.sendTranscriptEventToTpa(event, packageName);
+                    edgeTpaSystem.sendTranscriptEventToTpa(event, packageName);
                 }
             } else {
                 Log.w(TAG, "Active stream elements are null, nothing to process.");
@@ -91,7 +91,7 @@ public class AsrPlanner {
                         continue;
                     }
                     Log.d(TAG, "Active stream element processed: " + packageName);
-                    tpaSystem.sendTranslateEventToTpa(event, packageName);
+                    edgeTpaSystem.sendTranslateEventToTpa(event, packageName);
                 }
             } else {
                 Log.w(TAG, "Active stream elements are null, nothing to process.");

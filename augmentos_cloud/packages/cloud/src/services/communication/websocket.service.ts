@@ -315,8 +315,7 @@ export class WebSocketService implements IWebSocketService {
 
           this.sessionService.setAudioHandlers(userSession.sessionId, pushStream, recognizer);
 
-          const activeAppPackageNames = Array.from(userSession.activeAppSessions.keys());
-
+          const activeAppPackageNames = userSession.activeAppSessions;
           const userSessionData = {
             sessionId: userSession.sessionId,
             userId: userSession.userId,
@@ -345,15 +344,18 @@ export class WebSocketService implements IWebSocketService {
             startMessage.packageName
           );
 
+          userSession.activeAppSessions.push(startMessage.packageName);
+
+          const activeAppPackageNames = userSession.activeAppSessions;
           const userSessionData = {
             sessionId: userSession.sessionId,
             userId: userSession.userId,
             startTime: userSession.startTime,
             installedApps: await this.appService.getAllApps(),
-            activeAppSessions: userSession.activeAppSessions,
+            activeAppPackageNames,
             whatToStream: userSession.whatToStream,
           };
-
+          console.log('User session data:', userSessionData);
           const clientResponse: CloudAppStateChangeMessage = {
             type: 'app_state_change',
             sessionId: userSession.sessionId, // TODO: Remove this field and check all references.
@@ -380,15 +382,16 @@ export class WebSocketService implements IWebSocketService {
           // Remove TPA connection.
           this.tpaConnections.delete(tpaSessionId);
 
+          const activeAppPackageNames = new Set(userSession.activeAppSessions);
           const userSessionData = {
             sessionId: userSession.sessionId,
             userId: userSession.userId,
             startTime: userSession.startTime,
             installedApps: await this.appService.getAllApps(),
-            activeAppSessions: userSession.activeAppSessions,
+            activeAppPackageNames: activeAppPackageNames,
             whatToStream: userSession.whatToStream,
           };
-
+          console.log('User session data:', userSessionData);
           const clientResponse: CloudAppStateChangeMessage = {
             type: 'app_state_change',
             sessionId: userSession.sessionId, // TODO: Remove this field and check all references.

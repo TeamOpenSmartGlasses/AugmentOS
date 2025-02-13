@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 
-public class ThirdPartyApp implements Serializable {
+public class ThirdPartyEdgeApp implements Serializable {
     transient final String TAG = "ThirdPartyApp";
     private final String appInstructions;
     public String appName;
@@ -25,7 +25,7 @@ public class ThirdPartyApp implements Serializable {
     public String version;
     public AugmentOSCommand[] commandList;
 
-    public ThirdPartyApp(String appName, String appDescription, String appInstructions, String packageName, String serviceName, String version, ThirdPartyAppType appType, JSONArray settings, AugmentOSCommand[] commandList){
+    public ThirdPartyEdgeApp(String appName, String appDescription, String appInstructions, String packageName, String serviceName, String version, ThirdPartyAppType appType, JSONArray settings, AugmentOSCommand[] commandList){
         this.appName = appName;
         this.appDescription = appDescription;
         this.appInstructions = appInstructions;
@@ -107,6 +107,7 @@ public class ThirdPartyApp implements Serializable {
             tpaObj.put("version", version);
             tpaObj.put("packageName", packageName);
             tpaObj.put("type", appType.name());
+            tpaObj.put("iconUrl", null);
 
             if(includeSettings) {
                 tpaObj.put("settings", settings);

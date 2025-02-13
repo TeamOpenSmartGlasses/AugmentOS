@@ -31,7 +31,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.Looper;
 import android.service.notification.NotificationListenerService;
 import android.util.Log;
 
@@ -60,9 +59,9 @@ import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.HeadU
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.SpeechRecSwitchSystem;
 import com.augmentos.augmentos_core.smarterglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.SmartGlassesConnectionState;
+import com.augmentos.augmentoslib.ThirdPartyAppType;
 import com.posthog.java.PostHog;
-import com.augmentos.augmentoslib.PhoneNotification;
-import com.augmentos.augmentoslib.ThirdPartyApp;
+import com.augmentos.augmentoslib.ThirdPartyEdgeApp;
 import com.augmentos.augmentos_core.comms.AugmentOsActionsCallback;
 import com.augmentos.augmentos_core.comms.AugmentosBlePeripheral;
 import com.augmentos.augmentos_core.events.AugmentosSmartGlassesDisconnectedEvent;
@@ -74,7 +73,7 @@ import com.augmentos.augmentos_core.statushelpers.BatteryStatusHelper;
 import com.augmentos.augmentos_core.statushelpers.DeviceInfo;
 import com.augmentos.augmentos_core.statushelpers.GsmStatusHelper;
 import com.augmentos.augmentos_core.statushelpers.WifiStatusHelper;
-import com.augmentos.augmentos_core.tpa.TPASystem;
+import com.augmentos.augmentos_core.tpa.EdgeTPASystem;
 
 
 import com.augmentos.augmentoslib.events.GlassesTapOutputEvent;
@@ -136,13 +135,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private VirtualDisplay virtualDisplay;
     private final Handler screenCaptureHandler = new Handler();
     private Runnable screenCaptureRunnable;
-    private long lastDataSentTime = 0;
-    private final long POLL_INTERVAL_ACTIVE = 200; // 200ms when actively sending data
-    private final long POLL_INTERVAL_INACTIVE = 5000; // 5000ms (5s) when inactive
-    private final long DATA_SENT_THRESHOLD = 90000; // 90 seconds
     private LocationSystem locationSystem;
-    static final String deviceId = "android";
-    long previousWakeWordTime = -1; // Initialize this at -1
     private long currTime = 0;
     private long lastPressed = 0;
     private final long lastTapped = 0;
@@ -151,7 +144,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private final long doublePressTimeConst = 420;
     private final long doubleTapTimeConst = 600;
 
-    public TPASystem tpaSystem;
+    public EdgeTPASystem edgeTpaSystem;
 
     public static PostHog postHog;
 
@@ -176,6 +169,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private AsrPlanner asrPlanner;
     private HTTPServerComms httpServerComms;
 
+    Runnable cachedDashboardDisplayRunnable;
+    List<ThirdPartyCloudApp> cachedThirdPartyAppList;
+
     public AugmentosService() {
     }
 
@@ -185,7 +181,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             AugmentosSmartGlassesService.LocalBinder binder = (AugmentosSmartGlassesService.LocalBinder) service;
             smartGlassesService = (AugmentosSmartGlassesService) binder.getService();
             isSmartGlassesServiceBound = true;
-            tpaSystem.setSmartGlassesService(smartGlassesService);
+            edgeTpaSystem.setSmartGlassesService(smartGlassesService);
             for (Runnable action : serviceReadyListeners) {
                 action.run();
             }
@@ -197,11 +193,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             Log.d(TAG,"SMART GLASSES SERVICE DISCONNECTED!!!!");
             isSmartGlassesServiceBound = false;
             smartGlassesService = null;
-            tpaSystem.setSmartGlassesService(smartGlassesService);
+            edgeTpaSystem.setSmartGlassesService(smartGlassesService);
 
             // TODO: For now, stop all apps on disconnection
             // TODO: Future: Make this nicer
-            tpaSystem.stopAllThirdPartyApps();
+            edgeTpaSystem.stopAllThirdPartyApps();
             sendStatusToAugmentOsManager();
         }
     };
@@ -210,7 +206,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void onAugmentosSmartGlassesDisconnectedEvent(AugmentosSmartGlassesDisconnectedEvent event){
         // TODO: For now, stop all apps on disconnection
         // TODO: Future: Make this nicer
-        tpaSystem.stopAllThirdPartyApps();
+        edgeTpaSystem.stopAllThirdPartyApps();
         sendStatusToAugmentOsManager();
     }
 
@@ -254,8 +250,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         if (blePeripheral != null) {
             blePeripheral.sendNotifyManager(event.text, "error");
         }
-        if (tpaSystem != null) {
-            tpaSystem.stopThirdPartyAppByPackageName(event.packageName);
+        if (edgeTpaSystem != null) {
+            edgeTpaSystem.stopThirdPartyAppByPackageName(event.packageName);
         }
         if (smartGlassesService != null) {
             smartGlassesService.windowManager.showAppLayer("system", () -> AugmentosSmartGlassesService.sendReferenceCard("App error", event.text), 10);
@@ -273,29 +269,16 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             return;
         }
 
-        // Retrieve the next upcoming event
-        CalendarItem calendarItem = calendarSystem.getNextUpcomingEvent();
-
-        long now = System.currentTimeMillis();
-
-        // --- Determine event display string (timeUntil) ---
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
-        String eventDate = simpleDateFormat.format(new Date(calendarItem.getDtStart()));
-        String todayDate = simpleDateFormat.format(new Date(now));
-
-        String timeUntil;
-        if (eventDate.equals(todayDate)) {
-            // Event is today -> show the time
-            SimpleDateFormat timeFormat = new SimpleDateFormat("h:mma", Locale.getDefault());
-            timeUntil = timeFormat.format(new Date(calendarItem.getDtStart()));
-        } else if (eventDate.equals(simpleDateFormat.format(new Date(now + 24 * 60 * 60 * 1000)))) {
-            // Event is tomorrow
-            SimpleDateFormat timeFormat = new SimpleDateFormat("h:mma", Locale.getDefault());
-            timeUntil = timeFormat.format(new Date(calendarItem.getDtStart())) + " tmrw, " ;
-        } else {
-            // Event is beyond tomorrow -> no time shown
-            timeUntil = "";
+        if (cachedDashboardDisplayRunnable != null) {
+            if (smartGlassesService != null) {
+                smartGlassesService.windowManager.showDashboard(cachedDashboardDisplayRunnable,
+                        -1
+                );
+            }
+            return;
         }
+
+        // SHOW FALLBACK DASHBOARD
 
         // --- Build date/time line ---
         SimpleDateFormat currentTimeFormat = new SimpleDateFormat("h:mm", Locale.getDefault());
@@ -306,96 +289,137 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         // Battery, date/time, etc.
         String leftHeaderLine = String.format(Locale.getDefault(), "◌ %s %s, %d%%\n", currentTime, currentDate, batteryLevel);
 
-        // --- Build “left text” (notifications) ---
-        StringBuilder leftBuilder = new StringBuilder();
-        leftBuilder.append(leftHeaderLine);
-
-        // Check notifications in the last 5s
-        boolean recentNotificationFound = false;
-        ArrayList<PhoneNotification> notifications = notificationSystem.getNotificationQueue();
-        PhoneNotification mostRecentNotification = null;
-        long mostRecentTime = 0;
-        for (PhoneNotification notification : notifications) {
-            long notificationTime = notification.getTimestamp();
-            if ((notificationTime + 5000) > now) {
-                if (mostRecentTime == 0 || notificationTime > mostRecentTime) {
-                    mostRecentTime = notificationTime;
-                    mostRecentNotification = notification;
-                }
-            }
-        }
-        if (mostRecentNotification != null) {
-            String mostRecentNotificationString = String.format("%s - %s\n",
-                    mostRecentNotification.getTitle(),
-                    mostRecentNotification.getText());
-            String wrappedRecentNotification = wrapText(mostRecentNotificationString, 25, 4);
-            leftBuilder.append(wrappedRecentNotification);
-            recentNotificationFound = true;
-        }
-
-        if (!recentNotificationFound) {
-            // No super-recent notifications: show up to 2 from notificationList
-            int notificationCount = Math.min(2, notificationList.size());
-            for (int i = 0; i < notificationCount; i++) {
-                String wrappedNotification = wrapText(notificationList.get(i), 25, 2);
-                leftBuilder.append(String.format("| %s\n", wrappedNotification));
-            }
-        }
-
-        // Finalize leftText
-        String leftText = leftBuilder.toString();
-
-        // --- Build “right text” (calendar + news + fake weather) ---
-        StringBuilder rightBuilder = new StringBuilder();
-
-        // CALENDAR
-        // Calendar line (only if we have a “today/tmrw” event)
-        if (!timeUntil.isEmpty()) {
-            // Show a circle before the event
-            rightBuilder.append("@ ").append(timeUntil).append(" ");
-
-            // Truncate the calendar event title if needed
-            String truncatedTitle = calendarItem.getTitle()
-                    .replace("-", " ")
-                    .replace("\n", " ")
-                    .replaceAll("\\s+", " ")
-                    .trim();
-            if (truncatedTitle.length() > 12) {
-                truncatedTitle = truncatedTitle.substring(0, 12) + "...";
-            }
-            rightBuilder.append(truncatedTitle).append("\n");
-        }
-
-        // NEWS
-        String latestNews = null;
-        if (latestNewsArray != null && latestNewsArray.length() > 0) {
-            latestNewsIndex = (latestNewsIndex + 1) % latestNewsArray.length();
-            latestNews = latestNewsArray.getString(latestNewsIndex);
-        }
-
-        if (latestNews != null && !latestNews.isEmpty()) {
-            // Truncate if too long
-            String newsToDisplay = latestNews.substring(0, Math.min(latestNews.length(), 30)).trim();
-            if (latestNews.length() > 30) {
-                newsToDisplay += "...";
-            }
-            rightBuilder.append("↑ ").append(newsToDisplay).append("\n");
-        }
-
-        // Fake weather line
-//        rightBuilder.append("→ Partly Cloudy 42°F\n");
-
-        String rightText = rightBuilder.toString();
-
-        // --- Send the two-column text wall ---
         if (smartGlassesService != null) {
             smartGlassesService.windowManager.showDashboard(() ->
-                            smartGlassesService.sendDoubleTextWall(leftText, rightText),
+                            smartGlassesService.sendDoubleTextWall(leftHeaderLine, "Not connected to AugmentOS Cloud"),
                     -1
             );
         }
 
-        Log.d(TAG, "Dashboard displayed:\nLeft:\n" + leftText + "\nRight:\n" + rightText);
+//
+//        // Retrieve the next upcoming event
+//        CalendarItem calendarItem = calendarSystem.getNextUpcomingEvent();
+//
+//        long now = System.currentTimeMillis();
+//
+//        // --- Determine event display string (timeUntil) ---
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
+//        String eventDate = simpleDateFormat.format(new Date(calendarItem.getDtStart()));
+//        String todayDate = simpleDateFormat.format(new Date(now));
+//
+//        String timeUntil;
+//        if (eventDate.equals(todayDate)) {
+//            // Event is today -> show the time
+//            SimpleDateFormat timeFormat = new SimpleDateFormat("h:mma", Locale.getDefault());
+//            timeUntil = timeFormat.format(new Date(calendarItem.getDtStart()));
+//        } else if (eventDate.equals(simpleDateFormat.format(new Date(now + 24 * 60 * 60 * 1000)))) {
+//            // Event is tomorrow
+//            SimpleDateFormat timeFormat = new SimpleDateFormat("h:mma", Locale.getDefault());
+//            timeUntil = timeFormat.format(new Date(calendarItem.getDtStart())) + " tmrw, " ;
+//        } else {
+//            // Event is beyond tomorrow -> no time shown
+//            timeUntil = "";
+//        }
+//
+//        // --- Build date/time line ---
+//        SimpleDateFormat currentTimeFormat = new SimpleDateFormat("h:mm", Locale.getDefault());
+//        SimpleDateFormat currentDateFormat = new SimpleDateFormat("MMM d", Locale.getDefault());
+//        String currentTime = currentTimeFormat.format(new Date());
+//        String currentDate = currentDateFormat.format(new Date());
+//
+//        // Battery, date/time, etc.
+//        String leftHeaderLine = String.format(Locale.getDefault(), "◌ %s %s, %d%%\n", currentTime, currentDate, batteryLevel);
+//
+//        // --- Build “left text” (notifications) ---
+//        StringBuilder leftBuilder = new StringBuilder();
+//        leftBuilder.append(leftHeaderLine);
+//
+//        // Check notifications in the last 5s
+//        boolean recentNotificationFound = false;
+//        ArrayList<PhoneNotification> notifications = notificationSystem.getNotificationQueue();
+//        PhoneNotification mostRecentNotification = null;
+//        long mostRecentTime = 0;
+//        for (PhoneNotification notification : notifications) {
+//            long notificationTime = notification.getTimestamp();
+//            if ((notificationTime + 5000) > now) {
+//                if (mostRecentTime == 0 || notificationTime > mostRecentTime) {
+//                    mostRecentTime = notificationTime;
+//                    mostRecentNotification = notification;
+//                }
+//            }
+//        }
+//        if (mostRecentNotification != null) {
+//            String mostRecentNotificationString = String.format("%s - %s\n",
+//                    mostRecentNotification.getTitle(),
+//                    mostRecentNotification.getText());
+//            String wrappedRecentNotification = wrapText(mostRecentNotificationString, 25, 4);
+//            leftBuilder.append(wrappedRecentNotification);
+//            recentNotificationFound = true;
+//        }
+//
+//        if (!recentNotificationFound) {
+//            // No super-recent notifications: show up to 2 from notificationList
+//            int notificationCount = Math.min(2, notificationList.size());
+//            for (int i = 0; i < notificationCount; i++) {
+//                String wrappedNotification = wrapText(notificationList.get(i), 25, 2);
+//                leftBuilder.append(String.format("| %s\n", wrappedNotification));
+//            }
+//        }
+//
+//        // Finalize leftText
+//        String leftText = leftBuilder.toString();
+//
+//        // --- Build “right text” (calendar + news + fake weather) ---
+//        StringBuilder rightBuilder = new StringBuilder();
+//
+//        // CALENDAR
+//        // Calendar line (only if we have a “today/tmrw” event)
+//        if (!timeUntil.isEmpty()) {
+//            // Show a circle before the event
+//            rightBuilder.append("@ ").append(timeUntil).append(" ");
+//
+//            // Truncate the calendar event title if needed
+//            String truncatedTitle = calendarItem.getTitle()
+//                    .replace("-", " ")
+//                    .replace("\n", " ")
+//                    .replaceAll("\\s+", " ")
+//                    .trim();
+//            if (truncatedTitle.length() > 12) {
+//                truncatedTitle = truncatedTitle.substring(0, 12) + "...";
+//            }
+//            rightBuilder.append(truncatedTitle).append("\n");
+//        }
+//
+//        // NEWS
+//        String latestNews = null;
+//        if (latestNewsArray != null && latestNewsArray.length() > 0) {
+//            latestNewsIndex = (latestNewsIndex + 1) % latestNewsArray.length();
+//            latestNews = latestNewsArray.getString(latestNewsIndex);
+//        }
+//
+//        if (latestNews != null && !latestNews.isEmpty()) {
+//            // Truncate if too long
+//            String newsToDisplay = latestNews.substring(0, Math.min(latestNews.length(), 30)).trim();
+//            if (latestNews.length() > 30) {
+//                newsToDisplay += "...";
+//            }
+//            rightBuilder.append("↑ ").append(newsToDisplay).append("\n");
+//        }
+//
+//        // Fake weather line
+////        rightBuilder.append("→ Partly Cloudy 42°F\n");
+//
+//        String rightText = rightBuilder.toString();
+//
+//        // --- Send the two-column text wall ---
+//        if (smartGlassesService != null) {
+//            smartGlassesService.windowManager.showDashboard(() ->
+//                            smartGlassesService.sendDoubleTextWall(leftText, rightText),
+//                    -1
+//            );
+//        }
+
+//        Log.d(TAG, "Dashboard displayed:\nLeft:\n" + leftText + "\nRight:\n" + rightText);
     }
 
     public static String wrapText(String text, int maxLineLength, int maxLines) {
@@ -507,12 +531,12 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         contextualDashboardEnabled = getContextualDashboardEnabled();
 
-        tpaSystem = new TPASystem(this, smartGlassesService);
-        asrPlanner = new AsrPlanner(tpaSystem);
+        edgeTpaSystem = new EdgeTPASystem(this, smartGlassesService);
+        asrPlanner = new AsrPlanner(edgeTpaSystem);
 
         // Initialize BLE Peripheral
         blePeripheral = new AugmentosBlePeripheral(this, this);
-        if (!tpaSystem.isAppInstalled(AugmentOSManagerPackageName)) {
+        if (!edgeTpaSystem.isAppInstalled(AugmentOSManagerPackageName)) {
             // TODO: While we use simulated puck, disable the BLE Peripheral for testing
             // TODO: For now, just disable peripheral if manager is installed on same device
             // blePeripheral.start();
@@ -538,6 +562,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 savePreferredWearable(this, "");
             }
         }
+
+        cachedThirdPartyAppList = new ArrayList<ThirdPartyCloudApp>();
 
         // Set up backend comms
         this.httpServerComms = new HTTPServerComms();
@@ -599,7 +625,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
                 // Send out the status once AugmentOS_Core is ready :)
                 // tpaSystem.stopThirdPartyAppByPackageName(AugmentOSManagerPackageName);
-                tpaSystem.startThirdPartyAppByPackageName(AugmentOSManagerPackageName);
+                edgeTpaSystem.startThirdPartyAppByPackageName(AugmentOSManagerPackageName);
 
                 if (!NewPermissionUtils.areAllPermissionsGranted(this)) {
                     blePeripheral.sendPermissionsErrorToManager();
@@ -659,7 +685,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             unbindService(connection);  // Unbind from the service
             isSmartGlassesServiceBound = false;
             smartGlassesService = null;
-            tpaSystem.setSmartGlassesService(smartGlassesService);
+            edgeTpaSystem.setSmartGlassesService(smartGlassesService);
         }
         Intent intent = new Intent(this, AugmentosSmartGlassesService.class);
         stopService(intent);  // Stop the service
@@ -760,7 +786,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         }
     }
 
-    public void parseDisplayEventMessage(JSONObject msg) throws JSONException {
+    public Runnable parseDisplayEventMessage(JSONObject msg) {
             try {
                 JSONObject layout = msg.getJSONObject("layout");
                 String layoutType = layout.getString("layoutType");
@@ -770,32 +796,28 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                     case "reference_card":
                         title = layout.getString("title");
                         text = layout.getString("text");
-
-                        smartGlassesService.windowManager.showAppLayer("server", () -> smartGlassesService.sendReferenceCard(title, text), -1);
-                        break;
+                        return () -> smartGlassesService.sendReferenceCard(title, text);
                     case "text_wall":
                     case "text_line":
                         text = layout.getString("text");
-                        smartGlassesService.windowManager.showAppLayer("server", () -> smartGlassesService.sendTextWall(text), -1);
-                        break;
+                        return  () -> smartGlassesService.sendTextWall(text);
                     case "double_text_wall":
-                        String bodyTop = layout.getString("firstText");
-                        String bodyBottom = layout.getString("secondText");
-                        smartGlassesService.windowManager.showAppLayer("server", () -> smartGlassesService.sendDoubleTextWall(bodyTop, bodyBottom), -1);
-                        break;
+                        String topText = layout.getString("topText");
+                        String bottomText = layout.getString("bottomText");
+                        return  () -> smartGlassesService.sendDoubleTextWall(topText, bottomText);
                     case "text_rows":
                         JSONArray rowsArray = layout.getJSONArray("text");
                         String[] stringsArray = new String[rowsArray.length()];
                         for (int k = 0; k < rowsArray.length(); k++)
                             stringsArray[k] = rowsArray.getString(k);
-                        smartGlassesService.windowManager.showAppLayer("server", () -> smartGlassesService.sendRowsCard(stringsArray), -1);
-                        break;
+                        return  () -> smartGlassesService.sendRowsCard(stringsArray);
                     default:
                         Log.d(TAG, "ISSUE PARSING LAYOUT");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+            return () -> {};
     }
 
     @Subscribe
@@ -812,10 +834,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void onNewScreenImageEvent(NewScreenImageEvent event) {
         if (smartGlassesService != null)
             smartGlassesService.windowManager.showAppLayer("server", () -> smartGlassesService.sendBitmap(event.bmp), -1);
-    }
-
-    private void updateLastDataSentTime() {
-        lastDataSentTime = System.currentTimeMillis();
     }
 
     private void startNotificationService() {
@@ -911,24 +929,17 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             // Adding apps array
             JSONArray apps = new JSONArray();
 
-//            for (ThirdPartyApp tpa : tpaSystem.getThirdPartyApps()) {
+//            for (ThirdPartyEdgeApp tpa : edgeTpaSystem.getThirdPartyApps()) {
 //                if(tpa.appType != ThirdPartyAppType.APP) continue;
 //
 //                JSONObject tpaObj = tpa.toJson(false);
-//                //JSONObject tpaObj = new JSONObject();
-//                //tpaObj.put("name", tpa.appName);
-//                //tpaObj.put("description", tpa.appDescription);
-//                tpaObj.put("is_running", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
-//                tpaObj.put("is_foreground", tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
-//                tpaObj.put("version", tpa.version);
-//                //tpaObj.put("package_name", tpa.packageName);
-//                //tpaObj.put("type", tpa.appType.name());
+//                tpaObj.put("is_running", edgeTpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
+//                tpaObj.put("is_foreground", edgeTpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
 //                apps.put(tpaObj);
 //            }
 
-            for (ThirdPartyCloudApp tpa : httpServerComms.getCachedApps()) {
+            for (ThirdPartyCloudApp tpa : cachedThirdPartyAppList) {
                 JSONObject tpaObj = tpa.toJson(false);
-                tpaObj.put("is_running", false);//tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
                 tpaObj.put("is_foreground", false);//tpaSystem.checkIsThirdPartyAppRunningByPackageName(tpa.packageName));
                 apps.put(tpaObj);
             }
@@ -959,14 +970,31 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void initializeServerCommsCallbacks() {
         ServerComms.getInstance().setServerCommsCallback(new ServerCommsCallback() {
             @Override
-            public void onDisplayEvent(JSONObject displayData) throws JSONException {
-                parseDisplayEventMessage(displayData);
+            public void onConnectionAck() {
+
+            }
+
+            @Override
+            public void onAppStateChange(List<ThirdPartyCloudApp> appList) {
+                cachedThirdPartyAppList = appList;
+                sendStatusToAugmentOsManager();
+            }
+
+            @Override
+            public void onDisplayEvent(JSONObject displayData) {
+                Runnable newRunnable = parseDisplayEventMessage(displayData);
+                if (smartGlassesService != null )
+                    smartGlassesService.windowManager.showAppLayer("serverappid", newRunnable, -1);
             }
 
             @Override
             public void onDashboardDisplayEvent(JSONObject dashboardDisplayData) {
-                // TODO: next, have parseDisplayEventMessage return a runnable
-                // Save this runnable to "cachedDashboardDisplayRunnable"
+                cachedDashboardDisplayRunnable = parseDisplayEventMessage(dashboardDisplayData);
+            }
+
+            @Override
+            public void onConnectionError(String errorMsg) {
+
             }
         });
     }
@@ -1147,7 +1175,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Override
     public void requestAppInfo(String packageNameToGetDetails) {
-        ThirdPartyApp tpa = tpaSystem.getThirdPartyAppByPackageName(packageNameToGetDetails);
+        ThirdPartyEdgeApp tpa = edgeTpaSystem.getThirdPartyAppByPackageName(packageNameToGetDetails);
         if (tpa == null) {
             blePeripheral.sendNotifyManager("Could not find app", "error");
             sendStatusToAugmentOsManager();
@@ -1237,7 +1265,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Override
     public void updateAppSettings(String targetApp, JSONObject settings) {
         Log.d("AugmentOsService", "Updating settings for app: " + targetApp);
-        ThirdPartyApp tpa = tpaSystem.getThirdPartyAppByPackageName(targetApp);
+        ThirdPartyEdgeApp tpa = edgeTpaSystem.getThirdPartyAppByPackageName(targetApp);
         if (tpa == null) {
             blePeripheral.sendNotifyManager("Could not find app", "error");
             return;
@@ -1290,11 +1318,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             unbindService(connection);
             isSmartGlassesServiceBound = false;
             smartGlassesService = null;
-            tpaSystem.setSmartGlassesService(smartGlassesService);
+            edgeTpaSystem.setSmartGlassesService(smartGlassesService);
         }
 
-        if(tpaSystem != null) {
-            tpaSystem.destroy();
+        if(edgeTpaSystem != null) {
+            edgeTpaSystem.destroy();
         }
 
         postHog.shutdown();

@@ -7,13 +7,11 @@ import com.augmentos.augmentos_core.augmentos_backend.ServerComms;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.AsrStreamKey;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.SpeechRecFramework;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.vad.VadGateSpeechPolicy;
-import com.augmentos.augmentos_core.smarterglassesmanager.utils.EnvHelper;
 import com.augmentos.augmentoslib.events.SpeechRecOutputEvent;
 import com.augmentos.augmentoslib.events.TranslateOutputEvent;
 //import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.AsrStreamKey;
 //import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.SpeechRecFramework;
 //import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.vad.VadGateSpeechPolicy;
-//import com.augmentos.augmentos_core.smarterglassesmanager.utils.EnvHelper;
 
 import org.greenrobot.eventbus.EventBus;
 import org.json.JSONObject;
@@ -75,22 +73,6 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
             setupVadListener();
             startVadProcessingThread();
         }).start();
-    }
-
-    /**
-     * Reads env variables or returns a hardcoded dev URL:
-     * e.g. "ws://localhost:7002/glasses-ws"
-     * Not used directly here, but left in to show how you might retrieve a config.
-     */
-    @SuppressWarnings("unused")
-    private String getServerUrl() {
-        String host = EnvHelper.getEnv("AUGMENTOS_ASR_HOST");
-        String port = EnvHelper.getEnv("AUGMENTOS_ASR_PORT");
-        if (host == null || port == null) {
-            throw new IllegalStateException("AugmentOS ASR config not found. Please set AUGMENTOS_ASR_HOST and AUGMENTOS_ASR_PORT.");
-        }
-        // Could do "ws://" for dev or "wss://" for secure
-        return String.format("wss://%s:%s/glasses-ws", host, port);
     }
 
     /**

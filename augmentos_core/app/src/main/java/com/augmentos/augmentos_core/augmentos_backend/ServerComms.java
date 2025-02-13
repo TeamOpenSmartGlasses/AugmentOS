@@ -2,6 +2,7 @@ package com.augmentos.augmentos_core.augmentos_backend;
 
 import android.util.Log;
 
+import com.augmentos.augmentos_core.BuildConfig;
 import com.augmentos.augmentos_core.augmentos_backend.WebSocketManager;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.AsrStreamKey;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.augmentos.SpeechRecAugmentos;
@@ -12,7 +13,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * ServerComms is the single facade for all WebSocket interactions in AugmentOS_Core.
@@ -94,7 +98,7 @@ public class ServerComms {
      * Opens the WebSocket to the given URL (e.g. "ws://localhost:7002/glasses-ws").
      */
     public void connectWebSocket() {
-        wsManager.connect(getServerUrl());
+         wsManager.connect(getServerUrl());
     }
 
     /**
@@ -317,52 +321,130 @@ public class ServerComms {
      */
     private void handleIncomingMessage(JSONObject msg) {
         String type = msg.optString("type", "");
-        try {
-            switch (type) {
-                case "connection_ack":
-                    Log.d(TAG, "Received connection_ack. Possibly store sessionId if needed.");
-                    // String sessionId = msg.optString("sessionId", null);
-                    break;
+        JSONObject userSession;
+        JSONArray installedApps;
+        JSONArray activeAppPackageNames;
 
-                case "connection_error":
-                    String errorMsg = msg.optString("message", "Unknown error");
-                    Log.e(TAG, "connection_error from server: " + errorMsg);
-                    break;
+        switch (type) {
+            case "connection_ack":
+                Log.d(TAG, "Received connection_ack. Possibly store sessionId if needed.");
+                if (serverCommsCallback != null) {
+                    serverCommsCallback.onAppStateChange(parseAppList(msg));
+                    serverCommsCallback.onConnectionAck();
+                }
+                break;
 
-                case "display_event":
-                    Log.d(TAG, "Received display_event: " + msg.toString());
-                    if (serverCommsCallback != null)
-                        serverCommsCallback.onDisplayEvent(msg);
-                    break;
+            case "app_state_change":
+                Log.d(TAG, "Received app_state_change.");
+                if (serverCommsCallback != null)
+                    serverCommsCallback.onAppStateChange(parseAppList(msg));
+                break;
 
-                case "interim":
-                case "final":
-                    // Pass speech messages to SpeechRecAugmentos
-                    if (speechRecAugmentos != null) {
-                        speechRecAugmentos.handleSpeechJson(msg);
-                    } else {
-                        Log.w(TAG, "Received speech message but speechRecAugmentos is null!");
-                    }
-                    break;
+            case "connection_error":
+                String errorMsg = msg.optString("message", "Unknown error");
+                Log.e(TAG, "connection_error from server: " + errorMsg);
+                if (serverCommsCallback != null)
+                    serverCommsCallback.onConnectionError(errorMsg);
+                break;
 
-                default:
-                    Log.w(TAG, "Unknown message type: " + type + " / full: " + msg.toString());
-                    break;
-            }
-        } catch (JSONException e) {
-            Log.d(TAG, "Error parsing incomming websocket json: " + e.toString());
+            case "display_event":
+                Log.d(TAG, "Received display_event: " + msg.toString());
+                if (serverCommsCallback != null)
+                    serverCommsCallback.onDisplayEvent(msg);
+                break;
+
+            case "dashboard_display_event":
+                Log.d(TAG, "Received dashboard display event: " + msg.toString());
+                if(serverCommsCallback != null)
+                    serverCommsCallback.onDashboardDisplayEvent(msg);
+                break;
+
+            case "interim":
+            case "final":
+                // Pass speech messages to SpeechRecAugmentos
+                if (speechRecAugmentos != null) {
+                    speechRecAugmentos.handleSpeechJson(msg);
+                } else {
+                    Log.w(TAG, "Received speech message but speechRecAugmentos is null!");
+                }
+                break;
+
+            default:
+                Log.w(TAG, "Unknown message type: " + type + " / full: " + msg.toString());
+                break;
         }
     }
 
     private String getServerUrl() {
-        String host = EnvHelper.getEnv("AUGMENTOS_HOST");
-        String port = EnvHelper.getEnv("AUGMENTOS_PORT");
-        boolean secureServer = Boolean.parseBoolean(EnvHelper.getEnv("AUGMENTOS_SECURE"));
+        String host = BuildConfig.AUGMENTOS_HOST;// EnvHelper.getEnv("AUGMENTOS_HOST");
+        String port = BuildConfig.AUGMENTOS_PORT;// EnvHelper.getEnv("AUGMENTOS_PORT");
+        boolean secureServer = Boolean.parseBoolean(BuildConfig.AUGMENTOS_SECURE);// Boolean.parseBoolean(EnvHelper.getEnv("AUGMENTOS_SECURE"));
         if (host == null || port == null) {
             throw new IllegalStateException("AugmentOS Server Config Not Found");
         }
         // Could do "ws://" for dev or "wss://" for secure
         return String.format("%s://%s:%s/glasses-ws", secureServer ? "wss" : "ws", host, port);
+    }
+
+    public static List<ThirdPartyCloudApp> parseAppList(JSONObject msg) {
+        // 1) Try to grab installedApps at the top level
+        JSONArray installedApps = msg.optJSONArray("installedApps");
+
+        // 2) If not found, look for "userSession.installedApps"
+        if (installedApps == null) {
+            JSONObject userSession = msg.optJSONObject("userSession");
+            if (userSession != null) {
+                installedApps = userSession.optJSONArray("installedApps");
+            }
+        }
+
+        // 3) Similarly, try to find activeAppPackageNames at top level or under userSession
+        JSONArray activeAppPackageNames = msg.optJSONArray("activeAppPackageNames");
+        if (activeAppPackageNames == null) {
+            JSONObject userSession = msg.optJSONObject("userSession");
+            if (userSession != null) {
+                activeAppPackageNames = userSession.optJSONArray("activeAppPackageNames");
+            }
+        }
+
+        // 4) Convert activeAppPackageNames into a Set for easy lookup
+        Set<String> runningPackageNames = new HashSet<>();
+        if (activeAppPackageNames != null) {
+            for (int i = 0; i < activeAppPackageNames.length(); i++) {
+                String packageName = activeAppPackageNames.optString(i, "");
+                if (!packageName.isEmpty()) {
+                    runningPackageNames.add(packageName);
+                }
+            }
+        }
+
+        // 5) Build a list of ThirdPartyCloudApp objects from installedApps
+        List<ThirdPartyCloudApp> appList = new ArrayList<>();
+        if (installedApps != null) {
+            for (int i = 0; i < installedApps.length(); i++) {
+                JSONObject appJson = installedApps.optJSONObject(i);
+                if (appJson != null) {
+                    // Extract packageName first so we can check isRunning
+                    String packageName = appJson.optString("packageName", "unknown.package");
+
+                    // Check if package is in runningPackageNames
+                    boolean isRunning = runningPackageNames.contains(packageName);
+
+                    // Create the ThirdPartyCloudApp
+                    ThirdPartyCloudApp app = new ThirdPartyCloudApp(
+                            packageName,
+                            appJson.optString("name", "Unknown App"),
+                            appJson.optString("description", "No description available."),
+                            appJson.optString("webhookURL", ""),
+                            appJson.optString("logoURL", ""),
+                            isRunning
+                    );
+                    appList.add(app);
+                }
+            }
+        }
+
+        return appList;
     }
 
 }

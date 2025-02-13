@@ -7,7 +7,10 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import okhttp3.*;
+
+import com.augmentos.augmentos_core.BuildConfig;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.EnvHelper;
 
 /**
@@ -57,7 +60,8 @@ public class HTTPServerComms {
                                     appJson.optString("name", "Unknown App"),
                                     appJson.optString("description", "No description available."),
                                     appJson.optString("webhookURL", ""),
-                                    appJson.optString("logoURL", "")
+                                    appJson.optString("logoURL", ""),
+                                    false
                             );
                             appList.add(app);
                         }
@@ -110,9 +114,9 @@ public class HTTPServerComms {
     }
 
     private String getServerUrl() {
-        String host = EnvHelper.getEnv("AUGMENTOS_HOST");
-        String port = EnvHelper.getEnv("AUGMENTOS_PORT");
-        boolean secureServer = Boolean.parseBoolean(EnvHelper.getEnv("AUGMENTOS_SECURE"));
+        String host = BuildConfig.AUGMENTOS_HOST;// EnvHelper.getEnv("AUGMENTOS_HOST");
+        String port = BuildConfig.AUGMENTOS_PORT;// EnvHelper.getEnv("AUGMENTOS_PORT");
+        boolean secureServer = Boolean.parseBoolean(BuildConfig.AUGMENTOS_SECURE);// Boolean.parseBoolean(EnvHelper.getEnv("AUGMENTOS_SECURE"));
         if (host == null || port == null) {
             throw new IllegalStateException("AugmentOS Server Config Not Found");
         }
