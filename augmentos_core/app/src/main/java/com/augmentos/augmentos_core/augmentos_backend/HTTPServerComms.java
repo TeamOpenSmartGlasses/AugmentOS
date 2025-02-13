@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import okhttp3.*;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.EnvHelper;
 
@@ -57,7 +58,8 @@ public class HTTPServerComms {
                                     appJson.optString("name", "Unknown App"),
                                     appJson.optString("description", "No description available."),
                                     appJson.optString("webhookURL", ""),
-                                    appJson.optString("logoURL", "")
+                                    appJson.optString("logoURL", ""),
+                                    false
                             );
                             appList.add(app);
                         }
