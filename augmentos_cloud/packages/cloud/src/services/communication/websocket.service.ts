@@ -315,7 +315,6 @@ export class WebSocketService implements IWebSocketService {
           this.sessionService.setAudioHandlers(userSession.sessionId, pushStream, recognizer);
 
           const activeAppPackageNames = Array.from(userSession.activeAppSessions.keys());
-
           const userSessionData = {
             sessionId: userSession.sessionId,
             userId: userSession.userId,
@@ -344,12 +343,13 @@ export class WebSocketService implements IWebSocketService {
             startMessage.packageName
           );
 
+          const activeAppPackageNames = Array.from(userSession.activeAppSessions.keys());
           const userSessionData = {
             sessionId: userSession.sessionId,
             userId: userSession.userId,
             startTime: userSession.startTime,
             installedApps: await this.appService.getAllApps(),
-            activeAppSessions: userSession.activeAppSessions,
+            activeAppPackageNames,
             whatToStream: userSession.whatToStream,
           };
 
@@ -379,12 +379,13 @@ export class WebSocketService implements IWebSocketService {
           // Remove TPA connection.
           this.tpaConnections.delete(tpaSessionId);
 
+          const activeAppPackageNames = Array.from(userSession.activeAppSessions.keys());
           const userSessionData = {
             sessionId: userSession.sessionId,
             userId: userSession.userId,
             startTime: userSession.startTime,
             installedApps: await this.appService.getAllApps(),
-            activeAppSessions: userSession.activeAppSessions,
+            activeAppPackageNames,
             whatToStream: userSession.whatToStream,
           };
 
