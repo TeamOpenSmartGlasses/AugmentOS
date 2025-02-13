@@ -8,12 +8,15 @@ import {
   TpaDisplayEventMessage,
   TpaSubscriptionUpdateMessage,
 } from '@augmentos/types'; // Import the types from the shared package
+import { TranscriptProcessor } from '../../../utils/text-wrapping/TranscriptProcessor';
 
 const app = express();
 const PORT = 7010;
 
 const PACKAGE_NAME = 'org.mentra.captions';
 const API_KEY = 'test_key'; // In production, this would be securely stored
+
+const transcriptProcessor = new TranscriptProcessor(30, 3);
 
 // Parse JSON bodies
 app.use(express.json());
@@ -97,20 +100,25 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
 }
 
 function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData: any) {
+  const isFinal = transcriptionData.isFinal;
+  const text = transcriptProcessor.processString(transcriptionData.text, isFinal);
+
+  console.log(`[Session ${sessionId}]: ${text}`);
+  console.log(`[Session ${sessionId}]: ${isFinal}`);
+
   // Create a display event for the transcription
   const displayEvent: TpaDisplayEventMessage = {
     type: 'display_event',
     packageName: PACKAGE_NAME,
     sessionId,
     layout: {
-      layoutType: 'reference_card',
-      title: "Captions",
-      text: transcriptionData.text 
+      layoutType: 'text_wall',
+      text: text 
     },
-    durationMs: transcriptionData.isFinal ? 3000 : undefined
+    durationMs: isFinal ? 3000 : undefined
   };
 
-  console.log(`[Session ${sessionId}]: ${transcriptionData.text}`);
+  console.log(`[Session ${sessionId}]: ${JSON.stringify(transcriptionData, null, 2)}`);
 
   // Send the display event back to the cloud
   ws.send(JSON.stringify(displayEvent));
