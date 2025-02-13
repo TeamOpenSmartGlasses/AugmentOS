@@ -87,18 +87,13 @@ interface DashboardCardLayoutProps {
 }
 
 const DashboardCardLayout: React.FC<DashboardCardLayoutProps> = ({ layout }) => (
-  <div className="dashboard-card bg-gray-100 border rounded-lg p-4 shadow-md flex flex-col justify-between">
-    {/* Top section: Time, date & battery */}
-    <div className="mb-2">
-      <div className="text-sm text-gray-600">{layout.timeDateAndBattery}</div>
+  <div className="flex justify-between">
+    <div className="text-wall whitespace-pre-wrap break-words w-1/2">
+      {layout.leftText}
     </div>
-    {/* Middle section: Top right and bottom right (can be used for quick info) */}
-    <div className="flex justify-between items-center">
-      <div className="text-lg font-bold">{layout.topRight}</div>
-      <div className="text-lg">{layout.bottomRight}</div>
+    <div className="text-wall whitespace-pre-wrap break-words w-1/2">
+      {layout.rightText}
     </div>
-    {/* Bottom section: Additional info */}
-    <div className="text-sm text-gray-500 mt-2">{layout.bottomLeft}</div>
   </div>
 );
 

@@ -1,8 +1,8 @@
-import { Agent } from './AgentInterface';
+import { Agent } from '../../../../agents/AgentInterface';
 import axios from 'axios';
 import { PromptTemplate } from "@langchain/core/prompts";
 import { JsonOutputFunctionsParser } from 'langchain/output_parsers';
-import { LLMProvider } from '../LLMProvider'; // Utility to easily swap LLMs
+import { LLMProvider } from '../../../../utils/LLMProvider'; // Utility to easily swap LLMs
 
 /** 
  * Minimal interface for a news article as returned by NewsAPI.

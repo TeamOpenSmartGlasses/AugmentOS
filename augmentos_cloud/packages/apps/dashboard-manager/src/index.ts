@@ -11,8 +11,8 @@ import {
   DashboardCard,
 } from '@augmentos/types';
 
-import { NewsAgent } from './dashboard_modules/NewsAgent';  // lowercase 'n'
-import { WeatherModule } from './dashboard_modules/WeatherModule';
+import { NewsAgent } from '../../../agents/NewsAgent';  // lowercase 'n'
+import { WeatherModule } from './dashboard-modules/WeatherModule';
 // e.g. { languageLearning: LanguageLearningAgent, news: NewsAgent, ... }
 
 const app = express();
@@ -44,10 +44,8 @@ const activeSessions = new Map<string, SessionInfo>();
 function createDashboardLayout(card: DashboardCard) {
   return {
     layoutType: card.layoutType,
-    timeDateAndBattery: card.timeDateAndBattery,
-    topRight: card.topRight,
-    bottomRight: card.bottomRight,
-    bottomLeft: card.bottomLeft,
+    leftText: card.leftText,
+    rightText: card.rightText,
   };
 }
 
@@ -68,10 +66,8 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     // Create a new dashboard card
     const dashboardCard: DashboardCard = {
       layoutType: 'dashboard_card',
-      timeDateAndBattery: '02/12/2025 12:00 100%',
-      bottomRight: '100%',
-      topRight: 'Meeting with John',
-      bottomLeft: '',
+      leftText: '02/12/2025 12:00 100%',
+      rightText: 'Meeting with John',
     };
 
     // Store session info, including the dashboard card.
@@ -194,7 +190,7 @@ setInterval(async () => {
   // Use the hardcoded location to get the current time and date.
   // Here we assume "New York" uses the "America/New_York" timezone.
   const currentDateTime = new Date().toLocaleString("en-US", {
-    timeZone: "America/New_York",
+    timeZone: "America/New_York", 
     hour: '2-digit',
     minute: '2-digit',
     month: 'numeric',
@@ -204,43 +200,43 @@ setInterval(async () => {
 
   // Iterate through each active session.
   for (const [sessionId, sessionInfo] of activeSessions.entries()) {
-    // Update the time and date in the session's dashboard.
-    sessionInfo.dashboard.timeDateAndBattery = `${currentDateTime} 100%`;
+    // Create dashboard card data
+    const dashboardData = {
+      layoutType: 'dashboard_card' as const,
+      leftText: '',
+      rightText: ''
+    };
 
-    // Update news (as before)
+    // Update time and date
+    dashboardData.leftText = `${currentDateTime} 100%\n`;
+
+    // Update news
     const newsAgent = new NewsAgent();
-    // Create a context that includes the cached transcriptions.
     const context = { transcriptions: sessionInfo.transcriptionCache };
-    
-    const newsResult = await newsAgent.fetchNewsSummaries(context);
+    const newsResult = await newsAgent.handleContext(context);
     sessionInfo.transcriptionCache = [];
 
     if (newsResult && newsResult.news_summaries && newsResult.news_summaries.length > 0) {
-      // For example, update the bottomRight field with the news summaries (joined by commas).
-      sessionInfo.dashboard.bottomRight = newsResult.news_summaries.join(', ');
+      dashboardData.rightText += newsResult.news_summaries.join(', ');
     }
 
-    // ----------------------------
     // Add Weather Forecast Update
-    // ----------------------------
-    // For simplicity, here we use hardcoded New York coordinates.
     const newYorkLatitude = 40.7128;
     const newYorkLongitude = -74.0060;
     const weatherAgent = new WeatherModule();
     const weather = await weatherAgent.fetchWeatherForecast(newYorkLatitude, newYorkLongitude);
     if (weather) {
-      sessionInfo.dashboard.bottomLeft = `Weather: ${weather.condition}, ${weather.avg_temp_f}°F`;
+      dashboardData.leftText += `Weather: ${weather.condition}, ${weather.avg_temp_f}°F`;
     } else {
-      sessionInfo.dashboard.bottomLeft = 'Weather: N/A';
+      dashboardData.leftText += 'Weather: N/A';
     }
 
-    // Create a new dashboard layout using the updated dashboard card.
-    const dashboardLayout = createDashboardLayout(sessionInfo.dashboard);
+    // Create display event with the dashboard card layout
     const displayEvent: DashboardDisplayEventMessage = {
       type: 'dashboard_display_event',
       packageName: PACKAGE_NAME,
       sessionId,
-      layout: dashboardLayout,
+      layout: dashboardData,
       durationMs: 10000,
     };
 
