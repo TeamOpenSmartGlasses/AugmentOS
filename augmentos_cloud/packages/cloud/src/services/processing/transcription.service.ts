@@ -187,7 +187,6 @@ export class TranscriptionService implements ITranscriptionService {
         // confidence: event.result.confidence
       };
 
-      console.log(`[Session ${sessionId}] Recognizing:`, result.text);
       onInterimResult(result);
     };
 
@@ -205,7 +204,6 @@ export class TranscriptionService implements ITranscriptionService {
         duration: event.result.duration
       };
 
-      console.log(`[Session ${sessionId}] Recognized:`, result.text);
       onFinalResult(result);
     };
 

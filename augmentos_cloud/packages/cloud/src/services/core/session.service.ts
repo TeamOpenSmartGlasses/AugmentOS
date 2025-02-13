@@ -85,7 +85,7 @@ export class SessionService implements ISessionService {
     } as UserSession & { disconnectedAt: Date | null };
 
     this.activeSessions.set(sessionId, session);
-    console.log(`Created new session ${sessionId} for user ${userId}`);
+    console.log(`[session.service] Created new session ${sessionId} for user ${userId}`);
     return session;
   }
 

@@ -346,7 +346,7 @@ export class WebSocketService implements IWebSocketService {
 
           userSession.activeAppSessions.push(startMessage.packageName);
 
-          const activeAppPackageNames = userSession.activeAppSessions;
+          const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
           const userSessionData = {
             sessionId: userSession.sessionId,
             userId: userSession.userId,
@@ -382,7 +382,12 @@ export class WebSocketService implements IWebSocketService {
           // Remove TPA connection.
           this.tpaConnections.delete(tpaSessionId);
 
-          const activeAppPackageNames = new Set(userSession.activeAppSessions);
+          // Remove app from active list.
+          userSession.activeAppSessions = userSession.activeAppSessions.filter(
+            (packageName) => packageName !== stopMessage.packageName
+          );
+
+          const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
           const userSessionData = {
             sessionId: userSession.sessionId,
             userId: userSession.userId,

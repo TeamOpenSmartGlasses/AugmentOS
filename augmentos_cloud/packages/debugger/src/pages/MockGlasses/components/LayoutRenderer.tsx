@@ -73,9 +73,11 @@ interface ReferenceCardLayoutProps {
 
 const ReferenceCardLayout: React.FC<ReferenceCardLayoutProps> = ({ layout }) => (
   <div className="reference-card bg-black/20 rounded-lg p-4">
-    <h3 className="text-lg font-semibold mb-2">
-      {layout.title}
-    </h3>
+    {layout.showTitle && (
+      <h3 className="text-lg font-semibold mb-2">
+        {layout.title}
+      </h3>
+    )}
     <div className="text-sm text-gray-300">
       {layout.text}
     </div>

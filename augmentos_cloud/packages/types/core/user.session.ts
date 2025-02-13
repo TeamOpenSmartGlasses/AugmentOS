@@ -30,7 +30,8 @@ export interface UserSession {
   disconnectedAt: Date | null;
 
   installedApps: AppI[];
-  activeAppSessions: Map<string, AppSession>;
+  // activeAppSessions: Map<string, AppSession>;
+  activeAppSessions: string[];
   displayManager: DisplayManagerI;
   websocket: WebSocket;
   transcript: TranscriptI
