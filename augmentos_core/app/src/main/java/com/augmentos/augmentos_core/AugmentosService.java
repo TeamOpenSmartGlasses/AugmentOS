@@ -566,7 +566,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         // Set up backend comms
         this.httpServerComms = new HTTPServerComms();
-        ServerComms.getInstance().connectWebSocket(authHandler.getCoreToken());
+        if (authHandler.getCoreToken() != null && !authHandler.getCoreToken().isEmpty())
+            ServerComms.getInstance().connectWebSocket(authHandler.getCoreToken());
         initializeServerCommsCallbacks();
 
         httpServerComms.getApps(new Callback() {
@@ -1243,6 +1244,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         authHandler.setAuthSecretKey(authSecretKey);
         ServerComms.getInstance().disconnectWebSocket();
         ServerComms.getInstance().connectWebSocket(authHandler.getCoreToken());
+        initializeServerCommsCallbacks();
         authHandler.verifyAuthSecretKey(uniqueUserId);
         sendStatusToAugmentOsManager();
     }

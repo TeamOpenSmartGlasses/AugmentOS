@@ -347,6 +347,7 @@ public class ServerComms {
         switch (type) {
             case "connection_ack":
                 Log.d(TAG, "Received connection_ack. Possibly store sessionId if needed.");
+                startAudioSenderThread();
                 if (serverCommsCallback != null) {
                     serverCommsCallback.onAppStateChange(parseAppList(msg));
                     serverCommsCallback.onConnectionAck();
@@ -471,6 +472,8 @@ public class ServerComms {
     // AUDIO QUEUE SENDER THREAD (ADDED)
     // ------------------------------------------------------------------------
     private void startAudioSenderThread() {
+        if (audioSenderThread != null) return;
+
         audioSenderRunning = true;
         audioSenderThread = new Thread(() -> {
             while (audioSenderRunning) {

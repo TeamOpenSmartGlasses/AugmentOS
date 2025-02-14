@@ -8,8 +8,7 @@ import type { UserSession } from '../core/user.session';
 // Client -> Cloud Messages
 export interface GlassesConnectionInitMessage extends WebSocketMessage {
   type: "connection_init";
-  userId?: string;
-  coreToken?: string;
+  coreToken: string;
 }
 
 export interface GlassesStartAppMessage extends WebSocketMessage {

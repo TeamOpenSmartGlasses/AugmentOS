@@ -28,13 +28,13 @@ const activeSessions = new Map<string, WebSocket>();
 app.post('/webhook', async (req, res) => {
   try {
     const { sessionId, userId } = req.body;
-    console.log(`\n\n🗣️🗣️🗣️Received session request for user ${userId}, session ${sessionId}\n\n`);
+    console.log(`\n\n🗣️🗣️🗣️[Start App Request]\nuserId: ${userId}\nsessionId: ${sessionId}\n\n`);
 
     // Start WebSocket connection to cloud
     const ws = new WebSocket('ws://localhost:7002/tpa-ws');
     
     ws.on('open', () => {
-      console.log(`\n[Session ${sessionId}]\n connected to augmentos-cloud\n`);
+      console.log(`\n[userId ${userId}]\nConnected to App\n`);
       // Send connection init with session ID
       const initMessage: TpaConnectionInitMessage = {
         type: 'tpa_connection_init',
@@ -88,6 +88,7 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
 
     case 'data_stream': {
       const streamMessage = message as CloudDataStreamMessage;
+      console.log(streamMessage.streamType);
       if (streamMessage.streamType === 'transcription') {
         handleTranscription(sessionId, ws, streamMessage.data);
       }

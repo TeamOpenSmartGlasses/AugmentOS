@@ -11,6 +11,7 @@
 
 import { 
     StreamType,
+    UserSession,
     WebSocketError
   } from '@augmentos/types';
   
@@ -28,7 +29,7 @@ import {
    */
   export interface ISubscriptionService {
     updateSubscriptions(sessionId: string, packageName: string, userId: string, subscriptions: StreamType[]): void;
-    getSubscribedApps(sessionId: string, subscription: StreamType): string[];
+    getSubscribedApps(userSession: UserSession, subscription: StreamType): string[];
     getAppSubscriptions(sessionId: string, packageName: string): StreamType[];
     getSubscriptionHistory(sessionId: string, packageName: string): SubscriptionHistory[];
     removeSubscriptions(sessionId: string, packageName: string): void;
@@ -108,15 +109,15 @@ import {
   
     /**
      * Gets all TPAs subscribed to a specific stream type
-     * @param sessionId - User session identifier
+     * @param userSession - User session identifier
      * @param subscription - Subscription type to check
      * @returns Array of app IDs subscribed to the stream
      */
-    getSubscribedApps(sessionId: string, subscription: StreamType): string[] {
+    getSubscribedApps(userSession: UserSession, subscription: StreamType): string[] {
       const subscribedApps: string[] = [];
   
       for (const [key, subs] of this.subscriptions.entries()) {
-        if (!key.startsWith(sessionId)) continue;
+        if (!key.startsWith(userSession.sessionId)) continue;
   
         const [, packageName] = key.split(':');
         if (subs.has(subscription) || subs.has('*') || subs.has('all')) {

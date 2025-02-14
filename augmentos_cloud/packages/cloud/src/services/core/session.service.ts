@@ -28,11 +28,11 @@ const RECONNECT_GRACE_PERIOD_MS = 30000; // 30 seconds
 export interface ISessionService {
   createSession(ws: WebSocket, userId?: string): UserSession;
   getSession(sessionId: string): UserSession | null;
-  handleReconnectUserSession(newSession: UserSession, userId: string): void;
+  destroyOldSessions(userId: string): void;
   updateDisplay(sessionId: string, displayRequest: DisplayRequest): void;
   addTranscriptSegment(sessionId: string, segment: TranscriptSegment): void;
-  setAudioHandlers(sessionId: string, pushStream: any, recognizer: any): void;
-  handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void;
+  // setAudioHandlers(sessionId: string, pushStream: any, recognizer: any): void;
+  handleAudioData(userSession: UserSession, audioData: ArrayBuffer | any): void;
   getAllSessions(): UserSession[];
 
   // Graceful reconnect.
@@ -85,7 +85,7 @@ export class SessionService implements ISessionService {
     } as UserSession & { disconnectedAt: Date | null };
 
     this.activeSessions.set(sessionId, session);
-    console.log(`[session.service] Created new session ${sessionId} for user ${userId}`);
+    console.log(`\n[session.service]\nNew Session: ${sessionId}\nuserId: ${userId}\n`);
     return session;
   }
 
@@ -119,17 +119,59 @@ export class SessionService implements ISessionService {
    * @param newSession - new Session object
    * @param userId - New user identifier
    */
-  handleReconnectUserSession(newSession: UserSession, userId: string): void {
-    // if the user has an existing session, then transfer the existing session data to the new session. 🧳✈️
+  // handleReconnectUserSession(newSession: UserSession, userId: string): void {
+  //   // if the user has an existing session, then transfer the existing session data to the new session. 🧳✈️
+  //   // nuke the old session. 💣💥
+  //   const oldUserSession = this.getSession(userId);
+  //   if (oldUserSession) {
+  //     newSession.activeAppSessions = oldUserSession.activeAppSessions;
+  //     newSession.transcript = oldUserSession.transcript;
+  //     newSession.displayManager = oldUserSession.displayManager;
+
+  //     this.activeSessions.delete(oldUserSession.sessionId);
+  //     console.log(`Transferred data from session ${oldUserSession.sessionId} to ${newSession.sessionId}`);
+
+  //     // Cleanup speech services
+  //     if (oldUserSession.recognizer) {
+  //       oldUserSession.recognizer.stopContinuousRecognitionAsync();
+  //     }
+  //     if (oldUserSession.pushStream) {
+  //       oldUserSession.pushStream.close();
+  //     }
+
+  //     // Close old websocket.
+  //     if (oldUserSession.websocket.readyState === WebSocket.OPEN) {
+  //       oldUserSession.websocket.close();
+  //     }
+  //   }
+
+  //   // Update the user ID on the new session.
+  //   newSession.userId = userId;
+  //   newSession.sessionId = userId;
+    
+  //   this.activeSessions.set(newSession.sessionId, newSession);
+  //   console.log(`Reconnected session ${newSession.sessionId} for user ${userId}`);
+
+  //   // Mark the session as connected.
+  //   // this.markSessionConnected(newSession.sessionId);
+
+  //   // Notify the client of the reconnection.
+  //   if (newSession.websocket.readyState === WebSocket.OPEN) {
+  //     newSession.websocket.send(JSON.stringify({ type: 'reconnect' }));
+  //   }
+
+  //   // Hmm I think all the app sessions should still be connected because those are between server and TPA Servers.
+  //   // only the user session is between the server and the client.
+  //   // this handles the client side of the reconnection.
+  //   // if the user session is disconnected, then the app sessions should still be connected.
+  // }
+
+  destroyOldSessions(userId: string): void {
     // nuke the old session. 💣💥
     const oldUserSession = this.getSession(userId);
     if (oldUserSession) {
-      newSession.activeAppSessions = oldUserSession.activeAppSessions;
-      newSession.transcript = oldUserSession.transcript;
-      newSession.displayManager = oldUserSession.displayManager;
-
       this.activeSessions.delete(oldUserSession.sessionId);
-      console.log(`Transferred data from session ${oldUserSession.sessionId} to ${newSession.sessionId}`);
+      console.log(`Found and Destroyed an old session 💣💥: ${oldUserSession.sessionId}`);
 
       // Cleanup speech services
       if (oldUserSession.recognizer) {
@@ -143,27 +185,9 @@ export class SessionService implements ISessionService {
       if (oldUserSession.websocket.readyState === WebSocket.OPEN) {
         oldUserSession.websocket.close();
       }
+
+      this.destroyOldSessions(userId);
     }
-
-    // Update the user ID on the new session.
-    newSession.userId = userId;
-    newSession.sessionId = userId;
-    
-    this.activeSessions.set(newSession.sessionId, newSession);
-    console.log(`Reconnected session ${newSession.sessionId} for user ${userId}`);
-
-    // Mark the session as connected.
-    // this.markSessionConnected(newSession.sessionId);
-
-    // Notify the client of the reconnection.
-    if (newSession.websocket.readyState === WebSocket.OPEN) {
-      newSession.websocket.send(JSON.stringify({ type: 'reconnect' }));
-    }
-
-    // Hmm I think all the app sessions should still be connected because those are between server and TPA Servers.
-    // only the user session is between the server and the client.
-    // this handles the client side of the reconnection.
-    // if the user session is disconnected, then the app sessions should still be connected.
   }
 
   /**
@@ -201,38 +225,37 @@ export class SessionService implements ISessionService {
    * @param pushStream - Azure Speech Service push stream
    * @param recognizer - Azure Speech Service recognizer
    */
-  setAudioHandlers(sessionId: string, pushStream: any, recognizer: any): void {
-    const session = this.getSession(sessionId);
-    if (!session) return;
+  // setAudioHandlers(sessionId: string, pushStream: any, recognizer: any): void {
+  //   const session = this.getSession(sessionId);
+  //   if (!session) return;
 
-    session.pushStream = pushStream;
-    session.recognizer = recognizer;
+  //   session.pushStream = pushStream;
+  //   session.recognizer = recognizer;
 
-    // Process any buffered audio
-    if (session.bufferedAudio.length > 0) {
-      console.log(`Processing ${session.bufferedAudio.length} buffered audio chunks`);
-      for (const chunk of session.bufferedAudio) {
-        pushStream.write(chunk);
-      }
-      session.bufferedAudio = [];
-    }
-  }
+  //   // Process any buffered audio
+  //   if (session.bufferedAudio.length > 0) {
+  //     console.log(`Processing ${session.bufferedAudio.length} buffered audio chunks`);
+  //     for (const chunk of session.bufferedAudio) {
+  //       pushStream.write(chunk);
+  //     }
+  //     session.bufferedAudio = [];
+  //   }
+  // }
 
   /**
    * Handles incoming audio data from the glasses client.
    * @param sessionId - Session identifier
    * @param audioData - Raw audio data buffer
    */
-  handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void {
-    const session = this.getSession(sessionId);
-    if (!session) return console.error(`🔥🔥🔥 Session ${sessionId} not found`);
+  handleAudioData(session: UserSession, audioData: ArrayBuffer | any): void {
 
     if (session.pushStream) {
+      // console.log("[pushStream]: Writing to push stream");
       session.pushStream.write(audioData);
     } else {
       session.bufferedAudio.push(audioData);
-      if (session.bufferedAudio.length === 1) {  // Log only for first buffer
-        console.log(`Buffering audio data for session ${sessionId} (pushStream not ready)`);
+      if (session.bufferedAudio.length % 10 == 0) {  // Log only for first buffer
+        console.log(`Buffering audio data for session ${session.sessionId} (pushStream not ready)`);
       }
     }
   }
