@@ -371,9 +371,9 @@ public class ServerComms {
                 if (serverCommsCallback == null) return;
 
                 if(isDashboard)
-                    serverCommsCallback.onDisplayEvent(msg);
-                else
                     serverCommsCallback.onDashboardDisplayEvent(msg);
+                else
+                    serverCommsCallback.onDisplayEvent(msg);
                 break;
 
             case "interim":
