@@ -1,0 +1,10 @@
+# I sometimes just spam old version or broken code in files in a folder called old or wip...
+# This is to ignore those files. and folders
+wip/
+old/
+
+# Ignore the .env file
+.env
+.env.local
+./node_modules
+./env

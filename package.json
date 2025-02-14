@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@langchain/anthropic": "^0.3.13",
+    "@langchain/community": "^0.3.30",
+    "@langchain/core": "^0.3.40",
+    "@langchain/google-vertexai": "^0.1.8",
+    "@langchain/openai": "^0.4.3",
+    "langchain": "^0.3.15"
+  }
+}

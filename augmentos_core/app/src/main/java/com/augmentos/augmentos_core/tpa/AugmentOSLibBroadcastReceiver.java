@@ -33,7 +33,7 @@ import com.augmentos.augmentoslib.events.StopAsrStreamRequestEvent;
 import com.augmentos.augmentoslib.events.SubscribeDataStreamRequestEvent;
 import com.augmentos.augmentoslib.events.TextLineViewRequestEvent;
 import com.augmentos.augmentoslib.events.TextWallViewRequestEvent;
-import com.augmentos.augmentos_core.events.ThirdPartyAppErrorEvent;
+import com.augmentos.augmentos_core.events.ThirdPartyEdgeAppErrorEvent;
 import com.augmentos.augmentos_core.tpa.eventbusmessages.TPARequestEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -67,7 +67,7 @@ public class AugmentOSLibBroadcastReceiver extends BroadcastReceiver {
             Log.d(TAG, "ERROR: TPA BUILT FOR INCOMPATIBLE AUGMENTOSLIB VERSION");
             Log.d(TAG, "THE OFFENDING PACKAGE: " + sendingPackage);
             Log.d(TAG, e.getMessage());
-            EventBus.getDefault().post(new ThirdPartyAppErrorEvent(sendingPackage, sendingPackage + " is not compatible with your version of AugmentOS. Please update or uninstall the app."));
+            EventBus.getDefault().post(new ThirdPartyEdgeAppErrorEvent(sendingPackage, sendingPackage + " is not compatible with your version of AugmentOS. Please update or uninstall the app."));
             return;
         }
 

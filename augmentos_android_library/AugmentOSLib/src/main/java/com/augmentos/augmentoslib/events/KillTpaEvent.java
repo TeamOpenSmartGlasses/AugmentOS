@@ -1,14 +1,14 @@
 package com.augmentos.augmentoslib.events;
 
-import com.augmentos.augmentoslib.ThirdPartyApp;
+import com.augmentos.augmentoslib.ThirdPartyEdgeApp;
 
 import java.io.Serializable;
 
 public class KillTpaEvent implements Serializable {
-    public ThirdPartyApp tpa;
+    public ThirdPartyEdgeApp tpa;
     public static final String eventId = "killTpaEvent";
 
-    public KillTpaEvent(ThirdPartyApp tpa){
+    public KillTpaEvent(ThirdPartyEdgeApp tpa){
         this.tpa = tpa;
     }
 

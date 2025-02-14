@@ -20,7 +20,7 @@ import android.util.Log;
 import androidx.core.app.ActivityCompat;
 
 import com.google.gson.Gson;
-import com.augmentos.augmentoslib.ThirdPartyApp;
+import com.augmentos.augmentoslib.ThirdPartyEdgeApp;
 import com.augmentos.augmentoslib.events.CoreToManagerOutputEvent;
 import com.augmentos.augmentoslib.events.ManagerToCoreRequestEvent;
 
@@ -431,7 +431,7 @@ public class AugmentosBlePeripheral {
         sendDataToAugmentOsManager(data.toString());
     }
 
-    public void sendAppInfoToManager(ThirdPartyApp tpa) {
+    public void sendAppInfoToManager(ThirdPartyEdgeApp tpa) {
         Log.d(TAG, "sendNotifyManager");
         JSONObject data = new JSONObject();
         try{
@@ -486,7 +486,8 @@ public class AugmentosBlePeripheral {
     @SuppressLint("MissingPermission")
     public void sendDataToAugmentOsManager(String jsonData) {
         if(isSimulatedPuck){
-//            Log.d(TAG, "Simulated puck is active, sending data to AugmentOS Manager: " + jsonData);
+           Log.d(TAG, "Simulated puck is active, sending data to AugmentOS Manager: " + jsonData);
+
             EventBus.getDefault().post(new CoreToManagerOutputEvent(jsonData));
             return;
         }

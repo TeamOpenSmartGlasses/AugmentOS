@@ -99,6 +99,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
    *    using the local variables (rather than waiting on setState).
    */
   const compareVersions = async (packageName: string) => {
+    return '' // TODO: Remove this
     // Fetch the store data (returns a fresh copy).
     const data = await fetchAppStoreData();
 
@@ -151,38 +152,21 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
     }
   };
 
-  useEffect(() => {
-      const checkCoreUpdates = async () => {
-          const isCoreNotUpToDateString = await compareVersions(
-                AUGMENTOS_CORE_PACKAGE_NAME,
-          );
-
-          if (isCoreNotUpToDateString) {
-            navigation.reset({
-              index: 0,
-              routes: [{ name: 'SimulatedPuckOnboard' }],
-            });
-          }
-      };
-
-      checkCoreUpdates();
-  }, []);
-
   // Call both checks and concatenate any "update needed" messages
-  useEffect(() => {
-    const checkUpdates = async () => {
-      const isManagerNotUpToDateString = await compareVersions(
-        AUGMENTOS_MANAGER_PACKAGE_NAME,
-      );
+  // useEffect(() => {
+  //   const checkUpdates = async () => {
+  //     const isManagerNotUpToDateString = await compareVersions(
+  //       AUGMENTOS_MANAGER_PACKAGE_NAME,
+  //     );
 
-      // If either returned a string, show them together
-      setIsAugmentOSNotUpdatedString(
-        (isManagerNotUpToDateString + '\n' ?? '').trim(),
-      );
-    };
+  //     // If either returned a string, show them together
+  //     setIsAugmentOSNotUpdatedString(
+  //       (isManagerNotUpToDateString + '\n' ?? '').trim(),
+  //     );
+  //   };
 
-    checkUpdates();
-  }, []);
+  //   checkUpdates();
+  // }, []);
 
 
   // Simple animated wrapper so we do not duplicate logic
