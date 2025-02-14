@@ -44,10 +44,53 @@ export interface LocationUpdateEvent extends WebSocketMessage {
   timestamp: Date;
 }
 
-export type HardwareEvent = 
-  | ButtonPressEvent 
-  | HeadPositionEvent 
+export type HardwareEvent =
+  | ButtonPressEvent
+  | HeadPositionEvent
   | GlassesBatteryUpdateEvent
   | PhoneBatteryUpdateEvent
   | GlassesConnectionStateEvent
   | LocationUpdateEvent;
+
+
+// Processed hardware events.
+export interface TranscriptionData {
+  type: 'transcription-interim' | 'transcription-final' | 'transcription';
+  /** 📝 The transcribed text */
+  text: string;
+  /** ✅ Whether this is a final transcription */
+  isFinal: boolean;
+  /** 🌐 Detected language code */
+  language?: string;
+  
+  /** 🕒 Start time of the transcription in milliseconds */
+  startTime: number;
+
+  /** 🕒 End time of the transcription in milliseconds */
+  endTime: number;
+
+  /** 🎙️ Speaker ID */
+  speakerId?: string;
+
+  /** 🔊 Audio duration in milliseconds */
+  duration?: number;
+}
+
+export interface TranslationData {
+  type: 'translation';
+  /** 📝 Original text */
+  sourceText: string;
+  /** 🔄 Translated text */
+  translatedText: string;
+  /** 🌐 Source language code */
+  sourceLang: string;
+  /** 🌐 Target language code */
+  targetLang: string;
+  /** 💯 Translation confidence (0-1) */
+  confidence: number;
+  timestamp: Date;
+}
+
+export type AudioEvent =
+  | TranscriptionData
+  | TranslationData;

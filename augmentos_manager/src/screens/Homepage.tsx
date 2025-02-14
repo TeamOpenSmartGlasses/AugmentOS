@@ -99,6 +99,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
    *    using the local variables (rather than waiting on setState).
    */
   const compareVersions = async (packageName: string) => {
+    return '' // TODO: Remove this
     // Fetch the store data (returns a fresh copy).
     const data = await fetchAppStoreData();
 
