@@ -4,11 +4,10 @@ import path from 'path';
 import { v4 as uuidv4 } from 'uuid'; // if you need unique IDs
 import {
   TpaConnectionInitMessage,
-  TpaDisplayEventMessage,
   TpaSubscriptionUpdateMessage,
   CloudDataStreamMessage,
-  DashboardDisplayEventMessage,
   DashboardCard,
+  DisplayRequest,
 } from '@augmentos/types';
 
 import { NewsAgent } from '../../../agents/NewsAgent';  // lowercase 'n'
@@ -93,15 +92,17 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
 
       const dashboardLayout = createDashboardLayout(dashboardCard);
 
-      const displayEvent: DashboardDisplayEventMessage = {
-        type: 'dashboard_display_event',
+      const displayRequest: DisplayRequest = {
+        type: 'display_event',
+        view: 'dashboard',
         packageName: PACKAGE_NAME,
         sessionId,
         layout: dashboardLayout,
         durationMs: 4000,
+        timestamp: new Date(),
       };
 
-      ws.send(JSON.stringify(displayEvent));
+      ws.send(JSON.stringify(displayRequest));
     });
 
     // 3) On message, handle incoming data
@@ -232,16 +233,18 @@ setInterval(async () => {
     }
 
     // Create display event with the dashboard card layout
-    const displayEvent: DashboardDisplayEventMessage = {
-      type: 'dashboard_display_event',
+    const displayRequest: DisplayRequest = {
+      type: 'display_event',
+      view: 'dashboard',
       packageName: PACKAGE_NAME,
       sessionId,
       layout: dashboardData,
       durationMs: 10000,
+      timestamp: new Date(),
     };
 
-    console.log(`[Session ${sessionId}] Sending updated dashboard:`, displayEvent);
-    sessionInfo.ws.send(JSON.stringify(displayEvent));
+    console.log(`[Session ${sessionId}] Sending updated dashboard:`, displayRequest);
+    sessionInfo.ws.send(JSON.stringify(displayRequest));
   }
 }, 4000);
 

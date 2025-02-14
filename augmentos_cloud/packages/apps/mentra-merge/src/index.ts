@@ -31,7 +31,7 @@ const dummyAgent: Agent = {
 const agents: Agent[] = [dummyAgent];
 
 // Instantiate the AgentGatekeeper with the available agents.
-const gatekeeper = new AgentGatekeeper(agents);
+// const gatekeeper = new AgentGatekeeper(agents);
 
 const app = express();
 const PORT = 7013; // Use a different port from your captions app

@@ -20,6 +20,29 @@ interface NewsSummaries {
   news_summaries: string[];
 }
 
+const agentPromptBlueprint = `You are an AI assistant that provides a one-liner summary for each news article.
+
+You are given a context of news articles (title, description, publishedAt) below.
+
+Your output must be valid JSON with a single key:
+"news_summaries" — an array of one-line summaries, each corresponding to one news article.
+
+News Articles Context:
+{news_articles}
+
+Requirements:
+- Each summary must be under 20 characters.
+- Each summary should capture the key point of the corresponding breaking news.
+- Output exactly one summary per news article, in the order of the news articles provided.
+
+Output Example:
+{{
+  "news_summaries": [
+    "Earthquake in SF.",
+    "Market dips amid fears."
+  ]
+}}`;
+
 /**
  * The NewsSummarizeAgent fetches recent news articles and generates
  * short bullet summaries for each, returning them as a list of strings.
@@ -28,6 +51,8 @@ export class NewsAgent implements Agent {
   public agentId = 'news_summarize';
   public agentName = 'News Summarizer';
   public agentDescription = 'Fetches and summarizes recent news articles';
+  public agentPrompt = agentPromptBlueprint;
+  public agentTools = ["dummy_tool"];
 
   /**
    * Main method from the `Agent` interface.
@@ -93,30 +118,7 @@ export class NewsAgent implements Agent {
 
       // Define the prompt
       const prompt = new PromptTemplate({
-        template: `
-You are an AI assistant that provides a one-liner summary for each news article.
-
-You are given a context of news articles (title, description, publishedAt) below.
-
-Your output must be valid JSON with a single key:
-"news_summaries" — an array of one-line summaries, each corresponding to one news article.
-
-News Articles Context:
-{news_articles}
-
-Requirements:
-- Each summary must be under 20 characters.
-- Each summary should capture the key point of the corresponding breaking news.
-- Output exactly one summary per news article, in the order of the news articles provided.
-
-Output Example:
-{{
-  "news_summaries": [
-    "Earthquake in SF.",
-    "Market dips amid fears."
-  ]
-}}
-        `,
+        template: this.agentPrompt,
         inputVariables: ['news_articles'],
       });
 
