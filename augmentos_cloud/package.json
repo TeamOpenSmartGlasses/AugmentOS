@@ -4,8 +4,6 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run -w @augmentos/types build && npm run -w @augmentos/client build && npm run -w @augmentos/cloud build && npm run -w @augmentos/apps/flash build && npm run -w @augmentos/apps/captions build ",
-    "start": "npm run -w @augmentos/desktop start",
     "dev": "./run.sh"
   },
   "dependencies": { }

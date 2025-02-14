@@ -69,9 +69,9 @@ jobs:
       # If any tests fail, the job (and workflow) will fail, preventing deployment.
 
       # 7. (Optional) Build step for production
-      - name: Build project
-        working-directory: augmentos_cloud
-        run: bun run build
+      # - name: Build project
+      #   working-directory: augmentos_cloud
+      #   run: bun run dev
       # ^ If the server requires a build (e.g., TypeScript compilation or bundling), do it here.
       # If not needed, this step can be removed or left as a no-op.
 
@@ -126,7 +126,8 @@ jobs:
             # (If using a package manager other than bun for install on VM, adjust accordingly, e.g., npm ci --only=production)
             # Restart the Bun server process
             # If managed by PM2:
-            pm2 restart augmentos-cloud || pm2 start index.js --name augmentos-cloud
+            bun run dev
+            # pm2 restart augmentos-cloud || pm2 start index.js --name augmentos-cloud
             # If managed by systemd:
             # sudo systemctl restart augmentos.service
             # If no manager (not recommended for prod), run in background:
