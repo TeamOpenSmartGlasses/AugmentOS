@@ -1252,7 +1252,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         for (int i = 0; i < explicitAgentQueries.length(); i++){
             try {
                 JSONObject obj = explicitAgentQueries.getJSONObject(i);
-                String title = "Processing Query";
+                String title = "";
                 String body = "\"" + obj.getString("query") + "\"";
                 if (smartGlassesService != null)
                     smartGlassesService.windowManager.showAppLayer("server", () -> smartGlassesService.sendReferenceCard(title, body), -1);
