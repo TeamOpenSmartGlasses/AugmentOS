@@ -18,7 +18,7 @@ class FlashServer extends TpaServer {
         );
 
         // Log transcription
-        console.log(`[User ${userId}]: ${data.text}`);
+        console.log(`[User ${userId}][${data.type}]: ${data.text}`);
       }),
 
       // Handle connection events
