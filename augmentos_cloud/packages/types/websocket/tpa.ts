@@ -4,6 +4,7 @@ import type { Layout } from '../layout/layout';
 import type { AppSettings } from '../models/app';
 import type { StreamType } from './common';
 import type { Language } from '../core/app.session';
+import type { DisplayRequest } from '../events/display';
 
 // TPA -> Cloud Messages
 export interface TpaConnectionInitMessage extends WebSocketMessage {
@@ -13,19 +14,19 @@ export interface TpaConnectionInitMessage extends WebSocketMessage {
   apiKey: string;
 }
 
-export interface TpaDisplayEventMessage extends WebSocketMessage {
-  type: "display_event";
-  packageName: string;
-  layout: Layout;
-  durationMs?: number;
-}
+// export interface TpaDisplayEventMessage extends WebSocketMessage {
+//   type: "display_event";
+//   packageName: string;
+//   layout: Layout;
+//   durationMs?: number;
+// }
 
-export interface DashboardDisplayEventMessage extends WebSocketMessage {
-  type: "dashboard_display_event";
-  packageName: string;
-  layout: Layout;
-  durationMs?: number;
-}
+// export interface DashboardDisplayEventMessage extends WebSocketMessage {
+//   type: "dashboard_display_event";
+//   packageName: string;
+//   layout: Layout;
+//   durationMs?: number;
+// }
 
 export interface TpaSubscriptionUpdateMessage extends WebSocketMessage {
   type: "subscription_update";
@@ -44,7 +45,7 @@ export interface TranslationConfig {
 
 export type TpaToCloudMessage =
   | TpaConnectionInitMessage
-  | TpaDisplayEventMessage
+  | DisplayRequest
   | TpaSubscriptionUpdateMessage;
 
 // Cloud -> TPA Messages

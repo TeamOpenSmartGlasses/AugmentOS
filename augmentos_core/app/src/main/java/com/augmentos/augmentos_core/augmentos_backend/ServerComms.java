@@ -365,13 +365,14 @@ public class ServerComms {
 
             case "display_event":
                 Log.d(TAG, "Received display_event: " + msg.toString());
-                if (serverCommsCallback != null)
-                    serverCommsCallback.onDisplayEvent(msg);
-                break;
+                String view = msg.optString("view");
+                boolean isDashboard = view.equals("dashboard");
 
-            case "dashboard_display_event":
-                Log.d(TAG, "Received dashboard display event: " + msg.toString());
-                if(serverCommsCallback != null)
+                if (serverCommsCallback == null) return;
+
+                if(isDashboard)
+                    serverCommsCallback.onDisplayEvent(msg);
+                else
                     serverCommsCallback.onDashboardDisplayEvent(msg);
                 break;
 

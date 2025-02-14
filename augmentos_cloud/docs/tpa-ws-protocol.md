@@ -115,7 +115,7 @@ export class AugmentOSTpaClient {
    * Send a display update to user's glasses
    */
   updateDisplay(layout: Layout, durationMs?: number) {
-    const message: TpaDisplayEventMessage = {
+    const message: DisplayRequest = {
       type: 'display_event',
       appId: this.appId,
       layout,
