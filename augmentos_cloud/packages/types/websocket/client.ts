@@ -9,6 +9,7 @@ import type { UserSession } from '../core/user.session';
 export interface GlassesConnectionInitMessage extends WebSocketMessage {
   type: "connection_init";
   userId?: string;
+  coreToken?: string;
 }
 
 export interface GlassesStartAppMessage extends WebSocketMessage {

@@ -46,6 +46,8 @@ import subscriptionService, { ISubscriptionService } from './subscription.servic
 import transcriptionService, { ITranscriptionService } from '../processing/transcription.service';
 import appService, { IAppService } from '../core/app.service';
 import { DisplayRequest } from '@augmentos/types/events/display';
+import jwt, { JwtPayload } from 'jsonwebtoken';
+import { AUGMENTOS_AUTH_JWT_SECRET, SUPABASE_JWT_SECRET } from '../../env';
 
 // Constants
 const TPA_SESSION_TIMEOUT_MS = 5000;  // 30 seconds
@@ -292,10 +294,15 @@ export class WebSocketService implements IWebSocketService {
       switch (message.type) {
         case 'connection_init': {
           const initMessage = message as GlassesConnectionInitMessage;
-          const userId = initMessage.userId;
+          // const userId = initMessage.userId;
+          const coreToken = initMessage.coreToken || "";
+
+          const userData = jwt.verify(coreToken, AUGMENTOS_AUTH_JWT_SECRET);
+          const userId = (userData as JwtPayload).email;
           if (!userId) {
             throw new Error('User ID is required');
           }
+
           console.log(`[websocket.service] Glasses client connected: ${userId}`);
           this.sessionService.handleReconnectUserSession(userSession, userId);
 

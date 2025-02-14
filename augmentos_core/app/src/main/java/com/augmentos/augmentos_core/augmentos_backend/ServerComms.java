@@ -35,6 +35,8 @@ public class ServerComms {
     private ServerCommsCallback serverCommsCallback;
     // 1) Keep a private static reference
     private static ServerComms instance;
+    private String coreToken;
+
 
     // ------------------------------------------------------------------------
     // AUDIO QUEUE SYSTEM (ADDED)
@@ -71,7 +73,7 @@ public class ServerComms {
                     JSONObject initMsg = new JSONObject();
                     initMsg.put("type", "connection_init");
                     // You can send any additional fields if your server needs them, e.g. "userId".
-                    initMsg.put("userId", "myUser123");
+                    initMsg.put("coreToken", coreToken);
                     // add more fields if needed, e.g. initMsg.put("someField", "someValue");
 
                     // Send the JSON over the WebSocket
@@ -111,7 +113,8 @@ public class ServerComms {
     /**
      * Opens the WebSocket to the given URL (e.g. "ws://localhost:7002/glasses-ws").
      */
-    public void connectWebSocket() {
+    public void connectWebSocket(String coreToken) {
+        this.coreToken = coreToken;
         wsManager.connect(getServerUrl());
     }
 

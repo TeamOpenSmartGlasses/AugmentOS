@@ -9,9 +9,21 @@ interface Callback {
 export default class BackendServerComms {
     private static instance: BackendServerComms;
     private TAG = 'MXT2_BackendServerComms';
-    private serverUrl = Config.serverUrl;
+    private serverUrl;
 
-    private constructor() {}
+    private getServerUrl(): string {
+        const secure = process.env.AUGMENTOS_SECURE === 'true';
+        const host = process.env.AUGMENTOS_HOST || 'localhost';
+        const port = process.env.AUGMENTOS_PORT || '7002';
+        const protocol = secure ? 'https' : 'http';
+        const serverUrl = `${protocol}://${host}:${port}`;
+        console.log("\n Got a new server url: " + serverUrl + " \n\n\n");
+        return serverUrl;
+    }
+
+    private constructor() {
+        this.serverUrl = this.getServerUrl();
+    }
 
     public static getInstance(): BackendServerComms {
         if (!BackendServerComms.instance) {
@@ -57,4 +69,32 @@ export default class BackendServerComms {
             callback.onFailure(-1);
         }
     }
+
+    public async exchangeToken(supabaseToken: string): Promise<string> {
+        const url = `${this.serverUrl}/auth/exchange-token`; // Adjust if needed
+    
+        // Build request with axios
+        const config: AxiosRequestConfig = {
+          method: 'POST',
+          url,
+          headers: { 'Content-Type': 'application/json' },
+          data: { supabaseToken }, // body
+        };
+    
+        try {
+          const response = await axios(config);
+          if (response.status === 200 && response.data) {
+            // Assuming the backend returns { myCustomToken: "xxx" }
+            console.log("GOT A RESPONSE!!!")
+            console.log("\n\n");
+            console.log(JSON.stringify(response.data));
+            console.log("\n\n\n\n");
+            return response.data.coreToken;
+          } else {
+            throw new Error(`Bad response: ${response.statusText}`);
+          }
+        } catch (err) {
+          throw err;
+        }
+      }
 }

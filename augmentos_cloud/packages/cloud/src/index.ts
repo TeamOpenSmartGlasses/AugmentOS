@@ -15,6 +15,7 @@ import { webSocketService } from './services/communication/websocket.service';
 
 // Import routes
 import appRoutes from './routes/apps.routes';
+import authRoutes from './routes/auth.routes';
 
 // Load environment variables
 dotenv.config();
@@ -47,6 +48,7 @@ app.use(cookieParser());
 
 // Routes
 app.use('/apps', appRoutes);
+app.use('/auth', authRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {

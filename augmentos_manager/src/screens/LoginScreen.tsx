@@ -106,12 +106,6 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   
 
   const handleGoogleSignIn = async () => {
-    console.log('Google button pressed!');
-    // Right after returning from the browser (or in the subscription):
-    //const { data: sessionData } = await supabase.auth.getSession();
-    //console.log('OG session:', sessionData.session);
-
-
     try {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
