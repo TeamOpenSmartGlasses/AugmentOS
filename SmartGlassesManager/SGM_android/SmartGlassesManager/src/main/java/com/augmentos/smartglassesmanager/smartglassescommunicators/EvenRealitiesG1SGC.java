@@ -502,6 +502,16 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 Log.d(TAG, side + " glass RX characteristic found");
             }
 
+
+            // Mark as connected but wait for setup below to update connection state
+            if ("Left".equals(side)) {
+                isLeftConnected = true;
+                Log.d(TAG, "PROC_QUEUE - left side setup complete");
+            } else {
+                isRightConnected = true;
+                Log.d(TAG, "PROC_QUEUE - right side setup complete");
+            }
+
             //setup the G1s
             if (isLeftConnected && isRightConnected) {
                 Log.d(TAG, "Sending firmware request Command");
@@ -536,10 +546,14 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 sendWhiteListCommand(10);
 
                 //start heartbeat
-                startHeartbeat(3000);
+                startHeartbeat(20000);
 
                 //start mic beat
                 startMicBeat(30000);
+
+                showHomeScreen(); //turn on the g1 display
+
+                updateConnectionState();
 
                 //start sending debug notifications
                 //                        startPeriodicNotifications(302);
@@ -551,86 +565,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
     }
 
-//    private void enableNotification(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, String side) {
-//        gatt.setCharacteristicNotification(characteristic, true);
-//        BluetoothGattDescriptor descriptor = characteristic.getDescriptor(CLIENT_CHARACTERISTIC_CONFIG_UUID);
-//
-//        if (descriptor != null) {
-//            descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-//
-//            // Wait 200ms before setting false
-//            new Handler(Looper.getMainLooper()).postDelayed(() -> {
-//                if ("Left".equals(side)) {
-//                    leftServicesWaiter.setFalse();
-//                } else {
-//                    rightServicesWaiter.setFalse();
-//                }
-//            }, 200);
-//
-//            boolean result = gatt.writeDescriptor(descriptor);
-//            if (result) {
-//                Log.d(TAG, side + " SIDE, Descriptor write successful for characteristic: " + characteristic.getUuid());
-//                if ("Left".equals(side)) isLeftConnected = true;
-//                else isRightConnected = true;
-//                updateConnectionState();
-//            } else {
-//                Log.e(TAG, side + " SIDE, Failed to write descriptor for characteristic: " + characteristic.getUuid());
-//            }
-//        } else {
-//            Log.e(TAG, side + " SIDE, Descriptor not found for characteristic: " + characteristic.getUuid());
-//        }
-//    }
-
-    //OG enable notifications
-//    private void enableNotification(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, String side) {
-//        // Simply enable notifications
-//        boolean set_result = gatt.setCharacteristicNotification(characteristic, true);
-//        Log.d(TAG, "PROC_QUEUE - setCharacteristicNotification result for " + side + ": " + set_result);
-//
-//        // Set write type for the characteristic
-//        characteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
-//        Log.d(TAG, "PROC_QUEUE - write type set for " + side);
-//
-////        gatt.setCharacteristicNotification(characteristic, true);
-////        BluetoothGattDescriptor descriptor = characteristic.getDescriptor(CLIENT_CHARACTERISTIC_CONFIG_UUID);
-////        if (descriptor != null) {
-////            descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-////            if ("Left".equals(side)) {
-////                leftServicesWaiter.setTrue();
-////            } else {
-////                rightServicesWaiter.setTrue();
-////            }
-////            boolean result = gatt.writeDescriptor(descriptor);
-////            if (result) {
-////                Log.d(TAG, side + " SIDE," + "Descriptor write successful for characteristic: " + characteristic.getUuid());
-////                if ("Left".equals(side)) isLeftConnected = true;
-////                else isRightConnected = true;
-////                updateConnectionState();
-////            } else {
-////                Log.e(TAG, side + " SIDE," + "Failed to write descriptor for characteristic: " + characteristic.getUuid());
-////            }
-////        } else {
-////            Log.e(TAG, side + " SIDE," + "Descriptor not found for characteristic: " + characteristic.getUuid());
-////        }
-//
-//        //in case this things doesn't write the descriptor properly, do this
-//        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                Log.d(TAG, "PROC_QUEUE - Forcing " + side + " waiter to false after timeout");
-//                if (side.equals("Left")) {
-//                    leftServicesWaiter.setFalse();
-//                } else {
-//                    rightServicesWaiter.setFalse();
-//                }
-//            }
-//        }, 2000); // 2 seconds
-//        isLeftConnected = true;
-//        isRightConnected = true;
-//        updateConnectionState();
-//    }
-
-    //working on rare phones
+    //working on all phones - must keep the delay
     private void enableNotification(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, String side) {
         Log.d(TAG, "PROC_QUEUE - Starting notification setup for " + side);
 
@@ -660,55 +595,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             boolean r_result = gatt.writeDescriptor(descriptor);
             Log.d(TAG, "PROC_QUEUE - set descriptor on side: " + side + " with result: " + r_result);
         }
-
-//        try {
-//            Thread.sleep(500);
-//        } catch (InterruptedException e) {
-//            Log.e(TAG, "Error sleeping thread data: " + e.getMessage());
-//        }
-
-        // Mark as connected and release waiter immediately
-        if ("Left".equals(side)) {
-            isLeftConnected = true;
-//            leftServicesWaiter.setFalse();
-            Log.d(TAG, "PROC_QUEUE - left side setup complete");
-        } else {
-            isRightConnected = true;
-//            rightServicesWaiter.setFalse();
-            Log.d(TAG, "PROC_QUEUE - right side setup complete");
-        }
-        updateConnectionState();
     }
-
-    //attempted combination of the 2
-//    private void enableNotification(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, String side) {
-//        Log.d(TAG, "PROC_QUEUE - Starting notification setup for " + side);
-//
-//        // Simply enable notifications
-//        boolean result = gatt.setCharacteristicNotification(characteristic, true);
-//        Log.d(TAG, "PROC_QUEUE - setCharacteristicNotification result for " + side + ": " + result);
-//
-//        if (!result) {
-//            Log.e(TAG, "PROC_QUEUE - Failed to enable notifications for " + side);
-//            return;
-//        }
-//
-//        // Set write type for the characteristic
-//        characteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
-//        Log.d(TAG, "PROC_QUEUE - write type set for " + side);
-//
-//        // Mark as connected and release waiter immediately
-//        if ("Left".equals(side)) {
-//            isLeftConnected = true;
-//            leftServicesWaiter.setFalse();
-//            Log.d(TAG, "PROC_QUEUE - left side setup complete");
-//        } else {
-//            isRightConnected = true;
-//            rightServicesWaiter.setFalse();
-//            Log.d(TAG, "PROC_QUEUE - right side setup complete");
-//        }
-//        updateConnectionState();
-//    }
 
     private void updateConnectionState() {
         if (isLeftConnected && isRightConnected) {
@@ -2202,7 +2089,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             }
 
             // Wrap text (similar to wrapText) using our rough charsPerLine
-            String current = rawLine.trim();
+            String current = rawLine; //.trim();
             while (!current.isEmpty()) {
                 // If shorter than max length, just add
                 if (current.length() <= charsPerLine) {
@@ -2224,11 +2111,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 }
 
                 // Extract the chunk, trim it, and add to result lines
-                String chunk = current.substring(0, splitIndex).trim();
+                String chunk = current.substring(0, splitIndex); //.trim();
                 lines.add(chunk);
 
                 // Remove that chunk (plus leading/trailing spaces) from current
-                current = current.substring(splitIndex).trim();
+                current = current.substring(splitIndex); //.trim();
             }
         }
 

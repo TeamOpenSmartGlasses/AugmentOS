@@ -852,7 +852,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             Log.d(TAG, "****************** SENDING REFERENCE CARD: CONNECTED TO AUGMENT OS");
             if (smartGlassesService != null)
-                smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("", "/// AugmentOS Connected \\\\\\"), 6);
+                playStartupSequenceOnSmartGlasses();
+//                smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("", "/// AugmentOS Connected \\\\\\"), 6);
+
 
             //start transcribing
             updateAsrLanguages();
@@ -862,6 +864,56 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             props.put("timestamp", System.currentTimeMillis());
             postHog.capture(authHandler.getUniqueIdForAnalytics(), "glasses_connected", props);
         }
+    }
+
+    private static final String[] ARROW_FRAMES = {
+//            "↑", "↗", "–", "↘", "↓", "↙", "–", "↖"
+            "↑", "↗", "↑", "↖"
+    };
+
+    private void playStartupSequenceOnSmartGlasses() {
+        if (smartGlassesService == null) return;
+
+        Handler handler = new Handler(Looper.getMainLooper());
+        int delay = 250; // Frame delay
+        int totalFrames = ARROW_FRAMES.length;
+        int totalCycles = 4;
+
+        Runnable animate = new Runnable() {
+            int frameIndex = 0;
+            int cycles = 0;
+
+            @Override
+            public void run() {
+                if (cycles >= totalCycles) {
+                    // End animation with final message
+                    smartGlassesService.windowManager.showAppLayer(
+                            "system",
+                            () -> smartGlassesService.sendTextWall("                                     /// AugmentOS Connected \\\\\\"),
+                            6
+                    );
+                    return; // Stop looping
+                }
+
+                // Send current frame
+                smartGlassesService.windowManager.showAppLayer(
+                        "system",
+                        () -> smartGlassesService.sendTextWall("                                       " + ARROW_FRAMES[frameIndex] + " AugmentOS Booting " + ARROW_FRAMES[frameIndex]),
+                        6
+                );
+
+                // Move to next frame
+                frameIndex = (frameIndex + 1) % totalFrames;
+
+                // Count full cycles
+                if (frameIndex == 0) cycles++;
+
+                // Schedule next frame
+                handler.postDelayed(this, delay);
+            }
+        };
+
+        handler.postDelayed(animate, 350); // Start animation
     }
 
     public void getSettings(){
