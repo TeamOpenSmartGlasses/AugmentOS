@@ -1,5 +1,3 @@
-
-
 # AugmentOS Cloud Protocol Documentation
 
 ## System Architecture Overview
