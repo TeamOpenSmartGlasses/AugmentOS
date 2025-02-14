@@ -23,49 +23,26 @@ import {
   SpeechRecognizer
 } from 'microsoft-cognitiveservices-speech-sdk';
 import { AZURE_SPEECH_REGION, AZURE_SPEECH_KEY } from '../../env';
+import { TranscriptionData } from '@augmentos/types';
 
-/**
- * Base interface for transcription results.
- * Both interim and final results extend this.
- */
-export interface TranscriptionBase {
-  text: string;
-  startTime: number;        // Relative to session start
-  endTime: number;
-  speakerId?: string;       // For speaker diarization: currently not supported
-  confidence?: number;      // For confidence scoring: currently not supported
-}
 
 /**
  * Interface for interim (in-progress) transcription results.
  */
-export interface InterimTranscriptionResult extends TranscriptionBase {
+export interface InterimTranscriptionResult extends TranscriptionData {
+  type: 'transcription-interim';
   isFinal: false;
 }
 
 /**
  * Interface for final transcription results.
  */
-export interface FinalTranscriptionResult extends TranscriptionBase {
+export interface FinalTranscriptionResult extends TranscriptionData {
+  type: 'transcription-final',
   isFinal: true;
   duration: number;         // Total duration of the segment
 }
 
-/**
- * The format of transcription data sent to TPAs.
- * Design decision: Unified format for both interim and final results
- * to simplify TPA implementation.
- */
-export interface TranscriptionStreamData {
-  type: 'interim' | 'final';
-  text: string;
-  startTime: number;
-  endTime: number;
-  speakerId?: string;
-  confidence?: number;
-  duration?: number;        // Only present for final results
-  isFinal: boolean;
-}
 
 /**
  * Configuration options for the transcription service.
@@ -177,6 +154,7 @@ export class TranscriptionService implements ITranscriptionService {
       if (!event.result.text) return;
 
       const result: InterimTranscriptionResult = {
+        type: 'transcription-interim',
         text: event.result.text,
         startTime: this.calculateRelativeTime(event.result.offset),
         endTime: this.calculateRelativeTime(event.result.offset + event.result.duration),
@@ -193,6 +171,7 @@ export class TranscriptionService implements ITranscriptionService {
       if (!event.result.text) return;
 
       const result: FinalTranscriptionResult = {
+        type: 'transcription-final',
         text: event.result.text,
         startTime: this.calculateRelativeTime(event.result.offset),
         endTime: this.calculateRelativeTime(event.result.offset + event.result.duration),
