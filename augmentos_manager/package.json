@@ -70,6 +70,8 @@
 
     "react-native-screens": "^3.34.0",
 
+    "react-native-slider": "^0.11.0",
+
     "react-native-svg": "^15.11.1",
 
     "react-native-svg-transformer": "^1.5.0",
