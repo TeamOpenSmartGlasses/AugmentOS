@@ -145,6 +145,12 @@ public class WebSocketStreamManager {
                 .url(serverUrl)
                 .build();
 
+        if (webSocket != null) {
+            audioQueue.clear();
+            webSocket.close(1000, "Normal closure");
+            webSocket = null;
+        }
+
         webSocket = client.newWebSocket(request, new WebSocketListener() {
             @Override
             public void onOpen(WebSocket webSocket, Response response) {
