@@ -38,7 +38,7 @@ import {
   PhoneNotificationEvent,
   CloudToTpaMessage,
   CloudAppStateChangeMessage,
-  UserSession
+  UserSession,
 } from '@augmentos/types';
 
 import sessionService, { ISessionService } from '../core/session.service';
@@ -563,6 +563,7 @@ export class WebSocketService implements IWebSocketService {
 
         break;
       }
+ 
     }
   }
 
