@@ -5,7 +5,7 @@ import path from 'path';
 import {
   TpaConnectionInitMessage,
   CloudDataStreamMessage,
-  TpaDisplayEventMessage,
+  DisplayRequest,
   TpaSubscriptionUpdateMessage,
 } from '@augmentos/types'; // Import the types from the shared package
 import { TranscriptProcessor } from '../../../utils/text-wrapping/TranscriptProcessor';
@@ -107,14 +107,16 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
   console.log(`[Session ${sessionId}]: ${isFinal}`);
 
   // Create a display event for the transcription
-  const displayEvent: TpaDisplayEventMessage = {
+  const displayEvent: DisplayRequest = {
     type: 'display_event',
+    view: "main",
     packageName: PACKAGE_NAME,
     sessionId,
     layout: {
       layoutType: 'text_wall',
       text: text 
     },
+    timestamp: new Date(),
     durationMs: isFinal ? 3000 : undefined
   };
 

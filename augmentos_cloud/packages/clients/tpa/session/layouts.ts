@@ -1,14 +1,16 @@
 // src/layouts/index.ts
-import type { TpaDisplayEventMessage, Layout, TextWall, DoubleTextWall, ReferenceCard  } from '@augmentos/types';
+import type { DisplayRequest, Layout, TextWall, DoubleTextWall, ReferenceCard  } from '@augmentos/types';
 
 export class LayoutManager {
   constructor(
     private packageName: string,
-    private sendMessage: (message: TpaDisplayEventMessage) => void
+    private sendMessage: (message: DisplayRequest) => void
   ) {}
 
-  private createDisplayEvent(layout: Layout, durationMs?: number): TpaDisplayEventMessage {
+  private createDisplayEvent(layout: Layout, durationMs?: number): DisplayRequest {
     return {
+      timestamp: new Date(),
+      view: "main",
       type: 'display_event',
       packageName: this.packageName,
       layout,
