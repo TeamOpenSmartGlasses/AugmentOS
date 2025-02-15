@@ -209,7 +209,7 @@ export class TranscriptionService implements ITranscriptionService {
   ): void {
     // Handle interim results
     recognizer.transcribing = (_sender: any, event: ConversationTranscriptionEventArgs) => {
-      console.log('Transcribing event:', event.result);
+      // console.log('Transcribing event:', event.result);
       if (!event.result.text) return;
 
       const result: InterimTranscriptionResult = {
@@ -227,7 +227,7 @@ export class TranscriptionService implements ITranscriptionService {
 
     // Handle final results
     recognizer.transcribed = (_sender: any, event: ConversationTranscriptionEventArgs) => {
-      console.log('Transcribed event!!!!!:', event.result);
+      // console.log('Transcribed event!!!!!:', event.result);
       if (!event.result.text) return;
 
       const result: FinalTranscriptionResult = {
