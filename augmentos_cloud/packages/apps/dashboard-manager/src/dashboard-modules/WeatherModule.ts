@@ -9,9 +9,9 @@ export class WeatherModule {
   private apiKey: string;
   private baseUrl: string;
 
-  constructor(apiKey?: string) {
+  constructor() {
     // Use the provided API key or fallback to the default one.
-    this.apiKey = apiKey || '';
+    this.apiKey = "370253c709614bcfb45192606251502";
     this.baseUrl = 'http://api.weatherapi.com/v1';
   }
 

@@ -8,6 +8,7 @@ import {
   CloudDataStreamMessage,
   DashboardCard,
   DisplayRequest,
+  DoubleTextWall,
 } from '@augmentos/types';
 
 import { NewsAgent } from '../../../agents/NewsAgent';  // lowercase 'n'
@@ -31,22 +32,11 @@ interface SessionInfo {
   // cache for transcription data (could be an array to accumulate multiple transcriptions)
   transcriptionCache?: any[];
   // embed the dashboard card into session info
-  dashboard: DashboardCard;
+  dashboard: DoubleTextWall;
   [key: string]: any;
 }
 
 const activeSessions = new Map<string, SessionInfo>();
-
-/**
- * Creates the dashboard layout from the provided card.
- */
-function createDashboardLayout(card: DashboardCard) {
-  return {
-    layoutType: card.layoutType,
-    leftText: card.leftText,
-    rightText: card.rightText,
-  };
-}
 
 // Parse JSON bodies
 app.use(express.json());
@@ -63,10 +53,15 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     const ws = new WebSocket('ws://localhost:7002/tpa-ws');
 
     // Create a new dashboard card
-    const dashboardCard: DashboardCard = {
-      layoutType: 'dashboard_card',
-      leftText: '02/12/2025 12:00 100%',
-      rightText: 'Meeting with John',
+    const dashboardCard: DoubleTextWall = {
+      layoutType: 'double_text_wall',
+      topText: new Date().toLocaleString("en-US", {
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+      }) + ' 100%',
+      bottomText: 'Meeting with John',
     };
 
     // Store session info, including the dashboard card.
@@ -90,18 +85,15 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
       };
       ws.send(JSON.stringify(initMessage));
 
-      const dashboardLayout = createDashboardLayout(dashboardCard);
-
       const displayRequest: DisplayRequest = {
         type: 'display_event',
         view: 'dashboard',
         packageName: PACKAGE_NAME,
         sessionId,
-        layout: dashboardLayout,
+        layout: dashboardCard,
         durationMs: 4000,
         timestamp: new Date(),
       };
-
       ws.send(JSON.stringify(displayRequest));
     });
 
@@ -188,10 +180,9 @@ function handleSettings(sessionId: string, settingsData: any) {
 // 7) Internal Dashboard Updater
 // -----------------------------------
 setInterval(async () => {
-  // Use the hardcoded location to get the current time and date.
-  // Here we assume "New York" uses the "America/New_York" timezone.
+  // Get the current time and date for New York.
   const currentDateTime = new Date().toLocaleString("en-US", {
-    timeZone: "America/New_York", 
+    timeZone: "America/New_York",
     hour: '2-digit',
     minute: '2-digit',
     month: 'numeric',
@@ -201,45 +192,45 @@ setInterval(async () => {
 
   // Iterate through each active session.
   for (const [sessionId, sessionInfo] of activeSessions.entries()) {
-    // Create dashboard card data
-    const dashboardData = {
-      layoutType: 'dashboard_card' as const,
-      leftText: '',
-      rightText: ''
-    };
+    // Prepare the initial left text with current time.
+    const baseLeftText = `${currentDateTime} 100%\n`;
 
-    // Update time and date
-    dashboardData.leftText = `${currentDateTime} 100%\n`;
-
-    // Update news
+    // Process news update.
     const newsAgent = new NewsAgent();
     const context = { transcriptions: sessionInfo.transcriptionCache };
     const newsResult = await newsAgent.handleContext(context);
+    // Clear the transcription cache.
     sessionInfo.transcriptionCache = [];
+    const rightText = (newsResult &&
+                       newsResult.news_summaries &&
+                       newsResult.news_summaries.length > 0)
+      ? newsResult.news_summaries.join(', ')
+      : '';
 
-    if (newsResult && newsResult.news_summaries && newsResult.news_summaries.length > 0) {
-      dashboardData.rightText += newsResult.news_summaries.join(', ');
-    }
-
-    // Add Weather Forecast Update
+    // Process weather update.
     const newYorkLatitude = 40.7128;
     const newYorkLongitude = -74.0060;
     const weatherAgent = new WeatherModule();
     const weather = await weatherAgent.fetchWeatherForecast(newYorkLatitude, newYorkLongitude);
-    if (weather) {
-      dashboardData.leftText += `Weather: ${weather.condition}, ${weather.avg_temp_f}°F`;
-    } else {
-      dashboardData.leftText += 'Weather: N/A';
-    }
+    const weatherText = weather
+      ? `Weather: ${weather.condition}, ${weather.avg_temp_f}°F`
+      : 'Weather: N/A';
 
-    // Create display event with the dashboard card layout
+    // Combine base text and weather update.
+    const leftText = baseLeftText + weatherText;
+
+    // Create display event with the dashboard card layout.
     const displayRequest: DisplayRequest = {
       type: 'display_event',
       view: 'dashboard',
       packageName: PACKAGE_NAME,
       sessionId,
-      layout: dashboardData,
-      durationMs: 10000,
+      layout: {
+        layoutType: 'double_text_wall',
+        topText: leftText,
+        bottomText: rightText,
+      },
+      durationMs: 4000,
       timestamp: new Date(),
     };
 
