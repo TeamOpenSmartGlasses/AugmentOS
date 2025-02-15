@@ -262,7 +262,7 @@ export class WebSocketService implements IWebSocketService {
       console.log(`Glasses WebSocket disconnected: ${session.sessionId}`);
       // Mark the session as disconnected but do not remove it immediately.
       this.sessionService.markSessionDisconnected(session.sessionId);
-      
+
       // Optionally, set a timeout to eventually clean up the session if not reconnected.
       setTimeout(() => {
         if (this.sessionService.isItTimeToKillTheSession(session.sessionId)) {
@@ -304,7 +304,12 @@ export class WebSocketService implements IWebSocketService {
           }
 
           console.log(`[websocket.service] Glasses client connected: ${userId}`);
-          this.sessionService.handleReconnectUserSession(userSession, userId);
+          try {
+            this.sessionService.handleReconnectUserSession(userSession, userId);
+          }
+          catch (error) {
+            console.error(`\n\n\n\n[websocket.service] Error reconnecting user session starting new session:`, error);
+          }
 
           // Start transcription
           const { recognizer, pushStream } = this.transcriptionService.startTranscription(
@@ -321,7 +326,7 @@ export class WebSocketService implements IWebSocketService {
 
           this.sessionService.setAudioHandlers(userSession.sessionId, pushStream, recognizer);
 
-          const activeAppPackageNames = userSession.activeAppSessions;
+          const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
           const userSessionData = {
             sessionId: userSession.sessionId,
             userId: userSession.userId,
@@ -338,6 +343,7 @@ export class WebSocketService implements IWebSocketService {
             timestamp: new Date()
           };
           ws.send(JSON.stringify(ackMessage));
+          console.log(`\n\n[websocket.service]\nSENDING connection_ack to ${userId}\n\n`);
           break;
         }
 
@@ -413,26 +419,17 @@ export class WebSocketService implements IWebSocketService {
           break;
         }
 
-        case 'button_press': {
-          const buttonMessage = message as ButtonPressEvent;
-          this.broadcastToTpa(userSession.sessionId, 'button_press', buttonMessage);
-          break;
-        }
-
         case 'head_position': {
           const headMessage = message as HeadPositionEvent;
           this.broadcastToTpa(userSession.sessionId, 'head_position', headMessage);
           break;
         }
 
-        case 'phone_notification': {
-          const notifMessage = message as PhoneNotificationEvent;
-          this.broadcastToTpa(userSession.sessionId, 'phone_notifications', notifMessage);
-          break;
-        }
-
+        // All other message types are broadcast to TPAs.
         default: {
-          console.warn(`[Session ${userSession.sessionId}] Unhandled message type:`, message.type);
+          console.warn(`[Session ${userSession.sessionId}] Catching and Sending message type:`, message.type);
+          // check if it's a type of Client to TPA message.
+          this.broadcastToTpa(userSession.sessionId, message.type as any, message as any);
         }
       }
     } catch (error) {
@@ -570,7 +567,7 @@ export class WebSocketService implements IWebSocketService {
 
         break;
       }
- 
+
     }
   }
 

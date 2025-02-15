@@ -23,11 +23,14 @@ export interface WebSocketMessage {
   sessionId?: string;
 }
 
-/** 🔄 Map of all supported stream data types */
+// /** 🔄 Map of all supported stream data types */
 export interface StreamDataTypes {
+  'stop_app': never;  // Control event, no data
+  'start_app': never;  // Control event, no data
+  
   'button_press': ButtonPressEvent;
   'head_position': HeadPositionEvent;
-  'phone_notifications': PhoneNotificationEvent;
+  'phone_notification': PhoneNotificationEvent;
   'transcription': TranscriptionData;
   'translation': TranslationData;
   'glasses_battery_update': GlassesBatteryUpdateEvent;
@@ -41,8 +44,12 @@ export interface StreamDataTypes {
   '*': never;  // Wildcard type, no data
 }
 
-/** 🎯 Valid stream types that can be subscribed to */
+// /** 🎯 Valid stream types that can be subscribed to */
+export enum Stream {
+  ""
+}
 export type StreamType = keyof StreamDataTypes;
+
 
 /** ❌ WebSocket error information */
 export interface WebSocketError {
