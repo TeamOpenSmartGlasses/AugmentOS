@@ -31,23 +31,21 @@ import {
   // Common
   WebSocketError,
   StreamType,
-  ButtonPressEvent,
   GlassesStartAppMessage,
   GlassesStopAppMessage,
   HeadPositionEvent,
-  PhoneNotificationEvent,
   CloudToTpaMessage,
   CloudAppStateChangeMessage,
   UserSession,
 } from '@augmentos/types';
 
-import sessionService, { ISessionService } from '../core/session.service';
+import sessionService, { ISessionService } from './session.service';
 import subscriptionService, { ISubscriptionService } from './subscription.service';
 import transcriptionService, { ITranscriptionService } from '../processing/transcription.service';
-import appService, { IAppService } from '../core/app.service';
+import appService, { IAppService } from './app.service';
 import { DisplayRequest } from '@augmentos/types/events/display';
 import jwt, { JwtPayload } from 'jsonwebtoken';
-import { AUGMENTOS_AUTH_JWT_SECRET, SUPABASE_JWT_SECRET } from '../../env';
+import { AUGMENTOS_AUTH_JWT_SECRET } from '../../env';
 
 // Constants
 const TPA_SESSION_TIMEOUT_MS = 5000;  // 30 seconds
@@ -319,7 +317,7 @@ export class WebSocketService implements IWebSocketService {
               this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
             },
             (result) => {
-              console.log(`[Session ${userSession.sessionId}] Final result:`, result.text);
+              console.log(`[Session ${userSession.sessionId}] Final result ${result?.speakerId}:`, result.text);
               this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
             }
           );

@@ -1,6 +1,6 @@
 //backend/src/routes/apps.ts
 import express from 'express';
-import webSocketService from '../services/communication/websocket.service';
+import webSocketService from '../services/core/websocket.service';
 import sessionService from '../services/core/session.service';
 import appService from '../services/core/app.service';
 import { get } from 'http';
