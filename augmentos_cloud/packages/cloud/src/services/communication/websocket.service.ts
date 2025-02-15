@@ -296,7 +296,7 @@ export class WebSocketService implements IWebSocketService {
           const initMessage = message as GlassesConnectionInitMessage;
           // const userId = initMessage.userId;
           const coreToken = initMessage.coreToken || "";
-
+          console.log(`[websocket.service] Glasses client attempting to connect: ${coreToken}`);
           const userData = jwt.verify(coreToken, AUGMENTOS_AUTH_JWT_SECRET);
           const userId = (userData as JwtPayload).email;
           if (!userId) {

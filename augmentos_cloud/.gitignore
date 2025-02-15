@@ -8,3 +8,4 @@ old/
 .env.local
 ./node_modules
 ./env
+.ssh
