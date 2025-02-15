@@ -5,6 +5,8 @@ import type { AppSettings } from '../models/app';
 import type { StreamType } from './common';
 import type { Language } from '../core/app.session';
 import type { DisplayRequest } from '../events/display';
+import type { PhoneEvent } from '../events/phone';
+import type { HardwareEvent } from '../events/hardware';
 
 // TPA -> Cloud Messages
 export interface TpaConnectionInitMessage extends WebSocketMessage {
@@ -76,4 +78,6 @@ export type CloudToTpaMessage =
   | CloudTpaConnectionAckMessage
   | CloudTpaConnectionErrorMessage
   | CloudDataStreamMessage
-  | CloudSettingsUpdateMessage;
+  | CloudSettingsUpdateMessage
+  | HardwareEvent
+  | PhoneEvent;

@@ -16,6 +16,7 @@ import { webSocketService } from './services/communication/websocket.service';
 // Import routes
 import appRoutes from './routes/apps.routes';
 import authRoutes from './routes/auth.routes';
+import path from 'path';
 
 // Load environment variables
 dotenv.config();
@@ -54,6 +55,10 @@ app.use('/auth', authRoutes);
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
+
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, './public')));
+
 
 // Initialize WebSocket service
 webSocketService.setupWebSocketServers(server);

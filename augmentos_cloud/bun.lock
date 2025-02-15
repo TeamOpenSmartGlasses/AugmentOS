@@ -3,6 +3,9 @@
   "workspaces": {
     "": {
       "name": "augment.os",
+      "dependencies": {
+        "assemblyai": "^4.9.0",
+      },
     },
     "packages/clients": {
       "name": "@augmentos/clients",
