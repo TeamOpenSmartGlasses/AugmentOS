@@ -4,34 +4,22 @@ import WebSocket from 'ws';
 import path from 'path';
 import {
   TpaConnectionInitMessage,
-  TpaDisplayEventMessage,
   TpaSubscriptionUpdateMessage,
   CloudDataStreamMessage,
+  DisplayRequest,
 } from '@augmentos/types'; // Reuse shared types if needed
 
 // Import the AgentGatekeeper and Agent interface (adjust the paths as needed)
-import { AgentGatekeeper } from '../../../agents/AgentGateKeeper';
 import { Agent } from '../../../agents/AgentInterface';
+import { AgentGatekeeper } from '../../../agents/AgentGateKeeper';
+import { ProactiveDefinerAgent } from '../../../agents/ProactiveDefinerAgent';
+import { QuestionAnswererAgent } from '../../../agents/QuestionAnswererAgent';
 
-// Create or import your agents here.
-// For demonstration, we create a dummy agent.
-// Replace this with your actual agents.
-const dummyAgent: Agent = {
-  agentId: 'dummy_agent',
-  agentName: 'Dummy Agent',
-  agentDescription: 'A dummy agent for testing',
-  agentPrompt: 'Process the following context: {context}',
-  agentTools: ['dummy_tool'],
-  async handleContext(inputData: Record<string, any>) {
-    // Return some dummy response
-    return { result: 'Dummy agent processed context successfully.' };
-  }
-};
 
-const agents: Agent[] = [dummyAgent];
+const agents: Agent[] = [new QuestionAnswererAgent()];
 
 // Instantiate the AgentGatekeeper with the available agents.
-// const gatekeeper = new AgentGatekeeper(agents);
+const gatekeeper = new AgentGatekeeper(agents);
 
 const app = express();
 const PORT = 7013; // Use a different port from your captions app
@@ -64,6 +52,9 @@ app.post('/webhook', async (req, res) => {
         packageName: PACKAGE_NAME,
         apiKey: API_KEY
       };
+
+      console.log(`Sending init message: ${JSON.stringify(initMessage)}`);
+
       ws.send(JSON.stringify(initMessage));
     });
 
@@ -91,6 +82,14 @@ app.post('/webhook', async (req, res) => {
 
 // Serve static files if necessary
 app.use(express.static(path.join(__dirname, './public')));
+
+async function debug() {
+  console.log("Debugging...");
+  const inputData = { conversation_context: "How many people live in the USA?"};
+  const response = await gatekeeper.processContext(inputData);
+  console.log(response.output[0].insight);
+  return response.output;
+}
 
 // Handle incoming WebSocket messages
 async function handleMessage(sessionId: string, ws: WebSocket, message: any, conversation_context?: string) {
@@ -127,8 +126,9 @@ async function handleTranscription(sessionId: string, ws: WebSocket, transcripti
     const response = await gatekeeper.processContext(inputData);
 
     // Create a display event for the transcription
-    const displayEvent: TpaDisplayEventMessage = {
+    const displayRequest: DisplayRequest = {
       type: 'display_event',
+      view: 'main',
       packageName: PACKAGE_NAME,
       sessionId,
       layout: {
@@ -136,13 +136,14 @@ async function handleTranscription(sessionId: string, ws: WebSocket, transcripti
         title: "AgentGatekeeper Response",
         text: JSON.stringify(response, null, 2)
       },
-      durationMs: 3000
+      durationMs: 3000,
+      timestamp: new Date()
     };
 
     console.log(`[Session ${sessionId}]: ${JSON.stringify(response, null, 2)}`);
-  
+
     // Send the display event back to the cloud
-    ws.send(JSON.stringify(displayEvent));
+    ws.send(JSON.stringify(displayRequest));
   }
 
 // A simple health check endpoint
