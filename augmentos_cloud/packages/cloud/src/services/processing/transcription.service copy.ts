@@ -20,9 +20,7 @@ import {
   OutputFormat,
   AudioInputStream,
   AudioConfig,
-  SpeechRecognizer,
-  ConversationTranscriber,
-  ConversationTranscriptionEventArgs
+  SpeechRecognizer
 } from 'microsoft-cognitiveservices-speech-sdk';
 import { AZURE_SPEECH_REGION, AZURE_SPEECH_KEY } from '../../env';
 import { TranscriptionData } from '@augmentos/types';
@@ -64,7 +62,7 @@ export interface ITranscriptionService {
     onInterimResult: (result: InterimTranscriptionResult) => void,
     onFinalResult: (result: FinalTranscriptionResult) => void
   ): { 
-    recognizer: ConversationTranscriber; 
+    recognizer: SpeechRecognizer; 
     pushStream: azureSpeechSDK.PushAudioInputStream;
   };
 }
@@ -101,11 +99,11 @@ export class TranscriptionService implements ITranscriptionService {
     this.speechConfig.speechRecognitionLanguage = config.speechRecognitionLanguage || 'en-US';
     
     if (config.enableProfanityFilter) {
-      this.speechConfig.setProfanity(ProfanityOption.Raw);
+      this.speechConfig.setProfanity(ProfanityOption.Removed);
     }
 
     // Enable detailed output for better result parsing
-    this.speechConfig.outputFormat = OutputFormat.Simple;
+    this.speechConfig.outputFormat = OutputFormat.Detailed;
   }
 
   /**
@@ -119,18 +117,17 @@ export class TranscriptionService implements ITranscriptionService {
     sessionId: string,
     onInterimResult: (result: InterimTranscriptionResult) => void,
     onFinalResult: (result: FinalTranscriptionResult) => void
-  ): { recognizer: ConversationTranscriber; pushStream: azureSpeechSDK.PushAudioInputStream } {
+  ): { recognizer: SpeechRecognizer; pushStream: azureSpeechSDK.PushAudioInputStream } {
     this.sessionStartTime = Date.now();
     const pushStream = AudioInputStream.createPushStream();
     const audioConfig = AudioConfig.fromStreamInput(pushStream);
-    // const recognizer = new SpeechRecognizer(this.speechConfig, audioConfig);
-    const recognizer = new ConversationTranscriber(this.speechConfig, audioConfig);
+    const recognizer = new SpeechRecognizer(this.speechConfig, audioConfig);
 
     // Set up recognition handlers
     this.setupRecognitionHandlers(recognizer, sessionId, onInterimResult, onFinalResult);
 
     // Start continuous recognition
-    recognizer.startTranscribingAsync(
+    recognizer.startContinuousRecognitionAsync(
       () => console.log(`[Session ${sessionId}] Continuous recognition started`),
       (err) => console.error(`[Session ${sessionId}] Error starting recognition:`, err)
     );
@@ -146,70 +143,14 @@ export class TranscriptionService implements ITranscriptionService {
    * @param onFinalResult - Final result callback
    * @private
    */
-  // private setupRecognitionHandlers(
-  //   recognizer: SpeechRecognizer,
-  //   sessionId: string,
-  //   onInterimResult: (result: InterimTranscriptionResult) => void,
-  //   onFinalResult: (result: FinalTranscriptionResult) => void
-  // ): void {
-  //   // Handle interim results
-  //   recognizer.recognizing = (_sender: any, event: SpeechRecognitionEventArgs) => {
-  //     if (!event.result.text) return;
-
-  //     const result: InterimTranscriptionResult = {
-  //       type: 'transcription-interim',
-  //       text: event.result.text,
-  //       startTime: this.calculateRelativeTime(event.result.offset),
-  //       endTime: this.calculateRelativeTime(event.result.offset + event.result.duration),
-  //       isFinal: false,
-  //       speakerId: event.result.speakerId,
-  //       // confidence: event.result.confidence
-  //     };
-
-  //     onInterimResult(result);
-  //   };
-
-  //   // Handle final results
-  //   recognizer.recognized = (_sender: any, event: SpeechRecognitionEventArgs) => {
-  //     if (!event.result.text) return;
-
-  //     const result: FinalTranscriptionResult = {
-  //       type: 'transcription-final',
-  //       text: event.result.text,
-  //       startTime: this.calculateRelativeTime(event.result.offset),
-  //       endTime: this.calculateRelativeTime(event.result.offset + event.result.duration),
-  //       isFinal: true,
-  //       speakerId: event.result.speakerId,
-  //       // confidence: event.result.confidence,
-  //       duration: event.result.duration
-  //     };
-
-  //     onFinalResult(result);
-  //   };
-
-  //   // Handle cancellation
-  //   recognizer.canceled = (_sender: any, event: SpeechRecognitionCanceledEventArgs) => {
-  //     console.error(`[Session ${sessionId}] Recognition canceled:`, event);
-  //   };
-
-  //   // Handle session lifecycle
-  //   recognizer.sessionStarted = (_sender: any, _event: SessionEventArgs) => {
-  //     console.log(`[Session ${sessionId}] Recognition session started`);
-  //   };
-
-  //   recognizer.sessionStopped = (_sender: any, _event: SessionEventArgs) => {
-  //     console.log(`[Session ${sessionId}] Recognition session stopped`);
-  //   };
-  // }
   private setupRecognitionHandlers(
-    recognizer: ConversationTranscriber,
+    recognizer: SpeechRecognizer,
     sessionId: string,
     onInterimResult: (result: InterimTranscriptionResult) => void,
     onFinalResult: (result: FinalTranscriptionResult) => void
   ): void {
     // Handle interim results
-    recognizer.transcribing = (_sender: any, event: ConversationTranscriptionEventArgs) => {
-      // console.log('Transcribing event:', event.result);
+    recognizer.recognizing = (_sender: any, event: SpeechRecognitionEventArgs) => {
       if (!event.result.text) return;
 
       const result: InterimTranscriptionResult = {
@@ -226,8 +167,7 @@ export class TranscriptionService implements ITranscriptionService {
     };
 
     // Handle final results
-    recognizer.transcribed = (_sender: any, event: ConversationTranscriptionEventArgs) => {
-      // console.log('Transcribed event!!!!!:', event.result);
+    recognizer.recognized = (_sender: any, event: SpeechRecognitionEventArgs) => {
       if (!event.result.text) return;
 
       const result: FinalTranscriptionResult = {

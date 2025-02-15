@@ -296,7 +296,7 @@ export class WebSocketService implements IWebSocketService {
           const initMessage = message as GlassesConnectionInitMessage;
           // const userId = initMessage.userId;
           const coreToken = initMessage.coreToken || "";
-
+          console.log(`[websocket.service] Glasses client attempting to connect: ${coreToken}`);
           const userData = jwt.verify(coreToken, AUGMENTOS_AUTH_JWT_SECRET);
           const userId = (userData as JwtPayload).email;
           if (!userId) {
@@ -415,19 +415,19 @@ export class WebSocketService implements IWebSocketService {
 
         case 'button_press': {
           const buttonMessage = message as ButtonPressEvent;
-          this.broadcastToTpa(userSession.sessionId, 'button_press', buttonMessage as any);
+          this.broadcastToTpa(userSession.sessionId, 'button_press', buttonMessage);
           break;
         }
 
         case 'head_position': {
           const headMessage = message as HeadPositionEvent;
-          this.broadcastToTpa(userSession.sessionId, 'head_position', headMessage as any);
+          this.broadcastToTpa(userSession.sessionId, 'head_position', headMessage);
           break;
         }
 
         case 'phone_notification': {
           const notifMessage = message as PhoneNotificationEvent;
-          this.broadcastToTpa(userSession.sessionId, 'phone_notifications', notifMessage as any);
+          this.broadcastToTpa(userSession.sessionId, 'phone_notifications', notifMessage);
           break;
         }
 
