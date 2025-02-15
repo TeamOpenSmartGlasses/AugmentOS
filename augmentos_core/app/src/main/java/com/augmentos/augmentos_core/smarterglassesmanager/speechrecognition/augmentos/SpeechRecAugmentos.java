@@ -152,33 +152,33 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
      * Called by external code to feed raw PCM chunks (16-bit, 16kHz).
      */
     @Override
-    public void ingestAudioChunk(byte[] audioChunk) {
-        if (vadPolicy == null) {
-            Log.e(TAG, "VAD not initialized yet. Skipping audio.");
-            return;
-        }
-        if (!isVadInitialized()) {
-            Log.e(TAG, "VAD model not initialized. Skipping audio.");
-            return;
-        }
-        short[] audioSamples = bytesToShort(audioChunk);
-        for (short sample : audioSamples) {
-            if (vadBuffer.size() >= 16000) {
-                vadBuffer.poll();
-            }
-            vadBuffer.offer(sample);
-        }
+    public void ingestAudioChunk(byte[] audioChunk) { // TODO: Reinstantiate VAD once fixed
+//        if (vadPolicy == null) {
+//            Log.e(TAG, "VAD not initialized yet. Skipping audio.");
+//            return;
+//        }
+//        if (!isVadInitialized()) {
+//            Log.e(TAG, "VAD model not initialized. Skipping audio.");
+//            return;
+//        }
+//        short[] audioSamples = bytesToShort(audioChunk);
+//        for (short sample : audioSamples) {
+//            if (vadBuffer.size() >= 16000) {
+//                vadBuffer.poll();
+//            }
+//            vadBuffer.offer(sample);
+//        }
 
         // If currently speaking, send data live
-        if (isSpeaking) {
-            ServerComms.getInstance().sendAudioChunk(audioChunk);
-        }
+//        if (isSpeaking) {
+        ServerComms.getInstance().sendAudioChunk(audioChunk);
+//        }
 
         // Maintain rolling buffer for "catch-up"
-        if (rollingBuffer.size() >= bufferMaxSize) {
-            rollingBuffer.poll();
-        }
-        rollingBuffer.offer(audioChunk);
+//        if (rollingBuffer.size() >= bufferMaxSize) {
+//            rollingBuffer.poll();
+//        }
+//        rollingBuffer.offer(audioChunk);
     }
 
     /**
