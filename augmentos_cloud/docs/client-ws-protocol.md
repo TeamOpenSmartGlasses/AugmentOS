@@ -1,8 +1,7 @@
-
-
 # AugmentOS Cloud Protocol Documentation
 
 ## System Architecture Overview
+
 
 AugmentOS Cloud is a WebSocket-based protocol for AR glasses systems. It handles:
 - Real-time audio streaming and transcription
