@@ -8,11 +8,6 @@ interface QuestionAnswer {
   insight: string;
 }
 
-// Updated prompt:
-// - In step 5, the tool-call JSON already uses double curly braces.
-// - In step 6, the final answer JSON now uses doubled curly braces to escape them.
-// ... existing code ...
-
 const agentPromptBlueprint = `You are an AI assistant that answers questions or uncertainties in conversations.
 Use available tools when needed and follow these rules:
 

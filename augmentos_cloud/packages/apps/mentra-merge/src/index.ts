@@ -109,7 +109,7 @@ async function handleMessage(sessionId: string, ws: WebSocket, message: any, con
     
     case 'data_stream': {
         const streamMessage = message as CloudDataStreamMessage;
-        if (streamMessage.streamType === 'transcription') {
+        if (streamMessage.streamType === 'transcription' && streamMessage.data.isFinal) {
           handleTranscription(sessionId, ws, streamMessage.data);
         }
         break;
@@ -125,6 +125,16 @@ async function handleTranscription(sessionId: string, ws: WebSocket, transcripti
     const inputData = { conversation_context: transcriptionData.text };
     const response = await gatekeeper.processContext(inputData);
 
+    console.log(`[Session ${sessionId}]: ${JSON.stringify(!response.selectedAgents, null, 2)}`);
+
+    if (!response || !response.selectedAgents || !response.output[0] || !response.output[0].insight) {
+      console.log("No insight found");
+      return;
+    } else {
+      console.log("Insight found");
+      console.log(response);
+    }
+
     // Create a display event for the transcription
     const displayRequest: DisplayRequest = {
       type: 'display_event',
@@ -132,11 +142,10 @@ async function handleTranscription(sessionId: string, ws: WebSocket, transcripti
       packageName: PACKAGE_NAME,
       sessionId,
       layout: {
-        layoutType: 'reference_card',
-        title: "AgentGatekeeper Response",
-        text: JSON.stringify(response, null, 2)
+        layoutType: 'text_wall',
+        text: JSON.stringify(response.output[0].insight, null, 2)
       },
-      durationMs: 3000,
+      durationMs: 6000,
       timestamp: new Date()
     };
 
