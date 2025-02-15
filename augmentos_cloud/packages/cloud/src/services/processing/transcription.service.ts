@@ -99,7 +99,7 @@ export class TranscriptionService implements ITranscriptionService {
     this.speechConfig.speechRecognitionLanguage = config.speechRecognitionLanguage || 'en-US';
     
     if (config.enableProfanityFilter) {
-      this.speechConfig.setProfanity(ProfanityOption.Removed);
+      this.speechConfig.setProfanity(ProfanityOption.Raw);
     }
 
     // Enable detailed output for better result parsing
