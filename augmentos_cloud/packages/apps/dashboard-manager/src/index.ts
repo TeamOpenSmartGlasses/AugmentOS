@@ -180,47 +180,131 @@ function handleSettings(sessionId: string, settingsData: any) {
 // 7) Internal Dashboard Updater
 // -----------------------------------
 setInterval(async () => {
-  // Get the current time and date for New York.
-  const currentDateTime = new Date().toLocaleString("en-US", {
-    timeZone: "America/New_York",
-    hour: '2-digit',
-    minute: '2-digit',
-    month: 'numeric',
-    day: 'numeric',
-  });
-  console.log(`\n[Dashboard Updater] Updating dashboard time to ${currentDateTime}\n`);
+  // Utility function to wrap text to a maximum line length without breaking words.
+  function wrapText(text, maxLength = 20) {
+    // Process each existing line separately.
+    return text.split('\n').map(line => {
+      const words = line.split(' ');
+      let currentLine = '';
+      const wrappedLines = [];
+      
+      words.forEach(word => {
+        // Check if adding the word (plus a space if needed) exceeds maxLength.
+        if ((currentLine.length + (currentLine ? 1 : 0) + word.length) <= maxLength) {
+          currentLine += (currentLine ? ' ' : '') + word;
+        } else {
+          // If the current line is not empty, push it and start a new line.
+          if (currentLine) {
+            wrappedLines.push(currentLine);
+          }
+          // Start the new line with the current word.
+          currentLine = word;
+        }
+      });
+      // Push any remaining words.
+      if (currentLine) {
+        wrappedLines.push(currentLine.trim());
+      }
+      // Join the wrapped lines with newline characters.
+      return wrappedLines.join('\n');
+    }).join('\n');
+  }
+
+  // Define left modules in two groups:
+  // Group 1: Modules to be displayed on the same line.
+  const leftModulesGroup1 = [
+    {
+      name: "time",
+      async run() {
+        return `◌ ${new Date().toLocaleString("en-US", {
+          timeZone: "America/New_York",
+          hour: '2-digit',
+          minute: '2-digit',
+          month: 'numeric',
+          day: 'numeric'
+        })}`;
+      }
+    },
+    { 
+      name: "status", 
+      async run() { 
+        return `100%`; 
+      } 
+    },
+  ];
+  
+  // Group 2: Modules to be displayed on separate lines below Group 1.
+  const leftModulesGroup2 = [
+    { 
+      name: "uptime", 
+      async run() { 
+        return `Thomas: Welcome to the dashboard!`; 
+      } 
+    },
+    // Additional left modules can be added here.
+  ];
+
+  const rightModules = [
+    {
+      name: "news",
+      async run(context) {
+        const newsAgent = new NewsAgent();
+        const newsResult = await newsAgent.handleContext(context);
+        console.log(newsResult);
+        return (newsResult &&
+                newsResult.news_summaries &&
+                newsResult.news_summaries.length > 0)
+          ? newsResult.news_summaries[0]
+          : '';
+      },
+    },
+    {
+      name: "weather",
+      async run() {
+        const newYorkLatitude = 40.7128;
+        const newYorkLongitude = -74.0060;
+        const weatherAgent = new WeatherModule();
+        const weather = await weatherAgent.fetchWeatherForecast(newYorkLatitude, newYorkLongitude);
+        return weather ? `${weather.condition}, ${weather.avg_temp_f}°F` : '';
+      },
+    },
+  ];
 
   // Iterate through each active session.
   for (const [sessionId, sessionInfo] of activeSessions.entries()) {
-    // Prepare the initial left text with current time.
-    const baseLeftText = `${currentDateTime} 100%\n`;
-
-    // Process news update.
-    const newsAgent = new NewsAgent();
+    // Prepare a context for modules that need it.
     const context = { transcriptions: sessionInfo.transcriptionCache };
-    const newsResult = await newsAgent.handleContext(context);
     // Clear the transcription cache.
     sessionInfo.transcriptionCache = [];
-    const rightText = (newsResult &&
-                       newsResult.news_summaries &&
-                       newsResult.news_summaries.length > 0)
-      ? newsResult.news_summaries.join(', ')
-      : '';
 
-    // Process weather update.
-    const newYorkLatitude = 40.7128;
-    const newYorkLongitude = -74.0060;
-    const weatherAgent = new WeatherModule();
-    const weather = await weatherAgent.fetchWeatherForecast(newYorkLatitude, newYorkLongitude);
-    const weatherText = weather
-      ? `Weather: ${weather.condition}, ${weather.avg_temp_f}°F`
-      : 'Weather: N/A';
+    // Run left group 1 modules concurrently.
+    const leftGroup1Promises = leftModulesGroup1.map(module => module.run());
+    const leftGroup1Results = await Promise.all(leftGroup1Promises);
+    // Join group 1 results with a space so they appear on the same line.
+    const leftGroup1Text = leftGroup1Results.filter(text => text.trim()).join(', ');
 
-    // Combine base text and weather update.
-    const leftText = baseLeftText + weatherText;
+    // Run left group 2 modules concurrently.
+    const leftGroup2Promises = leftModulesGroup2.map(module => module.run());
+    const leftGroup2Results = await Promise.all(leftGroup2Promises);
+    // Join group 2 results with a newline so each appears on a new line.
+    const leftGroup2Text = leftGroup2Results.filter(text => text.trim()).join('\n');
+
+    // Combine left groups.
+    // If group 2 exists, append it on a new line.
+    let leftText = leftGroup2Text ? `${leftGroup1Text}\n${leftGroup2Text}` : leftGroup1Text;
+    // Wrap left text so that no individual line exceeds 20 characters.
+    leftText = wrapText(leftText, 25);
+
+    // Run right modules concurrently.
+    const rightPromises = rightModules.map(module => module.run(context));
+    const rightResults = await Promise.all(rightPromises);
+    // Join right module outputs; adjust the delimiter as needed.
+    let rightText = rightResults.filter(text => text.trim()).join('\n');
+    // Wrap right text similarly.
+    rightText = wrapText(rightText, 25);
 
     // Create display event with the dashboard card layout.
-    const displayRequest: DisplayRequest = {
+    const displayRequest = {
       type: 'display_event',
       view: 'dashboard',
       packageName: PACKAGE_NAME,
