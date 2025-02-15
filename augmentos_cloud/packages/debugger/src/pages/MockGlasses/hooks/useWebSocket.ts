@@ -18,16 +18,8 @@ export const useWebSocket = () => {
   const handleMessage = useCallback((event: MessageEvent) => {
     try {
       const message = JSON.parse(event.data as string) as WebSocketMessage;
-
+      console.log('Received message:', message);
       switch (message.type) {
-        case 'who_are_you':
-          const initMessage: GlassesConnectionInitMessage = {
-            type: 'connection_init',
-            userId: 'isaiahballah@gmail.com'
-          };
-          wsRef.current?.send(JSON.stringify(initMessage));
-          break;
-
         case 'connection_ack':
           const ackMessage = message as CloudConnectionAckMessage;
           setSessionId(ackMessage.sessionId);
@@ -60,7 +52,9 @@ export const useWebSocket = () => {
         console.log('WebSocket connected');
         const initMessage: GlassesConnectionInitMessage = {
           type: 'connection_init',
-          userId: 'isaiahballah@gmail.com'
+          // userId: 'isaiahballah@gmail.com'
+          coreToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0YmZjYjEwZC1kZTY0LTRjNjgtYTZlNi1iOTY5YTI1NTkzNWEiLCJlbWFpbCI6ImFsZXgxMTE1YWxleEBnbWFpbC5jb20iLCJpYXQiOjE3Mzk1NjA5MTR9.sxnJCHn52FaLm5p_BtgAQfudMWUaB-Uktxtrwzd_R8E'
+
         };
         wsRef.current?.send(JSON.stringify(initMessage));
       };

@@ -6,5 +6,5 @@
   "scripts": {
     "dev": "./run.sh"
   },
-  "dependencies": { }
+  "dependencies": { "assemblyai": "^4.9.0" }
 }
