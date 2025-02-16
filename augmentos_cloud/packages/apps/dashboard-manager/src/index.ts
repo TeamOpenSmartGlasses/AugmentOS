@@ -139,7 +139,7 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
         type: 'subscription_update',
         packageName: PACKAGE_NAME,
         sessionId,
-        subscriptions: ['phone_notification', 'location_update']
+        subscriptions: ['phone_notification', 'location_update', 'head_position']
       };
       ws.send(JSON.stringify(subMessage));
       console.log(`Session ${sessionId} connected and subscribed`);
@@ -158,6 +158,10 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
         case 'location_update':
           handleLocationUpdate(sessionId, streamMessage.data);
           break;
+        
+        // case 'head_position':
+        //   handleHeadPosition(sessionId, streamMessage.data);
+        //   break;
 
         // add more streams here if needed
         default:
@@ -482,4 +486,4 @@ setTimeout(() => {
   updateDashboard();
   // Then, schedule it to run every 5 seconds.
   setInterval(() => updateDashboard(), 5000);
-}, 5000);
+}, 60000);
