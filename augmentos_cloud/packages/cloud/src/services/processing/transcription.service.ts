@@ -100,9 +100,9 @@ export class TranscriptionService implements ITranscriptionService {
     // Configure speech recognition settings
     this.speechConfig.speechRecognitionLanguage = config.speechRecognitionLanguage || 'en-US';
     
-    if (config.enableProfanityFilter) {
+    // if (config.enableProfanityFilter) {
       this.speechConfig.setProfanity(ProfanityOption.Raw);
-    }
+    // }
 
     // Enable detailed output for better result parsing
     this.speechConfig.outputFormat = OutputFormat.Simple;
