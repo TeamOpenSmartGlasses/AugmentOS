@@ -207,6 +207,40 @@ function displayNextNotification(sessionData: SessionData) {
   }, NOTIFICATION_DISPLAY_DURATION);
 }
 
+function wrapText(text: string, maxLength = 25): string {
+  return text
+    .split('\n')
+    .map(line => {
+      const words = line.split(' ');
+      let currentLine = '';
+      const wrappedLines: string[] = [];
+
+      words.forEach(word => {
+        if ((currentLine.length + (currentLine ? 1 : 0) + word.length) <= maxLength) {
+          currentLine += (currentLine ? ' ' : '') + word;
+        } else {
+          if (currentLine) {
+            wrappedLines.push(currentLine);
+          }
+          currentLine = word;
+
+          // If a single word is too long, hardcut it.
+          while (currentLine.length > maxLength) {
+            wrappedLines.push(currentLine.slice(0, maxLength));
+            currentLine = currentLine.slice(maxLength);
+          }
+        }
+      });
+
+      if (currentLine) {
+        wrappedLines.push(currentLine.trim());
+      }
+
+      return wrappedLines.join('\n');
+    })
+    .join('\n');
+}
+
 /**
  * Constructs a single-line notification string from the notification details.
  */
@@ -226,6 +260,8 @@ function constructNotificationString(notification: PhoneNotification): string {
     }
     combinedString = prefix + text;
   }
+
+  combinedString = wrapText(combinedString, 35);
 
   return combinedString;
 }
