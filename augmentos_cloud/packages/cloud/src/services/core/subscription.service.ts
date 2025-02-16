@@ -214,6 +214,7 @@ import {
         'button_press',
         'phone_notification',
         'location_update',
+        'head_position',
         'open_dashboard',
         'audio_chunk',
         'video',

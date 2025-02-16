@@ -39,6 +39,9 @@ interface SessionInfo {
   latestLocation?: { latitude: number; longitude: number; timezone?: string };
   // weather cache per user
   weatherCache?: { timestamp: number; data: string };
+  // NEW: Cache for news summaries and an index pointer.
+  newsCache?: string[];
+  newsIndex?: number;
   [key: string]: any;
 }
 
@@ -75,7 +78,7 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     });
 
     // 2) On open, send tpa_connection_init and initial dashboard display event
-    ws.on('open', () => {
+    ws.on('open', async () => {
       console.log(`[Session ${sessionId}] Connected to augmentos-cloud`);
 
       const initMessage: TpaConnectionInitMessage = {
@@ -96,6 +99,17 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
         timestamp: new Date(),
       };
       ws.send(JSON.stringify(displayRequest));
+
+      // Fetch news once the connection is open.
+      const newsAgent = new NewsAgent();
+      const newsResult = await newsAgent.handleContext({});
+      const sessionInfo = activeSessions.get(sessionId);
+      if (sessionInfo && newsResult && newsResult.news_summaries && newsResult.news_summaries.length > 0) {
+        sessionInfo.newsCache = newsResult.news_summaries;
+        sessionInfo.newsIndex = 0;
+        // Update dashboard so that news is visible.
+        updateDashboard(sessionId);
+      }
     });
 
     // 3) On message, handle incoming data
@@ -159,9 +173,9 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
           handleLocationUpdate(sessionId, streamMessage.data);
           break;
         
-        // case 'head_position':
-        //   handleHeadPosition(sessionId, streamMessage.data);
-        //   break;
+        case 'head_position':
+          handleHeadPosition(sessionId, streamMessage.data);
+          break;
 
         // add more streams here if needed
         default:
@@ -214,6 +228,48 @@ function handleLocationUpdate(sessionId: string, locationData: any) {
 
   // Call updateDashboard if this was the first location update
   if (isFirstLocationUpdate) {
+    updateDashboard(sessionId);
+  }
+}
+
+function handleHeadPosition(sessionId: string, headPositionData: any) {
+  const sessionInfo = activeSessions.get(sessionId);
+
+  console.log(sessionInfo);
+
+  if (!sessionInfo) return;
+  console.log(`[Session ${sessionId}] Received head position:`, headPositionData);
+
+  // When head is up, update the news index.
+  if (headPositionData.position === 'up') {
+    if (sessionInfo.newsCache && sessionInfo.newsCache.length > 0) {
+      // Determine the next index.
+      const currentIndex = sessionInfo.newsIndex || 0;
+      const nextIndex = currentIndex + 1;
+      
+      if (nextIndex >= sessionInfo.newsCache.length) {
+        // We've gone through the entire list.
+        // Fetch new news and reset index.
+        const newsAgent = new NewsAgent();
+        newsAgent.handleContext({}).then(newsResult => {
+          if (newsResult && newsResult.news_summaries && newsResult.news_summaries.length > 0) {
+            sessionInfo.newsCache = newsResult.news_summaries;
+            sessionInfo.newsIndex = 0;
+          } else {
+            // If no new news are fetched, wrap around.
+            sessionInfo.newsIndex = 0;
+          }
+        }).catch(err => {
+          console.error(`[Session ${sessionId}] Error fetching new news:`, err);
+          // Fallback: wrap around if error occurs.
+          sessionInfo.newsIndex = 0;
+        });
+      } else {
+        // Otherwise, simply update the index.
+        sessionInfo.newsIndex = nextIndex;
+      }
+    }
+
     updateDashboard(sessionId);
   }
 }
@@ -302,14 +358,14 @@ async function updateDashboard(sessionId?: string) {
     {
       name: "news",
       async run(context: any) {
-        const newsAgent = new NewsAgent();
-        const newsResult = await newsAgent.handleContext(context);
-        console.log(newsResult);
-        return (newsResult &&
-                newsResult.news_summaries &&
-                newsResult.news_summaries.length > 0)
-          ? newsResult.news_summaries[0]
-          : '-';
+        // Instead of fetching news here, use the cached news from the session.
+        const session: SessionInfo = context.session;
+        console.log(session.newsCache);
+        console.log(session.newsIndex);
+        if (session.newsCache && session.newsCache.length > 0 && typeof session.newsIndex === 'number') {
+          return session.newsCache[session.newsIndex] || '-';
+        }
+        return '-';
       },
     },
     {
@@ -343,7 +399,7 @@ async function updateDashboard(sessionId?: string) {
   // Helper: update a single session dashboard.
   async function updateSessionDashboard(sessionId: string, sessionInfo: SessionInfo) {
     // Prepare a context for modules that need it.
-    // Include the session itself so that per-user caches (like weatherCache) can be accessed.
+    // Include the session itself so that per-user caches (like weatherCache and newsCache) can be accessed.
     const context = {
       transcriptions: sessionInfo.transcriptionCache,
       latestLocation: sessionInfo.latestLocation,
@@ -382,7 +438,7 @@ async function updateDashboard(sessionId?: string) {
     if (leftGroup2Text) {
       leftText += `\n${leftGroup2Text}`;
     }
-    leftText = wrapText(leftText, 25);
+    leftText = wrapText(leftText, 40);
 
     // Run right modules concurrently.
     const rightPromises = rightModules.map(module => module.run(context));
