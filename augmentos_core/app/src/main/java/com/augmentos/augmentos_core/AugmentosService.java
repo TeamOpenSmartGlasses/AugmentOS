@@ -291,9 +291,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         // Battery, date/time, etc.
         String leftHeaderLine = String.format(Locale.getDefault(), "◌ %s %s, %d%%\n", currentTime, currentDate, batteryLevel);
 
+        String connString = webSocketStatus == null ? "Not connected" : webSocketStatus.name();;
+
         if (smartGlassesService != null) {
             smartGlassesService.windowManager.showDashboard(() ->
-                            smartGlassesService.sendDoubleTextWall(leftHeaderLine, "Not connected to AugmentOS Cloud"),
+                            smartGlassesService.sendDoubleTextWall(leftHeaderLine, connString),
                     -1
             );
         }
