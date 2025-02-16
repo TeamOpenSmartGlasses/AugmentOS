@@ -167,40 +167,6 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
   }
 }
 
-function handlePhoneNotification(sessionId: string, phoneNotificationData: any) {
-  const sessionInfo = activeSessions.get(sessionId);
-  if (!sessionInfo) return;
-  
-  if (!sessionInfo.phoneNotificationCache) {
-    sessionInfo.phoneNotificationCache = [];
-  }
-
-  // Push the new notification.
-  sessionInfo.phoneNotificationCache.push({
-    title: phoneNotificationData.title,
-    content: phoneNotificationData.content,
-    timestamp: phoneNotificationData.timestamp,
-  });
-
-  // Remove duplicate notifications by filtering the array.
-  sessionInfo.phoneNotificationCache = sessionInfo.phoneNotificationCache.filter((notification, index, self) => 
-    index === self.findIndex((n) =>
-      n.title === notification.title &&
-      n.content === notification.content
-    )
-  );
-
-  console.log(
-    `[Session ${sessionId}] Cached phone notification. Total cached items: ${sessionInfo.phoneNotificationCache.length}`
-  );
-  console.log(sessionInfo.phoneNotificationCache);
-
-  updateDashboard();
-}
-
-// -----------------------------------
-// New: Handle Location Update
-// -----------------------------------
 function handleLocationUpdate(sessionId: string, locationData: any) {
   const sessionInfo = activeSessions.get(sessionId);
   if (!sessionInfo) return;
@@ -224,6 +190,9 @@ function handleLocationUpdate(sessionId: string, locationData: any) {
     timezone = "America/New_York";
   }
 
+  // Check if this is the first location update for the session.
+  const isFirstLocationUpdate = !sessionInfo.latestLocation;
+
   // Cache the location update in the session with the determined timezone.
   sessionInfo.latestLocation = { 
     latitude: lat, 
@@ -234,6 +203,11 @@ function handleLocationUpdate(sessionId: string, locationData: any) {
   console.log(
     `[Session ${sessionId}] Cached location update: lat=${lat}, lng=${lng}, timezone=${timezone}`
   );
+
+  // Call updateDashboard if this was the first location update
+  if (isFirstLocationUpdate) {
+    updateDashboard(sessionId);
+  }
 }
 
 // -----------------------------------
@@ -250,42 +224,43 @@ function handleSettings(sessionId: string, settingsData: any) {
 // -----------------------------------
 // 7) Internal Dashboard Updater
 // -----------------------------------
-async function updateDashboard() {
+async function updateDashboard(sessionId?: string) {
   // Utility function to wrap text to a maximum line length without breaking words.
   function wrapText(text: string, maxLength = 25): string {
-    return text.split('\n').map(line => {
-      const words = line.split(' ');
-      let currentLine = '';
-      const wrappedLines: string[] = [];
-  
-      words.forEach(word => {
-        if ((currentLine.length + (currentLine ? 1 : 0) + word.length) <= maxLength) {
-          currentLine += (currentLine ? ' ' : '') + word;
-        } else {
-          if (currentLine) {
-            wrappedLines.push(currentLine);
+    return text
+      .split('\n')
+      .map(line => {
+        const words = line.split(' ');
+        let currentLine = '';
+        const wrappedLines: string[] = [];
+
+        words.forEach(word => {
+          if ((currentLine.length + (currentLine ? 1 : 0) + word.length) <= maxLength) {
+            currentLine += (currentLine ? ' ' : '') + word;
+          } else {
+            if (currentLine) {
+              wrappedLines.push(currentLine);
+            }
+            currentLine = word;
+
+            // If a single word is too long, hardcut it.
+            while (currentLine.length > maxLength) {
+              wrappedLines.push(currentLine.slice(0, maxLength));
+              currentLine = currentLine.slice(maxLength);
+            }
           }
-          currentLine = word;
-  
-          // If a single word is too long, hardcut it
-          while (currentLine.length > maxLength) {
-            wrappedLines.push(currentLine.slice(0, maxLength));
-            currentLine = currentLine.slice(maxLength);
-          }
+        });
+
+        if (currentLine) {
+          wrappedLines.push(currentLine.trim());
         }
-      });
-  
-      if (currentLine) {
-        wrappedLines.push(currentLine.trim());
-      }
-      
-      return wrappedLines.join('\n');
-    }).join('\n');
-  }  
+
+        return wrappedLines.join('\n');
+      })
+      .join('\n');
+  }
 
   // Define left modules in group 1 (same-line modules).
-  // Note: We now pass the sessionInfo into each run function so that the time module can
-  // use the session’s cached location (if available) to determine the timezone.
   const leftModulesGroup1 = [
     {
       name: "time",
@@ -295,7 +270,6 @@ async function updateDashboard() {
         if (sessionInfo.latestLocation && sessionInfo.latestLocation.timezone) {
           timezone = sessionInfo.latestLocation.timezone;
         }
-
         console.log(`[Session ${sessionInfo.userId}] Using timezone: ${timezone}`);
         const options = {
           timeZone: timezone,
@@ -306,7 +280,6 @@ async function updateDashboard() {
           hour12: true
         };
         let formatted = new Date().toLocaleString("en-US", options);
-        // Remove the space and AM/PM from the formatted string
         formatted = formatted.replace(/ [AP]M/, "");
         return `◌ ${formatted}`;
       }
@@ -319,6 +292,7 @@ async function updateDashboard() {
     },
   ];
 
+  // Define right modules.
   const rightModules = [
     {
       name: "news",
@@ -330,61 +304,59 @@ async function updateDashboard() {
                 newsResult.news_summaries &&
                 newsResult.news_summaries.length > 0)
           ? newsResult.news_summaries[0]
-          : '';
+          : '-';
       },
     },
     {
       name: "weather",
-      async run() {
-        const newYorkLatitude = 40.7128;
-        const newYorkLongitude = -74.0060;
+      async run(context: any) {
+        if (!context.latestLocation) {
+          return '';
+        }
+        const { latitude, longitude } = context.latestLocation;
         const weatherAgent = new WeatherModule();
-        const weather = await weatherAgent.fetchWeatherForecast(newYorkLatitude, newYorkLongitude);
-        return weather ? `${weather.condition}, ${weather.avg_temp_f}°F` : '';
+        const weather = await weatherAgent.fetchWeatherForecast(latitude, longitude);
+        return weather ? `${weather.condition}, ${weather.avg_temp_f}°F` : '-';
       },
     },
   ];
 
-  // Iterate through each active session.
-  for (const [sessionId, sessionInfo] of activeSessions.entries()) {
+  // Helper: update a single session dashboard.
+  async function updateSessionDashboard(sessionId: string, sessionInfo: SessionInfo) {
     // Prepare a context for modules that need it.
-    const context = { transcriptions: sessionInfo.transcriptionCache };
+    const context = { transcriptions: sessionInfo.transcriptionCache, latestLocation: sessionInfo.latestLocation };
     // Clear the transcription cache.
     sessionInfo.transcriptionCache = [];
 
     // Run left group 1 modules concurrently.
     const leftGroup1Promises = leftModulesGroup1.map(module => module.run(sessionInfo));
     const leftGroup1Results = await Promise.all(leftGroup1Promises);
-    // Join group 1 results with a comma so they appear on the same line.
     const leftGroup1Text = leftGroup1Results.filter(text => text.trim()).join(', ');
 
-    // Define left group 2 modules to include notifications.
+    // Left group 2: notifications.
     const leftModulesGroup2 = [
       {
         name: "notifications",
         async run() {
-          // Fetch the top 2 notifications (if any) from the session's cache.
           const notifications = sessionInfo.phoneNotificationCache || [];
           const topTwoNotifications = notifications.slice(-2);
-          console.log(notifications);
           console.log(`[Session ${sessionId}] Notifications:`, topTwoNotifications);
-          return topTwoNotifications.map(notification => `${notification.title}: ${notification.content}`).join('\n');
+          return topTwoNotifications
+            .map(notification => `${notification.title}: ${notification.content}`)
+            .join('\n');
         }
       }
     ];
-
-    // Run left group 2 modules concurrently.
     const leftGroup2Promises = leftModulesGroup2.map(module => module.run());
     const leftGroup2Results = await Promise.all(leftGroup2Promises);
     const leftGroup2Text = leftGroup2Results.filter(text => text.trim()).join('\n');
 
-    // Combine left text: group 1 (same line) then group 2 (notifications) on a new line.
+    // Combine left texts.
     let leftText = leftGroup1Text;
     if (leftGroup2Text) {
       leftText += `\n${leftGroup2Text}`;
     }
-    // Wrap left text so that no individual line exceeds 25 characters.
-    leftText = wrapText(leftText, 22);
+    leftText = wrapText(leftText, 25);
 
     // Run right modules concurrently.
     const rightPromises = rightModules.map(module => module.run(context));
@@ -392,7 +364,7 @@ async function updateDashboard() {
     let rightText = rightResults.filter(text => text.trim()).join('\n');
     rightText = wrapText(rightText, 22);
 
-    // Create display event with the dashboard card layout.
+    // Create display event.
     const displayRequest: DisplayRequest = {
       type: 'display_event',
       view: 'dashboard',
@@ -410,14 +382,41 @@ async function updateDashboard() {
     console.log(`[Session ${sessionId}] Sending updated dashboard:`, displayRequest);
     sessionInfo.ws.send(JSON.stringify(displayRequest));
   }
+
+  // If a sessionId is provided, update that session only.
+  if (sessionId) {
+    const sessionInfo = activeSessions.get(sessionId);
+    if (sessionInfo) {
+      await updateSessionDashboard(sessionId, sessionInfo);
+    } else {
+      console.warn(`Session ${sessionId} not found`);
+    }
+  } else {
+    // Otherwise, update dashboard for all sessions.
+    for (const [sessId, sessionInfo] of activeSessions.entries()) {
+      await updateSessionDashboard(sessId, sessionInfo);
+    }
+  }
 }
 
-setTimeout(() => {
-  // Run updateDashboard 5 seconds after the file runs.
-  updateDashboard();
-  // Then, schedule it to run every 60 seconds.
-  setInterval(updateDashboard, 5000);
-}, 5000);
+function handlePhoneNotification(sessionId: string, notificationData: any) {
+  const sessionInfo = activeSessions.get(sessionId);
+  if (!sessionInfo) return;
+
+  // Add the new notification to the cache.
+  if (!sessionInfo.phoneNotificationCache) {
+    sessionInfo.phoneNotificationCache = [];
+  }
+  sessionInfo.phoneNotificationCache.push({
+    title: notificationData.title || 'No Title',
+    content: notificationData.content || '',
+    timestamp: Date.now(),
+  });
+  console.log(`[Session ${sessionId}] Received phone notification:`, notificationData);
+
+  // Optionally, you could call updateDashboard(sessionId) here to update the user immediately.
+  updateDashboard(sessionId);
+}
 
 // -----------------------------------
 // 6) Health Check & Static
@@ -434,3 +433,13 @@ app.use(express.static(path.join(__dirname, './public')));
 app.listen(PORT, () => {
   console.log(`Dashboard Manager TPA running at http://localhost:${PORT}`);
 });
+
+// -----------------------------------
+// Schedule Dashboard Updates
+// -----------------------------------
+setTimeout(() => {
+  // Run updateDashboard 5 seconds after the file runs.
+  updateDashboard();
+  // Then, schedule it to run every 5 seconds.
+  setInterval(() => updateDashboard(), 5000);
+}, 5000);
