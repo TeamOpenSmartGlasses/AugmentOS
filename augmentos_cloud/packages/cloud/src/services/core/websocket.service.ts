@@ -47,6 +47,7 @@ import appService, { IAppService } from './app.service';
 import { DisplayRequest } from '@augmentos/types/events/display';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { AUGMENTOS_AUTH_JWT_SECRET } from '../../env';
+import { AxiosError } from 'axios';
 
 // Constants
 const TPA_SESSION_TIMEOUT_MS = 5000;  // 30 seconds
@@ -396,46 +397,118 @@ export class WebSocketService implements IWebSocketService {
           break;
         }
 
+        // In handleGlassesMessage method, update the 'stop_app' case:
         case 'stop_app': {
           const stopMessage = message as GlassesStopAppMessage;
           console.log(`Stopping app ${stopMessage.packageName}`);
-          // Remove subscriptions for the app.
-          this.subscriptionService.removeSubscriptions(userSession.sessionId, stopMessage.packageName);
 
-          // Close TPA connection.
-          const tpaSessionId = `${userSession.sessionId}-${stopMessage.packageName}`;
-          const connection = this.tpaConnections.get(tpaSessionId);
-          if (connection) {
-            connection.websocket.close();
+          try {
+            const app = await this.appService.getApp(stopMessage.packageName);
+            if (!app) throw new Error(`App ${stopMessage.packageName} not found`);
+
+            // Call stop webhook
+            const tpaSessionId = `${userSession.sessionId}-${stopMessage.packageName}`;
+
+            try {
+              await this.appService.triggerStopWebhook(
+                app.webhookURL,
+                {
+                  type: 'stop_request',
+                  sessionId: tpaSessionId,
+                  userId: userSession.userId,
+                  reason: 'user_disabled',
+                  timestamp: new Date().toISOString()
+                }
+              );
+            }
+            catch (error: AxiosError | unknown) {
+              console.error(`\n\n[stop_app]:\nError stopping app ${stopMessage.packageName}:\n${(error as any)?.message}\n\n`);
+              // Update state even if webhook fails
+              userSession.activeAppSessions = userSession.activeAppSessions.filter(
+                (packageName) => packageName !== stopMessage.packageName
+              );
+            }
+
+            // Remove subscriptions and update state
+            this.subscriptionService.removeSubscriptions(
+              userSession.sessionId,
+              stopMessage.packageName
+            );
+
+            // Remove app from active list
+            userSession.activeAppSessions = userSession.activeAppSessions.filter(
+              (packageName) => packageName !== stopMessage.packageName
+            );
+
+            // Send update to glasses client
+            const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
+            const userSessionData = {
+              sessionId: userSession.sessionId,
+              userId: userSession.userId,
+              startTime: userSession.startTime,
+              installedApps: await this.appService.getAllApps(),
+              activeAppPackageNames,
+              whatToStream: userSession.whatToStream,
+            };
+
+            const clientResponse: CloudAppStateChangeMessage = {
+              type: 'app_state_change',
+              sessionId: userSession.sessionId,
+              userSession: userSessionData,
+              timestamp: new Date()
+            };
+            ws.send(JSON.stringify(clientResponse));
+
+          } catch (error) {
+            console.error(`Error stopping app ${stopMessage.packageName}:`, error);
+            // Update state even if webhook fails
+            userSession.activeAppSessions = userSession.activeAppSessions.filter(
+              (packageName) => packageName !== stopMessage.packageName
+            );
           }
-
-          // Remove TPA connection.
-          this.tpaConnections.delete(tpaSessionId);
-
-          // Remove app from active list.
-          userSession.activeAppSessions = userSession.activeAppSessions.filter(
-            (packageName) => packageName !== stopMessage.packageName
-          );
-
-          const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
-          const userSessionData = {
-            sessionId: userSession.sessionId,
-            userId: userSession.userId,
-            startTime: userSession.startTime,
-            installedApps: await this.appService.getAllApps(),
-            activeAppPackageNames: activeAppPackageNames,
-            whatToStream: userSession.whatToStream,
-          };
-          console.log('User session data:', userSessionData);
-          const clientResponse: CloudAppStateChangeMessage = {
-            type: 'app_state_change',
-            sessionId: userSession.sessionId, // TODO: Remove this field and check all references.
-            userSession: userSessionData,
-            timestamp: new Date()
-          };
-          ws.send(JSON.stringify(clientResponse));
           break;
         }
+
+        // case 'stop_app': {
+        //   const stopMessage = message as GlassesStopAppMessage;
+        //   console.log(`Stopping app ${stopMessage.packageName}`);
+        //   // Remove subscriptions for the app.
+        //   this.subscriptionService.removeSubscriptions(userSession.sessionId, stopMessage.packageName);
+
+        //   // Close TPA connection.
+        //   const tpaSessionId = `${userSession.sessionId}-${stopMessage.packageName}`;
+        //   const connection = this.tpaConnections.get(tpaSessionId);
+        //   if (connection) {
+        //     connection.websocket.close();
+        //   }
+
+        //   // Remove TPA connection.
+        //   this.tpaConnections.delete(tpaSessionId);
+
+        //   // Remove app from active list.
+        //   userSession.activeAppSessions = userSession.activeAppSessions.filter(
+        //     (packageName) => packageName !== stopMessage.packageName
+        //   );
+
+        //   const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
+        //   const userSessionData = {
+        //     sessionId: userSession.sessionId,
+        //     userId: userSession.userId,
+        //     startTime: userSession.startTime,
+        //     installedApps: await this.appService.getAllApps(),
+        //     activeAppPackageNames: activeAppPackageNames,
+        //     whatToStream: userSession.whatToStream,
+        //   };
+        //   console.log('User session data:', userSessionData);
+        //   const clientResponse: CloudAppStateChangeMessage = {
+        //     type: 'app_state_change',
+        //     sessionId: userSession.sessionId, // TODO: Remove this field and check all references.
+        //     userSession: userSessionData,
+        //     timestamp: new Date()
+        //   };
+        //   ws.send(JSON.stringify(clientResponse));
+        //   break;
+        // }
 
         case 'head_position': {
           const headMessage = message as HeadPositionEvent;
