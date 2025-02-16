@@ -215,6 +215,7 @@ import {
         'phone_notification',
         'location_update',
         'head_position',
+        'glasses_battery_update',
         'open_dashboard',
         'audio_chunk',
         'video',
