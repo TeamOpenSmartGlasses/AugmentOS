@@ -29,6 +29,7 @@ const { FetchConfigHelperModule } = NativeModules;
 import semver from 'semver';
 import { AUGMENTOS_MANAGER_PACKAGE_NAME, AUGMENTOS_CORE_PACKAGE_NAME } from '../consts';
 import { fetchAppStoreData } from '../utils/backendUtils.ts';
+import CloudConnection from '../components/CloudConnection.tsx';
 
 interface HomepageProps {
   isDarkTheme: boolean;
@@ -55,7 +56,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
   const slideAnim = useRef(new Animated.Value(-50)).current;
 
   useEffect(() => {
-    if (!status.puck_connected) {
+    if (!status.puck_connected || !status.auth.core_token_owner) {
       navigation.reset({
         index: 0,
         routes: [{name: 'ConnectingToPuck'}],
@@ -251,6 +252,12 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
               <PuckConnection isDarkTheme={isDarkTheme} />
             </AnimatedSection>
           )}
+
+          {status.cloud_connection_status !== 'CONNECTED' &&
+          <AnimatedSection>
+              <CloudConnection isDarkTheme={isDarkTheme} />
+          </AnimatedSection>
+          }
 
           <AnimatedSection>
             <ConnectedDeviceInfo isDarkTheme={isDarkTheme} />

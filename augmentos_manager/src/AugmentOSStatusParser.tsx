@@ -40,6 +40,7 @@ export interface CoreAuthInfo {
 
 export interface AugmentOSMainStatus {
   augmentos_core_version: string | null;
+  cloud_connection_status: string;
   puck_connected: boolean;
   puck_battery_life: number | null;
   puck_charging_status: boolean;
@@ -57,6 +58,7 @@ export interface AugmentOSMainStatus {
 export class AugmentOSParser {
   static defaultStatus: AugmentOSMainStatus = {
     augmentos_core_version: null,
+    cloud_connection_status: 'DISCONNECTED',
     puck_connected: false,
     puck_battery_life: null,
     puck_charging_status: false,
@@ -77,6 +79,7 @@ export class AugmentOSParser {
 
   static mockStatus: AugmentOSMainStatus = {
     augmentos_core_version: '1.0.0',
+    cloud_connection_status: 'CONNECTED',
     puck_connected: true,
     puck_battery_life: 88,
     puck_charging_status: true,
@@ -199,6 +202,7 @@ export class AugmentOSParser {
 
       return {
         augmentos_core_version: status.augmentos_core_version ?? null,
+        cloud_connection_status: status.cloud_connection_status ?? 'DISCONNECTED',
         puck_connected: true,
         puck_battery_life: status.puck_battery_life ?? null,
         puck_charging_status: status.charging_status ?? false,
