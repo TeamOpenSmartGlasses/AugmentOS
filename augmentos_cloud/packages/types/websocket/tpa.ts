@@ -62,6 +62,12 @@ export interface CloudTpaConnectionErrorMessage extends WebSocketMessage {
   code?: string;
 }
 
+export interface CloudAppStoppedMessage extends WebSocketMessage {
+  type: "app_stopped";
+  reason: "user_disabled" | "system_stop" | "error";
+  message?: string;
+}
+
 export interface CloudDataStreamMessage extends WebSocketMessage {
   type: "data_stream";
   streamType: StreamType;

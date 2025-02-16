@@ -7,7 +7,7 @@
  * to maintain core functionality regardless of database state.
  */
 
-import { AppI } from '@augmentos/types';
+import { AppI, StopWebhookRequest, StopWebhookResponse } from '@augmentos/types';
 import { AppState } from '@augmentos/types/core/app.session';
 import axios, { AxiosError } from 'axios';
 
@@ -59,6 +59,10 @@ export interface IAppService {
   getApp(packageName: string): Promise<AppI | undefined>;
   createApp(app: AppI): Promise<AppI>;
   triggerWebhook(url: string, payload: WebhookPayload): Promise<void>;
+  triggerStopWebhook(webhookUrl: string, payload: StopWebhookRequest): Promise<{
+    status: number;
+    data: StopWebhookResponse;
+  }>;
   validateApiKey(packageName: string, apiKey: string): Promise<boolean>;
   getAppState(packageName: string, userId: string): Promise<AppState>;
 }
@@ -143,20 +147,41 @@ export class AppService implements IAppService {
           timeout: 5000 // 5 second timeout
         });
         return;
-      } catch (error : unknown) {
+      } catch (error: unknown) {
         if (attempt === maxRetries - 1) {
-            // check if error is an AxiosError.
-            if (axios.isAxiosError(error)) {
-                // log the error message
-                console.error(`Webhook failed after ${maxRetries} attempts: ${(error as AxiosError).message}`);
-            }
+          // check if error is an AxiosError.
+          if (axios.isAxiosError(error)) {
+            // log the error message
+            console.error(`Webhook failed after ${maxRetries} attempts: ${(error as AxiosError).message}`);
+          }
           throw new Error(`Webhook failed after ${maxRetries} attempts: ${(error as AxiosError).message || 'Unknown error'}`);
         }
         // Exponential backoff
-        await new Promise(resolve => 
+        await new Promise(resolve =>
           setTimeout(resolve, baseDelay * Math.pow(2, attempt))
         );
       }
+    }
+  }
+
+  /**
+ * Triggers the stop webhook for a TPA app session.
+ * @param url - Stop Webhook URL
+ * @param payload - Data to send
+ * @throws If stop webhook fails
+ */
+  async triggerStopWebhook(webhookUrl: string, payload: StopWebhookRequest): Promise<{
+    status: number;
+    data: StopWebhookResponse;
+  }> {
+    try {
+      const response = await axios.post(`${webhookUrl}/stop`, payload);
+      return {
+        status: response.status,
+        data: response.data
+      };
+    } catch (error) {
+      throw error;
     }
   }
 
@@ -183,7 +208,7 @@ export class AppService implements IAppService {
    */
   async getAppState(packageName: string, userId: string): Promise<AppState> {
     const userStates = this.appStates.get(userId) || new Map<string, AppState>();
-    
+
     // Return existing state or default to not_installed
     return userStates.get(packageName) || 'not_installed';
   }
