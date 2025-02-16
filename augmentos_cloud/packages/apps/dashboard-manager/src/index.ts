@@ -30,7 +30,7 @@ interface SessionInfo {
   // track last agent calls
   lastNewsUpdate?: number;
   // cache for phone notifications as strings
-  phoneNotificationCache?: string[];
+  phoneNotificationCache?: { title: string; content: string, timestamp: number }[];
   transcriptionCache: any[];
   // embed the dashboard card into session info
   dashboard: DoubleTextWall;
@@ -169,16 +169,33 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
 
 function handlePhoneNotification(sessionId: string, phoneNotificationData: any) {
   const sessionInfo = activeSessions.get(sessionId);
-  console.log(`[Session ${sessionId}] Received phone notification:`, phoneNotificationData);
   if (!sessionInfo) return;
+  
   if (!sessionInfo.phoneNotificationCache) {
     sessionInfo.phoneNotificationCache = [];
   }
-  // Push a string in the format "Title: content"
-  sessionInfo.phoneNotificationCache.push(`${phoneNotificationData.title}: ${phoneNotificationData.content}`);
+
+  // Push the new notification.
+  sessionInfo.phoneNotificationCache.push({
+    title: phoneNotificationData.title,
+    content: phoneNotificationData.content,
+    timestamp: phoneNotificationData.timestamp,
+  });
+
+  // Remove duplicate notifications by filtering the array.
+  sessionInfo.phoneNotificationCache = sessionInfo.phoneNotificationCache.filter((notification, index, self) => 
+    index === self.findIndex((n) =>
+      n.title === notification.title &&
+      n.content === notification.content
+    )
+  );
+
   console.log(
     `[Session ${sessionId}] Cached phone notification. Total cached items: ${sessionInfo.phoneNotificationCache.length}`
   );
+  console.log(sessionInfo.phoneNotificationCache);
+
+  updateDashboard();
 }
 
 // -----------------------------------
@@ -233,14 +250,14 @@ function handleSettings(sessionId: string, settingsData: any) {
 // -----------------------------------
 // 7) Internal Dashboard Updater
 // -----------------------------------
-setInterval(async () => {
+async function updateDashboard() {
   // Utility function to wrap text to a maximum line length without breaking words.
-  function wrapText(text: string, maxLength = 25) {
+  function wrapText(text: string, maxLength = 25): string {
     return text.split('\n').map(line => {
       const words = line.split(' ');
       let currentLine = '';
       const wrappedLines: string[] = [];
-      
+  
       words.forEach(word => {
         if ((currentLine.length + (currentLine ? 1 : 0) + word.length) <= maxLength) {
           currentLine += (currentLine ? ' ' : '') + word;
@@ -249,14 +266,22 @@ setInterval(async () => {
             wrappedLines.push(currentLine);
           }
           currentLine = word;
+  
+          // If a single word is too long, hardcut it
+          while (currentLine.length > maxLength) {
+            wrappedLines.push(currentLine.slice(0, maxLength));
+            currentLine = currentLine.slice(maxLength);
+          }
         }
       });
+  
       if (currentLine) {
         wrappedLines.push(currentLine.trim());
       }
+      
       return wrappedLines.join('\n');
     }).join('\n');
-  }
+  }  
 
   // Define left modules in group 1 (same-line modules).
   // Note: We now pass the sessionInfo into each run function so that the time module can
@@ -341,7 +366,9 @@ setInterval(async () => {
           // Fetch the top 2 notifications (if any) from the session's cache.
           const notifications = sessionInfo.phoneNotificationCache || [];
           const topTwoNotifications = notifications.slice(-2);
-          return topTwoNotifications.join('\n');
+          console.log(notifications);
+          console.log(`[Session ${sessionId}] Notifications:`, topTwoNotifications);
+          return topTwoNotifications.map(notification => `${notification.title}: ${notification.content}`).join('\n');
         }
       }
     ];
@@ -357,13 +384,13 @@ setInterval(async () => {
       leftText += `\n${leftGroup2Text}`;
     }
     // Wrap left text so that no individual line exceeds 25 characters.
-    leftText = wrapText(leftText, 25);
+    leftText = wrapText(leftText, 22);
 
     // Run right modules concurrently.
     const rightPromises = rightModules.map(module => module.run(context));
     const rightResults = await Promise.all(rightPromises);
     let rightText = rightResults.filter(text => text.trim()).join('\n');
-    rightText = wrapText(rightText, 25);
+    rightText = wrapText(rightText, 22);
 
     // Create display event with the dashboard card layout.
     const displayRequest: DisplayRequest = {
@@ -383,6 +410,13 @@ setInterval(async () => {
     console.log(`[Session ${sessionId}] Sending updated dashboard:`, displayRequest);
     sessionInfo.ws.send(JSON.stringify(displayRequest));
   }
+}
+
+setTimeout(() => {
+  // Run updateDashboard 5 seconds after the file runs.
+  updateDashboard();
+  // Then, schedule it to run every 60 seconds.
+  setInterval(updateDashboard, 5000);
 }, 5000);
 
 // -----------------------------------
