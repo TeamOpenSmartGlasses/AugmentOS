@@ -18,6 +18,8 @@ import appRoutes from './routes/apps.routes';
 import authRoutes from './routes/auth.routes';
 import path from 'path';
 import generateCoreToken from './utils/generateCoreToken';
+import { AUGMENTOS_AUTH_JWT_SECRET } from './env';
+import jwt from 'jsonwebtoken';
 
 // Load environment variables
 dotenv.config();
@@ -76,6 +78,7 @@ server.listen(PORT, () => {
 
 // const coreToken = generateCoreToken();
 // console.log(`\n\n\n\n\nCore token: ${coreToken}\n\n\n\n\n\n`);
-
+// const userData = jwt.verify("efwewfwefwfwef", AUGMENTOS_AUTH_JWT_SECRET);
+// console.log(`\n\n\n\n\nUser data: ${JSON.stringify(userData)}\n\n\n\n\n\n`);
 
 export default server;

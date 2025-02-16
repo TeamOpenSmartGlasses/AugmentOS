@@ -37,6 +37,7 @@ import {
   CloudToTpaMessage,
   CloudAppStateChangeMessage,
   UserSession,
+  CloudAuthErrorMessage,
 } from '@augmentos/types';
 
 import sessionService, { ISessionService } from './session.service';
@@ -295,11 +296,30 @@ export class WebSocketService implements IWebSocketService {
           // const userId = initMessage.userId;
           const coreToken = initMessage.coreToken || "";
           console.log(`[websocket.service] Glasses client attempting to connect: ${coreToken}`);
-          const userData = jwt.verify(coreToken, AUGMENTOS_AUTH_JWT_SECRET);
-          const userId = (userData as JwtPayload).email;
-          if (!userId) {
-            throw new Error('User ID is required');
+          let userId = '';
+
+          try {
+            const userData = jwt.verify(coreToken, AUGMENTOS_AUTH_JWT_SECRET);
+            userId = (userData as JwtPayload).email;
+
+            if (!userId) {
+              throw new Error('User ID is required');
+            }
           }
+          catch (error) {
+            console.error(`[websocket.service] Error verifying core token:`, error);
+            console.error('User ID is required');
+            const errorMessage: CloudAuthErrorMessage = {
+              type: 'auth_error',
+              message: 'User not authenticated',
+              timestamp: new Date()
+            };
+            ws.send(JSON.stringify(errorMessage));
+            return;
+          }
+
+
+
 
           console.log(`[websocket.service] Glasses client connected: ${userId}`);
           try {

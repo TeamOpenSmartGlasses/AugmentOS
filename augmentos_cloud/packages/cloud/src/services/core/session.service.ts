@@ -21,7 +21,7 @@ import appService from './app.service';
 
 // You can adjust this value as needed.
 const RECONNECT_GRACE_PERIOD_MS = 30000; // 30 seconds
-const LOG_AUDIO = true;
+const LOG_AUDIO = false;
 /**
  * Interface defining the public API of the session service.
  */
@@ -77,8 +77,8 @@ export class SessionService implements ISessionService {
       displayManager: new DisplayManager(),
       transcript: { segments: [] },
       websocket: ws as any,
-      pushStream: null,
-      recognizer: null,
+      // pushStream: null,
+      // recognizer: null,
       bufferedAudio: [],
       // New property for graceful reconnects:
       disconnectedAt: null
@@ -131,7 +131,7 @@ export class SessionService implements ISessionService {
 
       // Cleanup speech services
       if (oldUserSession.recognizer) {
-        oldUserSession.recognizer?.stopContinuousRecognitionAsync();
+        oldUserSession.recognizer?.close();
       }
 
       if (oldUserSession.pushStream) {
@@ -251,10 +251,11 @@ export class SessionService implements ISessionService {
 
     // Cleanup speech services
     if (session.recognizer) {
-      session.recognizer.stopContinuousRecognitionAsync();
+      session.recognizer.stopTranscribingAsync();
     }
+
     if (session.pushStream) {
-      session.pushStream.close();
+      session.pushStream?.close();
     }
 
     // Close all app sessions
@@ -265,7 +266,7 @@ export class SessionService implements ISessionService {
     // });
 
     this.activeSessions.delete(sessionId);
-    console.log(`Ended session ${sessionId}`);
+    console.log(`\n\n\n[Ended session]\n${sessionId}\n\n\n`);
   }
 
   /**

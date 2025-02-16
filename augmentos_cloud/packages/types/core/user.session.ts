@@ -5,6 +5,10 @@ import type { AppI, AppSettings } from '../models/app';
 import type { AppSessionI, AppState } from './app.session';
 import type { TranscriptI } from './transcript';
 import type { DisplayRequest } from '../events/display';
+import {
+  ConversationTranscriber,
+  PushAudioInputStream,
+} from 'microsoft-cognitiveservices-speech-sdk';
 
 // export interface UserSessionI {
 //   userId: string;
@@ -37,8 +41,8 @@ export interface UserSession {
   transcript: TranscriptI
 
   // Azure Speech Service handles
-  pushStream?: any;
-  recognizer?: any;
+  pushStream?: PushAudioInputStream;
+  recognizer?: ConversationTranscriber;
 
   // Pre-initialization audio buffer
   bufferedAudio: ArrayBuffer[];
