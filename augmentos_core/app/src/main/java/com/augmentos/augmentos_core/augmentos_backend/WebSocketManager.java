@@ -78,8 +78,8 @@ public class WebSocketManager extends WebSocketListener {
         cleanup(); // Clean up any existing connections
 
         client = new OkHttpClient.Builder()
-                .readTimeout(0, TimeUnit.MILLISECONDS)
-                .pingInterval(15, TimeUnit.SECONDS)
+                .readTimeout(5, TimeUnit.SECONDS)
+                .pingInterval(4, TimeUnit.SECONDS)
                 .build();
 
         Request request = new Request.Builder().url(serverUrl).build();
