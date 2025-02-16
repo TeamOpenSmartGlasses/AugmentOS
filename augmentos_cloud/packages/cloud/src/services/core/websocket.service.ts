@@ -241,7 +241,7 @@ export class WebSocketService implements IWebSocketService {
           );
 
           // Pass the ArrayBuffer to Azure Speech or wherever you need it
-          this.sessionService.handleAudioData(session.sessionId, arrayBuf);
+          this.sessionService.handleAudioData(session, arrayBuf);
           return;
         }
 

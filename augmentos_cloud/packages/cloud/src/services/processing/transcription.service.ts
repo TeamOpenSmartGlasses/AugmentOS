@@ -133,8 +133,8 @@ export class TranscriptionService implements ITranscriptionService {
 
     // Start continuous recognition
     recognizer.startTranscribingAsync(
-      () => console.log(`[Session ${userSession}] Continuous recognition started`),
-      (err) => console.error(`[Session ${userSession}] Error starting recognition:`, err)
+      () => console.log(`[Session ${userSession.userId}] Continuous recognition started`),
+      (err) => console.error(`[Session ${userSession.userId}] Error starting recognition:`, err)
     );
 
     return { recognizer, pushStream };

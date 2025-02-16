@@ -32,7 +32,8 @@ export interface ISessionService {
   updateDisplay(sessionId: string, displayRequest: DisplayRequest): void;
   addTranscriptSegment(sessionId: string, segment: TranscriptSegment): void;
   setAudioHandlers(userSession: UserSession, pushStream: any, recognizer: any): void;
-  handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void;
+  handleAudioData(userSession: UserSession, audioData: ArrayBuffer | any): void;
+  // handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void;
   getAllSessions(): UserSession[];
 
   // Graceful reconnect.
@@ -223,20 +224,22 @@ export class SessionService implements ISessionService {
    * @param sessionId - Session identifier
    * @param audioData - Raw audio data buffer
    */
-  handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void {
-    const session = this.getSession(sessionId);
-    if (!session) return console.error(`🔥🔥🔥 Session ${sessionId} not found`);
+  // handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void {
+  handleAudioData(userSession: UserSession, audioData: ArrayBuffer | any): void {
+    // const session = this.getSession(sessionId);
+    // if (!session) return console.error(`🔥🔥🔥 Session ${sessionId} not found`);
+    // userSession: UserSession
     
-    if (session.pushStream) {
+    if (userSession.pushStream) {
       if (LOG_AUDIO) {
         console.log("AUDIO: writing to push stream");
       }
-      session.pushStream.write(audioData);
+      userSession.pushStream.write(audioData);
     } else {
-      session.bufferedAudio.push(audioData);
+      userSession.bufferedAudio.push(audioData);
       // Log only for first buffer
-      if (session.bufferedAudio.length === 1) {  
-        console.log(`Buffering audio data for session ${sessionId} (pushStream not ready)`);
+      if (userSession.bufferedAudio.length === 1) {  
+        console.log(`Buffering audio data for session ${userSession.sessionId} (pushStream not ready)`);
       }
     }
   }
