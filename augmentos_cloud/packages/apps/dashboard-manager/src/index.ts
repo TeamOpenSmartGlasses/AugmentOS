@@ -29,8 +29,9 @@ interface SessionInfo {
   ws: WebSocket;
   // track last agent calls
   lastNewsUpdate?: number;
-  // cache for transcription data (could be an array to accumulate multiple transcriptions)
-  transcriptionCache?: any[];
+  // cache for phone notifications as strings
+  phoneNotificationCache?: string[];
+  transcriptionCache: any[];
   // embed the dashboard card into session info
   dashboard: DoubleTextWall;
   [key: string]: any;
@@ -101,7 +102,7 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     ws.on('message', (data: Buffer) => {
       try {
         const message = JSON.parse(data.toString());
-        handleMessage(sessionId, message);
+        handleMessage(sessionId, ws, message);
       } catch (err) {
         console.error(`[Session ${sessionId}] Error parsing message:`, err);
       }
@@ -124,7 +125,7 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
 // -----------------------------------
 // 2) Handle Incoming Messages
 // -----------------------------------
-function handleMessage(sessionId: string, message: any) {
+function handleMessage(sessionId: string, ws: WebSocket, message: any) {
   const sessionInfo = activeSessions.get(sessionId);
   if (!sessionInfo) {
     console.warn(`Session ${sessionId} not found in activeSessions`);
@@ -132,13 +133,30 @@ function handleMessage(sessionId: string, message: any) {
   }
 
   switch (message.type) {
+    case 'tpa_connection_ack': {
+      // Connection acknowledged, subscribe to transcription
+      const subMessage: TpaSubscriptionUpdateMessage = {
+        type: 'subscription_update',
+        packageName: PACKAGE_NAME,
+        sessionId,
+        subscriptions: ['phone_notification', 'location_update']
+      };
+      ws.send(JSON.stringify(subMessage));
+      console.log(`Session ${sessionId} connected and subscribed`);
+      break;
+    }
+
     case 'data_stream': {
       const streamMessage = message as CloudDataStreamMessage;
       switch (streamMessage.streamType) {
-        case 'transcription':
+        case 'phone_notification':
           // Instead of immediately calling the NewsAgent, cache the transcription.
-          handleTranscription(sessionId, streamMessage.data);
+          handlePhoneNotification(sessionId, streamMessage.data);
           break;
+
+        // case 'location_update':
+        //   handleLocationUpdate(sessionId, streamMessage.data);
+        //   break;
 
         // add more streams here if needed
         default:
@@ -152,17 +170,19 @@ function handleMessage(sessionId: string, message: any) {
   }
 }
 
-
-function handleTranscription(sessionId: string, transcriptionData: any) {
+function handlePhoneNotification(sessionId: string, phoneNotificationData: any) {
   const sessionInfo = activeSessions.get(sessionId);
+  console.log(`[Session ${sessionId}] Received phone notification:`, phoneNotificationData);
   if (!sessionInfo) return;
-  if (!sessionInfo.transcriptionCache) {
-    sessionInfo.transcriptionCache = [];
+  if (!sessionInfo.phoneNotificationCache) {
+    sessionInfo.phoneNotificationCache = [];
   }
-  sessionInfo.transcriptionCache.push(transcriptionData);
+  // Push a string in the format "Title: content"
+  sessionInfo.phoneNotificationCache.push(`${phoneNotificationData.title}: ${phoneNotificationData.content}`);
   console.log(
-    `[Session ${sessionId}] Cached transcription. Total cached items: ${sessionInfo.transcriptionCache.length}`
+    `[Session ${sessionId}] Cached phone notification. Total cached items: ${sessionInfo.phoneNotificationCache.length}`
   );
+  // console.log(sessionInfo.phoneNotificationCache);
 }
 
 // -----------------------------------
@@ -181,37 +201,30 @@ function handleSettings(sessionId: string, settingsData: any) {
 // -----------------------------------
 setInterval(async () => {
   // Utility function to wrap text to a maximum line length without breaking words.
-  function wrapText(text, maxLength = 20) {
-    // Process each existing line separately.
+  function wrapText(text: string, maxLength = 25) {
     return text.split('\n').map(line => {
       const words = line.split(' ');
       let currentLine = '';
-      const wrappedLines = [];
+      const wrappedLines: string[] = [];
       
       words.forEach(word => {
-        // Check if adding the word (plus a space if needed) exceeds maxLength.
         if ((currentLine.length + (currentLine ? 1 : 0) + word.length) <= maxLength) {
           currentLine += (currentLine ? ' ' : '') + word;
         } else {
-          // If the current line is not empty, push it and start a new line.
           if (currentLine) {
             wrappedLines.push(currentLine);
           }
-          // Start the new line with the current word.
           currentLine = word;
         }
       });
-      // Push any remaining words.
       if (currentLine) {
         wrappedLines.push(currentLine.trim());
       }
-      // Join the wrapped lines with newline characters.
       return wrappedLines.join('\n');
     }).join('\n');
   }
 
-  // Define left modules in two groups:
-  // Group 1: Modules to be displayed on the same line.
+  // Define left modules in group 1 (same-line modules).
   const leftModulesGroup1 = [
     {
       name: "time",
@@ -231,17 +244,6 @@ setInterval(async () => {
         return `100%`; 
       } 
     },
-  ];
-  
-  // Group 2: Modules to be displayed on separate lines below Group 1.
-  const leftModulesGroup2 = [
-    { 
-      name: "uptime", 
-      async run() { 
-        return `Thomas: Welcome to the dashboard!`; 
-      } 
-    },
-    // Additional left modules can be added here.
   ];
 
   const rightModules = [
@@ -280,31 +282,43 @@ setInterval(async () => {
     // Run left group 1 modules concurrently.
     const leftGroup1Promises = leftModulesGroup1.map(module => module.run());
     const leftGroup1Results = await Promise.all(leftGroup1Promises);
-    // Join group 1 results with a space so they appear on the same line.
+    // Join group 1 results with a comma so they appear on the same line.
     const leftGroup1Text = leftGroup1Results.filter(text => text.trim()).join(', ');
+
+    // Define left group 2 modules to include notifications.
+    const leftModulesGroup2 = [
+      {
+        name: "notifications",
+        async run() {
+          // Fetch the top 2 notifications (if any) from the session's cache.
+          const notifications = sessionInfo.phoneNotificationCache || [];
+          const topTwoNotifications = notifications.slice(-2);
+          return topTwoNotifications.join('\n');
+        }
+      }
+    ];
 
     // Run left group 2 modules concurrently.
     const leftGroup2Promises = leftModulesGroup2.map(module => module.run());
     const leftGroup2Results = await Promise.all(leftGroup2Promises);
-    // Join group 2 results with a newline so each appears on a new line.
     const leftGroup2Text = leftGroup2Results.filter(text => text.trim()).join('\n');
 
-    // Combine left groups.
-    // If group 2 exists, append it on a new line.
-    let leftText = leftGroup2Text ? `${leftGroup1Text}\n${leftGroup2Text}` : leftGroup1Text;
-    // Wrap left text so that no individual line exceeds 20 characters.
+    // Combine left text: group 1 (same line) then group 2 (notifications) on a new line.
+    let leftText = leftGroup1Text;
+    if (leftGroup2Text) {
+      leftText += `\n${leftGroup2Text}`;
+    }
+    // Wrap left text so that no individual line exceeds 25 characters.
     leftText = wrapText(leftText, 25);
 
     // Run right modules concurrently.
     const rightPromises = rightModules.map(module => module.run(context));
     const rightResults = await Promise.all(rightPromises);
-    // Join right module outputs; adjust the delimiter as needed.
     let rightText = rightResults.filter(text => text.trim()).join('\n');
-    // Wrap right text similarly.
     rightText = wrapText(rightText, 25);
 
     // Create display event with the dashboard card layout.
-    const displayRequest = {
+    const displayRequest: DisplayRequest = {
       type: 'display_event',
       view: 'dashboard',
       packageName: PACKAGE_NAME,
@@ -321,7 +335,7 @@ setInterval(async () => {
     console.log(`[Session ${sessionId}] Sending updated dashboard:`, displayRequest);
     sessionInfo.ws.send(JSON.stringify(displayRequest));
   }
-}, 4000);
+}, 10000);
 
 // -----------------------------------
 // 6) Health Check & Static

@@ -212,7 +212,8 @@ import {
     private isValidSubscription(subscription: StreamType): boolean {
       const validTypes = new Set([
         'button_press',
-        'phone_notifications',
+        'phone_notification',
+        'location_update',
         'open_dashboard',
         'audio_chunk',
         'video',

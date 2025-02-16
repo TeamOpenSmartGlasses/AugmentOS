@@ -230,7 +230,7 @@ export class SessionService implements ISessionService {
     if (!session) return console.error(`🔥🔥🔥 Session ${sessionId} not found`);
 
     if (session.pushStream) {
-      console.log("AUDIO: writing to push stream");
+      // console.log("AUDIO: writing to push stream");
       session.pushStream.write(audioData);
     } else {
       session.bufferedAudio.push(audioData);
