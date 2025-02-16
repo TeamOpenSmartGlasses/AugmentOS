@@ -26,7 +26,7 @@ export class SearchToolForAgents extends Tool {
   description = 'Searches for additional information for an entity using SerpAPI.';
 
   // Replace with your actual SerpAPI key.
-  private apiKey: string = "1e6ffdde675fd92a8fa47cc47a2afb66b7264fbd18c1d69a46716607e09fa391";
+  private apiKey: string = "adebc80558fb1062c8c647ea767bd26681e33a97e9d02182b7df3720f38ceee5";
 
   async _call(input: string): Promise<string> {
     console.log(`[SearchToolForAgents] Input: ${input}`);
@@ -54,7 +54,6 @@ export class SearchToolForAgents extends Tool {
       // Perform the HTTP GET request.
       const response = await fetch(url.toString());
       const result = await response.json();
-
       // Process organic results.
       const organicResults: OrganicResult[] = (result.organic_results || []).map((item: any) => ({
         position: item.position,

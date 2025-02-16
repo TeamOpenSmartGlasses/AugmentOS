@@ -115,17 +115,15 @@ async function handleMessage(sessionId: string, ws: WebSocket, message: any, con
 }
 
 async function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData: any) {
-    const inputData = { conversation_context: transcriptionData.text };
+    const inputData = { query: transcriptionData.text };
     const response = await miraAgent.handleContext(inputData);
 
-    console.log(`[Session ${sessionId}]: ${JSON.stringify(!response.selectedAgents, null, 2)}`);
-
-    if (!response || !response.selectedAgents || !response.output[0] || !response.output[0].insight) {
+    if (!response || !response.output) {
       console.log("No insight found");
       return;
     } else {
       console.log("Insight found");
-      console.log(response);
+      console.log(response.output);
     }
 
     // Create a display event for the transcription
@@ -136,7 +134,7 @@ async function handleTranscription(sessionId: string, ws: WebSocket, transcripti
       sessionId,
       layout: {
         layoutType: 'text_wall',
-        text: JSON.stringify(response.output[0].insight, null, 2)
+        text: JSON.stringify(response.output, null, 2)
       },
       durationMs: 6000,
       timestamp: new Date()

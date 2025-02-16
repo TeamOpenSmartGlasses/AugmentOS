@@ -1,8 +1,14 @@
+// MiraAgent.ts
+
 import { Agent } from "./AgentInterface";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { AgentExecutor, createReactAgent } from "langchain/agents";
 import { LLMProvider } from "../utils/LLMProvider";
 import { SearchToolForAgents } from "./tools/SearchToolForAgents";
+
+interface QuestionAnswer {
+    insight: string;
+}
 
 const agentPromptBlueprint = `You are an intelligent assistant that is running on the smart glasses of a user. They sometimes directly talk to you by saying a wake word and then making query. Answer the User Query to the best of your ability. The query may contain some extra unrelated speech not related to the query - ignore any noise to answer just the user's intended query. Make your answer concise, leave out filler words, make the answer high entropy, answer in 10 words or less (no newlines), but don't be overly brief (e.g. for weather, give temp. and rain). Use telegraph style writing.
 
@@ -12,10 +18,10 @@ Utilize available tools when necessary and adhere to the following guidelines:
 3. When calling a tool, use this precise format:
    Action: search
    Action Input: {{"searchKeyword": "<query>", "includeImage": <true/false>}}
-4. Once ready, output your final answer on a new line starting with "Final Answer:" immediately followed by a JSON object exactly as follows:
-   {{"insight": "<succinct answer>"}}
-5. As soon as you receive a successful response, you must return 'Final Answer: Running: <user facing custom function string>'
-6. If the query is empty, return "Final Answer: No query provided."
+4. When you have enough information to answer, output your final answer on a new line prefixed by "Final Answer:" followed immediately by a JSON object exactly like:
+   {{"insight": "<concise answer>"}}
+5. If the query is empty, return {{"insight": "No query provided."}}
+6. Do not output any other text.
 
 User Query:
 {query}
@@ -41,14 +47,33 @@ export class MiraAgent implements Agent {
   public agentTools = [new SearchToolForAgents()];
 
   /**
-   * Parses the LLM output. Expects a final answer string starting with "Final Answer:".
+   * Parses the final LLM output.
+   * If the output contains a "Final Answer:" marker, the text after that marker is parsed as JSON.
+   * Expects a JSON object with an "insight" key.
    */
-  private parseOutput(text: string): string {
+  private parseOutput(text: string): QuestionAnswer {
     const finalMarker = "Final Answer:";
     if (text.includes(finalMarker)) {
-      return text.split(finalMarker)[1].trim();
+      text = text.split(finalMarker)[1].trim();
     }
-    return text.trim();
+    try {
+      const parsed = JSON.parse(text);
+      // If the object has an "insight" key, return it.
+      if (typeof parsed.insight === "string") {
+        return { insight: parsed.insight };
+      }
+      // If the output is a tool call (e.g. has searchKeyword) or missing insight, return a null insight.
+      if (parsed.searchKeyword) {
+        return { insight: "null" };
+      }
+    } catch (e) {
+      // Fallback attempt to extract an "insight" value from a string
+      const match = text.match(/"insight"\s*:\s*"([^"]+)"/);
+      if (match) {
+        return { insight: match[1] };
+      }
+    }
+    return { insight: "null" };
   }
 
   public async handleContext(userContext: Record<string, any>): Promise<any> {
@@ -63,10 +88,12 @@ export class MiraAgent implements Agent {
         return { result: "No query provided." };
       }
 
+      console.log("Query:", query);
+
       const llm = LLMProvider.getLLM();
       const prompt = new PromptTemplate({
         template: this.agentPrompt,
-        inputVariables: ["transcript_history", "insight_history", "query"],
+        inputVariables: ["transcript_history", "insight_history", "query", "input", "tools", "tool_names", "agent_scratchpad"],
       });
 
       const agent = await createReactAgent({
@@ -94,8 +121,10 @@ export class MiraAgent implements Agent {
         agent_scratchpad: agentScratchpad,
       });
 
+      console.log("Result:", result);
+
       const parsedResult = this.parseOutput(result.output);
-      return { result: parsedResult };
+      return { output: parsedResult };
     } catch (err) {
       console.error("[MiraAgent] Error:", err);
       return { result: "Error processing query." };
