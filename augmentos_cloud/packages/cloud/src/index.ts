@@ -17,6 +17,7 @@ import { webSocketService } from './services/core/websocket.service';
 import appRoutes from './routes/apps.routes';
 import authRoutes from './routes/auth.routes';
 import path from 'path';
+import generateCoreToken from './utils/generateCoreToken';
 
 // Load environment variables
 dotenv.config();
@@ -59,7 +60,6 @@ app.get('/health', (req, res) => {
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, './public')));
 
-
 // Initialize WebSocket service
 webSocketService.setupWebSocketServers(server);
 
@@ -74,23 +74,8 @@ server.listen(PORT, () => {
   console.log('\n🚀 Server ready\n');
 });
 
-// Handle shutdown gracefully
-// process.on('SIGTERM', () => {
-//   // console.log('\nShutting down...');
-//   // server.close(() => {
-//   //   console.log('Server closed');
-//   //   process.exit(0);
-//   // });
-// });
+// const coreToken = generateCoreToken();
+// console.log(`\n\n\n\n\nCore token: ${coreToken}\n\n\n\n\n\n`);
 
-// process.on('uncaughtException', (error) => {
-//   console.error('Uncaught Exception:', error);
-//   // Keep running as we have redundancy in the services
-// });
-
-// process.on('unhandledRejection', (reason, promise) => {
-//   console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-//   // Keep running as we have redundancy in the services
-// });
 
 export default server;

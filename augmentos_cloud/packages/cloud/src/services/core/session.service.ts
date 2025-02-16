@@ -21,7 +21,7 @@ import appService from './app.service';
 
 // You can adjust this value as needed.
 const RECONNECT_GRACE_PERIOD_MS = 30000; // 30 seconds
-const LOG_AUDIO = false;
+const LOG_AUDIO = true;
 /**
  * Interface defining the public API of the session service.
  */
@@ -31,7 +31,7 @@ export interface ISessionService {
   handleReconnectUserSession(newSession: UserSession, userId: string): void;
   updateDisplay(sessionId: string, displayRequest: DisplayRequest): void;
   addTranscriptSegment(sessionId: string, segment: TranscriptSegment): void;
-  setAudioHandlers(sessionId: string, pushStream: any, recognizer: any): void;
+  setAudioHandlers(userSession: UserSession, pushStream: any, recognizer: any): void;
   handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void;
   getAllSessions(): UserSession[];
 
@@ -203,20 +203,18 @@ export class SessionService implements ISessionService {
    * @param pushStream - Azure Speech Service push stream
    * @param recognizer - Azure Speech Service recognizer
    */
-  setAudioHandlers(sessionId: string, pushStream: any, recognizer: any): void {
-    const session = this.getSession(sessionId);
-    if (!session) return;
+  setAudioHandlers(userSession: UserSession, pushStream: any, recognizer: any): void {
 
-    session.pushStream = pushStream;
-    session.recognizer = recognizer;
+    userSession.pushStream = pushStream;
+    userSession.recognizer = recognizer;
 
     // Process any buffered audio
-    if (session.bufferedAudio.length > 0) {
-      console.log(`Processing ${session.bufferedAudio.length} buffered audio chunks`);
-      for (const chunk of session.bufferedAudio) {
+    if (userSession.bufferedAudio.length > 0) {
+      console.log(`Processing ${userSession.bufferedAudio.length} buffered audio chunks`);
+      for (const chunk of userSession.bufferedAudio) {
         pushStream.write(chunk);
       }
-      session.bufferedAudio = [];
+      userSession.bufferedAudio = [];
     }
   }
 
@@ -230,15 +228,14 @@ export class SessionService implements ISessionService {
     if (!session) return console.error(`🔥🔥🔥 Session ${sessionId} not found`);
     
     if (session.pushStream) {
-
       if (LOG_AUDIO) {
         console.log("AUDIO: writing to push stream");
       }
-
       session.pushStream.write(audioData);
     } else {
       session.bufferedAudio.push(audioData);
-      if (session.bufferedAudio.length === 1) {  // Log only for first buffer
+      // Log only for first buffer
+      if (session.bufferedAudio.length === 1) {  
         console.log(`Buffering audio data for session ${sessionId} (pushStream not ready)`);
       }
     }

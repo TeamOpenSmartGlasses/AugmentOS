@@ -310,8 +310,8 @@ export class WebSocketService implements IWebSocketService {
           }
 
           // Start transcription
-          const { recognizer, pushStream } = this.transcriptionService.startTranscription(
-            userSession.sessionId,
+          this.transcriptionService.startTranscription(
+            userSession,
             (result) => {
               console.log(`[Session ${userSession.sessionId}] Recognizing:`, result.text);
               this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
@@ -322,7 +322,7 @@ export class WebSocketService implements IWebSocketService {
             }
           );
 
-          this.sessionService.setAudioHandlers(userSession.sessionId, pushStream, recognizer);
+          // this.sessionService.setAudioHandlers(userSession, pushStream, recognizer);
 
           const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
           const userSessionData = {
