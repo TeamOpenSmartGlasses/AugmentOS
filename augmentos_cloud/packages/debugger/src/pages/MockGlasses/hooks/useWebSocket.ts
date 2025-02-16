@@ -52,9 +52,7 @@ export const useWebSocket = () => {
         console.log('WebSocket connected');
         const initMessage: GlassesConnectionInitMessage = {
           type: 'connection_init',
-          // userId: 'isaiahballah@gmail.com'
-          coreToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0YmZjYjEwZC1kZTY0LTRjNjgtYTZlNi1iOTY5YTI1NTkzNWEiLCJlbWFpbCI6ImFsZXgxMTE1YWxleEBnbWFpbC5jb20iLCJpYXQiOjE3Mzk1NjA5MTR9.sxnJCHn52FaLm5p_BtgAQfudMWUaB-Uktxtrwzd_R8E'
-
+          coreToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJqb2VAbWFtYXMuaG91c2UiLCJpYXQiOjE3Mzk2NjY4MTB9.mJkSEyP7v_jHlzRjc-HzjhCjDopG12aIlOeYxo-kp0M'
         };
         wsRef.current?.send(JSON.stringify(initMessage));
       };

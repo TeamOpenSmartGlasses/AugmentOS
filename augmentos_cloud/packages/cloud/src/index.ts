@@ -17,6 +17,9 @@ import { webSocketService } from './services/core/websocket.service';
 import appRoutes from './routes/apps.routes';
 import authRoutes from './routes/auth.routes';
 import path from 'path';
+import generateCoreToken from './utils/generateCoreToken';
+import { AUGMENTOS_AUTH_JWT_SECRET } from './env';
+import jwt from 'jsonwebtoken';
 
 // Load environment variables
 dotenv.config();
@@ -59,7 +62,6 @@ app.get('/health', (req, res) => {
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, './public')));
 
-
 // Initialize WebSocket service
 webSocketService.setupWebSocketServers(server);
 
@@ -74,23 +76,9 @@ server.listen(PORT, () => {
   console.log('\n🚀 Server ready\n');
 });
 
-// Handle shutdown gracefully
-// process.on('SIGTERM', () => {
-//   // console.log('\nShutting down...');
-//   // server.close(() => {
-//   //   console.log('Server closed');
-//   //   process.exit(0);
-//   // });
-// });
-
-// process.on('uncaughtException', (error) => {
-//   console.error('Uncaught Exception:', error);
-//   // Keep running as we have redundancy in the services
-// });
-
-// process.on('unhandledRejection', (reason, promise) => {
-//   console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-//   // Keep running as we have redundancy in the services
-// });
+// const coreToken = generateCoreToken();
+// console.log(`\n\n\n\n\nCore token: ${coreToken}\n\n\n\n\n\n`);
+// const userData = jwt.verify("efwewfwefwfwef", AUGMENTOS_AUTH_JWT_SECRET);
+// console.log(`\n\n\n\n\nUser data: ${JSON.stringify(userData)}\n\n\n\n\n\n`);
 
 export default server;

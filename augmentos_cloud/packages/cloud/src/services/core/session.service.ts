@@ -31,7 +31,7 @@ export interface ISessionService {
   handleReconnectUserSession(newSession: UserSession, userId: string): void;
   updateDisplay(sessionId: string, displayRequest: DisplayRequest): void;
   addTranscriptSegment(sessionId: string, segment: TranscriptSegment): void;
-  setAudioHandlers(sessionId: string, pushStream: any, recognizer: any): void;
+  setAudioHandlers(userSession: UserSession, pushStream: any, recognizer: any): void;
   handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void;
   getAllSessions(): UserSession[];
 
@@ -77,8 +77,8 @@ export class SessionService implements ISessionService {
       displayManager: new DisplayManager(),
       transcript: { segments: [] },
       websocket: ws as any,
-      pushStream: null,
-      recognizer: null,
+      // pushStream: null,
+      // recognizer: null,
       bufferedAudio: [],
       // New property for graceful reconnects:
       disconnectedAt: null
@@ -131,7 +131,7 @@ export class SessionService implements ISessionService {
 
       // Cleanup speech services
       if (oldUserSession.recognizer) {
-        oldUserSession.recognizer?.stopContinuousRecognitionAsync();
+        oldUserSession.recognizer?.close();
       }
 
       if (oldUserSession.pushStream) {
@@ -203,20 +203,18 @@ export class SessionService implements ISessionService {
    * @param pushStream - Azure Speech Service push stream
    * @param recognizer - Azure Speech Service recognizer
    */
-  setAudioHandlers(sessionId: string, pushStream: any, recognizer: any): void {
-    const session = this.getSession(sessionId);
-    if (!session) return;
+  setAudioHandlers(userSession: UserSession, pushStream: any, recognizer: any): void {
 
-    session.pushStream = pushStream;
-    session.recognizer = recognizer;
+    userSession.pushStream = pushStream;
+    userSession.recognizer = recognizer;
 
     // Process any buffered audio
-    if (session.bufferedAudio.length > 0) {
-      console.log(`Processing ${session.bufferedAudio.length} buffered audio chunks`);
-      for (const chunk of session.bufferedAudio) {
+    if (userSession.bufferedAudio.length > 0) {
+      console.log(`Processing ${userSession.bufferedAudio.length} buffered audio chunks`);
+      for (const chunk of userSession.bufferedAudio) {
         pushStream.write(chunk);
       }
-      session.bufferedAudio = [];
+      userSession.bufferedAudio = [];
     }
   }
 
@@ -230,11 +228,16 @@ export class SessionService implements ISessionService {
     if (!session) return console.error(`🔥🔥🔥 Session ${sessionId} not found`);
     
     if (session.pushStream) {
-      // console.log("AUDIO: writing to push stream");
+
+      if (LOG_AUDIO) {
+        console.log("AUDIO: writing to push stream");
+      }
+
       session.pushStream.write(audioData);
     } else {
       session.bufferedAudio.push(audioData);
-      if (session.bufferedAudio.length === 1) {  // Log only for first buffer
+      // Log only for first buffer
+      if (session.bufferedAudio.length === 1) {  
         console.log(`Buffering audio data for session ${sessionId} (pushStream not ready)`);
       }
     }
@@ -250,10 +253,11 @@ export class SessionService implements ISessionService {
 
     // Cleanup speech services
     if (session.recognizer) {
-      session.recognizer.stopContinuousRecognitionAsync();
+      session.recognizer.stopTranscribingAsync();
     }
+
     if (session.pushStream) {
-      session.pushStream.close();
+      session.pushStream?.close();
     }
 
     // Close all app sessions
@@ -264,7 +268,7 @@ export class SessionService implements ISessionService {
     // });
 
     this.activeSessions.delete(sessionId);
-    console.log(`Ended session ${sessionId}`);
+    console.log(`\n\n\n[Ended session]\n${sessionId}\n\n\n`);
   }
 
   /**
