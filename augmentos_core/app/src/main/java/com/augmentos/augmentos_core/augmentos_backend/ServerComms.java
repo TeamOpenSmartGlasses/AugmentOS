@@ -88,6 +88,8 @@ public class ServerComms {
             public void onConnectionClosed() {
                 // Optional: place logic if needed on close
                 stopAudioSenderThread();
+                if (serverCommsCallback != null)
+                    serverCommsCallback.onConnectionError("Connection closed");
             }
 
             @Override
@@ -95,6 +97,8 @@ public class ServerComms {
                 // Log errors
                 Log.e(TAG, "WebSocket error: " + error);
                 stopAudioSenderThread();
+                if (serverCommsCallback != null)
+                    serverCommsCallback.onConnectionError("Websocket error");
             }
         });
 

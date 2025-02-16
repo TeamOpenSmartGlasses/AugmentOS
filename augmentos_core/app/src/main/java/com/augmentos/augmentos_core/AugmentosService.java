@@ -1045,7 +1045,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             @Override
             public void onConnectionError(String errorMsg) {
-
+                if(blePeripheral != null) {
+                    blePeripheral.sendNotifyManager("Error connecting to AugmentOS Cloud: " + errorMsg, "error");
+                }
             }
         });
     }
