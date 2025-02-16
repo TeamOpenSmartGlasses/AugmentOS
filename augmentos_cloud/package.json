@@ -7,7 +7,13 @@
     "dev": "./run.sh"
   },
   "dependencies": {
+    "@langchain/anthropic": "^0.3.13",
+    "@langchain/core": "^0.3.40",
+    "@langchain/google-vertexai": "^0.1.8",
     "assemblyai": "^4.9.0",
+    "langchain": "^0.3.15",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
     "tz-lookup": "^6.1.25"
   },
   "devDependencies": {

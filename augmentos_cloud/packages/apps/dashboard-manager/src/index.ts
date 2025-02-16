@@ -6,14 +6,13 @@ import {
   TpaConnectionInitMessage,
   TpaSubscriptionUpdateMessage,
   CloudDataStreamMessage,
-  DashboardCard,
   DisplayRequest,
   DoubleTextWall,
 } from '@augmentos/types';
 import tzlookup from 'tz-lookup';
-import { NewsAgent } from '../../../agents/NewsAgent';  // lowercase 'n'
+import { NewsAgent } from '../../../agents/NewsAgent';
 import { WeatherModule } from './dashboard-modules/WeatherModule';
-// e.g. { languageLearning: LanguageLearningAgent, news: NewsAgent, ... }
+import { NotificationFilterAgent } from '../../../agents/NotificationFilterAgent'; // <-- added import
 
 const app = express();
 const PORT = 7012; // your Dashboard Manager port
@@ -29,13 +28,17 @@ interface SessionInfo {
   ws: WebSocket;
   // track last agent calls
   lastNewsUpdate?: number;
-  // cache for phone notifications as strings
-  phoneNotificationCache?: { title: string; content: string, timestamp: number }[];
+  // cache for phone notifications as raw objects
+  phoneNotificationCache?: { title: string; content: string; timestamp: number; uuid: string }[];
+  // store the ranked notifications from the NotificationFilterAgent
+  phoneNotificationRanking?: any[];
   transcriptionCache: any[];
   // embed the dashboard card into session info
   dashboard: DoubleTextWall;
   // cache latest location update, e.g., { latitude, longitude, timezone }
   latestLocation?: { latitude: number; longitude: number; timezone?: string };
+  // weather cache per user
+  weatherCache?: { timestamp: number; data: string };
   [key: string]: any;
 }
 
@@ -147,7 +150,8 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
       const streamMessage = message as CloudDataStreamMessage;
       switch (streamMessage.streamType) {
         case 'phone_notification':
-          // Instead of immediately calling the NewsAgent, cache the transcription.
+          // Instead of immediately handling the notification,
+          // cache it and send the entire list to the NotificationFilterAgent.
           handlePhoneNotification(sessionId, streamMessage.data);
           break;
 
@@ -210,9 +214,6 @@ function handleLocationUpdate(sessionId: string, locationData: any) {
   }
 }
 
-// -----------------------------------
-// 4) Handle Settings
-// -----------------------------------
 function handleSettings(sessionId: string, settingsData: any) {
   console.log(`[Session ${sessionId}] Received context_settings:`, settingsData);
   const sessionInfo = activeSessions.get(sessionId);
@@ -310,13 +311,27 @@ async function updateDashboard(sessionId?: string) {
     {
       name: "weather",
       async run(context: any) {
+        // Check that we have location data.
         if (!context.latestLocation) {
           return '';
         }
         const { latitude, longitude } = context.latestLocation;
+        // Use per-session weather cache.
+        const session: SessionInfo = context.session;
+        if (
+          session.weatherCache &&
+          (Date.now() - session.weatherCache.timestamp) < 6 * 60 * 60 * 1000 // 6 hours
+        ) {
+          console.log(`[Session ${session.userId}][Weather] Returning cached weather data.`);
+          return session.weatherCache.data;
+        }
+        // Otherwise, fetch new weather data.
         const weatherAgent = new WeatherModule();
         const weather = await weatherAgent.fetchWeatherForecast(latitude, longitude);
-        return weather ? `${weather.condition}, ${weather.avg_temp_f}°F` : '-';
+        const result = weather ? `${weather.condition}, ${weather.avg_temp_f}°F` : '-';
+        // Cache the result on the session.
+        session.weatherCache = { timestamp: Date.now(), data: result };
+        return result;
       },
     },
   ];
@@ -324,7 +339,12 @@ async function updateDashboard(sessionId?: string) {
   // Helper: update a single session dashboard.
   async function updateSessionDashboard(sessionId: string, sessionInfo: SessionInfo) {
     // Prepare a context for modules that need it.
-    const context = { transcriptions: sessionInfo.transcriptionCache, latestLocation: sessionInfo.latestLocation };
+    // Include the session itself so that per-user caches (like weatherCache) can be accessed.
+    const context = {
+      transcriptions: sessionInfo.transcriptionCache,
+      latestLocation: sessionInfo.latestLocation,
+      session: sessionInfo,
+    };
     // Clear the transcription cache.
     sessionInfo.transcriptionCache = [];
 
@@ -338,11 +358,13 @@ async function updateDashboard(sessionId?: string) {
       {
         name: "notifications",
         async run() {
-          const notifications = sessionInfo.phoneNotificationCache || [];
-          const topTwoNotifications = notifications.slice(-2);
-          console.log(`[Session ${sessionId}] Notifications:`, topTwoNotifications);
+          // Use the ranked notifications from the NotificationFilterAgent if available.
+          const rankedNotifications = sessionInfo.phoneNotificationRanking || [];
+          // The NotificationFilterAgent returns notifications sorted by importance (rank=1 first).
+          const topTwoNotifications = rankedNotifications.slice(0, 2);
+          console.log(`[Session ${sessionId}] Ranked Notifications:`, topTwoNotifications);
           return topTwoNotifications
-            .map(notification => `${notification.title}: ${notification.content}`)
+            .map(notification => notification.summary)
             .join('\n');
         }
       }
@@ -403,19 +425,37 @@ function handlePhoneNotification(sessionId: string, notificationData: any) {
   const sessionInfo = activeSessions.get(sessionId);
   if (!sessionInfo) return;
 
-  // Add the new notification to the cache.
+  // Initialize the notification cache if needed.
   if (!sessionInfo.phoneNotificationCache) {
     sessionInfo.phoneNotificationCache = [];
   }
-  sessionInfo.phoneNotificationCache.push({
+
+  // Add the new notification to the cache.
+  const newNotification = {
     title: notificationData.title || 'No Title',
     content: notificationData.content || '',
     timestamp: Date.now(),
-  });
+    uuid: uuidv4(),  // Generate a unique id if not provided.
+  };
+  sessionInfo.phoneNotificationCache.push(newNotification);
   console.log(`[Session ${sessionId}] Received phone notification:`, notificationData);
 
-  // Optionally, you could call updateDashboard(sessionId) here to update the user immediately.
-  updateDashboard(sessionId);
+  // Instantiate the NotificationFilterAgent.
+  const notificationFilterAgent = new NotificationFilterAgent();
+
+  // Pass the entire list of notifications to the filter agent.
+  notificationFilterAgent.handleContext({ notifications: sessionInfo.phoneNotificationCache })
+    .then((filteredNotifications: any) => {
+      // Save the ranked notifications for later use in the dashboard.
+      sessionInfo.phoneNotificationRanking = filteredNotifications;
+      // Update the dashboard after the notifications have been filtered.
+      updateDashboard(sessionId);
+    })
+    .catch(err => {
+      console.error(`[Session ${sessionId}] Notification filtering failed:`, err);
+      // Fallback: update dashboard with the raw notifications.
+      updateDashboard(sessionId);
+    });
 }
 
 // -----------------------------------

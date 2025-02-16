@@ -41,20 +41,20 @@ Sorting:
   - The output array must be sorted so that rank=1 is the first item, rank=2 is the second, and so on.
 
 Example Output:
-{
+{{
   "notification_ranking": [
-    {
+    {{
       "uuid": "123-xyz",
       "summary": "Submit proposal by midnight",
       "rank": 1
-    },
-    {
+    }},
+    {{
       "uuid": "456-abc",
       "summary": "Alex: party on Sunday?",
       "rank": 2
-    }
+    }}
   ]
-}
+}}
 
 Input (JSON):
 {notifications}`;
