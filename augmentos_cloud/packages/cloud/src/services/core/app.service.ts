@@ -38,6 +38,13 @@ export const SYSTEM_TPAS: AppI[] = [
     webhookURL: "http://localhost:7012/webhook",
     logoURL: "http://localhost:7012/logo.png",
   },
+  {
+    packageName: "org.mentra.notify",
+    name: "Notify",
+    description: "Notifications from your phone",
+    webhookURL: "http://localhost:7016/webhook",
+    logoURL: "http://localhost:7016/logo.png",
+  },
 ];
 
 /**

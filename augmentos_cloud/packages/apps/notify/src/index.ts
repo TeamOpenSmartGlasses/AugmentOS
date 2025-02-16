@@ -3,13 +3,14 @@ import WebSocket from 'ws';
 import path from 'path';
 import {
   TpaConnectionInitMessage,
-  TpaDisplayEventMessage,
   TpaSubscriptionUpdateMessage,
+  CloudDataStreamMessage,
+  DisplayRequest,
 } from '@augmentos/types'; // shared types for cloud TPA messages
 
 const app = express();
-const PORT = 7011;
-const PACKAGE_NAME = 'com.augmentos.shownotifications';
+const PORT = 7016;
+const PACKAGE_NAME = 'org.mentra.notify';
 const API_KEY = 'test_key'; // In production, store securely
 
 // Parse JSON bodies (for the webhook endpoint only)
@@ -20,8 +21,8 @@ app.use(express.json());
  */
 interface PhoneNotification {
   title: string;
-  text: string;
-  appName: string;
+  content: string;
+  app: string;
   timestamp: number;
   uuid: string;
 }
@@ -54,22 +55,22 @@ const notificationAppBlackList = ['youtube', 'augment', 'maps'];
  * Webhook endpoint to start a new session.
  * This creates a WebSocket connection to AugmentOS Cloud and initializes the session.
  */
-app.post('/webhook', (req, res) => {
+app.post('/webhook', async (req, res) => {
   try {
     const { sessionId, userId } = req.body;
-    console.log(`\n\n🗣️ Received notification session request for user ${userId}, session ${sessionId}\n\n`);
+    console.log(`\n\n🗣️🗣️🗣️Received session request for user ${userId}, session ${sessionId}\n\n`);
 
-    // Establish WebSocket connection to AugmentOS Cloud.
+    // Start WebSocket connection to cloud
     const ws = new WebSocket('ws://localhost:7002/tpa-ws');
-
+    
     ws.on('open', () => {
-      console.log(`Session ${sessionId} connected to augmentos-cloud for notifications`);
-      // Send connection init message.
+      console.log(`\n[Session ${sessionId}]\n connected to augmentos-cloud\n`);
+      // Send connection init with session ID
       const initMessage: TpaConnectionInitMessage = {
         type: 'tpa_connection_init',
         sessionId,
         packageName: PACKAGE_NAME,
-        apiKey: API_KEY,
+        apiKey: API_KEY
       };
       ws.send(JSON.stringify(initMessage));
     });
@@ -88,15 +89,14 @@ app.post('/webhook', (req, res) => {
       activeSessions.delete(sessionId);
     });
 
-    // Save the new session.
-    const sessionData: SessionData = {
+    activeSessions.set(sessionId, {
       sessionId,
       ws,
       notificationQueue: [],
       isDisplayingNotification: false,
-    };
-    activeSessions.set(sessionId, sessionData);
+    });
     res.status(200).json({ status: 'connecting' });
+
   } catch (error) {
     console.error('Error handling webhook:', error);
     res.status(500).json({ error: 'Internal server error' });
@@ -109,38 +109,43 @@ app.post('/webhook', (req, res) => {
  * we now handle incoming notification events.
  */
 function handleMessage(sessionId: string, ws: WebSocket, message: any) {
+  const sessionInfo = activeSessions.get(sessionId);
+  if (!sessionInfo) {
+    console.warn(`Session ${sessionId} not found in activeSessions`);
+    return;
+  }
+
   switch (message.type) {
     case 'tpa_connection_ack': {
-      // Once acknowledged, subscribe to notifications.
+      // Connection acknowledged, subscribe to transcription
       const subMessage: TpaSubscriptionUpdateMessage = {
         type: 'subscription_update',
         packageName: PACKAGE_NAME,
         sessionId,
-        subscriptions: ['notifications'],
+        subscriptions: ['phone_notification']
       };
       ws.send(JSON.stringify(subMessage));
-      console.log(`Session ${sessionId} connected and subscribed for notifications`);
+      console.log(`Session ${sessionId} connected and subscribed`);
       break;
     }
-    // Optionally, you might still support transcription data, etc.
+
     case 'data_stream': {
-      // Example: handle other data streams if needed.
-      break;
-    }
-    // Handle incoming notification events.
-    case 'notification_event': {
-      const notif = message as PhoneNotification;
-      console.log(`Received notification for session ${sessionId}: ${notif.title} – ${notif.text}`);
-      const sessionData = activeSessions.get(sessionId);
-      if (sessionData) {
-        queueNotification(sessionData, notif);
-      } else {
-        console.error(`Session ${sessionId} not found for notification.`);
+      const streamMessage = message as CloudDataStreamMessage;
+      switch (streamMessage.streamType) {
+        case 'phone_notification':
+          console.log(`[Session ${sessionId}] Received phone notification:`, JSON.stringify(streamMessage.data, null, 2));
+          queueNotification(sessionInfo, streamMessage.data);
+          break;
+
+        // add more streams here if needed
+        default:
+          console.log(`[Session ${sessionId}] Unknown data stream: ${streamMessage.streamType}`);
       }
       break;
     }
+
     default:
-      console.log(`Unknown message type: ${message.type}`);
+      console.log(`[Session ${sessionId}] Unhandled message type: ${message.type}`);
   }
 }
 
@@ -149,9 +154,10 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
  * If no notification is currently being displayed, starts the display process.
  */
 function queueNotification(sessionData: SessionData, notif: PhoneNotification) {
+  console.log(`Queueing notification: ${notif}`);
   for (const blacklisted of notificationAppBlackList) {
-    if (notif.appName.toLowerCase().includes(blacklisted)) {
-      console.log(`Notification from ${notif.appName} is blacklisted.`);
+    if (notif.app.toLowerCase().includes(blacklisted)) {
+      console.log(`Notification from ${notif.app} is blacklisted.`);
       return;
     }
   }
@@ -179,16 +185,17 @@ function displayNextNotification(sessionData: SessionData) {
   const notificationString = constructNotificationString(notification);
 
   // Build the display event message.
-  const displayEvent: TpaDisplayEventMessage = {
+  const displayEvent: DisplayRequest = {
     type: 'display_event',
+    view: 'main',
     packageName: PACKAGE_NAME,
     sessionId: sessionData.sessionId,
     layout: {
-      layoutType: 'reference_card',
-      title: 'Notifications',
+      layoutType: 'text_wall',
       text: notificationString,
     },
     durationMs: NOTIFICATION_DISPLAY_DURATION,
+    timestamp: new Date(),
   };
 
   console.log(`[Session ${sessionData.sessionId}]: Displaying notification: ${notificationString}`);
@@ -204,10 +211,10 @@ function displayNextNotification(sessionData: SessionData) {
  * Constructs a single-line notification string from the notification details.
  */
 function constructNotificationString(notification: PhoneNotification): string {
-  const appName = notification.appName;
+  const appName = notification.app;
   const title = notification.title;
   // Replace newlines with periods.
-  let text = notification.text.replace(/\n/g, '. ');
+  let text = notification.content.replace(/\n/g, '. ');
   const maxLength = 125;
   const prefix = title && title.trim().length > 0 ? `${appName} - ${title}: ` : `${appName}: `;
   let combinedString = prefix + text;
