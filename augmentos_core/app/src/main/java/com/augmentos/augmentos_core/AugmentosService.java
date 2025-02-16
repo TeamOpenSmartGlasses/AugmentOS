@@ -708,7 +708,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             Log.d(TAG, "****************** SENDING REFERENCE CARD: CONNECTED TO AUGMENT OS");
             if (smartGlassesService != null)
-                smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("", "/// AugmentOS Connected \\\\\\"), 6);
+                playStartupSequenceOnSmartGlasses();
+//                smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("", "/// AugmentOS Connected \\\\\\"), 6);
+
 
             //start transcribing
             asrPlanner.updateAsrLanguages();
@@ -718,6 +720,157 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             props.put("timestamp", System.currentTimeMillis());
             postHog.capture(authHandler.getUniqueIdForAnalytics(), "glasses_connected", props);
         }
+    }
+
+    private static final String[] ARROW_FRAMES = {
+//            "↑", "↗", "–", "↘", "↓", "↙", "–", "↖"
+            "↑", "↗", "↑", "↖"
+    };
+
+    private void playStartupSequenceOnSmartGlasses() {
+        if (smartGlassesService == null) return;
+
+        Handler handler = new Handler(Looper.getMainLooper());
+        int delay = 250; // Frame delay
+        int totalFrames = ARROW_FRAMES.length;
+        int totalCycles = 4;
+
+        Runnable animate = new Runnable() {
+            int frameIndex = 0;
+            int cycles = 0;
+
+            @Override
+            public void run() {
+                if (cycles >= totalCycles) {
+                    // End animation with final message
+                    smartGlassesService.windowManager.showAppLayer(
+                            "system",
+                            () -> smartGlassesService.sendTextWall("                                     /// AugmentOS Connected \\\\\\"),
+                            6
+                    );
+                    return; // Stop looping
+                }
+
+                // Send current frame
+                smartGlassesService.windowManager.showAppLayer(
+                        "system",
+                        () -> smartGlassesService.sendTextWall("                                       " + ARROW_FRAMES[frameIndex] + " AugmentOS Booting " + ARROW_FRAMES[frameIndex]),
+                        6
+                );
+
+                // Move to next frame
+                frameIndex = (frameIndex + 1) % totalFrames;
+
+                // Count full cycles
+                if (frameIndex == 0) cycles++;
+
+                // Schedule next frame
+                handler.postDelayed(this, delay);
+            }
+        };
+
+        handler.postDelayed(animate, 350); // Start animation
+    }
+
+    public void getSettings(){
+        try{
+            Log.d(TAG, "Runnign get settings");
+            Context mContext = this.getApplicationContext();
+            JSONObject getSettingsObj = new JSONObject();
+            getSettingsObj.put("userId", userId);
+            backendServerComms.restRequest(GET_USER_SETTINGS_ENDPOINT, getSettingsObj, new VolleyJsonCallback(){
+                @Override
+                public void onSuccess(JSONObject result){
+                    try {
+                        Log.d(TAG, "GOT GET Settings update result: " + result.toString());
+                        JSONObject settings = result.getJSONObject("settings");
+                        Boolean useDynamicTranscribeLanguage = settings.getBoolean("use_dynamic_transcribe_language");
+                        String dynamicTranscribeLanguage = settings.getString("dynamic_transcribe_language");
+                        Log.d(TAG, "Should use dynamic? " + useDynamicTranscribeLanguage);
+//                        if (useDynamicTranscribeLanguage){
+//                            Log.d(TAG, "Switching running transcribe language to: " + dynamicTranscribeLanguage);
+//                            if (smartGlassesService != null)
+//                                smartGlassesService.switchRunningTranscribeLanguage(dynamicTranscribeLanguage);
+//                        } else {
+//                            if (smartGlassesService != null)
+//                                smartGlassesService.switchRunningTranscribeLanguage(smartGlassesService.getChosenTranscribeLanguage(mContext));
+//                        }
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                @Override
+                public void onFailure(int code){
+                    Log.d(TAG, "SOME FAILURE HAPPENED (getSettings)");
+                }
+            });
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "SOME FAILURE HAPPENED (getSettings)");
+        }
+    }
+
+    public void setUpUiPolling(){
+        uiPollRunnableCode = new Runnable() {
+            @Override
+            public void run() {
+                if (smartGlassesService != null) {
+                    requestUiPoll();
+                }
+                long currentTime = System.currentTimeMillis();
+                long interval = (currentTime - lastDataSentTime < DATA_SENT_THRESHOLD) ? POLL_INTERVAL_ACTIVE : POLL_INTERVAL_INACTIVE;
+                csePollLoopHandler.postDelayed(this, interval);
+            }
+        };
+        csePollLoopHandler.post(uiPollRunnableCode);
+    }
+
+    public void setUpLocationSending() {
+        locationSystem = new LocationSystem(getApplicationContext());
+
+        locationSendingLoopHandler.removeCallbacksAndMessages(this);
+
+        locationSendingRunnableCode = new Runnable() {
+            @Override
+            public void run() {
+                if (smartGlassesService != null)
+                    requestLocation();
+                locationSendingLoopHandler.postDelayed(this, locationSendTime);
+            }
+        };
+        locationSendingLoopHandler.post(locationSendingRunnableCode);
+    }
+
+    @Override
+    public void onDestroy(){
+        csePollLoopHandler.removeCallbacks(uiPollRunnableCode);
+        displayPollLoopHandler.removeCallbacks(displayRunnableCode);
+        locationSystem.stopLocationUpdates();
+        locationSendingLoopHandler.removeCallbacks(locationSendingRunnableCode);
+        locationSendingLoopHandler.removeCallbacksAndMessages(null);
+        screenCaptureHandler.removeCallbacks(screenCaptureRunnable);
+        if (virtualDisplay != null) virtualDisplay.release();
+        if (mediaProjection != null) mediaProjection.stop();
+        EventBus.getDefault().unregister(this);
+
+        if (blePeripheral != null) {
+            blePeripheral.destroy();
+        }
+
+        if (smartGlassesService != null) {
+            unbindService(connection);
+            isSmartGlassesServiceBound = false;
+            smartGlassesService = null;
+            tpaSystem.setSmartGlassesService(smartGlassesService);
+        }
+
+        if(tpaSystem != null) {
+            tpaSystem.destroy();
+        }
+
+        postHog.shutdown();
+
+        super.onDestroy();
     }
 
     @Subscribe
