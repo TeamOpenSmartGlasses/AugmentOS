@@ -12,5 +12,7 @@ public interface ServerCommsCallback {
     void onDisplayEvent(JSONObject displayData);
     void onDashboardDisplayEvent(JSONObject dashboardDisplayData);
     void onConnectionError(String errorMsg);
+    void onAuthError();
+    void onConnectionStatusChange(WebSocketManager.IncomingMessageHandler.WebSocketStatus status);
 
 }

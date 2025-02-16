@@ -33,7 +33,7 @@ const ConnectingToPuckComponent = ({
       }
       
       // 2) Check if we need to do the exchange
-      if (true||!status.auth.core_token_owner || status.auth.core_token_owner !== user.email) {
+      if (!status.auth.core_token_owner || status.auth.core_token_owner !== user.email) {
         console.log("OWNER IS NULL CALLING VERIFY (TOKEN EXCHANGE)");
 
         // 3) Exchange token with your backend
@@ -46,10 +46,10 @@ const ConnectingToPuckComponent = ({
             // 5) Optionally update your local status or do something if needed
             // e.g. set status.auth.core_token_owner = user.email
             // or navigate:
-            navigation.reset({
-              index: 0,
-              routes: [{ name: 'Home' }],
-            });
+            // navigation.reset({
+            //   index: 0,
+            //   routes: [{ name: 'Home' }],
+            // });
           })
           .catch((err) => {
             console.error('Token exchange failed:', err);
