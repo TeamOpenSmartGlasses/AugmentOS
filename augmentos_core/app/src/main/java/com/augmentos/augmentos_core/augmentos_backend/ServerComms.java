@@ -87,12 +87,14 @@ public class ServerComms {
             @Override
             public void onConnectionClosed() {
                 // Optional: place logic if needed on close
+                stopAudioSenderThread();
             }
 
             @Override
             public void onError(String error) {
                 // Log errors
                 Log.e(TAG, "WebSocket error: " + error);
+                stopAudioSenderThread();
             }
         });
 
