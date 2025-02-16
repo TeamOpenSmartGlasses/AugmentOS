@@ -1,8 +1,5 @@
 //backend/src/routes/apps.ts
 import express from 'express';
-import sessionService from '../services/core/session.service';
-import appService from '../services/core/app.service';
-import { get } from 'http';
 
 import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';

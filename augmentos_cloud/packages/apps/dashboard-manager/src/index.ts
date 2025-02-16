@@ -6,13 +6,13 @@ import {
   TpaConnectionInitMessage,
   TpaSubscriptionUpdateMessage,
   CloudDataStreamMessage,
-  DashboardCard,
   DisplayRequest,
+  DoubleTextWall,
 } from '@augmentos/types';
-
-import { NewsAgent } from '../../../agents/NewsAgent';  // lowercase 'n'
+import tzlookup from 'tz-lookup';
+import { NewsAgent } from '../../../agents/NewsAgent';
 import { WeatherModule } from './dashboard-modules/WeatherModule';
-// e.g. { languageLearning: LanguageLearningAgent, news: NewsAgent, ... }
+import { NotificationFilterAgent } from '../../../agents/NotificationFilterAgent'; // <-- added import
 
 const app = express();
 const PORT = 7012; // your Dashboard Manager port
@@ -28,25 +28,21 @@ interface SessionInfo {
   ws: WebSocket;
   // track last agent calls
   lastNewsUpdate?: number;
-  // cache for transcription data (could be an array to accumulate multiple transcriptions)
-  transcriptionCache?: any[];
+  // cache for phone notifications as raw objects
+  phoneNotificationCache?: { title: string; content: string; timestamp: number; uuid: string }[];
+  // store the ranked notifications from the NotificationFilterAgent
+  phoneNotificationRanking?: any[];
+  transcriptionCache: any[];
   // embed the dashboard card into session info
-  dashboard: DashboardCard;
+  dashboard: DoubleTextWall;
+  // cache latest location update, e.g., { latitude, longitude, timezone }
+  latestLocation?: { latitude: number; longitude: number; timezone?: string };
+  // weather cache per user
+  weatherCache?: { timestamp: number; data: string };
   [key: string]: any;
 }
 
 const activeSessions = new Map<string, SessionInfo>();
-
-/**
- * Creates the dashboard layout from the provided card.
- */
-function createDashboardLayout(card: DashboardCard) {
-  return {
-    layoutType: card.layoutType,
-    leftText: card.leftText,
-    rightText: card.rightText,
-  };
-}
 
 // Parse JSON bodies
 app.use(express.json());
@@ -63,10 +59,10 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     const ws = new WebSocket('ws://localhost:7002/tpa-ws');
 
     // Create a new dashboard card
-    const dashboardCard: DashboardCard = {
-      layoutType: 'dashboard_card',
-      leftText: '02/12/2025 12:00 100%',
-      rightText: 'Meeting with John',
+    const dashboardCard: DoubleTextWall = {
+      layoutType: 'double_text_wall',
+      topText: 'Loading contextual dashboard...',
+      bottomText: '',
     };
 
     // Store session info, including the dashboard card.
@@ -90,18 +86,15 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
       };
       ws.send(JSON.stringify(initMessage));
 
-      const dashboardLayout = createDashboardLayout(dashboardCard);
-
       const displayRequest: DisplayRequest = {
         type: 'display_event',
         view: 'dashboard',
         packageName: PACKAGE_NAME,
         sessionId,
-        layout: dashboardLayout,
+        layout: dashboardCard,
         durationMs: 4000,
         timestamp: new Date(),
       };
-
       ws.send(JSON.stringify(displayRequest));
     });
 
@@ -109,7 +102,7 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     ws.on('message', (data: Buffer) => {
       try {
         const message = JSON.parse(data.toString());
-        handleMessage(sessionId, message);
+        handleMessage(sessionId, ws, message);
       } catch (err) {
         console.error(`[Session ${sessionId}] Error parsing message:`, err);
       }
@@ -132,7 +125,7 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
 // -----------------------------------
 // 2) Handle Incoming Messages
 // -----------------------------------
-function handleMessage(sessionId: string, message: any) {
+function handleMessage(sessionId: string, ws: WebSocket, message: any) {
   const sessionInfo = activeSessions.get(sessionId);
   if (!sessionInfo) {
     console.warn(`Session ${sessionId} not found in activeSessions`);
@@ -140,13 +133,35 @@ function handleMessage(sessionId: string, message: any) {
   }
 
   switch (message.type) {
+    case 'tpa_connection_ack': {
+      // Connection acknowledged, subscribe to transcription
+      const subMessage: TpaSubscriptionUpdateMessage = {
+        type: 'subscription_update',
+        packageName: PACKAGE_NAME,
+        sessionId,
+        subscriptions: ['phone_notification', 'location_update', 'head_position']
+      };
+      ws.send(JSON.stringify(subMessage));
+      console.log(`Session ${sessionId} connected and subscribed`);
+      break;
+    }
+
     case 'data_stream': {
       const streamMessage = message as CloudDataStreamMessage;
       switch (streamMessage.streamType) {
-        case 'transcription':
-          // Instead of immediately calling the NewsAgent, cache the transcription.
-          handleTranscription(sessionId, streamMessage.data);
+        case 'phone_notification':
+          // Instead of immediately handling the notification,
+          // cache it and send the entire list to the NotificationFilterAgent.
+          handlePhoneNotification(sessionId, streamMessage.data);
           break;
+
+        case 'location_update':
+          handleLocationUpdate(sessionId, streamMessage.data);
+          break;
+        
+        // case 'head_position':
+        //   handleHeadPosition(sessionId, streamMessage.data);
+        //   break;
 
         // add more streams here if needed
         default:
@@ -160,22 +175,49 @@ function handleMessage(sessionId: string, message: any) {
   }
 }
 
-
-function handleTranscription(sessionId: string, transcriptionData: any) {
+function handleLocationUpdate(sessionId: string, locationData: any) {
   const sessionInfo = activeSessions.get(sessionId);
   if (!sessionInfo) return;
-  if (!sessionInfo.transcriptionCache) {
-    sessionInfo.transcriptionCache = [];
+
+  // Extract lat, lng, and timestamp from the locationData.
+  const { lat, lng, timestamp } = locationData;
+
+  // Validate that lat and lng are numbers.
+  if (typeof lat !== "number" || typeof lng !== "number") {
+    console.error(`[Session ${sessionId}] Invalid location data:`, locationData);
+    return;
   }
-  sessionInfo.transcriptionCache.push(transcriptionData);
+
+  // Determine the timezone for any given coordinates.
+  let timezone: string;
+  try {
+    timezone = tzlookup(lat, lng);
+  } catch (error) {
+    console.error(`[Session ${sessionId}] Error looking up timezone for lat=${lat}, lng=${lng}:`, error);
+    // Fallback to a default timezone if lookup fails.
+    timezone = "America/New_York";
+  }
+
+  // Check if this is the first location update for the session.
+  const isFirstLocationUpdate = !sessionInfo.latestLocation;
+
+  // Cache the location update in the session with the determined timezone.
+  sessionInfo.latestLocation = { 
+    latitude: lat, 
+    longitude: lng, 
+    timezone, 
+  };
+
   console.log(
-    `[Session ${sessionId}] Cached transcription. Total cached items: ${sessionInfo.transcriptionCache.length}`
+    `[Session ${sessionId}] Cached location update: lat=${lat}, lng=${lng}, timezone=${timezone}`
   );
+
+  // Call updateDashboard if this was the first location update
+  if (isFirstLocationUpdate) {
+    updateDashboard(sessionId);
+  }
 }
 
-// -----------------------------------
-// 4) Handle Settings
-// -----------------------------------
 function handleSettings(sessionId: string, settingsData: any) {
   console.log(`[Session ${sessionId}] Received context_settings:`, settingsData);
   const sessionInfo = activeSessions.get(sessionId);
@@ -187,66 +229,238 @@ function handleSettings(sessionId: string, settingsData: any) {
 // -----------------------------------
 // 7) Internal Dashboard Updater
 // -----------------------------------
-setInterval(async () => {
-  // Use the hardcoded location to get the current time and date.
-  // Here we assume "New York" uses the "America/New_York" timezone.
-  const currentDateTime = new Date().toLocaleString("en-US", {
-    timeZone: "America/New_York", 
-    hour: '2-digit',
-    minute: '2-digit',
-    month: 'numeric',
-    day: 'numeric',
-  });
-  console.log(`\n[Dashboard Updater] Updating dashboard time to ${currentDateTime}\n`);
+async function updateDashboard(sessionId?: string) {
+  // Utility function to wrap text to a maximum line length without breaking words.
+  function wrapText(text: string, maxLength = 25): string {
+    return text
+      .split('\n')
+      .map(line => {
+        const words = line.split(' ');
+        let currentLine = '';
+        const wrappedLines: string[] = [];
 
-  // Iterate through each active session.
-  for (const [sessionId, sessionInfo] of activeSessions.entries()) {
-    // Create dashboard card data
-    const dashboardData = {
-      layoutType: 'dashboard_card' as const,
-      leftText: '',
-      rightText: ''
+        words.forEach(word => {
+          if ((currentLine.length + (currentLine ? 1 : 0) + word.length) <= maxLength) {
+            currentLine += (currentLine ? ' ' : '') + word;
+          } else {
+            if (currentLine) {
+              wrappedLines.push(currentLine);
+            }
+            currentLine = word;
+
+            // If a single word is too long, hardcut it.
+            while (currentLine.length > maxLength) {
+              wrappedLines.push(currentLine.slice(0, maxLength));
+              currentLine = currentLine.slice(maxLength);
+            }
+          }
+        });
+
+        if (currentLine) {
+          wrappedLines.push(currentLine.trim());
+        }
+
+        return wrappedLines.join('\n');
+      })
+      .join('\n');
+  }
+
+  // Define left modules in group 1 (same-line modules).
+  const leftModulesGroup1 = [
+    {
+      name: "time",
+      async run(sessionInfo: SessionInfo) {
+        // Use the timezone from the latest location update if available; else default.
+        let timezone = "America/New_York";
+        if (sessionInfo.latestLocation && sessionInfo.latestLocation.timezone) {
+          timezone = sessionInfo.latestLocation.timezone;
+        }
+        console.log(`[Session ${sessionInfo.userId}] Using timezone: ${timezone}`);
+        const options = {
+          timeZone: timezone,
+          hour: "2-digit" as const,
+          minute: "2-digit" as const,
+          month: "numeric" as const,
+          day: "numeric" as const,
+          hour12: true
+        };
+        let formatted = new Date().toLocaleString("en-US", options);
+        formatted = formatted.replace(/ [AP]M/, "");
+        return `◌ ${formatted}`;
+      }
+    },
+    { 
+      name: "status", 
+      async run(sessionInfo: SessionInfo) { 
+        return `100%`; 
+      } 
+    },
+  ];
+
+  // Define right modules.
+  const rightModules = [
+    {
+      name: "news",
+      async run(context: any) {
+        const newsAgent = new NewsAgent();
+        const newsResult = await newsAgent.handleContext(context);
+        console.log(newsResult);
+        return (newsResult &&
+                newsResult.news_summaries &&
+                newsResult.news_summaries.length > 0)
+          ? newsResult.news_summaries[0]
+          : '-';
+      },
+    },
+    {
+      name: "weather",
+      async run(context: any) {
+        // Check that we have location data.
+        if (!context.latestLocation) {
+          return '';
+        }
+        const { latitude, longitude } = context.latestLocation;
+        // Use per-session weather cache.
+        const session: SessionInfo = context.session;
+        if (
+          session.weatherCache &&
+          (Date.now() - session.weatherCache.timestamp) < 6 * 60 * 60 * 1000 // 6 hours
+        ) {
+          console.log(`[Session ${session.userId}][Weather] Returning cached weather data.`);
+          return session.weatherCache.data;
+        }
+        // Otherwise, fetch new weather data.
+        const weatherAgent = new WeatherModule();
+        const weather = await weatherAgent.fetchWeatherForecast(latitude, longitude);
+        const result = weather ? `${weather.condition}, ${weather.avg_temp_f}°F` : '-';
+        // Cache the result on the session.
+        session.weatherCache = { timestamp: Date.now(), data: result };
+        return result;
+      },
+    },
+  ];
+
+  // Helper: update a single session dashboard.
+  async function updateSessionDashboard(sessionId: string, sessionInfo: SessionInfo) {
+    // Prepare a context for modules that need it.
+    // Include the session itself so that per-user caches (like weatherCache) can be accessed.
+    const context = {
+      transcriptions: sessionInfo.transcriptionCache,
+      latestLocation: sessionInfo.latestLocation,
+      session: sessionInfo,
     };
-
-    // Update time and date
-    dashboardData.leftText = `${currentDateTime} 100%\n`;
-
-    // Update news
-    const newsAgent = new NewsAgent();
-    const context = { transcriptions: sessionInfo.transcriptionCache };
-    const newsResult = await newsAgent.handleContext(context);
+    // Clear the transcription cache.
     sessionInfo.transcriptionCache = [];
 
-    if (newsResult && newsResult.news_summaries && newsResult.news_summaries.length > 0) {
-      dashboardData.rightText += newsResult.news_summaries.join(', ');
-    }
+    // Run left group 1 modules concurrently.
+    const leftGroup1Promises = leftModulesGroup1.map(module => module.run(sessionInfo));
+    const leftGroup1Results = await Promise.all(leftGroup1Promises);
+    const leftGroup1Text = leftGroup1Results.filter(text => text.trim()).join(', ');
 
-    // Add Weather Forecast Update
-    const newYorkLatitude = 40.7128;
-    const newYorkLongitude = -74.0060;
-    const weatherAgent = new WeatherModule();
-    const weather = await weatherAgent.fetchWeatherForecast(newYorkLatitude, newYorkLongitude);
-    if (weather) {
-      dashboardData.leftText += `Weather: ${weather.condition}, ${weather.avg_temp_f}°F`;
-    } else {
-      dashboardData.leftText += 'Weather: N/A';
-    }
+    // Left group 2: notifications.
+    const leftModulesGroup2 = [
+      {
+        name: "notifications",
+        async run() {
+          // Use the ranked notifications from the NotificationFilterAgent if available.
+          const rankedNotifications = sessionInfo.phoneNotificationRanking || [];
+          // The NotificationFilterAgent returns notifications sorted by importance (rank=1 first).
+          const topTwoNotifications = rankedNotifications.slice(0, 2);
+          console.log(`[Session ${sessionId}] Ranked Notifications:`, topTwoNotifications);
+          return topTwoNotifications
+            .map(notification => notification.summary)
+            .join('\n');
+        }
+      }
+    ];
+    const leftGroup2Promises = leftModulesGroup2.map(module => module.run());
+    const leftGroup2Results = await Promise.all(leftGroup2Promises);
+    const leftGroup2Text = leftGroup2Results.filter(text => text.trim()).join('\n');
 
-    // Create display event with the dashboard card layout
+    // Combine left texts.
+    let leftText = leftGroup1Text;
+    if (leftGroup2Text) {
+      leftText += `\n${leftGroup2Text}`;
+    }
+    leftText = wrapText(leftText, 25);
+
+    // Run right modules concurrently.
+    const rightPromises = rightModules.map(module => module.run(context));
+    const rightResults = await Promise.all(rightPromises);
+    let rightText = rightResults.filter(text => text.trim()).join('\n');
+    rightText = wrapText(rightText, 22);
+
+    // Create display event.
     const displayRequest: DisplayRequest = {
       type: 'display_event',
       view: 'dashboard',
       packageName: PACKAGE_NAME,
       sessionId,
-      layout: dashboardData,
-      durationMs: 10000,
+      layout: {
+        layoutType: 'double_text_wall',
+        topText: leftText,
+        bottomText: rightText,
+      },
+      durationMs: 4000,
       timestamp: new Date(),
     };
 
     console.log(`[Session ${sessionId}] Sending updated dashboard:`, displayRequest);
     sessionInfo.ws.send(JSON.stringify(displayRequest));
   }
-}, 4000);
+
+  // If a sessionId is provided, update that session only.
+  if (sessionId) {
+    const sessionInfo = activeSessions.get(sessionId);
+    if (sessionInfo) {
+      await updateSessionDashboard(sessionId, sessionInfo);
+    } else {
+      console.warn(`Session ${sessionId} not found`);
+    }
+  } else {
+    // Otherwise, update dashboard for all sessions.
+    for (const [sessId, sessionInfo] of activeSessions.entries()) {
+      await updateSessionDashboard(sessId, sessionInfo);
+    }
+  }
+}
+
+function handlePhoneNotification(sessionId: string, notificationData: any) {
+  const sessionInfo = activeSessions.get(sessionId);
+  if (!sessionInfo) return;
+
+  // Initialize the notification cache if needed.
+  if (!sessionInfo.phoneNotificationCache) {
+    sessionInfo.phoneNotificationCache = [];
+  }
+
+  // Add the new notification to the cache.
+  const newNotification = {
+    title: notificationData.title || 'No Title',
+    content: notificationData.content || '',
+    timestamp: Date.now(),
+    uuid: uuidv4(),  // Generate a unique id if not provided.
+  };
+  sessionInfo.phoneNotificationCache.push(newNotification);
+  console.log(`[Session ${sessionId}] Received phone notification:`, notificationData);
+
+  // Instantiate the NotificationFilterAgent.
+  const notificationFilterAgent = new NotificationFilterAgent();
+
+  // Pass the entire list of notifications to the filter agent.
+  notificationFilterAgent.handleContext({ notifications: sessionInfo.phoneNotificationCache })
+    .then((filteredNotifications: any) => {
+      // Save the ranked notifications for later use in the dashboard.
+      sessionInfo.phoneNotificationRanking = filteredNotifications;
+      // Update the dashboard after the notifications have been filtered.
+      updateDashboard(sessionId);
+    })
+    .catch(err => {
+      console.error(`[Session ${sessionId}] Notification filtering failed:`, err);
+      // Fallback: update dashboard with the raw notifications.
+      updateDashboard(sessionId);
+    });
+}
 
 // -----------------------------------
 // 6) Health Check & Static
@@ -263,3 +477,13 @@ app.use(express.static(path.join(__dirname, './public')));
 app.listen(PORT, () => {
   console.log(`Dashboard Manager TPA running at http://localhost:${PORT}`);
 });
+
+// -----------------------------------
+// Schedule Dashboard Updates
+// -----------------------------------
+setTimeout(() => {
+  // Run updateDashboard 5 seconds after the file runs.
+  updateDashboard();
+  // Then, schedule it to run every 5 seconds.
+  setInterval(() => updateDashboard(), 5000);
+}, 60000);

@@ -46,6 +46,10 @@ export interface CloudConnectionErrorMessage extends WebSocketMessage {
   type: "connection_error";
   message: string;
 }
+export interface CloudAuthErrorMessage extends WebSocketMessage {
+  type: "auth_error";
+  message: string;
+}
 
 export interface CloudDisplayEventMessage extends WebSocketMessage {
   type: "display_event";
@@ -63,4 +67,5 @@ export type CloudToGlassesMessage =
   | CloudConnectionAckMessage
   | CloudConnectionErrorMessage
   | CloudDisplayEventMessage
-  | CloudAppStateChangeMessage;
+  | CloudAppStateChangeMessage
+  | CloudAuthErrorMessage;
