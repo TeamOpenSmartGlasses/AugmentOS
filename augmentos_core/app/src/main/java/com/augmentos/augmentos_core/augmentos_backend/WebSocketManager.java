@@ -33,8 +33,7 @@ public class WebSocketManager extends WebSocketListener {
         enum WebSocketStatus {
             CONNECTING,
             CONNECTED,
-            DISCONNECTED,
-            RECONNECTING
+            DISCONNECTED
         }
 
         void onIncomingMessage(JSONObject msg);
@@ -124,7 +123,11 @@ public class WebSocketManager extends WebSocketListener {
     public void sendText(String text) {
         if (webSocket != null && connected) {
             webSocket.send(text);
-        } else {
+        } else if (webSocket == null && connected) {
+            Log.d(TAG, "sendText in a weird state, trying to self-heal");
+            cleanup();
+            // scheduleReconnect();
+        }else {
             Log.e(TAG, "Cannot send text; WebSocket not open.");
         }
     }
@@ -135,7 +138,12 @@ public class WebSocketManager extends WebSocketListener {
     public void sendBinary(byte[] data) {
         if (webSocket != null && connected) {
             webSocket.send(ByteString.of(data));
-        } else {
+        } else if (webSocket == null && connected) {
+            Log.d(TAG, "sendBinary in a weird state, trying to self-heal");
+            cleanup();
+            // scheduleReconnect();
+        }
+        else {
             Log.e(TAG, "Cannot send binary; WebSocket not open.");
         }
     }
@@ -144,11 +152,6 @@ public class WebSocketManager extends WebSocketListener {
         if (intentionalDisconnect || connected || retryAttempts >= MAX_RETRY_ATTEMPTS) {
             return;
         }
-
-        if (handler != null) {
-            handler.onConnectionStatusChange(IncomingMessageHandler.WebSocketStatus.RECONNECTING);
-        }
-
 
         // Exponential backoff with jitter
         long delay = Math.min(

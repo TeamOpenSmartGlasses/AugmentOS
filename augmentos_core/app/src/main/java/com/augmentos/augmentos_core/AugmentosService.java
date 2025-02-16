@@ -569,7 +569,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         // Set up backend comms
         this.httpServerComms = new HTTPServerComms();
-        ServerComms.getInstance().connectWebSocket(authHandler.getCoreToken());
+        if(authHandler.getCoreToken() != null)
+            ServerComms.getInstance().connectWebSocket(authHandler.getCoreToken());
         initializeServerCommsCallbacks();
 
         httpServerComms.getApps(new Callback() {
@@ -724,8 +725,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     private static final String[] ARROW_FRAMES = {
-            "↑", "↗", "–", "↘", "↓", "↙", "–", "↖"
-           // "↑", "↗", "↑", "↖"
+           // "↑", "↗", "–", "↘", "↓", "↙", "–", "↖"
+            "↑", "↗", "↑", "↖"
     };
 
     private void playStartupSequenceOnSmartGlasses() {
@@ -939,7 +940,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             status.put("contextual_dashboard_enabled", this.contextualDashboardEnabled);
             status.put("force_core_onboard_mic", AugmentosSmartGlassesService.getForceCoreOnboardMic(this));
             status.put("default_wearable", AugmentosSmartGlassesService.getPreferredWearable(this));
-            Log.d(TAG, "PREFER - Got default wearable: " + AugmentosSmartGlassesService.getPreferredWearable(this));
+            //Log.d(TAG, "PREFER - Got default wearable: " + AugmentosSmartGlassesService.getPreferredWearable(this));
 
             // Adding connected glasses object
             JSONObject connectedGlasses = new JSONObject();
@@ -1049,7 +1050,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             @Override
             public void onConnectionError(String errorMsg) {
                 if(blePeripheral != null) {
-                    blePeripheral.sendNotifyManager("Error connecting to AugmentOS Cloud: " + errorMsg, "error");
+                    blePeripheral.sendNotifyManager("Connection error: " + errorMsg, "error");
                 }
             }
 
@@ -1058,6 +1059,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 // TODO: do a thing
                 // TODO: is this the way we want to do it? should just be in status maybe???
                 // blePeripheral.sendAuthErrorToManager();
+                authHandler.deleteAuthSecretKey();
+                sendStatusToAugmentOsManager();
             }
 
             @Override
@@ -1310,7 +1313,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Override
     public void setAuthSecretKey(String uniqueUserId, String authSecretKey) {
         Log.d("AugmentOsService", "Setting auth secret key: " + authSecretKey);
-        if (!authHandler.getCoreToken().equals(authSecretKey)) {
+        if (authHandler.getCoreToken() == null || !authHandler.getCoreToken().equals(authSecretKey)) {
             authHandler.setAuthSecretKey(authSecretKey);
             ServerComms.getInstance().disconnectWebSocket();
             ServerComms.getInstance().connectWebSocket(authHandler.getCoreToken());

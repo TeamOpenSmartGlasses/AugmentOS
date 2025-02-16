@@ -56,7 +56,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
   const slideAnim = useRef(new Animated.Value(-50)).current;
 
   useEffect(() => {
-    if (!status.puck_connected) {
+    if (!status.puck_connected || !status.auth.core_token_owner) {
       navigation.reset({
         index: 0,
         routes: [{name: 'ConnectingToPuck'}],

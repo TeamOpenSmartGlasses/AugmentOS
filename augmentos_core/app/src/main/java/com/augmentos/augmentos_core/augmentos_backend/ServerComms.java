@@ -95,8 +95,8 @@ public class ServerComms {
                 // Log errors
                 Log.e(TAG, "WebSocket error: " + error);
                 stopAudioSenderThread();
-                if (serverCommsCallback != null)
-                    serverCommsCallback.onConnectionError("Websocket error");
+//                if (serverCommsCallback != null)
+//                    serverCommsCallback.onConnectionError("Websocket error");
             }
 
             @Override
@@ -394,7 +394,7 @@ public class ServerComms {
 
             case "auth_error":
                 Log.d(TAG, "Server is requesting a reconnect.");
-                //disconnectWebSocket();
+                disconnectWebSocket();
                 if (serverCommsCallback != null)
                     serverCommsCallback.onAuthError();
                 break;
