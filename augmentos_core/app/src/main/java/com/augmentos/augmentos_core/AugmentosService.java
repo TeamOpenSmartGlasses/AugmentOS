@@ -1240,7 +1240,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Override
     public void setAuthSecretKey(String uniqueUserId, String authSecretKey) {
         Log.d("AugmentOsService", "Setting auth secret key: " + authSecretKey);
-        if (!authHandler.getCoreToken().equals(authSecretKey)) {
+        if (authHandler.getCoreToken() == null ||!authHandler.getCoreToken().equals(authSecretKey)) {
             authHandler.setAuthSecretKey(authSecretKey);
             ServerComms.getInstance().disconnectWebSocket();
             ServerComms.getInstance().connectWebSocket(authHandler.getCoreToken());
