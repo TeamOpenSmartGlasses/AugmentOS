@@ -241,7 +241,7 @@ export class WebSocketService implements IWebSocketService {
           );
 
           // Pass the ArrayBuffer to Azure Speech or wherever you need it
-          this.sessionService.handleAudioData(session.sessionId, arrayBuf);
+          this.sessionService.handleAudioData(session, arrayBuf);
           return;
         }
 
@@ -295,7 +295,7 @@ export class WebSocketService implements IWebSocketService {
           const initMessage = message as GlassesConnectionInitMessage;
           // const userId = initMessage.userId;
           const coreToken = initMessage.coreToken || "";
-          console.log(`[websocket.service] Glasses client attempting to connect: ${coreToken}`);
+          // console.log(`[websocket.service] Glasses client attempting to connect: ${coreToken}`);
           let userId = '';
 
           try {

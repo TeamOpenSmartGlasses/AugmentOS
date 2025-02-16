@@ -29,10 +29,18 @@ public class WebSocketManager extends WebSocketListener {
 
     // Callback interface to push messages/events back to ServerComms
     public interface IncomingMessageHandler {
+
+        enum WebSocketStatus {
+            CONNECTING,
+            CONNECTED,
+            DISCONNECTED
+        }
+
         void onIncomingMessage(JSONObject msg);
         void onConnectionOpen();
         void onConnectionClosed();
         void onError(String error);
+        void onConnectionStatusChange(WebSocketStatus status);
     }
 
     private final IncomingMessageHandler handler;
@@ -75,11 +83,15 @@ public class WebSocketManager extends WebSocketListener {
             return;
         }
 
+        if (handler != null) {
+            handler.onConnectionStatusChange(IncomingMessageHandler.WebSocketStatus.CONNECTING);
+        }
+
         cleanup(); // Clean up any existing connections
 
         client = new OkHttpClient.Builder()
-                .readTimeout(0, TimeUnit.MILLISECONDS)
-                .pingInterval(15, TimeUnit.SECONDS)
+                .readTimeout(5, TimeUnit.SECONDS)
+                .pingInterval(4, TimeUnit.SECONDS)
                 .build();
 
         Request request = new Request.Builder().url(serverUrl).build();
@@ -111,7 +123,11 @@ public class WebSocketManager extends WebSocketListener {
     public void sendText(String text) {
         if (webSocket != null && connected) {
             webSocket.send(text);
-        } else {
+        } else if (webSocket == null && connected) {
+            Log.d(TAG, "sendText in a weird state, trying to self-heal");
+            cleanup();
+            // scheduleReconnect();
+        }else {
             Log.e(TAG, "Cannot send text; WebSocket not open.");
         }
     }
@@ -122,7 +138,12 @@ public class WebSocketManager extends WebSocketListener {
     public void sendBinary(byte[] data) {
         if (webSocket != null && connected) {
             webSocket.send(ByteString.of(data));
-        } else {
+        } else if (webSocket == null && connected) {
+            Log.d(TAG, "sendBinary in a weird state, trying to self-heal");
+            cleanup();
+            // scheduleReconnect();
+        }
+        else {
             Log.e(TAG, "Cannot send binary; WebSocket not open.");
         }
     }
@@ -157,6 +178,7 @@ public class WebSocketManager extends WebSocketListener {
         Log.d(TAG, "WebSocket opened: " + response);
         if (handler != null) {
             handler.onConnectionOpen();
+            handler.onConnectionStatusChange(IncomingMessageHandler.WebSocketStatus.CONNECTED);
         }
     }
 
@@ -186,6 +208,7 @@ public class WebSocketManager extends WebSocketListener {
         connected = false;
         if (handler != null) {
             handler.onConnectionClosed();
+            handler.onConnectionStatusChange(IncomingMessageHandler.WebSocketStatus.DISCONNECTED);
         }
         cleanup();
         scheduleReconnect();
@@ -197,6 +220,7 @@ public class WebSocketManager extends WebSocketListener {
         connected = false;
         if (handler != null) {
             handler.onError("WebSocket failure: " + t.getMessage());
+            handler.onConnectionStatusChange(IncomingMessageHandler.WebSocketStatus.DISCONNECTED);
         }
         cleanup();
         scheduleReconnect();

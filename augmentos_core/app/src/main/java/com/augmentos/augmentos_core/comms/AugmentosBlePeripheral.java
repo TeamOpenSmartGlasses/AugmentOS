@@ -417,6 +417,16 @@ public class AugmentosBlePeripheral {
         sendDataToAugmentOsManager(data.toString());
     }
 
+    public void sendAuthErrorToManager() {
+        JSONObject data = new JSONObject();
+        try{
+            data.put("auth_error", true);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        sendDataToAugmentOsManager(data.toString());
+    }
+
     public void sendNotifyManager(String message, String type) {
         Log.d(TAG, "sendNotifyManager");
         JSONObject data = new JSONObject();
@@ -486,7 +496,7 @@ public class AugmentosBlePeripheral {
     @SuppressLint("MissingPermission")
     public void sendDataToAugmentOsManager(String jsonData) {
         if(isSimulatedPuck){
-           Log.d(TAG, "Simulated puck is active, sending data to AugmentOS Manager: " + jsonData);
+           // Log.d(TAG, "Simulated puck is active, sending data to AugmentOS Manager: " + jsonData);
 
             EventBus.getDefault().post(new CoreToManagerOutputEvent(jsonData));
             return;

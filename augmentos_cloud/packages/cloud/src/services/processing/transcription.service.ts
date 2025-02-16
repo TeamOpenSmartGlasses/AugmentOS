@@ -100,9 +100,9 @@ export class TranscriptionService implements ITranscriptionService {
     // Configure speech recognition settings
     this.speechConfig.speechRecognitionLanguage = config.speechRecognitionLanguage || 'en-US';
     
-    if (config.enableProfanityFilter) {
+    // if (config.enableProfanityFilter) {
       this.speechConfig.setProfanity(ProfanityOption.Raw);
-    }
+    // }
 
     // Enable detailed output for better result parsing
     this.speechConfig.outputFormat = OutputFormat.Simple;
@@ -133,8 +133,8 @@ export class TranscriptionService implements ITranscriptionService {
 
     // Start continuous recognition
     recognizer.startTranscribingAsync(
-      () => console.log(`[Session ${userSession}] Continuous recognition started`),
-      (err) => console.error(`[Session ${userSession}] Error starting recognition:`, err)
+      () => console.log(`[Session ${userSession.userId}] Continuous recognition started`),
+      (err) => console.error(`[Session ${userSession.userId}] Error starting recognition:`, err)
     );
 
     return { recognizer, pushStream };
