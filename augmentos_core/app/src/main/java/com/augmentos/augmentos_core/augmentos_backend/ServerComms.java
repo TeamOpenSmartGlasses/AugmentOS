@@ -125,6 +125,22 @@ public class ServerComms {
         stopAudioSenderThread();  // Stop the audio queue thread
     }
 
+    private void attemptReconnect() {
+        // In case we are still connected, explicitly disconnect
+        disconnectWebSocket();
+
+        // Optionally, wait a moment before reconnecting to avoid immediate loops
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        // Reconnect with the same coreToken
+        connectWebSocket(coreToken);
+    }
+
+
     /**
      * Checks if we are currently connected.
      */
@@ -387,6 +403,11 @@ public class ServerComms {
                 } else {
                     Log.w(TAG, "Received speech message but speechRecAugmentos is null!");
                 }
+                break;
+
+            case "reconnect":
+                Log.d(TAG, "Server is requesting a reconnect.");
+                attemptReconnect();
                 break;
 
             default:

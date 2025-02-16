@@ -31,6 +31,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.service.notification.NotificationListenerService;
 import android.util.Log;
 
@@ -709,8 +710,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             Log.d(TAG, "****************** SENDING REFERENCE CARD: CONNECTED TO AUGMENT OS");
             if (smartGlassesService != null)
                 playStartupSequenceOnSmartGlasses();
-//                smartGlassesService.windowManager.showAppLayer("system", () -> smartGlassesService.sendReferenceCard("", "/// AugmentOS Connected \\\\\\"), 6);
-
 
             //start transcribing
             asrPlanner.updateAsrLanguages();
@@ -723,8 +722,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     }
 
     private static final String[] ARROW_FRAMES = {
-//            "↑", "↗", "–", "↘", "↓", "↙", "–", "↖"
-            "↑", "↗", "↑", "↖"
+            "↑", "↗", "–", "↘", "↓", "↙", "–", "↖"
+           // "↑", "↗", "↑", "↖"
     };
 
     private void playStartupSequenceOnSmartGlasses() {
@@ -772,106 +771,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         handler.postDelayed(animate, 350); // Start animation
     }
 
-    public void getSettings(){
-        try{
-            Log.d(TAG, "Runnign get settings");
-            Context mContext = this.getApplicationContext();
-            JSONObject getSettingsObj = new JSONObject();
-            getSettingsObj.put("userId", userId);
-            backendServerComms.restRequest(GET_USER_SETTINGS_ENDPOINT, getSettingsObj, new VolleyJsonCallback(){
-                @Override
-                public void onSuccess(JSONObject result){
-                    try {
-                        Log.d(TAG, "GOT GET Settings update result: " + result.toString());
-                        JSONObject settings = result.getJSONObject("settings");
-                        Boolean useDynamicTranscribeLanguage = settings.getBoolean("use_dynamic_transcribe_language");
-                        String dynamicTranscribeLanguage = settings.getString("dynamic_transcribe_language");
-                        Log.d(TAG, "Should use dynamic? " + useDynamicTranscribeLanguage);
-//                        if (useDynamicTranscribeLanguage){
-//                            Log.d(TAG, "Switching running transcribe language to: " + dynamicTranscribeLanguage);
-//                            if (smartGlassesService != null)
-//                                smartGlassesService.switchRunningTranscribeLanguage(dynamicTranscribeLanguage);
-//                        } else {
-//                            if (smartGlassesService != null)
-//                                smartGlassesService.switchRunningTranscribeLanguage(smartGlassesService.getChosenTranscribeLanguage(mContext));
-//                        }
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-                @Override
-                public void onFailure(int code){
-                    Log.d(TAG, "SOME FAILURE HAPPENED (getSettings)");
-                }
-            });
-        } catch (Exception e){
-            e.printStackTrace();
-            Log.d(TAG, "SOME FAILURE HAPPENED (getSettings)");
-        }
-    }
-
-    public void setUpUiPolling(){
-        uiPollRunnableCode = new Runnable() {
-            @Override
-            public void run() {
-                if (smartGlassesService != null) {
-                    requestUiPoll();
-                }
-                long currentTime = System.currentTimeMillis();
-                long interval = (currentTime - lastDataSentTime < DATA_SENT_THRESHOLD) ? POLL_INTERVAL_ACTIVE : POLL_INTERVAL_INACTIVE;
-                csePollLoopHandler.postDelayed(this, interval);
-            }
-        };
-        csePollLoopHandler.post(uiPollRunnableCode);
-    }
-
-    public void setUpLocationSending() {
-        locationSystem = new LocationSystem(getApplicationContext());
-
-        locationSendingLoopHandler.removeCallbacksAndMessages(this);
-
-        locationSendingRunnableCode = new Runnable() {
-            @Override
-            public void run() {
-                if (smartGlassesService != null)
-                    requestLocation();
-                locationSendingLoopHandler.postDelayed(this, locationSendTime);
-            }
-        };
-        locationSendingLoopHandler.post(locationSendingRunnableCode);
-    }
-
-    @Override
-    public void onDestroy(){
-        csePollLoopHandler.removeCallbacks(uiPollRunnableCode);
-        displayPollLoopHandler.removeCallbacks(displayRunnableCode);
-        locationSystem.stopLocationUpdates();
-        locationSendingLoopHandler.removeCallbacks(locationSendingRunnableCode);
-        locationSendingLoopHandler.removeCallbacksAndMessages(null);
-        screenCaptureHandler.removeCallbacks(screenCaptureRunnable);
-        if (virtualDisplay != null) virtualDisplay.release();
-        if (mediaProjection != null) mediaProjection.stop();
-        EventBus.getDefault().unregister(this);
-
-        if (blePeripheral != null) {
-            blePeripheral.destroy();
-        }
-
-        if (smartGlassesService != null) {
-            unbindService(connection);
-            isSmartGlassesServiceBound = false;
-            smartGlassesService = null;
-            tpaSystem.setSmartGlassesService(smartGlassesService);
-        }
-
-        if(tpaSystem != null) {
-            tpaSystem.destroy();
-        }
-
-        postHog.shutdown();
-
-        super.onDestroy();
-    }
 
     @Subscribe
     public void onSmartRingButtonEvent(SmartRingButtonOutputEvent event) {
