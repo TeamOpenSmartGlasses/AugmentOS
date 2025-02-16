@@ -21,7 +21,7 @@ import appService from './app.service';
 
 // You can adjust this value as needed.
 const RECONNECT_GRACE_PERIOD_MS = 30000; // 30 seconds
-
+const LOG_AUDIO = false;
 /**
  * Interface defining the public API of the session service.
  */
@@ -228,7 +228,7 @@ export class SessionService implements ISessionService {
   handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void {
     const session = this.getSession(sessionId);
     if (!session) return console.error(`🔥🔥🔥 Session ${sessionId} not found`);
-
+    
     if (session.pushStream) {
       // console.log("AUDIO: writing to push stream");
       session.pushStream.write(audioData);

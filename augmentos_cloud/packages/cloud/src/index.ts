@@ -11,7 +11,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 
 // Import services
-import { webSocketService } from './services/communication/websocket.service';
+import { webSocketService } from './services/core/websocket.service';
 
 // Import routes
 import appRoutes from './routes/apps.routes';
