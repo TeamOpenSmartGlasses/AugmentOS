@@ -21,7 +21,7 @@ import appService from './app.service';
 
 // You can adjust this value as needed.
 const RECONNECT_GRACE_PERIOD_MS = 30000; // 30 seconds
-
+const LOG_AUDIO = false;
 /**
  * Interface defining the public API of the session service.
  */
@@ -128,21 +128,23 @@ export class SessionService implements ISessionService {
       newSession.transcript = oldUserSession.transcript;
       newSession.displayManager = oldUserSession.displayManager;
 
-      this.activeSessions.delete(oldUserSession.sessionId);
-      console.log(`Transferred data from session ${oldUserSession.sessionId} to ${newSession.sessionId}`);
 
       // Cleanup speech services
       if (oldUserSession.recognizer) {
-        oldUserSession.recognizer.stopContinuousRecognitionAsync();
+        oldUserSession.recognizer?.stopContinuousRecognitionAsync();
       }
+
       if (oldUserSession.pushStream) {
-        oldUserSession.pushStream.close();
+        oldUserSession.pushStream?.close();
       }
 
       // Close old websocket.
       if (oldUserSession.websocket.readyState === WebSocket.OPEN) {
-        oldUserSession.websocket.close();
+        oldUserSession.websocket?.close();
       }
+
+      this.activeSessions.delete(oldUserSession.sessionId);
+      console.log(`Transferred data from session ${oldUserSession.sessionId} to ${newSession.sessionId}`);
     }
 
     // Update the user ID on the new session.
@@ -226,8 +228,13 @@ export class SessionService implements ISessionService {
   handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void {
     const session = this.getSession(sessionId);
     if (!session) return console.error(`🔥🔥🔥 Session ${sessionId} not found`);
-
+    
     if (session.pushStream) {
+
+      if (LOG_AUDIO) {
+        console.log("AUDIO: writing to push stream");
+      }
+
       session.pushStream.write(audioData);
     } else {
       session.bufferedAudio.push(audioData);

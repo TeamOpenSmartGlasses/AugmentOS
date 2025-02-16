@@ -22,14 +22,14 @@ export const SYSTEM_TPAS: AppI[] = [
     name: "Captions",
     description: "Constant Live captions from your device microphone",
     webhookURL: "http://localhost:7010/webhook",
-    logoURL: "http://localhost:7010/logo.png",
+    logoURL: "https://cloud.augmentos.org/captions.png",
   },
   {
     packageName: "org.mentra.flash",
     name: "Flash",
     description: "Welcome to the future",
     webhookURL: "http://localhost:7011/webhook",
-    logoURL: "http://localhost:7011/logo.png",
+    logoURL: "https://cloud.augmentos.org/flash.png",
   },
   // {
   //   packageName: "org.mentra.dashboard",
