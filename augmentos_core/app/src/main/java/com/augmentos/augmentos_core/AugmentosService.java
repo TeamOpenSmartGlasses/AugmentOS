@@ -45,6 +45,7 @@ import com.augmentos.augmentos_core.augmentos_backend.HTTPServerComms;
 import com.augmentos.augmentos_core.augmentos_backend.ServerComms;
 import com.augmentos.augmentos_core.augmentos_backend.ServerCommsCallback;
 import com.augmentos.augmentos_core.augmentos_backend.ThirdPartyCloudApp;
+import com.augmentos.augmentos_core.augmentos_backend.WebSocketManager;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.BatteryLevelEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.BrightnessLevelEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.DisplayGlassesDashboardEvent;
@@ -171,6 +172,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     Runnable cachedDashboardDisplayRunnable;
     List<ThirdPartyCloudApp> cachedThirdPartyAppList;
+    private WebSocketManager.IncomingMessageHandler.WebSocketStatus webSocketStatus = WebSocketManager.IncomingMessageHandler.WebSocketStatus.DISCONNECTED;
 
     public AugmentosService() {
     }
@@ -930,6 +932,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             // Adding puck battery life and charging status
             status.put("augmentos_core_version", getCoreVersion(this));
+            status.put("cloud_connection_status", webSocketStatus.name());
             status.put("puck_battery_life", batteryStatusHelper.getBatteryLevel());
             status.put("charging_status", batteryStatusHelper.isBatteryCharging());
             status.put("sensing_enabled", SpeechRecSwitchSystem.sensing_enabled);
@@ -1048,6 +1051,19 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 if(blePeripheral != null) {
                     blePeripheral.sendNotifyManager("Error connecting to AugmentOS Cloud: " + errorMsg, "error");
                 }
+            }
+
+            @Override
+            public void onAuthError() {
+                // TODO: do a thing
+                // TODO: is this the way we want to do it? should just be in status maybe???
+                // blePeripheral.sendAuthErrorToManager();
+            }
+
+            @Override
+            public void onConnectionStatusChange(WebSocketManager.IncomingMessageHandler.WebSocketStatus status) {
+                webSocketStatus = status;
+                sendStatusToAugmentOsManager();
             }
         });
     }

@@ -88,8 +88,6 @@ public class ServerComms {
             public void onConnectionClosed() {
                 // Optional: place logic if needed on close
                 stopAudioSenderThread();
-                if (serverCommsCallback != null)
-                    serverCommsCallback.onConnectionError("Connection closed");
             }
 
             @Override
@@ -99,6 +97,12 @@ public class ServerComms {
                 stopAudioSenderThread();
                 if (serverCommsCallback != null)
                     serverCommsCallback.onConnectionError("Websocket error");
+            }
+
+            @Override
+            public void onConnectionStatusChange(WebSocketStatus status) {
+                if(serverCommsCallback != null)
+                    serverCommsCallback.onConnectionStatusChange(status);
             }
         });
 
@@ -131,20 +135,20 @@ public class ServerComms {
         stopAudioSenderThread();  // Stop the audio queue thread
     }
 
-    private void attemptReconnect() {
-        // In case we are still connected, explicitly disconnect
-        disconnectWebSocket();
-
-        // Optionally, wait a moment before reconnecting to avoid immediate loops
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-
-        // Reconnect with the same coreToken
-        connectWebSocket(coreToken);
-    }
+//    private void attemptReconnect() {
+//        // In case we are still connected, explicitly disconnect
+//        disconnectWebSocket();
+//
+//        // Optionally, wait a moment before reconnecting to avoid immediate loops
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            Thread.currentThread().interrupt();
+//        }
+//
+//        // Reconnect with the same coreToken
+//        connectWebSocket(coreToken);
+//    }
 
 
     /**
@@ -388,6 +392,14 @@ public class ServerComms {
                     serverCommsCallback.onConnectionError(errorMsg);
                 break;
 
+            case "auth_error":
+                Log.d(TAG, "Server is requesting a reconnect.");
+                //disconnectWebSocket();
+                if (serverCommsCallback != null)
+                    serverCommsCallback.onAuthError();
+                break;
+
+
             case "display_event":
                 Log.d(TAG, "Received display_event: " + msg.toString());
                 String view = msg.optString("view");
@@ -413,7 +425,7 @@ public class ServerComms {
 
             case "reconnect":
                 Log.d(TAG, "Server is requesting a reconnect.");
-                attemptReconnect();
+                //attemptReconnect();
                 break;
 
             default:

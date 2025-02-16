@@ -29,10 +29,19 @@ public class WebSocketManager extends WebSocketListener {
 
     // Callback interface to push messages/events back to ServerComms
     public interface IncomingMessageHandler {
+
+        enum WebSocketStatus {
+            CONNECTING,
+            CONNECTED,
+            DISCONNECTED,
+            RECONNECTING
+        }
+
         void onIncomingMessage(JSONObject msg);
         void onConnectionOpen();
         void onConnectionClosed();
         void onError(String error);
+        void onConnectionStatusChange(WebSocketStatus status);
     }
 
     private final IncomingMessageHandler handler;
@@ -73,6 +82,10 @@ public class WebSocketManager extends WebSocketListener {
         if (connected) {
             Log.d(TAG, "Already connected.");
             return;
+        }
+
+        if (handler != null) {
+            handler.onConnectionStatusChange(IncomingMessageHandler.WebSocketStatus.CONNECTING);
         }
 
         cleanup(); // Clean up any existing connections
@@ -132,6 +145,11 @@ public class WebSocketManager extends WebSocketListener {
             return;
         }
 
+        if (handler != null) {
+            handler.onConnectionStatusChange(IncomingMessageHandler.WebSocketStatus.RECONNECTING);
+        }
+
+
         // Exponential backoff with jitter
         long delay = Math.min(
                 INITIAL_RETRY_DELAY_MS * (long) Math.pow(2, retryAttempts) +
@@ -157,6 +175,7 @@ public class WebSocketManager extends WebSocketListener {
         Log.d(TAG, "WebSocket opened: " + response);
         if (handler != null) {
             handler.onConnectionOpen();
+            handler.onConnectionStatusChange(IncomingMessageHandler.WebSocketStatus.CONNECTED);
         }
     }
 
@@ -186,6 +205,7 @@ public class WebSocketManager extends WebSocketListener {
         connected = false;
         if (handler != null) {
             handler.onConnectionClosed();
+            handler.onConnectionStatusChange(IncomingMessageHandler.WebSocketStatus.DISCONNECTED);
         }
         cleanup();
         scheduleReconnect();
@@ -197,6 +217,7 @@ public class WebSocketManager extends WebSocketListener {
         connected = false;
         if (handler != null) {
             handler.onError("WebSocket failure: " + t.getMessage());
+            handler.onConnectionStatusChange(IncomingMessageHandler.WebSocketStatus.DISCONNECTED);
         }
         cleanup();
         scheduleReconnect();

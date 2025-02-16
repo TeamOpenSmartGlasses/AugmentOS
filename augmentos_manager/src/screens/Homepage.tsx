@@ -29,6 +29,7 @@ const { FetchConfigHelperModule } = NativeModules;
 import semver from 'semver';
 import { AUGMENTOS_MANAGER_PACKAGE_NAME, AUGMENTOS_CORE_PACKAGE_NAME } from '../consts';
 import { fetchAppStoreData } from '../utils/backendUtils.ts';
+import CloudConnection from '../components/CloudConnection.tsx';
 
 interface HomepageProps {
   isDarkTheme: boolean;
@@ -251,6 +252,12 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
               <PuckConnection isDarkTheme={isDarkTheme} />
             </AnimatedSection>
           )}
+
+          {status.cloud_connection_status !== 'CONNECTED' &&
+          <AnimatedSection>
+              <CloudConnection isDarkTheme={isDarkTheme} />
+          </AnimatedSection>
+          }
 
           <AnimatedSection>
             <ConnectedDeviceInfo isDarkTheme={isDarkTheme} />
