@@ -6,5 +6,11 @@
   "scripts": {
     "dev": "./run.sh"
   },
-  "dependencies": { "assemblyai": "^4.9.0" }
+  "dependencies": {
+    "assemblyai": "^4.9.0",
+    "tz-lookup": "^6.1.25"
+  },
+  "devDependencies": {
+    "@types/tz-lookup": "^6.1.2"
+  }
 }

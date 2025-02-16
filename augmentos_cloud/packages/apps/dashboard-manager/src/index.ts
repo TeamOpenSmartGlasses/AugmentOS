@@ -10,7 +10,7 @@ import {
   DisplayRequest,
   DoubleTextWall,
 } from '@augmentos/types';
-
+import tzlookup from 'tz-lookup';
 import { NewsAgent } from '../../../agents/NewsAgent';  // lowercase 'n'
 import { WeatherModule } from './dashboard-modules/WeatherModule';
 // e.g. { languageLearning: LanguageLearningAgent, news: NewsAgent, ... }
@@ -34,6 +34,8 @@ interface SessionInfo {
   transcriptionCache: any[];
   // embed the dashboard card into session info
   dashboard: DoubleTextWall;
+  // cache latest location update, e.g., { latitude, longitude, timezone }
+  latestLocation?: { latitude: number; longitude: number; timezone?: string };
   [key: string]: any;
 }
 
@@ -56,13 +58,8 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     // Create a new dashboard card
     const dashboardCard: DoubleTextWall = {
       layoutType: 'double_text_wall',
-      topText: new Date().toLocaleString("en-US", {
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-      }) + ' 100%',
-      bottomText: 'Meeting with John',
+      topText: 'Loading contextual dashboard...',
+      bottomText: '',
     };
 
     // Store session info, including the dashboard card.
@@ -154,9 +151,9 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
           handlePhoneNotification(sessionId, streamMessage.data);
           break;
 
-        // case 'location_update':
-        //   handleLocationUpdate(sessionId, streamMessage.data);
-        //   break;
+        case 'location_update':
+          handleLocationUpdate(sessionId, streamMessage.data);
+          break;
 
         // add more streams here if needed
         default:
@@ -182,7 +179,44 @@ function handlePhoneNotification(sessionId: string, phoneNotificationData: any) 
   console.log(
     `[Session ${sessionId}] Cached phone notification. Total cached items: ${sessionInfo.phoneNotificationCache.length}`
   );
-  // console.log(sessionInfo.phoneNotificationCache);
+}
+
+// -----------------------------------
+// New: Handle Location Update
+// -----------------------------------
+function handleLocationUpdate(sessionId: string, locationData: any) {
+  const sessionInfo = activeSessions.get(sessionId);
+  if (!sessionInfo) return;
+
+  // Extract lat, lng, and timestamp from the locationData.
+  const { lat, lng, timestamp } = locationData;
+
+  // Validate that lat and lng are numbers.
+  if (typeof lat !== "number" || typeof lng !== "number") {
+    console.error(`[Session ${sessionId}] Invalid location data:`, locationData);
+    return;
+  }
+
+  // Determine the timezone for any given coordinates.
+  let timezone: string;
+  try {
+    timezone = tzlookup(lat, lng);
+  } catch (error) {
+    console.error(`[Session ${sessionId}] Error looking up timezone for lat=${lat}, lng=${lng}:`, error);
+    // Fallback to a default timezone if lookup fails.
+    timezone = "America/New_York";
+  }
+
+  // Cache the location update in the session with the determined timezone.
+  sessionInfo.latestLocation = { 
+    latitude: lat, 
+    longitude: lng, 
+    timezone, 
+  };
+
+  console.log(
+    `[Session ${sessionId}] Cached location update: lat=${lat}, lng=${lng}, timezone=${timezone}`
+  );
 }
 
 // -----------------------------------
@@ -225,22 +259,36 @@ setInterval(async () => {
   }
 
   // Define left modules in group 1 (same-line modules).
+  // Note: We now pass the sessionInfo into each run function so that the time module can
+  // use the session’s cached location (if available) to determine the timezone.
   const leftModulesGroup1 = [
     {
       name: "time",
-      async run() {
-        return `◌ ${new Date().toLocaleString("en-US", {
-          timeZone: "America/New_York",
-          hour: '2-digit',
-          minute: '2-digit',
-          month: 'numeric',
-          day: 'numeric'
-        })}`;
+      async run(sessionInfo: SessionInfo) {
+        // Use the timezone from the latest location update if available; else default.
+        let timezone = "America/New_York";
+        if (sessionInfo.latestLocation && sessionInfo.latestLocation.timezone) {
+          timezone = sessionInfo.latestLocation.timezone;
+        }
+
+        console.log(`[Session ${sessionInfo.userId}] Using timezone: ${timezone}`);
+        const options = {
+          timeZone: timezone,
+          hour: "2-digit" as const,
+          minute: "2-digit" as const,
+          month: "numeric" as const,
+          day: "numeric" as const,
+          hour12: true
+        };
+        let formatted = new Date().toLocaleString("en-US", options);
+        // Remove the space and AM/PM from the formatted string
+        formatted = formatted.replace(/ [AP]M/, "");
+        return `◌ ${formatted}`;
       }
     },
     { 
       name: "status", 
-      async run() { 
+      async run(sessionInfo: SessionInfo) { 
         return `100%`; 
       } 
     },
@@ -249,7 +297,7 @@ setInterval(async () => {
   const rightModules = [
     {
       name: "news",
-      async run(context) {
+      async run(context: any) {
         const newsAgent = new NewsAgent();
         const newsResult = await newsAgent.handleContext(context);
         console.log(newsResult);
@@ -280,7 +328,7 @@ setInterval(async () => {
     sessionInfo.transcriptionCache = [];
 
     // Run left group 1 modules concurrently.
-    const leftGroup1Promises = leftModulesGroup1.map(module => module.run());
+    const leftGroup1Promises = leftModulesGroup1.map(module => module.run(sessionInfo));
     const leftGroup1Results = await Promise.all(leftGroup1Promises);
     // Join group 1 results with a comma so they appear on the same line.
     const leftGroup1Text = leftGroup1Results.filter(text => text.trim()).join(', ');
@@ -335,7 +383,7 @@ setInterval(async () => {
     console.log(`[Session ${sessionId}] Sending updated dashboard:`, displayRequest);
     sessionInfo.ws.send(JSON.stringify(displayRequest));
   }
-}, 10000);
+}, 5000);
 
 // -----------------------------------
 // 6) Health Check & Static
