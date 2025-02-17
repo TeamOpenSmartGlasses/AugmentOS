@@ -33,11 +33,11 @@ const PrivacySettingsScreen: React.FC<PrivacySettingsScreenProps> = ({
 }) => {
   const { status } = useStatus();
   const [isSensingEnabled, setIsSensingEnabled] = React.useState(
-    status.sensing_enabled,
+    status.core_info.sensing_enabled,
   );
-  const [forceCoreOnboardMic, setForceCoreOnboardMic] = React.useState(status.force_core_onboard_mic);
+  const [forceCoreOnboardMic, setForceCoreOnboardMic] = React.useState(status.core_info.force_core_onboard_mic);
   const [isContextualDashboardEnabled, setIsContextualDashboardEnabled] = React.useState(
-    status.contextual_dashboard_enabled,
+    status.core_info.contextual_dashboard_enabled,
   );
 
   React.useEffect(() => {
@@ -73,7 +73,7 @@ const PrivacySettingsScreen: React.FC<PrivacySettingsScreenProps> = ({
 
 
   // React.useEffect(() => {
-  //   setIsSensingEnabled(status.sensing_enabled);
+  //   setIsSensingEnabled(status.core_info.sensing_enabled);
   // }, [status]);
 
   const switchColors = {
@@ -136,7 +136,7 @@ const PrivacySettingsScreen: React.FC<PrivacySettingsScreenProps> = ({
               style={[
                 styles.label,
                 isDarkTheme ? styles.lightText : styles.darkText,
-                (!status.puck_connected || !status.glasses_info?.model_name) &&
+                (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
                   styles.disabledItem,
               ]}>
               Sensing
@@ -145,7 +145,7 @@ const PrivacySettingsScreen: React.FC<PrivacySettingsScreenProps> = ({
               style={[
                 styles.value,
                 isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-                (!status.puck_connected || !status.glasses_info?.model_name) &&
+                (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
                   styles.disabledItem,
               ]}>
               Enable microphones & cameras.

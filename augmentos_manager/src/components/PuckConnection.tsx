@@ -36,7 +36,7 @@ const PuckConnection: React.FC<PuckConnectionProps> = ({ isDarkTheme }) => {
 
   return (
     <LinearGradient
-      colors={status.puck_connected ? ['#4CAF50', '#81C784'] : ['#FF8A80', '#FF5252']}
+      colors={status.core_info.puck_connected ? ['#4CAF50', '#81C784'] : ['#FF8A80', '#FF5252']}
       style={currentStyles.outerContainer}
     >
       <View style={currentStyles.innerContainer}>
@@ -44,26 +44,26 @@ const PuckConnection: React.FC<PuckConnectionProps> = ({ isDarkTheme }) => {
           <View style={currentStyles.leftContainer}>
             <View style={currentStyles.leftItem}>
               <Icon
-                name={status.puck_connected ? 'check-circle' : 'exclamation-circle'}
+                name={status.core_info.puck_connected ? 'check-circle' : 'exclamation-circle'}
                 size={16}
-                color={status.puck_connected ? '#4CAF50' : '#FF5722'}
+                color={status.core_info.puck_connected ? '#4CAF50' : '#FF5722'}
                 style={currentStyles.icon}
               />
               <Text style={currentStyles.text}>
-                {status.puck_connected ? 'Puck Connected' : 'Disconnected'}
+                {status.core_info.puck_connected ? 'Puck Connected' : 'Disconnected'}
               </Text>
             </View>
           </View>
-          {status.puck_connected && (
+          {status.core_info.puck_connected && (
             <View style={currentStyles.rightContainer}>
               <View style={currentStyles.rightItem}>
                 <View style={currentStyles.batteryContainer}>
                   <Icon
-                    name={getBatteryIcon(status.puck_battery_life)}
+                    name={getBatteryIcon(status.core_info.puck_battery_life)}
                     size={16}
-                    color={getBatteryColor(status.puck_battery_life)}
+                    color={getBatteryColor(status.core_info.puck_battery_life)}
                   />
-                  {status.puck_charging_status && (
+                  {status.core_info.puck_charging_status && (
                     <IconFA5
                       name="bolt"
                       size={8}
@@ -72,8 +72,8 @@ const PuckConnection: React.FC<PuckConnectionProps> = ({ isDarkTheme }) => {
                     />
                   )}
                 </View>
-                <Text style={[currentStyles.text, { color: getBatteryColor(status.puck_battery_life) }]}>
-                  {status.puck_battery_life !== null ? `${status.puck_battery_life}%` : 'N/A'}
+                <Text style={[currentStyles.text, { color: getBatteryColor(status.core_info.puck_battery_life) }]}>
+                  {status.core_info.puck_battery_life !== null ? `${status.core_info.puck_battery_life}%` : 'N/A'}
                 </Text>
               </View>
             </View>

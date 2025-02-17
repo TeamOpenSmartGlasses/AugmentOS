@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { Config } from './Config.ts';
-
+import { Config } from 'react-native-config';
+//import Config from 'react-native-config';
 interface Callback {
     onSuccess: (data: any) => void;
     onFailure: (errorCode: number) => void;
@@ -12,12 +12,14 @@ export default class BackendServerComms {
     private serverUrl;
 
     private getServerUrl(): string {
-        const secure = process.env.AUGMENTOS_SECURE === 'true';
-        const host = process.env.AUGMENTOS_HOST || 'localhost';
-        const port = process.env.AUGMENTOS_PORT || '7002';
+        const secure = Config.AUGMENTOS_SECURE === 'true';
+        const host = Config.AUGMENTOS_HOST;
+        const port = Config.AUGMENTOS_PORT;
         const protocol = secure ? 'https' : 'http';
         const serverUrl = `${protocol}://${host}:${port}`;
-        console.log("\n Got a new server url: " + serverUrl + " \n\n\n");
+        console.log("\n\n\n\n Got a new server url: ");
+        console.log(serverUrl)
+        console.log("\n\n\n");
         return serverUrl;
     }
 
