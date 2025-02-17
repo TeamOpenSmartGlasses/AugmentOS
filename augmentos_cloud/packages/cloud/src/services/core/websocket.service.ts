@@ -391,7 +391,7 @@ export class WebSocketService implements IWebSocketService {
             activeAppPackageNames,
             whatToStream: userSession.whatToStream,
           };
-          console.log('User session data:', userSessionData);
+
           const clientResponse: CloudAppStateChangeMessage = {
             type: 'app_state_change',
             sessionId: userSession.sessionId, // TODO: Remove this field and check all references.

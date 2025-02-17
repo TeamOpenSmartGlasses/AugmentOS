@@ -1,10 +1,6 @@
 // posthog.service.ts
 import { PostHog } from 'posthog-node';
-
-// Load configuration from environment
-const POSTHOG_PROJECT_API_KEY = "phc_zJ2OjXbvTsL1QFZ02lXsDW0uuUaDNf4P2WwaBlCPMp7";
-const POSTHOG_HOST = "https://app.posthog.com";
-const POSTHOG_PROJECT_ID = "128998";
+import { POSTHOG_PROJECT_API_KEY, POSTHOG_HOST } from '@augmentos/types/config/cloud.env';
 
 // Initialize PostHog client if API key is provided
 let posthogClient: PostHog | null = null;

@@ -120,8 +120,6 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
     durationMs: isFinal ? 3000 : undefined
   };
 
-  console.log(`[Session ${sessionId}]: ${JSON.stringify(transcriptionData, null, 2)}`);
-
   // Send the display event back to the cloud
   ws.send(JSON.stringify(displayEvent));
 }
