@@ -30,7 +30,7 @@ export class WeatherModule {
       }
       const dayForecast = data.forecast.forecastday[0].day;
       const summary: WeatherSummary = {
-        condition: dayForecast.condition.text,
+        condition: dayForecast.condition.text.trim(),
         avg_temp_f: dayForecast.avgtemp_f,
       };
       return summary;

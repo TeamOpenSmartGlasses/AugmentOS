@@ -56,7 +56,7 @@ export class EventManager {
   }
 
   onPhoneNotifications(handler: Handler<PhoneNotificationEvent>) {
-    return this.addHandler('phone_notifications', handler);
+    return this.addHandler('phone_notification', handler);
   }
 
   onConnected(handler: Handler<SystemEvents['connected']>) {
