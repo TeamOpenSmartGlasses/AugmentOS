@@ -44,10 +44,11 @@ import sessionService, { ISessionService } from './session.service';
 import subscriptionService, { ISubscriptionService } from './subscription.service';
 import transcriptionService, { ITranscriptionService } from '../processing/transcription.service';
 import appService, { IAppService } from './app.service';
-import { DisplayRequest } from '@augmentos/types/events/display';
+import { DisplayRequest } from '@augmentos/types';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { AUGMENTOS_AUTH_JWT_SECRET } from '../../env';
 import { AxiosError } from 'axios';
+import { PosthogService } from '../logging/posthog.service';
 
 // Constants
 const TPA_SESSION_TIMEOUT_MS = 5000;  // 30 seconds
@@ -291,18 +292,25 @@ export class WebSocketService implements IWebSocketService {
     message: GlassesToCloudMessage
   ): Promise<void> {
     try {
+      // Track the incoming message event
+      PosthogService.trackEvent('WebSocket Message Received', userSession.userId, {
+        sessionId: userSession.sessionId,
+        eventType: message.type,
+        timestamp: new Date().toISOString()
+        // message: message, // May contain sensitive data so let's not log it. just the event name cause i'm ethical like that 😇
+      });
+
       switch (message.type) {
         case 'connection_init': {
           const initMessage = message as GlassesConnectionInitMessage;
-          // const userId = initMessage.userId;
           const coreToken = initMessage.coreToken || "";
-          // console.log(`[websocket.service] Glasses client attempting to connect: ${coreToken}`);
           let userId = '';
+          // const userId = initMessage.userId;
+          // console.log(`[websocket.service] Glasses client attempting to connect: ${coreToken}`);
 
           try {
             const userData = jwt.verify(coreToken, AUGMENTOS_AUTH_JWT_SECRET);
             userId = (userData as JwtPayload).email;
-
             if (!userId) {
               throw new Error('User ID is required');
             }
@@ -318,9 +326,6 @@ export class WebSocketService implements IWebSocketService {
             ws.send(JSON.stringify(errorMessage));
             return;
           }
-
-
-
 
           console.log(`[websocket.service] Glasses client connected: ${userId}`);
           try {

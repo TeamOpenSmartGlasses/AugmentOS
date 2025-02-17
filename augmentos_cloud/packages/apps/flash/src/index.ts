@@ -1,5 +1,10 @@
 import { TpaServer, TpaSession } from '@augmentos/clients';
 import path from 'path';
+import { CLOUD_PORT, systemApps } from '@augmentos/types/config/cloud.env';
+
+const PORT = systemApps.captions.port;
+const PACKAGE_NAME = systemApps.captions.packageName;
+const API_KEY = 'test_key'; // In production, this would be securely stored
 
 class FlashServer extends TpaServer {
   // Changed from onNewSession to onSession to match parent class
@@ -39,10 +44,10 @@ class FlashServer extends TpaServer {
 
 // Create and start the server
 const server = new FlashServer({
-  packageName: 'org.mentra.flash',
-  apiKey: 'test_key',
-  port: 7011,
-  serverUrl: 'ws://localhost:7002/tpa-ws',
+  packageName: PACKAGE_NAME,
+  apiKey: API_KEY,
+  port: PORT,
+  serverUrl: `ws://localhost:${CLOUD_PORT}/tpa-ws`,
   webhookPath: '/webhook',
   publicDir: path.join(__dirname, './public')
 });

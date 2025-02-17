@@ -5,7 +5,6 @@
 
 import express from 'express';
 import { Server } from 'http';
-import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -17,12 +16,11 @@ import { webSocketService } from './services/core/websocket.service';
 import appRoutes from './routes/apps.routes';
 import authRoutes from './routes/auth.routes';
 import path from 'path';
-import generateCoreToken from './utils/generateCoreToken';
-import { AUGMENTOS_AUTH_JWT_SECRET } from './env';
-import jwt from 'jsonwebtoken';
 
-// Load environment variables
-dotenv.config();
+// Load configuration from environment
+import { CLOUD_PORT } from '@augmentos/types/config/cloud.env';
+
+const PORT = CLOUD_PORT;
 
 // Initialize Express and HTTP server
 const app = express();
@@ -39,6 +37,8 @@ app.use(cors({
     'http://localhost:5173',
     'http://127.0.0.1:5174',
     'http://localhost:5174',
+    'http://localhost:5173',
+    'http://localhost:6173',
     'https://cloud.augmentos.org',
     'https://dev.augmentos.org',
     'https://www.augmentos.org',
@@ -66,7 +66,6 @@ app.use(express.static(path.join(__dirname, './public')));
 webSocketService.setupWebSocketServers(server);
 
 // Start the server
-const PORT = process.env.PORT || 7002;
 server.listen(PORT, () => {
   console.log('\n😎 AugmentOS Cloud Server🚀\n');
   console.log(`HTTP server: http://localhost:${PORT}`);
@@ -75,10 +74,5 @@ server.listen(PORT, () => {
   console.log(`  - TPA:     ws://localhost:${PORT}/tpa-ws\n`);
   console.log('\n🚀 Server ready\n');
 });
-
-// const coreToken = generateCoreToken();
-// console.log(`\n\n\n\n\nCore token: ${coreToken}\n\n\n\n\n\n`);
-// const userData = jwt.verify("efwewfwefwfwef", AUGMENTOS_AUTH_JWT_SECRET);
-// console.log(`\n\n\n\n\nUser data: ${JSON.stringify(userData)}\n\n\n\n\n\n`);
 
 export default server;
