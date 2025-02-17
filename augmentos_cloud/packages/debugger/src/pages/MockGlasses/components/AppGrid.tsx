@@ -1,5 +1,5 @@
+import { AppI } from '@augmentos/types';
 import React from 'react';
-import { AppI } from '@shared/index';
 
 interface AppGridProps {
   apps: AppI[];

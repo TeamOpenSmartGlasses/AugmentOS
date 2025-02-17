@@ -8,6 +8,7 @@ import {
   CloudConnectionErrorMessage
 } from '@augmentos/types';
 import { useState, useRef, useCallback, useEffect } from 'react';
+import { CLOUD_PORT, JOE_MAMA_USER_JWT } from '@augmentos/types/config/cloud.env';
 
 export const useWebSocket = () => {
   const [isConnected, setIsConnected] = useState(false);
@@ -45,14 +46,14 @@ export const useWebSocket = () => {
 
   const connect = useCallback(async () => {
     try {
-      wsRef.current = new WebSocket('ws://localhost:7002/glasses-ws');
+      wsRef.current = new WebSocket(`ws://localhost:${CLOUD_PORT}/glasses-ws`);
       wsRef.current.binaryType = 'arraybuffer';
 
       wsRef.current.onopen = () => {
         console.log('WebSocket connected');
         const initMessage: GlassesConnectionInitMessage = {
           type: 'connection_init',
-          coreToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJqb2VAbWFtYXMuaG91c2UiLCJpYXQiOjE3Mzk2NjY4MTB9.mJkSEyP7v_jHlzRjc-HzjhCjDopG12aIlOeYxo-kp0M'
+          coreToken: JOE_MAMA_USER_JWT
         };
         wsRef.current?.send(JSON.stringify(initMessage));
       };

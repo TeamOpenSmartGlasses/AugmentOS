@@ -3,13 +3,15 @@ import WebSocket from 'ws';
 import path from 'path';
 import {
   TpaConnectionInitMessage,
-  TpaDisplayEventMessage,
+  // TpaDisplayEventMessage, // THIS IS DEPRECATED. USE DisplayRequest INSTEAD.
+  DisplayRequest,
   TpaSubscriptionUpdateMessage,
 } from '@augmentos/types'; // shared types for cloud TPA messages
+import { CLOUD_PORT, systemApps } from '@augmentos/types/config/cloud.env';
 
 const app = express();
-const PORT = 7011;
-const PACKAGE_NAME = 'com.augmentos.shownotifications';
+const PORT = systemApps.notify.port; // Use a different port from your captions app
+const PACKAGE_NAME = systemApps.notify.packageName;
 const API_KEY = 'test_key'; // In production, store securely
 
 // Parse JSON bodies (for the webhook endpoint only)
@@ -60,7 +62,7 @@ app.post('/webhook', (req, res) => {
     console.log(`\n\n🗣️ Received notification session request for user ${userId}, session ${sessionId}\n\n`);
 
     // Establish WebSocket connection to AugmentOS Cloud.
-    const ws = new WebSocket('ws://localhost:7002/tpa-ws');
+    const ws = new WebSocket(`ws://localhost:${CLOUD_PORT}/tpa-ws`);
 
     ws.on('open', () => {
       console.log(`Session ${sessionId} connected to augmentos-cloud for notifications`);
@@ -179,8 +181,10 @@ function displayNextNotification(sessionData: SessionData) {
   const notificationString = constructNotificationString(notification);
 
   // Build the display event message.
-  const displayEvent: TpaDisplayEventMessage = {
+  const displayEvent: DisplayRequest = {
     type: 'display_event',
+    view: 'main',
+    timestamp: new Date(),
     packageName: PACKAGE_NAME,
     sessionId: sessionData.sessionId,
     layout: {

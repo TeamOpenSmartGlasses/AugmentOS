@@ -16,7 +16,6 @@ router.post('/exchange-token', async (req: Request, res: Response) => {
   }
 
   try {
-    console.log("\n\n\n\n\nDECODING THE JSON SECRET THINGAMABOB \n\n\n\n");
     // Verify the token using your Supabase JWT secret
     const decoded = jwt.verify(supabaseToken, SUPABASE_JWT_SECRET);
     const subject = decoded.sub;

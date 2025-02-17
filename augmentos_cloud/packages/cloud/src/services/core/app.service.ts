@@ -7,38 +7,53 @@
  * to maintain core functionality regardless of database state.
  */
 
-import { AppI } from '@augmentos/types';
+import { AppI, StopWebhookRequest, StopWebhookResponse } from '@augmentos/types';
 import { AppState } from '@augmentos/types/core/app.session';
 import axios, { AxiosError } from 'axios';
+import { systemApps } from '@augmentos/types/config/cloud.env';
+
 
 /**
  * System TPAs that are always available.
  * These are core applications provided by the platform.
  * @Param developerId - leaving this undefined indicates a system app.
  */
-export const SYSTEM_TPAS: AppI[] = [
-  {
-    packageName: "org.mentra.captions",
-    name: "Captions",
-    description: "Constant Live captions from your device microphone",
-    webhookURL: "http://localhost:7010/webhook",
-    logoURL: "https://cloud.augmentos.org/captions.png",
-  },
-  {
-    packageName: "org.mentra.flash",
-    name: "Flash",
-    description: "Welcome to the future",
-    webhookURL: "http://localhost:7011/webhook",
-    logoURL: "https://cloud.augmentos.org/flash.png",
-  },
-  {
-    packageName: "org.mentra.dashboard",
-    name: "Dashboard",
-    description: "Dashboard for managing your apps",
-    webhookURL: "http://localhost:7012/webhook",
-    logoURL: "http://localhost:7012/logo.png",
-  },
-];
+// export const SYSTEM_TPAS: AppI[] = [
+//   {
+//     packageName: "org.mentra.captions",
+//     name: "Captions",
+//     description: "Constant Live captions from your device microphone",
+//     webhookURL: "http://localhost:7010/webhook",
+//     logoURL: "https://cloud.augmentos.org/captions.png",
+//   },
+//   {
+//     packageName: "org.mentra.flash",
+//     name: "Flash",
+//     description: "Welcome to the future",
+//     webhookURL: "http://localhost:7011/webhook",
+//     logoURL: "https://cloud.augmentos.org/flash.png",
+//   },
+//   {
+//     packageName: "org.mentra.dashboard",
+//     name: "Dashboard",
+//     description: "Dashboard for managing your apps",
+//     webhookURL: "http://localhost:7012/webhook",
+//     logoURL: "http://localhost:7012/logo.png",
+//   },
+// ];
+
+// Map systemApps to SYSTEM_TPAS.
+export const SYSTEM_TPAS: AppI[] = Object.keys(systemApps).map((key) => {
+  const app = systemApps[key as keyof typeof systemApps];
+
+  return {
+    packageName: systemApps[key as keyof typeof systemApps].packageName,
+    name: key,
+    description: key, // TODO(isaiah): Add descriptions
+    webhookURL: `http://localhost:${app.port}/webhook`,
+    logoURL: `https://cloud.augmentos.org/${app.packageName}.png`,
+  }
+});
 
 /**
  * Interface for webhook payloads sent to TPAs.
@@ -59,6 +74,10 @@ export interface IAppService {
   getApp(packageName: string): Promise<AppI | undefined>;
   createApp(app: AppI): Promise<AppI>;
   triggerWebhook(url: string, payload: WebhookPayload): Promise<void>;
+  triggerStopWebhook(webhookUrl: string, payload: StopWebhookRequest): Promise<{
+    status: number;
+    data: StopWebhookResponse;
+  }>;
   validateApiKey(packageName: string, apiKey: string): Promise<boolean>;
   getAppState(packageName: string, userId: string): Promise<AppState>;
 }
@@ -143,20 +162,41 @@ export class AppService implements IAppService {
           timeout: 5000 // 5 second timeout
         });
         return;
-      } catch (error : unknown) {
+      } catch (error: unknown) {
         if (attempt === maxRetries - 1) {
-            // check if error is an AxiosError.
-            if (axios.isAxiosError(error)) {
-                // log the error message
-                console.error(`Webhook failed after ${maxRetries} attempts: ${(error as AxiosError).message}`);
-            }
+          // check if error is an AxiosError.
+          if (axios.isAxiosError(error)) {
+            // log the error message
+            console.error(`Webhook failed after ${maxRetries} attempts: ${(error as AxiosError).message}`);
+          }
           throw new Error(`Webhook failed after ${maxRetries} attempts: ${(error as AxiosError).message || 'Unknown error'}`);
         }
         // Exponential backoff
-        await new Promise(resolve => 
+        await new Promise(resolve =>
           setTimeout(resolve, baseDelay * Math.pow(2, attempt))
         );
       }
+    }
+  }
+
+  /**
+ * Triggers the stop webhook for a TPA app session.
+ * @param url - Stop Webhook URL
+ * @param payload - Data to send
+ * @throws If stop webhook fails
+ */
+  async triggerStopWebhook(webhookUrl: string, payload: StopWebhookRequest): Promise<{
+    status: number;
+    data: StopWebhookResponse;
+  }> {
+    try {
+      const response = await axios.post(`${webhookUrl}/stop`, payload);
+      return {
+        status: response.status,
+        data: response.data
+      };
+    } catch (error) {
+      throw error;
     }
   }
 
@@ -183,7 +223,7 @@ export class AppService implements IAppService {
    */
   async getAppState(packageName: string, userId: string): Promise<AppState> {
     const userStates = this.appStates.get(userId) || new Map<string, AppState>();
-    
+
     // Return existing state or default to not_installed
     return userStates.get(packageName) || 'not_installed';
   }

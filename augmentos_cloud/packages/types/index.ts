@@ -17,4 +17,4 @@ export * from './websocket/common';
 export * from './websocket/client';
 export * from './websocket/tpa';
 
-export * from "./events/display";
+export * from "./webhook";

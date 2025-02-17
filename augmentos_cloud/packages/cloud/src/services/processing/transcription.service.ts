@@ -24,9 +24,9 @@ import {
   ConversationTranscriber,
   ConversationTranscriptionEventArgs
 } from 'microsoft-cognitiveservices-speech-sdk';
-import { AZURE_SPEECH_REGION, AZURE_SPEECH_KEY } from '../../env';
+// import { AZURE_SPEECH_REGION, AZURE_SPEECH_KEY } from '../../env';
 import { TranscriptionData, UserSession } from '@augmentos/types';
-
+import { AZURE_SPEECH_KEY, AZURE_SPEECH_REGION } from '@augmentos/types/config/cloud.env';
 
 /**
  * Interface for interim (in-progress) transcription results.
@@ -100,9 +100,9 @@ export class TranscriptionService implements ITranscriptionService {
     // Configure speech recognition settings
     this.speechConfig.speechRecognitionLanguage = config.speechRecognitionLanguage || 'en-US';
     
-    if (config.enableProfanityFilter) {
+    // if (config.enableProfanityFilter) {
       this.speechConfig.setProfanity(ProfanityOption.Raw);
-    }
+    // }
 
     // Enable detailed output for better result parsing
     this.speechConfig.outputFormat = OutputFormat.Simple;

@@ -19,6 +19,7 @@ import type {
   PhoneNotificationEvent,
   AppSettings
 } from '@augmentos/types';
+import { CLOUD_PORT } from '@augmentos/types/config/cloud.env';
 
 /**
  * ⚙️ Configuration options for TPA Session
@@ -90,7 +91,7 @@ export class TpaSession {
 
   constructor(private config: TpaSessionConfig) {
     this.config = {
-      serverUrl: 'ws://localhost:7002/tpa-ws',
+      serverUrl: `ws://localhost:${CLOUD_PORT}/tpa-ws`,
       autoReconnect: true,
       maxReconnectAttempts: 5,
       reconnectDelay: 1000,
