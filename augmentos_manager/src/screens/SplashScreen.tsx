@@ -40,7 +40,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({}) => {
         if (await doesHaveAllPermissions()) {
           startBluetoothAndCore();
           if (previouslyBondedPuck) {
-            if (status.puck_connected) {
+            if (status.core_info.puck_connected) {
               navigation.reset({
                 index: 0,
                 routes: [{ name: 'Home' }],

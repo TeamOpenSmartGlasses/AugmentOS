@@ -56,7 +56,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
   const slideAnim = useRef(new Animated.Value(-50)).current;
 
   useEffect(() => {
-    if (!status.puck_connected || !status.auth.core_token_owner) {
+    if (!status.core_info.puck_connected || !status.auth.core_token_owner) {
       navigation.reset({
         index: 0,
         routes: [{name: 'ConnectingToPuck'}],
@@ -91,8 +91,8 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
    */
   const fetchVersionFromStatus = (): string | null => {
     // console.log('AugmentOS Core Version:', status.augmentos_core_version);
-    setLocalVersion(status?.augmentos_core_version);
-    return status?.augmentos_core_version ?? null;
+    setLocalVersion(status?.core_info.augmentos_core_version);
+    return status?.core_info.augmentos_core_version ?? null;
   };
 
   /**
@@ -253,7 +253,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
             </AnimatedSection>
           )}
 
-          {status.cloud_connection_status !== 'CONNECTED' &&
+          {status.core_info.cloud_connection_status !== 'CONNECTED' &&
           <AnimatedSection>
               <CloudConnection isDarkTheme={isDarkTheme} />
           </AnimatedSection>
@@ -263,7 +263,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
             <ConnectedDeviceInfo isDarkTheme={isDarkTheme} />
           </AnimatedSection>
 
-          {status.puck_connected && (
+          {status.core_info.puck_connected && (
             <>
               {status.apps.length > 0 ? (
                 <>

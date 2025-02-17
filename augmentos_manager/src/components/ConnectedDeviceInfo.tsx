@@ -32,7 +32,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
       slideAnim.setValue(-50);
 
       // Start animations if device is connected
-      if (status.puck_connected) {
+      if (status.core_info.puck_connected) {
         Animated.parallel([
           Animated.timing(fadeAnim, {
             toValue: 1,
@@ -59,7 +59,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
         scaleAnim.stopAnimation();
         slideAnim.stopAnimation();
       };
-    }, [status.puck_connected, fadeAnim, scaleAnim, slideAnim])
+    }, [status.core_info.puck_connected, fadeAnim, scaleAnim, slideAnim])
   );
 
   const handleConnectToPuck = async () => {
@@ -73,7 +73,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   };
 
   const connectGlasses = async () => {
-    if (status.default_wearable === undefined || status.default_wearable === '') {
+    if (status.core_info.default_wearable === undefined || status.core_info.default_wearable === '') {
       navigation.navigate('SelectGlassesModelScreen');
       return;
     }
@@ -86,8 +86,8 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     }, 10000);
 
     try {
-      if (status.default_wearable && status.default_wearable != "") {
-        await bluetoothService.sendConnectWearable(status.default_wearable);
+      if (status.core_info.default_wearable && status.core_info.default_wearable != "") {
+        await bluetoothService.sendConnectWearable(status.core_info.default_wearable);
       }
     } catch (error) {
       console.error('connect 2 glasses error:', error);
@@ -138,17 +138,17 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
 
   return (
     <View style={[styles.deviceInfoContainer, { backgroundColor: themeStyles.backgroundColor }]}>
-      {status.puck_connected ? (
+      {status.core_info.puck_connected ? (
         <>
-          {status.default_wearable ? (
+          {status.core_info.default_wearable ? (
             <View style={styles.connectedContent}>
               <Animated.Image
-                source={getGlassesImage(status.default_wearable)}
+                source={getGlassesImage(status.core_info.default_wearable)}
                 style={[styles.glassesImage, { opacity: fadeAnim, transform: [{ scale: scaleAnim }] }]}
               />
               <Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]}>
                 <Text style={[styles.connectedTextTitle, { color: themeStyles.textColor }]}>
-                  {formatGlassesTitle(connectedGlasses)} {status.default_wearable}
+                  {formatGlassesTitle(connectedGlasses)} {status.core_info.default_wearable}
                 </Text>
               </Animated.View>
 

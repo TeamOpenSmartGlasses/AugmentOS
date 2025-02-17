@@ -38,7 +38,7 @@ export interface CoreAuthInfo {
   last_verification_timestamp: number;
 }
 
-export interface AugmentOSMainStatus {
+export interface CoreInfo {
   augmentos_core_version: string | null;
   cloud_connection_status: string;
   puck_connected: boolean;
@@ -48,6 +48,10 @@ export interface AugmentOSMainStatus {
   sensing_enabled: boolean;
   force_core_onboard_mic: boolean;
   contextual_dashboard_enabled: boolean;
+}
+
+export interface AugmentOSMainStatus {
+  core_info: CoreInfo;
   glasses_info: Glasses | null;
   wifi: WifiConnection | null;
   gsm: GSMConnection | null;
@@ -57,15 +61,17 @@ export interface AugmentOSMainStatus {
 
 export class AugmentOSParser {
   static defaultStatus: AugmentOSMainStatus = {
-    augmentos_core_version: null,
-    cloud_connection_status: 'DISCONNECTED',
-    puck_connected: false,
-    puck_battery_life: null,
-    puck_charging_status: false,
-    sensing_enabled: false,
-    force_core_onboard_mic: false,
-    contextual_dashboard_enabled: false,
-    default_wearable: null,
+    core_info: {
+      augmentos_core_version: null,
+      cloud_connection_status: 'DISCONNECTED',
+      puck_connected: false,
+      puck_battery_life: null,
+      puck_charging_status: false,
+      sensing_enabled: false,
+      force_core_onboard_mic: false,
+      contextual_dashboard_enabled: false,
+      default_wearable: null,
+    },
     glasses_info: null,
     wifi: { is_connected: false, ssid: '', signal_strength: 0 },
     gsm: { is_connected: false, carrier: '', signal_strength: 0 },
@@ -78,19 +84,19 @@ export class AugmentOSParser {
   };
 
   static mockStatus: AugmentOSMainStatus = {
-    augmentos_core_version: '1.0.0',
-    cloud_connection_status: 'CONNECTED',
-    puck_connected: true,
-    puck_battery_life: 88,
-    puck_charging_status: true,
-    sensing_enabled: true,
-    force_core_onboard_mic: false,
-    contextual_dashboard_enabled: true,
-   // default_wearable: 'Vuzix Z100',
-   default_wearable: 'evenrealities_g1',
+    core_info: {
+      augmentos_core_version: '1.0.0',
+      cloud_connection_status: 'CONNECTED',
+      puck_connected: true,
+      puck_battery_life: 88,
+      puck_charging_status: true,
+      sensing_enabled: true,
+      force_core_onboard_mic: false,
+      contextual_dashboard_enabled: true,
+     default_wearable: 'evenrealities_g1',
+    },
     glasses_info: {
       model_name: 'Even Realities G1',
-      //model_name: 'Vuzix Z100',
       battery_life: 60,
       is_searching: false,
       brightness: "87%",
@@ -201,15 +207,17 @@ export class AugmentOSParser {
       let status = data.status;
 
       return {
-        augmentos_core_version: status.augmentos_core_version ?? null,
-        cloud_connection_status: status.cloud_connection_status ?? 'DISCONNECTED',
-        puck_connected: true,
-        puck_battery_life: status.puck_battery_life ?? null,
-        puck_charging_status: status.charging_status ?? false,
-        sensing_enabled: status.sensing_enabled ?? false,
-        force_core_onboard_mic: status.force_core_onboard_mic ?? false,
-        contextual_dashboard_enabled: status.contextual_dashboard_enabled ?? true,
-        default_wearable: status.default_wearable ?? null,
+        core_info: {
+          augmentos_core_version: status.core_info.augmentos_core_version ?? null,
+          cloud_connection_status: status.core_info.cloud_connection_status ?? 'DISCONNECTED',
+          puck_connected: true,
+          puck_battery_life: status.core_info.puck_battery_life ?? null,
+          puck_charging_status: status.core_info.charging_status ?? false,
+          sensing_enabled: status.core_info.sensing_enabled ?? false,
+          force_core_onboard_mic: status.core_info.force_core_onboard_mic ?? false,
+          contextual_dashboard_enabled: status.core_info.contextual_dashboard_enabled ?? true,
+          default_wearable: status.core_info.default_wearable ?? null,
+        },
         glasses_info: status.connected_glasses
           ? {
               model_name: status.connected_glasses.model_name,

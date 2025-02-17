@@ -50,11 +50,11 @@ const CloudConnection: React.FC<CloudConnectionProps> = ({ isDarkTheme }) => {
   };
 
   const currentStyles = isDarkTheme ? darkThemeStyles : lightThemeStyles;
-  const { name: iconName, color: iconColor, label: statusLabel } = getIcon(status.cloud_connection_status);
+  const { name: iconName, color: iconColor, label: statusLabel } = getIcon(status.core_info.cloud_connection_status);
 
   return (
     <LinearGradient
-      colors={getGradientColors(status.cloud_connection_status)}
+      colors={getGradientColors(status.core_info.cloud_connection_status)}
       style={currentStyles.outerContainer}
     >
       <View style={currentStyles.innerContainer}>
