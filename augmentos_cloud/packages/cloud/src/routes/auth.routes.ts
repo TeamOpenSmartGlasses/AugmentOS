@@ -3,7 +3,7 @@ import express from 'express';
 
 import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
-import { AUGMENTOS_AUTH_JWT_SECRET, SUPABASE_JWT_SECRET } from '../env';
+import { AUGMENTOS_AUTH_JWT_SECRET, SUPABASE_JWT_SECRET } from '@augmentos/types/config/cloud.env';
 
 const router = express.Router();
 
@@ -16,7 +16,6 @@ router.post('/exchange-token', async (req: Request, res: Response) => {
   }
 
   try {
-    console.log("\n\n\n\n\nDECODING THE JSON SECRET THINGAMABOB \n\n\n\n");
     // Verify the token using your Supabase JWT secret
     const decoded = jwt.verify(supabaseToken, SUPABASE_JWT_SECRET);
     const subject = decoded.sub;

@@ -1,5 +1,7 @@
 // src/types/events/display.ts
 
+import type { WebSocketMessage } from "../websocket/common";
+
 export interface TextWall {
   layoutType: 'text_wall';
   text: string;
@@ -17,10 +19,29 @@ export interface DashboardCard {
   rightText: string;
 }
 
+export interface DashboardCard2 {
+  layoutType: 'dashboard_card';
+  timeDateAndBattery: string;
+  topRight: string;
+  bottomRight: string;
+  bottomLeft: string;
+}
+
 export interface ReferenceCard {
   layoutType: 'reference_card';
   title: string;
   text: string;
 }
 
-export type Layout = TextWall | DoubleTextWall | DashboardCard | ReferenceCard;
+export type Layout = TextWall | DoubleTextWall | DashboardCard | ReferenceCard | DashboardCard2;
+
+export interface DisplayRequest extends WebSocketMessage {
+  view: "main" | "dashboard" | string;
+  type: 'display_event'; // not gonna make this match so we don't have to change it everywhere. maybe theres a better way to manage enums in typescript so we can leverage them.
+  layout: Layout;
+  timestamp: Date;
+  packageName: "system" | string;
+  durationMs?: number;
+}
+
+export type DisplayHistory = DisplayRequest[];

@@ -60,16 +60,16 @@ const GlassesPairingGuideScreen: React.FC<GlassesPairingGuideScreenProps> = ({
 
   React.useEffect(() => {
     // If puck gets d/c'd here, return to home
-    if (!status.puck_connected){
+    if (!status.core_info.puck_connected){
       console.log("RETURN HOME FROM PAIR SCREEN: DISCONNECTED FROM PUCK")
       navigation.navigate('Home');
     }
     
     // If pairing successful, return to home
-    if (status.puck_connected && status.glasses_info?.model_name) {
+    if (status.core_info.puck_connected && status.glasses_info?.model_name) {
       console.log("RETURN HOME FROM PAIR SCREEN: GOT MODEL NAME: " + status.glasses_info?.model_name);
       navigation.navigate('Home');
-    } else if (status.puck_connected && !status.glasses_info?.is_searching && !status.glasses_info?.model_name) {
+    } else if (status.core_info.puck_connected && !status.glasses_info?.is_searching && !status.glasses_info?.model_name) {
       // Stopped searching but haven't found glasses... go back...
       
       // TODO: REENABLE? WHY DOES THIS GET TRIGGERED?

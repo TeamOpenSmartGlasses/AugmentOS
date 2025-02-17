@@ -9,11 +9,11 @@ import {
   TpaSubscriptionUpdateMessage,
 } from '@augmentos/types'; // Import the types from the shared package
 import { TranscriptProcessor } from '../../../utils/text-wrapping/TranscriptProcessor';
+import { systemApps, CLOUD_PORT } from '@augmentos/types/config/cloud.env';
 
 const app = express();
-const PORT = 7010;
-
-const PACKAGE_NAME = 'org.mentra.captions';
+const PORT =  systemApps.captions.port;
+const PACKAGE_NAME = systemApps.captions.packageName;
 const API_KEY = 'test_key'; // In production, this would be securely stored
 
 const transcriptProcessor = new TranscriptProcessor(30, 3);
@@ -31,8 +31,8 @@ app.post('/webhook', async (req, res) => {
     console.log(`\n\n🗣️🗣️🗣️Received session request for user ${userId}, session ${sessionId}\n\n`);
 
     // Start WebSocket connection to cloud
-    const ws = new WebSocket('ws://localhost:7002/tpa-ws');
-    
+    const ws = new WebSocket(`ws://localhost:${CLOUD_PORT}/tpa-ws`);
+
     ws.on('open', () => {
       console.log(`\n[Session ${sessionId}]\n connected to augmentos-cloud\n`);
       // Send connection init with session ID
@@ -114,13 +114,11 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
     sessionId,
     layout: {
       layoutType: 'text_wall',
-      text: text 
+      text: text
     },
     timestamp: new Date(),
     durationMs: isFinal ? 3000 : undefined
   };
-
-  console.log(`[Session ${sessionId}]: ${JSON.stringify(transcriptionData, null, 2)}`);
 
   // Send the display event back to the cloud
   ws.send(JSON.stringify(displayEvent));
@@ -133,5 +131,4 @@ app.get('/health', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Captions TPA server running at http://localhost:${PORT}`);
-  console.log(`Logo available at http://localhost:${PORT}/logo.png`);
 });

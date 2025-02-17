@@ -234,7 +234,7 @@ const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({
               isDarkTheme ? styles.lightText : styles.darkText,
             ]}>
             Simulated puck connection status:{' '}
-            {status.puck_connected ? '\nConnected' : '\nNot Connected'}
+            {status.core_info.puck_connected ? '\nConnected' : '\nNot Connected'}
           </Text>
         </View>
       )}

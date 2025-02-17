@@ -165,7 +165,7 @@ export class TpaServer {
         const { sessionId, userId } = req.body;
         console.log(`\n\n🗣️ Received session request for user ${userId}, session ${sessionId}\n\n`);
 
-        // Create new TPA session
+        // Create new TPA session. This will connect to AugmentOS Cloud via WebSocket automatically for each user's session.
         const session = new TpaSession({
           packageName: this.config.packageName,
           apiKey: this.config.apiKey,

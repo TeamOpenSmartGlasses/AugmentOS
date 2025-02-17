@@ -1,10 +1,10 @@
 // src/types/models/session.ts
-import type { Layout } from '../layout/layout';
+import type { Layout, DisplayRequest } from '../layout/layout';
 import type { StreamType } from '../websocket/common';
 import type { AppI, AppSettings } from '../models/app';
 import type { AppSessionI, AppState } from './app.session';
 import type { TranscriptI } from './transcript';
-import type { DisplayRequest } from '../events/display';
+
 import {
   ConversationTranscriber,
   PushAudioInputStream,

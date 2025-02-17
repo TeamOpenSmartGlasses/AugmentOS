@@ -14,5 +14,6 @@ public interface ServerCommsCallback {
     void onConnectionError(String errorMsg);
     void onAuthError();
     void onConnectionStatusChange(WebSocketManager.IncomingMessageHandler.WebSocketStatus status);
+    void onRequestCoreStatus();
 
 }

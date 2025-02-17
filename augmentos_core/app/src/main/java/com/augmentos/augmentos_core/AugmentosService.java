@@ -934,14 +934,16 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             JSONObject status = new JSONObject();
 
             // Adding puck battery life and charging status
-            status.put("augmentos_core_version", getCoreVersion(this));
-            status.put("cloud_connection_status", webSocketStatus.name());
-            status.put("puck_battery_life", batteryStatusHelper.getBatteryLevel());
-            status.put("charging_status", batteryStatusHelper.isBatteryCharging());
-            status.put("sensing_enabled", SpeechRecSwitchSystem.sensing_enabled);
-            status.put("contextual_dashboard_enabled", this.contextualDashboardEnabled);
-            status.put("force_core_onboard_mic", AugmentosSmartGlassesService.getForceCoreOnboardMic(this));
-            status.put("default_wearable", AugmentosSmartGlassesService.getPreferredWearable(this));
+            JSONObject coreInfo = new JSONObject();
+            coreInfo.put("augmentos_core_version", getCoreVersion(this));
+            coreInfo.put("cloud_connection_status", webSocketStatus.name());
+            coreInfo.put("puck_battery_life", batteryStatusHelper.getBatteryLevel());
+            coreInfo.put("charging_status", batteryStatusHelper.isBatteryCharging());
+            coreInfo.put("sensing_enabled", SpeechRecSwitchSystem.sensing_enabled);
+            coreInfo.put("contextual_dashboard_enabled", this.contextualDashboardEnabled);
+            coreInfo.put("force_core_onboard_mic", AugmentosSmartGlassesService.getForceCoreOnboardMic(this));
+            coreInfo.put("default_wearable", AugmentosSmartGlassesService.getPreferredWearable(this));
+            status.put("core_info", coreInfo);
             //Log.d(TAG, "PREFER - Got default wearable: " + AugmentosSmartGlassesService.getPreferredWearable(this));
 
             // Adding connected glasses object
@@ -1069,6 +1071,12 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             public void onConnectionStatusChange(WebSocketManager.IncomingMessageHandler.WebSocketStatus status) {
                 webSocketStatus = status;
                 sendStatusToAugmentOsManager();
+            }
+
+            @Override
+            public void onRequestCoreStatus() {
+                JSONObject status = generateStatusJson();
+                ServerComms.getInstance().sendCoreStatus(status);
             }
         });
     }

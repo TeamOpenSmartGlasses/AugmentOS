@@ -14,7 +14,7 @@ import { Agent } from '../../../agents/AgentInterface';
 import { AgentGatekeeper } from '../../../agents/AgentGateKeeper';
 import { ProactiveDefinerAgent } from '../../../agents/ProactiveDefinerAgent';
 import { QuestionAnswererAgent } from '../../../agents/QuestionAnswererAgent';
-
+import { CLOUD_PORT, systemApps } from '@augmentos/types/config/cloud.env';
 
 const agents: Agent[] = [new QuestionAnswererAgent()];
 
@@ -22,9 +22,9 @@ const agents: Agent[] = [new QuestionAnswererAgent()];
 const gatekeeper = new AgentGatekeeper(agents);
 
 const app = express();
-const PORT = 7013; // Use a different port from your captions app
+const PORT = systemApps.merge.port; // Use a different port from your captions app
+const PACKAGE_NAME = systemApps.merge.packageName;
 
-const PACKAGE_NAME = 'org.mentra.agentgatekeeper';
 const API_KEY = 'test_key'; // In production, secure this key
 
 // Parse JSON bodies
@@ -41,7 +41,7 @@ app.post('/webhook', async (req, res) => {
     console.log(`\n\n🗣️ Received session request for user ${userId}, session ${sessionId}\n\n`);
 
     // Start WebSocket connection to cloud (adjust the URL if needed)
-    const ws = new WebSocket('ws://localhost:7002/tpa-ws');
+    const ws = new WebSocket(`ws://localhost:${CLOUD_PORT}/tpa-ws`);
     
     ws.on('open', () => {
       console.log(`\n[Session ${sessionId}]\n connected to augmentos-cloud`);
