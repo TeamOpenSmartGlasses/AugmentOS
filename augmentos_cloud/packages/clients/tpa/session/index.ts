@@ -92,8 +92,8 @@ export class TpaSession {
   constructor(private config: TpaSessionConfig) {
     this.config = {
       serverUrl: `ws://localhost:${CLOUD_PORT}/tpa-ws`,
-      autoReconnect: true,
-      maxReconnectAttempts: 5,
+      autoReconnect: false,
+      maxReconnectAttempts: 0,
       reconnectDelay: 1000,
       ...config
     };

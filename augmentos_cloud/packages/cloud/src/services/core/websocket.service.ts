@@ -293,7 +293,7 @@ export class WebSocketService implements IWebSocketService {
   ): Promise<void> {
     try {
       // Track the incoming message event
-      PosthogService.trackEvent('WebSocket Message Received', userSession.userId, {
+      PosthogService.trackEvent(message.type, userSession.userId, {
         sessionId: userSession.sessionId,
         eventType: message.type,
         timestamp: new Date().toISOString()
@@ -399,12 +399,25 @@ export class WebSocketService implements IWebSocketService {
             timestamp: new Date()
           };
           ws.send(JSON.stringify(clientResponse));
+
+          PosthogService.trackEvent(`start_app:${startMessage.packageName}`, userSession.userId, {
+            sessionId: userSession.sessionId,
+            eventType: message.type,
+            timestamp: new Date().toISOString()
+            // message: message, // May contain sensitive data so let's not log it. just the event name cause i'm ethical like that 😇
+          });
           break;
         }
 
         // In handleGlassesMessage method, update the 'stop_app' case:
         case 'stop_app': {
           const stopMessage = message as GlassesStopAppMessage;
+          PosthogService.trackEvent(`stop_app:${stopMessage.packageName}`, userSession.userId, {
+            sessionId: userSession.sessionId,
+            eventType: message.type,
+            timestamp: new Date().toISOString()
+            // message: message, // May contain sensitive data so let's not log it. just the event name cause i'm ethical like that 😇
+          });
           console.log(`Stopping app ${stopMessage.packageName}`);
 
           try {
@@ -536,6 +549,15 @@ export class WebSocketService implements IWebSocketService {
         message: error instanceof Error ? error.message : 'Error processing message',
         timestamp: new Date()
       };
+
+      PosthogService.trackEvent("error-handleGlassesMessage", userSession.userId, {
+        sessionId: userSession.sessionId,
+        eventType: message.type,
+        timestamp: new Date().toISOString(),
+        error: error,
+        // message: message, // May contain sensitive data so let's not log it. just the event name cause i'm ethical like that 😇
+      });
+
       ws.send(JSON.stringify(errorMessage));
     }
   }
