@@ -63,8 +63,8 @@ export interface ITranscriptionService {
     userSession: UserSession,
     onInterimResult: (result: InterimTranscriptionResult) => void,
     onFinalResult: (result: FinalTranscriptionResult) => void
-  ): { 
-    recognizer: ConversationTranscriber; 
+  ): {
+    recognizer: ConversationTranscriber;
     pushStream: azureSpeechSDK.PushAudioInputStream;
   };
 }
@@ -80,7 +80,7 @@ export interface ITranscriptionService {
 export class TranscriptionService implements ITranscriptionService {
   private speechConfig: azureSpeechSDK.SpeechConfig;
   private sessionStartTime = 0;
-  
+
   /**
    * Creates a new TranscriptionService instance.
    * @param config - Optional configuration parameters
@@ -91,17 +91,17 @@ export class TranscriptionService implements ITranscriptionService {
     if (!AZURE_SPEECH_KEY || !AZURE_SPEECH_REGION) {
       throw new Error('Azure Speech key and region are required for TranscriptionService.');
     }
-    
+
     this.speechConfig = azureSpeechSDK.SpeechConfig.fromSubscription(
       AZURE_SPEECH_KEY,
       AZURE_SPEECH_REGION
     );
-    
+
     // Configure speech recognition settings
     this.speechConfig.speechRecognitionLanguage = config.speechRecognitionLanguage || 'en-US';
-    
+
     // if (config.enableProfanityFilter) {
-      this.speechConfig.setProfanity(ProfanityOption.Raw);
+    this.speechConfig.setProfanity(ProfanityOption.Raw);
     // }
 
     // Enable detailed output for better result parsing
@@ -121,10 +121,23 @@ export class TranscriptionService implements ITranscriptionService {
     onFinalResult: (result: FinalTranscriptionResult) => void
   ): { recognizer: ConversationTranscriber; pushStream: azureSpeechSDK.PushAudioInputStream } {
     this.sessionStartTime = Date.now();
+
+    // Clean up any existing streams first
+    if (userSession.recognizer) {
+      userSession?.recognizer?.close();
+      userSession.recognizer = undefined;
+    }
+
+    if (userSession.pushStream) {
+      userSession?.pushStream?.close();
+      userSession.pushStream = undefined;
+    }
+
+    // Create new streams.
     const pushStream = AudioInputStream.createPushStream();
     const audioConfig = AudioConfig.fromStreamInput(pushStream);
-    // const recognizer = new SpeechRecognizer(this.speechConfig, audioConfig);
     const recognizer = new ConversationTranscriber(this.speechConfig, audioConfig);
+
     userSession.pushStream = pushStream;
     userSession.recognizer = recognizer;
 
@@ -132,13 +145,101 @@ export class TranscriptionService implements ITranscriptionService {
     this.setupRecognitionHandlers(userSession, onInterimResult, onFinalResult);
 
     // Start continuous recognition
+    // recognizer.startTranscribingAsync(
+    //   () => console.log(`[Session ${userSession.userId}] Continuous recognition started`),
+    //   (err) => console.error(`[Session ${userSession.userId}] Error starting recognition:`, err)
+    // );
+    //   // Start continuous recognition with error handling
     recognizer.startTranscribingAsync(
-      () => console.log(`[Session ${userSession.userId}] Continuous recognition started`),
-      (err) => console.error(`[Session ${userSession.userId}] Error starting recognition:`, err)
+      () => {
+        console.log(`[Session ${userSession.sessionId}] Continuous recognition started`);
+        userSession.pushStream = pushStream;
+        userSession.recognizer = recognizer;
+
+        // Process any buffered audio after stream is ready
+        if (userSession.bufferedAudio.length > 0) {
+          console.log(`Processing ${userSession.bufferedAudio.length} buffered audio chunks`);
+          userSession.bufferedAudio.forEach(chunk => {
+            try {
+              pushStream.write(chunk);
+            } catch (error) {
+              console.error('Error processing buffered audio:', error);
+            }
+          });
+          userSession.bufferedAudio = [];
+        }
+      },
+      (err) => {
+        console.error(`[Session ${userSession.sessionId}] Error starting recognition:`, err);
+        // Cleanup on error
+        recognizer.close();
+        pushStream.close();
+      }
     );
 
     return { recognizer, pushStream };
   }
+  // startTranscription(
+  //   userSession: UserSession,
+  //   onInterimResult: (result: InterimTranscriptionResult) => void,
+  //   onFinalResult: (result: FinalTranscriptionResult) => void
+  // ): { recognizer: ConversationTranscriber; pushStream: azureSpeechSDK.PushAudioInputStream } {
+  //   this.sessionStartTime = Date.now();
+
+  //   // Clean up any existing streams first
+  //   if (userSession.recognizer) {
+  //     userSession.recognizer.stopTranscribingAsync(
+  //       () => {
+  //         userSession.recognizer?.close();
+  //         userSession.recognizer = undefined;
+  //       },
+  //       (err) => console.error(`Error stopping previous transcription: ${err}`)
+  //     );
+  //   }
+
+  //   if (userSession.pushStream) {
+  //     userSession.pushStream.close();
+  //     userSession.pushStream = undefined;
+  //   }
+
+  //   // Create new streams
+  //   const pushStream = AudioInputStream.createPushStream();
+  //   const audioConfig = AudioConfig.fromStreamInput(pushStream);
+  //   const recognizer = new ConversationTranscriber(this.speechConfig, audioConfig);
+
+  //   // Set up recognition handlers
+  //   this.setupRecognitionHandlers(userSession, onInterimResult, onFinalResult);
+
+  //   // Start continuous recognition with error handling
+  //   recognizer.startTranscribingAsync(
+  //     () => {
+  //       console.log(`[Session ${userSession.sessionId}] Continuous recognition started`);
+  //       userSession.pushStream = pushStream;
+  //       userSession.recognizer = recognizer;
+
+  //       // Process any buffered audio after stream is ready
+  //       if (userSession.bufferedAudio.length > 0) {
+  //         console.log(`Processing ${userSession.bufferedAudio.length} buffered audio chunks`);
+  //         userSession.bufferedAudio.forEach(chunk => {
+  //           try {
+  //             pushStream.write(chunk);
+  //           } catch (error) {
+  //             console.error('Error processing buffered audio:', error);
+  //           }
+  //         });
+  //         userSession.bufferedAudio = [];
+  //       }
+  //     },
+  //     (err) => {
+  //       console.error(`[Session ${userSession.sessionId}] Error starting recognition:`, err);
+  //       // Cleanup on error
+  //       recognizer.close();
+  //       pushStream.close();
+  //     }
+  //   );
+
+  //   return { recognizer, pushStream };
+  // }
 
   private setupRecognitionHandlers(
     userSession: UserSession,
