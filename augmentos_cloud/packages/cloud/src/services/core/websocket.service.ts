@@ -46,9 +46,9 @@ import transcriptionService, { ITranscriptionService } from '../processing/trans
 import appService, { IAppService } from './app.service';
 import { DisplayRequest } from '@augmentos/types';
 import jwt, { JwtPayload } from 'jsonwebtoken';
-import { AUGMENTOS_AUTH_JWT_SECRET } from '../../env';
 import { AxiosError } from 'axios';
 import { PosthogService } from '../logging/posthog.service';
+import { AUGMENTOS_AUTH_JWT_SECRET } from '@augmentos/types/config/cloud.env';
 
 // Constants
 const TPA_SESSION_TIMEOUT_MS = 5000;  // 30 seconds

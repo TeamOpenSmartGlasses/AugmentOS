@@ -30,7 +30,7 @@ export interface ISessionService {
   getSession(sessionId: string): UserSession | null;
   handleReconnectUserSession(newSession: UserSession, userId: string): void;
   updateDisplay(sessionId: string, displayRequest: DisplayRequest): void;
-  addTranscriptSegment(sessionId: string, segment: TranscriptSegment): void;
+  addTranscriptSegment(userSession: UserSession, segment: TranscriptSegment): void;
   setAudioHandlers(userSession: UserSession, pushStream: any, recognizer: any): void;
   handleAudioData(userSession: UserSession, audioData: ArrayBuffer | any): void;
   // handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void;
@@ -191,10 +191,10 @@ export class SessionService implements ISessionService {
    * @param sessionId - Session identifier
    * @param segment - Transcript segment to add
    */
-  addTranscriptSegment(sessionId: string, segment: TranscriptSegment): void {
-    const session = this.getSession(sessionId);
-    if (session) {
-      session.transcript.segments.push(segment);
+  addTranscriptSegment(userSession: UserSession, segment: TranscriptSegment): void {
+    // const session = this.getSession(sessionId);
+    if (userSession) {
+      userSession.transcript.segments.push(segment);
     }
   }
 
