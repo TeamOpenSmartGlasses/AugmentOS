@@ -262,7 +262,7 @@ export class WebSocketService implements IWebSocketService {
     ws.on('close', () => {
       console.log(`Glasses WebSocket disconnected: ${session.sessionId}`);
       // Mark the session as disconnected but do not remove it immediately.
-      this.sessionService.markSessionDisconnected(session.sessionId);
+      this.sessionService.markSessionDisconnected(session);
 
       // Optionally, set a timeout to eventually clean up the session if not reconnected.
       setTimeout(() => {

@@ -38,7 +38,7 @@ export interface ISessionService {
 
   // Graceful reconnect.
   // markSessionConnected(sessionId: string, ws?: WebSocket): void;
-  markSessionDisconnected(sessionId: string): void;
+  markSessionDisconnected(userSession: UserSession): void;
   isItTimeToKillTheSession(sessionId: string): boolean;
   endSession(sessionId: string): void;
 }
@@ -151,7 +151,7 @@ export class SessionService implements ISessionService {
     // Update the user ID on the new session.
     newSession.userId = userId;
     newSession.sessionId = userId;
-    
+
     this.activeSessions.set(newSession.sessionId, newSession);
     console.log(`Reconnected session ${newSession.sessionId} for user ${userId}`);
 
@@ -224,25 +224,58 @@ export class SessionService implements ISessionService {
    * @param sessionId - Session identifier
    * @param audioData - Raw audio data buffer
    */
-  // handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void {
   handleAudioData(userSession: UserSession, audioData: ArrayBuffer | any): void {
-    // const session = this.getSession(sessionId);
-    // if (!session) return console.error(`🔥🔥🔥 Session ${sessionId} not found`);
-    // userSession: UserSession
-    
     if (userSession.pushStream) {
-      if (LOG_AUDIO) {
-        console.log("AUDIO: writing to push stream");
+      try {
+        if (LOG_AUDIO) {
+          console.log("AUDIO: writing to push stream");
+        }
+        userSession.pushStream.write(audioData);
+      } catch (error) {
+        console.error(`Error writing to push stream:`, error);
+        // Buffer the audio if stream is closed
+        userSession.bufferedAudio.push(audioData);
+
+        // Attempt to restart transcription
+        if ((error as Error)?.message?.includes('Stream closed')) {
+          console.log('Stream closed, attempting to restart transcription...');
+          if (userSession.recognizer) {
+            userSession.recognizer.stopTranscribingAsync(
+              () => {
+                userSession.recognizer = undefined;
+                userSession.pushStream = undefined;
+                // Transcription will be restarted on next connection
+              },
+              (err) => console.error('Error stopping transcription:', err)
+            );
+          }
+        }
       }
-      userSession.pushStream.write(audioData);
     } else {
       userSession.bufferedAudio.push(audioData);
-      // Log only for first buffer
-      if (userSession.bufferedAudio.length === 1) {  
+      if (userSession.bufferedAudio.length === 1) {
         console.log(`Buffering audio data for session ${userSession.sessionId} (pushStream not ready)`);
       }
     }
   }
+  // handleAudioData(userSession: UserSession, audioData: ArrayBuffer | any): void {
+  //   // const session = this.getSession(sessionId);
+  //   // if (!session) return console.error(`🔥🔥🔥 Session ${sessionId} not found`);
+  //   // userSession: UserSession
+
+  //   if (userSession.pushStream) {
+  //     if (LOG_AUDIO) {
+  //       console.log("AUDIO: writing to push stream");
+  //     }
+  //     userSession.pushStream.write(audioData);
+  //   } else {
+  //     userSession.bufferedAudio.push(audioData);
+  //     // Log only for first buffer
+  //     if (userSession.bufferedAudio.length === 1) {  
+  //       console.log(`Buffering audio data for session ${userSession.sessionId} (pushStream not ready)`);
+  //     }
+  //   }
+  // }
 
   /**
    * Ends a user session and cleans up all resources.
@@ -283,14 +316,30 @@ export class SessionService implements ISessionService {
   /**
    * Marks a session as disconnected by setting the disconnection timestamp.
    * This does not immediately end the session so that a reconnect can resume it.
-   * @param sessionId - Session identifier
+   * @param userSession - UserSession object instance
    */
-  markSessionDisconnected(sessionId: string): void {
-    const session = this.getSession(sessionId);
-    if (session) {
-      session.disconnectedAt = new Date();
+  markSessionDisconnected(userSession: UserSession): void {
+    if (userSession) {
+      // Cleanup speech resources
+      if (userSession.recognizer) {
+        userSession.recognizer.stopTranscribingAsync(
+          () => {
+            console.log(`Stopped transcription for session ${userSession}`);
+            userSession.recognizer?.close();
+            userSession.recognizer = undefined;
+          },
+          (err) => console.error(`Error stopping transcription: ${err}`)
+        );
+      }
+
+      if (userSession.pushStream) {
+        userSession.pushStream.close();
+        userSession.pushStream = undefined;
+      }
+
+      userSession.disconnectedAt = new Date();
       console.log(
-        `Session ${sessionId} marked as disconnected at ${session.disconnectedAt.toISOString()}.`
+        `Session ${userSession} marked as disconnected at ${userSession.disconnectedAt.toISOString()}`
       );
     }
   }

@@ -9,6 +9,7 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[1;33m'
 PURPLE='\033[0;35m'  # Added new color for dashboard manager
+CYAN='\033[0;36m'    # Added new color for notify package
 NC='\033[0m' # No Color
 
 # Function to create colored tag
@@ -24,14 +25,16 @@ CAPTIONS_TAG=$(create_tag "[TPA][captions]:" "$BLUE")
 FLASH_TAG=$(create_tag "[TPA][flash]:" "$GREEN")
 CLOUD_TAG=$(create_tag "[Backend]:" "$RED")
 MOCK_CLIENT_TAG=$(create_tag "[Mock Client]:" "$YELLOW")
-DASHBOARD_TAG=$(create_tag "[Dashboard]:" "$PURPLE")  # Added new tag
+DASHBOARD_TAG=$(create_tag "[Dashboard]:" "$PURPLE")  # Existing tag for dashboard manager
+NOTIFY_TAG=$(create_tag "[Notify]:" "$CYAN")           # New tag for notify package
 
 # Port definitions
 CLOUD_PORT=7002
 CAPTIONS_PORT=7010
 FLASH_PORT=7011
 VITE_PORT=5173
-DASHBOARD_PORT=7012  # Added new port
+DASHBOARD_PORT=7012  # Dashboard Manager port
+NOTIFY_PORT=7016     # New notify package port
 
 # Function to handle errors
 handle_error() {
@@ -122,7 +125,7 @@ setup_and_run() {
 }
 
 # Kill any existing processes on our ports before starting
-for port in $CLOUD_PORT $CAPTIONS_PORT $FLASH_PORT $VITE_PORT $DASHBOARD_PORT; do
+for port in $CLOUD_PORT $CAPTIONS_PORT $FLASH_PORT $VITE_PORT $DASHBOARD_PORT $NOTIFY_PORT; do
     free_up_port $port "Existing process"
 done
 
@@ -130,8 +133,7 @@ done
 ROOT_DIR=$(pwd)
 
 # Check if directories exist
-for dir in "./packages/cloud" "./packages/apps/flash" "./packages/apps/captions" "./packages/debugger" "./packages/apps/dashboard-manager"; do
-# for dir in "./packages/cloud" "./packages/apps/flash" "./packages/apps/captions" "./packages/debugger"; do
+for dir in "./packages/cloud" "./packages/apps/flash" "./packages/apps/captions" "./packages/debugger" "./packages/apps/dashboard-manager" "./packages/apps/notify"; do
     if [ ! -d "$dir" ]; then
         handle_error "$dir directory not found"
     fi
@@ -150,8 +152,9 @@ trap kill_all_processes EXIT INT TERM
 setup_and_run "./packages/cloud" "$CLOUD_TAG" "$RED" "$CLOUD_PORT" "Cloud Server"
 setup_and_run "./packages/apps/captions" "$CAPTIONS_TAG" "$BLUE" "$CAPTIONS_PORT" "Captions Server"
 setup_and_run "./packages/apps/flash" "$FLASH_TAG" "$GREEN" "$FLASH_PORT" "Flash Server"
-setup_and_run "./packages/debugger" "$MOCK_CLIENT_TAG" "$YELLOW" "$VITE_PORT" "Mock Client"
 setup_and_run "./packages/apps/dashboard-manager" "$DASHBOARD_TAG" "$PURPLE" "$DASHBOARD_PORT" "Dashboard Manager"
+setup_and_run "./packages/apps/notify" "$NOTIFY_TAG" "$CYAN" "$NOTIFY_PORT" "Notify Server"
+setup_and_run "./packages/debugger" "$MOCK_CLIENT_TAG" "$YELLOW" "$VITE_PORT" "Mock Client"
 
 echo -e "\n${GREEN}All servers are now running!${NC}"
 echo -e "${YELLOW}Press Ctrl+C to stop all servers${NC}\n"
