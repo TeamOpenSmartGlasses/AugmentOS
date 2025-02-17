@@ -3,14 +3,16 @@ import WebSocket from 'ws';
 import path from 'path';
 import {
   TpaConnectionInitMessage,
+  DisplayRequest,
   TpaSubscriptionUpdateMessage,
   CloudDataStreamMessage,
   DisplayRequest,
 } from '@augmentos/types'; // shared types for cloud TPA messages
+import { CLOUD_PORT, systemApps } from '@augmentos/types/config/cloud.env';
 
 const app = express();
-const PORT = 7016;
-const PACKAGE_NAME = 'org.mentra.notify';
+const PORT = systemApps.notify.port; // Use a different port from your captions app
+const PACKAGE_NAME = systemApps.notify.packageName;
 const API_KEY = 'test_key'; // In production, store securely
 
 // Parse JSON bodies (for the webhook endpoint only)
@@ -60,9 +62,9 @@ app.post('/webhook', async (req, res) => {
     const { sessionId, userId } = req.body;
     console.log(`\n\n🗣️🗣️🗣️Received session request for user ${userId}, session ${sessionId}\n\n`);
 
-    // Start WebSocket connection to cloud
-    const ws = new WebSocket('ws://localhost:7002/tpa-ws');
-    
+    // Establish WebSocket connection to AugmentOS Cloud.
+    const ws = new WebSocket(`ws://localhost:${CLOUD_PORT}/tpa-ws`);
+
     ws.on('open', () => {
       console.log(`\n[Session ${sessionId}]\n connected to augmentos-cloud\n`);
       // Send connection init with session ID
@@ -185,6 +187,7 @@ function displayNextNotification(sessionData: SessionData) {
   const notificationString = constructNotificationString(notification);
 
   // Build the display event message.
+  const displayEvent: DisplayRequest = {
   const displayEvent: DisplayRequest = {
     type: 'display_event',
     view: 'main',

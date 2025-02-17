@@ -4,7 +4,8 @@ import WebSocket from 'ws';
 import path from 'path';
 import {
   TpaConnectionInitMessage,
-  TpaDisplayEventMessage,
+  // TpaDisplayEventMessage, // THIS IS DEPRECATED. USE DisplayRequest INSTEAD
+  DisplayRequest,
   TpaSubscriptionUpdateMessage,
   CloudDataStreamMessage,
 } from '@augmentos/types'; // Reuse shared types if needed
@@ -12,6 +13,7 @@ import {
 // Import the AgentGatekeeper and Agent interface (adjust the paths as needed)
 import { AgentGatekeeper } from '../../../agents/AgentGateKeeper';
 import { Agent } from '../../../agents/AgentInterface';
+import { CLOUD_PORT, systemApps } from '@augmentos/types/config/cloud.env';
 
 // Create or import your agents here.
 // For demonstration, we create a dummy agent.
@@ -34,9 +36,9 @@ const agents: Agent[] = [dummyAgent];
 // const gatekeeper = new AgentGatekeeper(agents);
 
 const app = express();
-const PORT = 7013; // Use a different port from your captions app
+const PORT = systemApps.merge.port; // Use a different port from your captions app
+const PACKAGE_NAME = systemApps.merge.packageName;
 
-const PACKAGE_NAME = 'org.mentra.agentgatekeeper';
 const API_KEY = 'test_key'; // In production, secure this key
 
 // Parse JSON bodies
@@ -53,7 +55,7 @@ app.post('/webhook', async (req, res) => {
     console.log(`\n\n🗣️ Received session request for user ${userId}, session ${sessionId}\n\n`);
 
     // Start WebSocket connection to cloud (adjust the URL if needed)
-    const ws = new WebSocket('ws://localhost:7002/tpa-ws');
+    const ws = new WebSocket(`ws://localhost:${CLOUD_PORT}/tpa-ws`);
     
     ws.on('open', () => {
       console.log(`\n[Session ${sessionId}]\n connected to augmentos-cloud`);
@@ -127,8 +129,10 @@ async function handleTranscription(sessionId: string, ws: WebSocket, transcripti
     const response = await gatekeeper.processContext(inputData);
 
     // Create a display event for the transcription
-    const displayEvent: TpaDisplayEventMessage = {
+    const displayEvent: DisplayRequest = {
       type: 'display_event',
+      view: 'main',
+      timestamp: new Date(),
       packageName: PACKAGE_NAME,
       sessionId,
       layout: {

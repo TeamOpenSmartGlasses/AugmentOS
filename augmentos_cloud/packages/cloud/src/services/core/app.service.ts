@@ -10,42 +10,50 @@
 import { AppI, StopWebhookRequest, StopWebhookResponse } from '@augmentos/types';
 import { AppState } from '@augmentos/types/core/app.session';
 import axios, { AxiosError } from 'axios';
+import { systemApps } from '@augmentos/types/config/cloud.env';
+
 
 /**
  * System TPAs that are always available.
  * These are core applications provided by the platform.
  * @Param developerId - leaving this undefined indicates a system app.
  */
-export const SYSTEM_TPAS: AppI[] = [
-  {
-    packageName: "org.mentra.captions",
-    name: "Captions",
-    description: "Constant Live captions from your device microphone",
-    webhookURL: "http://localhost:7010/webhook",
-    logoURL: "https://cloud.augmentos.org/captions.png",
-  },
-  {
-    packageName: "org.mentra.flash",
-    name: "Flash",
-    description: "Welcome to the future",
-    webhookURL: "http://localhost:7011/webhook",
-    logoURL: "https://cloud.augmentos.org/flash.png",
-  },
-  {
-    packageName: "org.mentra.dashboard",
-    name: "Dashboard",
-    description: "Dashboard for managing your apps",
-    webhookURL: "http://localhost:7012/webhook",
-    logoURL: "http://localhost:7012/logo.png",
-  },
-  {
-    packageName: "org.mentra.notify",
-    name: "Notify",
-    description: "Notifications from your phone",
-    webhookURL: "http://localhost:7016/webhook",
-    logoURL: "http://localhost:7016/logo.png",
-  },
-];
+// export const SYSTEM_TPAS: AppI[] = [
+//   {
+//     packageName: "org.mentra.captions",
+//     name: "Captions",
+//     description: "Constant Live captions from your device microphone",
+//     webhookURL: "http://localhost:7010/webhook",
+//     logoURL: "https://cloud.augmentos.org/captions.png",
+//   },
+//   {
+//     packageName: "org.mentra.flash",
+//     name: "Flash",
+//     description: "Welcome to the future",
+//     webhookURL: "http://localhost:7011/webhook",
+//     logoURL: "https://cloud.augmentos.org/flash.png",
+//   },
+//   {
+//     packageName: "org.mentra.dashboard",
+//     name: "Dashboard",
+//     description: "Dashboard for managing your apps",
+//     webhookURL: "http://localhost:7012/webhook",
+//     logoURL: "http://localhost:7012/logo.png",
+//   },
+// ];
+
+// Map systemApps to SYSTEM_TPAS.
+export const SYSTEM_TPAS: AppI[] = Object.keys(systemApps).map((key) => {
+  const app = systemApps[key as keyof typeof systemApps];
+
+  return {
+    packageName: systemApps[key as keyof typeof systemApps].packageName,
+    name: key,
+    description: key, // TODO(isaiah): Add descriptions
+    webhookURL: `http://localhost:${app.port}/webhook`,
+    logoURL: `https://cloud.augmentos.org/${app.packageName}.png`,
+  }
+});
 
 /**
  * Interface for webhook payloads sent to TPAs.

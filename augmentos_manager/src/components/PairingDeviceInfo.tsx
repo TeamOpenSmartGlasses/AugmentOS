@@ -31,7 +31,7 @@ const PairingDeviceInfo: React.FC<PairingDeviceInfoProps> = ({ isDarkTheme, glas
       slideAnim.setValue(-50);
 
       // Start animations if device is connected
-      if (status.puck_connected) {
+      if (status.core_info.puck_connected) {
         Animated.parallel([
           Animated.timing(fadeAnim, {
             toValue: 1,
@@ -59,7 +59,7 @@ const PairingDeviceInfo: React.FC<PairingDeviceInfoProps> = ({ isDarkTheme, glas
         scaleAnim.stopAnimation();
         slideAnim.stopAnimation();
       };
-    }, [status.puck_connected, fadeAnim, scaleAnim, slideAnim])
+    }, [status.core_info.puck_connected, fadeAnim, scaleAnim, slideAnim])
   );
 
 

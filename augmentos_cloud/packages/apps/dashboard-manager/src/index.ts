@@ -13,12 +13,13 @@ import tzlookup from 'tz-lookup';
 import { NewsAgent } from '../../../agents/NewsAgent';
 import { WeatherModule } from './dashboard-modules/WeatherModule';
 import { NotificationFilterAgent } from '../../../agents/NotificationFilterAgent'; // <-- added import
+import { CLOUD_PORT, systemApps } from '@augmentos/types/config/cloud.env';
 
 const app = express();
-const PORT = 7012; // your Dashboard Manager port
-
-const PACKAGE_NAME = 'org.mentra.dashboard';
+const PORT =  systemApps.dashboard.port;
+const PACKAGE_NAME = systemApps.dashboard.packageName;
 const API_KEY = 'test_key'; // In production, store securely
+
 const LOCATION = 'New York'; // Hardcoded for now
 
 // For demonstration, we'll keep session-based info in-memory.
@@ -61,7 +62,7 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     console.log(`\n[Webhook] Session start for user ${userId}, session ${sessionId}\n`);
 
     // 1) Create a new WebSocket connection to the cloud
-    const ws = new WebSocket('ws://localhost:7002/tpa-ws');
+    const ws = new WebSocket(`ws://localhost:${CLOUD_PORT}/tpa-ws`);
 
     // Create a new dashboard card
     const dashboardCard: DoubleTextWall = {

@@ -106,7 +106,7 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
   // // ---------------------------------------------------------------
   // useEffect(() => {
   //   if (isCoreInstalled && appStoreVersion && status?.augmentos_core_version) {
-  //     if (status.augmentos_core_version >= appStoreVersion) {
+  //     if (status.core_info.augmentos_core_version >= appStoreVersion) {
   //       setIsCoreOutdated(false);
   //       // Open permission screen immediately if needed.
 

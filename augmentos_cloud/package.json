@@ -4,7 +4,8 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "./run.sh"
+    "dev": "./dev.sh",
+    "prod": "./prod.sh"
   },
   "dependencies": {
     "@langchain/anthropic": "^0.3.13",
