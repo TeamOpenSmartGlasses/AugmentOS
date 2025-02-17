@@ -1,3 +1,4 @@
+// In AppSettings.tsx
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, ActivityIndicator } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -13,7 +14,9 @@ import SliderSetting from '../components/settings/SliderSetting';
 import SelectSetting from '../components/settings/SelectSetting';
 import MultiSelectSetting from '../components/settings/MultiSelectSetting';
 import TitleValueSetting from '../components/settings/TitleValueSetting';
-import LoadingComponent from "../components/LoadingComponent.tsx";
+import LoadingComponent from "../components/LoadingComponent";
+import { useStatus } from '../AugmentOSStatusProvider';
+import BackendServerComms from '../backend_comms/BackendServerComms';
 
 type AppSettingsProps = NativeStackScreenProps<
   RootStackParamList,
@@ -23,26 +26,20 @@ type AppSettingsProps = NativeStackScreenProps<
   toggleTheme: () => void;
 };
 
-const AppSettings: React.FC<AppSettingsProps> = ({
-  route,
-  isDarkTheme,
-  toggleTheme,
-}) => {
+const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleTheme }) => {
   const { packageName, appName } = route.params;
   const bluetoothService = BluetoothService.getInstance();
   const [appInfo, setAppInfo] = useState<any>(null);
   const [settingsState, setSettingsState] = useState<{ [key: string]: any }>({});
+  const [coreToken, setCoreToken] = useState<string | null>(null);
+  const { status } = useStatus();
 
+  // Retrieve app info via Bluetooth
   useEffect(() => {
     console.log("OPENED APP SETTINGS!!!");
 
-    // Define the event handler
     const handleInfoResult = ({ appInfo }: { appInfo: any }) => {
-      // console.log("GOT SOME APP INFO YO");
-      // console.log(JSON.stringify(appInfo));
       setAppInfo(appInfo);
-
-      // Initialize settings state with current values
       const initialState: { [key: string]: any } = {};
       appInfo.settings.forEach((setting: any) => {
         if (setting.type !== 'group') {
@@ -52,15 +49,11 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       setSettingsState(initialState);
     };
 
-    // Register the listener and send the request if not mocking
     if (!MOCK_CONNECTION) {
       GlobalEventEmitter.on('APP_INFO_RESULT', handleInfoResult);
       bluetoothService.sendRequestAppDetails(packageName);
-    } else {
-      // Handle mock connection if needed
     }
 
-    // Cleanup function to remove the listener
     return () => {
       if (!MOCK_CONNECTION) {
         GlobalEventEmitter.removeListener('APP_INFO_RESULT', handleInfoResult);
@@ -69,19 +62,37 @@ const AppSettings: React.FC<AppSettingsProps> = ({
     };
   }, [packageName]);
 
+  // Get coreToken from status
+  useEffect(() => {
+    if (status && status.core_info && status.core_info.core_token) {
+      setCoreToken(status.core_info.core_token);
+    }
+  }, [status]);
+
+  // When coreToken is available, call the /tpa-settings endpoint
+  useEffect(() => {
+    if (coreToken) {
+      const backend = BackendServerComms.getInstance();
+      backend.getTpaSettings(coreToken)
+        .then((settings) => {
+          console.log("Retrieved tpa settings:", settings);
+        })
+        .catch((error) => {
+          console.error("Error fetching tpa settings", error);
+        });
+    }
+  }, [coreToken]);
+
   const handleSettingChange = (key: string, value: any) => {
     console.log(`Changing ${key} to ${value}`);
-
     setSettingsState((prevState) => ({
       ...prevState,
       [key]: value,
     }));
-    // Optionally, send the updated setting back via Bluetooth
     let settingObj = { [key]: value }
     bluetoothService.sendUpdateAppSetting(packageName, settingObj);
   };
 
-  // Theme colors
   const theme = {
     backgroundColor: isDarkTheme ? '#1c1c1c' : '#f9f9f9',
     textColor: isDarkTheme ? '#FFFFFF' : '#333333',
@@ -104,7 +115,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'text':
         return (
           <TextSetting
-          key={index}
+            key={index}
             label={setting.label}
             value={settingsState[setting.key]}
             onChangeText={(text) => handleSettingChange(setting.key, text)}
@@ -114,7 +125,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'slider':
         return (
           <SliderSetting
-          key={index}
+            key={index}
             label={setting.label}
             value={settingsState[setting.key]}
             min={setting.min}
@@ -132,7 +143,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'select':
         return (
           <SelectSetting
-          key={index}
+            key={index}
             label={setting.label}
             value={settingsState[setting.key]}
             options={setting.options}
@@ -143,7 +154,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'multiselect':
         return (
           <MultiSelectSetting
-          key={index}
+            key={index}
             label={setting.label}
             values={settingsState[setting.key]}
             options={setting.options}
@@ -154,7 +165,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'titleValue':
         return (
           <TitleValueSetting
-          key={index}
+            key={index}
             label={setting.label}
             value={setting.value}
             theme={theme}
@@ -169,9 +180,9 @@ const AppSettings: React.FC<AppSettingsProps> = ({
     return <LoadingComponent message="Loading App Settings..." theme={theme} />;
   } else {
     if (appInfo.instructions && appInfo.settings?.length > 0) {
-      return (
-        <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-          <ScrollView contentContainerStyle={styles.mainContainer}>
+    return (
+      <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+        <ScrollView contentContainerStyle={styles.mainContainer}>
             <View style={[styles.instructionsContainer, { marginBottom: 20 }]}>
               <Text style={[styles.title, { color: theme.textColor }]}>
                 Instructions
@@ -215,12 +226,12 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       return (
         <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
           <ScrollView contentContainerStyle={styles.mainContainer}>
-            {appInfo.settings.map((setting: any, index: number) =>
+          {appInfo.settings.map((setting: any, index: number) =>
               renderSetting(setting, index)
-            )}
-          </ScrollView>
-        </SafeAreaView>
-      );
+          )}
+        </ScrollView>
+      </SafeAreaView>
+    );
     }
   }
 };

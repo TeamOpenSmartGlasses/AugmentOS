@@ -936,6 +936,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             // Adding puck battery life and charging status
             JSONObject coreInfo = new JSONObject();
             coreInfo.put("augmentos_core_version", getCoreVersion(this));
+            coreInfo.put("core_token", authHandler.getCoreToken());
             coreInfo.put("cloud_connection_status", webSocketStatus.name());
             coreInfo.put("puck_battery_life", batteryStatusHelper.getBatteryLevel());
             coreInfo.put("charging_status", batteryStatusHelper.isBatteryCharging());
@@ -1073,11 +1074,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 sendStatusToAugmentOsManager();
             }
 
-            @Override
-            public void onRequestCoreStatus() {
-                JSONObject status = generateStatusJson();
-                ServerComms.getInstance().sendCoreStatus(status);
-            }
+            // @Override
+            // public void onRequestCoreStatus() {
+            //     JSONObject status = generateStatusJson();
+            //     ServerComms.getInstance().sendCoreStatus(status);
+            // }
         });
     }
 

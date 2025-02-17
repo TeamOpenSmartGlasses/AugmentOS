@@ -8,6 +8,7 @@ import { Server } from 'http';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import helmet from 'helmet';
+import path from 'path';
 
 // Import services
 import { webSocketService } from './services/core/websocket.service';
@@ -16,7 +17,7 @@ import { webSocketService } from './services/core/websocket.service';
 import appRoutes from './routes/apps.routes';
 import authRoutes from './routes/auth.routes';
 import transcriptRoutes from './routes/transcripts.routes';
-import path from 'path';
+import tpaSettingsRoutes from './routes/tpa-settings.routes';  // New route for TPA settings
 
 // Load configuration from environment
 import { CLOUD_PORT } from '@augmentos/types/config/cloud.env';
@@ -29,32 +30,34 @@ const server = new Server(app);
 
 // Middleware setup
 app.use(helmet());
-app.use(cors({
-  credentials: true, 
-  origin: [
-    '*',
-    'http://localhost:3000',
-    'http://127.0.0.1:5173',
-    'http://localhost:5173',
-    'http://127.0.0.1:5174',
-    'http://localhost:5174',
-    'http://localhost:5173',
-    'http://localhost:6173',
-    'https://cloud.augmentos.org',
-    'https://dev.augmentos.org',
-    'https://www.augmentos.org',
-    'https://augmentos.org',
-  ]
-}));
+app.use(
+  cors({
+    credentials: true,
+    origin: [
+      '*',
+      'http://localhost:3000',
+      'http://127.0.0.1:5173',
+      'http://localhost:5173',
+      'http://127.0.0.1:5174',
+      'http://localhost:5174',
+      'http://localhost:5173',
+      'http://localhost:6173',
+      'https://cloud.augmentos.org',
+      'https://dev.augmentos.org',
+      'https://www.augmentos.org',
+      'https://augmentos.org',
+    ],
+  })
+);
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
 
-// Routes
+// Mount routes
 app.use('/apps', appRoutes);
 app.use('/auth', authRoutes);
-
+app.use('/tpasettings', tpaSettingsRoutes); // Exposes the new TPA settings endpoint
 app.use(transcriptRoutes);
 
 // Health check endpoint
