@@ -2,8 +2,8 @@ import { TpaServer, TpaSession } from '@augmentos/clients';
 import path from 'path';
 import { CLOUD_PORT, systemApps } from '@augmentos/types/config/cloud.env';
 
-const PORT = systemApps.captions.port;
-const PACKAGE_NAME = systemApps.captions.packageName;
+const PORT = systemApps.flash.port;
+const PACKAGE_NAME = systemApps.flash.packageName;
 const API_KEY = 'test_key'; // In production, this would be securely stored
 
 class FlashServer extends TpaServer {
