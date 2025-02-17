@@ -14,19 +14,23 @@ export const DEBUGGER_PORT = 6173;
 export const systemApps = {
   captions: {
     port: BASE_PORT + 10,
-    packageName: 'org.mentra.captions',
+    packageName: 'org.augmentos.captions',
   },
   flash: {
     port: BASE_PORT + 11,
-    packageName: 'org.mentra.flash',
+    packageName: 'org.augmentos.flash',
   },
   dashboard: {
     port: BASE_PORT + 12,
-    packageName: 'org.mentra.dashboard',
+    packageName: 'org.augmentos.dashboard',
   },
   merge: {
-    port: BASE_PORT + 15,
-    packageName: 'org.mentra.merge',
+    port: BASE_PORT + 13,
+    packageName: 'org.augmentos.agentgatekeeper',
+  },
+  notify: {
+    port: BASE_PORT + 14,
+    packageName: 'org.augmentos.shownotifications',
   },
 };
 
@@ -38,6 +42,7 @@ export const AZURE_SPEECH_KEY="xxx"
 // JWT Secrets
 export const SUPABASE_JWT_SECRET='xxx';
 export const AUGMENTOS_AUTH_JWT_SECRET='xxx'
+export const JOE_MAMA_USER_JWT='xxx';
 
 // posthog env vars
 export const POSTHOG_PROJECT_API_KEY = "phc_xxx";
