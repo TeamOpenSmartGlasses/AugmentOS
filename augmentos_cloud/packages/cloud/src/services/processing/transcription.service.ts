@@ -220,7 +220,7 @@ export class TranscriptionService implements ITranscriptionService {
       }
     };
 
-    // Handle final results
+    // Handle final results.
     recognizer.transcribed = (_sender: any, event: ConversationTranscriptionEventArgs) => {
       if (!event.result.text) return;
 
