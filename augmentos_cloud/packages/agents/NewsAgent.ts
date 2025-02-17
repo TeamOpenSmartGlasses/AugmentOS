@@ -31,9 +31,10 @@ News Articles Context:
 {news_articles}
 
 Requirements:
-- Each summary must be under 20 characters.
+- Each summary must be under 40 characters.
 - Each summary should capture the key point of the corresponding breaking news.
-- Output exactly one summary per news article, in the order of the news articles provided.
+- Output exactly one summary per news article.
+- Exclude any ads or promotions.
 
 Output Example:
 {{
@@ -54,42 +55,32 @@ export class NewsAgent implements Agent {
   public agentPrompt = agentPromptBlueprint;
   public agentTools = [];
 
-  // Cache to hold summaries and an index pointer
-  private cachedSummaries: string[] = [];
-  private currentIndex: number = 0;
-
   /**
    * Main method from the `Agent` interface.
-   * Each call returns one news summary. When the cache is exhausted,
-   * it fetches new articles, summarizes them, and resets the pointer.
+   * Each call returns the entire list of news summaries.
    */
   public async handleContext(userContext: Record<string, any>): Promise<any> {
     try {
-      // If cache is empty or we have iterated through all cached summaries, refresh it.
-      if (this.cachedSummaries.length === 0 || this.currentIndex >= this.cachedSummaries.length) {
-        // 1) Fetch the articles
-        const articles = await this.fetchNewsArticles();
+      // 1) Fetch the articles
+      const articles = await this.fetchNewsArticles();
 
-        if (!articles.length) {
-          console.log(`[NewsSummarizeAgent] No articles found.`);
-          return { news_summaries: [] };
-        }
+      // console.log(articles);
 
-        // 2) Get summaries from the LLM
-        const summariesResult = await this.summarizeArticlesWithLLM(articles);
-        if (!summariesResult || !summariesResult.news_summaries.length) {
-          return { news_summaries: [] };
-        }
-        
-        // Cache the summaries and reset the index.
-        this.cachedSummaries = summariesResult.news_summaries;
-        this.currentIndex = 0;
+      if (!articles.length) {
+        console.log(`[NewsSummarizeAgent] No articles found.`);
+        return { news_summaries: [] };
       }
 
-      // Return the current summary and increase the index.
-      const singleSummary = this.cachedSummaries[this.currentIndex];
-      this.currentIndex++;
-      return { news_summaries: [singleSummary] };
+      // 2) Get summaries from the LLM
+      const summariesResult = await this.summarizeArticlesWithLLM(articles);
+      if (!summariesResult || !summariesResult.news_summaries.length) {
+        return { news_summaries: [] };
+      }
+
+      // console.log(summariesResult);
+      
+      // Return all the summaries.
+      return summariesResult;
 
     } catch (err) {
       console.error(`[NewsSummarizeAgent] Error handling context:`, err);
@@ -103,7 +94,7 @@ export class NewsAgent implements Agent {
    */
   private async fetchNewsArticles(): Promise<Article[]> {
     const apiKey = "9dfaf1c1608d4ae99da8580b212e9f64";
-    const url = `https://newsapi.org/v2/top-headlines?q=Tech%20News&apiKey=${apiKey}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${apiKey}`;
     
     try {
       const response = await axios.get(url);
