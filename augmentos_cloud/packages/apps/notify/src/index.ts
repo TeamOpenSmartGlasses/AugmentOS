@@ -3,7 +3,6 @@ import WebSocket from 'ws';
 import path from 'path';
 import {
   TpaConnectionInitMessage,
-  DisplayRequest,
   TpaSubscriptionUpdateMessage,
   CloudDataStreamMessage,
   DisplayRequest,
