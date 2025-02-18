@@ -48,7 +48,6 @@ public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
             Log.e(TAG, "Frame size not supported by VAD, exiting.");
             return;
         }
-
         vadModel = vad.setModel(Model.SILERO_DNN)
                 .setSampleRate(SampleRate.SAMPLE_RATE_16K)
                 .setFrameSize(fsToUse)
