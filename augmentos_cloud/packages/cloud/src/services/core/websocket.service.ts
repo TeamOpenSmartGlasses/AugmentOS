@@ -388,13 +388,33 @@ export class WebSocketService implements IWebSocketService {
 
           // this.sessionService.setAudioHandlers(userSession, pushStream, recognizer);
           const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
+
+          // create a map of active apps and what steam types they are subscribed to.
+          const appSubscriptions = new Map<string, StreamType[]>(); // packageName -> streamTypes
+          const whatToStream: Set<StreamType> = new Set(); // packageName -> streamTypes
+
+          for (const packageName of activeAppPackageNames) {
+            const subscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, packageName);
+            appSubscriptions.set(packageName, subscriptions);
+            for (const subscription of subscriptions) {
+              whatToStream.add(subscription);
+            }
+          }
+
+          // Dashboard subscriptions
+          const dashboardSubscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, systemApps.dashboard.packageName);
+          for (const subscription of dashboardSubscriptions) {
+            whatToStream.add(subscription);
+          }
+
           const userSessionData = {
             sessionId: userSession.sessionId,
             userId: userSession.userId,
             startTime: userSession.startTime,
             installedApps: await this.appService.getAllApps(),
+            appSubscriptions,
             activeAppPackageNames,
-            whatToStream: userSession.whatToStream,
+            whatToStream: Array.from(new Set(whatToStream)),
           };
 
           const ackMessage: CloudConnectionAckMessage = {
@@ -428,6 +448,12 @@ export class WebSocketService implements IWebSocketService {
             for (const subscription of subscriptions) {
               whatToStream.add(subscription);
             }
+          }
+
+          // Dashboard subscriptions
+          const dashboardSubscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, systemApps.dashboard.packageName);
+          for (const subscription of dashboardSubscriptions) {
+            whatToStream.add(subscription);
           }
 
           const userSessionData = {
@@ -531,6 +557,12 @@ export class WebSocketService implements IWebSocketService {
               for (const subscription of subscriptions) {
                 whatToStream.add(subscription);
               }
+            }
+
+            // Dashboard subscriptions
+            const dashboardSubscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, systemApps.dashboard.packageName);
+            for (const subscription of dashboardSubscriptions) {
+              whatToStream.add(subscription);
             }
 
             const userSessionData = {
@@ -674,7 +706,13 @@ export class WebSocketService implements IWebSocketService {
                   whatToStream.add(subscription);
                 }
               }
-    
+
+              // Dashboard subscriptions
+              const dashboardSubscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, systemApps.dashboard.packageName);
+              for (const subscription of dashboardSubscriptions) {
+                whatToStream.add(subscription);
+              }
+
               const userSessionData = {
                 sessionId: userSession.sessionId,
                 userId: userSession.userId,
@@ -684,7 +722,7 @@ export class WebSocketService implements IWebSocketService {
                 activeAppPackageNames,
                 whatToStream: Array.from(new Set(whatToStream)),
               };
-    
+
               const clientResponse: CloudAppStateChangeMessage = {
                 type: 'app_state_change',
                 sessionId: userSession.sessionId, // TODO: Remove this field and check all references.
