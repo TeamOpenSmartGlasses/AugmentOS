@@ -393,19 +393,19 @@ async function updateDashboard(sessionId?: string) {
 
   // Define right modules.
   const rightModules = [
-    {
-      name: "news",
-      async run(context: any) {
-        // Instead of fetching news here, use the cached news from the session.
-        const session: SessionInfo = context.session;
-        console.log(session.newsCache);
-        console.log(session.newsIndex);
-        if (session.newsCache && session.newsCache.length > 0 && typeof session.newsIndex === 'number') {
-          return session.newsCache[session.newsIndex] || '-';
-        }
-        return '-';
-      },
-    },
+    // {
+    //   name: "news",
+    //   async run(context: any) {
+    //     // Instead of fetching news here, use the cached news from the session.
+    //     const session: SessionInfo = context.session;
+    //     console.log(session.newsCache);
+    //     console.log(session.newsIndex);
+    //     if (session.newsCache && session.newsCache.length > 0 && typeof session.newsIndex === 'number') {
+    //       return session.newsCache[session.newsIndex] || '-';
+    //     }
+    //     return '-';
+    //   },
+    // },
     {
       name: "weather",
       async run(context: any) {
