@@ -1,5 +1,7 @@
 package com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators;
 
+import static com.augmentos.augmentos_core.smarterglassesmanager.utils.BitmapJavaUtils.convertBitmapTo1BitBmpBytes;
+
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
@@ -1489,7 +1491,14 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public void displayTextLine(String text) {}
 
     @Override
-    public void displayBitmap(Bitmap bmp) {}
+    public void displayBitmap(Bitmap bmp) {
+        try {
+        //    byte[] bmpBytes = convertBitmapTo1BitBmpBytes(bmp, false);
+        //    displayBitmapImage(bmpBytes);
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage());
+        }
+    }
 
     public void blankScreen() {}
 
