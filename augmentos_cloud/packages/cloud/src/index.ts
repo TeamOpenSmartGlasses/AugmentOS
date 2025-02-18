@@ -15,10 +15,14 @@ import { webSocketService } from './services/core/websocket.service';
 // Import routes
 import appRoutes from './routes/apps.routes';
 import authRoutes from './routes/auth.routes';
+import transcriptRoutes from './routes/transcripts.routes';
 import path from 'path';
 
 // Load configuration from environment
 import { CLOUD_PORT } from '@augmentos/types/config/cloud.env';
+import * as mongoConnection from "./connections/mongodb.connection";
+
+mongoConnection.init();
 
 const PORT = CLOUD_PORT;
 
@@ -53,6 +57,8 @@ app.use(cookieParser());
 // Routes
 app.use('/apps', appRoutes);
 app.use('/auth', authRoutes);
+
+app.use(transcriptRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
