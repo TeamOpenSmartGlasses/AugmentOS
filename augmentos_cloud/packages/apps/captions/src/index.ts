@@ -18,6 +18,13 @@ const API_KEY = 'test_key'; // In production, this would be securely stored
 
 const userTranscriptProcessors: Map<string, TranscriptProcessor> = new Map();
 
+// For debouncing transcripts per session
+interface TranscriptDebouncer {
+  lastSentTime: number;
+  timer: NodeJS.Timeout | null;
+}
+const transcriptDebouncers: Map<string, TranscriptDebouncer> = new Map();
+
 // Parse JSON bodies
 app.use(express.json());
 
@@ -58,12 +65,15 @@ app.post('/webhook', async (req, res) => {
       console.log(`Session ${sessionId} disconnected`);
       activeSessions.delete(sessionId);
       userTranscriptProcessors.delete(sessionId);
+      transcriptDebouncers.delete(sessionId);
     });
 
     activeSessions.set(sessionId, ws);
     userTranscriptProcessors.set(sessionId, new TranscriptProcessor(30, 3));
-    res.status(200).json({ status: 'connecting' });
+    // Initialize debouncer for the session
+    transcriptDebouncers.set(sessionId, { lastSentTime: 0, timer: null });
 
+    res.status(200).json({ status: 'connecting' });
   } catch (error) {
     console.error('Error handling webhook:', error);
     res.status(500).json({ error: 'Internal server error' });
@@ -101,6 +111,9 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
   }
 }
 
+/**
+ * Processes the transcription, applies debouncing, and then sends a display event.
+ */
 function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData: any) {
   let transcriptProcessor = userTranscriptProcessors.get(sessionId);
   if (!transcriptProcessor) {
@@ -112,9 +125,53 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
   const text = transcriptProcessor.processString(transcriptionData.text, isFinal);
 
   console.log(`[Session ${sessionId}]: ${text}`);
-  console.log(`[Session ${sessionId}]: ${isFinal}`);
+  console.log(`[Session ${sessionId}]: isFinal=${isFinal}`);
 
-  // Create a display event for the transcription
+  debounceAndShowTranscript(sessionId, ws, text, isFinal);
+}
+
+/**
+ * Debounces the sending of transcript display events so that non-final transcripts
+ * are not sent too frequently. Final transcripts are sent immediately.
+ */
+function debounceAndShowTranscript(sessionId: string, ws: WebSocket, transcript: string, isFinal: boolean) {
+  const debounceDelay = 400; // in milliseconds
+  const debouncer = transcriptDebouncers.get(sessionId);
+  if (!debouncer) {
+    // Initialize if it doesn't exist
+    transcriptDebouncers.set(sessionId, { lastSentTime: 0, timer: null });
+  }
+  const currentDebouncer = transcriptDebouncers.get(sessionId)!;
+
+  // Clear any previously scheduled timer
+  if (currentDebouncer.timer) {
+    clearTimeout(currentDebouncer.timer);
+    currentDebouncer.timer = null;
+  }
+
+  const now = Date.now();
+
+  if (isFinal) {
+    showTranscriptsToUser(sessionId, ws, transcript, true);
+    currentDebouncer.lastSentTime = now;
+    return;
+  }
+
+  if (now - currentDebouncer.lastSentTime >= debounceDelay) {
+    showTranscriptsToUser(sessionId, ws, transcript, false);
+    currentDebouncer.lastSentTime = now;
+  } else {
+    currentDebouncer.timer = setTimeout(() => {
+      showTranscriptsToUser(sessionId, ws, transcript, false);
+      currentDebouncer.lastSentTime = Date.now();
+    }, debounceDelay);
+  }
+}
+
+/**
+ * Sends a display event (transcript) to the cloud.
+ */
+function showTranscriptsToUser(sessionId: string, ws: WebSocket, transcript: string, isFinal: boolean) {
   const displayEvent: DisplayRequest = {
     type: 'display_event',
     view: "main",
@@ -122,13 +179,13 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
     sessionId,
     layout: {
       layoutType: 'text_wall',
-      text: text
+      text: transcript
     },
     timestamp: new Date(),
+    // Use a fixed duration for final transcripts; non-final ones omit the duration
     durationMs: isFinal ? 3000 : undefined
   };
 
-  // Send the display event back to the cloud
   ws.send(JSON.stringify(displayEvent));
 }
 

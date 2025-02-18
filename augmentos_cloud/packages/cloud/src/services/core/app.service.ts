@@ -18,42 +18,58 @@ import { systemApps } from '@augmentos/types/config/cloud.env';
  * These are core applications provided by the platform.
  * @Param developerId - leaving this undefined indicates a system app.
  */
-// export const SYSTEM_TPAS: AppI[] = [
-//   {
-//     packageName: "org.mentra.captions",
-//     name: "Captions",
-//     description: "Constant Live captions from your device microphone",
-//     webhookURL: "http://localhost:7010/webhook",
-//     logoURL: "https://cloud.augmentos.org/captions.png",
-//   },
-//   {
-//     packageName: "org.mentra.flash",
-//     name: "Flash",
-//     description: "Welcome to the future",
-//     webhookURL: "http://localhost:7011/webhook",
-//     logoURL: "https://cloud.augmentos.org/flash.png",
-//   },
-//   {
-//     packageName: "org.mentra.dashboard",
-//     name: "Dashboard",
-//     description: "Dashboard for managing your apps",
-//     webhookURL: "http://localhost:7012/webhook",
-//     logoURL: "http://localhost:7012/logo.png",
-//   },
-// ];
+export const APP_STORE: AppI[] = [
+  {
+    packageName: systemApps.captions.packageName,
+    name: systemApps.captions.name,
+    description: "Constant Live captions from your device microphone 🗣️🎙️",
+    webhookURL: `http://localhost:${systemApps.captions.port}/webhook`,
+    logoURL: `https://cloud.augmentos.org/${systemApps.captions.packageName}.png`,
+  },
+  {
+    packageName: systemApps.flash.packageName,
+    name: systemApps.flash.name,
+    description: "⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️",
+    webhookURL: `http://localhost:${systemApps.flash.port}/webhook`,
+    logoURL: `https://cloud.augmentos.org/${systemApps.flash.packageName}.png`,
+  },
+  {
+    packageName: systemApps.merge.packageName,
+    name: systemApps.merge.name,
+    description: "Conversation Augmentation, your proactive agent making all of your conversations better one insight at a time. 🚀",
+    webhookURL: `http://localhost:${systemApps.merge.port}/webhook`,
+    logoURL: `https://cloud.augmentos.org/${systemApps.merge.packageName}.png`,
+  },
+];
+
+/**
+ * System TPAs that are always available.
+ * These are core applications provided by the platform.
+ * @Param developerId - leaving this undefined indicates a system app.
+ */
+export const SYSTEM_TPAS: AppI[] = [
+  {
+    packageName: systemApps.dashboard.packageName,
+    name: systemApps.dashboard.name,
+    description: "The time, The news, The weather, The notifications, The everything. 😎🌍🚀",
+    webhookURL: `http://localhost:${systemApps.dashboard.port}/webhook`,
+    logoURL: `https://cloud.augmentos.org/${systemApps.dashboard.packageName}.png`,
+  },
+
+];
 
 // Map systemApps to SYSTEM_TPAS.
-export const SYSTEM_TPAS: AppI[] = Object.keys(systemApps).map((key) => {
-  const app = systemApps[key as keyof typeof systemApps];
+// export const SYSTEM_TPAS: AppI[] = Object.keys(systemApps).map((key) => {
+//   const app = systemApps[key as keyof typeof systemApps];
 
-  return {
-    packageName: systemApps[key as keyof typeof systemApps].packageName,
-    name: key,
-    description: key, // TODO(isaiah): Add descriptions
-    webhookURL: `http://localhost:${app.port}/webhook`,
-    logoURL: `https://cloud.augmentos.org/${app.packageName}.png`,
-  }
-});
+//   return {
+//     packageName: systemApps[key as keyof typeof systemApps].packageName,
+//     name: key,
+//     description: key, // TODO(isaiah): Add descriptions
+//     webhookURL: `http://localhost:${app.port}/webhook`,
+//     logoURL: `https://cloud.augmentos.org/${app.packageName}.png`,
+//   }
+// });
 
 /**
  * Interface for webhook payloads sent to TPAs.
@@ -103,7 +119,7 @@ export class AppService implements IAppService {
    * @returns Promise resolving to array of all apps
    */
   async getAllApps(): Promise<AppI[]> {
-    return [...SYSTEM_TPAS, ...this.userTpas];
+    return [...APP_STORE, ...this.userTpas];
   }
 
   /**
@@ -120,7 +136,7 @@ export class AppService implements IAppService {
    * @returns Promise resolving to app if found
    */
   async getApp(packageName: string): Promise<AppI | undefined> {
-    return [...SYSTEM_TPAS, ...this.userTpas].find(app => app.packageName === packageName);
+    return [...SYSTEM_TPAS, ...APP_STORE].find(app => app.packageName === packageName);
   }
 
   /**

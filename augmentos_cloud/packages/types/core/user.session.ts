@@ -1,7 +1,7 @@
 // src/types/models/session.ts
 import type { Layout, DisplayRequest } from '../layout/layout';
 import type { StreamType } from '../websocket/common';
-import type { AppI, AppSettings } from '../models/app';
+import type { AppI, AppSettings } from './app';
 import type { AppSessionI, AppState } from './app.session';
 import type { TranscriptI } from './transcript';
 
@@ -10,18 +10,6 @@ import {
   PushAudioInputStream,
 } from 'microsoft-cognitiveservices-speech-sdk';
 
-// export interface UserSessionI {
-//   userId: string;
-//   sessionStartTime: Date;
-//   appSessions: AppSessionI[];
-//   activeAppSession?: AppSessionI;
-//   transcript: TranscriptI;
-//   displayManager: DisplayManagerI;
-//   currentDisplay?: Layout;
-//   pushStream?: any;  // For audio streaming
-//   recognizer?: any;  // For speech recognition
-//   bufferedAudio?: ArrayBuffer[];
-// }
 
 /**
  * Represents an active user session with a glasses client.
@@ -33,9 +21,13 @@ export interface UserSession {
   startTime: Date;
   disconnectedAt: Date | null;
 
+  // App Sessions and App State
   installedApps: AppI[];
-  // activeAppSessions: Map<string, AppSession>;
   activeAppSessions: string[];
+  loadingApps: string[];
+  appSubscriptions: Map<string, StreamType[]>;
+
+
   displayManager: DisplayManagerI;
   websocket: WebSocket;
   transcript: TranscriptI
@@ -49,8 +41,8 @@ export interface UserSession {
 
   // TODO:
   whatToStream: StreamType[];
-  appSubscriptions: Map<string, StreamType[]>;
 
+  // OS Settings.
   OSSettings: any;
 }
 
@@ -60,15 +52,6 @@ export interface UserSession {
 // We can support multiple views, and neatly orginize them by app id, by holding them in state in the shape of this interface.
 // Each user session will have a DisplayManager instance.
 export interface DisplayManagerI {
-  // views: {
-  //   // [appId: string]: Layout; // actually not quite, because each app can have multiple views.
-  //   // so each view will have it's own view id (scoped to the appSession tied together with the appId)
-    
-  //   // [appId: string]: [viewId: string]: Layout; // syntax is wrong..
-  //   [appId: string]: {
-  //     [viewId: string]: Layout;
-  //   };
-  // };
   activeDisplays: Map<string, ActiveDisplay>;
   views: Map<AppSessionI["packageName"], Map<UserSession["sessionId"], Layout>>;
   handleDisplayEvent(displayRequest: DisplayRequest): Promise<boolean>;

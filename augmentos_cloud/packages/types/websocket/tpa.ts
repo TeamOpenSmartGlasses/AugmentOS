@@ -1,10 +1,10 @@
 // src/types/websocket/tpa.ts
 import type { WebSocketMessage } from './common';
 import type { Layout } from '../layout/layout';
-import type { AppSettings } from '../models/app';
+import type { AppSettings } from '../core/app';
 import type { StreamType } from './common';
 import type { Language } from '../core/app.session';
-import type { DisplayRequest } from '../events/display';
+import type { DisplayRequest } from '../layout/layout';
 import type { PhoneEvent } from '../events/phone';
 import type { HardwareEvent } from '../events/hardware';
 
