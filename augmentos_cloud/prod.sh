@@ -34,7 +34,7 @@ CAPTIONS_PORT=7010
 FLASH_PORT=7011
 VITE_PORT=5173
 DASHBOARD_PORT=7012  # Dashboard Manager port
-NOTIFY_PORT=7016     # New notify package port
+NOTIFY_PORT=7014     # New notify package port
 
 # Function to handle errors
 handle_error() {
