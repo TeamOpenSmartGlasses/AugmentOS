@@ -425,10 +425,11 @@ public class ServerComms {
                     serverCommsCallback.onDisplayEvent(msg);
                 break;
 
-            case "request_core_status":
+            case "request_single":
                 Log.d(TAG, "Received request_core_status: " + msg.toString());
+                String dataType = msg.optString("data_type");
                 if (serverCommsCallback != null)
-                    serverCommsCallback.onRequestCoreStatus();
+                    serverCommsCallback.onRequestSingle(dataType);
                 break;
 
             case "interim":

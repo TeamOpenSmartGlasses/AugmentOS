@@ -871,9 +871,19 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             }
 
             @Override
-            public void onRequestCoreStatus() {
-                JSONObject status = generateStatusJson();
-                ServerComms.getInstance().sendCoreStatus(status);
+            public void onRequestSingle(String dataType) {
+                switch (dataType) {
+                    case "core_status":
+                        Log.d(TAG, "Server wants a core_status");
+                        JSONObject status = generateStatusJson();
+                        ServerComms.getInstance().sendCoreStatus(status);
+                    break;
+                    case "photo":
+                        Log.d(TAG, "Server wants a photo");
+                    default:
+                        Log.d(TAG, "Unknown onRequestSingle dataType: " + dataType);
+                        break;
+                }
             }
         });
     }
