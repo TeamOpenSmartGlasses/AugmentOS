@@ -12,11 +12,11 @@ import { TranscriptProcessor } from '../../../utils/text-wrapping/TranscriptProc
 import { systemApps, CLOUD_PORT } from '@augmentos/types/config/cloud.env';
 
 const app = express();
-const PORT =  systemApps.captions.port;
+const PORT = systemApps.captions.port;
 const PACKAGE_NAME = systemApps.captions.packageName;
 const API_KEY = 'test_key'; // In production, this would be securely stored
 
-const transcriptProcessor = new TranscriptProcessor(30, 3);
+const userTranscriptProcessors: Map<string, TranscriptProcessor> = new Map();
 
 // Parse JSON bodies
 app.use(express.json());
@@ -57,9 +57,11 @@ app.post('/webhook', async (req, res) => {
     ws.on('close', () => {
       console.log(`Session ${sessionId} disconnected`);
       activeSessions.delete(sessionId);
+      userTranscriptProcessors.delete(sessionId);
     });
 
     activeSessions.set(sessionId, ws);
+    userTranscriptProcessors.set(sessionId, new TranscriptProcessor(30, 3));
     res.status(200).json({ status: 'connecting' });
 
   } catch (error) {
@@ -100,6 +102,12 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
 }
 
 function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData: any) {
+  let transcriptProcessor = userTranscriptProcessors.get(sessionId);
+  if (!transcriptProcessor) {
+    transcriptProcessor = new TranscriptProcessor(30, 3);
+    userTranscriptProcessors.set(sessionId, transcriptProcessor);
+  }
+
   const isFinal = transcriptionData.isFinal;
   const text = transcriptProcessor.processString(transcriptionData.text, isFinal);
 

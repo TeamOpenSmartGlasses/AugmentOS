@@ -21,6 +21,7 @@ import com.zoontek.rnpermissions.RNPermissionsPackage
 import it.innove.BleManagerPackage
 import kjd.reactnative.bluetooth.RNBluetoothClassicPackage
 import com.reactnativecommunity.slider.ReactSliderPackage
+import com.lugg.RNCConfig.RNCConfigPackage
 
 // import com.augmentos.augmentos_manager.NotificationServicePackage
 
@@ -52,6 +53,7 @@ class MainApplication : Application(), ReactApplication {
                 NotificationAccessPackage(),
                 TpaHelpersPackage(),
                 FetchConfigHelperPackage(),
+                RNCConfigPackage(),
             )
         }
 
