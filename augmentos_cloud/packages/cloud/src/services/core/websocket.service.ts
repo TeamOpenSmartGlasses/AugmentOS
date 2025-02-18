@@ -363,14 +363,14 @@ export class WebSocketService implements IWebSocketService {
           this.transcriptionService.startTranscription(userSession);
           // this.transcriptionService.startTranscription(
           //   userSession,
-            // (result) => {
-            //   console.log(`[Session ${userSession.sessionId}] Recognizing:`, result.text);
-            //   this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
-            // },
-            // (result) => {
-            //   console.log(`[Session ${userSession.sessionId}] Final result ${result?.speakerId}:`, result.text);
-            //   this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
-            // }
+          // (result) => {
+          //   console.log(`[Session ${userSession.sessionId}] Recognizing:`, result.text);
+          //   this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
+          // },
+          // (result) => {
+          //   console.log(`[Session ${userSession.sessionId}] Final result ${result?.speakerId}:`, result.text);
+          //   this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
+          // }
           // );
 
           // this.sessionService.setAudioHandlers(userSession, pushStream, recognizer);
@@ -603,20 +603,54 @@ export class WebSocketService implements IWebSocketService {
 
         case 'VAD': {
           const vadMessage = message as VADStateMessage;
-          console.log(`\n\n[Session ${userSession.sessionId}]🗣️🔥💸 VAD state:`, vadMessage, "\n\n");
-          // this.broadcastToTpa(userSession.sessionId, 'VAD', vadMessage);
+          console.log('\n🎤 VAD State Change');
+          console.log('Current state:', {
+            sessionId: userSession.sessionId,
+            userId: userSession.userId,
+            vadMessage: vadMessage,
+            currentlyTranscribing: userSession.isTranscribing,
+            hasRecognizer: !!userSession.recognizer,
+            hasPushStream: !!userSession.pushStream,
+            bufferedAudioChunks: userSession.bufferedAudio.length
+          });
+        
           PosthogService.trackEvent("VAD", userSession.userId, {
             sessionId: userSession.sessionId,
             eventType: message.type,
             timestamp: new Date().toISOString(),
             vadState: vadMessage,
           });
-
-          // if the vad state is inactive, kill the push stream.
-          if (!vadMessage.isSpeaking || vadMessage.isSpeaking === "false") {
-            this.transcriptionService.stopTranscription(userSession);
-          } else {
-            this.transcriptionService.startTranscription(userSession);
+        
+          // Convert VAD state to boolean - explicitly handle all possible cases
+          const isSpeaking = vadMessage.status === true || vadMessage.status === 'true';
+          
+          console.log(`VAD speaking state: ${isSpeaking}`);
+        
+          try {
+            if (isSpeaking) {
+              console.log('🎙️ VAD detected speech - ensuring transcription is active');
+              if (!userSession.isTranscribing) {
+                userSession.isTranscribing = true;
+                transcriptionService.startTranscription(userSession);
+              }
+            } else {
+              console.log('🤫 VAD detected silence - stopping transcription');
+              if (userSession.isTranscribing) {
+                userSession.isTranscribing = false;
+                transcriptionService.stopTranscription(userSession);
+              }
+            }
+        
+            console.log('Updated state:', {
+              isTranscribing: userSession.isTranscribing,
+              hasRecognizer: !!userSession.recognizer,
+              hasPushStream: !!userSession.pushStream
+            });
+          } catch (error) {
+            console.error('❌ Error handling VAD state change:', error);
+            // On error, reset to a clean state
+            userSession.isTranscribing = false;
+            transcriptionService.stopTranscription(userSession);
           }
           break;
         }

@@ -29,7 +29,7 @@ export interface GlassesDashboardStateMessage extends WebSocketMessage {
 
 export interface VADStateMessage extends WebSocketMessage {
   type: "VAD";
-  isSpeaking: boolean | "true" | "false";
+  status: boolean | "true" | "false";
 }
 
 export type GlassesToCloudMessage =

@@ -32,9 +32,11 @@ export interface UserSession {
   websocket: WebSocket;
   transcript: TranscriptI
 
+
   // Azure Speech Service handles
   pushStream?: PushAudioInputStream;
   recognizer?: ConversationTranscriber;
+  isTranscribing: boolean;  // New flag to track transcription state
 
   // Pre-initialization audio buffer
   bufferedAudio: ArrayBuffer[];
