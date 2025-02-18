@@ -74,6 +74,8 @@ export class SessionService implements ISessionService {
       installedApps: appService.getSystemApps(),
       whatToStream: new Array<StreamType>(),
       appSubscriptions: new Map<string, StreamType[]>(),
+      loadingApps: [],
+      // loadingApps: ["org.augmentos.dashboard"],
 
       OSSettings: { brightness: 50, volume: 50 },
 

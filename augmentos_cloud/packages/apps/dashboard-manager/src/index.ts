@@ -86,7 +86,7 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
 
       const initMessage: TpaConnectionInitMessage = {
         type: 'tpa_connection_init',
-        sessionId,
+        sessionId: sessionId,
         packageName: PACKAGE_NAME,
         apiKey: API_KEY,
       };
@@ -96,7 +96,7 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
         type: 'display_event',
         view: 'dashboard',
         packageName: PACKAGE_NAME,
-        sessionId,
+        sessionId: sessionId,
         layout: dashboardCard,
         durationMs: 4000,
         timestamp: new Date(),
@@ -126,8 +126,9 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     });
 
     // 4) On close, clean up session
-    ws.on('close', () => {
-      console.log(`[Session ${sessionId}] Disconnected`);
+    ws.on('close', (message) => {
+
+      console.log(`\n\n[Session ${sessionId}] 🛑TPA Disconnected`, message, "\n");
       activeSessions.delete(sessionId);
     });
 
@@ -155,7 +156,7 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
       const subMessage: TpaSubscriptionUpdateMessage = {
         type: 'subscription_update',
         packageName: PACKAGE_NAME,
-        sessionId,
+        sessionId: sessionId,
         subscriptions: ['phone_notification', 'location_update', 'head_position', 'glasses_battery_update']
       };
       ws.send(JSON.stringify(subMessage));
@@ -488,7 +489,7 @@ async function updateDashboard(sessionId?: string) {
       type: 'display_event',
       view: 'dashboard',
       packageName: PACKAGE_NAME,
-      sessionId,
+      sessionId: sessionId,
       layout: {
         layoutType: 'double_text_wall',
         topText: leftText,
