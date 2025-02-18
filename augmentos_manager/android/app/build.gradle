@@ -2,6 +2,13 @@ apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
+project.ext.envConfigFiles = [
+  debug: ".env",
+  release: ".env",
+]
+
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -102,6 +109,8 @@ dependencies {
 
     implementation project(path: ":augmentos_core")
     implementation 'com.facebook.react:hermes-android:0.75.4'
+
+    implementation project(':react-native-config')
 }
 
 // Include custom vector icons fonts from react-native-vector-icons
@@ -113,11 +122,4 @@ project.ext.react = [
     enableHermes: false  // Disable Hermes for troubleshooting
 ]
 
-project.ext.envConfigFiles = [
-  debug: ".env",
-  release: ".env",
-]
-
-
-apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"

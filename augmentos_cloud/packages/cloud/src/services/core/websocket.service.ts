@@ -46,9 +46,10 @@ import transcriptionService, { ITranscriptionService } from '../processing/trans
 import appService, { IAppService } from './app.service';
 import { DisplayRequest } from '@augmentos/types';
 import jwt, { JwtPayload } from 'jsonwebtoken';
-import { AUGMENTOS_AUTH_JWT_SECRET } from '../../env';
 import { AxiosError } from 'axios';
 import { PosthogService } from '../logging/posthog.service';
+import { AUGMENTOS_AUTH_JWT_SECRET } from '@augmentos/types/config/cloud.env';
+import { User } from '../../models/user.model';
 
 // Constants
 const TPA_SESSION_TIMEOUT_MS = 5000;  // 30 seconds
@@ -305,8 +306,6 @@ export class WebSocketService implements IWebSocketService {
           const initMessage = message as GlassesConnectionInitMessage;
           const coreToken = initMessage.coreToken || "";
           let userId = '';
-          // const userId = initMessage.userId;
-          // console.log(`[websocket.service] Glasses client attempting to connect: ${coreToken}`);
 
           try {
             const userData = jwt.verify(coreToken, AUGMENTOS_AUTH_JWT_SECRET);
@@ -326,13 +325,33 @@ export class WebSocketService implements IWebSocketService {
             ws.send(JSON.stringify(errorMessage));
             return;
           }
-
           console.log(`[websocket.service] Glasses client connected: ${userId}`);
+
+          // See if this user has an existing session and reconnect if so.
           try {
             this.sessionService.handleReconnectUserSession(userSession, userId);
           }
           catch (error) {
             console.error(`\n\n\n\n[websocket.service] Error reconnecting user session starting new session:`, error);
+          }
+
+          // Start all the apps that the user has running.
+          try {
+            const user = await User.findOrCreateUser(userSession.userId);
+            const userApps = user.runningApps;
+            console.log(`\n\n[websocket.service] 🚀✅ Starting ${userApps.length} apps for user ${userSession.userId}\n`);
+            for (const app of userApps) {
+              console.log(`\n\n[websocket.service]\n[${userId}]\n🚀✅ Starting app ${app}\n`);
+              await this.initiateTpaSession(
+                userSession.sessionId,
+                userSession?.userId || 'anonymous',
+                app
+              );
+              userSession.activeAppSessions.push(app);
+            }
+          }
+          catch (error) {
+            console.error(`\n\n[websocket.service] Error starting user apps:`, error, `\n\n`);
           }
 
           // Start transcription
@@ -349,7 +368,6 @@ export class WebSocketService implements IWebSocketService {
           );
 
           // this.sessionService.setAudioHandlers(userSession, pushStream, recognizer);
-
           const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
           const userSessionData = {
             sessionId: userSession.sessionId,
@@ -406,6 +424,17 @@ export class WebSocketService implements IWebSocketService {
             timestamp: new Date().toISOString()
             // message: message, // May contain sensitive data so let's not log it. just the event name cause i'm ethical like that 😇
           });
+
+          // Update users running apps in the database.
+          try {
+            const user = await User.findByEmail(userSession.userId);
+            if (user) {
+              await user.addRunningApp(startMessage.packageName);
+            }
+          }
+          catch (error) {
+            console.error(`\n\n[websocket.service] Error updating user running apps:`, error, `\n\n`);
+          }
           break;
         }
 
@@ -476,6 +505,17 @@ export class WebSocketService implements IWebSocketService {
               timestamp: new Date()
             };
             ws.send(JSON.stringify(clientResponse));
+
+            // Update users running apps in the database.
+            try {
+              const user = await User.findByEmail(userSession.userId);
+              if (user) {
+                await user.addRunningApp(stopMessage.packageName);
+              }
+            }
+            catch (error) {
+              console.error(`\n\n[websocket.service] Error updating user running apps:`, error, `\n\n`);
+            }
 
           } catch (error) {
             console.error(`Error stopping app ${stopMessage.packageName}:`, error);

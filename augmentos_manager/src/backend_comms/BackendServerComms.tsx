@@ -19,6 +19,7 @@ export default class BackendServerComms {
         const serverUrl = `${protocol}://${host}:${port}`;
         console.log("\n\n\n\n Got a new server url: ");
         console.log(serverUrl)
+        console.log('React Native Config:', Config)
         console.log("\n\n\n");
         return serverUrl;
     }

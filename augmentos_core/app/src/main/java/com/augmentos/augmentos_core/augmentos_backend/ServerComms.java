@@ -356,6 +356,18 @@ public class ServerComms {
         }
     }
 
+    public void sendCoreStatus(JSONObject status) {
+        try {
+            JSONObject event = new JSONObject();
+            event.put("type", "core_status");
+            event.put("status", status);
+            event.put("timestamp", System.currentTimeMillis());
+            wsManager.sendText(event.toString());
+        } catch (JSONException e) {
+            Log.e(TAG, "Error building location_update JSON", e);
+        }
+    }
+
     // ------------------------------------------------------------------------
     // INTERNAL: Message Handling
     // ------------------------------------------------------------------------
@@ -411,6 +423,12 @@ public class ServerComms {
                     serverCommsCallback.onDashboardDisplayEvent(msg);
                 else
                     serverCommsCallback.onDisplayEvent(msg);
+                break;
+
+            case "request_core_status":
+                Log.d(TAG, "Received request_core_status: " + msg.toString());
+                if (serverCommsCallback != null)
+                    serverCommsCallback.onRequestCoreStatus();
                 break;
 
             case "interim":

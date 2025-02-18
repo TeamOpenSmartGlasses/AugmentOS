@@ -1,13 +1,11 @@
 
 export interface TranscriptSegment {
-  speakerId: string;
+  speakerId?: string;
+  resultId: string;
   text: string;
-  durationInMilliseconds: number;
-  relativeStartTimeInMilliseconds: number;
-  wordsEndAndStartTimesInMilliseconds: [number, number];
+  timestamp: Date;
 }
 
 export interface TranscriptI {
   segments: TranscriptSegment[];
 }
-
