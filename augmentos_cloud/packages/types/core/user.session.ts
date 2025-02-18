@@ -25,7 +25,7 @@ export interface UserSession {
   installedApps: AppI[];
   activeAppSessions: string[];
   loadingApps: string[];
-  appSubscriptions: Map<string, StreamType[]>;
+  appSubscriptions: Map<string, StreamType[]> | Object; // packageName -> subscriptions;
 
 
   displayManager: DisplayManagerI;

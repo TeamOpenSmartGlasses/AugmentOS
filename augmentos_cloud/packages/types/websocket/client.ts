@@ -59,7 +59,7 @@ export interface CloudDisplayEventMessage extends WebSocketMessage {
 
 export interface CloudAppStateChangeMessage extends WebSocketMessage {
   type: "app_state_change";
-  userSession: Partial<UserSession>;
+  userSession: Partial<UserSession> ;
   error?: string;
 }
 

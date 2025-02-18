@@ -40,6 +40,13 @@ export const APP_STORE: AppI[] = [
     webhookURL: `http://localhost:${systemApps.merge.port}/webhook`,
     logoURL: `https://cloud.augmentos.org/${systemApps.merge.packageName}.png`,
   },
+  {
+    packageName: systemApps.notify.packageName,
+    name: systemApps.notify.name,
+    description: "Conversation Augmentation, your proactive agent making all of your conversations better one insight at a time. 🚀",
+    webhookURL: `http://localhost:${systemApps.notify.port}/webhook`,
+    logoURL: `https://cloud.augmentos.org/${systemApps.notify.packageName}.png`,
+  },
 ];
 
 /**
