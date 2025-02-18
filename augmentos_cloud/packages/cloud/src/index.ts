@@ -20,6 +20,9 @@ import path from 'path';
 
 // Load configuration from environment
 import { CLOUD_PORT } from '@augmentos/types/config/cloud.env';
+import * as mongoConnection from "./connections/mongodb.connection";
+
+mongoConnection.init();
 
 const PORT = CLOUD_PORT;
 
