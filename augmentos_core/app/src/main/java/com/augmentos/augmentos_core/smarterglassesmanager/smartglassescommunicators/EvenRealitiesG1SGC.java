@@ -42,6 +42,7 @@ import com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.HeadUpAngleEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.G1FontLoader;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.SmartGlassesConnectionState;
+import com.augmentos.augmentoslib.events.GlassesTapOutputEvent;
 import com.google.gson.Gson;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.AudioChunkNewEvent;
 import com.augmentos.smartglassesmanager.cpp.L3cCpp;
@@ -365,21 +366,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 }
             }
 
-            // In your BLE callback implementation:
-//            @Override
-//            public void onDescriptorWrite(BluetoothGatt gatt, BluetoothGattDescriptor descriptor, int status) {
-//                super.onDescriptorWrite(gatt, descriptor, status);
-//
-//                if (status == BluetoothGatt.GATT_SUCCESS) {
-//                    Log.d(TAG, "PROC_QUEUE - " + side + " SIDE: Descriptor write callback successful");
-//                } else {
-//                    Log.e(TAG, "PROC_QUEUE - " + side + " SIDE: Descriptor write callback failed with status: " + status);
-//                }
-//            }
-
             @Override
             public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
-//                Log.d(TAG, "PROC ***************************** GOT SOMETHING");
                 characteristicHandler.post(() -> {
                     if (characteristic.getUuid().equals(UART_RX_CHAR_UUID)) {
                         byte[] data = characteristic.getValue();
@@ -395,22 +383,14 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                                 throw new IllegalStateException("Failed to decode LC3 data");
                             }
 
-//                            Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName);
                             if (deviceName.contains("R_")) {
-                                //Log.d(TAG, "Ignoring...");
-//                                Log.d(TAG, "Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
 //                                Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName + ", length: " + pcmData.length);
                                 if (!forceCoreOnboardMic) {
                                     EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
                                 }
                             } else {
 //                                Log.d(TAG, "Lc3 Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(lc3) + ", from: " + deviceName);
-//                                Log.d(TAG, "PCM Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(pcmData) + ", from: " + deviceName);
-//                                if (!forceCoreOnboardMic) {
-//                                  EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
-//                                }
                             }
-//                          Log.d(this.getClass().getSimpleName(), "============Lc3 data = " + Arrays.toString(lc3) + ", Pcm = " + Arrays.toString(pcmData));
                         }
                         //HEAD UP MOVEMENTS
                         else if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x02) {
@@ -419,23 +399,14 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                                 // Check for head down movement - initial F5 02 signal
                                 Log.d(TAG, "HEAD UP MOVEMENT DETECTED");
                                 EventBus.getDefault().post(new GlassesHeadUpEvent());
-                                //showDashboard();
-                                //                                displayTextWall("AugmentOS\t\tDashboard\nBy the boys:\n- cayden\n- Israelov\n- Nicobro");
-                                //                                byte[] bmpData = loadBmpFromAssets();
-                                //                                if (bmpData != null) {
-                                //                                    displayBitmapImage(bmpData);
-                                //                                } else {
-                                //                                    Log.e(TAG, "Could not load BMP data");
-                                //                                }
                             }
                         }
                         //HEAD DOWN MOVEMENTS
                         else if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && (data[1] & 0xFF) == 0x03) {
                             if (deviceName.contains("R_")) {
-                                // Log.d(TAG, "HEAD DOWN MOVEMENT DETECTED");
+                                 Log.d(TAG, "HEAD DOWN MOVEMENT DETECTED");
                                 //                                clearBmpDisplay();
                                 EventBus.getDefault().post(new GlassesHeadDownEvent());
-
                             }
                         }
                         //BATTERY RESPONSE
@@ -455,21 +426,43 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         else if (data.length > 0 && data[0] == 0x4E) {
                             Log.d(TAG, "Text response was: " + ((data.length > 1 && (data[1] & 0xFF) == 0xC9) ? "SUCCEED" : "FAIL"));
                         }
+                        //TAPS
+                        else if (data.length > 0 && data[0] == 0xf5) {
+                            int taps = -1;
+                            switch (data[1]) {
+                                case 0x01:
+                                    taps = 1;
+                                    break;
+                                case 0x00:
+                                    taps = 2;
+                                    break;
+                                case 0x04:
+                                case 0x05:
+                                    taps = 3;
+                                    break;
+                            }
+
+                            if (taps != -1) {
+                                boolean isRight = deviceName.contains("R_");
+                                EventBus.getDefault().post(new GlassesTapOutputEvent(taps, isRight, System.currentTimeMillis()));
+                            }
+                        }
+
                         // Handle other non-audio responses
                         else {
                             Log.d(TAG, "PROC - Received other Even Realities response: " + bytesToHex(data) + ", from: " + deviceName);
                         }
 
                         //clear the waiter
-                        if ((data.length > 1 && (data[1] & 0xFF) == 0xC9)){
-                            if (deviceName.contains("L_")) {
-                                Log.d(TAG, "PROC - clearing LEFT waiter on success");
-                                leftWaiter.setFalse();
-                            } else {
-                                Log.d(TAG, "PROC - clearing RIGHT waiter on success");
-                                rightWaiter.setFalse();
-                            }
-                        }
+//                        if ((data.length > 1 && (data[1] & 0xFF) == 0xC9)){
+//                            if (deviceName.contains("L_")) {
+//                                Log.d(TAG, "PROC - clearing LEFT waiter on success");
+//                                leftWaiter.setFalse();
+//                            } else {
+//                                Log.d(TAG, "PROC - clearing RIGHT waiter on success");
+//                                rightWaiter.setFalse();
+//                            }
+//                        }
                     }
                 });
             }
