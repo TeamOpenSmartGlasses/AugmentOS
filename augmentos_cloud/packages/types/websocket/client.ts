@@ -27,11 +27,17 @@ export interface GlassesDashboardStateMessage extends WebSocketMessage {
   isOpen: boolean;
 }
 
+export interface VADStateMessage extends WebSocketMessage {
+  type: "VAD";
+  status: boolean | "true" | "false";
+}
+
 export type GlassesToCloudMessage =
   | GlassesConnectionInitMessage
   | GlassesStartAppMessage
   | GlassesStopAppMessage
   | GlassesDashboardStateMessage
+  | VADStateMessage
   | HardwareEvent
   | PhoneEvent;
 

@@ -8,7 +8,7 @@
  */
 
 import { ActiveDisplay, AppI, DisplayManagerI, Layout, Views } from '@augmentos/types';
-import { DisplayRequest } from '@augmentos/types/events/display';
+import { DisplayRequest } from '@augmentos/types';
 
 export class DisplayManager implements DisplayManagerI {
     // Keep history for debugging/support

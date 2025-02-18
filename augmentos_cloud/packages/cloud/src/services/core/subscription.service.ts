@@ -11,7 +11,7 @@
 
 import { 
     StreamType,
-    WebSocketError
+    UserSession,
   } from '@augmentos/types';
   
   /**
@@ -24,18 +24,6 @@ import {
   }
   
   /**
-   * Interface defining the public API of the subscription service
-   */
-  export interface ISubscriptionService {
-    updateSubscriptions(sessionId: string, packageName: string, userId: string, subscriptions: StreamType[]): void;
-    getSubscribedApps(sessionId: string, subscription: StreamType): string[];
-    getAppSubscriptions(sessionId: string, packageName: string): StreamType[];
-    getSubscriptionHistory(sessionId: string, packageName: string): SubscriptionHistory[];
-    removeSubscriptions(sessionId: string, packageName: string): void;
-    hasSubscription(sessionId: string, packageName: string, subscription: StreamType): boolean;
-  }
-  
-  /**
    * Implementation of the subscription management service.
    * Design decisions:
    * 1. In-memory storage for fast access
@@ -43,7 +31,7 @@ import {
    * 3. Wildcard subscription support ('*' or 'all')
    * 4. Session-scoped subscriptions
    */
-  export class SubscriptionService implements ISubscriptionService {
+  export class SubscriptionService {
     /**
      * Map of active subscriptions keyed by session:app
      * @private
@@ -83,29 +71,28 @@ import {
     ): void {
       const key = this.getKey(sessionId, packageName);
       const currentSubs = this.subscriptions.get(key) || new Set();
-      const action: SubscriptionHistory['action'] = 
-        currentSubs.size === 0 ? 'add' : 'update';
-  
+      const action: SubscriptionHistory['action'] = currentSubs.size === 0 ? 'add' : 'update';
+
       // Validate subscriptions
       for (const sub of subscriptions) {
         if (!this.isValidSubscription(sub)) {
           throw new Error(`Invalid subscription type: ${sub}`);
         }
       }
-  
+
       // Update subscriptions
       this.subscriptions.set(key, new Set(subscriptions));
-  
+
       // Record history
       this.addToHistory(key, {
         timestamp: new Date(),
         subscriptions: [...subscriptions],
         action
       });
-  
+
       console.log(`Updated subscriptions for ${packageName} in session ${sessionId}:`, subscriptions);
     }
-  
+
     /**
      * Gets all TPAs subscribed to a specific stream type
      * @param sessionId - User session identifier
@@ -155,9 +142,13 @@ import {
      * @param sessionId - User session identifier
      * @param packageName - TPA identifier
      */
-    removeSubscriptions(sessionId: string, packageName: string): void {
-      const key = this.getKey(sessionId, packageName);
-      
+    removeSubscriptions(userSession: UserSession, packageName: string): void {
+      const key = this.getKey(userSession.sessionId, packageName);
+      if (userSession.appConnections.has(packageName)) {
+        // TODO send message to user that we are destroying the connection.
+        userSession.appConnections.delete(packageName);
+      }
+
       if (this.subscriptions.has(key)) {
         const currentSubs = Array.from(this.subscriptions.get(key) || []);
         
@@ -168,7 +159,7 @@ import {
           action: 'remove'
         });
   
-        console.log(`Removed all subscriptions for ${packageName} in session ${sessionId}`);
+        console.log(`Removed all subscriptions for ${packageName} in session ${userSession.sessionId}`);
       }
     }
   
