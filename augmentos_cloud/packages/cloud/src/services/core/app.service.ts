@@ -34,19 +34,19 @@ export const APP_STORE: AppI[] = [
     logoURL: `https://cloud.augmentos.org/${systemApps.flash.packageName}.png`,
   },
   {
-    packageName: systemApps.merge.packageName,
-    name: systemApps.merge.name,
-    description: "Conversation Augmentation, your proactive agent making all of your conversations better one insight at a time. 🚀",
-    webhookURL: `http://localhost:${systemApps.merge.port}/webhook`,
-    logoURL: `https://cloud.augmentos.org/${systemApps.merge.packageName}.png`,
-  },
-  {
     packageName: systemApps.notify.packageName,
     name: systemApps.notify.name,
-    description: "Conversation Augmentation, your proactive agent making all of your conversations better one insight at a time. 🚀",
+    description: "Show notifications from your device 🔔",
     webhookURL: `http://localhost:${systemApps.notify.port}/webhook`,
     logoURL: `https://cloud.augmentos.org/${systemApps.notify.packageName}.png`,
   },
+  {
+    packageName: systemApps.mira.packageName,
+    name: systemApps.mira.name,
+    description: "Mira AI, your proactive agent making all of your conversations better one insight at a time. 🚀",
+    webhookURL: `http://localhost:${systemApps.mira.port}/webhook`,
+    logoURL: `https://cloud.augmentos.org/${systemApps.mira.packageName}.png`,
+  }
 ];
 
 /**

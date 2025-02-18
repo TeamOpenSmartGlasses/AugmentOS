@@ -2,7 +2,7 @@
 
 import { Tool } from '@langchain/core/tools';
 import { SerpAPI } from '@langchain/community/tools/serpapi';
-
+import { SERPAPI_API_KEY } from '@augmentos/types/config/cloud.env';
 interface SearchInput {
   searchKeyword: string;
   includeImage?: boolean;
@@ -27,7 +27,7 @@ export class SearchToolForAgents extends Tool {
 
   constructor() {
     super();
-    this.serpApi = new SerpAPI(process.env.SERPAPI_API_KEY || '');
+    this.serpApi = new SerpAPI(SERPAPI_API_KEY || '');
   }
 
   /**
