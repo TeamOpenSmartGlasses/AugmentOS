@@ -177,7 +177,7 @@ public class ServerComms {
         JSONObject vadMsg = new JSONObject();
         try {
             vadMsg.put("type", "VAD");
-            vadMsg.put("status", isSpeaking ? "true" : "false");
+            vadMsg.put("status", isSpeaking);
             wsManager.sendText(vadMsg.toString());
         } catch (JSONException e) {
             Log.e(TAG, "Error building VAD JSON", e);
