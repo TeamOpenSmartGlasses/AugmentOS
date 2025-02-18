@@ -12,19 +12,15 @@
 
 import * as azureSpeechSDK from 'microsoft-cognitiveservices-speech-sdk';
 import {
-  Recognizer,
   SessionEventArgs,
   SpeechRecognitionCanceledEventArgs,
-  SpeechRecognitionEventArgs,
   ProfanityOption,
   OutputFormat,
   AudioInputStream,
   AudioConfig,
-  SpeechRecognizer,
   ConversationTranscriber,
   ConversationTranscriptionEventArgs
 } from 'microsoft-cognitiveservices-speech-sdk';
-// import { AZURE_SPEECH_REGION, AZURE_SPEECH_KEY } from '../../env';
 import { TranscriptionData, UserSession } from '@augmentos/types';
 import { AZURE_SPEECH_KEY, AZURE_SPEECH_REGION } from '@augmentos/types/config/cloud.env';
 
@@ -99,10 +95,7 @@ export class TranscriptionService implements ITranscriptionService {
 
     // Configure speech recognition settings
     this.speechConfig.speechRecognitionLanguage = config.speechRecognitionLanguage || 'en-US';
-
-    // if (config.enableProfanityFilter) {
     this.speechConfig.setProfanity(ProfanityOption.Raw);
-    // }
 
     // Enable detailed output for better result parsing
     this.speechConfig.outputFormat = OutputFormat.Simple;
@@ -144,12 +137,7 @@ export class TranscriptionService implements ITranscriptionService {
     // Set up recognition handlers
     this.setupRecognitionHandlers(userSession, onInterimResult, onFinalResult);
 
-    // Start continuous recognition
-    // recognizer.startTranscribingAsync(
-    //   () => console.log(`[Session ${userSession.userId}] Continuous recognition started`),
-    //   (err) => console.error(`[Session ${userSession.userId}] Error starting recognition:`, err)
-    // );
-    //   // Start continuous recognition with error handling
+    // Start continuous recognition with error handling
     recognizer.startTranscribingAsync(
       () => {
         console.log(`[Session ${userSession.sessionId}] Continuous recognition started`);
@@ -179,67 +167,6 @@ export class TranscriptionService implements ITranscriptionService {
 
     return { recognizer, pushStream };
   }
-  // startTranscription(
-  //   userSession: UserSession,
-  //   onInterimResult: (result: InterimTranscriptionResult) => void,
-  //   onFinalResult: (result: FinalTranscriptionResult) => void
-  // ): { recognizer: ConversationTranscriber; pushStream: azureSpeechSDK.PushAudioInputStream } {
-  //   this.sessionStartTime = Date.now();
-
-  //   // Clean up any existing streams first
-  //   if (userSession.recognizer) {
-  //     userSession.recognizer.stopTranscribingAsync(
-  //       () => {
-  //         userSession.recognizer?.close();
-  //         userSession.recognizer = undefined;
-  //       },
-  //       (err) => console.error(`Error stopping previous transcription: ${err}`)
-  //     );
-  //   }
-
-  //   if (userSession.pushStream) {
-  //     userSession.pushStream.close();
-  //     userSession.pushStream = undefined;
-  //   }
-
-  //   // Create new streams
-  //   const pushStream = AudioInputStream.createPushStream();
-  //   const audioConfig = AudioConfig.fromStreamInput(pushStream);
-  //   const recognizer = new ConversationTranscriber(this.speechConfig, audioConfig);
-
-  //   // Set up recognition handlers
-  //   this.setupRecognitionHandlers(userSession, onInterimResult, onFinalResult);
-
-  //   // Start continuous recognition with error handling
-  //   recognizer.startTranscribingAsync(
-  //     () => {
-  //       console.log(`[Session ${userSession.sessionId}] Continuous recognition started`);
-  //       userSession.pushStream = pushStream;
-  //       userSession.recognizer = recognizer;
-
-  //       // Process any buffered audio after stream is ready
-  //       if (userSession.bufferedAudio.length > 0) {
-  //         console.log(`Processing ${userSession.bufferedAudio.length} buffered audio chunks`);
-  //         userSession.bufferedAudio.forEach(chunk => {
-  //           try {
-  //             pushStream.write(chunk);
-  //           } catch (error) {
-  //             console.error('Error processing buffered audio:', error);
-  //           }
-  //         });
-  //         userSession.bufferedAudio = [];
-  //       }
-  //     },
-  //     (err) => {
-  //       console.error(`[Session ${userSession.sessionId}] Error starting recognition:`, err);
-  //       // Cleanup on error
-  //       recognizer.close();
-  //       pushStream.close();
-  //     }
-  //   );
-
-  //   return { recognizer, pushStream };
-  // }
 
   private setupRecognitionHandlers(
     userSession: UserSession,
@@ -255,7 +182,6 @@ export class TranscriptionService implements ITranscriptionService {
     // Handle interim results
     recognizer.transcribing = (_sender: any, event: ConversationTranscriptionEventArgs) => {
       if (!event.result.text) return;
-
       const result: InterimTranscriptionResult = {
         type: 'transcription-interim',
         text: event.result.text,
@@ -264,11 +190,37 @@ export class TranscriptionService implements ITranscriptionService {
         isFinal: false,
         speakerId: event.result.speakerId,
       };
-
       onInterimResult(result);
+
+      // check if the last message is the same resultId, if so, update the text and timestamp.
+      let addSegment = false;
+      if (userSession.transcript.segments.length > 0) {
+        // Update the last segment if it's the same resultId.
+        const lastSegment = userSession.transcript.segments[userSession.transcript.segments.length - 1];
+        if (lastSegment.resultId === event.result.resultId) {
+          lastSegment.text = event.result.text;
+          lastSegment.timestamp = new Date();
+        } else {
+          addSegment = true;
+        }
+      } else {
+        addSegment = true;
+      }
+
+      // Add new segment to userSession transcript history.
+      if (addSegment) {
+        userSession.transcript.segments.push(
+          {
+            resultId: event.result.resultId,
+            speakerId: event.result.speakerId,
+            text: event.result.text,
+            timestamp: new Date(),
+          }
+        );
+      }
     };
 
-    // Handle final results
+    // Handle final results.
     recognizer.transcribed = (_sender: any, event: ConversationTranscriptionEventArgs) => {
       if (!event.result.text) return;
 
@@ -283,6 +235,15 @@ export class TranscriptionService implements ITranscriptionService {
       };
 
       onFinalResult(result);
+      // Add to userSession transcript history.
+      userSession.transcript.segments.push(
+        {
+          resultId: event.result.resultId,
+          speakerId: event.result.speakerId,
+          text: event.result.text,
+          timestamp: new Date(),
+        }
+      );
     };
 
     // Handle cancellation

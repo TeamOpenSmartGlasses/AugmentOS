@@ -1,12 +1,10 @@
 // src/types/models/user.ts
+import type { AppSettingType } from "./app";
 
-export interface UserI {
-  email: string;
-  // Add any other user-specific fields here
-}
-
-export interface DeveloperI {
-  email: string;
-  apiKeys?: string[];  // For managing TPA development
-  organizationId?: string;  // For future organization support
-}
+// export interface UserI {
+//   email: string;
+//   runningApps: string[];
+//   appSettings: Map<string, AppSettingType[]>;
+//   createdAt?: Date;
+//   updatedAt?: Date;
+// }

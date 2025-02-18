@@ -187,7 +187,6 @@ function displayNextNotification(sessionData: SessionData) {
 
   // Build the display event message.
   const displayEvent: DisplayRequest = {
-  const displayEvent: DisplayRequest = {
     type: 'display_event',
     view: 'main',
     packageName: PACKAGE_NAME,

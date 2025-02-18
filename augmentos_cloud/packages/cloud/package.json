@@ -49,6 +49,7 @@
     "jsonwebtoken": "^9.0.1",
     "microsoft-cognitiveservices-speech-sdk": "^1.40.0",
     "moment": "^2.29.4",
+    "mongodb": "^6.13.0",
     "mongoose": "^6.5.2",
     "multer": "^1.4.5-lts.1",
     "openai": "^4.28.0",
