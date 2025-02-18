@@ -711,56 +711,103 @@ export class WebSocketService implements IWebSocketService {
     currentSession: string | null,
     setCurrentSessionId: (sessionId: string) => void
   ): Promise<void> {
-    switch (message.type) {
-      case 'tpa_connection_init': {
-        const initMessage = message as TpaConnectionInitMessage;
-        await this.handleTpaInit(ws, initMessage, setCurrentSessionId);
-        break;
-      }
-
-      case 'subscription_update': {
-        if (!currentSession) {
-          ws.close(1008, 'No active session');
-          return;
+    try {
+      switch (message.type) {
+        case 'tpa_connection_init': {
+          const initMessage = message as TpaConnectionInitMessage;
+          await this.handleTpaInit(ws, initMessage, setCurrentSessionId);
+          break;
         }
-
-        const subMessage = message as TpaSubscriptionUpdateMessage;
-        const connection = this.tpaConnections.get(currentSession);
-        if (!connection) return;
-
-        const userSession = this.sessionService.getSession(connection.userSessionId);
-        if (!userSession) {
-          ws.close(1008, 'No active session');
-          return;
+  
+        case 'subscription_update': {
+          if (!currentSession) {
+            ws.close(1008, 'No active session');
+            return;
+          }
+  
+          const subMessage = message as TpaSubscriptionUpdateMessage;
+          const connection = this.tpaConnections.get(currentSession);
+          if (!connection) return;
+  
+          const userSession = this.sessionService.getSession(connection.userSessionId);
+          if (!userSession) {
+            ws.close(1008, 'No active session');
+            return;
+          }
+  
+          this.subscriptionService.updateSubscriptions(
+            connection.userSessionId,
+            connection.packageName,
+            userSession.userId,
+            subMessage.subscriptions
+          );
+  
+          // TODO tell the client the new app state change for updates to the app subscriptions.
+          // Get the list of active apps.
+          const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
+  
+          // create a map of active apps and what steam types they are subscribed to.
+          const appSubscriptions = new Map<string, StreamType[]>(); // packageName -> streamTypes
+          const whatToStream: Set<StreamType> = new Set(); // packageName -> streamTypes
+  
+          for (const packageName of activeAppPackageNames) {
+            const subscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, packageName);
+            appSubscriptions.set(packageName, subscriptions);
+            for (const subscription of subscriptions) {
+              whatToStream.add(subscription);
+            }
+          }
+  
+          const userSessionData = {
+            sessionId: userSession.sessionId,
+            userId: userSession.userId,
+            startTime: userSession.startTime,
+            installedApps: await this.appService.getAllApps(),
+            appSubscriptions,
+            activeAppPackageNames,
+            whatToStream: Array.from(new Set(whatToStream)),
+          };
+  
+          const clientResponse: CloudAppStateChangeMessage = {
+            type: 'app_state_change',
+            sessionId: userSession.sessionId, // TODO: Remove this field and check all references.
+            userSession: userSessionData,
+            timestamp: new Date()
+          };
+          userSession?.websocket.send(JSON.stringify(clientResponse));
+          break;
         }
-
-        this.subscriptionService.updateSubscriptions(
-          connection.userSessionId,
-          connection.packageName,
-          userSession.userId,
-          subMessage.subscriptions
-        );
-        break;
-      }
-
-      case 'display_event': {
-        if (!currentSession) {
-          ws.close(1008, 'No active session');
-          return;
+  
+        case 'display_event': {
+          if (!currentSession) {
+            ws.close(1008, 'No active session');
+            return;
+          }
+  
+          const displayMessage = message as DisplayRequest;
+          const connection = this.tpaConnections.get(currentSession);
+          if (!connection) return;
+  
+          this.sessionService.updateDisplay(
+            connection.userSessionId,
+            displayMessage
+          );
+  
+          break;
         }
-
-        const displayMessage = message as DisplayRequest;
-        const connection = this.tpaConnections.get(currentSession);
-        if (!connection) return;
-
-        this.sessionService.updateDisplay(
-          connection.userSessionId,
-          displayMessage
-        );
-
-        break;
       }
-
+    }
+    catch (error) {
+      console.error('Error handling TPA message:', error);
+      this.sendError(ws, {
+        code: 'MESSAGE_HANDLING_ERROR',
+        message: 'Error processing message'
+      });
+      PosthogService.trackEvent("error-handleTpaMessage", "anonymous", {
+        eventType: message.type,
+        timestamp: new Date().toISOString(),
+        error: error,
+      });
     }
   }
 
