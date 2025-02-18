@@ -13,7 +13,7 @@
 
 import { WebSocket } from 'ws';
 import { v4 as uuidv4 } from 'uuid';
-import { UserSession } from '@augmentos/types';
+import { StreamType, UserSession } from '@augmentos/types';
 import { TranscriptSegment } from '@augmentos/types/core/transcript';
 import DisplayManager from '../layout/DisplayManager';
 import { DisplayRequest } from '@augmentos/types';
@@ -72,7 +72,9 @@ export class SessionService implements ISessionService {
       startTime: new Date(),
       activeAppSessions: [],
       installedApps: appService.getSystemApps(),
-      whatToStream: ["*"],
+      whatToStream: new Array<StreamType>(),
+      appSubscriptions: new Map<string, StreamType[]>(),
+
       OSSettings: { brightness: 50, volume: 50 },
 
       displayManager: new DisplayManager(),

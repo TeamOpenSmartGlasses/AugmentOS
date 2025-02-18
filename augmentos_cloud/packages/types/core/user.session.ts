@@ -48,7 +48,9 @@ export interface UserSession {
   bufferedAudio: ArrayBuffer[];
 
   // TODO:
-  whatToStream: [StreamType];
+  whatToStream: StreamType[];
+  appSubscriptions: Map<string, StreamType[]>;
+
   OSSettings: any;
 }
 
