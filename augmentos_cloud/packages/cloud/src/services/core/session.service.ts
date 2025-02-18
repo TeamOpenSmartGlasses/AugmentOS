@@ -4,26 +4,13 @@ import { StreamType, UserSession } from '@augmentos/types';
 import { TranscriptSegment } from '@augmentos/types/core/transcript';
 import DisplayManager from '../layout/DisplayManager';
 import { DisplayRequest } from '@augmentos/types';
-import appService from './app.service';
+import appService, { SYSTEM_TPAS } from './app.service';
 import transcriptionService from '../processing/transcription.service';
 
 const RECONNECT_GRACE_PERIOD_MS = 30000; // 30 seconds
 const LOG_AUDIO = false;
 
-export interface ISessionService {
-  createSession(ws: WebSocket, userId?: string): UserSession;
-  getSession(sessionId: string): UserSession | null;
-  handleReconnectUserSession(newSession: UserSession, userId: string): void;
-  updateDisplay(websocket: WebSocket, displayRequest: DisplayRequest): void;
-  addTranscriptSegment(userSession: UserSession, segment: TranscriptSegment): void;
-  handleAudioData(userSession: UserSession, audioData: ArrayBuffer | any): void;
-  getAllSessions(): UserSession[];
-  markSessionDisconnected(userSession: UserSession): void;
-  isItTimeToKillTheSession(sessionId: string): boolean;
-  endSession(sessionId: string): void;
-}
-
-export class SessionService implements ISessionService {
+export class SessionService {
   private activeSessions = new Map<string, UserSession>();
 
   createSession(ws: WebSocket, userId = 'anonymous'): UserSession {
@@ -89,11 +76,49 @@ export class SessionService implements ISessionService {
     }
   }
 
-  updateDisplay(websocket: WebSocket, displayRequest: DisplayRequest): void {
-    if (websocket && websocket.readyState === WebSocket.OPEN) {
-      websocket.send(JSON.stringify(displayRequest));
+  // In SessionService, update updateDisplay method
+
+  updateDisplay(userSessionId: string, displayRequest: DisplayRequest): void {
+    const session = this.getSession(userSessionId);
+    if (!session) {
+      console.error(`❌ No session found for display update: ${userSessionId}`);
+      return;
+    }
+
+    const isSystemApp = SYSTEM_TPAS.some(app => app.packageName === displayRequest.packageName);
+    console.log('📱 Processing display request:', {
+      sessionId: userSessionId,
+      view: displayRequest.view,
+      packageName: displayRequest.packageName,
+      isSystemApp
+    });
+
+    // Update display history
+    try {
+      // Give system apps priority in display management
+      // if (isSystemApp) {
+      //   displayRequest.priority = 'high';
+      // }
+      session.displayManager.handleDisplayEvent(displayRequest);
+      console.log('✅ Updated display history');
+    } catch (error) {
+      console.error('❌ Error updating display history:', error);
+    }
+
+    // Send to glasses client - ensure system app displays always go through
+    if (session.websocket?.readyState === WebSocket.OPEN) {
+      try {
+        session.websocket.send(JSON.stringify(displayRequest));
+        console.log('✅ Sent display update to glasses');
+      } catch (error) {
+        console.error('❌ Error sending display update:', error);
+      }
     } else {
-      console.error(`\n[session.service] WebSocket is not open for display update.\n`);
+      console.error('⚠️ Glasses websocket not ready:', {
+        hasWebsocket: !!session.websocket,
+        readyState: session.websocket?.readyState,
+        isSystemApp
+      });
     }
   }
 

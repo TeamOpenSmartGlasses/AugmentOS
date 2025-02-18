@@ -12,6 +12,7 @@ import {
 import { CloudDataStreamMessage, TranscriptionData, UserSession } from '@augmentos/types';
 import { AZURE_SPEECH_KEY, AZURE_SPEECH_REGION } from '@augmentos/types/config/cloud.env';
 import subscriptionService from '../core/subscription.service';
+import webSocketService from '../core/websocket.service';
 
 export interface InterimTranscriptionResult extends TranscriptionData {
   type: 'transcription-interim';
@@ -33,7 +34,7 @@ export class TranscriptionService {
     enableProfanityFilter?: boolean;
   } = {}) {
     console.log('🎤 Initializing TranscriptionService...');
-    
+
     if (!AZURE_SPEECH_KEY || !AZURE_SPEECH_REGION) {
       console.error('❌ Missing Azure credentials!');
       throw new Error('Azure Speech key and region are required');
@@ -47,7 +48,7 @@ export class TranscriptionService {
     this.speechConfig.speechRecognitionLanguage = config.speechRecognitionLanguage || 'en-US';
     this.speechConfig.setProfanity(ProfanityOption.Raw);
     this.speechConfig.outputFormat = OutputFormat.Simple;
-    
+
     console.log('✅ TranscriptionService initialized with config:', {
       language: this.speechConfig.speechRecognitionLanguage,
       region: AZURE_SPEECH_REGION,
@@ -79,7 +80,7 @@ export class TranscriptionService {
 
       userSession.pushStream = pushStream;
       userSession.recognizer = recognizer;
-      
+
       console.log('✅ Created new recognizer and push stream');
 
       // Set up recognition handlers
@@ -91,7 +92,7 @@ export class TranscriptionService {
         () => {
           console.log('✅ Recognition started successfully');
           userSession.isTranscribing = true;
-          
+
           // Process buffered audio
           if (userSession.bufferedAudio.length > 0) {
             console.log(`📦 Processing ${userSession.bufferedAudio.length} buffered audio chunks`);
@@ -124,7 +125,7 @@ export class TranscriptionService {
     recognizer.transcribing = (_sender: any, event: ConversationTranscriptionEventArgs) => {
       if (!event.result.text) return;
       console.log(`🎤 [Interim] ${event.result.text}`);
-      
+
       const result: InterimTranscriptionResult = {
         type: 'transcription-interim',
         text: event.result.text,
@@ -238,7 +239,7 @@ export class TranscriptionService {
   private updateTranscriptHistory(userSession: UserSession, event: ConversationTranscriptionEventArgs) {
     console.log('📝 Updating transcript history...');
     let addSegment = false;
-    
+
     if (userSession.transcript.segments.length > 0) {
       const lastSegment = userSession.transcript.segments[userSession.transcript.segments.length - 1];
       if (lastSegment.resultId === event.result.resultId) {
@@ -264,30 +265,53 @@ export class TranscriptionService {
     }
   }
 
+  // Inside TranscriptionService class
   private broadcastTranscriptionResult(userSession: UserSession, results: TranscriptionData) {
-    const subscribedApps = subscriptionService.getSubscribedApps(userSession.sessionId, 'transcription');
-    console.log(`📢 Broadcasting to ${subscribedApps.length} subscribed apps`);
+    console.log('📢 Broadcasting transcription result');
 
-    for (const packageName of subscribedApps) {
-      const appSessionId = `${userSession.sessionId}-${packageName}`;
-      const websocket = userSession.appConnections.get(packageName);
-
-      if (websocket?.readyState === WebSocket.OPEN) {
-        console.log(`📤 Sending to ${packageName}`);
-        const streamMessage: CloudDataStreamMessage = {
-          type: 'data_stream',
-          sessionId: appSessionId,
-          streamType: 'transcription',
-          data: results,
-          timestamp: new Date()
-        };
-
-        websocket.send(JSON.stringify(streamMessage));
-      } else {
-        console.warn(`⚠️ WebSocket not ready for ${packageName}`);
-      }
+    try {
+      // Use the webSocketService's broadcast method
+      webSocketService.broadcastToTpa(
+        userSession.sessionId,
+        'transcription',
+        results
+      );
+    } catch (error) {
+      console.error('❌ Error broadcasting transcription:', error);
+      console.log('Failed to broadcast:', {
+        sessionId: userSession.sessionId,
+        resultType: results.type,
+        text: results.text?.slice(0, 50) + '...'  // Log first 50 chars
+      });
     }
   }
+
+  // private broadcastTranscriptionResult(userSession: UserSession, results: TranscriptionData) {
+  //   const subscribedApps = subscriptionService.getSubscribedApps(userSession.sessionId, 'transcription');
+  //   console.log(`📢 Broadcasting to ${subscribedApps.length} subscribed apps`);
+
+  //   for (const packageName of subscribedApps) {
+  //     const appSessionId = `${userSession.sessionId}-${packageName}`;
+  //     const websocket = userSession.appConnections.get(packageName);
+  //     console.log(`📤 Sending to ${packageName}`)
+  //     console.log("Websocket state", websocket ? websocket.readyState : "No websocket found");
+
+  //     if (websocket?.readyState === WebSocket.OPEN) {
+  //       console.log(`📤 Sending to ${packageName}`);
+  //       const streamMessage: CloudDataStreamMessage = {
+  //         type: 'data_stream',
+  //         sessionId: appSessionId,
+  //         streamType: 'transcription',
+  //         data: results,
+  //         timestamp: new Date()
+  //       };
+
+  //       websocket.send(JSON.stringify(streamMessage));
+  //     } else {
+  //       console.warn(`⚠️ WebSocket not ready for ${packageName}`);
+  //     }
+  //   }
+  // }
 }
 
 export const transcriptionService = new TranscriptionService();

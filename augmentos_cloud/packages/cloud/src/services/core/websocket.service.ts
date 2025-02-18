@@ -41,7 +41,7 @@ import {
   VADStateMessage,
 } from '@augmentos/types';
 
-import sessionService, { ISessionService } from './session.service';
+import sessionService, { SessionService } from './session.service';
 import subscriptionService, { SubscriptionService } from './subscription.service';
 import transcriptionService, { TranscriptionService } from '../processing/transcription.service';
 import appService, { IAppService } from './app.service';
@@ -74,7 +74,7 @@ export class WebSocketService implements IWebSocketService {
   private pingInterval: NodeJS.Timeout | null = null;
 
   constructor(
-    private readonly sessionService: ISessionService,
+    private readonly sessionService: SessionService,
     private readonly subscriptionService: SubscriptionService,
     private readonly transcriptionService: TranscriptionService,
     private readonly appService: IAppService,
@@ -797,7 +797,7 @@ export class WebSocketService implements IWebSocketService {
               }
 
               const displayMessage = message as DisplayRequest;
-              this.sessionService.updateDisplay(ws, displayMessage);
+              this.sessionService.updateDisplay(userSession.sessionId, displayMessage);
               break;
             }
           }
@@ -937,7 +937,7 @@ export class WebSocketService implements IWebSocketService {
  * @returns An initialized WebSocket service instance
  */
 export function createWebSocketService(
-  sessionService: ISessionService,
+  sessionService: SessionService,
   subscriptionService: SubscriptionService,
   transcriptionService: TranscriptionService,
   appService: IAppService,
