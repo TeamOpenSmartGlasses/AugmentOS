@@ -8,6 +8,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Binder;
 import android.os.Bundle;
@@ -305,6 +306,18 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             asrString = ASR_FRAMEWORKS.AUGMENTOS_ASR_FRAMEWORK.name();
         }
         return ASR_FRAMEWORKS.valueOf(asrString);
+    }
+
+    public static boolean getSensingEnabled(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("AugmentOSPrefs", Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean(context.getResources().getString(R.string.SENSING_ENABLED), true);
+    }
+
+    public static void saveSensingEnabled(Context context, boolean enabled) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("AugmentOSPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(context.getResources().getString(R.string.SENSING_ENABLED), enabled);
+        editor.apply();
     }
 
     /** Gets the preferred wearable from shared preference. */

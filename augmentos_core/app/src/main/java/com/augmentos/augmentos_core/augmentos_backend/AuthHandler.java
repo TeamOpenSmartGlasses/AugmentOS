@@ -137,16 +137,6 @@ public class AuthHandler {
         this.lastVerificationTimestamp = System.currentTimeMillis();
 
         saveToStorage();
-
-        String newAnalyticsId = getUniqueIdForAnalytics();
-
-        // 5) If we transitioned from anonymous -> verified, do an alias
-        if (tokenValid && !oldAnalyticsId.equals(newAnalyticsId)) {
-            // Merge old ID's events into new ID's profile
-            AugmentosService.postHog.alias(oldAnalyticsId, newAnalyticsId);
-
-            Log.d(TAG, "Aliased from old: " + oldAnalyticsId + " to new: " + newAnalyticsId);
-        }
     }
 
     public void deleteAuthSecretKey() {

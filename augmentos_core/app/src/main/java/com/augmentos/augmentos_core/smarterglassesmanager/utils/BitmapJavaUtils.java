@@ -153,4 +153,11 @@ public class BitmapJavaUtils {
         out.write(value & 0xFF);
         out.write((value >> 8) & 0xFF);
     }
+
+    public static Bitmap bytesToBitmap(byte[] imageData) {
+        if (imageData == null || imageData.length == 0) {
+            return null;
+        }
+        return BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
+    }
 }

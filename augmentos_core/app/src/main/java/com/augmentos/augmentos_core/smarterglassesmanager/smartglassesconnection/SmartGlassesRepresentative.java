@@ -111,11 +111,13 @@ class SmartGlassesRepresentative {
             Log.d(TAG, "SmartGlassesCommunicator is NULL, something truly awful must have transpired");
         }
 
-        // If the glasses don't support a microphone, handle local microphone
-        if (smartGlassesDevice.useScoMic || SmartGlassesAndroidService.getForceCoreOnboardMic(context)) {
-            connectAndStreamLocalMicrophone(true);
-        } else if (!smartGlassesDevice.getHasInMic() && !smartGlassesDevice.getHasOutMic()) {
-            connectAndStreamLocalMicrophone(false);
+        if (SmartGlassesAndroidService.getSensingEnabled(context)) {
+            // If the glasses don't support a microphone, handle local microphone
+            if (smartGlassesDevice.useScoMic || SmartGlassesAndroidService.getForceCoreOnboardMic(context)) {
+                connectAndStreamLocalMicrophone(true);
+            } else if (!smartGlassesDevice.getHasInMic() && !smartGlassesDevice.getHasOutMic()) {
+                connectAndStreamLocalMicrophone(false);
+            }
         }
     }
 
