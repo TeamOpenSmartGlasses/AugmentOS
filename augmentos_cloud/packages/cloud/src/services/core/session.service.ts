@@ -18,6 +18,7 @@ import { TranscriptSegment } from '@augmentos/types/core/transcript';
 import DisplayManager from '../layout/DisplayManager';
 import { DisplayRequest } from '@augmentos/types';
 import appService from './app.service';
+import transcriptionService from '../processing/transcription.service';
 
 // You can adjust this value as needed.
 const RECONNECT_GRACE_PERIOD_MS = 30000; // 30 seconds
@@ -29,11 +30,9 @@ export interface ISessionService {
   createSession(ws: WebSocket, userId?: string): UserSession;
   getSession(sessionId: string): UserSession | null;
   handleReconnectUserSession(newSession: UserSession, userId: string): void;
-  updateDisplay(sessionId: string, displayRequest: DisplayRequest): void;
+  updateDisplay(websocket: WebSocket, displayRequest: DisplayRequest): void;
   addTranscriptSegment(userSession: UserSession, segment: TranscriptSegment): void;
-  setAudioHandlers(userSession: UserSession, pushStream: any, recognizer: any): void;
   handleAudioData(userSession: UserSession, audioData: ArrayBuffer | any): void;
-  // handleAudioData(sessionId: string, audioData: ArrayBuffer | any): void;
   getAllSessions(): UserSession[];
 
   // Graceful reconnect.
@@ -76,6 +75,8 @@ export class SessionService implements ISessionService {
       appSubscriptions: new Map<string, StreamType[]>(),
       loadingApps: [],
       // loadingApps: ["org.augmentos.dashboard"],
+
+      appConnections: new Map<string, WebSocket | any>(),
 
       OSSettings: { brightness: 50, volume: 50 },
 
@@ -178,15 +179,12 @@ export class SessionService implements ISessionService {
    * @param userSessionId - userSession identifier
    * @param displayRequest - New display request
    */
-  updateDisplay(userSessionId: string, displayRequest: DisplayRequest): void {
-    const session = this.getSession(userSessionId);
-    if (!session) return;
-
-    // Add to display history
-    session.displayManager.handleDisplayEvent(displayRequest);
-
-    if (session.websocket.readyState === WebSocket.OPEN) {
-      session.websocket.send(JSON.stringify(displayRequest));
+  updateDisplay(websocket: WebSocket, displayRequest: DisplayRequest): void {
+    if (websocket && websocket.readyState === WebSocket.OPEN) {
+      websocket.send(JSON.stringify(displayRequest));
+    }
+    else {
+      console.error(`\n[session.service] WebSocket is not open for display update.\n`);
     }
   }
 
@@ -203,27 +201,6 @@ export class SessionService implements ISessionService {
   }
 
   /**
-   * Sets up audio handling for a session.
-   * @param sessionId - Session identifier
-   * @param pushStream - Azure Speech Service push stream
-   * @param recognizer - Azure Speech Service recognizer
-   */
-  setAudioHandlers(userSession: UserSession, pushStream: any, recognizer: any): void {
-
-    userSession.pushStream = pushStream;
-    userSession.recognizer = recognizer;
-
-    // Process any buffered audio
-    if (userSession.bufferedAudio.length > 0) {
-      console.log(`Processing ${userSession.bufferedAudio.length} buffered audio chunks`);
-      for (const chunk of userSession.bufferedAudio) {
-        pushStream.write(chunk);
-      }
-      userSession.bufferedAudio = [];
-    }
-  }
-
-  /**
    * Handles incoming audio data from the glasses client.
    * @param sessionId - Session identifier
    * @param audioData - Raw audio data buffer
@@ -235,24 +212,32 @@ export class SessionService implements ISessionService {
           console.log("AUDIO: writing to push stream");
         }
         userSession.pushStream.write(audioData);
-      } catch (error) {
+      } 
+      catch (error) {
         console.error(`Error writing to push stream:`, error);
         // Buffer the audio if stream is closed
-        userSession.bufferedAudio.push(audioData);
+        // userSession.bufferedAudio.push(audioData);
 
         // Attempt to restart transcription
         if ((error as Error)?.message?.includes('Stream closed')) {
+          // userSession.pushStream = undefined;
           console.log('Stream closed, attempting to restart transcription...');
-          if (userSession.recognizer) {
-            userSession.recognizer.stopTranscribingAsync(
-              () => {
-                userSession.recognizer = undefined;
-                userSession.pushStream = undefined;
-                // Transcription will be restarted on next connection
-              },
-              (err) => console.error('Error stopping transcription:', err)
-            );
-          }
+          userSession.pushStream = undefined;
+          userSession.recognizer = undefined
+
+          transcriptionService.startTranscription(userSession);
+
+          // console.log('Stream closed, attempting to restart transcription...');
+          // if (userSession.recognizer) {
+          //   userSession.recognizer.stopTranscribingAsync(
+          //     () => {
+          //       userSession.recognizer = undefined;
+          //       userSession.pushStream = undefined;
+          //       // Transcription will be restarted on next connection
+          //     },
+          //     (err) => console.error('Error stopping transcription:', err)
+          //   );
+          // }
         }
       }
     } else {
@@ -262,24 +247,6 @@ export class SessionService implements ISessionService {
       }
     }
   }
-  // handleAudioData(userSession: UserSession, audioData: ArrayBuffer | any): void {
-  //   // const session = this.getSession(sessionId);
-  //   // if (!session) return console.error(`🔥🔥🔥 Session ${sessionId} not found`);
-  //   // userSession: UserSession
-
-  //   if (userSession.pushStream) {
-  //     if (LOG_AUDIO) {
-  //       console.log("AUDIO: writing to push stream");
-  //     }
-  //     userSession.pushStream.write(audioData);
-  //   } else {
-  //     userSession.bufferedAudio.push(audioData);
-  //     // Log only for first buffer
-  //     if (userSession.bufferedAudio.length === 1) {  
-  //       console.log(`Buffering audio data for session ${userSession.sessionId} (pushStream not ready)`);
-  //     }
-  //   }
-  // }
 
   /**
    * Ends a user session and cleans up all resources.

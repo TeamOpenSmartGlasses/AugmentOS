@@ -26,7 +26,7 @@ export interface UserSession {
   activeAppSessions: string[];
   loadingApps: string[];
   appSubscriptions: Map<string, StreamType[]> | Object; // packageName -> subscriptions;
-
+  appConnections: Map<string, WebSocket>; // packageName -> websocket connection for the system app / TPA;
 
   displayManager: DisplayManagerI;
   websocket: WebSocket;
@@ -45,6 +45,17 @@ export interface UserSession {
   // OS Settings.
   OSSettings: any;
 }
+
+/**
+ * Interface for active TPA WebSocket connections.
+ */
+// export interface TpaConnection {
+//   packageName: string;
+//   userSessionId: string;
+//   websocket: WebSocket;
+//   lastPing?: Date;
+// }
+
 
 // The DisplayManager is responsible for holding the current state of the displays to the user.
 // Each App can make a display request to the DisplayManager, which will then be displayed to the user.

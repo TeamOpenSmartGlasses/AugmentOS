@@ -55,7 +55,7 @@ export type HardwareEvent =
 
 // Processed hardware events.
 export interface TranscriptionData {
-  type: 'transcription-interim' | 'transcription-final' | 'transcription';
+  type: 'transcription-interim' | 'transcription-final' | 'transcription'; // TODO remove interim and final, this will be handled by the isFinal boolean flag.
   /** 📝 The transcribed text */
   text: string;
   /** ✅ Whether this is a final transcription */
