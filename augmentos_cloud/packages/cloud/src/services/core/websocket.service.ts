@@ -403,6 +403,7 @@ export class WebSocketService implements IWebSocketService {
 
           // Dashboard subscriptions
           const dashboardSubscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, systemApps.dashboard.packageName);
+          appSubscriptions.set(systemApps.dashboard.packageName, dashboardSubscriptions);
           for (const subscription of dashboardSubscriptions) {
             whatToStream.add(subscription);
           }
@@ -452,6 +453,7 @@ export class WebSocketService implements IWebSocketService {
 
           // Dashboard subscriptions
           const dashboardSubscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, systemApps.dashboard.packageName);
+          appSubscriptions.set(systemApps.dashboard.packageName, dashboardSubscriptions);
           for (const subscription of dashboardSubscriptions) {
             whatToStream.add(subscription);
           }
@@ -561,6 +563,7 @@ export class WebSocketService implements IWebSocketService {
 
             // Dashboard subscriptions
             const dashboardSubscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, systemApps.dashboard.packageName);
+            appSubscriptions.set(systemApps.dashboard.packageName, dashboardSubscriptions);
             for (const subscription of dashboardSubscriptions) {
               whatToStream.add(subscription);
             }
@@ -709,6 +712,7 @@ export class WebSocketService implements IWebSocketService {
 
               // Dashboard subscriptions
               const dashboardSubscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, systemApps.dashboard.packageName);
+              appSubscriptions.set(systemApps.dashboard.packageName, dashboardSubscriptions);
               for (const subscription of dashboardSubscriptions) {
                 whatToStream.add(subscription);
               }
