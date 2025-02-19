@@ -4,6 +4,7 @@ export interface TranscriptSegment {
   resultId: string;
   text: string;
   timestamp: Date;
+  isFinal: boolean;
 }
 
 export interface TranscriptI {
