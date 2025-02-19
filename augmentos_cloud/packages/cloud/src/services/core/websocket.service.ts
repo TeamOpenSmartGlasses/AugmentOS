@@ -38,41 +38,22 @@ import {
   CloudAppStateChangeMessage,
   UserSession,
   CloudAuthErrorMessage,
+  VADStateMessage,
 } from '@augmentos/types';
 
-import sessionService, { ISessionService } from './session.service';
-import subscriptionService, { ISubscriptionService } from './subscription.service';
-import transcriptionService, { ITranscriptionService } from '../processing/transcription.service';
+import sessionService, { SessionService } from './session.service';
+import subscriptionService, { SubscriptionService } from './subscription.service';
+import transcriptionService, { TranscriptionService } from '../processing/transcription.service';
 import appService, { IAppService } from './app.service';
 import { DisplayRequest } from '@augmentos/types';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { AxiosError } from 'axios';
 import { PosthogService } from '../logging/posthog.service';
-import { AUGMENTOS_AUTH_JWT_SECRET } from '@augmentos/types/config/cloud.env';
+import { AUGMENTOS_AUTH_JWT_SECRET, systemApps } from '@augmentos/types/config/cloud.env';
 import { User } from '../../models/user.model';
 
 // Constants
 const TPA_SESSION_TIMEOUT_MS = 5000;  // 30 seconds
-
-/**
- * Interface for pending TPA sessions awaiting WebSocket connection.
- */
-interface PendingTpaSession {
-  userSessionId: string;  // ID of the user's glasses session
-  userId: string;         // User identifier
-  packageName: string;         // TPA identifier
-  timestamp: Date;       // When the session was initiated
-}
-
-/**
- * Interface for active TPA WebSocket connections.
- */
-interface TpaConnection {
-  packageName: string;
-  userSessionId: string;
-  websocket: WebSocket;
-  lastPing?: Date;
-}
 
 /**
  * Interface defining the public API of the WebSocket service.
@@ -80,7 +61,7 @@ interface TpaConnection {
 export interface IWebSocketService {
   setupWebSocketServers(server: Server): void;
   broadcastToTpa(userSessionId: string, streamType: StreamType, data: any): void; // TODO: Specify data type.
-  initiateTpaSession(userSessionId: string, userId: string, packageName: string): Promise<string>;
+  startAppSession(userSession: UserSession, packageName: string): Promise<string>;
 }
 
 /**
@@ -89,16 +70,14 @@ export interface IWebSocketService {
 export class WebSocketService implements IWebSocketService {
   private glassesWss: WebSocketServer;
   private tpaWss: WebSocketServer;
-  private pendingTpaSessions = new Map<string, PendingTpaSession>();
-  private tpaConnections = new Map<string, TpaConnection>();
+  // private tpaConnections = new Map<string, TpaConnection>();
   private pingInterval: NodeJS.Timeout | null = null;
 
   constructor(
-    private readonly sessionService: ISessionService,
-    private readonly subscriptionService: ISubscriptionService,
-    private readonly transcriptionService: ITranscriptionService,
+    private readonly sessionService: SessionService,
+    private readonly subscriptionService: SubscriptionService,
+    private readonly transcriptionService: TranscriptionService,
     private readonly appService: IAppService,
-    // private readonly displayService: IDisplayService
   ) {
     this.glassesWss = new WebSocketServer({ noServer: true });
     this.tpaWss = new WebSocketServer({ noServer: true });
@@ -111,57 +90,67 @@ export class WebSocketService implements IWebSocketService {
   setupWebSocketServers(server: Server): void {
     this.initializeWebSocketServers();
     this.setupUpgradeHandler(server);
-    this.startPingInterval();
   }
 
   /**
    * 🚀🪝 Initiates a new TPA session and triggers the TPA's webhook.
-   * @param userSessionId - ID of the user's glasses session
-   * @param userId - User identifier
+   * @param userSession - userSession object for the user initiating the TPA session
    * @param packageName - TPA identifier
    * @returns Promise resolving to the TPA session ID
    * @throws Error if app not found or webhook fails
    */
-  async initiateTpaSession(
-    userSessionId: string,
-    userId: string,
-    packageName: string
-  ): Promise<string> {
+  async startAppSession(userSession: UserSession, packageName: string): Promise<string> {
+    // check if it's already loading or running, if so return the session id.
+    if (userSession.loadingApps.includes(packageName) || userSession.activeAppSessions.includes(packageName)) {
+      console.log(`\n[websocket.service]\n🚀🚀🚀 App ${packageName} already loading or running\n `);
+
+      return userSession.sessionId + '-' + packageName;
+    }
     const app = await this.appService.getApp(packageName);
     if (!app) {
       throw new Error(`App ${packageName} not found`);
     }
 
-    const tpaSessionId = `${userSessionId}-${packageName}`;
+    // const tpaSessionId = `${userSessionId}-${packageName}`;
+    console.log(`\n[websocket.service]\n⚡️ Loading app ${packageName} for user ${packageName}\n`);
 
-    // Store pending session
-    this.pendingTpaSessions.set(tpaSessionId, {
-      userSessionId,
-      userId,
-      packageName,
-      timestamp: new Date()
-    });
+    // Store pending session. // TODO: move pendingTpaSessions inside userSession so we can clean it up when the user session ends. and because for some reason this.pendingTpaSession is not the same as this.pendingTpaSession in the handleTpaMessage method.
+    userSession.loadingApps.push(packageName);
+    // this.pendingTpaSessions.set(tpaSessionId, {
+    //   userSessionId,
+    //   userId,
+    //   packageName,
+    //   timestamp: new Date()
+    // });
+
+    console.log(`\nCurrent Loading Apps:`, userSession.loadingApps);
 
     try {
       // Trigger TPA webhook
       await this.appService.triggerWebhook(app.webhookURL, {
         type: 'session_request',
-        sessionId: tpaSessionId,
-        userId,
+        sessionId: userSession.sessionId + '-' + packageName,
+        userId: userSession.userId,
         timestamp: new Date().toISOString()
       });
 
       // Set timeout to clean up pending session
       setTimeout(() => {
-        if (this.pendingTpaSessions.has(tpaSessionId)) {
-          this.pendingTpaSessions.delete(tpaSessionId);
-          console.log(`TPA session ${tpaSessionId} expired without connection`);
+        if (userSession.loadingApps.includes(packageName)) {
+          userSession.loadingApps = userSession.loadingApps.filter(
+            (packageName) => packageName !== packageName
+          );
+          console.log(`👴🏻 TPA ${packageName} expired without connection`);
         }
       }, TPA_SESSION_TIMEOUT_MS);
 
-      return tpaSessionId;
+      return userSession.sessionId + '-' + packageName;
     } catch (error) {
-      this.pendingTpaSessions.delete(tpaSessionId);
+      // this.pendingTpaSessions.delete(tpaSessionId);
+      console.error(`\n[GG]\nError starting app ${packageName}:`, error);
+      userSession.loadingApps = userSession.loadingApps.filter(
+        (packageName) => packageName !== packageName
+      );
       throw error;
     }
   }
@@ -174,12 +163,17 @@ export class WebSocketService implements IWebSocketService {
    */
   broadcastToTpa(userSessionId: string, streamType: StreamType, data: CloudToTpaMessage): void {
     const subscribedApps = this.subscriptionService.getSubscribedApps(userSessionId, streamType);
+    const userSession = this.sessionService.getSession(userSessionId);
+    if (!userSession) {
+      console.error(`\n\n[websocket.service] User session not found for ${userSessionId}\n\n`);
+      return;
+    }
 
     for (const packageName of subscribedApps) {
-      const tpaSessionId = `${userSessionId}-${packageName}`;
-      const connection = this.tpaConnections.get(tpaSessionId);
+      const tpaSessionId = `${userSession.sessionId}-${packageName}`;
+      const websocket = userSession.appConnections.get(packageName);
 
-      if (connection?.websocket.readyState === WebSocket.OPEN) {
+      if (websocket && websocket.readyState === WebSocket.OPEN) {
         const streamMessage: CloudDataStreamMessage = {
           type: 'data_stream',
           sessionId: tpaSessionId,
@@ -188,7 +182,9 @@ export class WebSocketService implements IWebSocketService {
           timestamp: new Date()
         };
 
-        connection.websocket.send(JSON.stringify(streamMessage));
+        websocket.send(JSON.stringify(streamMessage));
+      } else {
+        console.error(`\n\n[websocket.service] TPA ${packageName} not connected\n\n`);
       }
     }
   }
@@ -282,7 +278,7 @@ export class WebSocketService implements IWebSocketService {
 
   /**
    * 🤓 Handles messages from glasses clients.
-   * @param userSessionId - User Session identifier
+   * @param userSession - User Session identifier
    * @param ws - WebSocket connection
    * @param message - Parsed message from client
    * @private
@@ -307,6 +303,7 @@ export class WebSocketService implements IWebSocketService {
           const coreToken = initMessage.coreToken || "";
           let userId = '';
 
+          // Verify the core token, and extract the user ID.
           try {
             const userData = jwt.verify(coreToken, AUGMENTOS_AUTH_JWT_SECRET);
             userId = (userData as JwtPayload).email;
@@ -338,44 +335,76 @@ export class WebSocketService implements IWebSocketService {
           // Start all the apps that the user has running.
           try {
             const user = await User.findOrCreateUser(userSession.userId);
-            const userApps = user.runningApps;
-            console.log(`\n\n[websocket.service] 🚀✅ Starting ${userApps.length} apps for user ${userSession.userId}\n`);
-            for (const app of userApps) {
-              console.log(`\n\n[websocket.service]\n[${userId}]\n🚀✅ Starting app ${app}\n`);
-              await this.initiateTpaSession(
-                userSession.sessionId,
-                userSession?.userId || 'anonymous',
-                app
-              );
-              userSession.activeAppSessions.push(app);
+            console.log(`\n\n[websocket.service] Trying to start ${user.runningApps.length} apps for user ${userSession.userId}\n`);
+            for (const packageName of user.runningApps) {
+              try {
+                await this.startAppSession(userSession, packageName);
+                userSession.activeAppSessions.push(packageName);
+                console.log(`\n\n[websocket.service]\n[${userId}]\n🚀✅ Starting app ${packageName}\n`);
+              }
+              catch (error) {
+                console.error(`\n\n[websocket.service] Error starting user apps:`, error, `\n\n`);
+              }
             }
+
+            // Start the dashboard app, but let's not add to the user's running apps since it's a system app.
+            // honestly there should be no annyomous users so if it's an anonymous user we should just not start the dashboard
+            if (userSession.userId !== 'anonymous') {
+              await this.startAppSession(userSession, systemApps.dashboard.packageName);
+              console.log(`\n\n[websocket.service]\n[${userId}]\n🗿🗿✅🗿🗿 Starting app org.augmentos.dashboard\n`);
+            }
+
           }
           catch (error) {
             console.error(`\n\n[websocket.service] Error starting user apps:`, error, `\n\n`);
           }
 
           // Start transcription
-          this.transcriptionService.startTranscription(
-            userSession,
-            (result) => {
-              console.log(`[Session ${userSession.sessionId}] Recognizing:`, result.text);
-              this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
-            },
-            (result) => {
-              console.log(`[Session ${userSession.sessionId}] Final result ${result?.speakerId}:`, result.text);
-              this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
-            }
-          );
+          this.transcriptionService.startTranscription(userSession);
+          // this.transcriptionService.startTranscription(
+          //   userSession,
+          // (result) => {
+          //   console.log(`[Session ${userSession.sessionId}] Recognizing:`, result.text);
+          //   this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
+          // },
+          // (result) => {
+          //   console.log(`[Session ${userSession.sessionId}] Final result ${result?.speakerId}:`, result.text);
+          //   this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
+          // }
+          // );
 
           // this.sessionService.setAudioHandlers(userSession, pushStream, recognizer);
           const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
+
+          // create a map of active apps and what steam types they are subscribed to.
+          const appSubscriptions = new Map<string, StreamType[]>(); // packageName -> streamTypes
+          const whatToStream: Set<StreamType> = new Set(); // packageName -> streamTypes
+
+          for (const packageName of activeAppPackageNames) {
+            const subscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, packageName);
+            appSubscriptions.set(packageName, subscriptions);
+            for (const subscription of subscriptions) {
+              whatToStream.add(subscription);
+            }
+          }
+
+          // Dashboard subscriptions
+          const dashboardSubscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, systemApps.dashboard.packageName);
+          appSubscriptions.set(systemApps.dashboard.packageName, dashboardSubscriptions);
+          for (const subscription of dashboardSubscriptions) {
+            whatToStream.add(subscription);
+          }
+
+          console.log(`\n\n[websocket.service]\n🚀APP SUBSCRIPTIONS🚀:\n`, appSubscriptions, `\n\n`);
+
           const userSessionData = {
             sessionId: userSession.sessionId,
             userId: userSession.userId,
             startTime: userSession.startTime,
             installedApps: await this.appService.getAllApps(),
+            appSubscriptions: Object.fromEntries(appSubscriptions),
             activeAppPackageNames,
-            whatToStream: userSession.whatToStream,
+            whatToStream: Array.from(new Set(whatToStream)),
           };
 
           const ackMessage: CloudConnectionAckMessage = {
@@ -392,22 +421,42 @@ export class WebSocketService implements IWebSocketService {
         case 'start_app': {
           const startMessage = message as GlassesStartAppMessage;
           console.log(`Starting app ${startMessage.packageName}`);
-          await this.initiateTpaSession(
-            userSession.sessionId,
-            userSession?.userId || 'anonymous',
-            startMessage.packageName
-          );
+          await this.startAppSession(userSession, startMessage.packageName);
 
           userSession.activeAppSessions.push(startMessage.packageName);
 
+          // Get the list of active apps.
           const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
+
+          // create a map of active apps and what steam types they are subscribed to.
+          const appSubscriptions = new Map<string, StreamType[]>(); // packageName -> streamTypes
+          const whatToStream: Set<StreamType> = new Set(); // packageName -> streamTypes
+
+          for (const packageName of activeAppPackageNames) {
+            const subscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, packageName);
+            appSubscriptions.set(packageName, subscriptions);
+            for (const subscription of subscriptions) {
+              whatToStream.add(subscription);
+            }
+          }
+
+          // Dashboard subscriptions
+          const dashboardSubscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, systemApps.dashboard.packageName);
+          appSubscriptions.set(systemApps.dashboard.packageName, dashboardSubscriptions);
+          for (const subscription of dashboardSubscriptions) {
+            whatToStream.add(subscription);
+          }
+
+          console.log(`\n\n[websocket.service]\n🚀APP SUBSCRIPTIONS🚀:\n`, appSubscriptions, `\n\n`);
+
           const userSessionData = {
             sessionId: userSession.sessionId,
             userId: userSession.userId,
             startTime: userSession.startTime,
             installedApps: await this.appService.getAllApps(),
+            appSubscriptions: Object.fromEntries(appSubscriptions),
             activeAppPackageNames,
-            whatToStream: userSession.whatToStream,
+            whatToStream: Array.from(new Set(whatToStream)),
           };
 
           const clientResponse: CloudAppStateChangeMessage = {
@@ -469,38 +518,57 @@ export class WebSocketService implements IWebSocketService {
               );
             }
             catch (error: AxiosError | unknown) {
-              console.error(`\n\n[stop_app]:\nError stopping app ${stopMessage.packageName}:\n${(error as any)?.message}\n\n`);
+              // console.error(`\n\n[stop_app]:\nError stopping app ${stopMessage.packageName}:\n${(error as any)?.message}\n\n`);
               // Update state even if webhook fails
+              // TODO(isaiah): This is a temporary fix. We should handle this better. Also implement stop webhook in TPA typescript client lib.
               userSession.activeAppSessions = userSession.activeAppSessions.filter(
                 (packageName) => packageName !== stopMessage.packageName
               );
             }
 
             // Remove subscriptions and update state
-            this.subscriptionService.removeSubscriptions(
-              userSession.sessionId,
-              stopMessage.packageName
-            );
+            this.subscriptionService.removeSubscriptions(userSession, stopMessage.packageName);
 
             // Remove app from active list
             userSession.activeAppSessions = userSession.activeAppSessions.filter(
               (packageName) => packageName !== stopMessage.packageName
             );
 
-            // Send update to glasses client
+            // Get the list of active apps.
             const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
+
+            // create a map of active apps and what steam types they are subscribed to.
+            const appSubscriptions = new Map<string, StreamType[]>(); // packageName -> streamTypes
+            const whatToStream: Set<StreamType> = new Set(); // packageName -> streamTypes
+
+            for (const packageName of activeAppPackageNames) {
+              const subscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, packageName);
+              appSubscriptions.set(packageName, subscriptions);
+              for (const subscription of subscriptions) {
+                whatToStream.add(subscription);
+              }
+            }
+
+            // Dashboard subscriptions
+            const dashboardSubscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, systemApps.dashboard.packageName);
+            appSubscriptions.set(systemApps.dashboard.packageName, dashboardSubscriptions);
+            for (const subscription of dashboardSubscriptions) {
+              whatToStream.add(subscription);
+            }
+
             const userSessionData = {
               sessionId: userSession.sessionId,
               userId: userSession.userId,
               startTime: userSession.startTime,
               installedApps: await this.appService.getAllApps(),
+              appSubscriptions: Object.fromEntries(appSubscriptions),
               activeAppPackageNames,
-              whatToStream: userSession.whatToStream,
+              whatToStream: Array.from(new Set(whatToStream)),
             };
 
             const clientResponse: CloudAppStateChangeMessage = {
               type: 'app_state_change',
-              sessionId: userSession.sessionId,
+              sessionId: userSession.sessionId, // TODO: Remove this field and check all references.
               userSession: userSessionData,
               timestamp: new Date()
             };
@@ -527,50 +595,63 @@ export class WebSocketService implements IWebSocketService {
           break;
         }
 
-        // case 'stop_app': {
-        //   const stopMessage = message as GlassesStopAppMessage;
-        //   console.log(`Stopping app ${stopMessage.packageName}`);
-        //   // Remove subscriptions for the app.
-        //   this.subscriptionService.removeSubscriptions(userSession.sessionId, stopMessage.packageName);
-
-        //   // Close TPA connection.
-        //   const tpaSessionId = `${userSession.sessionId}-${stopMessage.packageName}`;
-        //   const connection = this.tpaConnections.get(tpaSessionId);
-        //   if (connection) {
-        //     connection.websocket.close();
-        //   }
-
-        //   // Remove TPA connection.
-        //   this.tpaConnections.delete(tpaSessionId);
-
-        //   // Remove app from active list.
-        //   userSession.activeAppSessions = userSession.activeAppSessions.filter(
-        //     (packageName) => packageName !== stopMessage.packageName
-        //   );
-
-        //   const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
-        //   const userSessionData = {
-        //     sessionId: userSession.sessionId,
-        //     userId: userSession.userId,
-        //     startTime: userSession.startTime,
-        //     installedApps: await this.appService.getAllApps(),
-        //     activeAppPackageNames: activeAppPackageNames,
-        //     whatToStream: userSession.whatToStream,
-        //   };
-        //   console.log('User session data:', userSessionData);
-        //   const clientResponse: CloudAppStateChangeMessage = {
-        //     type: 'app_state_change',
-        //     sessionId: userSession.sessionId, // TODO: Remove this field and check all references.
-        //     userSession: userSessionData,
-        //     timestamp: new Date()
-        //   };
-        //   ws.send(JSON.stringify(clientResponse));
-        //   break;
-        // }
-
         case 'head_position': {
           const headMessage = message as HeadPositionEvent;
           this.broadcastToTpa(userSession.sessionId, 'head_position', headMessage);
+          break;
+        }
+
+        case 'VAD': {
+          const vadMessage = message as VADStateMessage;
+          console.log('\n🎤 VAD State Change');
+          console.log('Current state:', {
+            sessionId: userSession.sessionId,
+            userId: userSession.userId,
+            vadMessage: vadMessage,
+            currentlyTranscribing: userSession.isTranscribing,
+            hasRecognizer: !!userSession.recognizer,
+            hasPushStream: !!userSession.pushStream,
+            bufferedAudioChunks: userSession.bufferedAudio.length
+          });
+        
+          PosthogService.trackEvent("VAD", userSession.userId, {
+            sessionId: userSession.sessionId,
+            eventType: message.type,
+            timestamp: new Date().toISOString(),
+            vadState: vadMessage,
+          });
+        
+          // Convert VAD state to boolean - explicitly handle all possible cases
+          const isSpeaking = vadMessage.status === true || vadMessage.status === 'true';
+          
+          console.log(`VAD speaking state: ${isSpeaking}`);
+        
+          try {
+            if (isSpeaking) {
+              console.log('🎙️ VAD detected speech - ensuring transcription is active');
+              if (!userSession.isTranscribing) {
+                userSession.isTranscribing = true;
+                transcriptionService.startTranscription(userSession);
+              }
+            } else {
+              console.log('🤫 VAD detected silence - stopping transcription');
+              if (userSession.isTranscribing) {
+                userSession.isTranscribing = false;
+                transcriptionService.stopTranscription(userSession);
+              }
+            }
+        
+            console.log('Updated state:', {
+              isTranscribing: userSession.isTranscribing,
+              hasRecognizer: !!userSession.recognizer,
+              hasPushStream: !!userSession.pushStream
+            });
+          } catch (error) {
+            console.error('❌ Error handling VAD state change:', error);
+            // On error, reset to a clean state
+            userSession.isTranscribing = false;
+            transcriptionService.stopTranscription(userSession);
+          }
           break;
         }
 
@@ -614,6 +695,7 @@ export class WebSocketService implements IWebSocketService {
     }
 
     ws.on('message', async (data: Buffer | string, isBinary: boolean) => {
+      // console.log('\n\n~~Received message from TPA~~\n', data.toString(), data);
       if (isBinary) {
         console.warn('Received unexpected binary message from TPA');
         return;
@@ -621,7 +703,118 @@ export class WebSocketService implements IWebSocketService {
 
       try {
         const message = JSON.parse(data.toString()) as TpaToCloudMessage;
-        await this.handleTpaMessage(ws, message, currentAppSession, setCurrentSessionId);
+        const userSessionId = message.sessionId?.split('-')[0];
+        if (!userSessionId) {
+          console.error('Invalid session ID');
+          ws.close(1008, 'Invalid session ID');
+          return;
+        }
+        const userSession = this.sessionService.getSession(userSessionId);
+        if (!userSession) {
+          console.error(`\n\n[websocket.service] User session not found for ${userSessionId}\n\n`);
+          ws.close(1008, 'No active session');
+          return;
+        }
+        // await this.handleTpaMessage(ws, message, currentAppSession, setCurrentSessionId);
+        // Handle TPA messages here.
+        try {
+          switch (message.type) {
+            case 'tpa_connection_init': {
+              const initMessage = message as TpaConnectionInitMessage;
+              await this.handleTpaInit(ws, initMessage, setCurrentSessionId);
+              break;
+            }
+
+            case 'subscription_update': {
+              if (!currentAppSession) {
+                ws.close(1008, 'No active session');
+                return;
+              }
+
+              const subMessage = message as TpaSubscriptionUpdateMessage;
+              // if (!userSession) {
+              //   console.error(`\n\n[websocket.service] User session not found for ${userSessionId}\n\n`);
+              //   ws.close(1008, 'No active session');
+              //   return;
+              // }
+
+              this.subscriptionService.updateSubscriptions(
+                userSessionId,
+                message.packageName,
+                userSession.userId,
+                subMessage.subscriptions
+              );
+
+              // TODO tell the client the new app state change for updates to the app subscriptions.
+              // Get the list of active apps.
+              const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
+
+              // create a map of active apps and what steam types they are subscribed to.
+              const appSubscriptions = new Map<string, StreamType[]>(); // packageName -> streamTypes
+              const whatToStream: Set<StreamType> = new Set(); // packageName -> streamTypes
+
+              for (const packageName of activeAppPackageNames) {
+                const subscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, packageName);
+                appSubscriptions.set(packageName, subscriptions);
+                for (const subscription of subscriptions) {
+                  whatToStream.add(subscription);
+                }
+              }
+
+              // Dashboard subscriptions
+              const dashboardSubscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, systemApps.dashboard.packageName);
+              appSubscriptions.set(systemApps.dashboard.packageName, dashboardSubscriptions);
+              for (const subscription of dashboardSubscriptions) {
+                whatToStream.add(subscription);
+              }
+
+              console.log(`\n\n[websocket.service]\n🚀APP SUBSCRIPTIONS🚀:\n`, appSubscriptions, `\n\n`);
+
+              const userSessionData = {
+                sessionId: userSession.sessionId,
+                userId: userSession.userId,
+                startTime: userSession.startTime,
+                installedApps: await this.appService.getAllApps(),
+                appSubscriptions: Object.fromEntries(appSubscriptions),
+                activeAppPackageNames,
+                whatToStream: Array.from(new Set(whatToStream)),
+              };
+
+              const clientResponse: CloudAppStateChangeMessage = {
+                type: 'app_state_change',
+                sessionId: userSession.sessionId, // TODO: Remove this field and check all references.
+                userSession: userSessionData,
+                timestamp: new Date()
+              };
+              userSession?.websocket.send(JSON.stringify(clientResponse));
+              break;
+            }
+
+            case 'display_event': {
+              if (!currentAppSession) {
+                ws.close(1008, 'No active session');
+                return;
+              }
+
+              const displayMessage = message as DisplayRequest;
+              this.sessionService.updateDisplay(userSession.sessionId, displayMessage);
+              break;
+            }
+          }
+        }
+        catch (error) {
+          console.error('Error handling TPA message:', error);
+          this.sendError(ws, {
+            code: 'MESSAGE_HANDLING_ERROR',
+            message: 'Error processing message'
+          });
+          PosthogService.trackEvent("error-handleTpaMessage", "anonymous", {
+            eventType: message.type,
+            timestamp: new Date().toISOString(),
+            error: error,
+          });
+        }
+
       } catch (error) {
         console.error('Error handling TPA message:', error);
         this.sendError(ws, {
@@ -633,14 +826,19 @@ export class WebSocketService implements IWebSocketService {
 
     ws.on('close', () => {
       if (currentAppSession) {
-        const connection = this.tpaConnections.get(currentAppSession);
-        if (connection) {
-          this.subscriptionService.removeSubscriptions(
-            connection.userSessionId,
-            connection.packageName
-          );
+        // const connection = this.tpaConnections.get(currentAppSession);
+        const userSessionId = currentAppSession.split('-')[0];
+        const packageName = currentAppSession.split('-')[1];
+        const userSession = this.sessionService.getSession(userSessionId);
+        if (!userSession) {
+          console.error(`\n\n[websocket.service] User session not found for ${currentAppSession}\n\n`);
+          return;
         }
-        this.tpaConnections.delete(currentAppSession);
+        if (userSession.appConnections.has(currentAppSession)) {
+          userSession.appConnections.delete(currentAppSession);
+          this.subscriptionService.removeSubscriptions(userSession, packageName);
+        }
+        // this.tpaConnections.delete(currentAppSession);
         console.log(`TPA session ${currentAppSession} disconnected`);
       }
     });
@@ -648,85 +846,23 @@ export class WebSocketService implements IWebSocketService {
     ws.on('error', (error) => {
       console.error('TPA WebSocket error:', error);
       if (currentAppSession) {
-        this.tpaConnections.delete(currentAppSession);
+        // const connection = this.tpaConnections.get(currentAppSession);
+        const userSessionId = currentAppSession.split('-')[0];
+        const packageName = currentAppSession.split('-')[1];
+        const userSession = this.sessionService.getSession(userSessionId);
+        if (!userSession) {
+          console.error(`\n\n[websocket.service] User session not found for ${currentAppSession}\n\n`);
+          return;
+        }
+        if (userSession.appConnections.has(currentAppSession)) {
+          userSession.appConnections.delete(currentAppSession);
+          this.subscriptionService.removeSubscriptions(userSession, packageName);
+        }
+        // this.tpaConnections.delete(currentAppSession);
+        console.log(`TPA session ${currentAppSession} disconnected`);
       }
       ws.close();
     });
-
-    ws.on('pong', () => {
-      if (currentAppSession) {
-        const connection = this.tpaConnections.get(currentAppSession);
-        if (connection) {
-          connection.lastPing = new Date();
-        }
-      }
-    });
-  }
-
-  /**
-   * 💬 Handles messages from TPAs.
-   * @param ws - WebSocket connection
-   * @param message - Parsed message from TPA
-   * @param currentSession - Current TPA session ID
-   * @private
-   */
-  private async handleTpaMessage(
-    ws: WebSocket,
-    message: TpaToCloudMessage,
-    currentSession: string | null,
-    setCurrentSessionId: (sessionId: string) => void
-  ): Promise<void> {
-    switch (message.type) {
-      case 'tpa_connection_init': {
-        const initMessage = message as TpaConnectionInitMessage;
-        await this.handleTpaInit(ws, initMessage, setCurrentSessionId);
-        break;
-      }
-
-      case 'subscription_update': {
-        if (!currentSession) {
-          ws.close(1008, 'No active session');
-          return;
-        }
-
-        const subMessage = message as TpaSubscriptionUpdateMessage;
-        const connection = this.tpaConnections.get(currentSession);
-        if (!connection) return;
-
-        const userSession = this.sessionService.getSession(connection.userSessionId);
-        if (!userSession) {
-          ws.close(1008, 'No active session');
-          return;
-        }
-
-        this.subscriptionService.updateSubscriptions(
-          connection.userSessionId,
-          connection.packageName,
-          userSession.userId,
-          subMessage.subscriptions
-        );
-        break;
-      }
-
-      case 'display_event': {
-        if (!currentSession) {
-          ws.close(1008, 'No active session');
-          return;
-        }
-
-        const displayMessage = message as DisplayRequest;
-        const connection = this.tpaConnections.get(currentSession);
-        if (!connection) return;
-
-        this.sessionService.updateDisplay(
-          connection.userSessionId,
-          displayMessage
-        );
-
-        break;
-      }
-
-    }
   }
 
   /**
@@ -741,51 +877,39 @@ export class WebSocketService implements IWebSocketService {
     initMessage: TpaConnectionInitMessage,
     setCurrentSessionId: (sessionId: string) => void
   ): Promise<void> {
-    const pendingSession = this.pendingTpaSessions.get(initMessage.sessionId);
-    if (!pendingSession) {
+    // const pendingSession = this.pendingTpaSessions.get(initMessage.appSessionId);
+    const userSessionId = initMessage.sessionId.split('-')[0];
+    const userSession = this.sessionService.getSession(userSessionId);
+
+    if (!userSession?.loadingApps.includes(initMessage.packageName)) {
+      console.error('\n\n[websocket.service.ts]🙅‍♀️TPA session not found\nYou shall not pass! 🧙‍♂️\n:', initMessage.sessionId,
+        '\n\nLoading apps:', userSession?.loadingApps, '\n\n'
+      );
       ws.close(1008, 'Invalid session ID');
       return;
     }
 
-    const { userSessionId, packageName } = pendingSession;
-    const connectionId = `${userSessionId}-${packageName}`;
+    // TODO(isaiah): 🔐 Authenticate TPA with API key !important 😳.
+    // We should insure that the TPA is who they say they are. the session id is legit and they own the package name.
+    // For now because all the TPAs are internal we can just trust them.
+    // This is a good place to add a check for the TPA's API key for when we have external TPAs.
 
-    // TODO: 🔐 Authenticate TPA with API key !important 😳.
-    this.pendingTpaSessions.delete(initMessage.sessionId);
-    this.tpaConnections.set(connectionId, { packageName, userSessionId, websocket: ws });
-    setCurrentSessionId(connectionId);
+    // this.pendingTpaSessions.delete(initMessage.appSessionId);
+    userSession.loadingApps = userSession.loadingApps.filter(
+      (packageName) => packageName !== initMessage.packageName
+    );
+
+    // this.tpaConnections.set(initMessage.sessionId, { packageName: initMessage.packageName, userSessionId, websocket: ws });
+    userSession.appConnections.set(initMessage.packageName, ws as any);
+    setCurrentSessionId(initMessage.sessionId);
 
     const ackMessage: CloudTpaConnectionAckMessage = {
       type: 'tpa_connection_ack',
-      sessionId: connectionId,
+      sessionId: initMessage.sessionId,
       timestamp: new Date()
     };
     ws.send(JSON.stringify(ackMessage));
-    console.log(`TPA ${packageName} connected for session ${initMessage.sessionId}`);
-  }
-
-  /**
-   * 🏓 Starts the ping interval for connection health checks.
-   * @private
-   */
-  private startPingInterval(): void {
-    if (this.pingInterval) {
-      clearInterval(this.pingInterval);
-    }
-    // this.pingInterval = setInterval(() => {
-    //   const now = new Date();
-
-    //   for (const [sessionId, connection] of this.tpaConnections) {
-    //     if (connection.lastPing &&
-    //       now.getTime() - connection.lastPing.getTime() > PING_TIMEOUT_MS) {
-    //       console.log(`TPA session ${sessionId} ping timeout`);
-    //       connection.websocket.close(1008, 'Ping timeout');
-    //       this.tpaConnections.delete(sessionId);
-    //     } else {
-    //       connection.websocket.ping();
-    //     }
-    //   }
-    // }, PING_INTERVAL_MS);
+    console.log(`TPA ${initMessage.packageName} connected for session ${initMessage.sessionId}`);
   }
 
   /**
@@ -813,9 +937,9 @@ export class WebSocketService implements IWebSocketService {
  * @returns An initialized WebSocket service instance
  */
 export function createWebSocketService(
-  sessionService: ISessionService,
-  subscriptionService: ISubscriptionService,
-  transcriptionService: ITranscriptionService,
+  sessionService: SessionService,
+  subscriptionService: SubscriptionService,
+  transcriptionService: TranscriptionService,
   appService: IAppService,
 ): IWebSocketService {
   return new WebSocketService(

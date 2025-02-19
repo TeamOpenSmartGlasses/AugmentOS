@@ -1,7 +1,7 @@
 // src/types/models/session.ts
 import type { Layout, DisplayRequest } from '../layout/layout';
 import type { StreamType } from '../websocket/common';
-import type { AppI, AppSettings } from '../models/app';
+import type { AppI, AppSettings } from './app';
 import type { AppSessionI, AppState } from './app.session';
 import type { TranscriptI } from './transcript';
 
@@ -10,18 +10,6 @@ import {
   PushAudioInputStream,
 } from 'microsoft-cognitiveservices-speech-sdk';
 
-// export interface UserSessionI {
-//   userId: string;
-//   sessionStartTime: Date;
-//   appSessions: AppSessionI[];
-//   activeAppSession?: AppSessionI;
-//   transcript: TranscriptI;
-//   displayManager: DisplayManagerI;
-//   currentDisplay?: Layout;
-//   pushStream?: any;  // For audio streaming
-//   recognizer?: any;  // For speech recognition
-//   bufferedAudio?: ArrayBuffer[];
-// }
 
 /**
  * Represents an active user session with a glasses client.
@@ -33,24 +21,43 @@ export interface UserSession {
   startTime: Date;
   disconnectedAt: Date | null;
 
+  // App Sessions and App State
   installedApps: AppI[];
-  // activeAppSessions: Map<string, AppSession>;
   activeAppSessions: string[];
+  loadingApps: string[];
+  appSubscriptions: Map<string, StreamType[]> | Object; // packageName -> subscriptions;
+  appConnections: Map<string, WebSocket>; // packageName -> websocket connection for the system app / TPA;
+
   displayManager: DisplayManagerI;
   websocket: WebSocket;
   transcript: TranscriptI
 
+
   // Azure Speech Service handles
   pushStream?: PushAudioInputStream;
   recognizer?: ConversationTranscriber;
+  isTranscribing: boolean;  // New flag to track transcription state
 
   // Pre-initialization audio buffer
   bufferedAudio: ArrayBuffer[];
 
   // TODO:
-  whatToStream: [StreamType];
+  whatToStream: StreamType[];
+
+  // OS Settings.
   OSSettings: any;
 }
+
+/**
+ * Interface for active TPA WebSocket connections.
+ */
+// export interface TpaConnection {
+//   packageName: string;
+//   userSessionId: string;
+//   websocket: WebSocket;
+//   lastPing?: Date;
+// }
+
 
 // The DisplayManager is responsible for holding the current state of the displays to the user.
 // Each App can make a display request to the DisplayManager, which will then be displayed to the user.
@@ -58,15 +65,6 @@ export interface UserSession {
 // We can support multiple views, and neatly orginize them by app id, by holding them in state in the shape of this interface.
 // Each user session will have a DisplayManager instance.
 export interface DisplayManagerI {
-  // views: {
-  //   // [appId: string]: Layout; // actually not quite, because each app can have multiple views.
-  //   // so each view will have it's own view id (scoped to the appSession tied together with the appId)
-    
-  //   // [appId: string]: [viewId: string]: Layout; // syntax is wrong..
-  //   [appId: string]: {
-  //     [viewId: string]: Layout;
-  //   };
-  // };
   activeDisplays: Map<string, ActiveDisplay>;
   views: Map<AppSessionI["packageName"], Map<UserSession["sessionId"], Layout>>;
   handleDisplayEvent(displayRequest: DisplayRequest): Promise<boolean>;

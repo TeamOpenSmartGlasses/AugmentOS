@@ -8,6 +8,7 @@ import {
   DisplayRequest,
 } from '@augmentos/types'; // shared types for cloud TPA messages
 import { CLOUD_PORT, systemApps } from '@augmentos/types/config/cloud.env';
+import { wrapText } from '../../../utils/text-wrapping/wraptText';
 
 const app = express();
 const PORT = systemApps.notify.port; // Use a different port from your captions app
@@ -206,40 +207,6 @@ function displayNextNotification(sessionData: SessionData) {
   sessionData.timeoutId = setTimeout(() => {
     displayNextNotification(sessionData);
   }, NOTIFICATION_DISPLAY_DURATION);
-}
-
-function wrapText(text: string, maxLength = 25): string {
-  return text
-    .split('\n')
-    .map(line => {
-      const words = line.split(' ');
-      let currentLine = '';
-      const wrappedLines: string[] = [];
-
-      words.forEach(word => {
-        if ((currentLine.length + (currentLine ? 1 : 0) + word.length) <= maxLength) {
-          currentLine += (currentLine ? ' ' : '') + word;
-        } else {
-          if (currentLine) {
-            wrappedLines.push(currentLine);
-          }
-          currentLine = word;
-
-          // If a single word is too long, hardcut it.
-          while (currentLine.length > maxLength) {
-            wrappedLines.push(currentLine.slice(0, maxLength));
-            currentLine = currentLine.slice(maxLength);
-          }
-        }
-      });
-
-      if (currentLine) {
-        wrappedLines.push(currentLine.trim());
-      }
-
-      return wrappedLines.join('\n');
-    })
-    .join('\n');
 }
 
 /**

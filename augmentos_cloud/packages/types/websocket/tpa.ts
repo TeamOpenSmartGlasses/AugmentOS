@@ -1,12 +1,13 @@
 // src/types/websocket/tpa.ts
 import type { WebSocketMessage } from './common';
 import type { Layout } from '../layout/layout';
-import type { AppSettings } from '../models/app';
+import type { AppSettings } from '../core/app';
 import type { StreamType } from './common';
 import type { Language } from '../core/app.session';
-import type { DisplayRequest } from '../events/display';
+import type { DisplayRequest } from '../layout/layout';
 import type { PhoneEvent } from '../events/phone';
 import type { HardwareEvent } from '../events/hardware';
+import type { VADStateMessage } from './client';
 
 // TPA -> Cloud Messages
 export interface TpaConnectionInitMessage extends WebSocketMessage {
@@ -16,26 +17,11 @@ export interface TpaConnectionInitMessage extends WebSocketMessage {
   apiKey: string;
 }
 
-// export interface TpaDisplayEventMessage extends WebSocketMessage {
-//   type: "display_event";
-//   packageName: string;
-//   layout: Layout;
-//   durationMs?: number;
-// }
-
-// export interface DashboardDisplayEventMessage extends WebSocketMessage {
-//   type: "dashboard_display_event";
-//   packageName: string;
-//   layout: Layout;
-//   durationMs?: number;
-// }
-
 export interface TpaSubscriptionUpdateMessage extends WebSocketMessage {
   type: "subscription_update";
   packageName: string;
   subscriptions: StreamType[];
 }
-
 
 export interface TranslationConfig {
   sourceLang: Language;
@@ -86,4 +72,5 @@ export type CloudToTpaMessage =
   | CloudDataStreamMessage
   | CloudSettingsUpdateMessage
   | HardwareEvent
-  | PhoneEvent;
+  | PhoneEvent
+  | VADStateMessage;
