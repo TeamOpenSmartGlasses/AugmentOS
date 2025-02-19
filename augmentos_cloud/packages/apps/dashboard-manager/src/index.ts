@@ -546,13 +546,27 @@ function handlePhoneNotification(sessionId: string, notificationData: any) {
     }
   }
 
-  // Add the new notification to the cache.
+  // Prepare the new notification.
   const newNotification = {
     title: notificationData.title || 'No Title',
     content: notificationData.content || '',
     timestamp: Date.now(),
     uuid: uuidv4(),  // Generate a unique id if not provided.
   };
+
+  // Prevent duplicate notifications: don't add if the new notification's title and content
+  // are identical to the most recent notification in the cache.
+  const cache = sessionInfo.phoneNotificationCache;
+  if (cache.length > 0) {
+    const lastNotification = cache[cache.length - 1];
+    if (lastNotification.title === newNotification.title &&
+        lastNotification.content === newNotification.content) {
+      console.log(`[Session ${sessionId}] Duplicate notification detected. Not adding to cache.`);
+      return;
+    }
+  }
+
+  // Add the new notification to the cache.
   sessionInfo.phoneNotificationCache.push(newNotification);
   console.log(`[Session ${sessionId}] Received phone notification:`, notificationData);
 
