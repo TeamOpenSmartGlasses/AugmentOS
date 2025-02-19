@@ -31,7 +31,7 @@ public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
                 .setSampleRate(SampleRate.SAMPLE_RATE_16K)
                 .setFrameSize(FrameSize.FRAME_SIZE_320)
                 .setMode(Mode.VERY_AGGRESSIVE)
-                .setSilenceDurationMs(800)
+                .setSilenceDurationMs(12000)
                 .setSpeechDurationMs(50)
                 .build();
 
@@ -79,7 +79,6 @@ public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
             short[] audioBytesPartial = Arrays.copyOfRange(audioBytesFull, startIdx, startIdx + frameSize);
 
             isCurrentlySpeech = vad.isSpeech(audioBytesPartial);
-            Log.d(TAG, "isCurrneltySpeech: " + isCurrentlySpeech);
 
             // Log only when the state changes
             if (isCurrentlySpeech != previousSpeechState) {

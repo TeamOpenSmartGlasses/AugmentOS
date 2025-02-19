@@ -153,32 +153,32 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
      */
     @Override
     public void ingestAudioChunk(byte[] audioChunk) { // TODO: Reinstantiate VAD once fixed
-//        if (vadPolicy == null) {
-//            Log.e(TAG, "VAD not initialized yet. Skipping audio.");
-//            return;
-//        }
-//        if (!isVadInitialized()) {
-//            Log.e(TAG, "VAD model not initialized. Skipping audio.");
-//            return;
-//        }
-//        short[] audioSamples = bytesToShort(audioChunk);
-//        for (short sample : audioSamples) {
-//            if (vadBuffer.size() >= 16000) {
-//                vadBuffer.poll();
-//            }
-//            vadBuffer.offer(sample);
-//        }
+        if (vadPolicy == null) {
+            Log.e(TAG, "VAD not initialized yet. Skipping audio.");
+            return;
+        }
+        if (!isVadInitialized()) {
+            Log.e(TAG, "VAD model not initialized. Skipping audio.");
+            return;
+        }
+        short[] audioSamples = bytesToShort(audioChunk);
+        for (short sample : audioSamples) {
+            if (vadBuffer.size() >= 16000) {
+                vadBuffer.poll();
+            }
+            vadBuffer.offer(sample);
+        }
 
         // If currently speaking, send data live
-//        if (isSpeaking) {
+        if (isSpeaking) {
         ServerComms.getInstance().sendAudioChunk(audioChunk);
-//        }
+        }
 
         // Maintain rolling buffer for "catch-up"
-//        if (rollingBuffer.size() >= bufferMaxSize) {
-//            rollingBuffer.poll();
-//        }
-//        rollingBuffer.offer(audioChunk);
+        if (rollingBuffer.size() >= bufferMaxSize) {
+            rollingBuffer.poll();
+        }
+        rollingBuffer.offer(audioChunk);
     }
 
     /**
@@ -204,12 +204,12 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
      */
     private boolean isVadInitialized() {
         try {
-            Field vadModelField = vadPolicy.getClass().getDeclaredField("vadModel");
-            vadModelField.setAccessible(true);
-            Object vadModel = vadModelField.get(vadPolicy);
-            return vadModel != null;
+            Field vadField = vadPolicy.getClass().getDeclaredField("vad");
+            vadField.setAccessible(true);
+            Object vadInstance = vadField.get(vadPolicy);
+            return vadInstance != null;
         } catch (Exception e) {
-            Log.e(TAG, "Failed to check VAD model init state.", e);
+            Log.e(TAG, "Failed to check VAD init state.", e);
             return false;
         }
     }
