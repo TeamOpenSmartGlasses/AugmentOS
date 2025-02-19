@@ -1,5 +1,5 @@
 {
-  "name": "@augmentos/mira-ai",
+  "name": "@augmentos/miraai",
   "version": "1.0.0",
   "main": "dist/index.js",
   "engines": {

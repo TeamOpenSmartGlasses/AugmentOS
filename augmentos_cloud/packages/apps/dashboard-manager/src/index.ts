@@ -20,8 +20,6 @@ const PORT =  systemApps.dashboard.port;
 const PACKAGE_NAME = systemApps.dashboard.packageName;
 const API_KEY = 'test_key'; // In production, store securely
 
-const LOCATION = 'New York'; // Hardcoded for now
-
 // For demonstration, we'll keep session-based info in-memory.
 // In real usage, you might store persistent data in a DB.
 interface SessionInfo {
@@ -105,7 +103,14 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
 
       // Fetch news once the connection is open.
       const newsAgent = new NewsAgent();
-      const newsResult = await newsAgent.handleContext({});
+      // const newsResult = await newsAgent.handleContext({});
+      const newsResult = {
+        news_summaries: [
+          "News summary 1",
+          "News summary 2",
+          "News summary 3"
+        ]
+      };
       const sessionInfo = activeSessions.get(sessionId);
       if (sessionInfo && newsResult && newsResult.news_summaries && newsResult.news_summaries.length > 0) {
         sessionInfo.newsCache = newsResult.news_summaries;
@@ -149,6 +154,8 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
     console.warn(`Session ${sessionId} not found in activeSessions`);
     return;
   }
+
+  console.log("MESSAGE TYPE: " + message);
 
   switch (message.type) {
     case 'tpa_connection_ack': {
@@ -462,7 +469,7 @@ async function updateDashboard(sessionId?: string) {
           const topTwoNotifications = rankedNotifications.slice(0, 2);
           console.log(`[Session ${sessionId}] Ranked Notifications:`, topTwoNotifications);
           return topTwoNotifications
-            .map(notification => notification.summary)
+            .map(notification => wrapText(notification.summary, 25))
             .join('\n');
         }
       }
@@ -547,6 +554,7 @@ function handlePhoneNotification(sessionId: string, notificationData: any) {
       // Save the ranked notifications for later use in the dashboard.
       sessionInfo.phoneNotificationRanking = filteredNotifications;
       // Update the dashboard after the notifications have been filtered.
+      console.log(`[Session ${sessionId}] Updating dashboard after notification filtering.` + filteredNotifications);
       updateDashboard(sessionId);
     })
     .catch(err => {

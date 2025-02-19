@@ -118,6 +118,9 @@ export class NotificationFilterAgent implements Agent {
       // Convert notifications array to a JSON string.
       const notificationsStr = JSON.stringify(notifications, null, 2);
 
+      console.log("NOTIFICATIONS STR:");
+      console.log(notificationsStr);
+
       // Prepare the prompt using the notifications string.
       const promptTemplate = new PromptTemplate({
         template: this.agentPrompt,

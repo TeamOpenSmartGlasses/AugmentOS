@@ -11,33 +11,30 @@ interface QuestionAnswer {
     insight: string;
 }
 
-const agentPromptBlueprint = `You are an intelligent assistant that is running on the smart glasses of a user. They sometimes directly talk to you by saying a wake word and then making query. Answer the User Query to the best of your ability. The query may contain some extra unrelated speech not related to the query - ignore any noise to answer just the user's intended query. Make your answer concise, leave out filler words, make the answer high entropy, answer in 10 words or less (no newlines), but don't be overly brief (e.g. for weather, give temp. and rain). Use telegraph style writing.
+const agentPromptBlueprint = `You are an intelligent assistant that is running on the smart glasses of a user. They sometimes directly talk to you by saying a wake word and then making query. Answer the User Query to the best of your ability. The query may contain some extra unrelated speech not related to the query - ignore any noise to answer just the user's intended query. Make your answer concise, leave out filler words, make the answer high entropy, answer in 15 words or less (no newlines), but don't be overly brief (e.g. for weather, give temp. and rain). Use telegraph style writing.
 
 Utilize available tools when necessary and adhere to the following guidelines:
-1. Invoke the "search" tool for confirming facts or retrieving extra details.
+1. Invoke the "search" tool for confirming facts or retrieving extra details. Use the search tool to search the web for information about the user's query whenever you don't have enough information to answer.
 2. Keep your final answer brief (fewer than 15 words).
 3. When calling a tool, use this precise format:
    Action: search
    Action Input: {{"searchKeyword": "<query>", "includeImage": <true/false>}}
 4. When you have enough information to answer, output your final answer on a new line prefixed by "Final Answer:" followed immediately by a JSON object exactly like:
    {{"insight": "<concise answer>"}}
-5. If the query is empty, return {{"insight": "No query provided."}}
+5. If the query is empty, return Final Answer: {{"insight": "No query provided."}}
 6. Do not output any other text.
 
 User Query:
 {query}
-
-Live Conversation Transcript:
-{transcript_history}
-Prior Inputs & Responses:
-{insight_history}
 
 Tools:
 {tools}
 Tool Names:
 {tool_names}
 Agent Scratchpad:
-{agent_scratchpad}`;
+{agent_scratchpad}
+
+Remember to always include the Final Answer: marker in your response.`;
 
 export class MiraAgent implements Agent {
   public agentId = "mira_agent";
@@ -54,7 +51,7 @@ export class MiraAgent implements Agent {
    */
   private parseOutput(text: string): QuestionAnswer {
 
-    console.log("Text:", text);
+    console.log("MiraAgent Text:", text);
     const finalMarker = "Final Answer:";
     if (text.includes(finalMarker)) {
       text = text.split(finalMarker)[1].trim();
@@ -76,7 +73,7 @@ export class MiraAgent implements Agent {
         return { insight: match[1] };
       }
     }
-    return { insight: "null" };
+    return { insight: "Error processing query." };
   }
 
   public async handleContext(userContext: Record<string, any>): Promise<any> {
@@ -116,15 +113,15 @@ export class MiraAgent implements Agent {
       const agentScratchpad = "";
 
       const result = await executor.invoke({
-        transcript_history: transcriptHistory,
-        insight_history: insightHistory,
+        // transcript_history: transcriptHistory,
+        // insight_history: insightHistory,
         query,
         tools: this.agentTools,
         tool_names: toolNames,
         agent_scratchpad: agentScratchpad,
       });
 
-      console.log("Result:", result);
+      console.log("Result:", result.output);
       const parsedResult = this.parseOutput(result.output);
       return parsedResult.insight;
     } catch (err) {

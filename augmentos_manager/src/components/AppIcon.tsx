@@ -46,7 +46,7 @@ const AppIcon: React.FC<AppIconProps> = ({
                 case 'com.google.android.apps.maps':
                 case 'com.augmentos.navigation':
                     return require('../assets/app-icons/navigation.png');
-                case 'com.augmentos.shownotifications':
+                case 'com.augmentos.notify':
                     return require('../assets/app-icons/phone-notifications.png');
                 default:
                     return require('../assets/app-icons/navigation.png');
