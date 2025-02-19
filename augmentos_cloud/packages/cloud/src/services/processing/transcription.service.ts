@@ -136,7 +136,9 @@ export class TranscriptionService {
       };
 
       this.broadcastTranscriptionResult(userSession, result);
-      this.updateTranscriptHistory(userSession, event);
+
+      // TODO(isaiah): For now we're only saving final transcriptions to the transcript history.
+      // this.updateTranscriptHistory(userSession, event, false);
     };
 
     recognizer.transcribed = (_sender: any, event: ConversationTranscriptionEventArgs) => {
@@ -154,7 +156,7 @@ export class TranscriptionService {
       };
 
       this.broadcastTranscriptionResult(userSession, result);
-      this.updateTranscriptHistory(userSession, event);
+      this.updateTranscriptHistory(userSession, event, true);
     };
 
     recognizer.canceled = (_sender: any, event: SpeechRecognitionCanceledEventArgs) => {
@@ -236,31 +238,33 @@ export class TranscriptionService {
     return absoluteTime - this.sessionStartTime;
   }
 
-  private updateTranscriptHistory(userSession: UserSession, event: ConversationTranscriptionEventArgs) {
+  private updateTranscriptHistory(userSession: UserSession, event: ConversationTranscriptionEventArgs, isFinal: boolean) {
     console.log('📝 Updating transcript history...');
-    let addSegment = false;
+    // let addSegment = false;
 
-    if (userSession.transcript.segments.length > 0) {
-      const lastSegment = userSession.transcript.segments[userSession.transcript.segments.length - 1];
-      if (lastSegment.resultId === event.result.resultId) {
-        console.log('🔄 Updating existing segment');
-        lastSegment.text = event.result.text;
-        lastSegment.timestamp = new Date();
-      } else {
-        console.log('➕ Adding new segment');
-        addSegment = true;
-      }
-    } else {
-      console.log('➕ Adding first segment');
-      addSegment = true;
-    }
+    // if (userSession.transcript.segments.length > 0) {
+    //   const lastSegment = userSession.transcript.segments[userSession.transcript.segments.length - 1];
+    //   if (lastSegment.resultId === event.result.resultId) {
+    //     console.log('🔄 Updating existing segment');
+    //     lastSegment.text = event.result.text;
+    //     lastSegment.timestamp = new Date();
+    //   } else {
+    //     console.log('➕ Adding new segment');
+    //     addSegment = true;
+    //   }
+    // } else {
+    //   console.log('➕ Adding first segment');
+    //   addSegment = true;
+    // }
 
-    if (addSegment) {
+    if (isFinal) {
+      // Add a new segment to the transcript history
       userSession.transcript.segments.push({
         resultId: event.result.resultId,
         speakerId: event.result.speakerId,
         text: event.result.text,
         timestamp: new Date(),
+        isFinal
       });
     }
   }
