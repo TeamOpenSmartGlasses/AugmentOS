@@ -11,18 +11,24 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.camera.core.CameraSelector;
 import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.LifecycleService;
 import androidx.preference.PreferenceManager;
 
 import com.augmentos.augmentos_core.R;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
+import com.teamopensmartglasses.smartglassesmanager.camera.CameraRecorder;
+import com.teamopensmartglasses.smartglassesmanager.camera.CameraRecordingService;
+import com.teamopensmartglasses.smartglassesmanager.camera.Constants;
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.augmentos.augmentos_core.smarterglassesmanager.comms.MessageTypes;
 import com.augmentos.augmentoslib.events.BulletPointListViewRequestEvent;
@@ -66,7 +72,7 @@ import java.util.Arrays;
 import io.reactivex.rxjava3.subjects.PublishSubject;
 
 /** Main service of Smart Glasses Manager, that starts connections to smart glasses and talks to third party apps (3PAs) */
-public abstract class SmartGlassesAndroidService extends LifecycleService {
+public abstract class SmartGlassesAndroidService extends LifecycleService implements CameraRecorder.CameraRecorderCallback {
     private static final String TAG = "SGM_ASP_Service";
 
     // Service Binder given to clients
@@ -364,7 +370,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         String CHANNEL_ID = myChannelId;
 
         NotificationChannel channel = new NotificationChannel(CHANNEL_ID, notificationAppName,
-                NotificationManager.IMPORTANCE_HIGH);
+                NotificationManager.IMPORTANCE_LOW);
         channel.setDescription(notificationDescription);
         manager.createNotificationChannel(channel);
 

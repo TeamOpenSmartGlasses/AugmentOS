@@ -36,6 +36,8 @@ import android.os.Looper;
 import android.service.notification.NotificationListenerService;
 import android.util.Log;
 
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import androidx.core.app.NotificationCompat;
@@ -85,6 +87,7 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
@@ -104,7 +107,7 @@ import okhttp3.Response;
 public class AugmentosService extends Service implements AugmentOsActionsCallback {
     public static final String TAG = "AugmentOS_AugmentOSService";
 
-    private final IBinder binder = new LocalBinder();
+    //private final IBinder binder = new LocalBinder();
 
     private final String notificationAppName = "AugmentOS Core";
     private final String notificationDescription = "Running in foreground";
@@ -189,6 +192,89 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             sendStatusToAugmentOsManager();
         }
     };
+
+    private final IAugmentOSCoreService.Stub binder = new IAugmentOSCoreService.Stub() {
+        @Override
+        public void receiveSharedMemory(ParcelFileDescriptor fd, int width, int height, int format) {
+            Log.d(TAG, "receiveSharedMemory called with: " + width + "x" + height);
+            if (fd == null) {
+                Log.e(TAG, "ParcelFileDescriptor is NULL!");
+                return;
+            }
+            try {
+                FileDescriptor fileDescriptor = fd.getFileDescriptor();
+                int bufferSize = width * height * 3 / 2; // YUV420 format
+
+                FileInputStream inputStream = new FileInputStream(fileDescriptor);
+                byte[] frameData = new byte[Math.min(100, bufferSize)]; // Just read first 100 bytes to check
+                int bytesRead = inputStream.read(frameData);
+                inputStream.close();
+
+                if (bytesRead > 0) {
+                    Log.d(TAG, "Received shared memory frame: " + width + "x" + height + ", bytesRead=" + bytesRead);
+                    Log.d(TAG, "First few bytes: " + Arrays.toString(Arrays.copyOf(frameData, 10)));
+                } else {
+                    Log.e(TAG, "Error: No bytes read from shared memory");
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "Error reading shared memory", e);
+            }
+        }
+    };
+
+//    private final IAugmentOSCoreService.Stub sharedMemBinder = new IAugmentOSCoreService.Stub() {
+//        @Override
+//        public void receiveSharedMemory(ParcelFileDescriptor fd, int width, int height, int format) {
+//            Log.d(TAG, "receiveSharedMemory called with: " + width + "x" + height);
+//            if (fd == null) {
+//                Log.e(TAG, "ParcelFileDescriptor is NULL!");
+//                return;
+//            }
+//            try {
+//                FileDescriptor fileDescriptor = fd.getFileDescriptor();
+//                int bufferSize = width * height * 3 / 2; // YUV420 format
+//
+//                FileInputStream inputStream = new FileInputStream(fileDescriptor);
+//                byte[] frameData = new byte[Math.min(100, bufferSize)]; // Just read first 100 bytes to check
+//                int bytesRead = inputStream.read(frameData);
+//                inputStream.close();
+//
+//                if (bytesRead > 0) {
+//                    Log.d(TAG, "Received shared memory frame: " + width + "x" + height + ", bytesRead=" + bytesRead);
+//                    Log.d(TAG, "First few bytes: " + Arrays.toString(Arrays.copyOf(frameData, 10)));
+//                } else {
+//                    Log.e(TAG, "Error: No bytes read from shared memory");
+//                }
+//            } catch (IOException e) {
+//                Log.e(TAG, "Error reading shared memory", e);
+//            }
+//        }
+//    };
+//
+//    private ServiceConnection connection = new ServiceConnection() {
+//        @Override
+//        public void onServiceConnected(ComponentName name, IBinder service) {
+//            AugmentosSmartGlassesService.LocalBinder binder = (AugmentosSmartGlassesService.LocalBinder) service;
+//            smartGlassesService = (AugmentosSmartGlassesService) binder.getService();
+//            isSmartGlassesServiceBound = true;
+////            sendStatusToAugmentOsManager();
+//            for (Runnable action : serviceReadyListeners) {
+//                action.run();
+//            }
+//            serviceReadyListeners.clear(); // Clear the queue
+//        }
+//
+//        @Override
+//        public void onServiceDisconnected(ComponentName name) {
+//            Log.d(TAG,"SMART GLASSES SERVICE DISCONNECTED!!!!");
+//            isSmartGlassesServiceBound = false;
+//
+//            // TODO: For now, stop all apps on disconnection
+//            // TODO: Future: Make this nicer
+//            tpaSystem.stopAllThirdPartyApps();
+//            sendStatusToAugmentOsManager();
+//        }
+//    };
 
     @Subscribe
     public void onAugmentosSmartGlassesDisconnectedEvent(AugmentosSmartGlassesDisconnectedEvent event){

@@ -11,6 +11,10 @@ android {
     namespace 'com.augmentos.augmentos_core'
     compileSdk 33
 
+    buildFeatures {
+        aidl = true
+    }
+
     defaultConfig {
         // applicationId only belongs to an application plugin
         // applicationId "com.augmentos.augmentos_core"
