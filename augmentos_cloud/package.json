@@ -12,6 +12,8 @@
     "@langchain/community": "^0.3.31",
     "@langchain/core": "^0.3.40",
     "@langchain/google-vertexai": "^0.1.8",
+    "@sentry/node": "^9.1.0",
+    "@sentry/profiling-node": "^9.1.0",
     "assemblyai": "^4.9.0",
     "langchain": "^0.3.18",
     "ts-node": "^10.9.2",

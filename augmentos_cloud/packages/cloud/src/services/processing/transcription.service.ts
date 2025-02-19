@@ -286,32 +286,6 @@ export class TranscriptionService {
     }
   }
 
-  // private broadcastTranscriptionResult(userSession: UserSession, results: TranscriptionData) {
-  //   const subscribedApps = subscriptionService.getSubscribedApps(userSession.sessionId, 'transcription');
-  //   console.log(`📢 Broadcasting to ${subscribedApps.length} subscribed apps`);
-
-  //   for (const packageName of subscribedApps) {
-  //     const appSessionId = `${userSession.sessionId}-${packageName}`;
-  //     const websocket = userSession.appConnections.get(packageName);
-  //     console.log(`📤 Sending to ${packageName}`)
-  //     console.log("Websocket state", websocket ? websocket.readyState : "No websocket found");
-
-  //     if (websocket?.readyState === WebSocket.OPEN) {
-  //       console.log(`📤 Sending to ${packageName}`);
-  //       const streamMessage: CloudDataStreamMessage = {
-  //         type: 'data_stream',
-  //         sessionId: appSessionId,
-  //         streamType: 'transcription',
-  //         data: results,
-  //         timestamp: new Date()
-  //       };
-
-  //       websocket.send(JSON.stringify(streamMessage));
-  //     } else {
-  //       console.warn(`⚠️ WebSocket not ready for ${packageName}`);
-  //     }
-  //   }
-  // }
 }
 
 export const transcriptionService = new TranscriptionService();
