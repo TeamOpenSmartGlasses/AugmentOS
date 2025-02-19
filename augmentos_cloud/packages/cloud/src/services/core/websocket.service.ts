@@ -55,19 +55,11 @@ import { User } from '../../models/user.model';
 // Constants
 const TPA_SESSION_TIMEOUT_MS = 5000;  // 30 seconds
 
-/**
- * Interface defining the public API of the WebSocket service.
- */
-export interface IWebSocketService {
-  setupWebSocketServers(server: Server): void;
-  broadcastToTpa(userSessionId: string, streamType: StreamType, data: any): void; // TODO: Specify data type.
-  startAppSession(userSession: UserSession, packageName: string): Promise<string>;
-}
 
 /**
  * ⚡️🕸️🚀 Implementation of the WebSocket service.
  */
-export class WebSocketService implements IWebSocketService {
+export class WebSocketService {
   private glassesWss: WebSocketServer;
   private tpaWss: WebSocketServer;
   // private tpaConnections = new Map<string, TpaConnection>();
@@ -111,18 +103,10 @@ export class WebSocketService implements IWebSocketService {
       throw new Error(`App ${packageName} not found`);
     }
 
-    // const tpaSessionId = `${userSessionId}-${packageName}`;
-    console.log(`\n[websocket.service]\n⚡️ Loading app ${packageName} for user ${packageName}\n`);
+    console.log(`\n[websocket.service]\n⚡️ Loading app ${packageName} for user ${userSession.userId}\n`);
 
-    // Store pending session. // TODO: move pendingTpaSessions inside userSession so we can clean it up when the user session ends. and because for some reason this.pendingTpaSession is not the same as this.pendingTpaSession in the handleTpaMessage method.
+    // Store pending session.
     userSession.loadingApps.push(packageName);
-    // this.pendingTpaSessions.set(tpaSessionId, {
-    //   userSessionId,
-    //   userId,
-    //   packageName,
-    //   timestamp: new Date()
-    // });
-
     console.log(`\nCurrent Loading Apps:`, userSession.loadingApps);
 
     try {
@@ -502,29 +486,29 @@ export class WebSocketService implements IWebSocketService {
             const app = await this.appService.getApp(stopMessage.packageName);
             if (!app) throw new Error(`App ${stopMessage.packageName} not found`);
 
-            // Call stop webhook
-            const tpaSessionId = `${userSession.sessionId}-${stopMessage.packageName}`;
+            // Call stop webhook // TODO(isaiah): Implement stop webhook in TPA typescript client lib.
+            // const tpaSessionId = `${userSession.sessionId}-${stopMessage.packageName}`;
 
-            try {
-              await this.appService.triggerStopWebhook(
-                app.webhookURL,
-                {
-                  type: 'stop_request',
-                  sessionId: tpaSessionId,
-                  userId: userSession.userId,
-                  reason: 'user_disabled',
-                  timestamp: new Date().toISOString()
-                }
-              );
-            }
-            catch (error: AxiosError | unknown) {
-              // console.error(`\n\n[stop_app]:\nError stopping app ${stopMessage.packageName}:\n${(error as any)?.message}\n\n`);
-              // Update state even if webhook fails
-              // TODO(isaiah): This is a temporary fix. We should handle this better. Also implement stop webhook in TPA typescript client lib.
-              userSession.activeAppSessions = userSession.activeAppSessions.filter(
-                (packageName) => packageName !== stopMessage.packageName
-              );
-            }
+            // try {
+            //   await this.appService.triggerStopWebhook(
+            //     app.webhookURL,
+            //     {
+            //       type: 'stop_request',
+            //       sessionId: tpaSessionId,
+            //       userId: userSession.userId,
+            //       reason: 'user_disabled',
+            //       timestamp: new Date().toISOString()
+            //     }
+            //   );
+            // }
+            // catch (error: AxiosError | unknown) {
+            //   // console.error(`\n\n[stop_app]:\nError stopping app ${stopMessage.packageName}:\n${(error as any)?.message}\n\n`);
+            //   // Update state even if webhook fails
+            //   // TODO(isaiah): This is a temporary fix. We should handle this better. Also implement stop webhook in TPA typescript client lib.
+            //   userSession.activeAppSessions = userSession.activeAppSessions.filter(
+            //     (packageName) => packageName !== stopMessage.packageName
+            //   );
+            // }
 
             // Remove subscriptions and update state
             this.subscriptionService.removeSubscriptions(userSession, stopMessage.packageName);
@@ -578,7 +562,7 @@ export class WebSocketService implements IWebSocketService {
             try {
               const user = await User.findByEmail(userSession.userId);
               if (user) {
-                await user.addRunningApp(stopMessage.packageName);
+                await user.removeRunningApp(stopMessage.packageName);
               }
             }
             catch (error) {
@@ -693,6 +677,8 @@ export class WebSocketService implements IWebSocketService {
     const setCurrentSessionId = (appSessionId: string) => {
       currentAppSession = appSessionId;
     }
+    let userSessionId: string = '';
+    let userSession : UserSession | null = null;
 
     ws.on('message', async (data: Buffer | string, isBinary: boolean) => {
       // console.log('\n\n~~Received message from TPA~~\n', data.toString(), data);
@@ -703,30 +689,29 @@ export class WebSocketService implements IWebSocketService {
 
       try {
         const message = JSON.parse(data.toString()) as TpaToCloudMessage;
-        const userSessionId = message.sessionId?.split('-')[0];
-        if (!userSessionId) {
-          console.error('Invalid session ID');
-          ws.close(1008, 'Invalid session ID');
-          return;
+        if (message.sessionId) {
+          userSessionId = message.sessionId.split('-')[0];
+          userSession = this.sessionService.getSession(userSessionId);
         }
-        const userSession = this.sessionService.getSession(userSessionId);
-        if (!userSession) {
-          console.error(`\n\n[websocket.service] User session not found for ${userSessionId}\n\n`);
-          ws.close(1008, 'No active session');
-          return;
-        }
-        // await this.handleTpaMessage(ws, message, currentAppSession, setCurrentSessionId);
+
         // Handle TPA messages here.
         try {
           switch (message.type) {
             case 'tpa_connection_init': {
               const initMessage = message as TpaConnectionInitMessage;
+              if (!userSession) {
+                console.error(`\n\n[websocket.service] User session not found for ${userSessionId}\n\n`);
+                ws.close(1008, 'No active session');
+                return;
+              }
+              
               await this.handleTpaInit(ws, initMessage, setCurrentSessionId);
               break;
             }
 
             case 'subscription_update': {
-              if (!currentAppSession) {
+              if (!userSession || !userSessionId) {
+                console.error(`\n\n[websocket.service] User session not found for ${userSessionId}\n\n`);
                 ws.close(1008, 'No active session');
                 return;
               }
@@ -791,7 +776,7 @@ export class WebSocketService implements IWebSocketService {
             }
 
             case 'display_event': {
-              if (!currentAppSession) {
+              if (!userSession) {
                 ws.close(1008, 'No active session');
                 return;
               }
@@ -803,7 +788,7 @@ export class WebSocketService implements IWebSocketService {
           }
         }
         catch (error) {
-          console.error('Error handling TPA message:', error);
+          console.error('Error handling TPA message:', message, error);
           this.sendError(ws, {
             code: 'MESSAGE_HANDLING_ERROR',
             message: 'Error processing message'
@@ -885,6 +870,7 @@ export class WebSocketService implements IWebSocketService {
       console.error('\n\n[websocket.service.ts]🙅‍♀️TPA session not found\nYou shall not pass! 🧙‍♂️\n:', initMessage.sessionId,
         '\n\nLoading apps:', userSession?.loadingApps, '\n\n'
       );
+      // TODO(isaiah): 🔐 Close the connection if the session ID is invalid. important for real TPAs.
       ws.close(1008, 'Invalid session ID');
       return;
     }
@@ -941,7 +927,7 @@ export function createWebSocketService(
   subscriptionService: SubscriptionService,
   transcriptionService: TranscriptionService,
   appService: IAppService,
-): IWebSocketService {
+): WebSocketService {
   return new WebSocketService(
     sessionService,
     subscriptionService,

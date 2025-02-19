@@ -50,8 +50,8 @@ export type HardwareEvent =
   | GlassesBatteryUpdateEvent
   | PhoneBatteryUpdateEvent
   | GlassesConnectionStateEvent
-  | LocationUpdateEvent;
-
+  | LocationUpdateEvent
+  | TranscriptionData;
 
 // Processed hardware events.
 export interface TranscriptionData {
