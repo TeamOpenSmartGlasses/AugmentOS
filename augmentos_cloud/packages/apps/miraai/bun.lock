@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "@augmentos/mira-ai",
+      "name": "@augmentos/miraai",
       "dependencies": {
         "@google-cloud/storage": "^5.16.1",
         "@langchain/community": "^0.0.32",

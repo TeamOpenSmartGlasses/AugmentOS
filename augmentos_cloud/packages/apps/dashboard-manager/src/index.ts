@@ -20,8 +20,6 @@ const PORT =  systemApps.dashboard.port;
 const PACKAGE_NAME = systemApps.dashboard.packageName;
 const API_KEY = 'test_key'; // In production, store securely
 
-const LOCATION = 'New York'; // Hardcoded for now
-
 // For demonstration, we'll keep session-based info in-memory.
 // In real usage, you might store persistent data in a DB.
 interface SessionInfo {
@@ -49,6 +47,8 @@ interface SessionInfo {
 }
 
 const activeSessions = new Map<string, SessionInfo>();
+
+const notificationAppBlackList = ['youtube', 'augment', 'maps'];
 
 // Parse JSON bodies
 app.use(express.json());
@@ -105,7 +105,14 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
 
       // Fetch news once the connection is open.
       const newsAgent = new NewsAgent();
-      const newsResult = await newsAgent.handleContext({});
+      // const newsResult = await newsAgent.handleContext({});
+      const newsResult = {
+        news_summaries: [
+          "News summary 1",
+          "News summary 2",
+          "News summary 3"
+        ]
+      };
       const sessionInfo = activeSessions.get(sessionId);
       if (sessionInfo && newsResult && newsResult.news_summaries && newsResult.news_summaries.length > 0) {
         sessionInfo.newsCache = newsResult.news_summaries;
@@ -149,6 +156,8 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
     console.warn(`Session ${sessionId} not found in activeSessions`);
     return;
   }
+
+  console.log("MESSAGE TYPE: " + message);
 
   switch (message.type) {
     case 'tpa_connection_ack': {
@@ -259,20 +268,21 @@ function handleHeadPosition(sessionId: string, headPositionData: any) {
       if (nextIndex >= sessionInfo.newsCache.length) {
         // We've gone through the entire list.
         // Fetch new news and reset index.
-        const newsAgent = new NewsAgent();
-        newsAgent.handleContext({}).then(newsResult => {
-          if (newsResult && newsResult.news_summaries && newsResult.news_summaries.length > 0) {
-            sessionInfo.newsCache = newsResult.news_summaries;
-            sessionInfo.newsIndex = 0;
-          } else {
-            // If no new news are fetched, wrap around.
-            sessionInfo.newsIndex = 0;
-          }
-        }).catch(err => {
-          console.error(`[Session ${sessionId}] Error fetching new news:`, err);
-          // Fallback: wrap around if error occurs.
-          sessionInfo.newsIndex = 0;
-        });
+        // const newsAgent = new NewsAgent();
+        // newsAgent.handleContext({}).then(newsResult => {
+        //   if (newsResult && newsResult.news_summaries && newsResult.news_summaries.length > 0) {
+        //     sessionInfo.newsCache = newsResult.news_summaries;
+        //     sessionInfo.newsIndex = 0;
+        //   } else {
+        //     // If no new news are fetched, wrap around.
+        //     sessionInfo.newsIndex = 0;
+        //   }
+        // }).catch(err => {
+        //   console.error(`[Session ${sessionId}] Error fetching new news:`, err);
+        //   // Fallback: wrap around if error occurs.
+        //   sessionInfo.newsIndex = 0;
+        // });
+        sessionInfo.newsCache = ["News summary 1", "News summary 2", "News summary 3"];
       } else {
         // Otherwise, simply update the index.
         sessionInfo.newsIndex = nextIndex;
@@ -462,7 +472,7 @@ async function updateDashboard(sessionId?: string) {
           const topTwoNotifications = rankedNotifications.slice(0, 2);
           console.log(`[Session ${sessionId}] Ranked Notifications:`, topTwoNotifications);
           return topTwoNotifications
-            .map(notification => notification.summary)
+            .map(notification => wrapText(notification.summary, 25))
             .join('\n');
         }
       }
@@ -528,6 +538,14 @@ function handlePhoneNotification(sessionId: string, notificationData: any) {
     sessionInfo.phoneNotificationCache = [];
   }
 
+  // Check if the app name is blacklisted.
+  for (const blacklisted of notificationAppBlackList) {
+    if (notificationData.app.toLowerCase().includes(blacklisted)) {
+      console.log(`Notification from ${notificationData.app} is blacklisted.`);
+      return;
+    }
+  }
+
   // Add the new notification to the cache.
   const newNotification = {
     title: notificationData.title || 'No Title',
@@ -544,9 +562,11 @@ function handlePhoneNotification(sessionId: string, notificationData: any) {
   // Pass the entire list of notifications to the filter agent.
   notificationFilterAgent.handleContext({ notifications: sessionInfo.phoneNotificationCache })
     .then((filteredNotifications: any) => {
+      console.log(`[Session ${sessionId}] Filtered Notifications:`, filteredNotifications);
       // Save the ranked notifications for later use in the dashboard.
       sessionInfo.phoneNotificationRanking = filteredNotifications;
       // Update the dashboard after the notifications have been filtered.
+      console.log(`[Session ${sessionId}] Updating dashboard after notification filtering.` + filteredNotifications);
       updateDashboard(sessionId);
     })
     .catch(err => {

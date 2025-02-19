@@ -22,7 +22,7 @@ interface SearchInput {
  */
 export class SearchToolForAgents extends Tool {
   name = 'search';
-  description = 'Searches for additional information for an entity using SerpAPI.';
+  description = 'Searches the web for information about a given query.';
   private serpApi: SerpAPI;
 
   constructor() {
@@ -64,8 +64,11 @@ export class SearchToolForAgents extends Tool {
         imageUrl = result.image_results[0].thumbnail;
       }
 
+      console.log("SearchToolForAgents Input:", result[0]);
+      console.log("SearchToolForAgents Result:", snippet);
+
       // Return the result as a JSON string.
-      return JSON.stringify({ url, snippet, imageUrl });
+      return JSON.stringify({ result });
     } catch (error) {
       console.error(`Error during search for "${searchKeyword}":`, error);
       return JSON.stringify({
