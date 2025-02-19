@@ -10,7 +10,7 @@
 import { AppI, StopWebhookRequest, StopWebhookResponse } from '@augmentos/types';
 import { AppState } from '@augmentos/types/core/app.session';
 import axios, { AxiosError } from 'axios';
-import { systemApps } from '@augmentos/types/config/cloud.env';
+import { systemApps } from '@augmentos/config';
 
 
 /**

@@ -3,10 +3,13 @@
   "workspaces": [
     "packages/*"
   ],
+
   "scripts": {
-    "dev": "./dev.sh",
-    "prod": "./prod.sh"
+    "dev": "concurrently -n \"agents,clients,types,config,dashboard,flash,live-captions,miraai,notify,cloud\" -c \"bgBlue.bold,bgGreen.bold,bgMagenta.bold,bgYellow.bold,bgCyan.bold,bgRed.bold,bgBlue.bold,bgGreen.bold,bgMagenta.bold,bgYellow.bold\" \"cd packages/agents && bun run dev\" \"cd packages/clients && bun run dev\" \"cd packages/types && bun run dev\" \"cd packages/config && bun run dev\" \"cd packages/apps/dashboard-manager && bun run dev\" \"cd packages/apps/flash && bun run dev\" \"cd packages/apps/live-captions && bun run dev\" \"cd packages/apps/miraai && bun run dev\" \"cd packages/apps/notify && bun run dev\" \"cd packages/cloud && bun run dev\"",
+    "build": "concurrently \"cd packages/agents && bun run build\" \"cd packages/clients && bun run build\" \"cd packages/types && bun run build\" \"cd packages/config && bun run build\" \"cd packages/apps/dashboard-manager && bun run build\" \"cd packages/apps/flash && bun run build\" \"cd packages/apps/live-captions && bun run build\" \"cd packages/apps/miraai && bun run build\" \"cd packages/apps/notify && bun run build\" \"cd packages/cloud && bun run build\"",
+    "start:prod": "pm2 start ecosystem.config.js"
   },
+
   "dependencies": {
     "@langchain/anthropic": "^0.3.13",
     "@langchain/community": "^0.3.31",
@@ -14,15 +17,19 @@
     "@langchain/google-vertexai": "^0.1.8",
     "@sentry/node": "^9.1.0",
     "@sentry/profiling-node": "^9.1.0",
+    "@sentry/tracing": "^7.120.3",
     "assemblyai": "^4.9.0",
     "langchain": "^0.3.18",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
-    "tz-lookup": "^6.1.25"
+    "tz-lookup": "^6.1.25",
+    "uuid": "^11.1.0",
+    "winston": "^3.17.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.20.0",
     "@types/tz-lookup": "^6.1.2",
+    "concurrently": "^9.1.2",
     "eslint": "^9.20.1",
     "globals": "^15.15.0",
     "typescript-eslint": "^8.24.0"

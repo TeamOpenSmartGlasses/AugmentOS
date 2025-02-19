@@ -7,11 +7,11 @@ import {
   TpaSubscriptionUpdateMessage,
   CloudDataStreamMessage,
   DisplayRequest,
-} from '@augmentos/types'; // Reuse shared types if needed
-import { CLOUD_PORT, systemApps } from '@augmentos/types/config/cloud.env';
-// Import the AgentGatekeeper and Agent interface (adjust the paths as needed)
-import { MiraAgent } from '../../../agents/MiraAgent';
-import { wrapText } from '../../../utils/text-wrapping/wraptText';
+} from '@augmentos/types';
+
+import { CLOUD_PORT, systemApps } from '@augmentos/config';
+import { MiraAgent } from '@augmentos/agents';
+import { wrapText } from '@augmentos/utils';
 
 // If needed, use node-fetch (if Node version < 18)
 // import fetch from 'node-fetch';
