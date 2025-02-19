@@ -3,8 +3,7 @@
 // Base exports
 
 // Model exports
-export * from './models/user';
-export * from './models/app';
+export * from './core/app';
 export * from './core/user.session';
 
 // Event exports

@@ -1,15 +1,3 @@
-/**
- * @fileoverview Service for real-time audio transcription using Azure Speech Services.
- * Handles continuous audio stream processing, transcription, and result distribution.
- * 
- * Primary responsibilities:
- * - Real-time audio transcription
- * - Interim and final result handling
- * - Speaker diarization
- * - Stream lifecycle management
- * - Result broadcasting to TPAs
- */
-
 import * as azureSpeechSDK from 'microsoft-cognitiveservices-speech-sdk';
 import {
   SessionEventArgs,
@@ -21,71 +9,35 @@ import {
   ConversationTranscriber,
   ConversationTranscriptionEventArgs
 } from 'microsoft-cognitiveservices-speech-sdk';
-import { TranscriptionData, UserSession } from '@augmentos/types';
+import { CloudDataStreamMessage, TranscriptionData, UserSession } from '@augmentos/types';
 import { AZURE_SPEECH_KEY, AZURE_SPEECH_REGION } from '@augmentos/types/config/cloud.env';
+import subscriptionService from '../core/subscription.service';
+import webSocketService from '../core/websocket.service';
 
-/**
- * Interface for interim (in-progress) transcription results.
- */
 export interface InterimTranscriptionResult extends TranscriptionData {
   type: 'transcription-interim';
   isFinal: false;
 }
 
-/**
- * Interface for final transcription results.
- */
 export interface FinalTranscriptionResult extends TranscriptionData {
   type: 'transcription-final',
   isFinal: true;
-  duration: number;         // Total duration of the segment
+  duration: number;
 }
 
-
-/**
- * Configuration options for the transcription service.
- */
-export interface TranscriptionServiceConfig {
-  speechRecognitionLanguage?: string;
-  enableProfanityFilter?: boolean;
-  enablePunctuation?: boolean;
-}
-
-/**
- * Interface defining the public API of the transcription service.
- */
-export interface ITranscriptionService {
-  startTranscription(
-    userSession: UserSession,
-    onInterimResult: (result: InterimTranscriptionResult) => void,
-    onFinalResult: (result: FinalTranscriptionResult) => void
-  ): {
-    recognizer: ConversationTranscriber;
-    pushStream: azureSpeechSDK.PushAudioInputStream;
-  };
-}
-
-/**
- * Implementation of the transcription service using Azure Speech Services.
- * Design decisions:
- * 1. Push stream model for real-time audio
- * 2. Continuous recognition with separate interim/final handlers
- * 3. Relative timestamps for easier client-side handling
- * 4. Built-in error recovery and session management
- */
-export class TranscriptionService implements ITranscriptionService {
+export class TranscriptionService {
   private speechConfig: azureSpeechSDK.SpeechConfig;
   private sessionStartTime = 0;
 
-  /**
-   * Creates a new TranscriptionService instance.
-   * @param config - Optional configuration parameters
-   * @throws Error if Azure credentials are missing
-   */
-  constructor(config: TranscriptionServiceConfig = {}) {
-    //const AZURE_SPEECH_REGION = process.env.AZURE_SPEECH_REGION;
+  constructor(config: {
+    speechRecognitionLanguage?: string;
+    enableProfanityFilter?: boolean;
+  } = {}) {
+    console.log('🎤 Initializing TranscriptionService...');
+
     if (!AZURE_SPEECH_KEY || !AZURE_SPEECH_REGION) {
-      throw new Error('Azure Speech key and region are required for TranscriptionService.');
+      console.error('❌ Missing Azure credentials!');
+      throw new Error('Azure Speech key and region are required');
     }
 
     this.speechConfig = azureSpeechSDK.SpeechConfig.fromSubscription(
@@ -93,95 +45,87 @@ export class TranscriptionService implements ITranscriptionService {
       AZURE_SPEECH_REGION
     );
 
-    // Configure speech recognition settings
     this.speechConfig.speechRecognitionLanguage = config.speechRecognitionLanguage || 'en-US';
     this.speechConfig.setProfanity(ProfanityOption.Raw);
-
-    // Enable detailed output for better result parsing
     this.speechConfig.outputFormat = OutputFormat.Simple;
+
+    console.log('✅ TranscriptionService initialized with config:', {
+      language: this.speechConfig.speechRecognitionLanguage,
+      region: AZURE_SPEECH_REGION,
+      format: 'Simple'
+    });
   }
 
-  /**
-   * Starts transcription for a session.
-   * @param userSession - Session identifier
-   * @param onInterimResult - Callback for interim results
-   * @param onFinalResult - Callback for final results
-   * @returns Object containing recognizer and push stream
-   */
-  startTranscription(
-    userSession: UserSession,
-    onInterimResult: (result: InterimTranscriptionResult) => void,
-    onFinalResult: (result: FinalTranscriptionResult) => void
-  ): { recognizer: ConversationTranscriber; pushStream: azureSpeechSDK.PushAudioInputStream } {
+  startTranscription(userSession: UserSession) {
+    console.log(`\n🎙️ [Session ${userSession.sessionId}] Starting transcription...`);
+    console.log('Current session state:', {
+      hasRecognizer: !!userSession.recognizer,
+      hasPushStream: !!userSession.pushStream,
+      isTranscribing: userSession.isTranscribing,
+      bufferedAudioChunks: userSession.bufferedAudio.length
+    });
+
+    if (userSession.recognizer && userSession.pushStream) {
+      console.log('⚠️ Transcription already active, reusing existing resources');
+      return { recognizer: userSession.recognizer, pushStream: userSession.pushStream };
+    }
+
     this.sessionStartTime = Date.now();
 
-    // Clean up any existing streams first
-    if (userSession.recognizer) {
-      userSession?.recognizer?.close();
-      userSession.recognizer = undefined;
-    }
+    try {
+      console.log('🔄 Creating new transcription resources...');
+      const pushStream = AudioInputStream.createPushStream();
+      const audioConfig = AudioConfig.fromStreamInput(pushStream);
+      const recognizer = new ConversationTranscriber(this.speechConfig, audioConfig);
 
-    if (userSession.pushStream) {
-      userSession?.pushStream?.close();
-      userSession.pushStream = undefined;
-    }
+      userSession.pushStream = pushStream;
+      userSession.recognizer = recognizer;
 
-    // Create new streams.
-    const pushStream = AudioInputStream.createPushStream();
-    const audioConfig = AudioConfig.fromStreamInput(pushStream);
-    const recognizer = new ConversationTranscriber(this.speechConfig, audioConfig);
+      console.log('✅ Created new recognizer and push stream');
 
-    userSession.pushStream = pushStream;
-    userSession.recognizer = recognizer;
+      // Set up recognition handlers
+      this.setupRecognitionHandlers(userSession, recognizer);
 
-    // Set up recognition handlers
-    this.setupRecognitionHandlers(userSession, onInterimResult, onFinalResult);
+      // Start recognition
+      console.log('🚀 Starting continuous recognition...');
+      recognizer.startTranscribingAsync(
+        () => {
+          console.log('✅ Recognition started successfully');
+          userSession.isTranscribing = true;
 
-    // Start continuous recognition with error handling
-    recognizer.startTranscribingAsync(
-      () => {
-        console.log(`[Session ${userSession.sessionId}] Continuous recognition started`);
-        userSession.pushStream = pushStream;
-        userSession.recognizer = recognizer;
-
-        // Process any buffered audio after stream is ready
-        if (userSession.bufferedAudio.length > 0) {
-          console.log(`Processing ${userSession.bufferedAudio.length} buffered audio chunks`);
-          userSession.bufferedAudio.forEach(chunk => {
-            try {
-              pushStream.write(chunk);
-            } catch (error) {
-              console.error('Error processing buffered audio:', error);
-            }
-          });
-          userSession.bufferedAudio = [];
+          // Process buffered audio
+          if (userSession.bufferedAudio.length > 0) {
+            console.log(`📦 Processing ${userSession.bufferedAudio.length} buffered audio chunks`);
+            userSession.bufferedAudio.forEach((chunk, index) => {
+              try {
+                pushStream.write(chunk);
+                console.log(`✅ Processed buffered chunk ${index + 1}/${userSession.bufferedAudio.length}`);
+              } catch (error) {
+                console.error(`❌ Error processing buffered chunk ${index + 1}:`, error);
+              }
+            });
+            userSession.bufferedAudio = [];
+          }
+        },
+        (error) => {
+          console.error('❌ Failed to start recognition:', error);
+          this.cleanupTranscriptionResources(userSession);
         }
-      },
-      (err) => {
-        console.error(`[Session ${userSession.sessionId}] Error starting recognition:`, err);
-        // Cleanup on error
-        recognizer.close();
-        pushStream.close();
-      }
-    );
+      );
 
-    return { recognizer, pushStream };
+      return { recognizer, pushStream };
+    } catch (error) {
+      console.error('❌ Error creating transcription:', error);
+      this.cleanupTranscriptionResources(userSession);
+      throw error;
+    }
   }
 
-  private setupRecognitionHandlers(
-    userSession: UserSession,
-    onInterimResult: (result: InterimTranscriptionResult) => void,
-    onFinalResult: (result: FinalTranscriptionResult) => void
-  ): void {
-    const { recognizer, sessionId } = userSession;
-    if (!recognizer) {
-      console.error(`[Session ${sessionId}] No recognizer for UserSession`);
-      return;
-    }
-
-    // Handle interim results
+  private setupRecognitionHandlers(userSession: UserSession, recognizer: ConversationTranscriber) {
     recognizer.transcribing = (_sender: any, event: ConversationTranscriptionEventArgs) => {
       if (!event.result.text) return;
+      console.log(`🎤 [Interim] ${event.result.text}`);
+
       const result: InterimTranscriptionResult = {
         type: 'transcription-interim',
         text: event.result.text,
@@ -190,39 +134,14 @@ export class TranscriptionService implements ITranscriptionService {
         isFinal: false,
         speakerId: event.result.speakerId,
       };
-      onInterimResult(result);
 
-      // check if the last message is the same resultId, if so, update the text and timestamp.
-      let addSegment = false;
-      if (userSession.transcript.segments.length > 0) {
-        // Update the last segment if it's the same resultId.
-        const lastSegment = userSession.transcript.segments[userSession.transcript.segments.length - 1];
-        if (lastSegment.resultId === event.result.resultId) {
-          lastSegment.text = event.result.text;
-          lastSegment.timestamp = new Date();
-        } else {
-          addSegment = true;
-        }
-      } else {
-        addSegment = true;
-      }
-
-      // Add new segment to userSession transcript history.
-      if (addSegment) {
-        userSession.transcript.segments.push(
-          {
-            resultId: event.result.resultId,
-            speakerId: event.result.speakerId,
-            text: event.result.text,
-            timestamp: new Date(),
-          }
-        );
-      }
+      this.broadcastTranscriptionResult(userSession, result);
+      this.updateTranscriptHistory(userSession, event);
     };
 
-    // Handle final results.
     recognizer.transcribed = (_sender: any, event: ConversationTranscriptionEventArgs) => {
       if (!event.result.text) return;
+      console.log(`✅ [Final] ${event.result.text}`);
 
       const result: FinalTranscriptionResult = {
         type: 'transcription-final',
@@ -234,44 +153,166 @@ export class TranscriptionService implements ITranscriptionService {
         duration: event.result.duration
       };
 
-      onFinalResult(result);
-      // Add to userSession transcript history.
-      userSession.transcript.segments.push(
-        {
-          resultId: event.result.resultId,
-          speakerId: event.result.speakerId,
-          text: event.result.text,
-          timestamp: new Date(),
-        }
-      );
+      this.broadcastTranscriptionResult(userSession, result);
+      this.updateTranscriptHistory(userSession, event);
     };
 
-    // Handle cancellation
     recognizer.canceled = (_sender: any, event: SpeechRecognitionCanceledEventArgs) => {
-      console.error(`[Session ${sessionId}] Recognition canceled:`, event);
+      console.error('❌ Recognition canceled:', {
+        reason: event.reason,
+        errorCode: event.errorCode,
+        errorDetails: event.errorDetails
+      });
+      this.cleanupTranscriptionResources(userSession);
     };
 
-    // Handle session lifecycle
     recognizer.sessionStarted = (_sender: any, _event: SessionEventArgs) => {
-      console.log(`[Session ${sessionId}] Recognition session started`);
+      console.log('📢 Recognition session started');
     };
 
     recognizer.sessionStopped = (_sender: any, _event: SessionEventArgs) => {
-      console.log(`[Session ${sessionId}] Recognition session stopped`);
+      console.log('🛑 Recognition session stopped');
     };
   }
 
-  /**
-   * Calculates time relative to session start.
-   * @param absoluteTime - Absolute timestamp
-   * @returns Time relative to session start in milliseconds
-   * @private
-   */
+  stopTranscription(userSession: UserSession) {
+    console.log(`\n🛑 [Session ${userSession.sessionId}] Stopping transcription...`);
+    console.log('Current session state:', {
+      hasRecognizer: !!userSession.recognizer,
+      hasPushStream: !!userSession.pushStream,
+      isTranscribing: userSession.isTranscribing
+    });
+
+    if (!userSession.recognizer) {
+      console.log('ℹ️ No recognizer to stop');
+      return;
+    }
+
+    try {
+      userSession.recognizer.stopTranscribingAsync(
+        () => {
+          console.log('✅ Recognition stopped successfully');
+          this.cleanupTranscriptionResources(userSession);
+        },
+        (error) => {
+          console.error('❌ Error stopping recognition:', error);
+          this.cleanupTranscriptionResources(userSession);
+        }
+      );
+    } catch (error) {
+      console.error('❌ Error in stopTranscription:', error);
+      this.cleanupTranscriptionResources(userSession);
+    }
+  }
+
+  private cleanupTranscriptionResources(userSession: UserSession) {
+    console.log('🧹 Cleaning up transcription resources...');
+
+    if (userSession.pushStream) {
+      try {
+        userSession.pushStream.close();
+        console.log('✅ Closed push stream');
+      } catch (error) {
+        console.warn('⚠️ Error closing pushStream:', error);
+      }
+      userSession.pushStream = undefined;
+    }
+
+    if (userSession.recognizer) {
+      try {
+        userSession.recognizer.close();
+        console.log('✅ Closed recognizer');
+      } catch (error) {
+        console.warn('⚠️ Error closing recognizer:', error);
+      }
+      userSession.recognizer = undefined;
+    }
+
+    userSession.isTranscribing = false;
+    console.log('✅ Cleanup complete');
+  }
+
   private calculateRelativeTime(absoluteTime: number): number {
     return absoluteTime - this.sessionStartTime;
   }
+
+  private updateTranscriptHistory(userSession: UserSession, event: ConversationTranscriptionEventArgs) {
+    console.log('📝 Updating transcript history...');
+    let addSegment = false;
+
+    if (userSession.transcript.segments.length > 0) {
+      const lastSegment = userSession.transcript.segments[userSession.transcript.segments.length - 1];
+      if (lastSegment.resultId === event.result.resultId) {
+        console.log('🔄 Updating existing segment');
+        lastSegment.text = event.result.text;
+        lastSegment.timestamp = new Date();
+      } else {
+        console.log('➕ Adding new segment');
+        addSegment = true;
+      }
+    } else {
+      console.log('➕ Adding first segment');
+      addSegment = true;
+    }
+
+    if (addSegment) {
+      userSession.transcript.segments.push({
+        resultId: event.result.resultId,
+        speakerId: event.result.speakerId,
+        text: event.result.text,
+        timestamp: new Date(),
+      });
+    }
+  }
+
+  // Inside TranscriptionService class
+  private broadcastTranscriptionResult(userSession: UserSession, results: TranscriptionData) {
+    console.log('📢 Broadcasting transcription result');
+
+    try {
+      // Use the webSocketService's broadcast method
+      webSocketService.broadcastToTpa(
+        userSession.sessionId,
+        'transcription',
+        results
+      );
+    } catch (error) {
+      console.error('❌ Error broadcasting transcription:', error);
+      console.log('Failed to broadcast:', {
+        sessionId: userSession.sessionId,
+        resultType: results.type,
+        text: results.text?.slice(0, 50) + '...'  // Log first 50 chars
+      });
+    }
+  }
+
+  // private broadcastTranscriptionResult(userSession: UserSession, results: TranscriptionData) {
+  //   const subscribedApps = subscriptionService.getSubscribedApps(userSession.sessionId, 'transcription');
+  //   console.log(`📢 Broadcasting to ${subscribedApps.length} subscribed apps`);
+
+  //   for (const packageName of subscribedApps) {
+  //     const appSessionId = `${userSession.sessionId}-${packageName}`;
+  //     const websocket = userSession.appConnections.get(packageName);
+  //     console.log(`📤 Sending to ${packageName}`)
+  //     console.log("Websocket state", websocket ? websocket.readyState : "No websocket found");
+
+  //     if (websocket?.readyState === WebSocket.OPEN) {
+  //       console.log(`📤 Sending to ${packageName}`);
+  //       const streamMessage: CloudDataStreamMessage = {
+  //         type: 'data_stream',
+  //         sessionId: appSessionId,
+  //         streamType: 'transcription',
+  //         data: results,
+  //         timestamp: new Date()
+  //       };
+
+  //       websocket.send(JSON.stringify(streamMessage));
+  //     } else {
+  //       console.warn(`⚠️ WebSocket not ready for ${packageName}`);
+  //     }
+  //   }
+  // }
 }
 
-// Create singleton instance
 export const transcriptionService = new TranscriptionService();
 export default transcriptionService;

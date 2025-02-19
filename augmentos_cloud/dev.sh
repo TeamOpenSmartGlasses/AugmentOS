@@ -8,7 +8,8 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[1;33m'
-PURPLE='\033[0;35m'  # Added new color for dashboard manager
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Function to create colored tag
@@ -24,7 +25,8 @@ CAPTIONS_TAG=$(create_tag "[TPA][captions]:" "$BLUE")
 FLASH_TAG=$(create_tag "[TPA][flash]:" "$GREEN")
 CLOUD_TAG=$(create_tag "[Backend]:" "$RED")
 MOCK_CLIENT_TAG=$(create_tag "[Mock Client]:" "$YELLOW")
-DASHBOARD_TAG=$(create_tag "[Dashboard]:" "$PURPLE")  # Added new tag
+DASHBOARD_TAG=$(create_tag "[Dashboard]:" "$PURPLE")
+MIRA_TAG=$(create_tag "[Mira-AI]:" "$CYAN")  # New tag for mira-ai
 
 # Port definitions
 CLOUD_PORT=8002
@@ -34,6 +36,7 @@ DASHBOARD_PORT=8012
 MERGE_PORT=8013
 NOTIFY_PORT=8014
 VITE_PORT=6173
+MIRA_PORT=8015   # New port for mira-ai
 
 # Function to handle errors
 handle_error() {
@@ -124,7 +127,7 @@ setup_and_run() {
 }
 
 # Kill any existing processes on our ports before starting
-for port in $CLOUD_PORT $CAPTIONS_PORT $FLASH_PORT $VITE_PORT $DASHBOARD_PORT; do
+for port in $CLOUD_PORT $CAPTIONS_PORT $FLASH_PORT $VITE_PORT $DASHBOARD_PORT $MIRA_PORT; do
     free_up_port $port "Existing process"
 done
 
@@ -132,8 +135,7 @@ done
 ROOT_DIR=$(pwd)
 
 # Check if directories exist
-for dir in "./packages/cloud" "./packages/apps/flash" "./packages/apps/captions" "./packages/debugger" "./packages/apps/dashboard-manager"; do
-# for dir in "./packages/cloud" "./packages/apps/flash" "./packages/apps/captions" "./packages/debugger"; do
+for dir in "./packages/cloud" "./packages/apps/flash" "./packages/apps/captions" "./packages/debugger" "./packages/apps/dashboard-manager" "./packages/apps/mira-ai"; do
     if [ ! -d "$dir" ]; then
         handle_error "$dir directory not found"
     fi
@@ -154,6 +156,7 @@ setup_and_run "./packages/apps/captions" "$CAPTIONS_TAG" "$BLUE" "$CAPTIONS_PORT
 setup_and_run "./packages/apps/flash" "$FLASH_TAG" "$GREEN" "$FLASH_PORT" "Flash Server"
 setup_and_run "./packages/debugger" "$MOCK_CLIENT_TAG" "$YELLOW" "$VITE_PORT" "Mock Client"
 setup_and_run "./packages/apps/dashboard-manager" "$DASHBOARD_TAG" "$PURPLE" "$DASHBOARD_PORT" "Dashboard Manager"
+setup_and_run "./packages/apps/mira-ai" "$MIRA_TAG" "$CYAN" "$MIRA_PORT" "Mira-AI"  # New mira-ai server
 
 echo -e "\n${GREEN}All servers are now running!${NC}"
 echo -e "${YELLOW}Press Ctrl+C to stop all servers${NC}\n"

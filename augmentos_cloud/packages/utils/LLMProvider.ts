@@ -1,10 +1,11 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { ChatAnthropic } from "@langchain/anthropic";
 import { ChatVertexAI } from "@langchain/google-vertexai";
+import { OPENAI_API_KEY, ANTHROPIC_API_KEY, LLM_MODEL } from "@augmentos/types/config/cloud.env";
 
 export class LLMProvider {
   static getLLM() {
-    const model = process.env.LLM_MODEL || 'gpt-4'; // Default to GPT-4
+    const model = LLM_MODEL || 'gpt-4'; // Default to GPT-4
 
     switch (model) {
       case 'gpt-4':
@@ -12,7 +13,7 @@ export class LLMProvider {
           modelName: model,
           temperature: 0.3,
           maxTokens: 300,
-          openAIApiKey: process.env.OPENAI_API_KEY,
+          openAIApiKey: OPENAI_API_KEY,
         });
 
       case 'claude-3':
@@ -20,7 +21,7 @@ export class LLMProvider {
           modelName: model,
           temperature: 0.3,
           maxTokens: 300,
-          anthropicApiKey: process.env.ANTHROPIC_API_KEY,
+          anthropicApiKey: ANTHROPIC_API_KEY,
         });
 
       case 'gemini-pro':

@@ -4,6 +4,7 @@
  */
 import type { 
   GlassesConnectionInitMessage, 
+  VADStateMessage, 
   PhoneNotificationEvent 
 } from "..";
 import type { 
@@ -27,6 +28,8 @@ export interface WebSocketMessage {
 export interface StreamDataTypes {
   'stop_app': never;  // Control event, no data
   'start_app': never;  // Control event, no data
+
+  "VAD": VADStateMessage;
   
   'button_press': ButtonPressEvent;
   'head_position': HeadPositionEvent;

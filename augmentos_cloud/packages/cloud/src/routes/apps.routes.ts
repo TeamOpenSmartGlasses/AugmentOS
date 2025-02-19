@@ -36,7 +36,7 @@ router.post('/:packageName/start', async (req, res) => {
     }
 
     // Initiate TPA session
-    const tpaSessionId = await webSocketService.initiateTpaSession(sessionId, session.userId, packageName);
+    const tpaSessionId = await webSocketService.startAppSession(sessionId, session.userId, packageName);
     session.activeAppSessions.push(tpaSessionId);
 
     res.json({ status: 'initiated', tpaSessionId });
