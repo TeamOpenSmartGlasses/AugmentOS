@@ -160,10 +160,8 @@ setup_and_run "./packages/apps/dashboard-manager" "$DASHBOARD_TAG" "$PURPLE" "$D
 setup_and_run "./packages/apps/miraai" "$MIRA_TAG" "$CYAN" "$MIRA_PORT" "Mira AI"  # New mira-ai server
 setup_and_run "./packages/apps/notify" "$NOTIFY_TAG" "$WHITE" "$NOTIFY_PORT" "Notify Server"  # New notify server
 
-sleep 3
-setup_and_run "./packages/cloud" "$CLOUD_TAG" "$RED" "$CLOUD_PORT" "Cloud Server"
-
 # Run the cloud server last as it depends on the other servers
+sleep 3
 setup_and_run "./packages/cloud" "$CLOUD_TAG" "$RED" "$CLOUD_PORT" "Cloud Server"
 
 echo -e "\n${GREEN}All servers are now running!${NC}"
