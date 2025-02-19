@@ -409,6 +409,13 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                                 EventBus.getDefault().post(new GlassesHeadDownEvent());
                             }
                         }
+                        //DOUBLE TAP
+                        //appears to be completely broken - clears the screen - we should not tell people to use the touchpads yet til this is fixed
+//                        else if (data.length > 1 && (data[0] & 0xFF) == 0xF5 && ((data[1] & 0xFF) == 0x20) || ((data[1] & 0xFF) == 0x00)) {
+//                            boolean isRight = deviceName.contains("R_");
+//                            Log.d(TAG, "GOT DOUBLE TAP from isRight?: " + isRight);
+//                            EventBus.getDefault().post(new GlassesTapOutputEvent(2, isRight, System.currentTimeMillis()));
+//                        }
                         //BATTERY RESPONSE
                         else if (data.length > 2 && data[0] == 0x2C && data[1] == 0x66) {
                             if (deviceName.contains("L_")) {
@@ -426,27 +433,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         else if (data.length > 0 && data[0] == 0x4E) {
                             Log.d(TAG, "Text response was: " + ((data.length > 1 && (data[1] & 0xFF) == 0xC9) ? "SUCCEED" : "FAIL"));
                         }
-                        //TAPS
-                        else if (data.length > 0 && data[0] == 0xf5) {
-                            int taps = -1;
-                            switch (data[1]) {
-                                case 0x01:
-                                    taps = 1;
-                                    break;
-                                case 0x00:
-                                    taps = 2;
-                                    break;
-                                case 0x04:
-                                case 0x05:
-                                    taps = 3;
-                                    break;
-                            }
 
-                            if (taps != -1) {
-                                boolean isRight = deviceName.contains("R_");
-                                EventBus.getDefault().post(new GlassesTapOutputEvent(taps, isRight, System.currentTimeMillis()));
-                            }
-                        }
 
                         // Handle other non-audio responses
                         else {

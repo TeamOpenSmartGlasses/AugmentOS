@@ -3,14 +3,12 @@ package com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.vad
 import android.content.Context;
 import android.util.Log;
 
-import com.konovalov.vad.Vad;
-import com.konovalov.vad.VadListener;
-import com.konovalov.vad.config.FrameSize;
-import com.konovalov.vad.config.Mode;
-import com.konovalov.vad.config.Model;
-import com.konovalov.vad.config.SampleRate;
-import com.konovalov.vad.models.VadModel;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.google.asr.SpeechDetectionPolicy;
+import com.konovalov.vad.webrtc.Vad;
+import com.konovalov.vad.webrtc.VadWebRTC;
+import com.konovalov.vad.webrtc.config.FrameSize;
+import com.konovalov.vad.webrtc.config.Mode;
+import com.konovalov.vad.webrtc.config.SampleRate;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -20,8 +18,7 @@ import java.util.Arrays;
 public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
     public final String TAG = "WearLLM_VadGateService";
     private Context mContext;
-    private Vad vad;
-    private VadModel vadModel;
+    private VadWebRTC vad;
     private boolean isCurrentlySpeech;
 
     public VadGateSpeechPolicy(Context context){
@@ -30,34 +27,12 @@ public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
     }
 
     public void startVad(int blockSizeSamples){
-        vad = Vad.builder();
-
-        blockSizeSamples = blockSizeSamples;
-
-        Log.d(TAG, "VAD looking for block size samples: " + blockSizeSamples);
-        //find the proper frame size
-        FrameSize fsToUse = null;
-        for (FrameSize fs : FrameSize.values()){
-            if (fs.getValue() == blockSizeSamples){
-                fsToUse = fs;
-                break;
-            }
-        }
-
-        if (fsToUse == null){
-            Log.e(TAG, "Frame size not supported by VAD, exiting.");
-            return;
-        }
-
-        vadModel = vad.setModel(Model.SILERO_DNN)
+        vad  = Vad.builder()
                 .setSampleRate(SampleRate.SAMPLE_RATE_16K)
-                .setFrameSize(fsToUse)
-//                .setMode(Mode.VERY_AGGRESSIVE)
-                .setMode(Mode.AGGRESSIVE)
-//                .setMode(Mode.NORMAL)
-                .setSilenceDurationMs(12000) //very long pause so we don't keep turning on/off ASR
+                .setFrameSize(FrameSize.FRAME_SIZE_320)
+                .setMode(Mode.VERY_AGGRESSIVE)
+                .setSilenceDurationMs(800)
                 .setSpeechDurationMs(50)
-                .setContext(mContext)
                 .build();
 
         Log.d(TAG, "VAD init'ed.");
@@ -87,9 +62,12 @@ public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
     public void processAudioBytes(byte[] bytes, int offset, int length) {
         short[] audioBytesFull = bytesToShort(bytes);
 
-        // Ensure we process only full 512-sample frames
+        // Keep track of previous state
+        boolean previousSpeechState = isCurrentlySpeech;
+
+        // Ensure we process only full 320-sample frames
         int totalSamples = audioBytesFull.length;
-        int frameSize = 512;
+        int frameSize = 320;
 
         if (totalSamples % frameSize != 0) {
             Log.e(TAG, "Invalid audio frame size: " + totalSamples + " samples. Needs to be multiple of 512.");
@@ -100,22 +78,19 @@ public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
             int startIdx = i * frameSize;
             short[] audioBytesPartial = Arrays.copyOfRange(audioBytesFull, startIdx, startIdx + frameSize);
 
-            vadModel.setContinuousSpeechListener(audioBytesPartial, new VadListener() {
-                @Override
-                public void onSpeechDetected() {
-                    isCurrentlySpeech = true;
-                }
+            isCurrentlySpeech = vad.isSpeech(audioBytesPartial);
+            Log.d(TAG, "isCurrneltySpeech: " + isCurrentlySpeech);
 
-                @Override
-                public void onNoiseDetected() {
-                    isCurrentlySpeech = false;
-                }
-            });
+            // Log only when the state changes
+            if (isCurrentlySpeech != previousSpeechState) {
+                Log.d(TAG, "Speech detection changed to: " + (isCurrentlySpeech ? "SPEECH" : "SILENCE"));
+                previousSpeechState = isCurrentlySpeech;
+            }
         }
     }
 
     @Override
     public void stop() {
-        vadModel.close();
+        vad.close();
     }
 }
