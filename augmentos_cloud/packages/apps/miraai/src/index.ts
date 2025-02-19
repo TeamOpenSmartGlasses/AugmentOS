@@ -262,6 +262,6 @@ app.get('/health', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`AgentGatekeeper TPA server running at http://localhost:${PORT}`);
+  console.log(`MiraAI TPA server running at http://localhost:${PORT}`);
   console.log(`Logo available at http://localhost:${PORT}/logo.png`);
 });

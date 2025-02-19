@@ -149,12 +149,14 @@ echo -e "${GREEN}=== Starting AugmentOS Development Environment ===${NC}\n"
 trap kill_all_processes EXIT INT TERM
 
 # Run setup for all projects with their respective ports
-setup_and_run "./packages/cloud" "$CLOUD_TAG" "$RED" "$CLOUD_PORT" "Cloud Server"
 setup_and_run "./packages/apps/captions" "$CAPTIONS_TAG" "$BLUE" "$CAPTIONS_PORT" "Captions Server"
 setup_and_run "./packages/apps/flash" "$FLASH_TAG" "$GREEN" "$FLASH_PORT" "Flash Server"
 setup_and_run "./packages/apps/dashboard-manager" "$DASHBOARD_TAG" "$PURPLE" "$DASHBOARD_PORT" "Dashboard Manager"
 setup_and_run "./packages/apps/notify" "$NOTIFY_TAG" "$CYAN" "$NOTIFY_PORT" "Notify Server"
 setup_and_run "./packages/debugger" "$MOCK_CLIENT_TAG" "$YELLOW" "$VITE_PORT" "Mock Client"
+
+sleep 3
+setup_and_run "./packages/cloud" "$CLOUD_TAG" "$RED" "$CLOUD_PORT" "Cloud Server"
 
 echo -e "\n${GREEN}All servers are now running!${NC}"
 echo -e "${YELLOW}Press Ctrl+C to stop all servers${NC}\n"

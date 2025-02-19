@@ -48,7 +48,7 @@ interface SessionData {
 const activeSessions = new Map<string, SessionData>();
 
 // Duration (in ms) that each notification is displayed.
-const NOTIFICATION_DISPLAY_DURATION = 8500;
+const NOTIFICATION_DISPLAY_DURATION = 4000;
 
 // Blacklisted app names: notifications from these apps will be ignored.
 const notificationAppBlackList = ['youtube', 'augment', 'maps'];
@@ -200,7 +200,7 @@ function displayNextNotification(sessionData: SessionData) {
     timestamp: new Date(),
   };
 
-  console.log(`[Session ${sessionData.sessionId}]: Displaying notification: ${notificationString}`);
+  // console.log(`[Session ${sessionData.sessionId}]: Displaying notification: ${notificationString}`);
   sessionData.ws.send(JSON.stringify(displayEvent));
 
   // Schedule the next notification display.

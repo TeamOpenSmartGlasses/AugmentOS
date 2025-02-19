@@ -40,13 +40,13 @@ export const APP_STORE: AppI[] = [
     webhookURL: `http://localhost:${systemApps.notify.port}/webhook`,
     logoURL: `https://cloud.augmentos.org/${systemApps.notify.packageName}.png`,
   },
-  // {
-  //   packageName: systemApps.mira.packageName,
-  //   name: systemApps.mira.name,
-  //   description: "Mira AI, your proactive agent making all of your conversations better one insight at a time. 🚀",
-  //   webhookURL: `http://localhost:${systemApps.mira.port}/webhook`,
-  //   logoURL: `https://cloud.augmentos.org/${systemApps.mira.packageName}.png`,
-  // }
+  {
+    packageName: systemApps.mira.packageName,
+    name: systemApps.mira.name,
+    description: "Mira AI, your proactive agent making all of your conversations better one insight at a time. 🚀",
+    webhookURL: `http://localhost:${systemApps.mira.port}/webhook`,
+    logoURL: `https://cloud.augmentos.org/${systemApps.mira.packageName}.png`,
+  }
 ];
 
 /**
@@ -180,17 +180,17 @@ export class AppService implements IAppService {
         await axios.post(url, payload, {
           headers: {
             'Content-Type': 'application/json',
-            // Add signature/authentication headers here when implemented
           },
-          timeout: 5000 // 5 second timeout
+          timeout: 10000 // Increase timeout to 10 seconds
         });
         return;
       } catch (error: unknown) {
         if (attempt === maxRetries - 1) {
-          // check if error is an AxiosError.
           if (axios.isAxiosError(error)) {
-            // log the error message
-            console.error(`Webhook failed after ${maxRetries} attempts: ${(error as AxiosError).message}`);
+            console.error(`Webhook failed: ${error}`);
+            console.error(`URL: ${url}`);
+            console.error(`Response: ${error.response?.data}`);
+            console.error(`Status: ${error.response?.status}`);
           }
           throw new Error(`Webhook failed after ${maxRetries} attempts: ${(error as AxiosError).message || 'Unknown error'}`);
         }

@@ -10,6 +10,7 @@ BLUE='\033[0;34m'
 YELLOW='\033[1;33m'
 PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
+WHITE='\033[1;37m'  # New color for notify
 NC='\033[0m' # No Color
 
 # Function to create colored tag
@@ -27,6 +28,7 @@ CLOUD_TAG=$(create_tag "[Backend]:" "$RED")
 MOCK_CLIENT_TAG=$(create_tag "[Mock Client]:" "$YELLOW")
 DASHBOARD_TAG=$(create_tag "[Dashboard]:" "$PURPLE")
 MIRA_TAG=$(create_tag "[Mira-AI]:" "$CYAN")  # New tag for mira-ai
+NOTIFY_TAG=$(create_tag "[Notify]:" "$WHITE")  # New tag for notify
 
 # Port definitions
 CLOUD_PORT=8002
@@ -127,7 +129,7 @@ setup_and_run() {
 }
 
 # Kill any existing processes on our ports before starting
-for port in $CLOUD_PORT $CAPTIONS_PORT $FLASH_PORT $VITE_PORT $DASHBOARD_PORT $MIRA_PORT; do
+for port in $CLOUD_PORT $CAPTIONS_PORT $FLASH_PORT $VITE_PORT $DASHBOARD_PORT $MIRA_PORT $NOTIFY_PORT; do
     free_up_port $port "Existing process"
 done
 
@@ -135,7 +137,7 @@ done
 ROOT_DIR=$(pwd)
 
 # Check if directories exist
-for dir in "./packages/cloud" "./packages/apps/flash" "./packages/apps/captions" "./packages/debugger" "./packages/apps/dashboard-manager" "./packages/apps/mira-ai"; do
+for dir in "./packages/cloud" "./packages/apps/flash" "./packages/apps/captions" "./packages/debugger" "./packages/apps/dashboard-manager" "./packages/apps/miraai" "./packages/apps/notify"; do
     if [ ! -d "$dir" ]; then
         handle_error "$dir directory not found"
     fi
@@ -151,12 +153,15 @@ echo -e "${GREEN}=== Starting AugmentOS Development Environment ===${NC}\n"
 trap kill_all_processes EXIT INT TERM
 
 # Run setup for all projects with their respective ports
-setup_and_run "./packages/cloud" "$CLOUD_TAG" "$RED" "$CLOUD_PORT" "Cloud Server"
 setup_and_run "./packages/apps/captions" "$CAPTIONS_TAG" "$BLUE" "$CAPTIONS_PORT" "Captions Server"
 setup_and_run "./packages/apps/flash" "$FLASH_TAG" "$GREEN" "$FLASH_PORT" "Flash Server"
 setup_and_run "./packages/debugger" "$MOCK_CLIENT_TAG" "$YELLOW" "$VITE_PORT" "Mock Client"
 setup_and_run "./packages/apps/dashboard-manager" "$DASHBOARD_TAG" "$PURPLE" "$DASHBOARD_PORT" "Dashboard Manager"
-setup_and_run "./packages/apps/mira-ai" "$MIRA_TAG" "$CYAN" "$MIRA_PORT" "Mira-AI"  # New mira-ai server
+setup_and_run "./packages/apps/miraai" "$MIRA_TAG" "$CYAN" "$MIRA_PORT" "Mira AI"  # New mira-ai server
+setup_and_run "./packages/apps/notify" "$NOTIFY_TAG" "$WHITE" "$NOTIFY_PORT" "Notify Server"  # New notify server
+
+sleep 3
+setup_and_run "./packages/cloud" "$CLOUD_TAG" "$RED" "$CLOUD_PORT" "Cloud Server"
 
 echo -e "\n${GREEN}All servers are now running!${NC}"
 echo -e "${YELLOW}Press Ctrl+C to stop all servers${NC}\n"
