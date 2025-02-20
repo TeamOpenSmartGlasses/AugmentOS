@@ -30,7 +30,7 @@ public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
         vad  = Vad.builder()
                 .setSampleRate(SampleRate.SAMPLE_RATE_16K)
                 .setFrameSize(FrameSize.FRAME_SIZE_320)
-                .setMode(Mode.VERY_AGGRESSIVE)
+                .setMode(Mode.NORMAL)
                 .setSilenceDurationMs(12000)
                 .setSpeechDurationMs(50)
                 .build();
