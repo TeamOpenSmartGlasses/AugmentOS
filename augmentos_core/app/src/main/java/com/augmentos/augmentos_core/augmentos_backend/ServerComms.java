@@ -177,7 +177,7 @@ public class ServerComms {
         JSONObject vadMsg = new JSONObject();
         try {
             vadMsg.put("type", "VAD");
-            vadMsg.put("status", isSpeaking ? "true" : "false");
+            vadMsg.put("status", isSpeaking);
             wsManager.sendText(vadMsg.toString());
         } catch (JSONException e) {
             Log.e(TAG, "Error building VAD JSON", e);
@@ -425,10 +425,11 @@ public class ServerComms {
                     serverCommsCallback.onDisplayEvent(msg);
                 break;
 
-            case "request_core_status":
+            case "request_single":
                 Log.d(TAG, "Received request_core_status: " + msg.toString());
+                String dataType = msg.optString("data_type");
                 if (serverCommsCallback != null)
-                    serverCommsCallback.onRequestCoreStatus();
+                    serverCommsCallback.onRequestSingle(dataType);
                 break;
 
             case "interim":

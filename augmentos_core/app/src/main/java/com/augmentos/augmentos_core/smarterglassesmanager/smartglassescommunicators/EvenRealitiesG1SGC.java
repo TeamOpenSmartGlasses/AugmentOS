@@ -1,5 +1,7 @@
 package com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators;
 
+import static com.augmentos.augmentos_core.smarterglassesmanager.utils.BitmapJavaUtils.convertBitmapTo1BitBmpBytes;
+
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
@@ -186,7 +188,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private Runnable leftConnectionTimeoutRunnable;
     private Runnable rightConnectionTimeoutRunnable;
     private boolean isBondingReceiverRegistered = false;
-    private boolean forceCoreOnboardMic;
+    private boolean shouldRunOnboardMic;
 
     // lock writing until the last write is successful
     //fonts in G1
@@ -201,7 +203,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         preferredG1DeviceId = getPreferredG1DeviceId(context);
         brightnessValue = getSavedBrightnessValue(context);
         this.bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        this.forceCoreOnboardMic = SmartGlassesAndroidService.getForceCoreOnboardMic(context);
+        this.shouldRunOnboardMic = SmartGlassesAndroidService.getSensingEnabled(context) && !SmartGlassesAndroidService.getForceCoreOnboardMic(context);
 
         //setup fonts
         fontLoader = new G1FontLoader(context);
@@ -385,7 +387,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
                             if (deviceName.contains("R_")) {
 //                                Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName + ", length: " + pcmData.length);
-                                if (!forceCoreOnboardMic) {
+                                if (shouldRunOnboardMic) {
                                     EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
                                 }
                             } else {
@@ -516,12 +518,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 sendBrightnessCommandHandler.postDelayed(() -> sendBrightnessCommand(brightnessValue, shouldUseAutoBrightness), 10);
 
 
-                // Start MIC streaming
-                if (!forceCoreOnboardMic) {
-                    setMicEnabled(true, 10); // Enable the MIC
-                } else {
-                    setMicEnabled(false, 10); // Enable the MIC
-                }
+                // Maybe start MIC streaming
+                setMicEnabled(shouldRunOnboardMic, 10); // Enable the MIC
 
                 //enable our AugmentOS notification key
                 sendWhiteListCommand(10);
@@ -1469,7 +1467,14 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public void displayTextLine(String text) {}
 
     @Override
-    public void displayBitmap(Bitmap bmp) {}
+    public void displayBitmap(Bitmap bmp) {
+        try {
+            byte[] bmpBytes = convertBitmapTo1BitBmpBytes(bmp, false);
+            displayBitmapImage(bmpBytes);
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage());
+        }
+    }
 
     public void blankScreen() {}
 
