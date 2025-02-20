@@ -49,7 +49,7 @@ public class TPABroadcastSender {
     }
 
     public void sendEventToAugmentOS(String eventId, Serializable eventBundle) {
-        Log.d("TPASEND event: ", this.intentPkg);
+//        Log.d("TPASEND event: ", this.intentPkg);
 
         //setup intent to send
         Intent intent = new Intent();

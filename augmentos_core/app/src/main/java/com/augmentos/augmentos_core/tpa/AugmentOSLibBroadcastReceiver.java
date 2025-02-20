@@ -101,7 +101,7 @@ public class AugmentOSLibBroadcastReceiver extends BroadcastReceiver {
                 EventBus.getDefault().post((SubscribeDataStreamRequestEvent) serializedEvent);
                 break;
             case ManagerToCoreRequestEvent.eventId:
-                Log.d(TAG, "Got a manager to core request event");
+//                Log.d(TAG, "Got a manager to core request event");
                 if(sendingPackage != null && sendingPackage.equals(AugmentOSManagerPackageName)){
                 //    Log.d(TAG, "Got a command from AugmentOS_Manager");
                     EventBus.getDefault().post((ManagerToCoreRequestEvent) serializedEvent);

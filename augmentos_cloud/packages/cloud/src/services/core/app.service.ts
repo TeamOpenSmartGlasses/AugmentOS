@@ -49,11 +49,11 @@ export const APP_STORE: AppI[] = [
   },
   {
     packageName: systemApps.merge.packageName,
-    name: systemApps.mira.name,
-    description: "Mira AI, your proactive agent making all of your conversations better one insight at a time. 🚀",
+    name: systemApps.merge.name,
+    description: "Merge AI, your proactive agent making all of your conversations better one insight at a time. 🚀",
     webhookURL: `http://localhost:${systemApps.merge.port}/webhook`,
     logoURL: `https://cloud.augmentos.org/${systemApps.merge.packageName}.png`,
-  },
+  }
 ];
 
 /**
