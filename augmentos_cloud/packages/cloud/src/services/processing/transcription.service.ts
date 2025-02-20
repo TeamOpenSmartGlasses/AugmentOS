@@ -86,7 +86,7 @@ export class TranscriptionService {
       this.setupRecognitionHandlers(userSession, recognizer);
 
       // Start recognition
-      console.log('🚀 Starting continuous recognition...');
+      console.log('🚀 Starting continuous recognition...\n');
       recognizer.startTranscribingAsync(
         () => {
           console.log('✅ Recognition started successfully');
@@ -98,7 +98,6 @@ export class TranscriptionService {
             userSession.bufferedAudio.forEach((chunk, index) => {
               try {
                 pushStream.write(chunk);
-                console.log(`✅ Processed buffered chunk ${index + 1}/${userSession.bufferedAudio.length}`);
               } catch (error) {
                 console.error(`❌ Error processing buffered chunk ${index + 1}:`, error);
               }

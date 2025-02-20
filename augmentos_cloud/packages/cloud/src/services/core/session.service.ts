@@ -86,21 +86,10 @@ export class SessionService {
     }
 
     const isSystemApp = SYSTEM_TPAS.some(app => app.packageName === displayRequest.packageName);
-    console.log('📱 Processing display request:', {
-      sessionId: userSessionId,
-      view: displayRequest.view,
-      packageName: displayRequest.packageName,
-      isSystemApp
-    });
 
     // Update display history
     try {
-      // Give system apps priority in display management
-      // if (isSystemApp) {
-      //   displayRequest.priority = 'high';
-      // }
       session.displayManager.handleDisplayEvent(displayRequest);
-      console.log('✅ Updated display history');
     } catch (error) {
       console.error('❌ Error updating display history:', error);
     }
@@ -109,7 +98,6 @@ export class SessionService {
     if (session.websocket?.readyState === WebSocket.OPEN) {
       try {
         session.websocket.send(JSON.stringify(displayRequest));
-        console.log('✅ Sent display update to glasses');
       } catch (error) {
         console.error('❌ Error sending display update:', error);
       }
