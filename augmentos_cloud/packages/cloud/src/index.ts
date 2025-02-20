@@ -2,6 +2,8 @@
  * @fileoverview AugmentOS Cloud Server entry point.
  * Initializes core services and sets up HTTP/WebSocket servers.
  */
+// import "./instrument";
+import "./sentry";
 
 import express from 'express';
 import { Server } from 'http';
@@ -19,16 +21,17 @@ import transcriptRoutes from './routes/transcripts.routes';
 import path from 'path';
 
 // Load configuration from environment
-import { CLOUD_PORT } from '@augmentos/types/config/cloud.env';
+import { CLOUD_PORT } from '@augmentos/config';
 import * as mongoConnection from "./connections/mongodb.connection";
 
+// Initialize MongoDB connection
 mongoConnection.init();
 
-const PORT = CLOUD_PORT;
-
 // Initialize Express and HTTP server
+const PORT = CLOUD_PORT;
 const app = express();
 const server = new Server(app);
+
 
 // Middleware setup
 app.use(helmet());

@@ -2,7 +2,8 @@
 
 import { Tool } from '@langchain/core/tools';
 import { SerpAPI } from '@langchain/community/tools/serpapi';
-import { SERPAPI_API_KEY } from '@augmentos/types/config/cloud.env';
+import { SERPAPI_API_KEY } from '@augmentos/config';
+
 interface SearchInput {
   searchKeyword: string;
   includeImage?: boolean;

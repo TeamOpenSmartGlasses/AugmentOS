@@ -2,7 +2,7 @@ import { Agent } from './AgentInterface';
 import axios from 'axios';
 import { PromptTemplate } from "@langchain/core/prompts";
 import { JsonOutputFunctionsParser } from 'langchain/output_parsers';
-import { LLMProvider } from '../utils/LLMProvider'; // Utility to easily swap LLMs
+import { LLMProvider } from '@augmentos/utils'; // Utility to easily swap LLMs
 
 /** 
  * Minimal interface for a news article as returned by NewsAPI.

@@ -1,11 +1,25 @@
 {
   "name": "@augmentos/clients",
-  "module": "index.ts",
-  "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest"
+  "version": "1.0.0",
+
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+
+  "exports": {
+    ".": "./dist/index.js"
   },
-  "peerDependencies": {
+
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -w -p tsconfig.json"
+  },
+
+  "dependencies": {
+    "@augmentos/types": "workspace:*",
+    "@augmentos/config": "workspace:*"
+  },
+
+  "devDependencies": {
     "typescript": "^5.0.0"
   }
 }

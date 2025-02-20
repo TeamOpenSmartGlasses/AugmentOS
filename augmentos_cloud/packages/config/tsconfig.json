@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                        // The JavaScript version for the output code.
+    "module": "commonjs",                      // Use the CommonJS module system (Node's default).
+    "outDir": "dist",                          // Output directory for compiled files.
+    "declaration": true,                       // Generate .d.ts files alongside .js files.
+    "declarationMap": true,                    // Create sourcemaps for declaration files (useful for debugging).
+    "strict": true,                            // Enable all strict type-checking options.
+    "esModuleInterop": true,                   // Improves compatibility with CommonJS modules.
+    "skipLibCheck": true,                      // Skip type-checking of all declaration files.
+    "rootDir": "src",                          // The root folder for your source files.
+    "baseUrl": ".",                            // Base directory for non-relative module names.
+    "paths": {
+      "@augmentos/types/*": ["../types/src/*"] // Map module paths; adjust if needed for your project structure.
+    }
+  },
+  "include": ["src/**/*"],                     // Include all files in the src directory.
+  "exclude": ["node_modules", "dist"]          // Exclude node_modules and the output directory.
+}

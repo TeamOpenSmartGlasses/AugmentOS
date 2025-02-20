@@ -10,10 +10,10 @@ import {
   DoubleTextWall,
 } from '@augmentos/types';
 import tzlookup from 'tz-lookup';
-import { NewsAgent } from '../../../agents/NewsAgent';
+import { NewsAgent } from '@augmentos/agents';
+import { NotificationFilterAgent } from '@augmentos/agents'; // <-- added import
+import { CLOUD_PORT, systemApps } from '@augmentos/config';
 import { WeatherModule } from './dashboard-modules/WeatherModule';
-import { NotificationFilterAgent } from '../../../agents/NotificationFilterAgent'; // <-- added import
-import { CLOUD_PORT, systemApps } from '@augmentos/types/config/cloud.env';
 
 const app = express();
 const PORT =  systemApps.dashboard.port;

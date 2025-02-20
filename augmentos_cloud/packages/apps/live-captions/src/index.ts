@@ -8,8 +8,8 @@ import {
   DisplayRequest,
   TpaSubscriptionUpdateMessage,
 } from '@augmentos/types'; // Import the types from the shared package
-import { TranscriptProcessor } from '../../../utils/text-wrapping/TranscriptProcessor';
-import { systemApps, CLOUD_PORT } from '@augmentos/types/config/cloud.env';
+import { TranscriptProcessor } from '@augmentos/utils';
+import { systemApps, CLOUD_PORT } from '@augmentos/config';
 
 const app = express();
 const PORT = systemApps.captions.port;
@@ -195,5 +195,5 @@ app.get('/health', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Captions TPA server running at http://localhost:${PORT}`);
+  console.log(`${PACKAGE_NAME} server running at http://localhost:${PORT}`);
 });

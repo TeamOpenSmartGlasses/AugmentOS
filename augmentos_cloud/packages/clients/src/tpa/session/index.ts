@@ -19,7 +19,7 @@ import type {
   PhoneNotificationEvent,
   AppSettings
 } from '@augmentos/types';
-import { CLOUD_PORT } from '@augmentos/types/config/cloud.env';
+import { CLOUD_PORT } from '@augmentos/config';
 
 /**
  * ⚙️ Configuration options for TPA Session

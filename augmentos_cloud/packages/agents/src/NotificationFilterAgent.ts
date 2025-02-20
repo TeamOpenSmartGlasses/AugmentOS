@@ -1,7 +1,7 @@
 import { Agent } from "./AgentInterface";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { HumanMessage } from "@langchain/core/messages";
-import { LLMProvider } from "../utils/LLMProvider";
+import { LLMProvider } from "@augmentos/utils";
 
 // Define interfaces for notifications and response
 export interface NotificationRank {

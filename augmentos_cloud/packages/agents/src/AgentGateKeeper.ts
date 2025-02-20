@@ -1,7 +1,7 @@
-import { Agent } from "../agents/AgentInterface";
+import { Agent } from "./AgentInterface";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { JsonOutputFunctionsParser } from "langchain/output_parsers";
-import { LLMProvider } from "../utils/LLMProvider";
+import { LLMProvider } from "@augmentos/utils";
 
 /**
  * Interface for the aggregated response from the AgentGatekeeper.

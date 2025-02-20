@@ -2,14 +2,14 @@ import { ChatOpenAI } from "@langchain/openai";
 import { AzureChatOpenAI } from "@langchain/openai";
 import { ChatAnthropic } from "@langchain/anthropic";
 import { ChatVertexAI } from "@langchain/google-vertexai";
-import { AZURE_OPENAI_API_KEY, ANTHROPIC_API_KEY, LLM_MODEL, AZURE_OPENAI_API_INSTANCE_NAME, AZURE_OPENAI_API_DEPLOYMENT_NAME, AZURE_OPENAI_API_VERSION } from "@augmentos/types/config/cloud.env";
+import { AZURE_OPENAI_API_KEY, ANTHROPIC_API_KEY, LLM_MODEL, AZURE_OPENAI_API_INSTANCE_NAME, AZURE_OPENAI_API_DEPLOYMENT_NAME, AZURE_OPENAI_API_VERSION, LLMModel } from "@augmentos/config";
 
 export class LLMProvider {
   static getLLM() {
     const model = LLM_MODEL || 'gpt-4o'; // Default to GPT-4
 
     switch (model) {
-      case 'gpt-4o':
+      case LLMModel.GPT4:
         return new AzureChatOpenAI({
           modelName: model,
           temperature: 0.3,

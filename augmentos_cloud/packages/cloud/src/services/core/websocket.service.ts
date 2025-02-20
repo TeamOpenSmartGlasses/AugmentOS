@@ -47,9 +47,8 @@ import transcriptionService, { TranscriptionService } from '../processing/transc
 import appService, { IAppService } from './app.service';
 import { DisplayRequest } from '@augmentos/types';
 import jwt, { JwtPayload } from 'jsonwebtoken';
-import { AxiosError } from 'axios';
 import { PosthogService } from '../logging/posthog.service';
-import { AUGMENTOS_AUTH_JWT_SECRET, systemApps } from '@augmentos/types/config/cloud.env';
+import { AUGMENTOS_AUTH_JWT_SECRET, systemApps } from '@augmentos/config';
 import { User } from '../../models/user.model';
 
 // Constants

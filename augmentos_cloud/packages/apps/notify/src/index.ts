@@ -7,8 +7,8 @@ import {
   CloudDataStreamMessage,
   DisplayRequest,
 } from '@augmentos/types'; // shared types for cloud TPA messages
-import { CLOUD_PORT, systemApps } from '@augmentos/types/config/cloud.env';
-import { wrapText } from '../../../utils/text-wrapping/wraptText';
+import { CLOUD_PORT, systemApps } from '@augmentos/config';
+import { wrapText } from '@augmentos/utils';
 
 const app = express();
 const PORT = systemApps.notify.port; // Use a different port from your captions app
@@ -244,6 +244,5 @@ app.get('/health', (req, res) => {
 
 // Start the Express server.
 app.listen(PORT, () => {
-  console.log(`Notifications TPA server running at http://localhost:${PORT}`);
-  console.log(`Logo available at http://localhost:${PORT}/logo.png`);
+  console.log(`${PACKAGE_NAME} server running at http://localhost:${PORT}`);
 });

@@ -1,11 +1,11 @@
 // MiraAgent.ts
 
 import { Agent } from "./AgentInterface";
-import { PromptTemplate } from "@langchain/core/prompts";
 import { AgentExecutor, createReactAgent } from "langchain/agents";
-import { LLMProvider } from "../utils/LLMProvider";
 import { SearchToolForAgents } from "./tools/SearchToolForAgents";
-import { wrapText } from "../utils/text-wrapping/wraptText";
+import { PromptTemplate } from "@langchain/core/prompts";
+import { LLMProvider } from "@augmentos/utils";
+import { wrapText } from "@augmentos/utils";
 
 interface QuestionAnswer {
     insight: string;

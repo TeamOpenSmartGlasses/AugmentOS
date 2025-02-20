@@ -1,21 +1,18 @@
 {
-  "name": "@augmentos/dashboard-manager",
+  "name": "@augmentos/live-captions",
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.json",
     "start": "node dist/index.js",
     "deploy": "bun run build && bun start",
-    "dev": "bun --watch --no-clear-screen src/index.ts"
+    "dev": "bun --watch --no-clear-screen  src/index.ts"
   },
-
   "dependencies": {
     "@augmentos/types": "workspace:*",
     "@augmentos/config": "workspace:*",
-    "@augmentos/utils": "workspace:*",
-    "@augmentos/agents": "workspace:*"
+    "@augmentos/utils": "workspace:*"
   },
-
   "devDependencies": {
     "typescript": "^5.0.0"
   }
