@@ -122,7 +122,7 @@ export class TranscriptionService {
   private setupRecognitionHandlers(userSession: UserSession, recognizer: ConversationTranscriber) {
     recognizer.transcribing = (_sender: any, event: ConversationTranscriptionEventArgs) => {
       if (!event.result.text) return;
-      console.log(`🎤 [Interim] ${event.result.text}`);
+      console.log(`🎤 [Interim][${userSession.userId}]: ${event.result.text}`);
 
       const result: InterimTranscriptionResult = {
         type: 'transcription-interim',
@@ -141,7 +141,7 @@ export class TranscriptionService {
 
     recognizer.transcribed = (_sender: any, event: ConversationTranscriptionEventArgs) => {
       if (!event.result.text) return;
-      console.log(`✅ [Final] ${event.result.text}`);
+      console.log(`✅ [Final][${userSession.userId}] ${event.result.text}`);
 
       const result: FinalTranscriptionResult = {
         type: 'transcription-final',

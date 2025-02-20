@@ -49,6 +49,11 @@ export class SessionService {
       newSession.activeAppSessions = oldUserSession.activeAppSessions;
       newSession.transcript = oldUserSession.transcript;
       newSession.displayManager = oldUserSession.displayManager;
+      newSession.bufferedAudio = oldUserSession.bufferedAudio;
+      newSession.OSSettings = oldUserSession.OSSettings;
+      newSession.appSubscriptions = oldUserSession.appSubscriptions;
+      newSession.appConnections = oldUserSession.appConnections;
+      newSession.whatToStream = oldUserSession.whatToStream;
       newSession.isTranscribing = false; // Reset transcription state
 
       // Clean up old session resources
