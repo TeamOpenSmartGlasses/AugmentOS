@@ -72,8 +72,24 @@ export class NotificationFilterAgent implements Agent {
    * Parses the LLM output expecting a valid JSON string with key "notification_ranking".
    */
   private parseOutput(text: string): NotificationFilterResponse {
+    // Remove Markdown code block markers if they exist.
+    // For example, if text starts with "```json" and ends with "```"
+    const trimmedText = text.trim();
+    let jsonText = trimmedText;
+    if (trimmedText.startsWith("```")) {
+      // Remove the starting code fence (e.g., ```json)
+      const firstLineBreak = trimmedText.indexOf("\n");
+      if (firstLineBreak !== -1) {
+        jsonText = trimmedText.substring(firstLineBreak).trim();
+      }
+      // Remove the trailing code fence if it exists.
+      if (jsonText.endsWith("```")) {
+        jsonText = jsonText.substring(0, jsonText.length - 3).trim();
+      }
+    }
+    
     try {
-      const parsed: NotificationFilterResponse = JSON.parse(text);
+      const parsed: NotificationFilterResponse = JSON.parse(jsonText);
       if (
         parsed &&
         Array.isArray(parsed.notification_ranking) &&
@@ -91,7 +107,7 @@ export class NotificationFilterAgent implements Agent {
     }
     // Return an empty ranking if parsing fails.
     return { notification_ranking: [] };
-  }
+  }  
 
   /**
    * Handles the context which is expected to include a "notifications" field (an array).
@@ -118,8 +134,8 @@ export class NotificationFilterAgent implements Agent {
       // Convert notifications array to a JSON string.
       const notificationsStr = JSON.stringify(notifications, null, 2);
 
-      console.log("NOTIFICATIONS STR:");
-      console.log(notificationsStr);
+      // console.log("NOTIFICATIONS STR:");
+      // console.log(notificationsStr);
 
       // Prepare the prompt using the notifications string.
       const promptTemplate = new PromptTemplate({
@@ -127,14 +143,15 @@ export class NotificationFilterAgent implements Agent {
         inputVariables: ["notifications"],
       });
 
-      const finalPrompt = await promptTemplate.format({ notifications: notificationsStr });
-
+      const finalPrompt = await promptTemplate.format({
+        notifications: notificationsStr 
+      });
       // Initialize LLM with settings.
       const llm = LLMProvider.getLLM();
 
       // Call the LLM.
-      const response = await llm.invoke([new HumanMessage(finalPrompt)]);
-
+      const response = await llm.invoke(finalPrompt);
+      
       // Expect the LLM response to have a "content" property.
       if (!response || !response.content) {
         console.error("LLM response missing content");
