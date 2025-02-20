@@ -10,7 +10,8 @@
     "stop:prod": "pm2 delete ecosystem.config.js",
     "logs:prod": "pm2 logs ecosystem.config.js",
     "restart:prod": "pm2 restart ecosystem.config.js",
-    "monitor:prod": "pm2 monit"
+    "monitor:prod": "pm2 monit",
+    "deploy": "bun run stop:prod && bun run build && bun run start:prod"
   },
   "dependencies": {
     "@langchain/anthropic": "^0.3.13",

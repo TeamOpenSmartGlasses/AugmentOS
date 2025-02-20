@@ -344,17 +344,6 @@ export class WebSocketService {
 
           // Start transcription
           this.transcriptionService.startTranscription(userSession);
-          // this.transcriptionService.startTranscription(
-          //   userSession,
-          // (result) => {
-          //   console.log(`[Session ${userSession.sessionId}] Recognizing:`, result.text);
-          //   this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
-          // },
-          // (result) => {
-          //   console.log(`[Session ${userSession.sessionId}] Final result ${result?.speakerId}:`, result.text);
-          //   this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
-          // }
-          // );
 
           // this.sessionService.setAudioHandlers(userSession, pushStream, recognizer);
           const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
@@ -486,29 +475,6 @@ export class WebSocketService {
             if (!app) throw new Error(`App ${stopMessage.packageName} not found`);
 
             // Call stop webhook // TODO(isaiah): Implement stop webhook in TPA typescript client lib.
-            // const tpaSessionId = `${userSession.sessionId}-${stopMessage.packageName}`;
-
-            // try {
-            //   await this.appService.triggerStopWebhook(
-            //     app.webhookURL,
-            //     {
-            //       type: 'stop_request',
-            //       sessionId: tpaSessionId,
-            //       userId: userSession.userId,
-            //       reason: 'user_disabled',
-            //       timestamp: new Date().toISOString()
-            //     }
-            //   );
-            // }
-            // catch (error: AxiosError | unknown) {
-            //   // console.error(`\n\n[stop_app]:\nError stopping app ${stopMessage.packageName}:\n${(error as any)?.message}\n\n`);
-            //   // Update state even if webhook fails
-            //   // TODO(isaiah): This is a temporary fix. We should handle this better. Also implement stop webhook in TPA typescript client lib.
-            //   userSession.activeAppSessions = userSession.activeAppSessions.filter(
-            //     (packageName) => packageName !== stopMessage.packageName
-            //   );
-            // }
-
             // Remove subscriptions and update state
             this.subscriptionService.removeSubscriptions(userSession, stopMessage.packageName);
 
@@ -640,7 +606,7 @@ export class WebSocketService {
 
         // All other message types are broadcast to TPAs.
         default: {
-          console.warn(`[Session ${userSession.sessionId}] Catching and Sending message type:`, message.type);
+          console.warn(`\n[Session ${userSession.sessionId}] Client Event:`, message.type);
           // check if it's a type of Client to TPA message.
           this.broadcastToTpa(userSession.sessionId, message.type as any, message as any);
         }
