@@ -47,13 +47,13 @@ export const APP_STORE: AppI[] = [
     webhookURL: `http://localhost:${systemApps.mira.port}/webhook`,
     logoURL: `https://cloud.augmentos.org/${systemApps.mira.packageName}.png`,
   },
-  {
-    packageName: systemApps.merge.packageName,
-    name: systemApps.merge.name,
-    description: "Merge AI, your proactive agent making all of your conversations better one insight at a time. 🚀",
-    webhookURL: `http://localhost:${systemApps.merge.port}/webhook`,
-    logoURL: `https://cloud.augmentos.org/${systemApps.merge.packageName}.png`,
-  }
+  // {
+  //   packageName: systemApps.merge.packageName,
+  //   name: systemApps.merge.name,
+  //   description: "Merge AI, your proactive agent making all of your conversations better one insight at a time. 🚀",
+  //   webhookURL: `http://localhost:${systemApps.merge.port}/webhook`,
+  //   logoURL: `https://cloud.augmentos.org/${systemApps.merge.packageName}.png`,
+  // }
 ];
 
 /**
