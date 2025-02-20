@@ -22,7 +22,7 @@ import {
   AudioConfig,
   SpeechRecognizer
 } from 'microsoft-cognitiveservices-speech-sdk';
-import { AZURE_SPEECH_REGION, AZURE_SPEECH_KEY } from '../../env';
+import { AZURE_SPEECH_REGION, AZURE_SPEECH_KEY } from '@augmentos/config';
 import { TranscriptionData } from '@augmentos/types';
 
 

@@ -764,7 +764,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                     brightnessString = brightnessLevel + "%";
                 }
                 connectedGlasses.put("brightness", brightnessString);
-                Log.d(TAG, "Connected glasses info: " + headUpAngle);
+//                Log.d(TAG, "Connected glasses info: " + headUpAngle);
                 if (headUpAngle == null) {
                     headUpAngle = 20;
                 }

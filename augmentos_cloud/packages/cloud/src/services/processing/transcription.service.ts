@@ -9,9 +9,8 @@ import {
   ConversationTranscriber,
   ConversationTranscriptionEventArgs
 } from 'microsoft-cognitiveservices-speech-sdk';
-import { CloudDataStreamMessage, TranscriptionData, UserSession } from '@augmentos/types';
-import { AZURE_SPEECH_KEY, AZURE_SPEECH_REGION } from '@augmentos/types/config/cloud.env';
-import subscriptionService from '../core/subscription.service';
+import { TranscriptionData, UserSession } from '@augmentos/types';
+import { AZURE_SPEECH_KEY, AZURE_SPEECH_REGION } from '@augmentos/config';
 import webSocketService from '../core/websocket.service';
 
 export interface InterimTranscriptionResult extends TranscriptionData {

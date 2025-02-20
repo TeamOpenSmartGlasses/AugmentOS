@@ -149,7 +149,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.10.1'
 
     //for VAD (using Silero DNN)
-    implementation 'com.github.gkonovalov:android-vad:2.0.1'
+    implementation 'com.github.gkonovalov:android-vad:2.0.9'
     //implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.15.0'
 
     //Vuzix Ultralite OEM Platform / Vuzix Z100
