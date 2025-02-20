@@ -252,7 +252,7 @@ async function handleTranscription(sessionId: string, ws: WebSocket, transcripti
       activeListeningSessions.delete(sessionId);
       sessionTimers.delete(sessionId);
     }
-  }, 5000);
+  }, 3000);
   sessionTimers.set(sessionId, timer);
 }
 

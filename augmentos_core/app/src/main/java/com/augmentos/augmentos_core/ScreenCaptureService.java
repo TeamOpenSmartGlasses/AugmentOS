@@ -47,11 +47,11 @@ import android.view.WindowManager;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.mlkit.vision.common.InputImage;
-import com.google.mlkit.vision.text.Text;
-import com.google.mlkit.vision.text.TextRecognition;
-import com.google.mlkit.vision.text.TextRecognizer;
-import com.google.mlkit.vision.text.chinese.ChineseTextRecognizerOptions;
+//import com.google.mlkit.vision.common.InputImage;
+//import com.google.mlkit.vision.text.Text;
+//import com.google.mlkit.vision.text.TextRecognition;
+//import com.google.mlkit.vision.text.TextRecognizer;
+//import com.google.mlkit.vision.text.chinese.ChineseTextRecognizerOptions;
 import com.augmentos.augmentos_core.events.NewScreenImageEvent;
 import com.augmentos.augmentos_core.events.NewScreenTextEvent;
 
@@ -346,138 +346,138 @@ public class ScreenCaptureService extends Service {
         // Log.d(TAG, "Got a Bitmap yo");
 
         // Crop the bitmap to remove the top phone display bar
-        Bitmap croppedBitmap = cropTopPixels(bitmap, 100);
-
-        // Create an InputImage object from a Bitmap
-        InputImage image = InputImage.fromBitmap(croppedBitmap, 0);
-
-        // Get an instance of TextRecognizer
-        TextRecognizer recognizer = TextRecognition.getClient(new ChineseTextRecognizerOptions.Builder().build());
-
-        // Process the image
-        Context context = getApplicationContext();
-
-        // Process the image
-        recognizer.process(image)
-                .addOnSuccessListener(new OnSuccessListener<Text>() {
-                    @Override
-                    public void onSuccess(Text visionText) {
-                        // Task completed successfully
-                        StringBuilder fullText = new StringBuilder();
-
-                        // Retrieve the screen height
-                        int screenHeight = getScreenHeight(context);
-//                        Log.d(TAG, "screen height is: " + screenHeight);
-
-                        // Define the ratio (e.g., 0.02 for 2% of the screen height)
-                        float textSizeDropHeightRatio = 0.008f;
-                        int dropSmallTextHeightThreshold = (int) (screenHeight * textSizeDropHeightRatio);
-                        float textHeightSameLineRatio = 0.02f;
-                        int sameLineHeightRatioThreshold = (int) (screenHeight * textHeightSameLineRatio);
-
-                        // Extract text from blocks of recognized text
-                        List<Text.TextBlock> textBlocks = visionText.getTextBlocks();
-                        //Log.d(TAG, "Number of text blocks: " + textBlocks.size());
-
-                        // Collect all lines with their bounding boxes
-                        List<Text.Line> allLines = new ArrayList<>();
-                        for (Text.TextBlock block : textBlocks) {
-                            allLines.addAll(block.getLines());
-                        }
-
-                        // Sort lines by their bounding box top coordinate (y)
-//                        Log.d(TAG, allLines.toString());
-                        Collections.sort(allLines, new Comparator<Text.Line>() {
-                            @Override
-                            public int compare(Text.Line line1, Text.Line line2) {
-                                return Integer.compare(line1.getBoundingBox().top, line2.getBoundingBox().top);
-                            }
-                        });
-
-                        // Set max width for characters in glasses display
-                        int maxWidthChars = 30;
-                        int maxWidthPixels = 640; // Glasses display width in pixels
-
-                        // Regular expression pattern to match links
-                        Pattern linkPattern = Pattern.compile(".*(www\\.|http|\\.com|\\.net|\\.org).*", Pattern.CASE_INSENSITIVE);
-
-                        // Map to hold lines grouped by their y-coordinate range
-//                        Map<Integer, List<String>> groupedLines = new HashMap<>();
-                        Map<Integer, List<String>> groupedLines = new TreeMap<>();
-
-                        // Process each line
-                        for (Text.Line line : allLines) {
-                            Rect boundingBox = line.getBoundingBox();
-                            if (boundingBox != null) {
-                                int boxHeight = boundingBox.height();
-
-                                // Remove lines with bounding box height less than the threshold
-                                if (boxHeight < dropSmallTextHeightThreshold) {
-                                    continue;
-                                }
-
-                                String lineText = line.getText();
-
-                                // Check if the line contains a link
-                                if (linkPattern.matcher(lineText).matches()) {
-                                    continue; // Skip this line
-                                }
-
-                                // Calculate the starting position based on the bounding box left coordinate (x)
-                                int startPos = (boundingBox.left * maxWidthChars) / maxWidthPixels;
-
-                                // Group lines by their y-coordinate range
-                                int yPos = boundingBox.top;
-                                int yKey = yPos / sameLineHeightRatioThreshold; // Group lines in the same range
-//                                Log.d(TAG, "LINE TEXT FROM OCR: " + lineText + ", yKey: " + yKey + ", top: " + yPos);
-
-                                // Initialize the list if not present
-                                if (!groupedLines.containsKey(yKey)) {
-                                    groupedLines.put(yKey, new ArrayList<String>());
-                                }
-
-                                // Add the line to the group
-                                groupedLines.get(yKey).add(lineText);
-                            }
-                        }
-
-                        // Build the final text by combining grouped lines
-                        for (Map.Entry<Integer, List<String>> entry : groupedLines.entrySet()) {
-                            List<String> lines = entry.getValue();
-//                            Log.d(TAG, "THIS IS LINES: " + lines.toString());
-                            if (lines.size() > 1) {
-                                for (int i = 0; i < lines.size(); i++) {
-                                    fullText.append(lines.get(i));
-                                    if (i < lines.size() - 1) {
-                                        fullText.append("    "); // few spaces to separate lines on the same level
-                                    }
-                                }
-                            } else {
-                                fullText.append(lines.get(0));
-                            }
-                            fullText.append("\n");
-                        }
-
-
-                        String processedText = fullText.toString();
-
-                        if (levenshteinDistance(processedText, lastNewText) <= 5) return;
-
-//                        Log.d(TAG, "NEW TEXT:\n" + processedText);
-
-                        lastNewText = processedText;
-
-                        // Post the processed text to the event bus
-                        EventBus.getDefault().post(new NewScreenTextEvent(fullText.toString()));
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        // Task failed with an exception
-                        Log.e("TextRecognition", "Text recognition error: " + e.getMessage());
-                    }
-                });
+//        Bitmap croppedBitmap = cropTopPixels(bitmap, 100);
+//
+//        // Create an InputImage object from a Bitmap
+//        InputImage image = InputImage.fromBitmap(croppedBitmap, 0);
+//
+//        // Get an instance of TextRecognizer
+//        TextRecognizer recognizer = TextRecognition.getClient(new ChineseTextRecognizerOptions.Builder().build());
+//
+//        // Process the image
+//        Context context = getApplicationContext();
+//
+//        // Process the image
+//        recognizer.process(image)
+//                .addOnSuccessListener(new OnSuccessListener<Text>() {
+//                    @Override
+//                    public void onSuccess(Text visionText) {
+//                        // Task completed successfully
+//                        StringBuilder fullText = new StringBuilder();
+//
+//                        // Retrieve the screen height
+//                        int screenHeight = getScreenHeight(context);
+////                        Log.d(TAG, "screen height is: " + screenHeight);
+//
+//                        // Define the ratio (e.g., 0.02 for 2% of the screen height)
+//                        float textSizeDropHeightRatio = 0.008f;
+//                        int dropSmallTextHeightThreshold = (int) (screenHeight * textSizeDropHeightRatio);
+//                        float textHeightSameLineRatio = 0.02f;
+//                        int sameLineHeightRatioThreshold = (int) (screenHeight * textHeightSameLineRatio);
+//
+//                        // Extract text from blocks of recognized text
+//                        List<Text.TextBlock> textBlocks = visionText.getTextBlocks();
+//                        //Log.d(TAG, "Number of text blocks: " + textBlocks.size());
+//
+//                        // Collect all lines with their bounding boxes
+//                        List<Text.Line> allLines = new ArrayList<>();
+//                        for (Text.TextBlock block : textBlocks) {
+//                            allLines.addAll(block.getLines());
+//                        }
+//
+//                        // Sort lines by their bounding box top coordinate (y)
+////                        Log.d(TAG, allLines.toString());
+//                        Collections.sort(allLines, new Comparator<Text.Line>() {
+//                            @Override
+//                            public int compare(Text.Line line1, Text.Line line2) {
+//                                return Integer.compare(line1.getBoundingBox().top, line2.getBoundingBox().top);
+//                            }
+//                        });
+//
+//                        // Set max width for characters in glasses display
+//                        int maxWidthChars = 30;
+//                        int maxWidthPixels = 640; // Glasses display width in pixels
+//
+//                        // Regular expression pattern to match links
+//                        Pattern linkPattern = Pattern.compile(".*(www\\.|http|\\.com|\\.net|\\.org).*", Pattern.CASE_INSENSITIVE);
+//
+//                        // Map to hold lines grouped by their y-coordinate range
+////                        Map<Integer, List<String>> groupedLines = new HashMap<>();
+//                        Map<Integer, List<String>> groupedLines = new TreeMap<>();
+//
+//                        // Process each line
+//                        for (Text.Line line : allLines) {
+//                            Rect boundingBox = line.getBoundingBox();
+//                            if (boundingBox != null) {
+//                                int boxHeight = boundingBox.height();
+//
+//                                // Remove lines with bounding box height less than the threshold
+//                                if (boxHeight < dropSmallTextHeightThreshold) {
+//                                    continue;
+//                                }
+//
+//                                String lineText = line.getText();
+//
+//                                // Check if the line contains a link
+//                                if (linkPattern.matcher(lineText).matches()) {
+//                                    continue; // Skip this line
+//                                }
+//
+//                                // Calculate the starting position based on the bounding box left coordinate (x)
+//                                int startPos = (boundingBox.left * maxWidthChars) / maxWidthPixels;
+//
+//                                // Group lines by their y-coordinate range
+//                                int yPos = boundingBox.top;
+//                                int yKey = yPos / sameLineHeightRatioThreshold; // Group lines in the same range
+////                                Log.d(TAG, "LINE TEXT FROM OCR: " + lineText + ", yKey: " + yKey + ", top: " + yPos);
+//
+//                                // Initialize the list if not present
+//                                if (!groupedLines.containsKey(yKey)) {
+//                                    groupedLines.put(yKey, new ArrayList<String>());
+//                                }
+//
+//                                // Add the line to the group
+//                                groupedLines.get(yKey).add(lineText);
+//                            }
+//                        }
+//
+//                        // Build the final text by combining grouped lines
+//                        for (Map.Entry<Integer, List<String>> entry : groupedLines.entrySet()) {
+//                            List<String> lines = entry.getValue();
+////                            Log.d(TAG, "THIS IS LINES: " + lines.toString());
+//                            if (lines.size() > 1) {
+//                                for (int i = 0; i < lines.size(); i++) {
+//                                    fullText.append(lines.get(i));
+//                                    if (i < lines.size() - 1) {
+//                                        fullText.append("    "); // few spaces to separate lines on the same level
+//                                    }
+//                                }
+//                            } else {
+//                                fullText.append(lines.get(0));
+//                            }
+//                            fullText.append("\n");
+//                        }
+//
+//
+//                        String processedText = fullText.toString();
+//
+//                        if (levenshteinDistance(processedText, lastNewText) <= 5) return;
+//
+////                        Log.d(TAG, "NEW TEXT:\n" + processedText);
+//
+//                        lastNewText = processedText;
+//
+//                        // Post the processed text to the event bus
+//                        EventBus.getDefault().post(new NewScreenTextEvent(fullText.toString()));
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        // Task failed with an exception
+//                        Log.e("TextRecognition", "Text recognition error: " + e.getMessage());
+//                    }
+//                });
 
     }
 

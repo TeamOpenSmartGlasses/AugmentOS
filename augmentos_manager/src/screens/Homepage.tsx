@@ -90,7 +90,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
    *    you want to keep it for display in the component.
    */
   const fetchVersionFromStatus = (): string | null => {
-    // console.log('AugmentOS Core Version:', status.augmentos_core_version);
+    // console.log('AugmentOS Core Version:', status.core_info.augmentos_core_version);
     setLocalVersion(status?.core_info.augmentos_core_version);
     return status?.core_info.augmentos_core_version ?? null;
   };
@@ -263,7 +263,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
             <ConnectedDeviceInfo isDarkTheme={isDarkTheme} />
           </AnimatedSection>
 
-          {status.core_info.puck_connected && (
+          {status.core_info.puck_connected && status.core_info.cloud_connection_status == "CONNECTED" && (
             <>
               {status.apps.length > 0 ? (
                 <>

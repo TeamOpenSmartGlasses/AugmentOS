@@ -1,6 +1,7 @@
 plugins {
     // id 'com.android.application'
     id 'com.android.library'
+
     //id 'com.google.gms.google-services'
 }
 
@@ -112,23 +113,23 @@ dependencies {
     //location services
     implementation 'com.google.android.gms:play-services-location:18.0.0'
 
-    //websocket for deepgram
+    //websocket
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
 
-    // To recognize Latin script
-    implementation 'com.google.mlkit:text-recognition:16.0.0'
-
-    // To recognize Chinese script
-    implementation 'com.google.mlkit:text-recognition-chinese:16.0.0'
-
-    // To recognize Devanagari script
-    implementation 'com.google.mlkit:text-recognition-devanagari:16.0.0'
-
-    // To recognize Japanese script
-    implementation 'com.google.mlkit:text-recognition-japanese:16.0.0'
-
-    // To recognize Korean script
-    implementation 'com.google.mlkit:text-recognition-korean:16.0.0'
+//    // To recognize Latin script
+//    implementation 'com.google.mlkit:text-recognition:16.0.0'
+//
+//    // To recognize Chinese script
+//    implementation 'com.google.mlkit:text-recognition-chinese:16.0.0'
+//
+//    // To recognize Devanagari script
+//    implementation 'com.google.mlkit:text-recognition-devanagari:16.0.0'
+//
+//    // To recognize Japanese script
+//    implementation 'com.google.mlkit:text-recognition-japanese:16.0.0'
+//
+//    // To recognize Korean script
+//    implementation 'com.google.mlkit:text-recognition-korean:16.0.0'
 
     // To convert Chinese to Pinyin
     implementation 'com.belerweb:pinyin4j:2.5.0'
@@ -144,7 +145,7 @@ dependencies {
 
     //for VAD (using Silero DNN)
     implementation 'com.github.gkonovalov:android-vad:2.0.1'
-    implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.15.0'
+    //implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.15.0'
 
     //Vuzix Ultralite OEM Platform / Vuzix Z100
     implementation 'com.vuzix:ultralite-sdk-android:1.8'
