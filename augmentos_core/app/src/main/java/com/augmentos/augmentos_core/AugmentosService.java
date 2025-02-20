@@ -104,7 +104,7 @@ import okhttp3.Response;
 public class AugmentosService extends Service implements AugmentOsActionsCallback {
     public static final String TAG = "AugmentOS_AugmentOSService";
 
-    private final IBinder binder = new LocalBinder();
+   private final IBinder binder = new LocalBinder();
 
     private final String notificationAppName = "AugmentOS Core";
     private final String notificationDescription = "Running in foreground";
@@ -1178,6 +1178,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Override
     public IBinder onBind(Intent intent) {
+        Log.d(TAG, "Something bound");
         return binder;
     }
 }

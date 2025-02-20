@@ -11,6 +11,10 @@ android {
     namespace 'com.augmentos.augmentos_core'
     compileSdk 33
 
+    buildFeatures {
+        aidl = true
+    }
+
     defaultConfig {
         // applicationId only belongs to an application plugin
         // applicationId "com.augmentos.augmentos_core"
@@ -135,8 +139,6 @@ dependencies {
     implementation 'com.belerweb:pinyin4j:2.5.0'
     implementation 'com.huaban:jieba-analysis:1.0.2'
 
-    implementation 'com.posthog.java:posthog:1.+'
-
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
     implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
 
@@ -149,6 +151,14 @@ dependencies {
 
     //Vuzix Ultralite OEM Platform / Vuzix Z100
     implementation 'com.vuzix:ultralite-sdk-android:1.8'
+
+    //background camera stuff
+    implementation "androidx.camera:camera-core:1.2.3"
+    implementation "androidx.camera:camera-lifecycle:1.2.3"
+    implementation "androidx.camera:camera-view:1.2.3"
+
+    implementation "org.osmdroid:osmdroid-android:6.1.10"
+    implementation "com.arthenica:ffmpeg-kit-full:6.0-2"
 }
 
 // apply from: rootProject.project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"

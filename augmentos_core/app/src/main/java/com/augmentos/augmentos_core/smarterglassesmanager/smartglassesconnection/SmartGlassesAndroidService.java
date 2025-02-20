@@ -364,7 +364,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         String CHANNEL_ID = myChannelId;
 
         NotificationChannel channel = new NotificationChannel(CHANNEL_ID, notificationAppName,
-                NotificationManager.IMPORTANCE_HIGH);
+                NotificationManager.IMPORTANCE_LOW);
         channel.setDescription(notificationDescription);
         manager.createNotificationChannel(channel);
 

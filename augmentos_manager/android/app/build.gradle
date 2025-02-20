@@ -111,6 +111,10 @@ dependencies {
     implementation 'com.facebook.react:hermes-android:0.75.4'
 
     implementation project(':react-native-config')
+
+      implementation 'com.github.pedroSG94.RootEncoder:library:2.5.7'
+  //Optional, allow use BitmapSource, CameraXSource and CameraUvcSource 
+  implementation 'com.github.pedroSG94.RootEncoder:extra-sources:2.5.7'
 }
 
 // Include custom vector icons fonts from react-native-vector-icons
