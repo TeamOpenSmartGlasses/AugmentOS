@@ -1,13 +1,15 @@
-import * as Sentry from "@sentry/node";
-import * as Tracing from "@sentry/tracing";
-import { nodeProfilingIntegration } from '@sentry/profiling-node';
-import { mongooseIntegration } from '@sentry/node';
-import { MONGO_URL, NODE_ENV, SENTRY_DSN } from '@augmentos/config';
+// augmentos_cloud/packages/cloud/src/sentry.ts
+
+import * as Sentry from "@sentry/bun";
+import { mongooseIntegration } from '@sentry/bun';
+import { NODE_ENV, SENTRY_DSN } from '@augmentos/config';
+
+// import * as Sentry from "@sentry/node";
+// import { nodeProfilingIntegration } from '@sentry/profiling-bun';
 
 Sentry.init({
   dsn: SENTRY_DSN,
   integrations: [
-    nodeProfilingIntegration(),
     mongooseIntegration(),
   ],
   // Tracing

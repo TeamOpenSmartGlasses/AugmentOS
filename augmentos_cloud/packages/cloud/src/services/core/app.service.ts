@@ -8,7 +8,7 @@
  */
 
 import { AppI, StopWebhookRequest, StopWebhookResponse } from '@augmentos/types';
-import { AppState } from '@augmentos/types/core/app.session';
+import { AppState } from '@augmentos/types';
 import axios, { AxiosError } from 'axios';
 import { systemApps } from '@augmentos/config';
 

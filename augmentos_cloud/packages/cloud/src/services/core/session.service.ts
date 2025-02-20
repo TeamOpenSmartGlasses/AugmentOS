@@ -1,7 +1,7 @@
 import { WebSocket } from 'ws';
 import { v4 as uuidv4 } from 'uuid';
 import { StreamType, UserSession } from '@augmentos/types';
-import { TranscriptSegment } from '@augmentos/types/core/transcript';
+import { TranscriptSegment } from '@augmentos/types';
 import DisplayManager from '../layout/DisplayManager';
 import { DisplayRequest } from '@augmentos/types';
 import appService, { SYSTEM_TPAS } from './app.service';

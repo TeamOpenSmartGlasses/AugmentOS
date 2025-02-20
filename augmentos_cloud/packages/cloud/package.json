@@ -7,14 +7,14 @@
   },
   "scripts": {
     "prebuild": "cd ../types && bun run build && cd ../config && bun run build && cd ../cloud ",
-    "build": "rm -rf dist && tsc -p tsconfig.json",
+    "build": "rm -rf dist && tsc -p tsconfig.json && bun run sentry:sourcemaps",
     "start": "NODE_ENV=production node dist/index.js",
     "dev": "bun --watch --no-clear-screen src/index.ts",
     "deploy": "bun run build && bun run start",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org pierce-50 --project augmentos-cloud-dev ./dist && sentry-cli sourcemaps upload --org pierce-50 --project augmentos-cloud-dev ./dist"
   },
-
   "author": "Isaiah Ballah",
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
@@ -40,8 +40,10 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "@augmentos/types": "workspace:*",
     "@augmentos/config": "workspace:*",
+    "@augmentos/types": "workspace:*",
+    "@sentry/bun": "^9.1.0",
+    "@sentry/cli": "^2.42.1",
     "axios": "^1.7.4",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
