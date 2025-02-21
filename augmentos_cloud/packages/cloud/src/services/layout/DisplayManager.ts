@@ -1,73 +1,108 @@
-/**
- * 🎮 AR Display Manager for Third Party Apps (TPAs)
- * 
- * Why this exists:
- * - TPAs need to show content in AR but shouldn't conflict with each other
- * - Some displays are more important than others (system alerts vs background info)
- * - We need to know what each TPA has shown (for debugging/support)
- */
+// packages/cloud/src/services/layout/DisplayManager.ts
 
-import { ActiveDisplay, AppI, DisplayManagerI, Layout, Views } from '@augmentos/types';
-import { DisplayRequest } from '@augmentos/types';
+import { ActiveDisplay, AppI, Layout, DisplayRequest, DisplayManagerI, UserSession } from '@augmentos/types';
+import { WebSocket } from 'ws';
 
-export class DisplayManager implements DisplayManagerI {
-    // Keep history for debugging/support
-    views: Views = new Map<AppI["packageName"], Map<DisplayRequest["view"], Layout>>();
-    activeDisplays = new Map<string, ActiveDisplay>();
-    displayHistory = new Map<AppI["packageName"], DisplayRequest[]>();
+interface ThrottledRequest {
+    displayRequest: DisplayRequest;
+    ws: WebSocket;
+}
+
+export type ViewName = string;
+
+
+class DisplayManager implements DisplayManagerI {
+    displayHistory: DisplayRequest[] = [];
+    currentMainApp: string | null = null;
+
+    // Shared rate limiting for all non-dashboard TPAs
+    private lastSentTimeMain: number = 0;
+    private pendingDisplayRequestMain: ThrottledRequest | null = null;
+    private readonly displayDebounceDelay = 200; // milliseconds
+
+  /**
+   * Sets the current app "owning" the main view. Null means no app is active.
+   */
+  setCurrentMainApp(packageName: string | null): void {
+    this.currentMainApp = packageName;
+  }
+
+  /**
+   * Gets the current app "owning" the main view.
+   */
+  getCurrentMainApp(): string | null {
+    return this.currentMainApp;
+  }
 
     /**
      * Main entry point for TPAs to show something in AR
-     * Returns true if shown, false if blocked by higher priority display
      */
-    public async handleDisplayEvent(displayRequest: DisplayRequest): Promise<boolean> {
-        try {
-            await this.showDisplay(displayRequest);
-            // Still track attempts that weren't shown
-            return false;
-        } catch (error) {
-            console.error('🔥 Display error:', error);
-            return false;
+    public async handleDisplayEvent(displayRequest: DisplayRequest, userSession: UserSession): Promise<boolean> {
+        const { view, packageName } = displayRequest;
+
+        // Dashboard is exempt from throttling
+        if (view === "dashboard" && packageName === 'org.augmentos.dashboard') {
+            return this.sendDisplay(displayRequest, userSession.websocket);
         }
+
+        // Apply shared throttling to all other views
+        if (this.shouldThrottleMain()) {
+            // Overwrite existing pending request
+            this.pendingDisplayRequestMain = { displayRequest, ws: userSession.websocket };
+            this.scheduleDisplayMain(userSession.websocket);
+            return false; // Indicate throttled request
+        }
+
+        return this.sendDisplay(displayRequest, userSession.websocket);
+    }
+
+    /**
+     * Checks if a display request to a non-dashboard view should be throttled.
+     */
+    private shouldThrottleMain(): boolean {
+        const now = Date.now();
+        return (now - this.lastSentTimeMain) < this.displayDebounceDelay;
+    }
+
+    /**
+     * Schedules the sending of a display request for a non-dashboard view
+     */
+    private scheduleDisplayMain(ws: WebSocket): void {
+        setTimeout(() => {
+            if (this.pendingDisplayRequestMain) {
+                this.sendDisplay(this.pendingDisplayRequestMain.displayRequest, this.pendingDisplayRequestMain.ws);
+                this.pendingDisplayRequestMain = null;
+            }
+        }, this.displayDebounceDelay);
     }
 
     /** Updates AR display and sets auto-cleanup if needed */
-    private async showDisplay(displayRequest: DisplayRequest): Promise<void> {
-        const activeDisplay: ActiveDisplay = {
-            displayRequest,
-            endsAt: displayRequest.durationMs ? new Date(Date.now() + displayRequest.durationMs) : undefined
-        };
+    private async sendDisplay(displayRequest: DisplayRequest, ws: WebSocket): Promise<boolean> {
+        const { view } = displayRequest;
 
-        const appViewsMap = this.views.get(displayRequest.packageName);
-        if (!appViewsMap) {
-            this.views.set(displayRequest.packageName, new Map([[displayRequest.view, displayRequest.layout]]));
+        // Update last sent time for all non-dashboard views
+        if (view !== "dashboard") {
+            this.lastSentTimeMain = Date.now();
         }
-        this.activeDisplays.set(activeDisplay.displayRequest.view, activeDisplay);
+
         this.addToHistory(displayRequest);
+        this.sendToWebSocket(displayRequest, ws);
 
-        // Auto-cleanup after duration
-        if (displayRequest.durationMs && displayRequest.durationMs > 0) {
-            setTimeout(() => {
-                this.activeDisplays.delete(displayRequest.view);
-            }, displayRequest.durationMs);
+        return true;
+    }
+
+    /** Sends the display request to the WebSocket client */
+    private sendToWebSocket(displayRequest: DisplayRequest, ws: WebSocket): void {
+        if (ws.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify(displayRequest));
+        } else {
+            console.error('WebSocket not connected, display request dropped.');
         }
     }
 
-    /** Keep track of all attempts (shown or not) for debugging */
+    /** Keep track of what was displayed  */
     private addToHistory(displayRequest: DisplayRequest): void {
-        const key = `${displayRequest.packageName}:${displayRequest.view}`;
-        const history = this.displayHistory.get(key) || [];
-        history.push(displayRequest);
-        this.displayHistory.set(key, history);
-    }
-
-    /** Get what a TPA has tried to show (for debugging) */
-    getDisplayHistory(packageName: string): DisplayRequest[] {
-        return this.displayHistory.get(packageName) || [];
-    }
-
-    clearHistory(packageName: string): void {
-        this.displayHistory.delete(packageName);
+        this.displayHistory.push(displayRequest);
     }
 }
 

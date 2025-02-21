@@ -2,10 +2,11 @@ import { WebSocket } from 'ws';
 import { v4 as uuidv4 } from 'uuid';
 import { StreamType, UserSession } from '@augmentos/types';
 import { TranscriptSegment } from '@augmentos/types';
-import DisplayManager from '../layout/DisplayManager';
+// import DisplayManager from '../layout/DisplayManager';
 import { DisplayRequest } from '@augmentos/types';
 import appService, { SYSTEM_TPAS } from './app.service';
 import transcriptionService from '../processing/transcription.service';
+import DisplayManager from '../layout/DisplayManager';
 
 const RECONNECT_GRACE_PERIOD_MS = 30000; // 30 seconds
 const LOG_AUDIO = false;
@@ -48,7 +49,7 @@ export class SessionService {
     if (oldUserSession) {
       newSession.activeAppSessions = oldUserSession.activeAppSessions;
       newSession.transcript = oldUserSession.transcript;
-      newSession.displayManager = oldUserSession.displayManager;
+      // newSession.displayManager = oldUserSession.displayManager;
       newSession.bufferedAudio = oldUserSession.bufferedAudio;
       newSession.OSSettings = oldUserSession.OSSettings;
       newSession.appSubscriptions = oldUserSession.appSubscriptions;
@@ -84,35 +85,40 @@ export class SessionService {
   // In SessionService, update updateDisplay method
 
   updateDisplay(userSessionId: string, displayRequest: DisplayRequest): void {
-    const session = this.getSession(userSessionId);
-    if (!session) {
-      console.error(`❌ No session found for display update: ${userSessionId}`);
+    const userSession = this.getSession(userSessionId);
+    if (!userSession) {
+      console.error(`❌[${userSessionId}]: No userSession found for display update`);
       return;
     }
-
-    const isSystemApp = SYSTEM_TPAS.some(app => app.packageName === displayRequest.packageName);
-
-    // Update display history
     try {
-      session.displayManager.handleDisplayEvent(displayRequest);
+      userSession.displayManager.handleDisplayEvent(displayRequest, userSession);
     } catch (error) {
-      console.error('❌ Error updating display history:', error);
+      console.error(`❌[${userSessionId}]: Error updating display history:`, error);
     }
 
-    // Send to glasses client - ensure system app displays always go through
-    if (session.websocket?.readyState === WebSocket.OPEN) {
-      try {
-        session.websocket.send(JSON.stringify(displayRequest));
-      } catch (error) {
-        console.error('❌ Error sending display update:', error);
-      }
-    } else {
-      console.error('⚠️ Glasses websocket not ready:', {
-        hasWebsocket: !!session.websocket,
-        readyState: session.websocket?.readyState,
-        isSystemApp
-      });
-    }
+    // const isSystemApp = SYSTEM_TPAS.some(app => app.packageName === displayRequest.packageName);
+
+    // // Update display history
+    // try {
+    //   // session.displayManager.handleDisplayEvent(displayRequest);
+    // } catch (error) {
+    //   console.error('❌ Error updating display history:', error);
+    // }
+
+    // // Send to glasses client - ensure system app displays always go through
+    // if (session.websocket?.readyState === WebSocket.OPEN) {
+    //   try {
+    //     session.websocket.send(JSON.stringify(displayRequest));
+    //   } catch (error) {
+    //     console.error('❌ Error sending display update:', error);
+    //   }
+    // } else {
+    //   console.error('⚠️ Glasses websocket not ready:', {
+    //     hasWebsocket: !!session.websocket,
+    //     readyState: session.websocket?.readyState,
+    //     isSystemApp
+    //   });
+    // }
   }
 
   addTranscriptSegment(userSession: UserSession, segment: TranscriptSegment): void {
