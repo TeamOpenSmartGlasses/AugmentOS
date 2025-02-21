@@ -20,8 +20,8 @@ public final class NewPermissionUtils {
             Manifest.permission.BLUETOOTH_CONNECT,
             Manifest.permission.BLUETOOTH_ADVERTISE,
             Manifest.permission.RECORD_AUDIO,
-            Manifest.permission.READ_PHONE_STATE,
-            Manifest.permission.CAMERA,
+//            Manifest.permission.READ_PHONE_STATE,
+//            Manifest.permission.CAMERA,
             Manifest.permission.POST_NOTIFICATIONS
     };
 

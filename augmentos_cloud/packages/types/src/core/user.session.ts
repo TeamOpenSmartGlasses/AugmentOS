@@ -4,6 +4,7 @@ import type { StreamType } from '../websocket/common';
 import type { AppI, AppSettings } from './app';
 import type { AppSessionI, AppState } from './app.session';
 import type { TranscriptI } from './transcript';
+import { WebSocket } from 'ws';
 
 import {
   ConversationTranscriber,
@@ -29,6 +30,7 @@ export interface UserSession {
   appConnections: Map<string, WebSocket>; // packageName -> websocket connection for the system app / TPA;
 
   displayManager: DisplayManagerI;
+
   websocket: WebSocket;
   transcript: TranscriptI
 
@@ -65,12 +67,8 @@ export interface UserSession {
 // We can support multiple views, and neatly orginize them by app id, by holding them in state in the shape of this interface.
 // Each user session will have a DisplayManager instance.
 export interface DisplayManagerI {
-  activeDisplays: Map<string, ActiveDisplay>;
-  views: Map<AppSessionI["packageName"], Map<UserSession["sessionId"], Layout>>;
-  handleDisplayEvent(displayRequest: DisplayRequest): Promise<boolean>;
+  handleDisplayEvent(displayRequest: DisplayRequest, userSession: UserSession): Promise<boolean>;
 }
-
-export type Views = DisplayManagerI["views"];
 
 /** What's showing right now in a session */
 export interface ActiveDisplay {

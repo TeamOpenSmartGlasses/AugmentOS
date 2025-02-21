@@ -2,22 +2,20 @@
   "name": "@augmentos/flash",
   "version": "1.0.0",
   "main": "dist/index.js",
-
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.json",
     "start": "node dist/index.js",
     "deploy": "bun run build && bun start",
-    "dev": "bun --watch --no-clear-screen src/index.ts"
+    "dev": "tsx watch src/index.ts"
   },
-
   "dependencies": {
     "@augmentos/clients": "workspace:*",
     "@augmentos/types": "workspace:*",
     "@augmentos/config": "workspace:*",
     "@augmentos/utils": "workspace:*"
   },
-
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "ts-node-dev": "^1.1.6"
   }
 }

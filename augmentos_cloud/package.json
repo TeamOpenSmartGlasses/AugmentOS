@@ -11,7 +11,13 @@
     "logs:prod": "pm2 logs ecosystem.config.js",
     "restart:prod": "pm2 restart ecosystem.config.js",
     "monitor:prod": "pm2 monit",
-    "deploy": "bun run stop:prod && bun run build && bun run start:prod"
+    "deploy:prod": "bun run stop:prod && bun run build && bun run start:prod",
+    "start:dev": "pm2 start dev-ecosystem.config.js",
+    "stop:dev": "pm2 delete dev-ecosystem.config.js",
+    "logs:dev": "pm2 logs dev-ecosystem.config.js",
+    "restart:dev": "pm2 restart dev-ecosystem.config.js",
+    "monitor:dev": "pm2 monit",
+    "deploy:dev": "bun run stop:dev && bun run build && bun run start:dev"
   },
   "dependencies": {
     "@langchain/anthropic": "^0.3.13",
@@ -28,6 +34,7 @@
     "langchain": "^0.3.18",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3",
     "tz-lookup": "^6.1.25",
     "uuid": "^11.1.0",
     "winston": "^3.17.0"
@@ -39,6 +46,7 @@
     "eslint": "^9.20.1",
     "globals": "^15.15.0",
     "pm2": "^5.4.3",
+    "tsx": "^4.19.3",
     "typescript-eslint": "^8.24.0"
   }
 }

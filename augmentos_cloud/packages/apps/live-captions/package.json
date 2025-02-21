@@ -6,7 +6,7 @@
     "build": "rm -rf dist && tsc -p tsconfig.json",
     "start": "node dist/index.js",
     "deploy": "bun run build && bun start",
-    "dev": "bun --watch --no-clear-screen  src/index.ts"
+    "dev": "tsx watch src/index.ts"
   },
   "dependencies": {
     "@augmentos/types": "workspace:*",
