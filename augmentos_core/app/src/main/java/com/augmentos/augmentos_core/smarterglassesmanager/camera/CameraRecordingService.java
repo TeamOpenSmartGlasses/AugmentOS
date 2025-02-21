@@ -1,40 +1,37 @@
 package com.augmentos.augmentos_core.smarterglassesmanager.camera;
 
+import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Point;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
 import com.augmentos.augmentos_core.R;
-import com.github.pedro.rtplibrary.view.OpenGlView;
-import com.github.pedro.rtplibrary.base.Camera2Base;
-import com.github.pedro.rtplibrary.rtmp.RtmpCamera2;
-import com.github.pedro.rtplibrary.util.FpsListener;
-import com.github.pedro.rtplibrary.util.RecordController;
-import com.github.pedro.rtplibrary.util.RecordController.Listener;
-import com.github.pedro.rtplibrary.util.RecordController.Status;
+import com.pedro.encoder.input.video.CameraHelper;
 import com.pedro.rtmp.utils.ConnectCheckerRtmp;
+import com.pedro.rtplibrary.rtmp.RtmpCamera2.*;
+import com.pedro.rtplibrary.rtmp.RtmpCamera2;
+import com.pedro.rtplibrary.view.OpenGlView;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 /**
- * Service for recording + streaming using rtmp-rtsp-stream-client-java
+ * Service for recording and streaming using rtmp-rtsp-stream-client-java (2.1.3).
  */
 public class CameraRecordingService extends Service implements ConnectCheckerRtmp {
 
@@ -42,17 +39,14 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
     private static final String CHANNEL_ID = "CameraRecordingServiceChannel";
     private static final int NOTIFICATION_ID = 1;
 
-    // Intent actions
-    public static final String ACTION_START = "com.example.ACTION_START";      // Start preview only
-    public static final String ACTION_STREAM = "com.example.ACTION_STREAM";    // Start streaming
-    public static final String ACTION_RECORD = "com.example.ACTION_RECORD";    // Start local recording
+    // Intent action definitions
+    public static final String ACTION_START = "com.example.ACTION_START";
+    public static final String ACTION_STREAM = "com.example.ACTION_STREAM";
+    public static final String ACTION_RECORD = "com.example.ACTION_RECORD";
     public static final String ACTION_STOP = "com.example.ACTION_STOP";
     public static final String EXTRA_RTMP_URL = "com.example.EXTRA_RTMP_URL";
 
-    // Our RtmpCamera2 instance
     private RtmpCamera2 rtmpCamera2;
-    // If you want an OpenGlView for more advanced watermarks or filters, you can place it in a hidden Layout, etc.
-    // Here we'll just pass null if we don't need a preview. Or create a dummy:
     private OpenGlView glView;
 
     private boolean isStreaming = false;
@@ -65,53 +59,44 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
         Log.d(TAG, "Service onCreate");
         createNotificationChannel();
 
-        // If you want a preview, you'd typically inflate a layout with an <OpenGlView> or <SurfaceView>.
-        // But in a Service scenario, you may have no visible UI. We'll do an "off-screen" approach:
+        // Create an off-screen OpenGlView for preview
         glView = new OpenGlView(this);
-        // Or you can pass null to RtmpCamera2 if you want no preview rendering at all.
 
-        // Create RtmpCamera2 (this automatically sets up Camera2 capturing, encoding, etc.)
+        // Initialize RtmpCamera2 with the OpenGlView and set this service as the RTMP connection callback
         rtmpCamera2 = new RtmpCamera2(glView, this);
 
-        // Optional: Listen to record events
-        rtmpCamera2.setRecordControllerListener(new Listener() {
-            @Override
-            public void onStatusChange(Status status) {
-                Log.d(TAG, "Record status changed: " + status);
-            }
-
-            @Override
-            public void onNewPath(String path) {
-                Log.d(TAG, "Recording file saved to: " + path);
-            }
-        });
-
-        // Prepare default settings if you like (video resolution, fps, bitrate, etc.)
+        // Prepare the camera and audio with desired settings
         prepareCameraAndAudio();
     }
 
     private void prepareCameraAndAudio() {
-        // For example, 1280x720, 30fps, ~2 Mbps, frontCamera = false (0 = back, 1 = front)
-        // Check the library docs for more advanced config.
-        boolean result = rtmpCamera2.prepareVideo(
-                1280, 720, 30, 2000 * 1024, // 2Mbps
-                false, 2, Camera2Base.CameraFacing.BACK, 0
+        // Prepare video: width, height, fps, bitrate, hardwareRotation, rotation, camera facing
+        boolean videoPrepared = rtmpCamera2.prepareVideo(
+                1280,            // width
+                720,             // height
+                30,              // fps
+                2000 * 1024,     // bitrate (2 Mbps)
+               // false,           // hardwareRotation
+                0              // rotation (0, 90, 180, 270)
+                //CameraHelper.Facing.BACK
         );
-        if (!result) {
-            Log.e(TAG, "prepareVideo failed");
-        }
-        result = rtmpCamera2.prepareAudio(
-                128 * 1024, // audio bitrate
-                44100,
-                true,   // stereo
-                false,  // echo canceller
-                false   // noise suppressor
-        );
-        if (!result) {
-            Log.e(TAG, "prepareAudio failed");
+        if (!videoPrepared) {
+            Log.e(TAG, "Failed to prepare video");
         }
 
-        // Start the camera preview; we do not necessarily display it, but the camera is "active" now.
+        // Prepare audio: bitrate, sample rate, stereo, echo canceller, noise suppressor
+        boolean audioPrepared = rtmpCamera2.prepareAudio(
+                128 * 1024,      // audio bitrate
+                44100,           // sample rate
+                true,            // stereo
+                false,           // echo canceller
+                false            // noise suppressor
+        );
+        if (!audioPrepared) {
+            Log.e(TAG, "Failed to prepare audio");
+        }
+
+        // Start the camera preview (even if off-screen) so the camera is active
         rtmpCamera2.startPreview();
     }
 
@@ -123,7 +108,7 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
 
         switch (intent.getAction()) {
             case ACTION_START:
-                showNotification("Camera Preview Only", "Camera is active, not recording or streaming.");
+                showNotification("Camera Preview", "Camera is active (preview only).");
                 break;
 
             case ACTION_STREAM:
@@ -139,7 +124,6 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
                 stopAll();
                 break;
         }
-
         return START_STICKY;
     }
 
@@ -148,25 +132,13 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
             Log.w(TAG, "Already streaming");
             return;
         }
-        if (!rtmpCamera2.isRecording() && !rtmpCamera2.isStreaming()) {
-            // Only prepare again if you changed parameters or your initial was not prepared
-            // rtmpCamera2.prepareVideo(...);
-            // rtmpCamera2.prepareAudio(...);
-        }
-
         if (rtmpCamera2.isRecording()) {
-            // If you are already recording, you can also stream at the same time
-            // (the library handles that with one pipeline).
-            Log.d(TAG, "Starting streaming while already recording locally...");
+            Log.d(TAG, "Starting streaming while recording locally...");
         }
-
-        boolean started = rtmpCamera2.startStream(rtmpUrl);
-        if (started) {
-            isStreaming = true;
-            showNotification("Streaming", "Live stream to: " + rtmpUrl);
-        } else {
-            Toast.makeText(this, "Stream start failed!", Toast.LENGTH_SHORT).show();
-        }
+        // startStream now returns void, so handle success/fail in ConnectCheckerRtmp callbacks
+        rtmpCamera2.startStream(rtmpUrl);
+        isStreaming = true;
+        showNotification("Streaming", "Live streaming to: " + rtmpUrl);
     }
 
     private void startLocalRecording() {
@@ -174,94 +146,100 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
             Log.w(TAG, "Already recording locally!");
             return;
         }
-        // Build a file path for the .mp4
+        // Create a file path for the recording
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
         String filePath = getExternalFilesDir(null) + File.separator + "VID_" + timeStamp + ".mp4";
 
-        // Start recording. The library automatically writes the same encoded frames used for streaming.
-        rtmpCamera2.startRecord(filePath);
-        isRecording = true;
-        showNotification("Recording", "Saving MP4 to " + filePath);
+        try {
+            rtmpCamera2.startRecord(filePath);
+            isRecording = true;
+            showNotification("Recording", "Recording to: " + filePath);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void stopAll() {
-        Log.d(TAG, "stopAll: Stopping stream & record & preview");
-        // Stop streaming if streaming
+        Log.d(TAG, "Stopping stream, recording, and preview");
         if (rtmpCamera2.isStreaming()) {
             rtmpCamera2.stopStream();
             isStreaming = false;
         }
-        // Stop recording if recording
         if (rtmpCamera2.isRecording()) {
             rtmpCamera2.stopRecord();
             isRecording = false;
         }
-        // Stop camera preview
         if (rtmpCamera2.isOnPreview()) {
             rtmpCamera2.stopPreview();
         }
 
-        showNotification("Stopped", "Camera is not streaming or recording now.");
-        // Optionally stopSelf if you want the service to end after stopping everything:
+        showNotification("Stopped", "Streaming and recording have stopped.");
         stopForeground(true);
         stopSelf();
     }
 
-    // Implement ConnectCheckerRtmp methods for feedback on RTMP connection
+    // -----------------------------------------------------------------------------------
+    // ConnectCheckerRtmp callback methods
+    // -----------------------------------------------------------------------------------
+
     @Override
-    public void onConnectionStartedRtmp(String rtmpUrl) {
-        Log.d(TAG, "onConnectionStartedRtmp: " + rtmpUrl);
+    public void onConnectionStartedRtmp(@NonNull String rtmpUrl) {
+        Log.d(TAG, "RTMP connection started: " + rtmpUrl);
     }
 
     @Override
     public void onConnectionSuccessRtmp() {
-        Log.d(TAG, "onConnectionSuccessRtmp");
-        Toast.makeText(this, "Stream Connection Successful", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "RTMP connection successful");
+        Toast.makeText(this, "Stream connected", Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void onConnectionFailedRtmp(@NonNull final String reason) {
-        Log.e(TAG, "onConnectionFailedRtmp: " + reason);
-        // If you want to stop the stream if it fails:
-        Handler mainHandler = new Handler(getMainLooper());
-        mainHandler.post(() -> {
-            rtmpCamera2.stopStream();
+    public void onConnectionFailedRtmp(@NonNull String reason) {
+        Log.e(TAG, "RTMP connection failed: " + reason);
+        new Handler(getMainLooper()).post(() -> {
+            if (rtmpCamera2.isStreaming()) {
+                rtmpCamera2.stopStream();
+            }
             isStreaming = false;
-            Toast.makeText(CameraRecordingService.this, "Stream connection failed: " + reason, Toast.LENGTH_LONG).show();
+            Toast.makeText(CameraRecordingService.this, "Stream failed: " + reason, Toast.LENGTH_LONG).show();
         });
     }
 
     @Override
     public void onNewBitrateRtmp(long bitrate) {
-        Log.d(TAG, "onNewBitrateRtmp: " + bitrate + " bps");
+        Log.d(TAG, "New bitrate: " + bitrate + " bps");
     }
 
     @Override
     public void onDisconnectRtmp() {
-        Log.d(TAG, "onDisconnectRtmp");
+        Log.d(TAG, "RTMP disconnected");
         isStreaming = false;
         Toast.makeText(this, "Stream disconnected", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onAuthErrorRtmp() {
-        Log.e(TAG, "onAuthErrorRtmp");
-        Toast.makeText(this, "Auth error", Toast.LENGTH_SHORT).show();
+        Log.e(TAG, "RTMP authentication error");
+        Toast.makeText(this, "Authentication error", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onAuthSuccessRtmp() {
-        Log.d(TAG, "onAuthSuccessRtmp");
-        Toast.makeText(this, "Auth success", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "RTMP authentication successful");
+        Toast.makeText(this, "Authentication successful", Toast.LENGTH_SHORT).show();
     }
 
-    // Notification stuff
+    // -----------------------------------------------------------------------------------
+    // Notification handling
+    // -----------------------------------------------------------------------------------
+
     private void showNotification(String title, String message) {
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            // if you're on Android 13+ you need to request notifications permission
+        // If you’re targeting Android 13+ and using POST_NOTIFICATIONS, check permission
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Permission not granted; do nothing or handle gracefully
             return;
         }
-
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.unknown_icon3)
                 .setContentTitle(title)
@@ -269,15 +247,15 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
                 .setPriority(NotificationCompat.PRIORITY_LOW)
                 .setAutoCancel(false);
 
+        // Start in foreground
         startForeground(NOTIFICATION_ID, builder.build());
     }
 
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            String channelName = "Recording/Streaming Service Channel";
             NotificationChannel channel = new NotificationChannel(
                     CHANNEL_ID,
-                    channelName,
+                    "Recording/Streaming Service Channel",
                     NotificationManager.IMPORTANCE_LOW
             );
             NotificationManager manager = getSystemService(NotificationManager.class);
@@ -290,8 +268,8 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "Service destroyed, cleaning up...");
-        stopAll();  // ensure everything is halted
+        Log.d(TAG, "Service destroyed, cleaning up");
+        stopAll();
         if (rtmpCamera2 != null) {
             rtmpCamera2.stopPreview();
             rtmpCamera2 = null;

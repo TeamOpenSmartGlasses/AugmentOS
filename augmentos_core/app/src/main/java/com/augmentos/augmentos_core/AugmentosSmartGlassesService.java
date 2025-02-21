@@ -1,5 +1,6 @@
 package com.augmentos.augmentos_core;
 
+import android.content.Intent;
 import android.graphics.ImageFormat;
 import android.os.Handler;
 import android.os.IBinder;
@@ -11,6 +12,7 @@ import android.util.Log;
 
 import com.augmentos.augmentos_core.events.AugmentosSmartGlassesDisconnectedEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.camera.CameraRecorder;
+import com.augmentos.augmentos_core.smarterglassesmanager.camera.CameraRecordingService;
 import com.augmentos.augmentos_core.smarterglassesmanager.camera.MemoryFileUtil;
 import com.augmentos.augmentos_core.ui.AugmentosCoreUi;
 import com.augmentos.augmentoslib.events.DiarizationOutputEvent;
@@ -81,8 +83,19 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
         );
 
         //start background camera
-        cameraRecorder = new CameraRecorder(this, this);
-        recordNSeconds(10);
+        //cameraRecorder = new CameraRecorder(this, this);
+        // recordNSeconds(10);
+
+        // Example usage from an Activity or another component in your app
+        Intent intent = new Intent(this, CameraRecordingService.class);
+        // Tell the service we want to stream
+        intent.setAction(CameraRecordingService.ACTION_STREAM);
+        // Provide the RTMP URL to stream to
+        intent.putExtra(CameraRecordingService.EXTRA_RTMP_URL, "rtmp://localhost/live/ryu55EBc1g");
+        //intent.putExtra(CameraRecordingService.EXTRA_RTMP_URL, "rtmp://your.rtmp.server/app/streamKey");
+        // Start the service
+        this.startService(intent);
+
 
     }
 
@@ -192,66 +205,35 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
     //background camera stuff - designed for ASG running core locally
     private final Handler handler = new Handler(Looper.getMainLooper());
 
-    private void recordNSeconds(int n) {
-        Log.d(TAG, "Do record video in background for n seconds");
-
-        startRecording();
-
-        handler.postDelayed(() -> {
-            stopRecording();
-        }, n * 1000);
-    }
-
-    public void startRecording() {
-        cameraRecorder.startRecording();
-    }
-
-    public void stopRecording() {
-        cameraRecorder.stopRecording();
-    }
-
-    public void pauseRecording() {
-        cameraRecorder.pauseRecording();
-    }
-
-    public void resumeRecording() {
-        cameraRecorder.resumeRecording();
-    }
-
-    public void toggleTorch() {
-        cameraRecorder.toggleTorch();
-    }
-
-    @Override
-    public void onRecordingStarted(long startTime) {
-        Log.d("AugmentosService", "Recording started at: " + startTime);
-    }
-
-    @Override
-    public void onRecordingPaused() {
-        Log.d("AugmentosService", "Recording paused.");
-    }
-
-    @Override
-    public void onRecordingResumed() {
-        Log.d("AugmentosService", "Recording resumed.");
-    }
-
-    @Override
-    public void onRecordingStopped() {
-        Log.d("AugmentosService", "Recording stopped.");
-    }
-
-    @Override
-    public void onCameraError(String errorMessage) {
-        Log.e("AugmentosService", "Camera error: " + errorMessage);
-    }
-
-    @Override
-    public void onFrameAvailable(byte[] frameData, int width, int height) {
-        Log.d(TAG, "SmartGlassesService received frame: " + width + "x" + height);
-        sendFrameToCore(frameData, width, height);
-    }
+//    private void recordNSeconds(int n) {
+//        Log.d(TAG, "Do record video in background for n seconds");
+//
+//        startRecording();
+//
+//        handler.postDelayed(() -> {
+//            stopRecording();
+//        }, n * 1000);
+//    }
+//
+//    public void startRecording() {
+//        cameraRecorder.startRecording();
+//    }
+//
+//    public void stopRecording() {
+//        cameraRecorder.stopRecording();
+//    }
+//
+//    public void pauseRecording() {
+//        cameraRecorder.pauseRecording();
+//    }
+//
+//    public void resumeRecording() {
+//        cameraRecorder.resumeRecording();
+//    }
+//
+//    public void toggleTorch() {
+//        cameraRecorder.toggleTorch();
+//    }
 
     public WindowManagerWithTimeouts getWindowManager() {
         return windowManager;
