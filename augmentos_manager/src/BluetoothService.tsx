@@ -573,8 +573,9 @@ export class BluetoothService extends EventEmitter {
     try {
       if ('status' in jsonData) {
         this.emit('statusUpdateReceived', jsonData);
-      } else if ('glasses_display_data' in jsonData) {
-        // Handle screen mirror status
+      } else if ('glasses_display_event' in jsonData) {
+        let glasses_display_event = (jsonData as any).glasses_display_event;
+        GlobalEventEmitter.emit('GLASSES_DISPLAY_EVENT', glasses_display_event);
       } else if ('ping' in jsonData) {
         // Do nothing?
       } else if ('notify_manager' in jsonData) {

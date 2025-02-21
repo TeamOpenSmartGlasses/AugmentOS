@@ -22,15 +22,16 @@ const InternetConnectionFallbackComponent: React.FC<InternetConnectionFallbackCo
         color={theme.textColor}
       />
       <Text style={[styles.fallbackText, { color: theme.textColor }]}>
-        Unable to connect. Please check your internet connection.
+        {/* Unable to connect. Please check your internet connection. */}
+        The app store is disabled in the AugmentOS 2.0 Beta. It will return in the full AugmentOS 2.0 release.
       </Text>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={[styles.retryButton, { backgroundColor: theme.selectedChipBg }]}
         onPress={retry}>
         <Text style={[styles.retryButtonText, { color: theme.selectedChipText }]}>
           Retry
         </Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };

@@ -234,25 +234,25 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               style={[
                 styles.label,
                 isDarkTheme ? styles.lightText : styles.darkText,
-                (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
+                // (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
+                //   styles.disabledItem,
               ]}
             >
-              Force Onboard Microphone
+              Force Phone Microphone
             </Text>
             <Text
               style={[
                 styles.value,
                 isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-                (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
+                // (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
+                //   styles.disabledItem,
               ]}
             >
-              Force the use of the onboard mic instead of the glasses' mic (if applicable).
+              Force the use of the phone's microphone instead of the glasses' microphone (if applicable).
             </Text>
           </View>
           <Switch
-            disabled={!status.glasses_info?.model_name}
+            //disabled={!status.glasses_info?.model_name}
             value={forceCoreOnboardMic}
             onValueChange={toggleForceCoreOnboardMic}
             trackColor={switchColors.trackColor}
