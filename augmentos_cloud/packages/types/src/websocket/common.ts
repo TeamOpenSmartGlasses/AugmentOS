@@ -10,6 +10,7 @@ import type {
 import type { 
   ButtonPressEvent, 
   GlassesBatteryUpdateEvent, 
+  GlassesConnectionStateEvent, 
   HeadPositionEvent, 
   LocationUpdateEvent, 
   PhoneBatteryUpdateEvent, 
@@ -37,6 +38,7 @@ export interface StreamDataTypes {
   'transcription': TranscriptionData;
   'translation': TranslationData;
   'glasses_battery_update': GlassesBatteryUpdateEvent;
+  'glasses_connection_state': GlassesConnectionStateEvent;
   'phone_battery_update': PhoneBatteryUpdateEvent;
   'connection_init': GlassesConnectionInitMessage;
   'location_update': LocationUpdateEvent;

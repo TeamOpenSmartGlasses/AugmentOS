@@ -30,98 +30,85 @@ public class LocationSystem {
 
     private final Handler locationSendingLoopHandler = new Handler(Looper.getMainLooper());
     private Runnable locationSendingRunnableCode;
-    private final long locationSendTime = 1000 * 10; // define in milliseconds
-
+    private final long locationSendTime = 1000 * 60 * 8; // 8 minutes
 
     public LocationSystem(Context context) {
         this.context = context;
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
-        getUserLocation();
+        setupLocationCallback();
+        scheduleLocationUpdates();
     }
 
-    public void getUserLocation() {
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling ActivityCompat#requestPermissions here.
-            return;
-        }
-
-        fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                // Got last known location. In some rare situations, this can be null.
-                if (location != null) {
-                    lat = location.getLatitude();
-                    lng = location.getLongitude();
-                }
-            }
-        });
-
-        LocationRequest locationRequest = LocationRequest.create();
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        locationRequest.setInterval(10000); // 10 seconds
-        locationRequest.setFastestInterval(5000); // 5 seconds
-
+    private void setupLocationCallback() {
         locationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(LocationResult locationResult) {
-                if (locationResult == null) {
-                    return;
-                }
-                for (Location location : locationResult.getLocations()) {
-                    lat = location.getLatitude();
-                    lng = location.getLongitude();
-                }
+                if (locationResult == null || locationResult.getLocations().isEmpty()) return;
+
+                // Get the most recent location
+                Location location = locationResult.getLastLocation();
+                lat = location.getLatitude();
+                lng = location.getLongitude();
+
+                sendLocationToServer();
+                stopLocationUpdates(); // Turn off GPS after successful fix
             }
         };
+    }
 
-        if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, null /* Looper */);
+    public void startLocationSending() {
+        scheduleLocationUpdates();
+    }
+
+    public void requestLocationUpdate() {
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
         }
+
+        LocationRequest locationRequest = LocationRequest.create();
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        locationRequest.setInterval(10000);  // Keep GPS on for a reasonable time to get a fix
+        locationRequest.setFastestInterval(5000);
+        locationRequest.setMaxWaitTime(60000); // Wait up to 60 seconds if needed for a fix
+
+        fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper());
     }
 
     public void stopLocationUpdates() {
         if (fusedLocationProviderClient != null && locationCallback != null) {
             fusedLocationProviderClient.removeLocationUpdates(locationCallback);
         }
+    }
 
-        locationSendingLoopHandler.removeCallbacks(locationSendingRunnableCode);
-        locationSendingLoopHandler.removeCallbacksAndMessages(null);
+    private void scheduleLocationUpdates() {
+        locationSendingRunnableCode = new Runnable() {
+            @Override
+            public void run() {
+                requestLocationUpdate(); // Turn on GPS and request a fix
+                locationSendingLoopHandler.postDelayed(this, locationSendTime); // Schedule next run
+            }
+        };
+        locationSendingLoopHandler.post(locationSendingRunnableCode);
+    }
+
+    private void sendLocationToServer() {
+        double latitude = getNewLat();
+        double longitude = getNewLng();
+
+        if (latitude == -1 && longitude == -1) return;
+
+        ServerComms.getInstance().sendLocationUpdate(latitude, longitude);
     }
 
     public double getNewLat() {
         if (latestAccessedLat == lat) return -1;
-
         latestAccessedLat = lat;
         return latestAccessedLat;
     }
 
     public double getNewLng() {
         if (latestAccessedLong == lng) return -1;
-
         latestAccessedLong = lng;
         return latestAccessedLong;
     }
-
-    public void startLocationSending() {
-        locationSendingLoopHandler.removeCallbacksAndMessages(this);
-
-        locationSendingRunnableCode = new Runnable() {
-            @Override
-            public void run() {
-                    sendLocationToServer();
-                locationSendingLoopHandler.postDelayed(this, locationSendTime);
-            }
-        };
-        locationSendingLoopHandler.post(locationSendingRunnableCode);
-    }
-
-    private void sendLocationToServer(){
-        double latitude = getNewLat();
-        double longitude = getNewLng();
-
-        if(latitude == -1 && longitude == -1) return;
-
-        ServerComms.getInstance().sendLocationUpdate(latitude, longitude);
-    }
 }
-

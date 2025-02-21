@@ -350,7 +350,11 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         changeUltraliteLayout(Layout.TEXT_BOTTOM_LEFT_ALIGN);
         // ultraliteSdk.sendText(combinedText.toString().trim());
         ultraliteSdk.sendText(combinedText.toString());
+        if (ultraliteCanvas != null) {
+            ultraliteCanvas = ultraliteSdk.getCanvas();
+        }
         ultraliteCanvas.commit();
+
         screenIsClear = false;
     }
 

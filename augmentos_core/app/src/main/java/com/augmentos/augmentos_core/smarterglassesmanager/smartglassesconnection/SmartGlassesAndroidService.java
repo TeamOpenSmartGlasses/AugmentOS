@@ -581,6 +581,17 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         EventBus.getDefault().post(new CenteredTextViewRequestEvent(json));
     }
 
+    public void changeMicrophoneState(boolean isMicrophoneEnabled) {
+        Log.d(TAG, "Changing microphone state to " + isMicrophoneEnabled);
+        Log.d(TAG, "Microphone state changed to " + getForceCoreOnboardMic(this.getApplicationContext()));
+        if (smartGlassesRepresentative.smartGlassesDevice.getHasInMic() && !getForceCoreOnboardMic(this.getApplicationContext())) {
+            smartGlassesRepresentative.smartGlassesCommunicator.changeSmartGlassesMicrophoneState(isMicrophoneEnabled);
+        } else {
+            Log.d(TAG, "111 Changing microphone state to " + isMicrophoneEnabled);
+            smartGlassesRepresentative.changeBluetoothMicState(isMicrophoneEnabled);
+        }
+    }
+
     public void sendHomeScreen(){
         EventBus.getDefault().post(new HomeScreenEvent());
     }

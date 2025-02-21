@@ -39,6 +39,8 @@ import {
   UserSession,
   CloudAuthErrorMessage,
   VADStateMessage,
+  CloudMicrophoneStateChangeMessage,
+  GlassesConnectionStateEvent,
 } from '@augmentos/types';
 
 import sessionService, { SessionService } from './session.service';
@@ -81,6 +83,98 @@ export class WebSocketService {
   setupWebSocketServers(server: Server): void {
     this.initializeWebSocketServers();
     this.setupUpgradeHandler(server);
+  }
+
+  private microphoneStateChangeDebouncers = new Map<
+    string,
+    { timer: ReturnType<typeof setTimeout> | null; lastState: boolean; lastSentState: boolean }
+  >();
+
+  /**
+   * Sends a debounced microphone state change message.
+   * The first call sends the message immediately.
+   * Subsequent calls are debounced and only the final state is sent if it differs
+   * from the last sent state. After the delay, the debouncer is removed.
+   *
+   * @param ws - WebSocket connection to send the update on
+   * @param userSession - The current user session
+   * @param isEnabled - Desired microphone enabled state
+   * @param delay - Debounce delay in milliseconds (default: 1000ms)
+   */
+  private sendDebouncedMicrophoneStateChange(
+    ws: WebSocket,
+    userSession: UserSession,
+    isEnabled: boolean,
+    delay: number = 1000
+  ): void {
+    const sessionId = userSession.sessionId;
+    let debouncer = this.microphoneStateChangeDebouncers.get(sessionId);
+
+    if (!debouncer) {
+      // First call: send immediately.
+      const message: CloudMicrophoneStateChangeMessage = {
+        type: 'microphone_state_change',
+        sessionId: userSession.sessionId,
+        userSession: {
+          sessionId: userSession.sessionId,
+          userId: userSession.userId,
+          startTime: userSession.startTime,
+          activeAppSessions: userSession.activeAppSessions,
+          loadingApps: userSession.loadingApps,
+          isTranscribing: userSession.isTranscribing,
+        },
+        isMicrophoneEnabled: isEnabled,
+        timestamp: new Date(),
+      };
+      ws.send(JSON.stringify(message));
+
+      // Create a debouncer inline to track subsequent calls.
+      debouncer = {
+        timer: null,
+        lastState: isEnabled,
+        lastSentState: isEnabled,
+      };
+      this.microphoneStateChangeDebouncers.set(sessionId, debouncer);
+    } else {
+      // For subsequent calls, update the desired state.
+      debouncer.lastState = isEnabled;
+      if (debouncer.timer) {
+        clearTimeout(debouncer.timer);
+      }
+    }
+
+    // Set or reset the debounce timer.
+    debouncer.timer = setTimeout(() => {
+      // Only send if the final state differs from the last sent state.
+      if (debouncer!.lastState !== debouncer!.lastSentState) {
+        console.log('Sending microphone state change message');
+        const message: CloudMicrophoneStateChangeMessage = {
+          type: 'microphone_state_change',
+          sessionId: userSession.sessionId,
+          userSession: {
+            sessionId: userSession.sessionId,
+            userId: userSession.userId,
+            startTime: userSession.startTime,
+            activeAppSessions: userSession.activeAppSessions,
+            loadingApps: userSession.loadingApps,
+            isTranscribing: userSession.isTranscribing,
+          },
+          isMicrophoneEnabled: debouncer!.lastState,
+          timestamp: new Date(),
+        };
+        ws.send(JSON.stringify(message));
+        debouncer!.lastSentState = debouncer!.lastState;
+      }
+
+      if (debouncer!.lastSentState) {
+        transcriptionService.startTranscription(userSession);
+      } else {
+        transcriptionService.stopTranscription(userSession);
+      }
+
+      // Cleanup: remove the debouncer after processing.
+      this.microphoneStateChangeDebouncers.delete(sessionId);
+    }, delay);
   }
 
   /**
@@ -357,6 +451,17 @@ export class WebSocketService {
 
           // Start transcription
           this.transcriptionService.startTranscription(userSession);
+          // this.transcriptionService.startTranscription(
+          //   userSession,
+          // (result) => {
+          //   console.log(`[Session ${userSession.sessionId}] Recognizing:`, result.text);
+          //   this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
+          // },
+          // (result) => {
+          //   console.log(`[Session ${userSession.sessionId}] Final result ${result?.speakerId}:`, result.text);
+          //   this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
+          // }
+          // );
 
           // this.sessionService.setAudioHandlers(userSession, pushStream, recognizer);
           const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
@@ -475,6 +580,14 @@ export class WebSocketService {
           catch (error) {
             console.error(`\n\n[websocket.service] Error updating user running apps:`, error, `\n\n`);
           }
+
+          const mediaSubscriptions = this.subscriptionService.hasMediaSubscriptions(userSession.sessionId);
+          console.log('Media subscriptions:', mediaSubscriptions);
+
+          if (mediaSubscriptions) {
+            console.log('Media subscriptions, sending microphone state change message');
+            this.sendDebouncedMicrophoneStateChange(ws, userSession, true);
+          }
           break;
         }
 
@@ -494,8 +607,39 @@ export class WebSocketService {
             if (!app) throw new Error(`App ${stopMessage.packageName} not found`);
 
             // Call stop webhook // TODO(isaiah): Implement stop webhook in TPA typescript client lib.
+            // const tpaSessionId = `${userSession.sessionId}-${stopMessage.packageName}`;
+
+            // try {
+            //   await this.appService.triggerStopWebhook(
+            //     app.webhookURL,
+            //     {
+            //       type: 'stop_request',
+            //       sessionId: tpaSessionId,
+            //       userId: userSession.userId,
+            //       reason: 'user_disabled',
+            //       timestamp: new Date().toISOString()
+            //     }
+            //   );
+            // }
+            // catch (error: AxiosError | unknown) {
+            //   // console.error(`\n\n[stop_app]:\nError stopping app ${stopMessage.packageName}:\n${(error as any)?.message}\n\n`);
+            //   // Update state even if webhook fails
+            //   // TODO(isaiah): This is a temporary fix. We should handle this better. Also implement stop webhook in TPA typescript client lib.
+            //   userSession.activeAppSessions = userSession.activeAppSessions.filter(
+            //     (packageName) => packageName !== stopMessage.packageName
+            //   );
+            // }
+
             // Remove subscriptions and update state
             this.subscriptionService.removeSubscriptions(userSession, stopMessage.packageName);
+
+            const mediaSubscriptions = this.subscriptionService.hasMediaSubscriptions(userSession.sessionId);
+            console.log('Media subscriptions:', mediaSubscriptions);
+
+            if (!mediaSubscriptions) {
+              console.log('No media subscriptions, sending microphone state change message');
+              this.sendDebouncedMicrophoneStateChange(ws, userSession, false);
+            }            
 
             // Remove app from active list
             userSession.activeAppSessions = userSession.activeAppSessions.filter(
@@ -569,6 +713,20 @@ export class WebSocketService {
           break;
         }
 
+        case 'glasses_connection_state': {
+          const glassesConnectionStateMessage = message as GlassesConnectionStateEvent;
+
+          console.log('Glasses connection state:', glassesConnectionStateMessage);
+
+          if (glassesConnectionStateMessage.status === 'CONNECTED') {
+            const mediaSubscriptions = this.subscriptionService.hasMediaSubscriptions(userSession.sessionId);
+            console.log('Init Media subscriptions:', mediaSubscriptions);
+            this.sendDebouncedMicrophoneStateChange(ws, userSession, mediaSubscriptions);
+          }
+
+          break;
+        }
+
         case 'VAD': {
           const vadMessage = message as VADStateMessage;
           console.log('\n🎤 VAD State Change');
@@ -625,7 +783,7 @@ export class WebSocketService {
 
         // All other message types are broadcast to TPAs.
         default: {
-          console.warn(`\n[Session ${userSession.sessionId}] Client Event:`, message.type);
+          console.warn(`[Session ${userSession.sessionId}] Catching and Sending message type:`, message.type);
           // check if it's a type of Client to TPA message.
           this.broadcastToTpa(userSession.sessionId, message.type as any, message as any);
         }

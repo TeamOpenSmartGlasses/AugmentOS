@@ -16,6 +16,8 @@ public class L3cCpp {
 
     public static native byte[] decodeLC3(byte[] lc3Data);
 
+    public static native byte[] encodeLC3(byte[] lc3Data);
+
     public static native float[] rnNoise(long st, float[] input);
 
     public static native long createRNNoiseState();

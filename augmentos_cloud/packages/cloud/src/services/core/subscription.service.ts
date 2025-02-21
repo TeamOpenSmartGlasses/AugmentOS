@@ -9,7 +9,7 @@
  * - Providing subscription queries for broadcasting
  */
 
-import { 
+import {
     StreamType,
     UserSession,
   } from '@augmentos/types';
@@ -94,6 +94,25 @@ import {
     }
 
     /**
+     * Returns an object listing which TPAs (by package name) for a specific user (session)
+     * are subscribed to "audio_chunk", "translation", and "transcription".
+     */
+    hasMediaSubscriptions(sessionId: string): boolean {
+      for (const [key, subs] of this.subscriptions.entries()) {
+        // Only consider subscriptions for the given user session
+        if (!key.startsWith(sessionId + ':')) continue;
+        
+        // Check if any media subscriptions exist
+        if (subs.has("audio_chunk" as StreamType) ||
+            subs.has("translation" as StreamType) ||
+            subs.has("transcription" as StreamType)) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    /**
      * Gets all TPAs subscribed to a specific stream type
      * @param sessionId - User session identifier
      * @param subscription - Subscription type to check
@@ -101,19 +120,19 @@ import {
      */
     getSubscribedApps(sessionId: string, subscription: StreamType): string[] {
       const subscribedApps: string[] = [];
-  
+
       for (const [key, subs] of this.subscriptions.entries()) {
         if (!key.startsWith(sessionId)) continue;
-  
+
         const [, packageName] = key.split(':');
         if (subs.has(subscription) || subs.has('*') || subs.has('all')) {
           subscribedApps.push(packageName);
         }
       }
-  
+
       return subscribedApps;
     }
-  
+
     /**
      * Gets all active subscriptions for a TPA
      * @param sessionId - User session identifier
@@ -207,6 +226,7 @@ import {
         'location_update',
         'head_position',
         'glasses_battery_update',
+        'glasses_connection_state',
         'open_dashboard',
         'audio_chunk',
         'video',
