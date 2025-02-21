@@ -166,6 +166,7 @@ public class ServerComms {
      * Sends a raw PCM audio chunk as binary data.
      */
     public void sendAudioChunk(byte[] audioData) {
+//        Log.d(TAG, "Sending audio chunk of size " + audioData.length + " bytes");
         // Instead of sending immediately, enqueue the data.
         audioQueue.offer(audioData);
     }
@@ -381,6 +382,8 @@ public class ServerComms {
         JSONArray installedApps;
         JSONArray activeAppPackageNames;
 
+        Log.d(TAG, "Received message of type: " + msg);
+
         switch (type) {
             case "connection_ack":
                 Log.d(TAG, "Received connection_ack. Possibly store sessionId if needed.");
@@ -411,6 +414,12 @@ public class ServerComms {
                     serverCommsCallback.onAuthError();
                 break;
 
+            case "microphone_state_change":
+                boolean isMicrophoneEnabled = msg.optBoolean("isMicrophoneEnabled", true);
+                Log.d(TAG, "Received turn_microphone_on message." + isMicrophoneEnabled);
+                if (serverCommsCallback != null)
+                    serverCommsCallback.onMicrophoneStateChange(isMicrophoneEnabled);
+                break;
 
             case "display_event":
                 Log.d(TAG, "Received display_event: " + msg.toString());

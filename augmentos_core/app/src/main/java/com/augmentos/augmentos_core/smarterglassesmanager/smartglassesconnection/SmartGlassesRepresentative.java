@@ -176,6 +176,17 @@ class SmartGlassesRepresentative {
         connectAndStreamLocalMicrophone(false);
     }
 
+    public void changeBluetoothMicState(boolean enableBluetoothMic){
+        // kill current audio
+        if (bluetoothAudio != null) {
+            bluetoothAudio.destroy();
+        }
+
+        if (enableBluetoothMic) {
+            connectAndStreamLocalMicrophone(smartGlassesDevice.useScoMic);
+        }
+    }
+
     private void connectAndStreamLocalMicrophone(boolean useBluetoothSco) {
         //follow this order for speed
         //start audio from bluetooth headset
@@ -399,4 +410,5 @@ class SmartGlassesRepresentative {
         }
     }
 
+    public void changeMicrophoneState(boolean isMicrophoneEnabled) {}
 }

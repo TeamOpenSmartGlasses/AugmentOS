@@ -11,7 +11,6 @@ import static com.augmentos.augmentos_core.BatteryOptimizationHelper.isSystemApp
 import static com.augmentos.augmentos_core.Constants.notificationFilterKey;
 import static com.augmentos.augmentos_core.Constants.newsSummaryKey;
 import static com.augmentos.augmentos_core.Constants.augmentOsMainServiceNotificationId;
-import static com.augmentos.augmentos_core.statushelpers.JsonHelper.convertJsonToMap;
 
 
 import android.app.Notification;
@@ -87,10 +86,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Collections;
 import java.util.List;
 //SpeechRecIntermediateOutputEvent
@@ -862,6 +859,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 // blePeripheral.sendAuthErrorToManager();
                 authHandler.deleteAuthSecretKey();
                 sendStatusToAugmentOsManager();
+            }
+
+            @Override
+            public void onMicrophoneStateChange(boolean microphoneEnabled) {
+                smartGlassesService.changeMicrophoneState(microphoneEnabled);
             }
 
             @Override

@@ -69,9 +69,16 @@ export interface CloudAppStateChangeMessage extends WebSocketMessage {
   error?: string;
 }
 
+export interface CloudMicrophoneStateChangeMessage extends WebSocketMessage {
+  type: "microphone_state_change";
+  userSession: Partial<UserSession>;
+  isMicrophoneEnabled: boolean;
+}
+
 export type CloudToGlassesMessage =
   | CloudConnectionAckMessage
   | CloudConnectionErrorMessage
   | CloudDisplayEventMessage
   | CloudAppStateChangeMessage
+  | CloudMicrophoneStateChangeMessage
   | CloudAuthErrorMessage;

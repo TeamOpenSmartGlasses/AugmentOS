@@ -38,13 +38,10 @@ import java.util.stream.Collectors;
 import java.util.zip.CRC32;
 import java.nio.ByteBuffer;
 
-import com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators.SmartGlassesCommunicator;
-import com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.HeadUpAngleEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.G1FontLoader;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.SmartGlassesConnectionState;
-import com.augmentos.augmentoslib.events.GlassesTapOutputEvent;
 import com.google.gson.Gson;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.AudioChunkNewEvent;
 import com.augmentos.smartglassesmanager.cpp.L3cCpp;
@@ -386,7 +383,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             }
 
                             if (deviceName.contains("R_")) {
-//                                Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName + ", length: " + pcmData.length);
+                                Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName + ", length: " + pcmData.length);
                                 if (shouldRunOnboardMic) {
                                     EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
                                 }
@@ -1780,7 +1777,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 buffer.put(command);
                 buffer.put(enableByte);
 
-                sendDataSequentially(buffer.array(), false, true, 300); //wait some time to setup the mic
+                sendDataSequentially(buffer.array(), false, true, 900); //wait some time to setup the mic
                 Log.d(TAG, "Sent MIC command: " + bytesToHex(buffer.array()));
             }
         }, delay);
@@ -2414,6 +2411,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private void quickRestartG1(){
         Log.d(TAG, "Sending restart 0x23 0x72 Command");
         sendDataSequentially(new byte[]{(byte) 0x23, (byte) 0x72}); //quick restart comand
+    }
+
+    @Override
+    public void changeSmartGlassesMicrophoneState(boolean isMicrophoneEnabled) {
+        Log.d(TAG, "Microphone state changed: " + isMicrophoneEnabled);
+        setMicEnabled(isMicrophoneEnabled, 10);
     }
 }
 

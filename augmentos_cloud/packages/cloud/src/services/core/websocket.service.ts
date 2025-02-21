@@ -39,6 +39,7 @@ import {
   UserSession,
   CloudAuthErrorMessage,
   VADStateMessage,
+  CloudMicrophoneStateChangeMessage,
 } from '@augmentos/types';
 
 import sessionService, { SessionService } from './session.service';
@@ -344,6 +345,17 @@ export class WebSocketService {
 
           // Start transcription
           this.transcriptionService.startTranscription(userSession);
+          // this.transcriptionService.startTranscription(
+          //   userSession,
+          // (result) => {
+          //   console.log(`[Session ${userSession.sessionId}] Recognizing:`, result.text);
+          //   this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
+          // },
+          // (result) => {
+          //   console.log(`[Session ${userSession.sessionId}] Final result ${result?.speakerId}:`, result.text);
+          //   this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
+          // }
+          // );
 
           // this.sessionService.setAudioHandlers(userSession, pushStream, recognizer);
           const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
@@ -456,6 +468,29 @@ export class WebSocketService {
           catch (error) {
             console.error(`\n\n[websocket.service] Error updating user running apps:`, error, `\n\n`);
           }
+
+          const mediaSubscriptions = this.subscriptionService.hasMediaSubscriptions(userSession.sessionId);
+          console.log('Media subscriptions:', mediaSubscriptions);
+
+          if (mediaSubscriptions) {
+            console.log('Media subscriptions, sending microphone state change message');
+            const microphoneStateChangeMessage: CloudMicrophoneStateChangeMessage = {
+              type: 'microphone_state_change',
+              sessionId: userSession.sessionId,
+              userSession: {
+                sessionId: userSession.sessionId,
+                userId: userSession.userId,
+                startTime: userSession.startTime,
+                activeAppSessions: userSession.activeAppSessions,
+                loadingApps: userSession.loadingApps,
+                isTranscribing: userSession.isTranscribing
+              },
+              isMicrophoneEnabled: true,
+              timestamp: new Date()
+            };
+            ws.send(JSON.stringify(microphoneStateChangeMessage));
+          }
+
           break;
         }
 
@@ -475,8 +510,53 @@ export class WebSocketService {
             if (!app) throw new Error(`App ${stopMessage.packageName} not found`);
 
             // Call stop webhook // TODO(isaiah): Implement stop webhook in TPA typescript client lib.
+            // const tpaSessionId = `${userSession.sessionId}-${stopMessage.packageName}`;
+
+            // try {
+            //   await this.appService.triggerStopWebhook(
+            //     app.webhookURL,
+            //     {
+            //       type: 'stop_request',
+            //       sessionId: tpaSessionId,
+            //       userId: userSession.userId,
+            //       reason: 'user_disabled',
+            //       timestamp: new Date().toISOString()
+            //     }
+            //   );
+            // }
+            // catch (error: AxiosError | unknown) {
+            //   // console.error(`\n\n[stop_app]:\nError stopping app ${stopMessage.packageName}:\n${(error as any)?.message}\n\n`);
+            //   // Update state even if webhook fails
+            //   // TODO(isaiah): This is a temporary fix. We should handle this better. Also implement stop webhook in TPA typescript client lib.
+            //   userSession.activeAppSessions = userSession.activeAppSessions.filter(
+            //     (packageName) => packageName !== stopMessage.packageName
+            //   );
+            // }
+
             // Remove subscriptions and update state
             this.subscriptionService.removeSubscriptions(userSession, stopMessage.packageName);
+
+            const mediaSubscriptions = this.subscriptionService.hasMediaSubscriptions(userSession.sessionId);
+            console.log('Media subscriptions:', mediaSubscriptions);
+
+            if (!mediaSubscriptions) {
+              console.log('No media subscriptions, sending microphone state change message');
+              const microphoneStateChangeMessage: CloudMicrophoneStateChangeMessage = {
+                type: 'microphone_state_change',
+                sessionId: userSession.sessionId,
+                userSession: {
+                  sessionId: userSession.sessionId,
+                  userId: userSession.userId,
+                  startTime: userSession.startTime,
+                  activeAppSessions: userSession.activeAppSessions,
+                  loadingApps: userSession.loadingApps,
+                  isTranscribing: userSession.isTranscribing
+                },
+                isMicrophoneEnabled: false,
+                timestamp: new Date()
+              };
+              ws.send(JSON.stringify(microphoneStateChangeMessage));
+            }
 
             // Remove app from active list
             userSession.activeAppSessions = userSession.activeAppSessions.filter(
@@ -606,7 +686,7 @@ export class WebSocketService {
 
         // All other message types are broadcast to TPAs.
         default: {
-          console.warn(`\n[Session ${userSession.sessionId}] Client Event:`, message.type);
+          console.warn(`[Session ${userSession.sessionId}] Catching and Sending message type:`, message.type);
           // check if it's a type of Client to TPA message.
           this.broadcastToTpa(userSession.sessionId, message.type as any, message as any);
         }
