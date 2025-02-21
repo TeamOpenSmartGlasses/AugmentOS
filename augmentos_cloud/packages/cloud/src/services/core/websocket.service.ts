@@ -84,6 +84,56 @@ export class WebSocketService {
     this.setupUpgradeHandler(server);
   }
 
+  private microphoneStateChangeDebouncers: Map<string, { timer: NodeJS.Timeout | null, lastState: boolean }> = new Map();
+
+  /**
+   * Sends a debounced microphone state change message.
+   * If multiple calls occur within the delay interval,
+   * only the latest state is sent after the delay.
+   *
+   * @param ws - WebSocket connection to send the update on
+   * @param userSession - The current user session
+   * @param isEnabled - Desired microphone enabled state
+   * @param delay - Debounce delay in milliseconds (default: 500ms)
+   */
+  private sendDebouncedMicrophoneStateChange(
+    ws: WebSocket,
+    userSession: UserSession,
+    isEnabled: boolean,
+    delay: number = 1000
+  ): void {
+    const sessionId = userSession.sessionId;
+    let debouncer = this.microphoneStateChangeDebouncers.get(sessionId);
+    if (!debouncer) {
+      debouncer = { timer: null, lastState: isEnabled };
+      this.microphoneStateChangeDebouncers.set(sessionId, debouncer);
+    } else {
+      debouncer.lastState = isEnabled;
+      if (debouncer.timer) {
+        clearTimeout(debouncer.timer);
+      }
+    }
+    debouncer.timer = setTimeout(() => {
+      const message: CloudMicrophoneStateChangeMessage = {
+        type: 'microphone_state_change',
+        sessionId: userSession.sessionId,
+        userSession: {
+          sessionId: userSession.sessionId,
+          userId: userSession.userId,
+          startTime: userSession.startTime,
+          activeAppSessions: userSession.activeAppSessions,
+          loadingApps: userSession.loadingApps,
+          isTranscribing: userSession.isTranscribing
+        },
+        isMicrophoneEnabled: debouncer!.lastState,
+        timestamp: new Date()
+      };
+      ws.send(JSON.stringify(message));
+      debouncer!.timer = null;
+    }, delay);
+  }
+
+
   /**
    * 🚀🪝 Initiates a new TPA session and triggers the TPA's webhook.
    * @param userSession - userSession object for the user initiating the TPA session
@@ -474,23 +524,8 @@ export class WebSocketService {
 
           if (mediaSubscriptions) {
             console.log('Media subscriptions, sending microphone state change message');
-            const microphoneStateChangeMessage: CloudMicrophoneStateChangeMessage = {
-              type: 'microphone_state_change',
-              sessionId: userSession.sessionId,
-              userSession: {
-                sessionId: userSession.sessionId,
-                userId: userSession.userId,
-                startTime: userSession.startTime,
-                activeAppSessions: userSession.activeAppSessions,
-                loadingApps: userSession.loadingApps,
-                isTranscribing: userSession.isTranscribing
-              },
-              isMicrophoneEnabled: true,
-              timestamp: new Date()
-            };
-            ws.send(JSON.stringify(microphoneStateChangeMessage));
+            this.sendDebouncedMicrophoneStateChange(ws, userSession, true);
           }
-
           break;
         }
 
@@ -541,22 +576,8 @@ export class WebSocketService {
 
             if (!mediaSubscriptions) {
               console.log('No media subscriptions, sending microphone state change message');
-              const microphoneStateChangeMessage: CloudMicrophoneStateChangeMessage = {
-                type: 'microphone_state_change',
-                sessionId: userSession.sessionId,
-                userSession: {
-                  sessionId: userSession.sessionId,
-                  userId: userSession.userId,
-                  startTime: userSession.startTime,
-                  activeAppSessions: userSession.activeAppSessions,
-                  loadingApps: userSession.loadingApps,
-                  isTranscribing: userSession.isTranscribing
-                },
-                isMicrophoneEnabled: false,
-                timestamp: new Date()
-              };
-              ws.send(JSON.stringify(microphoneStateChangeMessage));
-            }
+              this.sendDebouncedMicrophoneStateChange(ws, userSession, false);
+            }            
 
             // Remove app from active list
             userSession.activeAppSessions = userSession.activeAppSessions.filter(
