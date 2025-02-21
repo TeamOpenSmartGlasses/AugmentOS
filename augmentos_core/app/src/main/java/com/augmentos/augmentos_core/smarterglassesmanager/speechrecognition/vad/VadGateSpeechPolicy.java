@@ -1,14 +1,16 @@
 package com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.vad;
 
+import static androidx.core.content.ContentProviderCompat.requireContext;
+
 import android.content.Context;
 import android.util.Log;
 
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.google.asr.SpeechDetectionPolicy;
-import com.konovalov.vad.webrtc.Vad;
-import com.konovalov.vad.webrtc.VadWebRTC;
-import com.konovalov.vad.webrtc.config.FrameSize;
-import com.konovalov.vad.webrtc.config.Mode;
-import com.konovalov.vad.webrtc.config.SampleRate;
+import com.konovalov.vad.silero.VadSilero;
+import com.konovalov.vad.silero.Vad;
+import com.konovalov.vad.silero.config.FrameSize;
+import com.konovalov.vad.silero.config.Mode;
+import com.konovalov.vad.silero.config.SampleRate;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -18,7 +20,7 @@ import java.util.Arrays;
 public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
     public final String TAG = "WearLLM_VadGateService";
     private Context mContext;
-    private VadWebRTC vad;
+    private VadSilero vad;
     private boolean isCurrentlySpeech;
 
     public VadGateSpeechPolicy(Context context){
@@ -27,9 +29,10 @@ public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
     }
 
     public void startVad(int blockSizeSamples){
-        vad  = Vad.builder()
+        vad = Vad.builder()
+                .setContext(mContext)
                 .setSampleRate(SampleRate.SAMPLE_RATE_16K)
-                .setFrameSize(FrameSize.FRAME_SIZE_320)
+                .setFrameSize(FrameSize.FRAME_SIZE_512)
                 .setMode(Mode.NORMAL)
                 .setSilenceDurationMs(12000)
                 .setSpeechDurationMs(50)
@@ -65,9 +68,9 @@ public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
         // Keep track of previous state
         boolean previousSpeechState = isCurrentlySpeech;
 
-        // Ensure we process only full 320-sample frames
+        // Ensure we process only full 512-sample frames
         int totalSamples = audioBytesFull.length;
-        int frameSize = 320;
+        int frameSize = 512;
 
         if (totalSamples % frameSize != 0) {
             Log.e(TAG, "Invalid audio frame size: " + totalSamples + " samples. Needs to be multiple of 512.");

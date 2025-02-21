@@ -43,7 +43,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
 
     // VAD buffer for chunking
     private final BlockingQueue<Short> vadBuffer = new LinkedBlockingQueue<>();
-    private final int vadFrameSize = 320; // 320-sample frames for VAD
+    private final int vadFrameSize = 512; // 512-sample frames for VAD
     private volatile boolean vadRunning = true;
 
     private SpeechRecAugmentos(Context context) {
@@ -56,7 +56,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
         ServerComms.getInstance().setSpeechRecAugmentos(this);
 
         // Rolling buffer to store ~220ms of audio for replay on VAD trigger
-        this.bufferMaxSize = (int) ((16000 * 0.22 * 2) / 320);
+        this.bufferMaxSize = (int) ((16000 * 0.22 * 2) / 512);
         this.rollingBuffer = new LinkedBlockingQueue<>(bufferMaxSize);
 
         // Initialize VAD asynchronously
@@ -69,7 +69,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     private void initVadAsync() {
         new Thread(() -> {
             vadPolicy = new VadGateSpeechPolicy(mContext);
-            vadPolicy.init(320);
+            vadPolicy.init(512);
             setupVadListener();
             startVadProcessingThread();
         }).start();
@@ -118,7 +118,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     }
 
     /**
-     * Start a background thread that chunks up audio for VAD (320 frames).
+     * Start a background thread that chunks up audio for VAD (512 frames).
      */
     private void startVadProcessingThread() {
         new Thread(() -> {
