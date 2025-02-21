@@ -839,8 +839,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             @Override
             public void onDisplayEvent(JSONObject displayData) {
                 Runnable newRunnable = parseDisplayEventMessage(displayData);
-                if (smartGlassesService != null )
+                if (smartGlassesService != null)
                     smartGlassesService.windowManager.showAppLayer("serverappid", newRunnable, -1);
+                if (blePeripheral != null)
+                    blePeripheral.sendGlassesDisplayEventToManager(displayData);
             }
 
             @Override
@@ -875,8 +877,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 switch (dataType) {
                     case "core_status":
                         Log.d(TAG, "Server wants a core_status");
-                        JSONObject status = generateStatusJson();
-                        ServerComms.getInstance().sendCoreStatus(status);
+                        sendStatusToBackend();
                     break;
                     case "photo":
                         Log.d(TAG, "Server wants a photo");
@@ -969,12 +970,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Starting app: " + packageName);
         // Logic to start the app by package name
 
-        // Only allow starting apps if glasses are connected
-        if (smartGlassesService != null && smartGlassesService.getConnectedSmartGlasses() != null) {
-            ServerComms.getInstance().startApp(packageName);
-        } else {
-            Log.d(TAG, "Not starting app because glasses aren't connected.");
-            blePeripheral.sendNotifyManager("Must connect glasses to start an app", "error");
+        ServerComms.getInstance().startApp(packageName);
+        if (smartGlassesService == null || smartGlassesService.getConnectedSmartGlasses() == null) {
+        //    blePeripheral.sendNotifyManager("Connect glasses to use your app", "success");
         }
     }
 

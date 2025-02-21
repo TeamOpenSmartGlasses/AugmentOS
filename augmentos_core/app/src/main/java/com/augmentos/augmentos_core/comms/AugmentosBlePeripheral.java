@@ -441,6 +441,17 @@ public class AugmentosBlePeripheral {
         sendDataToAugmentOsManager(data.toString());
     }
 
+    public void sendGlassesDisplayEventToManager(JSONObject displayEvent) {
+        Log.d(TAG, "sendNotifyManager");
+        JSONObject data = new JSONObject();
+        try{
+            data.put("glasses_display_event", displayEvent);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        sendDataToAugmentOsManager(data.toString());
+    }
+
     public void sendAppInfoToManager(ThirdPartyEdgeApp tpa) {
         Log.d(TAG, "sendNotifyManager");
         JSONObject data = new JSONObject();
