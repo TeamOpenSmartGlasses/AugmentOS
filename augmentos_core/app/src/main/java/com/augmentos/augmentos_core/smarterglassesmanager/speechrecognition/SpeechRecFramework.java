@@ -13,6 +13,8 @@ public abstract class SpeechRecFramework {
     public abstract void destroy();
     public abstract void ingestAudioChunk(byte [] audioChunk);
 
+    public abstract void ingestLC3AudioChunk(byte [] audioChunk);
+
     public void pauseAsr(boolean pauseAsrFlag){
         this.pauseAsrFlag = pauseAsrFlag;
     }
