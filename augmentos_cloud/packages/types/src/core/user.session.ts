@@ -68,6 +68,8 @@ export interface UserSession {
 // Each user session will have a DisplayManager instance.
 export interface DisplayManagerI {
   handleDisplayEvent(displayRequest: DisplayRequest, userSession: UserSession): Promise<boolean>;
+  handleAppStart(packageName: string, userSession: UserSession): void;
+  handleAppStop(packageName: string, userSession: UserSession): void;
 }
 
 /** What's showing right now in a session */
