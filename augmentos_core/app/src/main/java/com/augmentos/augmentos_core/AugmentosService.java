@@ -863,7 +863,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             @Override
             public void onMicrophoneStateChange(boolean microphoneEnabled) {
-                smartGlassesService.changeMicrophoneState(microphoneEnabled);
+                if (smartGlassesService != null) {
+                    smartGlassesService.changeMicrophoneState(microphoneEnabled);
+                }
             }
 
             @Override
