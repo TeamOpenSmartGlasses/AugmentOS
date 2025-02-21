@@ -7,7 +7,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider.tsx';
 import { loadSetting } from '../augmentos_core_comms/SettingsHelper';
 import {
   SETTINGS_KEYS,

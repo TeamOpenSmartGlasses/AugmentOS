@@ -14,7 +14,7 @@ import RunningAppsList from '../components/RunningAppsList';
 import YourAppsList from '../components/YourAppsList';
 import NavigationBar from '../components/NavigationBar';
 import PuckConnection from '../components/PuckConnection';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider.tsx';
 import { ScrollView } from 'react-native-gesture-handler';
 import {
   GET_APP_STORE_DATA_ENDPOINT,

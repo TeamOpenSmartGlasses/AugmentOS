@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState, ReactNode, useCallback, useEffect } from 'react';
-import { AugmentOSParser, AugmentOSMainStatus } from './AugmentOSStatusParser';
-import { BluetoothService } from './BluetoothService';
-import { INTENSE_LOGGING, MOCK_CONNECTION } from './consts';
-import GlobalEventEmitter from "./logic/GlobalEventEmitter.tsx";
+import { AugmentOSParser, AugmentOSMainStatus } from '../AugmentOSStatusParser.tsx';
+import { BluetoothService } from '../BluetoothService.tsx';
+import { INTENSE_LOGGING, MOCK_CONNECTION } from '../consts.tsx';
+import GlobalEventEmitter from "../logic/GlobalEventEmitter.tsx";
 
 interface AugmentOSStatusContextType {
     status: AugmentOSMainStatus;

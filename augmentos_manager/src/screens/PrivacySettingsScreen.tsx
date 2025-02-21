@@ -13,7 +13,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Slider } from 'react-native-elements';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider';
 import { BluetoothService } from '../BluetoothService';
 import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
 import { SETTINGS_KEYS } from '../consts';

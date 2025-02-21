@@ -12,7 +12,8 @@ import NavigationBar from '../components/NavigationBar.tsx';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { MOCK_CONNECTION } from '../consts.tsx';
 import GlobalEventEmitter from '../logic/GlobalEventEmitter.tsx';
-import { useStatus } from '../AugmentOSStatusProvider.tsx';
+import { useStatus } from '../providers/AugmentOSStatusProvider.tsx';
+import { useGlassesMirror } from '../providers/GlassesMirrorContext.tsx';
 
 interface GlassesMirrorProps {
   isDarkTheme: boolean;
@@ -22,29 +23,10 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({isDarkTheme}) => {
   // State to hold the list of display events
   const [displayEvents, setDisplayEvents] = useState<any[]>([]);
   const { status } = useStatus();
+  const { events } = useGlassesMirror(); // <-- from context
 
-  useEffect(() => {
-    const handleGlassesDisplayEvent = (event: any) => {
-      console.log('GOT A GLASSES DISPLAY EVENT');
-      console.log(JSON.stringify(event));
-
-      // Add the new event to our list of events
-      setDisplayEvents(prev => [...prev, event]);
-    };
-
-    if (!MOCK_CONNECTION) {
-      GlobalEventEmitter.on('GLASSES_DISPLAY_EVENT', handleGlassesDisplayEvent);
-    }
-
-    return () => {
-      if (!MOCK_CONNECTION) {
-        GlobalEventEmitter.removeListener(
-          'GLASSES_DISPLAY_EVENT',
-          handleGlassesDisplayEvent,
-        );
-      }
-    };
-  }, []);
+  // Helper to check if we have a glasses model name
+  const isGlassesConnected = !!status.glasses_info?.model_name;
 
   return (
     <View
@@ -70,11 +52,12 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({isDarkTheme}) => {
       </View>
 
       {/* 
-        2. Render the events. 
-           We'll just map over the `displayEvents` array. 
+        If the glasses are connected, show the events.
+        Otherwise, show a simple fallback message.
       */}
-      <ScrollView style={styles.contentContainer}>
-        {displayEvents.map((evt, idx) => {
+      {isGlassesConnected ? (
+        <ScrollView style={styles.contentContainer}>
+        {events.map((evt, idx) => {
           const { layout } = evt;
           if (!layout || !layout.layoutType) {
             return (
@@ -93,6 +76,13 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({isDarkTheme}) => {
           );
         })}
       </ScrollView>
+      ) : (
+        <View style={styles.fallbackContainer}>
+          <Text style={[isDarkTheme ? styles.darkText : styles.lightText, styles.fallbackText]}>
+            Connect glasses to use the Glasses Mirror
+          </Text>
+        </View>
+      )}
 
       <NavigationBar isDarkTheme={isDarkTheme} toggleTheme={() => {}} />
     </View>
@@ -100,7 +90,7 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({isDarkTheme}) => {
 };
 
 /**
- * 3. Render logic for each layoutType
+ *  Render logic for each layoutType
  */
 function renderLayout(layout: any, isDarkTheme: boolean) {
   const textStyle = isDarkTheme ? styles.darkText : styles.lightText;
@@ -110,40 +100,27 @@ function renderLayout(layout: any, isDarkTheme: boolean) {
       const { title, text } = layout;
       return (
         <>
-          <Text style={[styles.cardTitle, textStyle]}>
-            {title}
-          </Text>
-          <Text style={[styles.cardContent, textStyle]}>
-            {text}
-          </Text>
+          <Text style={[styles.cardTitle, textStyle]}>{title}</Text>
+          <Text style={[styles.cardContent, textStyle]}>{text}</Text>
         </>
       );
     }
-
     case 'text_wall':
     case 'text_line': {
       const { text } = layout;
       return (
-        <Text style={[styles.cardContent, textStyle]}>
-          {text}
-        </Text>
+        <Text style={[styles.cardContent, textStyle]}>{text}</Text>
       );
     }
-
     case 'double_text_wall': {
       const { topText, bottomText } = layout;
       return (
         <>
-          <Text style={[styles.cardContent, textStyle]}>
-            {topText}
-          </Text>
-          <Text style={[styles.cardContent, textStyle]}>
-            {bottomText}
-          </Text>
+          <Text style={[styles.cardContent, textStyle]}>{topText}</Text>
+          <Text style={[styles.cardContent, textStyle]}>{bottomText}</Text>
         </>
       );
     }
-
     case 'text_rows': {
       // layout.text is presumably an array of strings
       const rows = layout.text || [];
@@ -153,7 +130,6 @@ function renderLayout(layout: any, isDarkTheme: boolean) {
         </Text>
       ));
     }
-
     case 'bitmap': {
       // layout.data is a base64 string. We can show an image in RN by creating a data URL
       // e.g. { uri: "data:image/png;base64,<base64string>" }
@@ -166,7 +142,6 @@ function renderLayout(layout: any, isDarkTheme: boolean) {
         />
       );
     }
-
     default:
       return (
         <Text style={[styles.cardContent, textStyle]}>
@@ -251,6 +226,18 @@ const styles = StyleSheet.create({
   cardContent: {
     fontSize: 16,
     fontFamily: 'Montserrat-Regular',
+  },
+
+  // Fallback
+  fallbackContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  fallbackText: {
+    fontSize: 16,
+    textAlign: 'center',
+    marginHorizontal: 20,
   },
 });
 

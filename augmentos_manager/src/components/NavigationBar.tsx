@@ -80,12 +80,12 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
       {/* App Store Icon */}
       <TouchableOpacity
         onPress={() => navigation.navigate('AppStore')}
-        // disabled={true}
+        disabled={true}
         style={styles.iconWrapper}>
         <MaterialCommunityIcons
           name={icons.apps}
           size={iconSize}
-          color={iconColor}
+          color={disabledColor}
         />
       </TouchableOpacity>
 

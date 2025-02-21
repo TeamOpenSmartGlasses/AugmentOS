@@ -6,7 +6,7 @@ import { SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from '../consts';
 import { NavigationProps } from '../components/types';
 import { supabase } from '../supabaseClient';
 import { useAuth } from '../AuthContext';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider';
 import { doesHaveAllPermissions } from '../logic/PermissionsUtils';
 import { isAugmentOsCoreInstalled, openCorePermissionsActivity, stopExternalService } from '../augmentos_core_comms/CoreServiceStarter';
 

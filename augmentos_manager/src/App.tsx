@@ -2,7 +2,7 @@ import React, {useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusProvider } from './AugmentOSStatusProvider';
+import { StatusProvider } from './providers/AugmentOSStatusProvider.tsx';
 import Homepage from './screens/Homepage';
 import SettingsPage from './screens/SettingsPage';
 // import IntroScreen from './screens/IntroScreen';
@@ -22,7 +22,7 @@ import SelectGlassesModelScreen from './screens/SelectGlassesModelScreen.tsx';
 import GlassesPairingGuideScreen from './screens/GlassesPairingGuideScreen.tsx';
 import SelectGlassesBluetoothScreen from './screens/SelectGlassesBluetoothScreen.tsx';
 import PhoneNotificationSettings from './screens/PhoneNotificationSettings.tsx';
-import { SearchResultsProvider } from './SearchResultsContext.tsx';
+import { SearchResultsProvider } from './providers/SearchResultsContext.tsx';
 import AppSettings from './screens/AppSettings.tsx';
 import LoginScreen from './screens/LoginScreen.tsx';
 import SplashScreen from './screens/SplashScreen.tsx';
@@ -32,6 +32,7 @@ import VerifyEmailScreen from './screens/VerifyEmail.tsx';
 import PrivacySettingsScreen from './screens/PrivacySettingsScreen.tsx';
 import GrantPermissionsScreen from './screens/GrantPermissionsScreen.tsx';
 import ConnectingToPuckComponent from './components/ConnectingToPuckComponent.tsx';
+import { GlassesMirrorProvider } from './providers/GlassesMirrorContext.tsx';
 
 const linking = {
   prefixes: ['https://augmentos.org'],
@@ -59,6 +60,7 @@ const App: React.FC = () => {
         <AuthProvider>
         <StatusProvider>
           <SearchResultsProvider>
+            <GlassesMirrorProvider>
             <MessageBanner />
             <NavigationContainer linking={linking}>
               <Stack.Navigator initialRouteName="SplashScreen">
@@ -297,6 +299,7 @@ const App: React.FC = () => {
 
               </Stack.Navigator>
             </NavigationContainer>
+            </GlassesMirrorProvider>
           </SearchResultsProvider>
         </StatusProvider>
         </AuthProvider>
