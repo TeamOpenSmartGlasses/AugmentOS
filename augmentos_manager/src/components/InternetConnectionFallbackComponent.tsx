@@ -17,20 +17,20 @@ const InternetConnectionFallbackComponent: React.FC<InternetConnectionFallbackCo
   return (
     <View style={styles.fallbackContainer}>
       <MaterialCommunityIcons
-        name="cloud-off-outline"
+        name="alert-circle-outline"
         size={60}
         color={theme.textColor}
       />
       <Text style={[styles.fallbackText, { color: theme.textColor }]}>
-        Unable to connect. Please check your internet connection.
+        AugmentOS Store not yet available in 2.0.
       </Text>
-      <TouchableOpacity
-        style={[styles.retryButton, { backgroundColor: theme.selectedChipBg }]}
-        onPress={retry}>
-        <Text style={[styles.retryButtonText, { color: theme.selectedChipText }]}>
-          Retry
-        </Text>
-      </TouchableOpacity>
+      {/*<TouchableOpacity*/}
+      {/*  style={[styles.retryButton, { backgroundColor: theme.selectedChipBg }]}*/}
+      {/*  onPress={retry}>*/}
+      {/*  <Text style={[styles.retryButtonText, { color: theme.selectedChipText }]}>*/}
+      {/*    Retry*/}
+      {/*  </Text>*/}
+      {/*</TouchableOpacity>*/}
     </View>
   );
 };

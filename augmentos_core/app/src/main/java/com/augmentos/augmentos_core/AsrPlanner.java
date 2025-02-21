@@ -69,6 +69,7 @@ public class AsrPlanner {
             transcriptsBuffer.add(text);
         }
     }
+
     @Subscribe
     public void onTranslate(TranslateOutputEvent event){
         String fromLanguageCode = event.fromLanguageCode;

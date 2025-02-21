@@ -38,6 +38,7 @@ import java.util.stream.Collectors;
 import java.util.zip.CRC32;
 import java.nio.ByteBuffer;
 
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.LC3AudioChunkNewEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators.SmartGlassesCommunicator;
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService;
@@ -389,6 +390,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 //                                Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName + ", length: " + pcmData.length);
                                 if (shouldRunOnboardMic) {
                                     EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
+                                    EventBus.getDefault().post(new LC3AudioChunkNewEvent(lc3));
                                 }
                             } else {
 //                                Log.d(TAG, "Lc3 Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(lc3) + ", from: " + deviceName);

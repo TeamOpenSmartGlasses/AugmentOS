@@ -55,14 +55,16 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(-50)).current;
 
-  useEffect(() => {
-    if (!status.core_info.puck_connected || !status.auth.core_token_owner) {
-      navigation.reset({
-        index: 0,
-        routes: [{name: 'ConnectingToPuck'}],
-      });
-    }
-  }, [navigation, status]);
+  // useEffect(() => {
+  //   if (!status.core_info.puck_connected || !status.auth.core_token_owner) {
+  //     setTimeout(() => {
+  //     }, 500);
+  //     navigation.reset({
+  //       index: 0,
+  //       routes: [{name: 'ConnectingToPuck'}],
+  //     });
+  //   }
+  // }, [navigation, status]);
 
   /**
    * 2) Fetch the local config for the manager; return the version instead

@@ -16,6 +16,7 @@ const PORT = systemApps.captions.port;
 const PACKAGE_NAME = systemApps.captions.packageName;
 const API_KEY = 'test_key'; // In production, this would be securely stored
 
+const userFinalTranscripts: Map<string, string> = new Map();
 const userTranscriptProcessors: Map<string, TranscriptProcessor> = new Map();
 
 // For debouncing transcripts per session
@@ -64,12 +65,12 @@ app.post('/webhook', async (req, res) => {
     ws.on('close', () => {
       console.log(`Session ${sessionId} disconnected`);
       activeSessions.delete(sessionId);
-      userTranscriptProcessors.delete(sessionId);
+      userFinalTranscripts.delete(sessionId);
       transcriptDebouncers.delete(sessionId);
     });
 
     activeSessions.set(sessionId, ws);
-    userTranscriptProcessors.set(sessionId, new TranscriptProcessor(30, 3));
+    userFinalTranscripts.set(sessionId, "");
     // Initialize debouncer for the session
     transcriptDebouncers.set(sessionId, { lastSentTime: 0, timer: null });
 
@@ -115,6 +116,12 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
  * Processes the transcription, applies debouncing, and then sends a display event.
  */
 function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData: any) {
+  let userFinalTranscript = userFinalTranscripts.get(sessionId);
+  if (userFinalTranscript === undefined) {
+    userFinalTranscript = "";
+    userFinalTranscripts.set(sessionId, userFinalTranscript);
+  }
+
   let transcriptProcessor = userTranscriptProcessors.get(sessionId);
   if (!transcriptProcessor) {
     transcriptProcessor = new TranscriptProcessor(30, 3);
@@ -122,10 +129,20 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
   }
 
   const isFinal = transcriptionData.isFinal;
-  const text = transcriptProcessor.processString(transcriptionData.text, isFinal);
+  const newTranscript = transcriptionData.text;
+
+  const text = transcriptProcessor.processString(userFinalTranscript + " " + newTranscript, isFinal);
 
   console.log(`[Session ${sessionId}]: ${text}`);
   console.log(`[Session ${sessionId}]: isFinal=${isFinal}`);
+
+  if (isFinal) {
+    const finalLiveCaption = newTranscript.length > 100 ? newTranscript.substring(newTranscript.length - 100) : newTranscript;
+
+    userFinalTranscripts.set(sessionId, finalLiveCaption);
+  }
+
+  console.log(`[Session ${sessionId}]: finalLiveCaption=${isFinal}`);
 
   debounceAndShowTranscript(sessionId, ws, text, isFinal);
 }
