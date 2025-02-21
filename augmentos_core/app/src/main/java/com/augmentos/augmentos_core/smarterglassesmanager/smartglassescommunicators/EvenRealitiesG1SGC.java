@@ -127,6 +127,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     //mic heartbeat turn on
     private Handler micBeatHandler = new Handler();
+    private boolean isMicBeatRunning = false;
     private Runnable micBeatRunnable;
 
     //white list sender
@@ -1547,6 +1548,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     //periodically send a mic ON request so it never turns off
     private void startMicBeat(int delay) {
+        if (isMicBeatRunning) {
+            return;
+        }
+        isMicBeatRunning = true;
+
         micBeatRunnable = new Runnable() {
             @Override
             public void run() {
@@ -1674,6 +1680,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         if (micBeatHandler != null) {
             micBeatHandler.removeCallbacksAndMessages(null);
             micBeatHandler.removeCallbacksAndMessages(micBeatRunnable);
+            micBeatRunnable = null;
+            isMicBeatRunning = false;
         }
     }
 
@@ -2416,7 +2424,15 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     @Override
     public void changeSmartGlassesMicrophoneState(boolean isMicrophoneEnabled) {
         Log.d(TAG, "Microphone state changed: " + isMicrophoneEnabled);
-        setMicEnabled(isMicrophoneEnabled, 10);
+        if (isMicrophoneEnabled) {
+            Log.d(TAG, "Microphone enabled, starting audio input handling");
+            setMicEnabled(true, 10);
+            startMicBeat((int) MICBEAT_INTERVAL_MS);
+        } else {
+            Log.d(TAG, "Microphone disabled, stopping audio input handling");
+            setMicEnabled(false, 10);
+            stopHeartbeat();
+        }
     }
 }
 
