@@ -38,6 +38,7 @@ import java.util.stream.Collectors;
 import java.util.zip.CRC32;
 import java.nio.ByteBuffer;
 
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.LC3AudioChunkNewEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.HeadUpAngleEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.G1FontLoader;
@@ -401,6 +402,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                                 // Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName + ", length: " + pcmData.length);
                                 if (shouldRunOnboardMic) {
                                     EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
+                                    EventBus.getDefault().post(new LC3AudioChunkNewEvent(lc3));
                                 }
                             } else {
 //                                Log.d(TAG, "Lc3 Audio data received. Seq: " + seq + ", Data: " + Arrays.toString(lc3) + ", from: " + deviceName);
@@ -518,6 +520,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 Log.d(TAG, "Sending turn off wear detection command");
                 sendDataSequentially(new byte[]{(byte) 0x27, (byte) 0x00});
 
+                Log.d(TAG, "Sending turn off silent mode Command");
+                sendDataSequentially(new byte[]{(byte) 0x03, (byte) 0x0A});
+
                 //debug command
 //                            Log.d(TAG, "Sending debug 0xF4 Command");
 //                            sendDataSequentially(new byte[]{(byte) 0xF4, (byte) 0x01});
@@ -528,7 +533,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
                 //setup brightness
                 sendBrightnessCommandHandler.postDelayed(() -> sendBrightnessCommand(brightnessValue, shouldUseAutoBrightness), 10);
-
 
                 // Maybe start MIC streaming
                 setMicEnabled(shouldRunOnboardMic, 10); // Enable the MIC

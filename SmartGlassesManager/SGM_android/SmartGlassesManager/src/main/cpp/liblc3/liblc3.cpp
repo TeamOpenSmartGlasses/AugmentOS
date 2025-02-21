@@ -72,6 +72,57 @@ Java_com_augmentos_smartglassesmanager_cpp_L3cCpp_decodeLC3(JNIEnv *env, jclass 
 }
 
 
+extern "C" JNIEXPORT jbyteArray JNICALL
+Java_com_augmentos_smartglassesmanager_cpp_L3cCpp_encodeLC3(JNIEnv *env, jclass instance, jbyteArray pcmData) {
+    // Get PCM data from Java
+    jbyte *pcmBytes = env->GetByteArrayElements(pcmData, nullptr);
+    int pcmLength = env->GetArrayLength(pcmData);
+
+    // Frame duration: 10ms
+    int dtUs = 10000;
+    // Sampling rate: 16kHz
+    int srHz = 16000;
+    // Samples per frame
+    uint16_t samplesPerFrame = lc3_frame_samples(dtUs, srHz);
+    // Bytes per frame (16-bit PCM)
+    uint16_t bytesPerFrame = samplesPerFrame * 2;
+
+    // Output encoded frame size (adjustable, but typically 20 bytes for low bitrate)
+    uint16_t encodedFrameSize = 20;
+
+    // Total encoded output size
+    int outputSize = (pcmLength / bytesPerFrame) * encodedFrameSize;
+
+    // Allocate memory for the encoded output
+    unsigned char *encodedData = (unsigned char *)malloc(outputSize);
+
+    // Allocate encoder memory
+    unsigned encoderSize = lc3_encoder_size(dtUs, srHz);
+    void *encMem = malloc(encoderSize);
+    lc3_encoder_t encoder = lc3_setup_encoder(dtUs, srHz, srHz, encMem);
+
+    jsize offset = 0;
+
+    // Loop through the PCM data in frames
+    for (int i = 0; i <= pcmLength - bytesPerFrame; i += bytesPerFrame) {
+        unsigned char *framePcm = reinterpret_cast<unsigned char *>(pcmBytes + i);
+        lc3_encode(encoder, LC3_PCM_FORMAT_S16, framePcm, 1, encodedFrameSize, encodedData + offset);
+        offset += encodedFrameSize;
+    }
+
+    // Convert output to a Java byte array
+    jbyteArray resultArray = env->NewByteArray(outputSize);
+    env->SetByteArrayRegion(resultArray, 0, outputSize, (jbyte *)encodedData);
+
+    // Cleanup
+    env->ReleaseByteArrayElements(pcmData, pcmBytes, JNI_ABORT);
+    free(encMem);
+    free(encodedData);
+
+    return resultArray;
+}
+
+
 extern "C" JNIEXPORT jfloatArray JNICALL
 Java_com_example_demo_1ai_1even_cpp_Cpp_rnNoise(JNIEnv *env, jclass clazz,jlong st, jfloatArray input) {
     jfloat *inputArray = env->GetFloatArrayElements(input, NULL);

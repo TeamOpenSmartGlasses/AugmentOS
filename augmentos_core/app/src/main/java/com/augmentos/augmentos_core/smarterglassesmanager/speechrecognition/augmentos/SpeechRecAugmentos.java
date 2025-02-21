@@ -150,9 +150,10 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
 
     /**
      * Called by external code to feed raw PCM chunks (16-bit, 16kHz).
+     * runs VAD on decoded data to tell whether or not we should send the encoded data to the backend
      */
     @Override
-    public void ingestAudioChunk(byte[] audioChunk) { // TODO: Reinstantiate VAD once fixed
+    public void ingestAudioChunk(byte[] audioChunk) {
         if (vadPolicy == null) {
             Log.e(TAG, "VAD not initialized yet. Skipping audio.");
             return;
@@ -168,18 +169,25 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
             }
             vadBuffer.offer(sample);
         }
+    }
 
+    /**
+     * Called by external code to feed raw LC3 chunks
+     */
+    @Override
+    public void ingestLC3AudioChunk(byte[] LC3audioChunk) {
         // If currently speaking, send data live
         if (isSpeaking) {
-        ServerComms.getInstance().sendAudioChunk(audioChunk);
+            ServerComms.getInstance().sendAudioChunk(LC3audioChunk);
         }
 
         // Maintain rolling buffer for "catch-up"
         if (rollingBuffer.size() >= bufferMaxSize) {
             rollingBuffer.poll();
         }
-        rollingBuffer.offer(audioChunk);
+        rollingBuffer.offer(LC3audioChunk);
     }
+
 
     /**
      * Converts short[] -> byte[] (little-endian)
