@@ -191,7 +191,6 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
           break;
 
         case 'glasses_battery_update':
-          // NEW: Update battery only if the level has changed.
           handleGlassesBatteryUpdate(sessionId, streamMessage.data);
           break;
 
