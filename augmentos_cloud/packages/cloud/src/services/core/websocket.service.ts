@@ -40,6 +40,7 @@ import {
   CloudAuthErrorMessage,
   VADStateMessage,
   CloudMicrophoneStateChangeMessage,
+  GlassesConnectionStateEvent,
 } from '@augmentos/types';
 
 import sessionService, { SessionService } from './session.service';
@@ -164,6 +165,13 @@ export class WebSocketService {
         ws.send(JSON.stringify(message));
         debouncer!.lastSentState = debouncer!.lastState;
       }
+
+      if (debouncer!.lastSentState) {
+        transcriptionService.startTranscription(userSession);
+      } else {
+        transcriptionService.stopTranscription(userSession);
+      }
+
       // Cleanup: remove the debouncer after processing.
       this.microphoneStateChangeDebouncers.delete(sessionId);
     }, delay);
@@ -485,10 +493,6 @@ export class WebSocketService {
           ws.send(JSON.stringify(ackMessage));
           console.log(`\n\n[websocket.service]\nSENDING connection_ack to ${userId}\n\n`);
 
-          // const mediaSubscriptions = this.subscriptionService.hasMediaSubscriptions(userSession.sessionId);
-          // console.log('Init Media subscriptions:', mediaSubscriptions);
-          // this.sendDebouncedMicrophoneStateChange(ws, userSession, mediaSubscriptions);  
-
           break;
         }
 
@@ -688,6 +692,20 @@ export class WebSocketService {
         case 'head_position': {
           const headMessage = message as HeadPositionEvent;
           this.broadcastToTpa(userSession.sessionId, 'head_position', headMessage);
+          break;
+        }
+
+        case 'glasses_connection_state': {
+          const glassesConnectionStateMessage = message as GlassesConnectionStateEvent;
+
+          console.log('Glasses connection state:', glassesConnectionStateMessage);
+
+          if (glassesConnectionStateMessage.status === 'CONNECTED') {
+            const mediaSubscriptions = this.subscriptionService.hasMediaSubscriptions(userSession.sessionId);
+            console.log('Init Media subscriptions:', mediaSubscriptions);
+            this.sendDebouncedMicrophoneStateChange(ws, userSession, mediaSubscriptions);
+          }
+
           break;
         }
 
