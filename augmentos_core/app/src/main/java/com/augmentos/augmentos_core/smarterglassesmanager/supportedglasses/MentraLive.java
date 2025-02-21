@@ -1,7 +1,7 @@
 package com.augmentos.augmentos_core.smarterglassesmanager.supportedglasses;
 
-public class SelfAudio extends SmartGlassesDevice {
-    public SelfAudio() {
+public class MentraLive extends SmartGlassesDevice {
+    public MentraLive() {
         deviceModelName = "Mentra Live";
         deviceIconName = "vuzix_shield";
         anySupport = true;
