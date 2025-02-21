@@ -84,17 +84,21 @@ export class WebSocketService {
     this.setupUpgradeHandler(server);
   }
 
-  private microphoneStateChangeDebouncers: Map<string, { timer: NodeJS.Timeout | null, lastState: boolean }> = new Map();
+  private microphoneStateChangeDebouncers = new Map<
+    string,
+    { timer: ReturnType<typeof setTimeout> | null; lastState: boolean; lastSentState: boolean }
+  >();
 
   /**
    * Sends a debounced microphone state change message.
-   * If multiple calls occur within the delay interval,
-   * only the latest state is sent after the delay.
+   * The first call sends the message immediately.
+   * Subsequent calls are debounced and only the final state is sent if it differs
+   * from the last sent state. After the delay, the debouncer is removed.
    *
    * @param ws - WebSocket connection to send the update on
    * @param userSession - The current user session
    * @param isEnabled - Desired microphone enabled state
-   * @param delay - Debounce delay in milliseconds (default: 500ms)
+   * @param delay - Debounce delay in milliseconds (default: 1000ms)
    */
   private sendDebouncedMicrophoneStateChange(
     ws: WebSocket,
@@ -104,16 +108,9 @@ export class WebSocketService {
   ): void {
     const sessionId = userSession.sessionId;
     let debouncer = this.microphoneStateChangeDebouncers.get(sessionId);
+
     if (!debouncer) {
-      debouncer = { timer: null, lastState: isEnabled };
-      this.microphoneStateChangeDebouncers.set(sessionId, debouncer);
-    } else {
-      debouncer.lastState = isEnabled;
-      if (debouncer.timer) {
-        clearTimeout(debouncer.timer);
-      }
-    }
-    debouncer.timer = setTimeout(() => {
+      // First call: send immediately.
       const message: CloudMicrophoneStateChangeMessage = {
         type: 'microphone_state_change',
         sessionId: userSession.sessionId,
@@ -123,16 +120,54 @@ export class WebSocketService {
           startTime: userSession.startTime,
           activeAppSessions: userSession.activeAppSessions,
           loadingApps: userSession.loadingApps,
-          isTranscribing: userSession.isTranscribing
+          isTranscribing: userSession.isTranscribing,
         },
-        isMicrophoneEnabled: debouncer!.lastState,
-        timestamp: new Date()
+        isMicrophoneEnabled: isEnabled,
+        timestamp: new Date(),
       };
       ws.send(JSON.stringify(message));
-      debouncer!.timer = null;
+
+      // Create a debouncer inline to track subsequent calls.
+      debouncer = {
+        timer: null,
+        lastState: isEnabled,
+        lastSentState: isEnabled,
+      };
+      this.microphoneStateChangeDebouncers.set(sessionId, debouncer);
+    } else {
+      // For subsequent calls, update the desired state.
+      debouncer.lastState = isEnabled;
+      if (debouncer.timer) {
+        clearTimeout(debouncer.timer);
+      }
+    }
+
+    // Set or reset the debounce timer.
+    debouncer.timer = setTimeout(() => {
+      // Only send if the final state differs from the last sent state.
+      if (debouncer!.lastState !== debouncer!.lastSentState) {
+        console.log('Sending microphone state change message');
+        const message: CloudMicrophoneStateChangeMessage = {
+          type: 'microphone_state_change',
+          sessionId: userSession.sessionId,
+          userSession: {
+            sessionId: userSession.sessionId,
+            userId: userSession.userId,
+            startTime: userSession.startTime,
+            activeAppSessions: userSession.activeAppSessions,
+            loadingApps: userSession.loadingApps,
+            isTranscribing: userSession.isTranscribing,
+          },
+          isMicrophoneEnabled: debouncer!.lastState,
+          timestamp: new Date(),
+        };
+        ws.send(JSON.stringify(message));
+        debouncer!.lastSentState = debouncer!.lastState;
+      }
+      // Cleanup: remove the debouncer after processing.
+      this.microphoneStateChangeDebouncers.delete(sessionId);
     }, delay);
   }
-
 
   /**
    * 🚀🪝 Initiates a new TPA session and triggers the TPA's webhook.
@@ -449,6 +484,11 @@ export class WebSocketService {
           };
           ws.send(JSON.stringify(ackMessage));
           console.log(`\n\n[websocket.service]\nSENDING connection_ack to ${userId}\n\n`);
+
+          // const mediaSubscriptions = this.subscriptionService.hasMediaSubscriptions(userSession.sessionId);
+          // console.log('Init Media subscriptions:', mediaSubscriptions);
+          // this.sendDebouncedMicrophoneStateChange(ws, userSession, mediaSubscriptions);  
+
           break;
         }
 
