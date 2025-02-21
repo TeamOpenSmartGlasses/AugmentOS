@@ -8,7 +8,7 @@
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.json && bun run sentry:sourcemaps && npm run sentry:sourcemaps",
     "start": "NODE_ENV=production node dist/index.js",
-    "dev": "bun --watch --no-clear-screen src/index.ts",
+    "dev": "tsx watch src/index.ts",
     "deploy": "bun run build && bun run start",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -35,7 +35,6 @@
     "husky": "^7.0.1",
     "prettier": "^2.3.2",
     "pretty-quick": "^3.1.1",
-    "ts-node-dev": "^1.1.8",
     "typescript": "^4.3.5"
   },
   "dependencies": {
