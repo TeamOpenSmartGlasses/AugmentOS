@@ -508,6 +508,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 Log.d(TAG, "Sending turn off wear detection command");
                 sendDataSequentially(new byte[]{(byte) 0x27, (byte) 0x00});
 
+                Log.d(TAG, "Sending turn off silent mode Command");
+                sendDataSequentially(new byte[]{(byte) 0x03, (byte) 0x0A});
+
                 //debug command
 //                            Log.d(TAG, "Sending debug 0xF4 Command");
 //                            sendDataSequentially(new byte[]{(byte) 0xF4, (byte) 0x01});
@@ -518,7 +521,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
                 //setup brightness
                 sendBrightnessCommandHandler.postDelayed(() -> sendBrightnessCommand(brightnessValue, shouldUseAutoBrightness), 10);
-
 
                 // Maybe start MIC streaming
                 setMicEnabled(shouldRunOnboardMic, 10); // Enable the MIC

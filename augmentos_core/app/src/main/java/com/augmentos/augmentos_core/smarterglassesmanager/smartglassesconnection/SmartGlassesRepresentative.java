@@ -14,6 +14,7 @@ import androidx.lifecycle.LifecycleOwner;
 
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.AudioChunkNewEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.DisableBleScoAudioEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.LC3AudioChunkNewEvent;
 import com.augmentos.augmentoslib.events.DisplayCustomContentRequestEvent;
 import com.augmentos.augmentoslib.events.DoubleTextWallViewRequestEvent;
 import com.augmentos.augmentoslib.events.HomeScreenEvent;
@@ -42,6 +43,7 @@ import com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection
 import com.augmentos.augmentos_core.smarterglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.augmentos.augmentoslib.events.TextLineViewRequestEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.SmartGlassesConnectionState;
+import com.augmentos.smartglassesmanager.cpp.L3cCpp;
 
 //rxjava
 import java.nio.ByteBuffer;
@@ -194,8 +196,14 @@ class SmartGlassesRepresentative {
 
     private void receiveChunk(ByteBuffer chunk){
         byte[] audio_bytes = chunk.array();
+
+        //encode as LC3
+        byte[] lc3Data = L3cCpp.encodeLC3(chunk.array());
+        Log.d(TAG, "LC3 Data encoded: " + lc3Data.toString());
+
         //throw off new audio chunk event
         EventBus.getDefault().post(new AudioChunkNewEvent(audio_bytes));
+        EventBus.getDefault().post(new LC3AudioChunkNewEvent(lc3Data));
     }
 
     public void destroy(){
