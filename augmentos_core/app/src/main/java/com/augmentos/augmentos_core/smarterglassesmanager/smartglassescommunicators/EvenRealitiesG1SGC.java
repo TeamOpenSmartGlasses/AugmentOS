@@ -2431,7 +2431,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         } else {
             Log.d(TAG, "Microphone disabled, stopping audio input handling");
             setMicEnabled(false, 10);
-            stopHeartbeat();
+            stopMicBeat();
         }
     }
 }
