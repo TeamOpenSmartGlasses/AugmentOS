@@ -55,7 +55,7 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
     private final long doubleTapTimeConst = 600;
     public WindowManagerWithTimeouts windowManager;
 
-    private CameraRecorder cameraRecorder;
+    //private CameraRecorder cameraRecorder;
 
     public AugmentosSmartGlassesService() {
         super(AugmentosCoreUi.class,
@@ -81,22 +81,6 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
                     sendHomeScreen();
                 } // what to do when globally timed out
         );
-
-        //start background camera
-        //cameraRecorder = new CameraRecorder(this, this);
-        // recordNSeconds(10);
-
-        // Example usage from an Activity or another component in your app
-        Intent intent = new Intent(this, CameraRecordingService.class);
-        // Tell the service we want to stream
-        intent.setAction(CameraRecordingService.ACTION_STREAM);
-        // Provide the RTMP URL to stream to
-        intent.putExtra(CameraRecordingService.EXTRA_RTMP_URL, "rtmp://localhost/live/ryu55EBc1g");
-        //intent.putExtra(CameraRecordingService.EXTRA_RTMP_URL, "rtmp://your.rtmp.server/app/streamKey");
-        // Start the service
-        this.startService(intent);
-
-
     }
 
     @Override
@@ -145,95 +129,7 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
     public void onTranscript(SpeechRecOutputEvent event) {
 
     }
-
-//    private void sendFrameToCore(byte[] frameData, int width, int height) {
-//        if (coreService == null) {
-//            Log.e(TAG, "Core service is not bound!");
-//            return;
-//        }
-//
-//        try {
-//            int bufferSize = frameData.length; // YUV420 estimated size should be correct
-//            MemoryFile memoryFile = new MemoryFile("frameBuffer", bufferSize);
-//            memoryFile.allowPurging(false); // Prevent unexpected memory release
-//
-//            // Write frame data correctly
-//            OutputStream outputStream = memoryFile.getOutputStream();
-//            outputStream.write(frameData);
-//            outputStream.flush();
-//            outputStream.close();
-//
-//            // Get file descriptor correctly
-//            ParcelFileDescriptor pfd = MemoryFileUtil.getParcelFileDescriptor(memoryFile);
-//
-//            Log.d(TAG, "Sending frame to core: " + width + "x" + height);
-//
-//            // Send to core service
-//            coreService.receiveSharedMemory(pfd, width, height, ImageFormat.YUV_420_888);
-//
-//            Log.d(TAG, "Frame send complete");
-//
-//            memoryFile.close(); // Clean up memory file after sending
-//        } catch (IOException | RemoteException e) {
-//            Log.e(TAG, "Error sending frame to core service", e);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-//
-//    private ParcelFileDescriptor getParcelFileDescriptor(MemoryFile memoryFile) throws IOException {
-//        try {
-//            Method method = MemoryFile.class.getDeclaredMethod("getFileDescriptor");
-//            method.setAccessible(true);
-//            FileDescriptor fd = (FileDescriptor) method.invoke(memoryFile);
-//            return ParcelFileDescriptor.dup(fd);
-//        } catch (Exception e) {
-//            throw new IOException("Failed to get ParcelFileDescriptor from MemoryFile", e);
-//        }
-//    }
-//
-//    private FileOutputStream getMemoryFileOutputStream(MemoryFile memoryFile) throws IOException {
-//        try {
-//            Method method = MemoryFile.class.getDeclaredMethod("getFileDescriptor");
-//            method.setAccessible(true);
-//            FileDescriptor fd = (FileDescriptor) method.invoke(memoryFile);
-//            return new FileOutputStream(fd);
-//        } catch (Exception e) {
-//            throw new IOException("Failed to get FileOutputStream from MemoryFile", e);
-//        }
-//    }
-    //background camera stuff - designed for ASG running core locally
-    private final Handler handler = new Handler(Looper.getMainLooper());
-
-//    private void recordNSeconds(int n) {
-//        Log.d(TAG, "Do record video in background for n seconds");
-//
-//        startRecording();
-//
-//        handler.postDelayed(() -> {
-//            stopRecording();
-//        }, n * 1000);
-//    }
-//
-//    public void startRecording() {
-//        cameraRecorder.startRecording();
-//    }
-//
-//    public void stopRecording() {
-//        cameraRecorder.stopRecording();
-//    }
-//
-//    public void pauseRecording() {
-//        cameraRecorder.pauseRecording();
-//    }
-//
-//    public void resumeRecording() {
-//        cameraRecorder.resumeRecording();
-//    }
-//
-//    public void toggleTorch() {
-//        cameraRecorder.toggleTorch();
-//    }
+    
 
     public WindowManagerWithTimeouts getWindowManager() {
         return windowManager;
