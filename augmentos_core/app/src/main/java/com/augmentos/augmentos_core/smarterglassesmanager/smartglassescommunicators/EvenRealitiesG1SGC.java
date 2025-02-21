@@ -383,7 +383,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                             }
 
                             if (deviceName.contains("R_")) {
-                                Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName + ", length: " + pcmData.length);
+                                // Log.d(TAG, "Audio data received. Seq: " + seq + ", from: " + deviceName + ", length: " + pcmData.length);
                                 if (shouldRunOnboardMic) {
                                     EventBus.getDefault().post(new AudioChunkNewEvent(pcmData));
                                 }
@@ -1777,7 +1777,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 buffer.put(command);
                 buffer.put(enableByte);
 
-                sendDataSequentially(buffer.array(), false, true, 900); //wait some time to setup the mic
+                sendDataSequentially(buffer.array(), false, true, 300); //wait some time to setup the mic
                 Log.d(TAG, "Sent MIC command: " + bytesToHex(buffer.array()));
             }
         }, delay);
