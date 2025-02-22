@@ -48,7 +48,7 @@ interface SessionData {
 const activeSessions = new Map<string, SessionData>();
 
 // Duration (in ms) that each notification is displayed.
-const NOTIFICATION_DISPLAY_DURATION = 4000;
+const NOTIFICATION_DISPLAY_DURATION = 10000; // 10 seconds
 
 // Blacklisted app names: notifications from these apps will be ignored.
 const notificationAppBlackList = ['youtube', 'augment', 'maps'];

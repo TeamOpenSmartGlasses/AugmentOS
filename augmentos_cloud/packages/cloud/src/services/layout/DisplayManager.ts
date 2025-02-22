@@ -31,13 +31,13 @@ class DisplayManager implements DisplayManagerI {
   private pendingDisplayRequestMain: ThrottledRequest | null = null;
   private readonly displayDebounceDelay = 200;
   private bootingTimeoutId: NodeJS.Timeout | null = null;
-  private readonly BOOTING_SCREEN_DURATION = 2000;
+  private readonly BOOTING_SCREEN_DURATION = 1500;
   private isShowingBootScreen = false;
   private bootingApps: string[] = [];
   private userSession: UserSession | null = null;
 
   // New properties for main/background app management
-  private mainApp: string | null = null;
+  private mainApp: string | null = systemApps.captions.packageName;
   private displayLock: DisplayLock | null = null;
   private readonly LOCK_TIMEOUT = 10000; // 10 seconds
   private lockTimeoutId: NodeJS.Timeout | null = null;
@@ -53,7 +53,7 @@ class DisplayManager implements DisplayManagerI {
 
 
   // Enhanced handleDisplayEvent
-  public async handleDisplayEvent(displayRequest: DisplayRequest, userSession: UserSession): Promise<boolean> {
+  public handleDisplayEvent(displayRequest: DisplayRequest, userSession: UserSession): boolean {
     this.userSession = userSession;
     const { view, packageName, durationMs } = displayRequest;
 
@@ -160,40 +160,6 @@ class DisplayManager implements DisplayManagerI {
     this.showNextPriorityDisplay('main');
   }
 
-
-  // // Public API
-  // public async handleDisplayEvent(displayRequest: DisplayRequest, userSession: UserSession): Promise<boolean> {
-  //   this.userSession = userSession;
-  //   const { view, packageName } = displayRequest;
-
-  //   // If boot screen is active, queue non-system requests
-  //   if (this.isShowingBootScreen && packageName !== 'system') {
-  //     this.addToDisplayStack(view, displayRequest);
-  //     return false;
-  //   }
-
-  //   // Dashboard is exempt from throttling
-  //   console.log("\n\n\nHANDLING DISPLAY REQUEST", 'view:', view, 'packageName:', packageName, 'systemApps.dashboard.packageName:', systemApps.dashboard.packageName);
-  //   if (view === "dashboard" && packageName === systemApps.dashboard.packageName || packageName === 'system') {
-  //     console.log("SENDING DASHBOARD DISPLAY");
-  //     return this.sendDisplay(displayRequest);
-  //   }
-
-  //   // Apply shared throttling to all other views
-  //   if (this.shouldThrottleMain()) {
-  //     this.addToDisplayStack(view, displayRequest);
-  //     if (this.pendingDisplayRequestMain?.displayRequest.packageName === packageName) {
-  //       this.pendingDisplayRequestMain = { displayRequest, userSession };
-  //     }
-  //     this.scheduleDisplayMain();
-  //     return false;
-  //   }
-
-  //   // Add to display stack and show immediately
-  //   this.addToDisplayStack(view, displayRequest);
-  //   return this.sendDisplay(displayRequest);
-  // }
-
   public handleAppStart(packageName: string, userSession: UserSession): void {
     this.userSession = userSession;
     // Add the app to our bootingApps list if not already present
@@ -214,6 +180,11 @@ class DisplayManager implements DisplayManagerI {
   // Enhanced handleAppStop to handle locks
   public handleAppStop(packageName: string, userSession: UserSession): void {
     this.userSession = userSession;
+
+    // if we are rendering something for this app, just send clear display.
+    // we need to check what the currently rendered thing to the user is rn.
+    // if it's this app, we need to clear it.
+    // if it's not this app, we can just remove it from the active displays.
 
     // Release lock if held by stopping app
     if (this.displayLock?.packageName === packageName) {
@@ -272,7 +243,8 @@ class DisplayManager implements DisplayManagerI {
     // Add the new display request
     viewStack[packageName] = {
       displayRequest,
-      endsAt: durationMs ? new Date(Date.now() + durationMs) : undefined
+      expiresAt: durationMs ? new Date(Date.now() + durationMs) : undefined,
+      startedAt: new Date()
     };
 
     if (durationMs) {
@@ -283,13 +255,19 @@ class DisplayManager implements DisplayManagerI {
   }
 
   private scheduleDisplayMain(): void {
+    // Calculate the time until the next display event can be sent. 
+    // This is the time since the last display event was sent.
+    const timeSinceLastDisplay = Date.now() - this.lastSentTimeMain;
+    const timeUntilNextDisplay = this.displayDebounceDelay - timeSinceLastDisplay;
+    const delay = Math.max(0, timeUntilNextDisplay);
+    
     setTimeout(() => {
       if (this.pendingDisplayRequestMain && this.userSession) {
         const { displayRequest } = this.pendingDisplayRequestMain;
         this.sendDisplay(displayRequest);
         this.pendingDisplayRequestMain = null;
       }
-    }, this.displayDebounceDelay);
+    }, delay);
   }
 
   private shouldThrottleMain(): boolean {
@@ -316,6 +294,11 @@ class DisplayManager implements DisplayManagerI {
     const viewStack = this.activeDisplays.get(view);
     // If no active (non-system) displays exist, leave the last message on screen.
     if (!viewStack || Object.keys(viewStack).filter(pkg => pkg !== 'system').length === 0) {
+      console.log('No active displays, leaving last message on screen.');
+      // If there is no other any other kind of display or anything to show, clear the screen.
+      // if (view === 'main') {
+      //   this.sendClearDisplay(view);
+      // }
       return;
     }
 
@@ -325,7 +308,7 @@ class DisplayManager implements DisplayManagerI {
 
     Object.entries(viewStack).forEach(([packageName, display]) => {
       // Skip expired displays
-      if (display.endsAt && display.endsAt.getTime() <= Date.now()) {
+      if (display.expiresAt && display.expiresAt.getTime() <= Date.now()) {
         delete viewStack[packageName];
         return;
       }
@@ -347,6 +330,12 @@ class DisplayManager implements DisplayManagerI {
       // We must cast this to an active display so we don't get a typescript
       this.sendDisplay((highestPriorityDisplay as ActiveDisplay).displayRequest);
     }
+
+    // If no display was sent, clear the screen
+    if (!highestPriorityDisplay && !this.isShowingBootScreen) {
+      console.log('No active displays, clearing screen.');
+      this.sendClearDisplay(view);
+    }
   }
 
   private getPackagePriority(packageName: string): number {
@@ -359,9 +348,15 @@ class DisplayManager implements DisplayManagerI {
   private showBootingScreen(): void {
     if (!this.userSession) return;
     this.isShowingBootScreen = true;
+    
+    const _bootingApps = this.bootingApps.filter(pkg => pkg !== 'system' && pkg !== systemApps.dashboard.packageName);
+    if (_bootingApps.length === 0) {
+      this.isShowingBootScreen = false;
+      return;
+    }
 
     // Transform bootingApps using systemApps mapping
-    const bootingNames = this.bootingApps.map(pkg => {
+    const bootingNames = _bootingApps.map(pkg => {
       const app = Object.values(systemApps).find(a => a.packageName === pkg);
       return app ? app.name : pkg;
     });
@@ -441,7 +436,7 @@ class DisplayManager implements DisplayManagerI {
   }
 
   private sendClearDisplay(view: ViewName): void {
-    if (!this.userSession) return;
+    if (!this.userSession) return console.log('[sendClearDisplay]: No userSession found');
 
     const clearRequest: DisplayRequest = {
       type: 'display_event',

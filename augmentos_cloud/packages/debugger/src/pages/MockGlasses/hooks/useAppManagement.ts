@@ -1,6 +1,6 @@
 import { GlassesToCloudMessage, AppI } from '@augmentos/types';
 import { useState, useEffect, useCallback } from 'react';
-import { CLOUD_PORT } from '@augmentos/types/config/cloud.env';
+import { CLOUD_PORT } from '@augmentos/config';
 
 interface ActiveApp {
   packageName: string;

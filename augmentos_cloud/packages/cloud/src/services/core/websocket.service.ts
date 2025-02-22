@@ -700,6 +700,8 @@ export class WebSocketService {
               console.error(`\n\n[websocket.service] Error updating user running apps:`, error, `\n\n`);
             }
 
+            // Update the display
+            userSession.displayManager.handleAppStop(stopMessage.packageName, userSession);
           } catch (error) {
             console.error(`Error stopping app ${stopMessage.packageName}:`, error);
             // Update state even if webhook fails
