@@ -16,7 +16,7 @@ interface YourAppsListProps {
 const YourAppsList: React.FC<YourAppsListProps> = ({ isDarkTheme }) => {
     const { status } = useStatus();
     const [_isLoading, setIsLoading] = React.useState(false);
-    const bluetoothService = BluetoothService.getInstance();
+    const bluetoothService = CoreConnectionManager.getInstance();
 
     const [containerWidth, setContainerWidth] = React.useState(0);
 

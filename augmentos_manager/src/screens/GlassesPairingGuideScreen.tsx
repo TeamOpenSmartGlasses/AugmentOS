@@ -33,7 +33,7 @@ const GlassesPairingGuideScreen: React.FC<GlassesPairingGuideScreenProps> = ({
 }) => {
     const { status } = useStatus();
     const route = useRoute();
-    const bluetoothService = BluetoothService.getInstance();
+    const bluetoothService = CoreConnectionManager.getInstance();
     const { glassesModelName } = route.params as { glassesModelName: string };
     const navigation = useNavigation<NavigationProps>();
 

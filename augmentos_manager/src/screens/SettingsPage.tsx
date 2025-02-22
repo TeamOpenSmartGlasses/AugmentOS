@@ -24,6 +24,7 @@ import { SETTINGS_KEYS } from '../consts';
 import { supabase } from '../supabaseClient';
 
 import HeadUpAngleComponent from "../components/HeadUpAngleComponent.tsx";
+import { CoreConnectionManager } from '../augmentos_core_comms/CoreConnectionManager.ts';
 
 interface SettingsPageProps {
   isDarkTheme: boolean;
@@ -65,19 +66,19 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
   // -- Handlers for toggles, etc. --
   const toggleSensing = async () => {
     const newSensing = !isSensingEnabled;
-    await BluetoothService.getInstance().sendToggleSensing(newSensing);
+    await CoreConnectionManager.getInstance().sendToggleSensing(newSensing);
     setIsSensingEnabled(newSensing);
   };
 
   const toggleForceCoreOnboardMic = async () => {
     const newVal = !forceCoreOnboardMic;
-    await BluetoothService.getInstance().sendToggleForceCoreOnboardMic(newVal);
+    await CoreConnectionManager.getInstance().sendToggleForceCoreOnboardMic(newVal);
     setForceCoreOnboardMic(newVal);
   };
 
   const toggleContextualDashboard = async () => {
     const newVal = !isContextualDashboardEnabled;
-    await BluetoothService.getInstance().sendToggleContextualDashboard(newVal);
+    await CoreConnectionManager.getInstance().sendToggleContextualDashboard(newVal);
     setIsContextualDashboardEnabled(newVal);
   };
 
@@ -103,7 +104,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     }
 
     if (status.glasses_info.brightness === '-') {return;} // or handle accordingly
-    await BluetoothService.getInstance().setGlassesBrightnessMode(newBrightness, false);
+    await CoreConnectionManager.getInstance().setGlassesBrightnessMode(newBrightness, false);
     setBrightness(newBrightness);
   };
 
@@ -117,12 +118,12 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     }
 
     setHeadUpAngleComponentVisible(false);
-    await BluetoothService.getInstance().setGlassesHeadUpAngle(newHeadUpAngle);
+    await CoreConnectionManager.getInstance().setGlassesHeadUpAngle(newHeadUpAngle);
     setHeadUpAngle(newHeadUpAngle);
   };
 
   const forgetGlasses = async () => {
-    await BluetoothService.getInstance().sendForgetSmartGlasses();
+    await CoreConnectionManager.getInstance().sendForgetSmartGlasses();
   };
 
   const confirmForgetGlasses = () => {

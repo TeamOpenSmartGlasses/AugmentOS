@@ -6,6 +6,7 @@ import {NavigationProps} from "./types.ts";
 import { useAuth } from '../AuthContext.tsx';
 import BluetoothService from '../BluetoothService.tsx';
 import BackendServerComms from '../backend_comms/BackendServerComms.tsx';
+import { CoreConnectionManager } from '../augmentos_core_comms/CoreConnectionManager.ts';
 
 interface ConnectingToPuckComponentProps {
   isDarkTheme?: boolean;
@@ -18,7 +19,7 @@ const ConnectingToPuckComponent = ({
 }: ConnectingToPuckComponentProps) => {
   const { status } = useStatus();
   const navigation = useNavigation<NavigationProps>();
-  const bluetoothService = BluetoothService.getInstance();
+  const bluetoothService = CoreConnectionManager.getInstance();
   const { user, session, loading } = useAuth();
   
 

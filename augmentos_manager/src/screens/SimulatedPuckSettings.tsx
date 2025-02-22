@@ -34,7 +34,7 @@ const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({
   const [isSimulatedPuck, setIsSimulatedPuck] = React.useState(false);
   const {status} = useStatus();
   let n = navigation;
-  const bluetoothService = BluetoothService.getInstance();
+  const bluetoothService = CoreConnectionManager.getInstance();
 
   const switchColors = {
     trackColor: {
@@ -63,7 +63,7 @@ const SimulatedPuckSettings: React.FC<SimulatedPuckSettingsProps> = ({
     await saveSetting(SETTINGS_KEYS.SIMULATED_PUCK, newSimulatedPuck);
     setIsSimulatedPuck(newSimulatedPuck)
     await BluetoothService.resetInstance();
-    BluetoothService.getInstance();
+    CoreConnectionManager.getInstance();
 
     let textToShow = newSimulatedPuck ? "Please restart the app" : "Please restart the app and return to this screen for instructions.";
     Alert.alert(

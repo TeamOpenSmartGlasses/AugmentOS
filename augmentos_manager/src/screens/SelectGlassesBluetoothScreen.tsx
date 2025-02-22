@@ -36,7 +36,7 @@ const SelectGlassesBluetoothScreen: React.FC<SelectGlassesBluetoothScreenProps> 
 }) => {
   const { status } = useStatus();
   const route = useRoute();
-  const bluetoothService = BluetoothService.getInstance();
+  const bluetoothService = CoreConnectionManager.getInstance();
   const { glassesModelName } = route.params as { glassesModelName: string };
   const navigation = useNavigation<NavigationProps>();
   const { searchResults, setSearchResults } = useSearchResults();
@@ -103,7 +103,7 @@ const SelectGlassesBluetoothScreen: React.FC<SelectGlassesBluetoothScreenProps> 
             {
               text: "Yes",
               onPress: () =>
-                BluetoothService.getInstance().sendSearchForCompatibleDeviceNames(glassesModelName), // Retry search
+                CoreConnectionManager.getInstance().sendSearchForCompatibleDeviceNames(glassesModelName), // Retry search
             },
           ],
           { cancelable: false } // Prevent closing the alert by tapping outside
@@ -129,7 +129,7 @@ const SelectGlassesBluetoothScreen: React.FC<SelectGlassesBluetoothScreenProps> 
   React.useEffect(() => {
     console.log('Searching for compatible devices for: ', glassesModelName);
     setSearchResults([]);
-    BluetoothService.getInstance().sendSearchForCompatibleDeviceNames(glassesModelName);
+    CoreConnectionManager.getInstance().sendSearchForCompatibleDeviceNames(glassesModelName);
   }, [glassesModelName]);
 
   React.useEffect(() => {
@@ -147,7 +147,7 @@ const SelectGlassesBluetoothScreen: React.FC<SelectGlassesBluetoothScreenProps> 
   }, [status]);
 
   const triggerGlassesPairingGuide = (glassesModelName: string, deviceName: string) => {
-    BluetoothService.getInstance().sendConnectWearable(glassesModelName, deviceName);
+    CoreConnectionManager.getInstance().sendConnectWearable(glassesModelName, deviceName);
     navigation.navigate('GlassesPairingGuideScreen', {
       glassesModelName: glassesModelName,
     });

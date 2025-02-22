@@ -14,6 +14,7 @@ import SelectSetting from '../components/settings/SelectSetting';
 import MultiSelectSetting from '../components/settings/MultiSelectSetting';
 import TitleValueSetting from '../components/settings/TitleValueSetting';
 import LoadingComponent from "../components/LoadingComponent.tsx";
+import { CoreConnectionManager } from '../augmentos_core_comms/CoreConnectionManager.ts';
 
 type AppSettingsProps = NativeStackScreenProps<
   RootStackParamList,
@@ -29,7 +30,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
   toggleTheme,
 }) => {
   const { packageName, appName } = route.params;
-  const bluetoothService = BluetoothService.getInstance();
+  const bluetoothService = CoreConnectionManager.getInstance();
   const [appInfo, setAppInfo] = useState<any>(null);
   const [settingsState, setSettingsState] = useState<{ [key: string]: any }>({});
 

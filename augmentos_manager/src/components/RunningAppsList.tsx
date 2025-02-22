@@ -12,7 +12,7 @@ interface RunningAppsListProps {
 const RunningAppsList: React.FC<RunningAppsListProps> = ({isDarkTheme}) => {
   const {status} = useStatus();
   const [_isLoading, setIsLoading] = useState(false);
-  const bluetoothService = BluetoothService.getInstance();
+  const bluetoothService = CoreConnectionManager.getInstance();
   const textColor = isDarkTheme ? '#FFFFFF' : '#000000';
   const gradientColors = isDarkTheme
     ? ['#4a3cb5', '#7856FE', '#9a7dff']

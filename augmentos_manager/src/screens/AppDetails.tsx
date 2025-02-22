@@ -152,7 +152,7 @@ const AppDetails: React.FC<AppDetailsProps> = ({
     };
   }, []);
 
-  const bluetoothService = BluetoothService.getInstance();
+  const bluetoothService = CoreConnectionManager.getInstance();
 
   // Theme colors
   const theme = {

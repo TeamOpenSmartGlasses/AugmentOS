@@ -19,6 +19,8 @@ import { SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from '../consts';
 import NavigationBar from '../components/NavigationBar';
 import { getGlassesImage } from '../logic/getGlassesImage';
 import GlobalEventEmitter from '../logic/GlobalEventEmitter';
+import { CoreConnectionManager } from '../augmentos_core_comms/CoreConnectionManager';
+import { isBluetoothEnabled, isLocationEnabled } from '../logic/getBluetoothEnabled';
 
 interface SelectGlassesModelScreenProps {
     isDarkTheme: boolean;
@@ -33,7 +35,7 @@ const SelectGlassesModelScreen: React.FC<SelectGlassesModelScreenProps> = ({
 }) => {
     const { status } = useStatus();
     const [glassesModelNameToPair, setGlassesModelNameToPair] = useState<string | null>(null);
-    const bluetoothService = BluetoothService.getInstance();
+    const bluetoothService = CoreConnectionManager.getInstance();
 
     const glassesOptions = [
         { modelName: 'Vuzix Z100', key: 'vuzix-z100' },
@@ -49,7 +51,7 @@ const SelectGlassesModelScreen: React.FC<SelectGlassesModelScreenProps> = ({
             SETTINGS_KEYS.SIMULATED_PUCK,
             SIMULATED_PUCK_DEFAULT,
         );
-        if (simulatedPuck && !(await bluetoothService.isBluetoothEnabled() && await bluetoothService.isLocationEnabled())) {
+        if (simulatedPuck && !(await isBluetoothEnabled() && await isLocationEnabled())) {
             GlobalEventEmitter.emit('SHOW_BANNER', { message: "Please enable Bluetooth and Location", type: "error" })
             return;
         }

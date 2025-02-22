@@ -3,6 +3,7 @@ import { AugmentOSParser, AugmentOSMainStatus } from '../AugmentOSStatusParser.t
 import { BluetoothService } from '../BluetoothService.tsx';
 import { INTENSE_LOGGING, MOCK_CONNECTION } from '../consts.tsx';
 import GlobalEventEmitter from "../logic/GlobalEventEmitter.tsx";
+import { CoreConnectionManager } from '../augmentos_core_comms/CoreConnectionManager.ts';
 
 interface AugmentOSStatusContextType {
     status: AugmentOSMainStatus;
@@ -21,7 +22,7 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
     const [isSearchingForPuck, setIsSearching] = useState(false);
     const [isConnectingToPuck, setIsConnecting] = useState(false);
     const [screenMirrorItems, setScreenMirrorItems] = useState<{ id: string; name: string }[]>([]);
-    const bluetoothService = BluetoothService.getInstance(false); // do not initialize yet
+    const bluetoothService = CoreConnectionManager.getInstance(); // do not initialize yet
 
     const refreshStatus = useCallback((data: any) => {
         if (!(data && 'status' in data)) {return;}
@@ -51,21 +52,21 @@ export const StatusProvider = ({ children }: { children: ReactNode }) => {
         const handleConnectingStatusChanged = ({ isConnecting: connecting }: { isConnecting: boolean }) => setIsConnecting(connecting);
 
         if (!MOCK_CONNECTION) {
-            bluetoothService.on('statusUpdateReceived', handleStatusUpdateReceived);
-            bluetoothService.on('scanStarted', handleScanStarted);
-            bluetoothService.on('scanStopped', handleScanStopped);
-            bluetoothService.on('deviceDisconnected', handleDeviceDisconnected);
-            bluetoothService.on('connectingStatusChanged', handleConnectingStatusChanged);
+            // bluetoothService.on('statusUpdateReceived', handleStatusUpdateReceived);
+            // bluetoothService.on('scanStarted', handleScanStarted);
+            // bluetoothService.on('scanStopped', handleScanStopped);
+            // bluetoothService.on('deviceDisconnected', handleDeviceDisconnected);
+            // bluetoothService.on('connectingStatusChanged', handleConnectingStatusChanged);
             GlobalEventEmitter.on('PUCK_DISCONNECTED', handleDeviceDisconnected);
         }
 
         return () => {
             if (!MOCK_CONNECTION) {
-                bluetoothService.removeListener('statusUpdateReceived', handleStatusUpdateReceived);
-                bluetoothService.removeListener('scanStarted', handleScanStarted);
-                bluetoothService.removeListener('scanStopped', handleScanStopped);
-                bluetoothService.removeListener('deviceDisconnected', handleDeviceDisconnected);
-                bluetoothService.removeListener('connectingStatusChanged', handleConnectingStatusChanged);
+                // bluetoothService.removeListener('statusUpdateReceived', handleStatusUpdateReceived);
+                // bluetoothService.removeListener('scanStarted', handleScanStarted);
+                // bluetoothService.removeListener('scanStopped', handleScanStopped);
+                // bluetoothService.removeListener('deviceDisconnected', handleDeviceDisconnected);
+                // bluetoothService.removeListener('connectingStatusChanged', handleConnectingStatusChanged);
                 GlobalEventEmitter.removeListener('PUCK_DISCONNECTED', handleDeviceDisconnected);
             }
         };

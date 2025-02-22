@@ -46,7 +46,7 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
 
   const { status } = useStatus();
   const navigation = useNavigation<NavigationProps>();
-    const bluetoothService = BluetoothService.getInstance();
+    const bluetoothService = CoreConnectionManager.getInstance();
 
   // Use a ref flag to ensure we only fetch the app store data once.
   const didFetchStoreData = useRef(false);

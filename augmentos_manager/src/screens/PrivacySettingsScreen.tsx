@@ -48,25 +48,25 @@ const PrivacySettingsScreen: React.FC<PrivacySettingsScreenProps> = ({
 
   const toggleSensing = async () => {
     let newSensing = !isSensingEnabled;
-    await BluetoothService.getInstance().sendToggleSensing(newSensing);
+    await CoreConnectionManager.getInstance().sendToggleSensing(newSensing);
     setIsSensingEnabled(newSensing);
   };
 
   const toggleForceCoreOnboardMic = async () => {
     let newForceCoreOnboardMic = !forceCoreOnboardMic;
-    await BluetoothService.getInstance().sendToggleForceCoreOnboardMic(newForceCoreOnboardMic);
+    await CoreConnectionManager.getInstance().sendToggleForceCoreOnboardMic(newForceCoreOnboardMic);
     setForceCoreOnboardMic(newForceCoreOnboardMic);
   };
 
   const toggleContextualDashboard = async () => {
     let newContextualDashboardSetting = !isContextualDashboardEnabled;
-    await BluetoothService.getInstance().sendToggleContextualDashboard(newContextualDashboardSetting);
+    await CoreConnectionManager.getInstance().sendToggleContextualDashboard(newContextualDashboardSetting);
     setIsContextualDashboardEnabled(newContextualDashboardSetting);
   };
 
   const changeBrightness = async (newBrightness: number) => {
     if (status.glasses_info?.brightness === '-') {return;}
-    await BluetoothService.getInstance().setGlassesBrightnessMode(newBrightness, false);
+    await CoreConnectionManager.getInstance().setGlassesBrightnessMode(newBrightness, false);
 
     console.log(`Brightness set to: ${newBrightness}`);
   };

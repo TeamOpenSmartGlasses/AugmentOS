@@ -24,12 +24,6 @@ const SplashScreen: React.FC<SplashScreenProps> = ({}) => {
       const simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, SIMULATED_PUCK_DEFAULT);
       let previouslyBondedPuck = await loadSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, false);
 
-      // Handle core being uninstalled
-      if (simulatedPuck && !(await isAugmentOsCoreInstalled())) {
-        await saveSetting(SETTINGS_KEYS.PREVIOUSLY_BONDED_PUCK, false);
-        previouslyBondedPuck = false;
-      }
-
       /*
       The purpose of SplashScreen is to route the user wherever the user needs to be
       If they're not logged in => login screen

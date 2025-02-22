@@ -36,7 +36,7 @@ const PhoneNotificationSettings: React.FC<PhoneNotificationSettingsProps> = ({
   const [isEnablePhoneNotification, setIsEnablePhoneNotification] = React.useState(false);
   const { status } = useStatus();
   let n = navigation;
-  const bluetoothService = BluetoothService.getInstance();
+  const bluetoothService = CoreConnectionManager.getInstance();
 
   const switchColors = {
     trackColor: {
