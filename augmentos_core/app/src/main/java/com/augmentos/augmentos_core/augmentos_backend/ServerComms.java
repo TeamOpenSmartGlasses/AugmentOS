@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -41,7 +42,7 @@ public class ServerComms {
     // ------------------------------------------------------------------------
     // AUDIO QUEUE SYSTEM (ADDED)
     // ------------------------------------------------------------------------
-    private final BlockingQueue<byte[]> audioQueue = new LinkedBlockingQueue<>();
+    private final BlockingQueue<byte[]> audioQueue = new ArrayBlockingQueue<>((int) (10 / 0.01 / 10)); // 10 seconds into the past // calculation is roughly: (n seconds into the past we want) / (length of frame == 10) / (frames per chunk == 10 (Even G1))
     private Thread audioSenderThread;
     private volatile boolean audioSenderRunning = false;
 
@@ -166,9 +167,11 @@ public class ServerComms {
      * Sends a raw PCM audio chunk as binary data.
      */
     public void sendAudioChunk(byte[] audioData) {
-//        Log.d(TAG, "Sending audio chunk of size " + audioData.length + " bytes");
-        // Instead of sending immediately, enqueue the data.
-        audioQueue.offer(audioData);
+        // If the queue is full, remove the oldest entry before adding a new one
+        if (!audioQueue.offer(audioData)) {
+            audioQueue.poll(); // Remove the oldest item
+            audioQueue.offer(audioData); // Add the new chunk
+        }
     }
 
     /**

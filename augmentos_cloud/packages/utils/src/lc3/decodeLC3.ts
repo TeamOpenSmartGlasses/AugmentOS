@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as path from "path";
 
 // Path to the liblc3 WebAssembly file
-const wasmPath: string = path.resolve(__dirname, "../bin/liblc3.wasm");
+const wasmPath: string = path.resolve(__dirname, "./liblc3.wasm");
 
 // Load the WebAssembly module
 async function loadLC3(): Promise<WebAssembly.Exports> {

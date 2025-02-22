@@ -203,7 +203,9 @@ async function handleTranscription(sessionId: string, ws: WebSocket, transcripti
       console.log(`Retrieved transcripts: ${JSON.stringify(data)}`);
 
       // Combine the text from the transcript segments
-      const combinedText = data.segments.map((segment: any) => segment.text).join(' ');
+      const rawCombinedText = data.segments.map((segment: any) => segment.text).join(' ');
+      // Remove the wake word from the combined text
+      const combinedText = removeWakeWord(rawCombinedText);
 
       const displayProcessingQueryRequest: DisplayRequest = {
         type: 'display_event',
@@ -254,6 +256,18 @@ async function handleTranscription(sessionId: string, ws: WebSocket, transcripti
     }
   }, 3000);
   sessionTimers.set(sessionId, timer);
+}
+
+// Helper function to remove wake word from text
+function removeWakeWord(text: string): string {
+  // Escape each wake word for regex
+  const escapedWakeWords = explicitWakeWords.map(word =>
+    word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  );
+  // Create a regex to match any wake word followed by optional whitespace
+  const wakeRegex = new RegExp(`(?:${escapedWakeWords.join('|')})\\s*`, 'i');
+  const match = wakeRegex.exec(text);
+  return match ? text.substring(match.index + match[0].length).replace(/^[^\w\s]/, '').trim() : text;
 }
 
 // A simple health check endpoint
