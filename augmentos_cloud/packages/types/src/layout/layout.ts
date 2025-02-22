@@ -19,21 +19,11 @@ export interface DashboardCard {
   rightText: string;
 }
 
-export interface DashboardCard2 {
-  layoutType: 'dashboard_card';
-  timeDateAndBattery: string;
-  topRight: string;
-  bottomRight: string;
-  bottomLeft: string;
-}
-
 export interface ReferenceCard {
   layoutType: 'reference_card';
   title: string;
   text: string;
 }
-
-export type Layout = TextWall | DoubleTextWall | DashboardCard | ReferenceCard | DashboardCard2;
 
 export interface DisplayRequest extends WebSocketMessage {
   view: "dashboard" | string;
@@ -43,3 +33,5 @@ export interface DisplayRequest extends WebSocketMessage {
   packageName: "system" | string;
   durationMs?: number;
 }
+
+export type Layout = TextWall | DoubleTextWall | DashboardCard | ReferenceCard;

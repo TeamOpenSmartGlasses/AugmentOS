@@ -222,6 +222,9 @@ export class WebSocketService {
             (packageName) => packageName !== packageName
           );
           console.log(`👴🏻 TPA ${packageName} expired without connection`);
+          userSession.loadingApps = userSession.loadingApps.filter(
+            (packageName) => packageName !== packageName
+          );
 
           // Clean up boot screen.
           userSession.displayManager.handleAppStop(app.packageName, userSession);
@@ -441,7 +444,7 @@ export class WebSocketService {
             // honestly there should be no annyomous users so if it's an anonymous user we should just not start the dashboard
             if (userSession.userId !== 'anonymous') {
               await this.startAppSession(userSession, systemApps.dashboard.packageName);
-              console.log(`\n\n[websocket.service]\n[${userId}]\n🗿🗿✅🗿🗿 Starting app org.augmentos.dashboard\n`);
+              console.log(`\n\n[websocket.service]\n[${userId}]\n🗿🗿✅🗿🗿 Starting app ${systemApps.dashboard.packageName}\n`);
             }
 
           }
@@ -484,8 +487,6 @@ export class WebSocketService {
           for (const subscription of dashboardSubscriptions) {
             whatToStream.add(subscription);
           }
-
-          console.log(`\n\n[websocket.service]\n🚀APP SUBSCRIPTIONS🚀:\n`, appSubscriptions, `\n\n`);
 
           const userSessionData = {
             sessionId: userSession.sessionId,
@@ -542,8 +543,6 @@ export class WebSocketService {
           for (const subscription of dashboardSubscriptions) {
             whatToStream.add(subscription);
           }
-
-          console.log(`\n\n[websocket.service]\n🚀APP SUBSCRIPTIONS🚀:\n`, appSubscriptions, `\n\n`);
 
           const userSessionData = {
             sessionId: userSession.sessionId,
@@ -895,8 +894,6 @@ export class WebSocketService {
                 whatToStream.add(subscription);
               }
 
-              console.log(`\n\n[websocket.service]\n🚀APP SUBSCRIPTIONS🚀:\n`, appSubscriptions, `\n\n`);
-
               const userSessionData = {
                 sessionId: userSession.sessionId,
                 userId: userSession.userId,
@@ -1008,14 +1005,21 @@ export class WebSocketService {
     const userSessionId = initMessage.sessionId.split('-')[0];
     const userSession = this.sessionService.getSession(userSessionId);
 
-    if (!userSession?.loadingApps.includes(initMessage.packageName)) {
-      console.error('\n\n[websocket.service.ts]🙅‍♀️TPA session not found\nYou shall not pass! 🧙‍♂️\n:', initMessage.sessionId,
-        '\n\nLoading apps:', userSession?.loadingApps, '\n\n'
-      );
-      // TODO(isaiah): 🔐 Close the connection if the session ID is invalid. important for real TPAs.
-      ws.close(1008, 'Invalid session ID');
+    if (!userSession) {
+      console.error(`\n\n[websocket.service] User session not found for ${userSessionId}\n\n`);
+      ws.close(1008, 'No active session');
       return;
     }
+
+    // TODO: Why doers this not work?
+    // if (!userSession?.loadingApps.includes(initMessage.packageName) || initMessage.packageName !== systemApps.dashboard.packageName) {
+    //   console.error('\n\n[websocket.service.ts]🙅‍♀️TPA session not found\nYou shall not pass! 🧙‍♂️\n:', initMessage.sessionId,
+    //     '\n\nLoading apps:', userSession?.loadingApps, '\n\n'
+    //   );
+    //   // TODO(isaiah): 🔐 Close the connection if the session ID is invalid. important for real TPAs.
+    //   ws.close(1008, 'Invalid session ID');
+    //   return;
+    // }
 
     // TODO(isaiah): 🔐 Authenticate TPA with API key !important 😳.
     // We should insure that the TPA is who they say they are. the session id is legit and they own the package name.

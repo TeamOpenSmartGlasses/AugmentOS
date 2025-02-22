@@ -1,3 +1,5 @@
+// augmentos_cloud/packages/cloud/src/services/layout/DisplayManager.ts
+import { systemApps } from '@augmentos/config';
 import { ActiveDisplay, Layout, DisplayRequest, DisplayManagerI, UserSession } from '@augmentos/types';
 import { WebSocket } from 'ws';
 
@@ -44,7 +46,7 @@ class DisplayManager implements DisplayManagerI {
     }
 
     // Dashboard is exempt from throttling
-    if (view === "dashboard" && packageName === 'org.augmentos.dashboard') {
+    if (view === "dashboard" && packageName === systemApps.dashboard.packageName) {
       return this.sendDisplay(displayRequest);
     }
 
