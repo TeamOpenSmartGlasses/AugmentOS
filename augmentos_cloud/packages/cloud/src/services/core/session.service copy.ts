@@ -1,37 +1,18 @@
-// augmentos_cloud/packages/cloud/src/services/core/session.service.ts
-
 import { WebSocket } from 'ws';
 import { v4 as uuidv4 } from 'uuid';
 import { StreamType, UserSession } from '@augmentos/types';
 import { TranscriptSegment } from '@augmentos/types';
+// import DisplayManager from '../layout/DisplayManager';
 import { DisplayRequest } from '@augmentos/types';
 import appService, { SYSTEM_TPAS } from './app.service';
 import transcriptionService from '../processing/transcription.service';
 import DisplayManager from '../layout/DisplayManager';
-import { lc3Service, createAudioProcessor } from '@augmentos/utils';
 
 const RECONNECT_GRACE_PERIOD_MS = 30000; // 30 seconds
 const LOG_AUDIO = false;
-const PROCESS_AUDIO = true;
 
 export class SessionService {
   private activeSessions = new Map<string, UserSession>();
-  private isLC3Initialized = false;
-
-  constructor() {
-    this.initializeLC3();
-  }
-
-  private async initializeLC3(): Promise<void> {
-    try {
-      await lc3Service.initialize();
-      this.isLC3Initialized = true;
-      console.log('✅ LC3 Service initialized');
-    } catch (error) {
-      console.error('❌ Failed to initialize LC3 service:', error);
-      this.isLC3Initialized = false;
-    }
-  }
 
   createSession(ws: WebSocket, userId = 'anonymous'): UserSession {
     const sessionId = uuidv4();
@@ -68,6 +49,7 @@ export class SessionService {
     if (oldUserSession) {
       newSession.activeAppSessions = oldUserSession.activeAppSessions;
       newSession.transcript = oldUserSession.transcript;
+      // newSession.displayManager = oldUserSession.displayManager;
       newSession.bufferedAudio = oldUserSession.bufferedAudio;
       newSession.OSSettings = oldUserSession.OSSettings;
       newSession.appSubscriptions = oldUserSession.appSubscriptions;
@@ -100,6 +82,8 @@ export class SessionService {
     }
   }
 
+  // In SessionService, update updateDisplay method
+
   updateDisplay(userSessionId: string, displayRequest: DisplayRequest): void {
     const userSession = this.getSession(userSessionId);
     if (!userSession) {
@@ -111,6 +95,30 @@ export class SessionService {
     } catch (error) {
       console.error(`❌[${userSessionId}]: Error updating display history:`, error);
     }
+
+    // const isSystemApp = SYSTEM_TPAS.some(app => app.packageName === displayRequest.packageName);
+
+    // // Update display history
+    // try {
+    //   // session.displayManager.handleDisplayEvent(displayRequest);
+    // } catch (error) {
+    //   console.error('❌ Error updating display history:', error);
+    // }
+
+    // // Send to glasses client - ensure system app displays always go through
+    // if (session.websocket?.readyState === WebSocket.OPEN) {
+    //   try {
+    //     session.websocket.send(JSON.stringify(displayRequest));
+    //   } catch (error) {
+    //     console.error('❌ Error sending display update:', error);
+    //   }
+    // } else {
+    //   console.error('⚠️ Glasses websocket not ready:', {
+    //     hasWebsocket: !!session.websocket,
+    //     readyState: session.websocket?.readyState,
+    //     isSystemApp
+    //   });
+    // }
   }
 
   addTranscriptSegment(userSession: UserSession, segment: TranscriptSegment): void {
@@ -119,87 +127,11 @@ export class SessionService {
     }
   }
 
-  async handleAudioData(
-    userSession: UserSession,
-    audioData: ArrayBuffer | any,
-    isLC3 = true
-  ): Promise<void> {
+  handleAudioData(userSession: UserSession, audioData: ArrayBuffer | any): void {
     if (!userSession.isTranscribing) {
       if (LOG_AUDIO) console.log('🔇 Not processing audio - transcription is disabled');
       return;
     }
-
-    let processedAudioData = audioData;
-
-    // Decode LC3 if needed
-    if (isLC3) {
-      if (!this.isLC3Initialized) {
-        console.log('⚠️ LC3 Service not initialized, attempting to initialize...');
-        await this.initializeLC3();
-
-        if (!this.isLC3Initialized) {
-          console.error('❌ LC3 Service failed to initialize, falling back to raw audio');
-          processedAudioData = audioData;
-        }
-      }
-
-      if (this.isLC3Initialized) {
-        try {
-          processedAudioData = await lc3Service.decodeAudioChunk(audioData);
-          if (LOG_AUDIO) console.log('🎵 Decoded LC3 audio chunk');
-        } catch (error) {
-          console.error('❌ Error decoding LC3 audio:', error);
-          // Fall back to raw audio
-          processedAudioData = audioData;
-        }
-      }
-    }
-
-    // Add audio processor to enchance audio data. to make it Even Better.
-    // Step 2: Process PCM audio if requested
-    // if (PROCESS_AUDIO) {
-    //   // Create audio processor if needed
-    //   if (!userSession.audioProcessor) {
-    //     userSession.audioProcessor = createAudioProcessor({
-    //       threshold: -24,
-    //       ratio: 3,
-    //       gainDb: 16,
-    //       attack: 5,
-    //       release: 50,
-    //       sampleRate: 16000,
-    //       channels: 1
-    //     });
-    //   }
-
-    //   try {
-    //     const chunks: Buffer[] = [];
-    //     await new Promise<void>((resolve, reject) => {
-    //       if (!userSession.audioProcessor) {
-    //         throw new Error(`[${userSession}]: Audio processor not initialized`);
-    //       }
-    //       userSession.audioProcessor
-    //         .on('data', (chunk: Buffer) => {
-    //           chunks.push(chunk);
-    //         })
-    //         .on('end', () => {
-    //           processedAudioData = Buffer.concat(chunks);
-    //           resolve();
-    //         })
-    //         .on('error', (err) => {
-    //           console.error('❌ Error processing audio:', err);
-    //           reject(err);
-    //         });
-
-    //       userSession.audioProcessor.write(Buffer.from(processedAudioData));
-    //       userSession.audioProcessor.end();
-    //     });
-
-    //     if (LOG_AUDIO) console.log('🎚️ Applied audio processing');
-    //   } catch (error) {
-    //     console.error('❌ Error in audio processing:', error);
-    //     // Continue with unprocessed PCM rather than failing completely
-    //   }
-    // }
 
     if (userSession.pushStream) {
       try {
@@ -209,27 +141,23 @@ export class SessionService {
             id: userSession.sessionId,
             hasRecognizer: !!userSession.recognizer,
             isTranscribing: userSession.isTranscribing,
-            bufferSize: userSession.bufferedAudio.length,
-            isLC3,
-            lc3Initialized: this.isLC3Initialized
+            bufferSize: userSession.bufferedAudio.length
           });
         }
-        userSession.pushStream.write(processedAudioData);
+        userSession.pushStream.write(audioData);
       } catch (error) {
         console.error('❌ Error writing to push stream:', error);
         console.error('Current session state:', {
           id: userSession.sessionId,
           hasRecognizer: !!userSession.recognizer,
           isTranscribing: userSession.isTranscribing,
-          bufferSize: userSession.bufferedAudio.length,
-          isLC3,
-          lc3Initialized: this.isLC3Initialized
+          bufferSize: userSession.bufferedAudio.length
         });
         userSession.isTranscribing = false;
         transcriptionService.stopTranscription(userSession);
       }
     } else {
-      userSession.bufferedAudio.push(processedAudioData);
+      userSession.bufferedAudio.push(audioData);
       if (userSession.bufferedAudio.length === 1) {
         console.log(`📦 Started buffering audio for session ${userSession.sessionId}`);
         console.log('Waiting for push stream initialization...');
@@ -239,7 +167,6 @@ export class SessionService {
       }
     }
   }
-
 
   endSession(sessionId: string): void {
     const session = this.getSession(sessionId);
@@ -282,12 +209,6 @@ export class SessionService {
 }
 
 export const sessionService = new SessionService();
-
-// Initialize LC3 service
-lc3Service.initialize().catch(error => {
-  console.error('Failed to initialize LC3 service:', error);
-});
-
 console.log('✅ Session Service');
 
 export default sessionService;
