@@ -27,7 +27,7 @@ class DisplayManager implements DisplayManagerI {
 
   // Boot screen management
   private bootingTimeoutId: NodeJS.Timeout | null = null;
-  private readonly BOOTING_SCREEN_DURATION = 3000; // 3 seconds
+  private readonly BOOTING_SCREEN_DURATION = 2000; // 3 seconds
   private isShowingBootScreen = false;
   // Maintain our own list of booting apps (instead of using userSession.loadingApps)
   private bootingApps: string[] = [];
@@ -48,7 +48,7 @@ class DisplayManager implements DisplayManagerI {
 
     // Dashboard is exempt from throttling
     console.log("\n\n\nHANDLING DISPLAY REQUEST", 'view:', view, 'packageName:', packageName, 'systemApps.dashboard.packageName:', systemApps.dashboard.packageName);
-    if (view === "dashboard" && packageName === systemApps.dashboard.packageName) {
+    if (view === "dashboard" && packageName === systemApps.dashboard.packageName || packageName === 'system') {
       console.log("SENDING DASHBOARD DISPLAY");
       return this.sendDisplay(displayRequest);
     }
@@ -73,10 +73,15 @@ class DisplayManager implements DisplayManagerI {
     // Add the app to our bootingApps list if not already present
     if (!this.bootingApps.includes(packageName)) {
       this.bootingApps.push(packageName);
+      // Add a 3 second timeout to remove the app from bootingApps list. because it's started.
+      setTimeout(() => {
+        this.bootingApps = this.bootingApps.filter(app => app !== packageName);
+      }, this.BOOTING_SCREEN_DURATION);
+
     }
     this.isShowingBootScreen = true;
     this.showBootingScreen();
-    this.resetBootingTimer();
+    // this.resetBootingTimer();
   }
 
   public handleAppStop(packageName: string, userSession: UserSession): void {
@@ -232,7 +237,6 @@ class DisplayManager implements DisplayManagerI {
 
     const bootLayout: Layout = {
       layoutType: "reference_card",
-      // title: `// AugmentOS - Starting App${bootingNames.length > 1 ? 's' : ''}`,
       title: `// AugmentOS - Starting App${bootingNames.length > 1 ? 's' : ''}`,
       text
     };
@@ -266,6 +270,9 @@ class DisplayManager implements DisplayManagerI {
     if (viewStack && viewStack['system']) {
       delete viewStack['system'];
     }
+
+    // Clear the boot screen from the display
+    this.sendClearDisplay('main');
   }
 
   private sendDisplay(displayRequest: DisplayRequest): boolean {
