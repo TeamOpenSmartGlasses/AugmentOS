@@ -1,11 +1,6 @@
+// src/AppSettings.tsx
 import React, { useEffect, useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  ScrollView,
-} from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../components/types';
 import NavigationBar from '../components/NavigationBar';
@@ -27,27 +22,20 @@ type AppSettingsProps = NativeStackScreenProps<RootStackParamList, 'AppSettings'
   toggleTheme: () => void;
 };
 
-const AppSettings: React.FC<AppSettingsProps> = ({
-                                                   route,
-                                                   isDarkTheme,
-                                                   toggleTheme,
-                                                 }) => {
+const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleTheme }) => {
   const { packageName, appName } = route.params;
   const backendServerComms = BackendServerComms.getInstance();
 
-  // Contains the entire data structure from the server (instructions, settings, etc.)
+  // State to hold the complete configuration from the server.
   const [appInfo, setAppInfo] = useState<any>(null);
-  // This tracks the current values of each setting for immediate UI updates
+  // Local state to track current values for each setting.
   const [settingsState, setSettingsState] = useState<{ [key: string]: any }>({});
 
-  // Pull the core token from your global status (if you store it there)
   const { status } = useStatus();
 
-  // Fetch TPA settings from the server on mount (and when packageName or token changes)
+  // Fetch TPA settings on mount or when packageName/status change.
   useEffect(() => {
-    const coreToken = status.core_info.core_token; // local variable
-
-    // If no token is available, we can’t fetch
+    const coreToken = status.core_info.core_token;
     if (!coreToken) {
       console.warn('No core token available. Cannot fetch TPA settings.');
       return;
@@ -57,8 +45,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       try {
         const data = await backendServerComms.getTpaSettings(coreToken, packageName);
         setAppInfo(data);
-
-        // Initialize settingsState from data.settings using the "selected" property
+        // Initialize local state using the "selected" property.
         if (data.settings && Array.isArray(data.settings)) {
           const initialState: { [key: string]: any } = {};
           data.settings.forEach((setting: any) => {
@@ -74,20 +61,22 @@ const AppSettings: React.FC<AppSettingsProps> = ({
     })();
   }, [status, packageName]);
 
-  // Update local state when a setting changes and send the update to the server.
+  // When a setting changes, update local state and send the full updated settings payload.
   const handleSettingChange = (key: string, value: any) => {
     console.log(`Changing ${key} to ${value}`);
-
-    // Update local state
     setSettingsState((prevState) => ({
       ...prevState,
       [key]: value,
     }));
 
-    // Send the update to the server.
+    // Build an array of settings to send.
+    const updatedPayload = Object.keys(settingsState).map((settingKey) => ({
+      key: settingKey,
+      value: settingKey === key ? value : settingsState[settingKey],
+    }));
+
     if (status.core_info.core_token) {
-      backendServerComms
-        .updateTpaSetting(status.core_info.core_token, packageName, { key, value })
+      backendServerComms.updateTpaSetting(status.core_info.core_token, packageName, updatedPayload)
         .then((data) => {
           console.log('Server update response:', data);
         })
@@ -97,12 +86,13 @@ const AppSettings: React.FC<AppSettingsProps> = ({
     }
   };
 
-  // Theme colors
+  // Theme colors.
   const theme = {
     backgroundColor: isDarkTheme ? '#1c1c1c' : '#f9f9f9',
     textColor: isDarkTheme ? '#FFFFFF' : '#333333',
   };
 
+  // Render each setting.
   const renderSetting = (setting: any, index: number) => {
     switch (setting.type) {
       case 'group':
@@ -183,99 +173,33 @@ const AppSettings: React.FC<AppSettingsProps> = ({
 
   if (!appInfo) {
     return <LoadingComponent message="Loading App Settings..." theme={theme} />;
-  } else {
-    if (appInfo.instructions && appInfo.settings?.length > 0) {
-      return (
-        <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-          <ScrollView contentContainerStyle={styles.mainContainer}>
-            <View style={[styles.instructionsContainer, { marginBottom: 20 }]}>
-              <Text style={[styles.title, { color: theme.textColor }]}>
-                Instructions
-              </Text>
-              <Text style={[styles.instructionsText, { color: theme.textColor }]}>
-                {appInfo.instructions}
-              </Text>
-            </View>
-            {appInfo.settings.map((setting: any, index: number) =>
-              renderSetting({ ...setting, uniqueKey: `${setting.key}-${index}` }, index)
-            )}
-          </ScrollView>
-        </SafeAreaView>
-      );
-    } else if (appInfo.instructions) {
-      return (
-        <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-          <ScrollView contentContainerStyle={styles.mainContainer}>
-            <View style={[styles.instructionsContainer, { marginBottom: 20 }]}>
-              <Text style={[styles.title, { color: theme.textColor }]}>
-                Description
-              </Text>
-              <Text style={[styles.instructionsText, { color: theme.textColor }]}>
-                {appInfo.instructions}
-              </Text>
-            </View>
-          </ScrollView>
-        </SafeAreaView>
-      );
-    } else if (appInfo.settings?.length === 0) {
-      return (
-        <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-          <View style={styles.loadingContainer}>
-            <Text style={[styles.text, { color: theme.textColor }]}>
-              {appName} doesn't have any settings
-            </Text>
-          </View>
-        </SafeAreaView>
-      );
-    } else {
-      return (
-        <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
-          <ScrollView contentContainerStyle={styles.mainContainer}>
-            {appInfo.settings.map((setting: any, index: number) =>
-              renderSetting(setting, index)
-            )}
-          </ScrollView>
-        </SafeAreaView>
-      );
-    }
   }
+
+  return (
+    <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
+      <ScrollView contentContainerStyle={styles.mainContainer}>
+        {appInfo.instructions && (
+          <View style={[styles.instructionsContainer, { marginBottom: 20 }]}>
+            <Text style={[styles.title, { color: theme.textColor }]}>Instructions</Text>
+            <Text style={[styles.instructionsText, { color: theme.textColor }]}>{appInfo.instructions}</Text>
+          </View>
+        )}
+        {appInfo.settings.map((setting: any, index: number) =>
+          renderSetting({ ...setting, uniqueKey: `${setting.key}-${index}` }, index)
+        )}
+      </ScrollView>
+    </SafeAreaView>
+  );
 };
 
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-  },
-  mainContainer: {
-    flexGrow: 1,
-    padding: 16,
-    alignItems: 'stretch',
-  },
-  instructionsContainer: {
-    marginTop: 10,
-    marginBottom: 20,
-    alignItems: 'flex-start',
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  instructionsText: {
-    fontSize: 16,
-    lineHeight: 22,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginHorizontal: 20,
-  },
-  text: {
-    fontSize: 18,
-    fontFamily: 'Montserrat-Regular',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
+  safeArea: { flex: 1 },
+  mainContainer: { flexGrow: 1, padding: 16, alignItems: 'stretch' },
+  instructionsContainer: { marginTop: 10, marginBottom: 20, alignItems: 'flex-start' },
+  title: { fontSize: 18, fontWeight: 'bold', marginBottom: 10 },
+  instructionsText: { fontSize: 16, lineHeight: 22 },
+  loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', marginHorizontal: 20 },
+  text: { fontSize: 18, fontFamily: 'Montserrat-Regular', textAlign: 'center', marginBottom: 20 },
 });
 
 export default AppSettings;
