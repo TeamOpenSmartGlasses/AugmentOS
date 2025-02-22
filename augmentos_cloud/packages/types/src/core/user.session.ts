@@ -85,7 +85,7 @@ export interface UserSession {
 // We can support multiple views, and neatly orginize them by app id, by holding them in state in the shape of this interface.
 // Each user session will have a DisplayManager instance.
 export interface DisplayManagerI {
-  handleDisplayEvent(displayRequest: DisplayRequest, userSession: UserSession): Promise<boolean>;
+  handleDisplayEvent(displayRequest: DisplayRequest, userSession: UserSession): boolean;
   handleAppStart(packageName: string, userSession: UserSession): void;
   handleAppStop(packageName: string, userSession: UserSession): void;
 }
@@ -93,8 +93,13 @@ export interface DisplayManagerI {
 /** What's showing right now in a session */
 export interface ActiveDisplay {
   displayRequest: DisplayRequest;
-  endsAt?: Date;  // When to auto-clear this display
+  startedAt: Date;
+  expiresAt?: Date;  // When to auto-clear this display
 }
+// export interface ActiveDisplay {
+//   displayRequest: DisplayRequest;
+//   endsAt?: Date;  // When to auto-clear this display
+// }
 
 /**
  * Represents an active TPA session within a user session.

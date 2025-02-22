@@ -8,7 +8,8 @@ import {
   CloudConnectionErrorMessage
 } from '@augmentos/types';
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { CLOUD_PORT, JOE_MAMA_USER_JWT } from '@augmentos/types/config/cloud.env';
+const CLOUD_PORT = 8002;
+const JOE_MAMA_USER_JWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJqb2VAbWFtYXMuaG91c2UiLCJpYXQiOjE3Mzk2NjY4MTB9.mJkSEyP7v_jHlzRjc-HzjhCjDopG12aIlOeYxo-kp0M';
 
 export const useWebSocket = () => {
   const [isConnected, setIsConnected] = useState(false);
