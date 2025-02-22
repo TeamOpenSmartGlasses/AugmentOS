@@ -1,8 +1,18 @@
 // augmentos_cloud/packages/cloud/src/services/layout/DisplayManager.ts
 
 import { systemApps } from '@augmentos/config';
+// augmentos_cloud/packages/cloud/src/services/layout/DisplayManager.ts
+
+import { systemApps } from '@augmentos/config';
 import { ActiveDisplay, Layout, DisplayRequest, DisplayManagerI, UserSession } from '@augmentos/types';
 import { WebSocket } from 'ws';
+
+interface DisplayLock {
+  packageName: string;
+  acquiredAt: Date;
+  expiresAt: Date | null;  // null for duration-based expiry
+  lastDisplayTime: number; // For tracking 10s timeout
+}
 
 interface DisplayLock {
   packageName: string;
@@ -24,11 +34,13 @@ type ViewName = "dashboard" | string;
 
 class DisplayManager implements DisplayManagerI {
   // Existing properties
+  // Existing properties
   private displayHistory: DisplayRequest[] = [];
   private activeDisplays = new Map<ViewName, DisplayStack>();
   private currentMainApp: string | null = null;
   private lastSentTimeMain: number = 0;
   private pendingDisplayRequestMain: ThrottledRequest | null = null;
+  private readonly displayDebounceDelay = 200;
   private readonly displayDebounceDelay = 200;
   private bootingTimeoutId: NodeJS.Timeout | null = null;
   private readonly BOOTING_SCREEN_DURATION = 1500;
@@ -56,7 +68,9 @@ class DisplayManager implements DisplayManagerI {
   public handleDisplayEvent(displayRequest: DisplayRequest, userSession: UserSession): boolean {
     this.userSession = userSession;
     const { view, packageName, durationMs } = displayRequest;
+    const { view, packageName, durationMs } = displayRequest;
 
+    // Boot screen always has highest priority
     // Boot screen always has highest priority
     if (this.isShowingBootScreen && packageName !== 'system') {
       this.addToDisplayStack(view, displayRequest);
@@ -66,9 +80,27 @@ class DisplayManager implements DisplayManagerI {
     // Dashboard and system messages bypass all locks/throttling
     if (view === "dashboard" || packageName === 'system' ||
       packageName === systemApps.dashboard.packageName) {
+    // Dashboard and system messages bypass all locks/throttling
+    if (view === "dashboard" || packageName === 'system' ||
+      packageName === systemApps.dashboard.packageName) {
       return this.sendDisplay(displayRequest);
     }
 
+    // Handle display lock logic
+    if (this.displayLock) {
+      if (this.displayLock.packageName !== packageName) {
+        // Another app has the lock, queue the request
+        this.addToDisplayStack(view, displayRequest);
+        return false;
+      }
+      // Extend the lock for the current holder
+      this.updateDisplayLock(packageName, durationMs);
+    } else if (packageName !== this.mainApp) {
+      // New background app display, acquire lock
+      this.acquireDisplayLock(packageName, durationMs);
+    }
+
+    // Apply normal throttling
     // Handle display lock logic
     if (this.displayLock) {
       if (this.displayLock.packageName !== packageName) {
@@ -93,6 +125,7 @@ class DisplayManager implements DisplayManagerI {
       return false;
     }
 
+    // Add to display stack and show
     // Add to display stack and show
     this.addToDisplayStack(view, displayRequest);
     return this.sendDisplay(displayRequest);
@@ -174,8 +207,11 @@ class DisplayManager implements DisplayManagerI {
     this.isShowingBootScreen = true;
     this.showBootingScreen();
     // this.resetBootingTimer();
+    // this.resetBootingTimer();
   }
 
+
+  // Enhanced handleAppStop to handle locks
 
   // Enhanced handleAppStop to handle locks
   public handleAppStop(packageName: string, userSession: UserSession): void {
@@ -289,7 +325,9 @@ class DisplayManager implements DisplayManagerI {
   }
 
   private showNextPriorityDisplay(view: ViewName): void {
+  private showNextPriorityDisplay(view: ViewName): void {
     if (!this.userSession) return;
+
 
     const viewStack = this.activeDisplays.get(view);
     // If no active (non-system) displays exist, leave the last message on screen.
@@ -312,6 +350,9 @@ class DisplayManager implements DisplayManagerI {
         delete viewStack[packageName];
         return;
       }
+
+      // Skip the boot screen (system) display
+      if (packageName === 'system') return;
 
       // Skip the boot screen (system) display
       if (packageName === 'system') return;
