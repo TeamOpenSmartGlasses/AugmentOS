@@ -315,6 +315,7 @@ export class WebSocketService {
    */
   private handleGlassesConnection(ws: WebSocket): void {
     console.log('[websocket.service] New glasses client attempting to connect...');
+    const startTimestamp = new Date();
 
     const userSession = this.sessionService.createSession(ws);
     ws.on('message', async (message: Buffer | string, isBinary: boolean) => {
@@ -356,9 +357,12 @@ export class WebSocketService {
       }, RECONNECT_GRACE_PERIOD_MS);
 
       // Track disconnection event posthog.
+      const endTimestamp = new Date();
+      const connectionDuration = endTimestamp.getTime() - startTimestamp.getTime();
       PosthogService.trackEvent('disconnected', userSession.userId, {
         sessionId: userSession.sessionId,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        duration: connectionDuration
       });
     });
 
@@ -723,6 +727,23 @@ export class WebSocketService {
             this.sendDebouncedMicrophoneStateChange(ws, userSession, mediaSubscriptions);
           }
 
+          // Track the connection state event
+          PosthogService.trackEvent("glasses_connection_state", userSession.userId, {
+            sessionId: userSession.sessionId,
+            eventType: message.type,
+            timestamp: new Date().toISOString(),
+            connectionState: glassesConnectionStateMessage,
+          });
+
+          // Track modelName. if status is connected.
+          if (glassesConnectionStateMessage.status === 'CONNECTED') {
+            PosthogService.trackEvent("modelName", userSession.userId, {
+              sessionId: userSession.sessionId,
+              eventType: message.type,
+              timestamp: new Date().toISOString(),
+              modelName: glassesConnectionStateMessage.modelName,
+            });
+          }
           break;
         }
 
