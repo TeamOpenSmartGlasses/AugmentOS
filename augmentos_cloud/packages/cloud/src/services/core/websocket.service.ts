@@ -222,6 +222,9 @@ export class WebSocketService {
             (packageName) => packageName !== packageName
           );
           console.log(`👴🏻 TPA ${packageName} expired without connection`);
+          userSession.loadingApps = userSession.loadingApps.filter(
+            (packageName) => packageName !== packageName
+          );
 
           // Clean up boot screen.
           userSession.displayManager.handleAppStop(app.packageName, userSession);
@@ -312,6 +315,7 @@ export class WebSocketService {
    */
   private handleGlassesConnection(ws: WebSocket): void {
     console.log('[websocket.service] New glasses client attempting to connect...');
+    const startTimestamp = new Date();
 
     const userSession = this.sessionService.createSession(ws);
     ws.on('message', async (message: Buffer | string, isBinary: boolean) => {
@@ -353,9 +357,12 @@ export class WebSocketService {
       }, RECONNECT_GRACE_PERIOD_MS);
 
       // Track disconnection event posthog.
+      const endTimestamp = new Date();
+      const connectionDuration = endTimestamp.getTime() - startTimestamp.getTime();
       PosthogService.trackEvent('disconnected', userSession.userId, {
         sessionId: userSession.sessionId,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        duration: connectionDuration
       });
     });
 
@@ -425,7 +432,7 @@ export class WebSocketService {
           // Start all the apps that the user has running.
           try {
             const user = await User.findOrCreateUser(userSession.userId);
-            console.log(`\n\n[websocket.service] Trying to start ${user.runningApps.length} apps for user ${userSession.userId}\n`);
+            console.log(`\n\n[websocket.service] Trying to start ${user.runningApps.length} apps\n[${userSession.userId}]: [${user.runningApps.join(", ")}]\n`);
             for (const packageName of user.runningApps) {
               try {
                 await this.startAppSession(userSession, packageName);
@@ -441,7 +448,7 @@ export class WebSocketService {
             // honestly there should be no annyomous users so if it's an anonymous user we should just not start the dashboard
             if (userSession.userId !== 'anonymous') {
               await this.startAppSession(userSession, systemApps.dashboard.packageName);
-              console.log(`\n\n[websocket.service]\n[${userId}]\n🗿🗿✅🗿🗿 Starting app org.augmentos.dashboard\n`);
+              console.log(`\n\n[websocket.service]\n[${userId}]\n🗿🗿✅🗿🗿 Starting app ${systemApps.dashboard.packageName}\n`);
             }
 
           }
@@ -484,8 +491,6 @@ export class WebSocketService {
           for (const subscription of dashboardSubscriptions) {
             whatToStream.add(subscription);
           }
-
-          console.log(`\n\n[websocket.service]\n🚀APP SUBSCRIPTIONS🚀:\n`, appSubscriptions, `\n\n`);
 
           const userSessionData = {
             sessionId: userSession.sessionId,
@@ -542,8 +547,6 @@ export class WebSocketService {
           for (const subscription of dashboardSubscriptions) {
             whatToStream.add(subscription);
           }
-
-          console.log(`\n\n[websocket.service]\n🚀APP SUBSCRIPTIONS🚀:\n`, appSubscriptions, `\n\n`);
 
           const userSessionData = {
             sessionId: userSession.sessionId,
@@ -724,21 +727,29 @@ export class WebSocketService {
             this.sendDebouncedMicrophoneStateChange(ws, userSession, mediaSubscriptions);
           }
 
+          // Track the connection state event
+          PosthogService.trackEvent("glasses_connection_state", userSession.userId, {
+            sessionId: userSession.sessionId,
+            eventType: message.type,
+            timestamp: new Date().toISOString(),
+            connectionState: glassesConnectionStateMessage,
+          });
+
+          // Track modelName. if status is connected.
+          if (glassesConnectionStateMessage.status === 'CONNECTED') {
+            PosthogService.trackEvent("modelName", userSession.userId, {
+              sessionId: userSession.sessionId,
+              eventType: message.type,
+              timestamp: new Date().toISOString(),
+              modelName: glassesConnectionStateMessage.modelName,
+            });
+          }
           break;
         }
 
         case 'VAD': {
           const vadMessage = message as VADStateMessage;
-          console.log('\n🎤 VAD State Change');
-          console.log('Current state:', {
-            sessionId: userSession.sessionId,
-            userId: userSession.userId,
-            vadMessage: vadMessage,
-            currentlyTranscribing: userSession.isTranscribing,
-            hasRecognizer: !!userSession.recognizer,
-            hasPushStream: !!userSession.pushStream,
-            bufferedAudioChunks: userSession.bufferedAudio.length
-          });
+          console.log(`\n🎤 VAD State Change: status ${vadMessage.status}`);
         
           PosthogService.trackEvent("VAD", userSession.userId, {
             sessionId: userSession.sessionId,
@@ -895,8 +906,6 @@ export class WebSocketService {
                 whatToStream.add(subscription);
               }
 
-              console.log(`\n\n[websocket.service]\n🚀APP SUBSCRIPTIONS🚀:\n`, appSubscriptions, `\n\n`);
-
               const userSessionData = {
                 sessionId: userSession.sessionId,
                 userId: userSession.userId,
@@ -1008,14 +1017,21 @@ export class WebSocketService {
     const userSessionId = initMessage.sessionId.split('-')[0];
     const userSession = this.sessionService.getSession(userSessionId);
 
-    if (!userSession?.loadingApps.includes(initMessage.packageName)) {
-      console.error('\n\n[websocket.service.ts]🙅‍♀️TPA session not found\nYou shall not pass! 🧙‍♂️\n:', initMessage.sessionId,
-        '\n\nLoading apps:', userSession?.loadingApps, '\n\n'
-      );
-      // TODO(isaiah): 🔐 Close the connection if the session ID is invalid. important for real TPAs.
-      ws.close(1008, 'Invalid session ID');
+    if (!userSession) {
+      console.error(`\n\n[websocket.service] User session not found for ${userSessionId}\n\n`);
+      ws.close(1008, 'No active session');
       return;
     }
+
+    // TODO: Why doers this not work?
+    // if (!userSession?.loadingApps.includes(initMessage.packageName) || initMessage.packageName !== systemApps.dashboard.packageName) {
+    //   console.error('\n\n[websocket.service.ts]🙅‍♀️TPA session not found\nYou shall not pass! 🧙‍♂️\n:', initMessage.sessionId,
+    //     '\n\nLoading apps:', userSession?.loadingApps, '\n\n'
+    //   );
+    //   // TODO(isaiah): 🔐 Close the connection if the session ID is invalid. important for real TPAs.
+    //   ws.close(1008, 'Invalid session ID');
+    //   return;
+    // }
 
     // TODO(isaiah): 🔐 Authenticate TPA with API key !important 😳.
     // We should insure that the TPA is who they say they are. the session id is legit and they own the package name.
@@ -1023,9 +1039,9 @@ export class WebSocketService {
     // This is a good place to add a check for the TPA's API key for when we have external TPAs.
 
     // this.pendingTpaSessions.delete(initMessage.appSessionId);
-    userSession.loadingApps = userSession.loadingApps.filter(
-      (packageName) => packageName !== initMessage.packageName
-    );
+    // userSession.loadingApps = userSession.loadingApps.filter(
+    //   (packageName) => packageName !== initMessage.packageName
+    // );
 
     // this.tpaConnections.set(initMessage.sessionId, { packageName: initMessage.packageName, userSessionId, websocket: ws });
     userSession.appConnections.set(initMessage.packageName, ws as any);

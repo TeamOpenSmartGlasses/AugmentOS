@@ -32,7 +32,7 @@ router.get('/api/transcripts/:appSessionId', async (req, res) => {
     }
 
     const transcriptSegments = userSession.transcript.segments;
-    console.log('\n\n\ntranscriptSegments:', userSession, "\n\n\n");
+    // console.log('\n\n\ntranscriptSegments:', userSession, "\n\n\n");
 
     const filteredTranscriptSegments = transcriptSegments.filter((segment: TranscriptSegment) => {
       const startTime = new Date(segment.timestamp);
