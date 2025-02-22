@@ -33,7 +33,6 @@ const AppSettings: React.FC<AppSettingsProps> = ({
                                                    toggleTheme,
                                                  }) => {
   const { packageName, appName } = route.params;
-  const bluetoothService = BluetoothService.getInstance();
   const backendServerComms = BackendServerComms.getInstance();
 
   // Contains the entire data structure from the server (instructions, settings, etc.)
@@ -59,12 +58,12 @@ const AppSettings: React.FC<AppSettingsProps> = ({
         const data = await backendServerComms.getTpaSettings(coreToken, packageName);
         setAppInfo(data);
 
-        // Initialize settingsState from data.settings
+        // Initialize settingsState from data.settings using the "selected" property
         if (data.settings && Array.isArray(data.settings)) {
           const initialState: { [key: string]: any } = {};
           data.settings.forEach((setting: any) => {
             if (setting.type !== 'group') {
-              initialState[setting.key] = setting.currentValue;
+              initialState[setting.key] = setting.selected;
             }
           });
           setSettingsState(initialState);
@@ -75,18 +74,26 @@ const AppSettings: React.FC<AppSettingsProps> = ({
     })();
   }, [status, packageName]);
 
-  // Update local state when a setting changes
+  // Update local state when a setting changes and send the update to the server.
   const handleSettingChange = (key: string, value: any) => {
     console.log(`Changing ${key} to ${value}`);
 
+    // Update local state
     setSettingsState((prevState) => ({
       ...prevState,
       [key]: value,
     }));
 
-    if (!MOCK_CONNECTION) {
-      const settingObj = { [key]: value };
-      bluetoothService.sendUpdateAppSetting(packageName, settingObj);
+    // Send the update to the server.
+    if (status.core_info.core_token) {
+      backendServerComms
+        .updateTpaSetting(status.core_info.core_token, packageName, { key, value })
+        .then((data) => {
+          console.log('Server update response:', data);
+        })
+        .catch((error) => {
+          console.error('Error updating setting on server:', error);
+        });
     }
   };
 
@@ -131,7 +138,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
             onValueChange={(val) =>
               setSettingsState((prevState) => ({
                 ...prevState,
-                [setting.key]: val, // Immediate UI update
+                [setting.key]: val,
               }))
             }
             onValueSet={(val) => handleSettingChange(setting.key, val)}
