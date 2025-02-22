@@ -1361,6 +1361,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     @Override
     public void destroy() {
         Log.d(TAG, "EvenRealitiesG1SGC ONDESTROY");
+        showHomeScreen();
         isKilled = true;
 
         //stop BLE scanning
