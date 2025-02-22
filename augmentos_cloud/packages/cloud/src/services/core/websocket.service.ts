@@ -428,7 +428,7 @@ export class WebSocketService {
           // Start all the apps that the user has running.
           try {
             const user = await User.findOrCreateUser(userSession.userId);
-            console.log(`\n\n[websocket.service] Trying to start ${user.runningApps.length} apps for user ${userSession.userId}\n`);
+            console.log(`\n\n[websocket.service] Trying to start ${user.runningApps.length} apps\n[${userSession.userId}]: [${user.runningApps.join(", ")}]\n`);
             for (const packageName of user.runningApps) {
               try {
                 await this.startAppSession(userSession, packageName);
@@ -728,16 +728,7 @@ export class WebSocketService {
 
         case 'VAD': {
           const vadMessage = message as VADStateMessage;
-          console.log('\n🎤 VAD State Change');
-          console.log('Current state:', {
-            sessionId: userSession.sessionId,
-            userId: userSession.userId,
-            vadMessage: vadMessage,
-            currentlyTranscribing: userSession.isTranscribing,
-            hasRecognizer: !!userSession.recognizer,
-            hasPushStream: !!userSession.pushStream,
-            bufferedAudioChunks: userSession.bufferedAudio.length
-          });
+          console.log(`\n🎤 VAD State Change: status ${vadMessage.status}`);
         
           PosthogService.trackEvent("VAD", userSession.userId, {
             sessionId: userSession.sessionId,
@@ -1027,9 +1018,9 @@ export class WebSocketService {
     // This is a good place to add a check for the TPA's API key for when we have external TPAs.
 
     // this.pendingTpaSessions.delete(initMessage.appSessionId);
-    userSession.loadingApps = userSession.loadingApps.filter(
-      (packageName) => packageName !== initMessage.packageName
-    );
+    // userSession.loadingApps = userSession.loadingApps.filter(
+    //   (packageName) => packageName !== initMessage.packageName
+    // );
 
     // this.tpaConnections.set(initMessage.sessionId, { packageName: initMessage.packageName, userSessionId, websocket: ws });
     userSession.appConnections.set(initMessage.packageName, ws as any);

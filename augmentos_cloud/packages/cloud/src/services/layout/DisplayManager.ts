@@ -1,4 +1,5 @@
 // augmentos_cloud/packages/cloud/src/services/layout/DisplayManager.ts
+
 import { systemApps } from '@augmentos/config';
 import { ActiveDisplay, Layout, DisplayRequest, DisplayManagerI, UserSession } from '@augmentos/types';
 import { WebSocket } from 'ws';
@@ -46,7 +47,9 @@ class DisplayManager implements DisplayManagerI {
     }
 
     // Dashboard is exempt from throttling
+    console.log("\n\n\nHANDLING DISPLAY REQUEST", 'view:', view, 'packageName:', packageName, 'systemApps.dashboard.packageName:', systemApps.dashboard.packageName);
     if (view === "dashboard" && packageName === systemApps.dashboard.packageName) {
+      console.log("SENDING DASHBOARD DISPLAY");
       return this.sendDisplay(displayRequest);
     }
 
@@ -80,13 +83,13 @@ class DisplayManager implements DisplayManagerI {
     this.userSession = userSession;
     // Remove any displays for the stopping app
     this.removeAppDisplays(packageName);
-    
+
     // Remove the app from bootingApps (if it exists)
     const index = this.bootingApps.indexOf(packageName);
     if (index > -1) {
       this.bootingApps.splice(index, 1);
     }
-    
+
     // If there are no more booting apps, clear the boot screen immediately.
     if (this.bootingApps.length === 0 && this.isShowingBootScreen) {
       this.isShowingBootScreen = false;
@@ -102,7 +105,7 @@ class DisplayManager implements DisplayManagerI {
       this.resetBootingTimer();
     }
   }
-  
+
   // Private Implementation
   private removeAppDisplays(packageName: string): void {
     for (const [view, viewStack] of this.activeDisplays.entries()) {
@@ -166,15 +169,12 @@ class DisplayManager implements DisplayManagerI {
     }
   }
 
-  private showNextPriorityDisplay(view: ViewName, forceClear: boolean = false): void {
+  private showNextPriorityDisplay(view: ViewName): void {
     if (!this.userSession) return;
-    
+
     const viewStack = this.activeDisplays.get(view);
-    if (!viewStack || Object.keys(viewStack).length === 0) {
-      // this.sendClearDisplay(view); // honestly no need to rush and clear screen if there's nothing to show.
-      if (forceClear) {
-        this.sendClearDisplay(view);
-      }
+    // If no active (non-system) displays exist, leave the last message on screen.
+    if (!viewStack || Object.keys(viewStack).filter(pkg => pkg !== 'system').length === 0) {
       return;
     }
 
@@ -189,6 +189,9 @@ class DisplayManager implements DisplayManagerI {
         return;
       }
 
+      // Skip the boot screen (system) display
+      if (packageName === 'system') return;
+
       const currentPriority = this.getPackagePriority(packageName);
       const highestPriority = highestPriorityPackage ? this.getPackagePriority(highestPriorityPackage) : -1;
 
@@ -200,9 +203,8 @@ class DisplayManager implements DisplayManagerI {
     });
 
     if (highestPriorityDisplay) {
-      this.sendDisplay((highestPriorityDisplay as ActiveDisplay).displayRequest );
-    } else {
-      // this.sendClearDisplay(view);
+      // We must cast this to an active display so we don't get a typescript
+      this.sendDisplay((highestPriorityDisplay as ActiveDisplay).displayRequest);
     }
   }
 
@@ -217,26 +219,21 @@ class DisplayManager implements DisplayManagerI {
     if (!this.userSession) return;
     this.isShowingBootScreen = true;
 
-    // Build boot screen content using our bootingApps list and activeAppSessions (for running apps)
-    const bootingApps = this.bootingApps;
-    const runningApps = this.userSession.activeAppSessions.filter(app => !bootingApps.includes(app));
+    // Transform bootingApps using systemApps mapping
+    const bootingNames = this.bootingApps.map(pkg => {
+      const app = Object.values(systemApps).find(a => a.packageName === pkg);
+      return app ? app.name : pkg;
+    });
 
-    let bootText = "Booting...";
-    let runningText = "";
-
-    if (bootingApps.length > 0) {
-      const bootingLine = this.formatAppList(bootingApps);
-      bootText += `\n${bootingLine}`;
+    let text = "";
+    if (bootingNames.length > 0) {
+      text += this.formatAppList(bootingNames);
     }
 
-    if (runningApps.length > 0) {
-      runningText += "\nRunning...\n";
-      runningText += this.formatAppList(runningApps);
-    }
-
-    const text = bootText + "\n" + runningText;
     const bootLayout: Layout = {
-      layoutType: "text_wall",
+      layoutType: "reference_card",
+      // title: `// AugmentOS - Starting App${bootingNames.length > 1 ? 's' : ''}`,
+      title: `// AugmentOS - Starting App${bootingNames.length > 1 ? 's' : ''}`,
       text
     };
 
@@ -256,15 +253,13 @@ class DisplayManager implements DisplayManagerI {
     if (this.bootingTimeoutId) {
       clearTimeout(this.bootingTimeoutId);
     }
-  
-    // After BOOTING_SCREEN_DURATION, clear the boot screen state and remove its display
     this.bootingTimeoutId = setTimeout(() => {
       this.isShowingBootScreen = false;
       this.clearBootScreen();
-      this.showNextPriorityDisplay('main', true);
+      this.showNextPriorityDisplay('main');
     }, this.BOOTING_SCREEN_DURATION);
   }
-  
+
   // Remove any boot screen request (i.e. system display) from the active displays
   private clearBootScreen(): void {
     const viewStack = this.activeDisplays.get('main');
@@ -272,10 +267,10 @@ class DisplayManager implements DisplayManagerI {
       delete viewStack['system'];
     }
   }
-  
+
   private sendDisplay(displayRequest: DisplayRequest): boolean {
     if (!this.userSession) return false;
-    
+
     const { view } = displayRequest;
 
     // Update last sent time for non-dashboard views
@@ -324,10 +319,8 @@ class DisplayManager implements DisplayManagerI {
   }
 
   private formatAppList(apps: string[]): string {
-    const simplifiedApps = apps.map(app => app.split(".").pop() || app);
-    if (simplifiedApps.length === 0) return "";
-    if (simplifiedApps.length <= 2) return simplifiedApps.join(", ");
-    return `${simplifiedApps[0]}, ${simplifiedApps[1]} +${simplifiedApps.length - 2} more`;
+    if (apps.length === 0) return "";
+    return apps.join(", ");
   }
 }
 
