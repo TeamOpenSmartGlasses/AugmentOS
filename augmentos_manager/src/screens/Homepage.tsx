@@ -21,7 +21,7 @@ import {
   SETTINGS_KEYS,
   SIMULATED_PUCK_DEFAULT,
 } from '../consts';
-import { loadSetting } from '../augmentos_core_comms/SettingsHelper';
+import { loadSetting } from '../logic/SettingsHelper.tsx';
 import { AppStoreItem, NavigationProps } from '../components/types.ts';
 import { NativeModules } from 'react-native';
 import BackendServerComms from '../backend_comms/BackendServerComms.tsx';

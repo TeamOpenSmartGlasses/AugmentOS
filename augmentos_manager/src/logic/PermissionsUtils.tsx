@@ -1,5 +1,5 @@
 import { Alert, Permission, PermissionsAndroid, Platform } from "react-native";
-import { checkNotificationPermission, NotificationService } from "../augmentos_core_comms/NotificationServiceUtils";
+import { checkNotificationPermission, NotificationService } from "./NotificationServiceUtils";
 import { checkAndRequestNotificationAccessSpecialPermission, checkNotificationAccessSpecialPermission } from "../utils/NotificationServiceUtils";
 
 export const requestGrantPermissions = async () => {

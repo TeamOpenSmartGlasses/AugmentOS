@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useStatus } from '../providers/AugmentOSStatusProvider.tsx';
-import { loadSetting } from '../augmentos_core_comms/SettingsHelper';
+import { loadSetting } from '../logic/SettingsHelper.tsx';
 import {
   SETTINGS_KEYS,
   SIMULATED_PUCK_DEFAULT,
@@ -18,12 +18,12 @@ import {
   isAugmentOsCoreInstalled,
   openCorePermissionsActivity,
   areAllCorePermissionsGranted
-} from '../augmentos_core_comms/CoreServiceStarter';
+} from '../bridge/CoreServiceStarter.tsx';
 import { ScrollView } from 'react-native-gesture-handler';
 import { NavigationProps } from '../components/types';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from '../components/Button';
-import InstallApkModule from '../logic/InstallApkModule';
+import InstallApkModule from '../bridge/InstallApkModule.tsx';
 import { fetchAppStoreData } from '../utils/backendUtils.ts';
 import BluetoothService from '../BluetoothService.tsx';
 

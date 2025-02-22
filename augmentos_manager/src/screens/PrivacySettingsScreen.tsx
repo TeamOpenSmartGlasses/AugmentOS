@@ -15,7 +15,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Slider } from 'react-native-elements';
 import { useStatus } from '../providers/AugmentOSStatusProvider';
 import { BluetoothService } from '../BluetoothService';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
+import { loadSetting, saveSetting } from '../logic/SettingsHelper';
 import { SETTINGS_KEYS } from '../consts';
 import NavigationBar from '../components/NavigationBar';
 import { supabase } from '../supabaseClient';

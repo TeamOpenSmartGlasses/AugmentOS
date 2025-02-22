@@ -15,7 +15,7 @@ import { useNavigation, useRoute } from '@react-navigation/native'; // <<--- imp
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useStatus } from '../providers/AugmentOSStatusProvider';
 import { BluetoothService } from '../BluetoothService';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
+import { loadSetting, saveSetting } from '../logic/SettingsHelper';
 import { MOCK_CONNECTION, SETTINGS_KEYS } from '../consts';
 import { NavigationProps } from '../components/types';
 import { getGlassesImage } from '../logic/getGlassesImage';

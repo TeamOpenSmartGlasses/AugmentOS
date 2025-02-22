@@ -14,7 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useStatus } from '../providers/AugmentOSStatusProvider';
 import { BluetoothService } from '../BluetoothService';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
+import { loadSetting, saveSetting } from '../logic/SettingsHelper';
 import { SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from '../consts';
 import NavigationBar from '../components/NavigationBar';
 import { getGlassesImage } from '../logic/getGlassesImage';

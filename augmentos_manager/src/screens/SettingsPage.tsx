@@ -16,8 +16,8 @@ import { useNavigation } from '@react-navigation/native';
 
 import { useStatus } from '../providers/AugmentOSStatusProvider.tsx';
 import { BluetoothService } from '../BluetoothService';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
-import ManagerCoreCommsService from '../augmentos_core_comms/ManagerCoreCommsService';
+import { loadSetting, saveSetting } from '../logic/SettingsHelper.tsx';
+import ManagerCoreCommsService from '../bridge/ManagerCoreCommsService.tsx';
 import NavigationBar from '../components/NavigationBar';
 
 import { SETTINGS_KEYS } from '../consts';
