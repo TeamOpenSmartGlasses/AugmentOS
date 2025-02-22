@@ -13,16 +13,7 @@ import {
   Permission,
   AppState,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { Slider } from 'react-native-elements';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
-import { SETTINGS_KEYS } from '../consts';
-import NavigationBar from '../components/NavigationBar';
-import { supabase } from '../supabaseClient';
-import { checkAndRequestNotificationAccessSpecialPermission, checkNotificationAccessSpecialPermission } from '../utils/NotificationServiceUtils';
-import { checkNotificationPermission, NotificationService } from '../augmentos_core_comms/NotificationServiceUtils';
-import { all } from 'axios';
 import { displayPermissionDeniedWarning, doesHaveAllPermissions, requestGrantPermissions } from '../logic/PermissionsUtils';
 import Button from '../components/Button';
 

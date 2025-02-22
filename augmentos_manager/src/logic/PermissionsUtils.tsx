@@ -16,36 +16,30 @@ export const requestGrantPermissions = async () => {
         (value) => value === PermissionsAndroid.RESULTS.GRANTED
       );
 
-      try {
-        await checkAndRequestNotificationAccessSpecialPermission();
-      } catch (error) {
-        console.warn('Notification permission request error:', error);
-      }
-
       if (!allGranted) {
         console.warn('Some permissions were denied:', result);
         // Optionally handle partial denial here
-        displayPermissionDeniedWarning();
+        await displayPermissionDeniedWarning();
       }
     })
       .catch((error) => {
         console.error('Error requesting permissions:', error);
       });
   }
-}
+};
 
 export const displayPermissionDeniedWarning = async () => {
   Alert.alert(
     'Permissions Required',
     'Some permissions were denied. Please go to Settings and enable all required permissions for the app to function properly.',
     [
-      { text: 'OK', style: 'default' }
+      { text: 'OK', style: 'default' },
     ]
   );
-}
+};
 
 export const doesHaveAllPermissions = async () => {
-  if (Platform.OS == 'android') {
+  if (Platform.OS === 'android') {
     let perms = getAndroidPermissions();
     let allGranted = true;
     for (let i = 0; i < perms.length; i++) {
@@ -54,12 +48,14 @@ export const doesHaveAllPermissions = async () => {
       }
     }
 
-    if(!await checkNotificationAccessSpecialPermission()) {
-      allGranted = false;
+    try {
+      await checkAndRequestNotificationAccessSpecialPermission();
+    } catch (error) {
+      console.warn('Notification permission request error:', error);
     }
 
     return allGranted;
-  } else if (Platform.OS == 'ios') {
+  } else if (Platform.OS === 'ios') {
     // TODO: ios Perm check
     return true;
   }
