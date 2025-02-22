@@ -4,6 +4,13 @@ import { systemApps } from '@augmentos/config';
 import { ActiveDisplay, Layout, DisplayRequest, DisplayManagerI, UserSession } from '@augmentos/types';
 import { WebSocket } from 'ws';
 
+interface DisplayLock {
+  packageName: string;
+  acquiredAt: Date;
+  expiresAt: Date | null;  // null for duration-based expiry
+  lastDisplayTime: number; // For tracking 10s timeout
+}
+
 interface ThrottledRequest {
   displayRequest: DisplayRequest;
   userSession: UserSession;
@@ -16,44 +23,67 @@ interface DisplayStack {
 type ViewName = "dashboard" | string;
 
 class DisplayManager implements DisplayManagerI {
+  // Existing properties
   private displayHistory: DisplayRequest[] = [];
   private activeDisplays = new Map<ViewName, DisplayStack>();
   private currentMainApp: string | null = null;
-
-  // Shared rate limiting for all non-dashboard TPAs
   private lastSentTimeMain: number = 0;
   private pendingDisplayRequestMain: ThrottledRequest | null = null;
-  private readonly displayDebounceDelay = 200; // milliseconds
-
-  // Boot screen management
+  private readonly displayDebounceDelay = 200;
   private bootingTimeoutId: NodeJS.Timeout | null = null;
-  private readonly BOOTING_SCREEN_DURATION = 2000; // 3 seconds
+  private readonly BOOTING_SCREEN_DURATION = 2000;
   private isShowingBootScreen = false;
-  // Maintain our own list of booting apps (instead of using userSession.loadingApps)
   private bootingApps: string[] = [];
-
-  // Keep track of user session
   private userSession: UserSession | null = null;
 
-  // Public API
+  // New properties for main/background app management
+  private mainApp: string | null = null;
+  private displayLock: DisplayLock | null = null;
+  private readonly LOCK_TIMEOUT = 10000; // 10 seconds
+  private lockTimeoutId: NodeJS.Timeout | null = null;
+
+  // Public methods for main app management
+  public setMainApp(packageName: string | null): void {
+    this.mainApp = packageName;
+  }
+
+  public getMainApp(): string | null {
+    return this.mainApp;
+  }
+
+
+  // Enhanced handleDisplayEvent
   public async handleDisplayEvent(displayRequest: DisplayRequest, userSession: UserSession): Promise<boolean> {
     this.userSession = userSession;
-    const { view, packageName } = displayRequest;
+    const { view, packageName, durationMs } = displayRequest;
 
-    // If boot screen is active, queue non-system requests
+    // Boot screen always has highest priority
     if (this.isShowingBootScreen && packageName !== 'system') {
       this.addToDisplayStack(view, displayRequest);
       return false;
     }
 
-    // Dashboard is exempt from throttling
-    console.log("\n\n\nHANDLING DISPLAY REQUEST", 'view:', view, 'packageName:', packageName, 'systemApps.dashboard.packageName:', systemApps.dashboard.packageName);
-    if (view === "dashboard" && packageName === systemApps.dashboard.packageName || packageName === 'system') {
-      console.log("SENDING DASHBOARD DISPLAY");
+    // Dashboard and system messages bypass all locks/throttling
+    if (view === "dashboard" || packageName === 'system' ||
+      packageName === systemApps.dashboard.packageName) {
       return this.sendDisplay(displayRequest);
     }
 
-    // Apply shared throttling to all other views
+    // Handle display lock logic
+    if (this.displayLock) {
+      if (this.displayLock.packageName !== packageName) {
+        // Another app has the lock, queue the request
+        this.addToDisplayStack(view, displayRequest);
+        return false;
+      }
+      // Extend the lock for the current holder
+      this.updateDisplayLock(packageName, durationMs);
+    } else if (packageName !== this.mainApp) {
+      // New background app display, acquire lock
+      this.acquireDisplayLock(packageName, durationMs);
+    }
+
+    // Apply normal throttling
     if (this.shouldThrottleMain()) {
       this.addToDisplayStack(view, displayRequest);
       if (this.pendingDisplayRequestMain?.displayRequest.packageName === packageName) {
@@ -63,10 +93,106 @@ class DisplayManager implements DisplayManagerI {
       return false;
     }
 
-    // Add to display stack and show immediately
+    // Add to display stack and show
     this.addToDisplayStack(view, displayRequest);
     return this.sendDisplay(displayRequest);
   }
+
+  // Lock management
+  private acquireDisplayLock(packageName: string, duration?: number): void {
+    if (this.lockTimeoutId) {
+      clearTimeout(this.lockTimeoutId);
+    }
+
+    this.displayLock = {
+      packageName,
+      acquiredAt: new Date(),
+      expiresAt: duration ? new Date(Date.now() + duration) : null,
+      lastDisplayTime: Date.now()
+    };
+
+    // Set timeout for lock expiration
+    this.scheduleLockExpiration();
+  }
+
+  private updateDisplayLock(packageName: string, duration?: number): void {
+    if (!this.displayLock || this.displayLock.packageName !== packageName) return;
+
+    this.displayLock.lastDisplayTime = Date.now();
+    if (duration) {
+      this.displayLock.expiresAt = new Date(Date.now() + duration);
+    }
+
+    // Reset timeout
+    this.scheduleLockExpiration();
+  }
+
+  private scheduleLockExpiration(): void {
+    if (this.lockTimeoutId) {
+      clearTimeout(this.lockTimeoutId);
+    }
+
+    this.lockTimeoutId = setTimeout(() => {
+      if (!this.displayLock) return;
+
+      const now = Date.now();
+      const timeSinceLastDisplay = now - this.displayLock.lastDisplayTime;
+
+      if (timeSinceLastDisplay >= this.LOCK_TIMEOUT ||
+        (this.displayLock.expiresAt && this.displayLock.expiresAt.getTime() <= now)) {
+        this.releaseDisplayLock();
+      }
+    }, Math.min(this.LOCK_TIMEOUT,
+      this.displayLock?.expiresAt ?
+        this.displayLock.expiresAt.getTime() - Date.now() :
+        this.LOCK_TIMEOUT));
+  }
+
+  private releaseDisplayLock(): void {
+    if (this.lockTimeoutId) {
+      clearTimeout(this.lockTimeoutId);
+      this.lockTimeoutId = null;
+    }
+
+    this.displayLock = null;
+
+    // Show next priority display
+    this.showNextPriorityDisplay('main');
+  }
+
+
+  // // Public API
+  // public async handleDisplayEvent(displayRequest: DisplayRequest, userSession: UserSession): Promise<boolean> {
+  //   this.userSession = userSession;
+  //   const { view, packageName } = displayRequest;
+
+  //   // If boot screen is active, queue non-system requests
+  //   if (this.isShowingBootScreen && packageName !== 'system') {
+  //     this.addToDisplayStack(view, displayRequest);
+  //     return false;
+  //   }
+
+  //   // Dashboard is exempt from throttling
+  //   console.log("\n\n\nHANDLING DISPLAY REQUEST", 'view:', view, 'packageName:', packageName, 'systemApps.dashboard.packageName:', systemApps.dashboard.packageName);
+  //   if (view === "dashboard" && packageName === systemApps.dashboard.packageName || packageName === 'system') {
+  //     console.log("SENDING DASHBOARD DISPLAY");
+  //     return this.sendDisplay(displayRequest);
+  //   }
+
+  //   // Apply shared throttling to all other views
+  //   if (this.shouldThrottleMain()) {
+  //     this.addToDisplayStack(view, displayRequest);
+  //     if (this.pendingDisplayRequestMain?.displayRequest.packageName === packageName) {
+  //       this.pendingDisplayRequestMain = { displayRequest, userSession };
+  //     }
+  //     this.scheduleDisplayMain();
+  //     return false;
+  //   }
+
+  //   // Add to display stack and show immediately
+  //   this.addToDisplayStack(view, displayRequest);
+  //   return this.sendDisplay(displayRequest);
+  // }
 
   public handleAppStart(packageName: string, userSession: UserSession): void {
     this.userSession = userSession;
@@ -84,18 +210,28 @@ class DisplayManager implements DisplayManagerI {
     // this.resetBootingTimer();
   }
 
+
+  // Enhanced handleAppStop to handle locks
   public handleAppStop(packageName: string, userSession: UserSession): void {
     this.userSession = userSession;
-    // Remove any displays for the stopping app
-    this.removeAppDisplays(packageName);
 
-    // Remove the app from bootingApps (if it exists)
+    // Release lock if held by stopping app
+    if (this.displayLock?.packageName === packageName) {
+      this.releaseDisplayLock();
+    }
+
+    // Clear main app if it's stopping
+    if (this.mainApp === packageName) {
+      this.mainApp = null;
+    }
+
+    // Existing cleanup
+    this.removeAppDisplays(packageName);
     const index = this.bootingApps.indexOf(packageName);
     if (index > -1) {
       this.bootingApps.splice(index, 1);
     }
 
-    // If there are no more booting apps, clear the boot screen immediately.
     if (this.bootingApps.length === 0 && this.isShowingBootScreen) {
       this.isShowingBootScreen = false;
       if (this.bootingTimeoutId) {
@@ -105,11 +241,11 @@ class DisplayManager implements DisplayManagerI {
       this.clearBootScreen();
       this.showNextPriorityDisplay('main');
     } else if (this.bootingApps.length > 0) {
-      // Otherwise, update the boot screen display with the new list of booting apps.
       this.showBootingScreen();
       this.resetBootingTimer();
     }
   }
+
 
   // Private Implementation
   private removeAppDisplays(packageName: string): void {
