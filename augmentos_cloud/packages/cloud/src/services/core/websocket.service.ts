@@ -211,6 +211,10 @@ export class WebSocketService {
         timestamp: new Date().toISOString()
       });
 
+      // Trigger boot screen.
+      userSession.displayManager.handleAppStart(app.packageName, userSession);
+
+
       // Set timeout to clean up pending session
       setTimeout(() => {
         if (userSession.loadingApps.includes(packageName)) {
@@ -218,6 +222,9 @@ export class WebSocketService {
             (packageName) => packageName !== packageName
           );
           console.log(`👴🏻 TPA ${packageName} expired without connection`);
+
+          // Clean up boot screen.
+          userSession.displayManager.handleAppStop(app.packageName, userSession);
         }
       }, TPA_SESSION_TIMEOUT_MS);
 
@@ -306,7 +313,7 @@ export class WebSocketService {
   private handleGlassesConnection(ws: WebSocket): void {
     console.log('[websocket.service] New glasses client attempting to connect...');
 
-    const session = this.sessionService.createSession(ws);
+    const userSession = this.sessionService.createSession(ws);
     ws.on('message', async (message: Buffer | string, isBinary: boolean) => {
       try {
         if (isBinary && Buffer.isBuffer(message)) {
@@ -317,12 +324,12 @@ export class WebSocketService {
           );
 
           // Pass the ArrayBuffer to Azure Speech or wherever you need it
-          this.sessionService.handleAudioData(session, arrayBuf);
+          this.sessionService.handleAudioData(userSession, arrayBuf);
           return;
         }
 
         const parsedMessage = JSON.parse(message.toString()) as GlassesToCloudMessage;
-        await this.handleGlassesMessage(session, ws, parsedMessage);
+        await this.handleGlassesMessage(userSession, ws, parsedMessage);
       } catch (error) {
         console.error(`Error handling glasses message:`, error);
         this.sendError(ws, {
@@ -334,21 +341,27 @@ export class WebSocketService {
 
     const RECONNECT_GRACE_PERIOD_MS = 1000 * 60 * 5; // 5 minutes
     ws.on('close', () => {
-      console.log(`Glasses WebSocket disconnected: ${session.sessionId}`);
+      console.log(`Glasses WebSocket disconnected: ${userSession.sessionId}`);
       // Mark the session as disconnected but do not remove it immediately.
-      this.sessionService.markSessionDisconnected(session);
+      this.sessionService.markSessionDisconnected(userSession);
 
       // Optionally, set a timeout to eventually clean up the session if not reconnected.
       setTimeout(() => {
-        if (this.sessionService.isItTimeToKillTheSession(session.sessionId)) {
-          this.sessionService.endSession(session.sessionId);
+        if (this.sessionService.isItTimeToKillTheSession(userSession.sessionId)) {
+          this.sessionService.endSession(userSession.sessionId);
         }
       }, RECONNECT_GRACE_PERIOD_MS);
+
+      // Track disconnection event posthog.
+      PosthogService.trackEvent('disconnected', userSession.userId, {
+        sessionId: userSession.sessionId,
+        timestamp: new Date().toISOString()
+      });
     });
 
     ws.on('error', (error) => {
       console.error(`Glasses WebSocket error:`, error);
-      this.sessionService.endSession(session.sessionId);
+      this.sessionService.endSession(userSession.sessionId);
       ws.close();
     });
   }
@@ -493,6 +506,11 @@ export class WebSocketService {
           ws.send(JSON.stringify(ackMessage));
           console.log(`\n\n[websocket.service]\nSENDING connection_ack to ${userId}\n\n`);
 
+          // Track connection event.
+          PosthogService.trackEvent('connected', userSession.userId, {
+            sessionId: userSession.sessionId,
+            timestamp: new Date().toISOString()
+          });
           break;
         }
 

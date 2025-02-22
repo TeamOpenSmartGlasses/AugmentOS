@@ -10,7 +10,21 @@ import {
   ConversationTranscriber,
   PushAudioInputStream,
 } from 'microsoft-cognitiveservices-speech-sdk';
+import { Transform } from 'stream';
 
+export interface AudioProcessorConfig {
+  threshold: number;      // dB threshold where compression begins (-24 default)
+  ratio: number;         // Compression ratio (3:1 default)
+  attack: number;        // Attack time in ms (5ms default)
+  release: number;       // Release time in ms (50ms default)
+  gainDb: number;        // Output gain in dB (16 default)
+  sampleRate: number;    // Sample rate (default 16000)
+  channels: number;      // Number of channels (1 for mono)
+}
+
+export interface AudioProcessorI extends Transform {
+
+}
 
 /**
  * Represents an active user session with a glasses client.
@@ -43,6 +57,10 @@ export interface UserSession {
   // Pre-initialization audio buffer
   bufferedAudio: ArrayBuffer[];
 
+  // Audio Processing
+  audioProcessor?: AudioProcessorI;  // Optional audio processor instance
+  isAudioProcessing?: boolean;      // Flag to track audio processing state
+
   // TODO:
   whatToStream: StreamType[];
 
@@ -68,6 +86,8 @@ export interface UserSession {
 // Each user session will have a DisplayManager instance.
 export interface DisplayManagerI {
   handleDisplayEvent(displayRequest: DisplayRequest, userSession: UserSession): Promise<boolean>;
+  handleAppStart(packageName: string, userSession: UserSession): void;
+  handleAppStop(packageName: string, userSession: UserSession): void;
 }
 
 /** What's showing right now in a session */

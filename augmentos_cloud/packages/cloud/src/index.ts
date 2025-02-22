@@ -32,7 +32,6 @@ const PORT = CLOUD_PORT;
 const app = express();
 const server = new Server(app);
 
-
 // Middleware setup
 app.use(helmet());
 app.use(cors({
