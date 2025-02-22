@@ -40,6 +40,7 @@ export interface CoreAuthInfo {
 
 export interface CoreInfo {
   augmentos_core_version: string | null;
+  core_token: string | null;
   cloud_connection_status: string;
   puck_connected: boolean;
   puck_battery_life: number | null;
@@ -64,6 +65,7 @@ export class AugmentOSParser {
     core_info: {
       augmentos_core_version: null,
       cloud_connection_status: 'DISCONNECTED',
+      core_token: null,
       puck_connected: false,
       puck_battery_life: null,
       puck_charging_status: false,
@@ -87,13 +89,14 @@ export class AugmentOSParser {
     core_info: {
       augmentos_core_version: '1.0.0',
       cloud_connection_status: 'CONNECTED',
+      core_token: '1234567890',
       puck_connected: true,
       puck_battery_life: 88,
       puck_charging_status: true,
       sensing_enabled: true,
       force_core_onboard_mic: false,
       contextual_dashboard_enabled: true,
-     default_wearable: 'evenrealities_g1',
+      default_wearable: 'evenrealities_g1',
     },
     glasses_info: {
       model_name: 'Even Realities G1',
@@ -162,7 +165,7 @@ export class AugmentOSParser {
       },
       {
         name: 'Captions',
-        packageName: 'com.mentra.livecaptions',
+        packageName: 'com.mentra.live-captions',
         icon: '/assets/app-icons/captions.png',
         description: 'Live captioning app',
         instructions: "",
@@ -209,6 +212,7 @@ export class AugmentOSParser {
       return {
         core_info: {
           augmentos_core_version: status.core_info.augmentos_core_version ?? null,
+          core_token: status.core_info.core_token ?? null,
           cloud_connection_status: status.core_info.cloud_connection_status ?? 'DISCONNECTED',
           puck_connected: true,
           puck_battery_life: status.core_info.puck_battery_life ?? null,
@@ -220,12 +224,12 @@ export class AugmentOSParser {
         },
         glasses_info: status.connected_glasses
           ? {
-              model_name: status.connected_glasses.model_name,
-              battery_life: status.connected_glasses.battery_life,
-              is_searching: status.connected_glasses.is_searching ?? false,
-              brightness: status.connected_glasses.brightness,
-              headUp_angle: status.connected_glasses.headUp_angle,
-            }
+            model_name: status.connected_glasses.model_name,
+            battery_life: status.connected_glasses.battery_life,
+            is_searching: status.connected_glasses.is_searching ?? false,
+            brightness: status.connected_glasses.brightness,
+            headUp_angle: status.connected_glasses.headUp_angle,
+          }
           : null,
         wifi: status.wifi ?? AugmentOSParser.defaultStatus.wifi,
         gsm: status.gsm ?? AugmentOSParser.defaultStatus.gsm,

@@ -4,13 +4,14 @@ import jwt from 'jsonwebtoken';
 import fs from 'fs';
 import path from 'path';
 import { AUGMENTOS_AUTH_JWT_SECRET } from '@augmentos/config';
+import { User } from '@augmentos/cloud/src/models/user.model';
 
 const router = express.Router();
 
 // GET /tpasettings/:tpaName
 // Header:
 //   Authorization: Bearer <core-token>
-router.get('/:tpaName', (req, res) => {
+router.get('/:tpaName', async (req, res) => {
   console.log('Received request for TPA settings');
 
   // Extract TPA name from the URL parameter.
@@ -40,10 +41,8 @@ router.get('/:tpaName', (req, res) => {
       return res.status(400).json({ error: 'User ID missing in token' });
     }
 
-    // Construct the path to your TPA config file (adjust if needed)
+    // 1. Read and parse the TPA configuration file
     const configFilePath = path.join(__dirname, '..', '..', '..', 'apps', tpaName, 'tpa_config.json');
-
-    // Read and parse the config file.
     let tpaConfig;
     try {
       const rawData = fs.readFileSync(configFilePath, 'utf8');
@@ -53,18 +52,41 @@ router.get('/:tpaName', (req, res) => {
       return res.status(500).json({ error: 'Error reading TPA config file' });
     }
 
-    console.log('tpaConfig', tpaConfig);
+    // 2. Find or create the user based on their email
+    const user = await User.findOrCreateUser(userId);
+    console.log(`User found or created: ${user.email}`);
+    console.log(`Current running apps: ${JSON.stringify(user.runningApps)}`);
+    console.log(`Existing settings for apps: ${JSON.stringify(Object.fromEntries(user.appSettings))}`);
 
-    // Return the config by flattening the response:
-    // The response will have userId, name, description, version, and settings (the array) at the root.
+    // 3. Check if the user has saved settings for this TPA.
+    let userSettings = user.getAppSettings(tpaName);
+    if (!userSettings) {
+      console.log(`No settings found for app "${tpaName}" for user ${user.email}. Saving default settings.`);
+      // Build default settings from the TPA config.
+      // Filter out group settings since they're only for display.
+      const defaultSettings = tpaConfig.settings
+        .filter((setting: any) => setting.type !== 'group')
+        .map((setting: any) => ({
+          ...setting,
+          currentValue: setting.defaultValue  // use defaultValue from JSON (e.g. "English")
+        }));
+      // Save these default settings for the user.
+      await user.updateAppSettings(tpaName, defaultSettings);
+      userSettings = user.getAppSettings(tpaName);
+      console.log(`Default settings saved for app "${tpaName}": ${JSON.stringify(userSettings)}`);
+    } else {
+      console.log(`Found existing settings for app "${tpaName}": ${JSON.stringify(userSettings)}`);
+    }
+
+    // 4. Return the config along with the user-specific settings.
     return res.json({
       success: true,
       userId,
       ...tpaConfig,
     });
   } catch (error) {
-    console.error('Token validation error:', error);
-    return res.status(401).json({ error: 'Invalid core token' });
+    console.error('Error processing TPA settings request:', error);
+    return res.status(401).json({ error: 'Invalid core token or error processing request' });
   }
 });
 

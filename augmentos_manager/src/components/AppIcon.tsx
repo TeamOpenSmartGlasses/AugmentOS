@@ -39,7 +39,7 @@ const AppIcon: React.FC<AppIconProps> = ({
                 case 'com.example.placeholder':
                 case 'com.augmentos.screenmirror':
                     return require('../assets/app-icons/screen-mirror.png');
-                case 'com.augmentos.livecaptions':
+                case 'com.augmentos.live-captions':
                     return require('../assets/app-icons/captions.png');
                 case 'com.augmentos.miraai':
                     return require('../assets/app-icons/mira-ai.png');

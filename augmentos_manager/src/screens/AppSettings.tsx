@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, ActivityIndicator } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
+} from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../components/types';
 import NavigationBar from '../components/NavigationBar';
 import BluetoothService from '../BluetoothService';
-import GlobalEventEmitter from '../logic/GlobalEventEmitter';
 import { MOCK_CONNECTION } from '../consts';
 import GroupTitle from '../components/settings/GroupTitle';
 import ToggleSetting from '../components/settings/ToggleSetting';
@@ -13,62 +18,64 @@ import SliderSetting from '../components/settings/SliderSetting';
 import SelectSetting from '../components/settings/SelectSetting';
 import MultiSelectSetting from '../components/settings/MultiSelectSetting';
 import TitleValueSetting from '../components/settings/TitleValueSetting';
-import LoadingComponent from "../components/LoadingComponent.tsx";
+import LoadingComponent from '../components/LoadingComponent';
+import { useStatus } from '../AugmentOSStatusProvider';
+import BackendServerComms from '../backend_comms/BackendServerComms';
 
-type AppSettingsProps = NativeStackScreenProps<
-  RootStackParamList,
-  'AppSettings'
-> & {
+type AppSettingsProps = NativeStackScreenProps<RootStackParamList, 'AppSettings'> & {
   isDarkTheme: boolean;
   toggleTheme: () => void;
 };
 
 const AppSettings: React.FC<AppSettingsProps> = ({
-  route,
-  isDarkTheme,
-  toggleTheme,
-}) => {
+                                                   route,
+                                                   isDarkTheme,
+                                                   toggleTheme,
+                                                 }) => {
   const { packageName, appName } = route.params;
   const bluetoothService = BluetoothService.getInstance();
+  const backendServerComms = BackendServerComms.getInstance();
+
+  // Contains the entire data structure from the server (instructions, settings, etc.)
   const [appInfo, setAppInfo] = useState<any>(null);
+  // This tracks the current values of each setting for immediate UI updates
   const [settingsState, setSettingsState] = useState<{ [key: string]: any }>({});
 
+  // Pull the core token from your global status (if you store it there)
+  const { status } = useStatus();
+
+  // Fetch TPA settings from the server on mount (and when packageName or token changes)
   useEffect(() => {
-    console.log("OPENED APP SETTINGS!!!");
+    const coreToken = status.core_info.core_token; // local variable
 
-    // Define the event handler
-    const handleInfoResult = ({ appInfo }: { appInfo: any }) => {
-      // console.log("GOT SOME APP INFO YO");
-      // console.log(JSON.stringify(appInfo));
-      setAppInfo(appInfo);
-
-      // Initialize settings state with current values
-      const initialState: { [key: string]: any } = {};
-      appInfo.settings.forEach((setting: any) => {
-        if (setting.type !== 'group') {
-          initialState[setting.key] = setting.currentValue;
-        }
-      });
-      setSettingsState(initialState);
-    };
-
-    // Register the listener and send the request if not mocking
-    if (!MOCK_CONNECTION) {
-      GlobalEventEmitter.on('APP_INFO_RESULT', handleInfoResult);
-      bluetoothService.sendRequestAppDetails(packageName);
-    } else {
-      // Handle mock connection if needed
+    // If no token is available, we can’t fetch
+    if (!coreToken) {
+      console.warn('No core token available. Cannot fetch TPA settings.');
+      return;
     }
 
-    // Cleanup function to remove the listener
-    return () => {
-      if (!MOCK_CONNECTION) {
-        GlobalEventEmitter.removeListener('APP_INFO_RESULT', handleInfoResult);
-        console.log("Removed APP_INFO_RESULT listener");
-      }
-    };
-  }, [packageName]);
+    (async () => {
+      try {
+        const data = await backendServerComms.getTpaSettings(coreToken, packageName);
+        setAppInfo(data);
 
+        // Initialize settingsState from data.settings
+        if (data.settings && Array.isArray(data.settings)) {
+          const initialState: { [key: string]: any } = {};
+          data.settings.forEach((setting: any) => {
+            if (setting.type !== 'group') {
+              initialState[setting.key] = setting.currentValue;
+            }
+          });
+          setSettingsState(initialState);
+        }
+      } catch (err) {
+        console.error('Error fetching TPA settings:', err);
+      }
+    })();
+  }, [status, packageName]);
+
+  // Update local state when a setting changes
   const handleSettingChange = (key: string, value: any) => {
     console.log(`Changing ${key} to ${value}`);
 
@@ -76,9 +83,11 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       ...prevState,
       [key]: value,
     }));
-    // Optionally, send the updated setting back via Bluetooth
-    let settingObj = { [key]: value }
-    bluetoothService.sendUpdateAppSetting(packageName, settingObj);
+
+    if (!MOCK_CONNECTION) {
+      const settingObj = { [key]: value };
+      bluetoothService.sendUpdateAppSetting(packageName, settingObj);
+    }
   };
 
   // Theme colors
@@ -104,7 +113,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'text':
         return (
           <TextSetting
-          key={index}
+            key={index}
             label={setting.label}
             value={settingsState[setting.key]}
             onChangeText={(text) => handleSettingChange(setting.key, text)}
@@ -114,7 +123,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'slider':
         return (
           <SliderSetting
-          key={index}
+            key={index}
             label={setting.label}
             value={settingsState[setting.key]}
             min={setting.min}
@@ -132,7 +141,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'select':
         return (
           <SelectSetting
-          key={index}
+            key={index}
             label={setting.label}
             value={settingsState[setting.key]}
             options={setting.options}
@@ -143,7 +152,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'multiselect':
         return (
           <MultiSelectSetting
-          key={index}
+            key={index}
             label={setting.label}
             values={settingsState[setting.key]}
             options={setting.options}
@@ -154,7 +163,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({
       case 'titleValue':
         return (
           <TitleValueSetting
-          key={index}
+            key={index}
             label={setting.label}
             value={setting.value}
             theme={theme}
