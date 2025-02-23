@@ -156,7 +156,7 @@ export class SessionService {
       // Keep buffer from growing too large
       const MAX_BUFFER_SIZE = 1000; // About 20 seconds of audio at 50ms chunks
       if (userSession.bufferedAudio.length > MAX_BUFFER_SIZE) {
-        console.log(`⚠️ Buffer exceeded ${MAX_BUFFER_SIZE} chunks, removing oldest chunks`);
+        console.log(`⚠️[${userSession}] Buffer exceeded ${MAX_BUFFER_SIZE} chunks, removing oldest chunks`);
         userSession.bufferedAudio = userSession.bufferedAudio.slice(-MAX_BUFFER_SIZE);
       }
       return;
