@@ -53,7 +53,9 @@ export interface UserSession {
   pushStream?: PushAudioInputStream;
   recognizer?: ConversationTranscriber;
   isTranscribing: boolean;  // New flag to track transcription state
-
+  lastAudioTimestamp?: number;  // Last audio timestamp for debugging
+  isGracefullyClosing?: boolean;  // Flag to track if the session is closing gracefully
+  
   // Pre-initialization audio buffer
   bufferedAudio: ArrayBuffer[];
 

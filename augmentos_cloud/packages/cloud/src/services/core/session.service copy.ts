@@ -6,7 +6,7 @@ import { TranscriptSegment } from '@augmentos/types';
 import { DisplayRequest } from '@augmentos/types';
 import appService, { SYSTEM_TPAS } from './app.service';
 import transcriptionService from '../processing/transcription.service';
-import DisplayManager from '../layout/DisplayManager3';
+import DisplayManager from '../layout/DisplayManager5';
 
 const RECONNECT_GRACE_PERIOD_MS = 30000; // 30 seconds
 const LOG_AUDIO = false;
