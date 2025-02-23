@@ -216,7 +216,7 @@ function constructNotificationString(notification: PhoneNotification): string {
   const appName = notification.app;
   const title = notification.title;
   // Replace newlines with periods.
-  let text = notification.content.replace(/\n/g, '. ');
+  let text = notification.content.replace(/\n{2,}/g, '. ').replace(/\n/g, '. ').replace(/(\.\s*)+/g, '. ');
   const maxLength = 125;
   const prefix = title && title.trim().length > 0 ? `${appName} - ${title}: ` : `${appName}: `;
   let combinedString = prefix + text;
