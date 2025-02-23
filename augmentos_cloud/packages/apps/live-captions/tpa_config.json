@@ -82,16 +82,24 @@
             "defaultValue": "Medium",
             "options": [
                 {
-                    "label": "Short",
-                    "value": "Short"
+                    "label": "Very Narrow",
+                    "value": "Very Narrow"
+                },
+                {
+                    "label": "Narrow",
+                    "value": "Narrow"
                 },
                 {
                     "label": "Medium",
                     "value": "Medium"
                 },
                 {
-                    "label": "Long",
-                    "value": "Long"
+                    "label": "Wide",
+                    "value": "Wide"
+                },
+                {
+                    "label": "Very Wide",
+                    "value": "Very Wide"
                 }
             ]
         },

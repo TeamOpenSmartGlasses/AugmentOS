@@ -3,8 +3,10 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import fs from 'fs';
 import path from 'path';
-import { AUGMENTOS_AUTH_JWT_SECRET } from '@augmentos/config';
+import axios from 'axios';
+import { AUGMENTOS_AUTH_JWT_SECRET, systemApps } from '@augmentos/config';
 import { User } from '@augmentos/cloud/src/models/user.model';
+
 
 const router = express.Router();
 
@@ -103,6 +105,62 @@ router.get('/:tpaName', async (req, res) => {
   }
 });
 
+// GET /tpasettings/user/:tpaName
+router.get('/user/:tpaName', async (req, res) => {
+  console.log('Received request for user-specific TPA settings' + JSON.stringify(req.params));
+
+  // Extract userId from the Authorization header (assumes header is "Bearer <userId>")
+  const authHeader = req.headers.authorization;
+  console.log('Received request for user-specific TPA settings' + JSON.stringify(authHeader));
+
+  if (!authHeader) {
+    return res.status(400).json({ error: 'User ID missing in Authorization header' });
+  }
+  const userId = authHeader.split(' ')[1]; // directly use the token as the userId
+
+  console.log('Received request for user-specific TPA settings 121223213' + JSON.stringify(userId));
+  const parts = req.params.tpaName.split('.');
+  const tpaName = parts.length > 2 ? parts[2] : req.params.tpaName;
+  try {
+    // Find or create the user.
+    const user = await User.findOrCreateUser(userId);
+
+    // Retrieve stored settings for this TPA.
+    let storedSettings = user.getAppSettings(tpaName);
+    if (!storedSettings) {
+      // If settings are missing, load default settings from the TPA config file.
+      const configFilePath = path.join(__dirname, '..', '..', '..', 'apps', tpaName, 'tpa_config.json');
+      let tpaConfig;
+      try {
+        const rawData = fs.readFileSync(configFilePath, 'utf8');
+        tpaConfig = JSON.parse(rawData);
+      } catch (err) {
+        console.error('Error reading TPA config file:', err);
+        return res.status(500).json({ error: 'Error reading TPA config file' });
+      }
+
+      // Build default settings (ignoring groups).
+      const defaultSettings = tpaConfig.settings
+        .filter((setting: any) => setting.type !== 'group')
+        .map((setting: any) => ({
+          key: setting.key,
+          value: setting.defaultValue,
+          defaultValue: setting.defaultValue,
+          type: setting.type,
+          label: setting.label,
+          options: setting.options || []
+        }));
+      await user.updateAppSettings(req.params.tpaName, defaultSettings);
+      storedSettings = defaultSettings;
+    }
+
+    return res.json({ success: true, settings: storedSettings });
+  } catch (error) {
+    console.error('Error processing user-specific TPA settings request:', error);
+    return res.status(401).json({ error: 'Error processing request' });
+  }
+});
+
 // POST /tpasettings/:tpaName
 // Receives an update payload containing all settings with new values and updates the database.
 // backend/src/routes/tpa-settings.ts
@@ -135,13 +193,6 @@ router.post('/:tpaName', async (req, res) => {
       return res.status(400).json({ error: 'User ID missing in token' });
     }
 
-    // Expect the update payload to be an array of setting objects.
-    // Example payload: 
-    // [
-    //   { key: 'transcribe_language', value: 'English' },
-    //   { key: 'line_width', value: 'Medium' },
-    //   { key: 'number_of_lines', value: 5 }
-    // ]
     const updatedPayload = req.body;
     if (!Array.isArray(updatedPayload)) {
       return res.status(400).json({ error: 'Invalid update payload format' });
@@ -157,6 +208,22 @@ router.post('/:tpaName', async (req, res) => {
     await user.updateAppSettings(tpaName, updatedPayload);
 
     console.log(`Updated settings for app "${tpaName}" for user ${userId}: ${JSON.stringify(updatedPayload)}`);
+
+    const matchingApp = Object.values(systemApps).find(app =>
+      app.packageName.endsWith(tpaName)
+    );
+
+    if (matchingApp) {
+      const appEndpoint = `http://localhost:${matchingApp.port}/settings`;
+      try {
+        const response = await axios.post(appEndpoint, { settings: updatedPayload });
+        console.log(`Called app endpoint at ${appEndpoint} with response:`, response.data);
+      } catch (err) {
+        console.error(`Error calling app endpoint at ${appEndpoint}:`, err);
+      }
+    } else {
+      console.warn(`No matching app found for tpaName: ${tpaName}`);
+    }
 
     return res.json({ success: true, message: 'Settings updated successfully' });
   } catch (error) {
