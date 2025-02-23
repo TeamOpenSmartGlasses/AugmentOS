@@ -1716,14 +1716,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
         heartbeatCount++;
     }
-
     private void queryBatteryStatus() {
         byte[] batteryQueryPacket = constructBatteryLevelQuery();
 //        Log.d(TAG, "Sending battery status query: " + bytesToHex(batteryQueryPacket));
 
-        sendDataSequentially(batteryQueryPacket, false, 150);
+        sendDataSequentially(batteryQueryPacket, false, 250);
     }
-
     public void sendBrightnessCommand(int brightness, boolean autoLight) {
         // Validate brightness range
         int validBrightness = (brightness * 63) / 100;
