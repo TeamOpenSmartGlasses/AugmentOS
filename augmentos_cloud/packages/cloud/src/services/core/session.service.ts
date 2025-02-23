@@ -7,8 +7,8 @@ import { TranscriptSegment } from '@augmentos/types';
 import { DisplayRequest } from '@augmentos/types';
 import appService, { SYSTEM_TPAS } from './app.service';
 import transcriptionService from '../processing/transcription.service';
-import DisplayManager from '../layout/DisplayManager2';
-import { lc3Service, createAudioProcessor } from '@augmentos/utils';
+import DisplayManager from '../layout/DisplayManager6';
+import { lc3Service } from '@augmentos/utils';
 
 const RECONNECT_GRACE_PERIOD_MS = 30000; // 30 seconds
 const LOG_AUDIO = false;
@@ -124,122 +124,84 @@ export class SessionService {
     audioData: ArrayBuffer | any,
     isLC3 = true
   ): Promise<void> {
-    if (!userSession.isTranscribing) {
-      if (LOG_AUDIO) console.log('🔇 Not processing audio - transcription is disabled');
-      return;
-    }
-
+    // Update the last audio timestamp regardless of transcription state
+    userSession.lastAudioTimestamp = Date.now();
+  
+    // Process LC3 first
     let processedAudioData = audioData;
-
-    // Decode LC3 if needed
     if (isLC3) {
       if (!this.isLC3Initialized) {
-        console.log('⚠️ LC3 Service not initialized, attempting to initialize...');
         await this.initializeLC3();
-
         if (!this.isLC3Initialized) {
-          console.error('❌ LC3 Service failed to initialize, falling back to raw audio');
           processedAudioData = audioData;
         }
       }
-
+  
       if (this.isLC3Initialized) {
         try {
           processedAudioData = await lc3Service.decodeAudioChunk(audioData);
-          if (LOG_AUDIO) console.log('🎵 Decoded LC3 audio chunk');
         } catch (error) {
           console.error('❌ Error decoding LC3 audio:', error);
-          // Fall back to raw audio
           processedAudioData = audioData;
         }
       }
     }
-
-    // Add audio processor to enchance audio data. to make it Even Better.
-    // Step 2: Process PCM audio if requested
-    // if (PROCESS_AUDIO) {
-    //   // Create audio processor if needed
-    //   if (!userSession.audioProcessor) {
-    //     userSession.audioProcessor = createAudioProcessor({
-    //       threshold: -24,
-    //       ratio: 3,
-    //       gainDb: 16,
-    //       attack: 5,
-    //       release: 50,
-    //       sampleRate: 16000,
-    //       channels: 1
-    //     });
-    //   }
-
-    //   try {
-    //     const chunks: Buffer[] = [];
-    //     await new Promise<void>((resolve, reject) => {
-    //       if (!userSession.audioProcessor) {
-    //         throw new Error(`[${userSession}]: Audio processor not initialized`);
-    //       }
-    //       userSession.audioProcessor
-    //         .on('data', (chunk: Buffer) => {
-    //           chunks.push(chunk);
-    //         })
-    //         .on('end', () => {
-    //           processedAudioData = Buffer.concat(chunks);
-    //           resolve();
-    //         })
-    //         .on('error', (err) => {
-    //           console.error('❌ Error processing audio:', err);
-    //           reject(err);
-    //         });
-
-    //       userSession.audioProcessor.write(Buffer.from(processedAudioData));
-    //       userSession.audioProcessor.end();
-    //     });
-
-    //     if (LOG_AUDIO) console.log('🎚️ Applied audio processing');
-    //   } catch (error) {
-    //     console.error('❌ Error in audio processing:', error);
-    //     // Continue with unprocessed PCM rather than failing completely
-    //   }
-    // }
-
+  
+    // Always buffer if we're not actively transcribing
+    // This ensures we don't lose audio during VAD transitions
+    if (!userSession.isTranscribing) {
+      if (LOG_AUDIO) console.log('📦 Buffering audio while transcription is paused');
+      userSession.bufferedAudio.push(processedAudioData);
+      
+      // Keep buffer from growing too large
+      const MAX_BUFFER_SIZE = 1000; // About 20 seconds of audio at 50ms chunks
+      if (userSession.bufferedAudio.length > MAX_BUFFER_SIZE) {
+        console.log(`⚠️[${userSession}] Buffer exceeded ${MAX_BUFFER_SIZE} chunks, removing oldest chunks`);
+        userSession.bufferedAudio = userSession.bufferedAudio.slice(-MAX_BUFFER_SIZE);
+      }
+      return;
+    }
+  
+    // If we have a push stream, try to write to it
     if (userSession.pushStream) {
       try {
+        // Process any buffered audio first
+        if (userSession.bufferedAudio.length > 0) {
+          console.log(`📤 Processing ${userSession.bufferedAudio.length} buffered chunks`);
+          for (const chunk of userSession.bufferedAudio) {
+            await userSession.pushStream.write(chunk);
+          }
+          userSession.bufferedAudio = [];
+          console.log('✅ Finished processing buffer');
+        }
+  
+        // Now write the current chunk
+        await userSession.pushStream.write(processedAudioData);
+        
         if (LOG_AUDIO) {
-          console.log('🎤 Writing audio chunk to push stream');
-          console.log('Session state:', {
-            id: userSession.sessionId,
+          console.log('🎤 Wrote audio chunk to push stream', {
+            sessionId: userSession.sessionId,
             hasRecognizer: !!userSession.recognizer,
             isTranscribing: userSession.isTranscribing,
-            bufferSize: userSession.bufferedAudio.length,
-            isLC3,
-            lc3Initialized: this.isLC3Initialized
+            bufferSize: userSession.bufferedAudio.length
           });
         }
-        userSession.pushStream.write(processedAudioData);
       } catch (error) {
         console.error('❌ Error writing to push stream:', error);
-        console.error('Current session state:', {
-          id: userSession.sessionId,
-          hasRecognizer: !!userSession.recognizer,
-          isTranscribing: userSession.isTranscribing,
-          bufferSize: userSession.bufferedAudio.length,
-          isLC3,
-          lc3Initialized: this.isLC3Initialized
-        });
-        userSession.isTranscribing = false;
-        transcriptionService.stopTranscription(userSession);
+        // Don't immediately stop - let transcription service handle cleanup
+        transcriptionService.handlePushStreamError(userSession, error);
       }
     } else {
+      // No push stream yet, keep buffering
       userSession.bufferedAudio.push(processedAudioData);
       if (userSession.bufferedAudio.length === 1) {
-        console.log(`📦 Started buffering audio for session ${userSession.sessionId}`);
-        console.log('Waiting for push stream initialization...');
+        console.log(`📦 Started new buffer for session ${userSession.sessionId}`);
       }
       if (userSession.bufferedAudio.length % 100 === 0) {
-        console.log(`📦 Buffered ${userSession.bufferedAudio.length} audio chunks`);
+        console.log(`📦 Buffer size: ${userSession.bufferedAudio.length} chunks`);
       }
     }
   }
-
 
   endSession(sessionId: string): void {
     const session = this.getSession(sessionId);

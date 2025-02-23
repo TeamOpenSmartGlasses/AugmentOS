@@ -755,7 +755,16 @@ export class WebSocketService {
           const vadMessage = message as VADStateMessage;
           console.log(`\n🎤 VAD State Change: status ${vadMessage.status}`);
         
+          PosthogService.trackEvent("VAD", userSession.userId, {
+            sessionId: userSession.sessionId,
+            eventType: message.type,
+            timestamp: new Date().toISOString(),
+            vadState: vadMessage,
+          });
+        
+          // Convert VAD state to boolean - explicitly handle all possible cases
           const isSpeaking = vadMessage.status === true || vadMessage.status === 'true';
+          
           console.log(`VAD speaking state: ${isSpeaking}`);
         
           try {
@@ -766,12 +775,21 @@ export class WebSocketService {
                 transcriptionService.startTranscription(userSession);
               }
             } else {
-              console.log('🤫 VAD detected silence - gracefully stopping transcription');
-              // Don't immediately stop - let the transcription service handle graceful shutdown
-              transcriptionService.gracefullyStopTranscription(userSession);
+              console.log('🤫 VAD detected silence - stopping transcription');
+              if (userSession.isTranscribing) {
+                userSession.isTranscribing = false;
+                transcriptionService.stopTranscription(userSession);
+              }
             }
+        
+            console.log('Updated state:', {
+              isTranscribing: userSession.isTranscribing,
+              hasRecognizer: !!userSession.recognizer,
+              hasPushStream: !!userSession.pushStream
+            });
           } catch (error) {
             console.error('❌ Error handling VAD state change:', error);
+            // On error, reset to a clean state
             userSession.isTranscribing = false;
             transcriptionService.stopTranscription(userSession);
           }
