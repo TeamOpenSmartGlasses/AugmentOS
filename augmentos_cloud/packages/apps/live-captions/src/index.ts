@@ -184,7 +184,7 @@ function handleTranscription(sessionId: string, userId: string, ws: WebSocket, t
   if (isFinal) {
     const finalLiveCaption = newTranscript.length > 100 ? newTranscript.substring(newTranscript.length - 100) : newTranscript;
 
-    userFinalTranscripts.set(userId, finalLiveCaption);
+    userFinalTranscripts.set(sessionId, finalLiveCaption);
   }
 
   console.log(`[Session ${sessionId}]: finalLiveCaption=${isFinal}`);
