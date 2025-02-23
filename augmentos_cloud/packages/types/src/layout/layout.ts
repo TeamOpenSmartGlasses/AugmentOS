@@ -26,12 +26,12 @@ export interface ReferenceCard {
 }
 
 export interface DisplayRequest extends WebSocketMessage {
-  view: "dashboard" | string;
   type: 'display_event'; // not gonna make this match so we don't have to change it everywhere. maybe theres a better way to manage enums in typescript so we can leverage them.
-  layout: Layout;
-  timestamp: Date;
   packageName: "system" | string;
+  view: "dashboard" | string;
+  layout: Layout;
   durationMs?: number;
+  timestamp: Date;
 }
 
 export type Layout = TextWall | DoubleTextWall | DashboardCard | ReferenceCard;
