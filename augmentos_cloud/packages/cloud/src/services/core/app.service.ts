@@ -27,13 +27,6 @@ export const APP_STORE: AppI[] = [
     logoURL: `https://cloud.augmentos.org/${systemApps.captions.packageName}.png`,
   },
   {
-    packageName: systemApps.flash.packageName,
-    name: systemApps.flash.name,
-    description: "⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️",
-    webhookURL: `http://localhost:${systemApps.flash.port}/webhook`,
-    logoURL: `https://cloud.augmentos.org/${systemApps.flash.packageName}.png`,
-  },
-  {
     packageName: systemApps.notify.packageName,
     name: systemApps.notify.name,
     description: "Show notifications from your device 🔔",
@@ -55,6 +48,17 @@ export const APP_STORE: AppI[] = [
     logoURL: `https://cloud.augmentos.org/${systemApps.merge.packageName}.png`,
   }
 ];
+
+// if we are not in production, add the dashboard to the app 
+if (process.env.NODE_ENV !== 'production') {
+  APP_STORE.push(  {
+    packageName: systemApps.flash.packageName,
+    name: systemApps.flash.name,
+    description: "⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️",
+    webhookURL: `http://localhost:${systemApps.flash.port}/webhook`,
+    logoURL: `https://cloud.augmentos.org/${systemApps.flash.packageName}.png`,
+  });
+}
 
 /**
  * System TPAs that are always available.
