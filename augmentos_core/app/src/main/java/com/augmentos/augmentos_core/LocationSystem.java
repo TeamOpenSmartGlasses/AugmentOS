@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.os.Looper;
 
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import com.augmentos.augmentos_core.augmentos_backend.ServerComms;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -16,7 +15,6 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnSuccessListener;
 
 public class LocationSystem {
     private Context context;
@@ -30,30 +28,13 @@ public class LocationSystem {
 
     private final Handler locationSendingLoopHandler = new Handler(Looper.getMainLooper());
     private Runnable locationSendingRunnableCode;
-    private final long locationSendTime = 1000 * 60 * 8; // 8 minutes
+    private final long locationSendTime = 1000 * 60 * 30; // 30 minutes
 
     public LocationSystem(Context context) {
         this.context = context;
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
         setupLocationCallback();
         scheduleLocationUpdates();
-    }
-
-    private void setupLocationCallback() {
-        locationCallback = new LocationCallback() {
-            @Override
-            public void onLocationResult(LocationResult locationResult) {
-                if (locationResult == null || locationResult.getLocations().isEmpty()) return;
-
-                // Get the most recent location
-                Location location = locationResult.getLastLocation();
-                lat = location.getLatitude();
-                lng = location.getLongitude();
-
-                sendLocationToServer();
-                stopLocationUpdates(); // Turn off GPS after successful fix
-            }
-        };
     }
 
     public void startLocationSending() {
@@ -80,17 +61,6 @@ public class LocationSystem {
         }
     }
 
-    private void scheduleLocationUpdates() {
-        locationSendingRunnableCode = new Runnable() {
-            @Override
-            public void run() {
-                requestLocationUpdate(); // Turn on GPS and request a fix
-                locationSendingLoopHandler.postDelayed(this, locationSendTime); // Schedule next run
-            }
-        };
-        locationSendingLoopHandler.post(locationSendingRunnableCode);
-    }
-
     private void sendLocationToServer() {
         double latitude = getNewLat();
         double longitude = getNewLng();
@@ -110,5 +80,48 @@ public class LocationSystem {
         if (latestAccessedLong == lng) return -1;
         latestAccessedLong = lng;
         return latestAccessedLong;
+    }
+
+
+    // Add a flag and a polling interval for first lock
+    private boolean firstLockAcquired = false;
+    private final long firstLockPollingInterval = 5000; // 5 seconds
+
+    private void scheduleLocationUpdates() {
+        locationSendingRunnableCode = new Runnable() {
+            @Override
+            public void run() {
+                requestLocationUpdate(); // Request location fix
+
+                if (!firstLockAcquired) {
+                    // Poll more frequently until a fix is obtained
+                    locationSendingLoopHandler.postDelayed(this, firstLockPollingInterval);
+                } else {
+                    // Once first fix is obtained, revert to normal interval
+                    locationSendingLoopHandler.postDelayed(this, locationSendTime);
+                }
+            }
+        };
+        locationSendingLoopHandler.post(locationSendingRunnableCode);
+    }
+
+    private void setupLocationCallback() {
+        locationCallback = new LocationCallback() {
+            @Override
+            public void onLocationResult(LocationResult locationResult) {
+                if (locationResult == null || locationResult.getLocations().isEmpty()) return;
+
+                Location location = locationResult.getLastLocation();
+                lat = location.getLatitude();
+                lng = location.getLongitude();
+
+                sendLocationToServer();
+                stopLocationUpdates(); // Always cancel updates after receiving a fix
+
+                if (!firstLockAcquired) {
+                    firstLockAcquired = true;
+                }
+            }
+        };
     }
 }

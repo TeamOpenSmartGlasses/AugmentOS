@@ -81,21 +81,21 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     private void setupVadListener() {
         new Thread(() -> {
             while (true) {
-                boolean newVadState = vadPolicy.shouldPassAudioToRecognizer();
+                boolean newVadIsSpeakingState = vadPolicy.shouldPassAudioToRecognizer();
 
-                if (newVadState && !isSpeaking) {
+                if (newVadIsSpeakingState && !isSpeaking) {
                     // VAD opened
                     sendVadStatus(true);
                     sendBufferedAudio();
                     isSpeaking = true;
-                } else if (!newVadState && isSpeaking) {
+                } else if (!newVadIsSpeakingState && isSpeaking) {
                     // VAD closed
                     sendVadStatus(false);
                     isSpeaking = false;
                 }
 
                 try {
-                    Thread.sleep(50); // Check VAD state ~20 times/s
+                    Thread.sleep(50);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     return;
@@ -290,6 +290,12 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
             }
         } catch (Exception e) {
             Log.e(TAG, "Error parsing speech JSON: " + msg, e);
+        }
+    }
+
+    public void microphoneStateChanged(boolean state){
+        if (vadPolicy != null){
+            vadPolicy.microphoneStateChanged(state);
         }
     }
 }
