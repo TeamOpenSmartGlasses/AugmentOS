@@ -265,16 +265,16 @@ async function processTranscripts(sessionId: string, ws: WebSocket) {
 }
 
 function removeWakeWord(text: string): string {
-  // Escape wake words for regex
+  // Escape each wake word for regex special characters
   const escapedWakeWords = explicitWakeWords.map(word =>
     word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   );
-  // Build patterns that allow for spaces, commas, or periods between words
+  // Build patterns that allow for spaces, commas, or periods between the words
   const wakePatterns = escapedWakeWords.map(word =>
     word.split(' ').join('[\\s,\\.]*')
   );
-  // Assume the wake word appears at the beginning; adjust the regex accordingly
-  const wakeRegex = new RegExp(`^(?:${wakePatterns.join('|')})[\\s,\\.]*`, 'i');
+  // Create a regex that removes everything from the start until (and including) a wake word
+  const wakeRegex = new RegExp(`.*?(?:${wakePatterns.join('|')})[\\s,\\.]*`, 'i');
   return text.replace(wakeRegex, '').trim();
 }
 
