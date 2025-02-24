@@ -7,6 +7,7 @@ import { useStatus } from '../AugmentOSStatusProvider';
 import { NavigationProps } from '../components/types';
 import { useNavigation } from '@react-navigation/native';
 import { getGlassesImage } from '../logic/getGlassesImage';
+import GlobalEventEmitter from '../logic/GlobalEventEmitter.tsx';
 
 
 interface ConnectedDeviceInfoProps {
@@ -73,6 +74,11 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
   };
 
   const connectGlasses = async () => {
+    if (!(await bluetoothService.isBluetoothEnabled() && await bluetoothService.isLocationEnabled())) {
+      GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Please enable Bluetooth and Location', type: 'error' });
+      return;
+    }
+
     if (status.core_info.default_wearable === undefined || status.core_info.default_wearable === '') {
       navigation.navigate('SelectGlassesModelScreen');
       return;
