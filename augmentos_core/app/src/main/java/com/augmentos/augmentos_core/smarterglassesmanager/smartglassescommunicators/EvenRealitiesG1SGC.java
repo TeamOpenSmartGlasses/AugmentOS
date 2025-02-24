@@ -109,7 +109,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final long DELAY_BETWEEN_SENDS_MS = 8; //not using now
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 16; //super small just in case
     private static final long DELAY_BETWEEN_ACTIONS_SEND = 250; //not using now
-    private static final long HEARTBEAT_INTERVAL_MS = 30000;
+    private static final long HEARTBEAT_INTERVAL_MS = 15000;
     private static final long MICBEAT_INTERVAL_MS = (1000 * 60) * 30; //micbeat every 30 minutes
 
     private int leftReconnectAttempts = 0;
@@ -288,10 +288,16 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     if ("Left".equals(side)) {
                         isLeftConnected = false;
                         leftReconnectAttempts++;
+                        if (leftGlassGatt != null){
+                            leftGlassGatt.close();
+                        }
                         leftGlassGatt = null;
                     } else {
                         isRightConnected = false;
                         rightReconnectAttempts++;
+                        if (rightGlassGatt != null){
+                            rightGlassGatt.close();
+                        }
                         rightGlassGatt = null;
                     }
 
@@ -541,7 +547,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 sendWhiteListCommand(10);
 
                 //start heartbeat
-                startHeartbeat(20000);
+                startHeartbeat(10000);
 
                 //start mic beat
                 startMicBeat(30000);
@@ -1716,14 +1722,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
         heartbeatCount++;
     }
-
     private void queryBatteryStatus() {
         byte[] batteryQueryPacket = constructBatteryLevelQuery();
 //        Log.d(TAG, "Sending battery status query: " + bytesToHex(batteryQueryPacket));
 
-        sendDataSequentially(batteryQueryPacket, false, 150);
+        sendDataSequentially(batteryQueryPacket, false, 250);
     }
-
     public void sendBrightnessCommand(int brightness, boolean autoLight) {
         // Validate brightness range
         int validBrightness = (brightness * 63) / 100;
