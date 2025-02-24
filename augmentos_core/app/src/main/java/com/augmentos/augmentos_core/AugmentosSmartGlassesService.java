@@ -11,9 +11,6 @@ import android.os.RemoteException;
 import android.util.Log;
 
 import com.augmentos.augmentos_core.events.AugmentosSmartGlassesDisconnectedEvent;
-import com.augmentos.augmentos_core.smarterglassesmanager.camera.CameraRecorder;
-import com.augmentos.augmentos_core.smarterglassesmanager.camera.CameraRecordingService;
-import com.augmentos.augmentos_core.smarterglassesmanager.camera.MemoryFileUtil;
 import com.augmentos.augmentos_core.ui.AugmentosCoreUi;
 import com.augmentos.augmentoslib.events.DiarizationOutputEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.SmartGlassesConnectionStateChangedEvent;
@@ -23,8 +20,6 @@ import com.augmentos.augmentoslib.events.SpeechRecOutputEvent;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.ArrayList;
 
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService;
@@ -54,9 +49,6 @@ public class AugmentosSmartGlassesService extends SmartGlassesAndroidService {
     private final long doublePressTimeConst = 420;
     private final long doubleTapTimeConst = 600;
     public WindowManagerWithTimeouts windowManager;
-
-    //private CameraRecorder cameraRecorder;
-
     public AugmentosSmartGlassesService() {
         super(AugmentosCoreUi.class,
                 "augmentos_app",

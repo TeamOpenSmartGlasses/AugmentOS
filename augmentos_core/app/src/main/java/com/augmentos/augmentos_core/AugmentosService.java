@@ -157,6 +157,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private AsrPlanner asrPlanner;
     private HTTPServerComms httpServerComms;
 
+    JSONObject cachedDashboardDisplayObject;
     Runnable cachedDashboardDisplayRunnable;
     List<ThirdPartyCloudApp> cachedThirdPartyAppList;
     private WebSocketManager.IncomingMessageHandler.WebSocketStatus webSocketStatus = WebSocketManager.IncomingMessageHandler.WebSocketStatus.DISCONNECTED;
@@ -263,6 +264,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 smartGlassesService.windowManager.showDashboard(cachedDashboardDisplayRunnable,
                         -1
                 );
+            }
+            if(cachedDashboardDisplayObject != null && blePeripheral != null) {
+                blePeripheral.sendGlassesDisplayEventToManager(cachedDashboardDisplayObject);
             }
             return;
         }
@@ -848,6 +852,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             @Override
             public void onDashboardDisplayEvent(JSONObject dashboardDisplayData) {
+                cachedDashboardDisplayObject = dashboardDisplayData;
                 cachedDashboardDisplayRunnable = parseDisplayEventMessage(dashboardDisplayData);
             }
 

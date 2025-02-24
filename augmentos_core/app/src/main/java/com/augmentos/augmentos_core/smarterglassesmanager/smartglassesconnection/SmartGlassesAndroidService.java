@@ -124,9 +124,6 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         //start text to speech
         textToSpeechSystem = new TextToSpeechSystem(this);
         textToSpeechSystem.setup();
-
-        // debug line
-        //recordFor5Seconds();
     }
 
     protected void setupEventBusSubscribers() {
@@ -189,36 +186,6 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
                 smartGlassesRepresentative.findCompatibleDeviceNames();
             }
         });
-    }
-
-//    public boolean tryConnectToPreferredWearable() {
-//        String preferredWearableName = getPreferredWearable(getApplicationContext());
-//
-//        if (preferredWearableName == null || preferredWearableName.trim().isEmpty()) {
-//            Log.d(TAG, "No preferred wearable stored. Cannot connect.");
-//            return false;
-//        }
-//
-//        SmartGlassesDevice matchingDevice = getSmartGlassesDeviceFromModelName(preferredWearableName);
-//
-//        if (matchingDevice != null) {
-//            Log.d(TAG, "Trying to connect to preferred wearable: " + preferredWearableName);
-//            connectToSmartGlasses(matchingDevice);
-//            return true;
-//        } else {
-//            Log.d(TAG, "Preferred wearable \"" + preferredWearableName + "\" not recognized in our known devices list.");
-//            return false;
-//        }
-//    }
-
-    private void recordFor5Seconds(){
-        CameraRecordingService.startLocalRecording(getApplicationContext());
-        new android.os.Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                CameraRecordingService.stopLocalRecording(getApplicationContext());
-            }
-        }, 5000); // 5000ms = 5 seconds
     }
 
     @Override
