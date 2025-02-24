@@ -1,3 +1,5 @@
+// augmentos_cloud/packages/cloud/src/services/processing/transcription.service.ts
+
 import * as azureSpeechSDK from 'microsoft-cognitiveservices-speech-sdk';
 import {
   SessionEventArgs,
@@ -60,57 +62,43 @@ export class TranscriptionService {
     console.log('Current session state:', {
       hasRecognizer: !!userSession.recognizer,
       hasPushStream: !!userSession.pushStream,
-      isTranscribing: userSession.isTranscribing,
-      bufferedAudioChunks: userSession.bufferedAudio.length
+      isTranscribing: userSession.isTranscribing
     });
-
+  
     if (userSession.recognizer && userSession.pushStream) {
       console.log('⚠️ Transcription already active, reusing existing resources');
       return { recognizer: userSession.recognizer, pushStream: userSession.pushStream };
     }
-
+  
     this.sessionStartTime = Date.now();
-
+  
     try {
       console.log('🔄 Creating new transcription resources...');
       const pushStream = AudioInputStream.createPushStream();
       const audioConfig = AudioConfig.fromStreamInput(pushStream);
       const recognizer = new ConversationTranscriber(this.speechConfig, audioConfig);
-
+  
       userSession.pushStream = pushStream;
       userSession.recognizer = recognizer;
-
+  
       console.log('✅ Created new recognizer and push stream');
-
+  
       // Set up recognition handlers
       this.setupRecognitionHandlers(userSession, recognizer);
-
+  
       // Start recognition
       console.log('🚀 Starting continuous recognition...\n');
       recognizer.startTranscribingAsync(
         () => {
           console.log('✅ Recognition started successfully');
           userSession.isTranscribing = true;
-
-          // Process buffered audio
-          if (userSession.bufferedAudio.length > 0) {
-            console.log(`📦 Processing ${userSession.bufferedAudio.length} buffered audio chunks`);
-            userSession.bufferedAudio.forEach((chunk, index) => {
-              try {
-                pushStream.write(chunk);
-              } catch (error) {
-                console.error(`❌ Error processing buffered chunk ${index + 1}:`, error);
-              }
-            });
-            userSession.bufferedAudio = [];
-          }
         },
         (error) => {
           console.error('❌ Failed to start recognition:', error);
           this.cleanupTranscriptionResources(userSession);
         }
       );
-
+  
       return { recognizer, pushStream };
     } catch (error) {
       console.error('❌ Error creating transcription:', error);
@@ -118,6 +106,78 @@ export class TranscriptionService {
       throw error;
     }
   }
+
+  // startTranscription(userSession: UserSession) {
+  //   console.log(`\n🎙️ [Session ${userSession.sessionId}] Starting transcription...`);
+  //   console.log('Current session state:', {
+  //     hasRecognizer: !!userSession.recognizer,
+  //     hasPushStream: !!userSession.pushStream,
+  //     isTranscribing: userSession.isTranscribing,
+  //     // bufferedAudioChunks: userSession.bufferedAudio.length
+  //   });
+
+  //   if (userSession.recognizer && userSession.pushStream) {
+  //     console.log('⚠️ Transcription already active, reusing existing resources');
+  //     return { recognizer: userSession.recognizer, pushStream: userSession.pushStream };
+  //   }
+
+  //   this.sessionStartTime = Date.now();
+
+  //   try {
+  //     console.log('🔄 Creating new transcription resources...');
+  //     const pushStream = AudioInputStream.createPushStream();
+  //     const audioConfig = AudioConfig.fromStreamInput(pushStream);
+  //     const recognizer = new ConversationTranscriber(this.speechConfig, audioConfig);
+
+  //     userSession.pushStream = pushStream;
+  //     userSession.recognizer = recognizer;
+
+  //     console.log('✅ Created new recognizer and push stream');
+
+  //     // Set up recognition handlers
+  //     this.setupRecognitionHandlers(userSession, recognizer);
+
+  //     // Start recognition
+  //     console.log('🚀 Starting continuous recognition...\n');
+  //     recognizer.startTranscribingAsync(
+  //       () => {
+  //         console.log('✅ Recognition started successfully');
+  //         userSession.isTranscribing = true;
+    
+  //         // Process buffered audio
+  //         if (userSession.bufferedAudio.length > 0) {
+  //           const MAX_AGE_MS = 10000; // Only process last 10 seconds
+  //           const now = Date.now();
+  //           const recentChunks = userSession.bufferedAudio.filter(chunk => 
+  //             (now - chunk.timestamp) < MAX_AGE_MS
+  //           );
+    
+  //           if (recentChunks.length > 0) {
+  //             console.log(`📦 Processing ${recentChunks.length} recent chunks out of ${userSession.bufferedAudio.length} total buffered`);
+  //             recentChunks.forEach((chunk, index) => {
+  //               try {
+  //                 pushStream.write(chunk.data);
+  //               } catch (error) {
+  //                 console.error(`❌ Error processing buffered chunk ${index + 1}:`, error);
+  //               }
+  //             });
+  //           }
+  //           userSession.bufferedAudio = [];
+  //         }
+  //       },
+  //       (error) => {
+  //         console.error('❌ Failed to start recognition:', error);
+  //         this.cleanupTranscriptionResources(userSession);
+  //       }
+  //     );
+
+  //     return { recognizer, pushStream };
+  //   } catch (error) {
+  //     console.error('❌ Error creating transcription:', error);
+  //     this.cleanupTranscriptionResources(userSession);
+  //     throw error;
+  //   }
+  // }
 
   // Add this new method
   gracefullyStopTranscription(userSession: UserSession) {
@@ -176,11 +236,7 @@ export class TranscriptionService {
 
   private async restartPushStream(userSession: UserSession) {
     console.log('🔄 Restarting push stream...');
-
-    // Save any buffered audio
-    const bufferedAudio = userSession.bufferedAudio;
-    userSession.bufferedAudio = [];
-
+  
     // Clean up old push stream
     if (userSession.pushStream) {
       try {
@@ -189,16 +245,40 @@ export class TranscriptionService {
         console.warn('⚠️ Error closing old push stream:', error);
       }
     }
-
+  
     // Create new push stream
     const { recognizer, pushStream } = await this.startTranscription(userSession);
     userSession.recognizer = recognizer;
     userSession.pushStream = pushStream;
-
-    // Restore buffered audio
-    userSession.bufferedAudio = bufferedAudio;
+  
     console.log('✅ Push stream restarted successfully');
   }
+  
+  // private async restartPushStream(userSession: UserSession) {
+  //   console.log('🔄 Restarting push stream...');
+
+  //   // Save any buffered audio
+  //   const bufferedAudio = userSession.bufferedAudio;
+  //   userSession.bufferedAudio = [];
+
+  //   // Clean up old push stream
+  //   if (userSession.pushStream) {
+  //     try {
+  //       userSession.pushStream.close();
+  //     } catch (error) {
+  //       console.warn('⚠️ Error closing old push stream:', error);
+  //     }
+  //   }
+
+  //   // Create new push stream
+  //   const { recognizer, pushStream } = await this.startTranscription(userSession);
+  //   userSession.recognizer = recognizer;
+  //   userSession.pushStream = pushStream;
+
+  //   // Restore buffered audio
+  //   userSession.bufferedAudio = bufferedAudio;
+  //   console.log('✅ Push stream restarted successfully');
+  // }
 
   private setupRecognitionHandlers(userSession: UserSession, recognizer: ConversationTranscriber) {
     recognizer.transcribing = (_sender: any, event: ConversationTranscriptionEventArgs) => {

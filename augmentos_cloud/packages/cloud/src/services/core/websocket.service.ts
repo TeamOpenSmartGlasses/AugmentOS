@@ -1,4 +1,4 @@
-// websocket.service.ts.
+// augmentos_cloud/packages/cloud/core/websocket.service.ts.
 
 /**
  * @fileoverview WebSocket service that handles both glasses client and TPA connections.
@@ -760,15 +760,13 @@ export class WebSocketService {
         
           try {
             if (isSpeaking) {
-              console.log('🎙️ VAD detected speech - ensuring transcription is active');
-              if (!userSession.isTranscribing) {
-                userSession.isTranscribing = true;
-                transcriptionService.startTranscription(userSession);
-              }
+              console.log('🎙️ VAD detected speech - starting transcription');
+              userSession.isTranscribing = true;
+              transcriptionService.startTranscription(userSession);
             } else {
-              console.log('🤫 VAD detected silence - gracefully stopping transcription');
-              // Don't immediately stop - let the transcription service handle graceful shutdown
-              transcriptionService.gracefullyStopTranscription(userSession);
+              console.log('🤫 VAD detected silence - stopping transcription');
+              userSession.isTranscribing = false;
+              transcriptionService.stopTranscription(userSession);
             }
           } catch (error) {
             console.error('❌ Error handling VAD state change:', error);
@@ -777,6 +775,33 @@ export class WebSocketService {
           }
           break;
         }
+        
+        // case 'VAD': {
+        //   const vadMessage = message as VADStateMessage;
+        //   console.log(`\n🎤 VAD State Change: status ${vadMessage.status}`);
+        
+        //   const isSpeaking = vadMessage.status === true || vadMessage.status === 'true';
+        //   console.log(`VAD speaking state: ${isSpeaking}`);
+        
+        //   try {
+        //     if (isSpeaking) {
+        //       console.log('🎙️ VAD detected speech - ensuring transcription is active');
+        //       if (!userSession.isTranscribing) {
+        //         userSession.isTranscribing = true;
+        //         transcriptionService.startTranscription(userSession);
+        //       }
+        //     } else {
+        //       console.log('🤫 VAD detected silence - gracefully stopping transcription');
+        //       // Don't immediately stop - let the transcription service handle graceful shutdown
+        //       transcriptionService.gracefullyStopTranscription(userSession);
+        //     }
+        //   } catch (error) {
+        //     console.error('❌ Error handling VAD state change:', error);
+        //     userSession.isTranscribing = false;
+        //     transcriptionService.stopTranscription(userSession);
+        //   }
+        //   break;
+        // }
 
         // All other message types are broadcast to TPAs.
         default: {

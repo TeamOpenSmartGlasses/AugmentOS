@@ -22,8 +22,12 @@ export interface AudioProcessorConfig {
   channels: number;      // Number of channels (1 for mono)
 }
 
-export interface AudioProcessorI extends Transform {
+export interface AudioProcessorI extends Transform {}
 
+// Add this interface near the top of session.service.ts
+export interface TimestampedAudioChunk {
+  data: ArrayBuffer;
+  timestamp: number;
 }
 
 /**
@@ -57,7 +61,7 @@ export interface UserSession {
   isGracefullyClosing?: boolean;  // Flag to track if the session is closing gracefully
   
   // Pre-initialization audio buffer
-  bufferedAudio: ArrayBuffer[];
+  // bufferedAudio: TimestampedAudioChunk[];
 
   // Audio Processing
   audioProcessor?: AudioProcessorI;  // Optional audio processor instance
