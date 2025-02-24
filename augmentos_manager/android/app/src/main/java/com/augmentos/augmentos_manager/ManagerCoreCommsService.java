@@ -48,7 +48,7 @@ public class ManagerCoreCommsService extends SmartGlassesAndroidService {
     }
 
     public void processCoreMessage(String jsonString){
-        Log.d(TAG, "processCoreMessage: " + jsonString);
+//        Log.d(TAG, "processCoreMessage: " + jsonString);
         if (ManagerCoreCommsServiceModule.getInstance() != null) {
             ManagerCoreCommsServiceModule.getInstance().emitMessageToJS("CoreMessageIntentEvent", jsonString);
         } else {
@@ -57,7 +57,7 @@ public class ManagerCoreCommsService extends SmartGlassesAndroidService {
     }
 
     public void sendCommandToCore(String jsonString) {
-        Log.d(TAG, "sendCommandToCore: " + jsonString);
+//        Log.d(TAG, "sendCommandToCore: " + jsonString);
         augmentOSLib.sendDataFromManagerToCore(jsonString);
     }
 

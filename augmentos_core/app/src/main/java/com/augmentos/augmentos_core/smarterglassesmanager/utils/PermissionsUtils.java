@@ -160,7 +160,7 @@ public class PermissionsUtils {
                         android.Manifest.permission.BLUETOOTH_CONNECT,
                         Manifest.permission.BLUETOOTH_ADVERTISE,
                         android.Manifest.permission.RECORD_AUDIO,
-                        android.Manifest.permission.READ_PHONE_STATE
+//                        android.Manifest.permission.READ_PHONE_STATE
                 }, REQUEST_PERMISSION_CODE);
 
         //TODO

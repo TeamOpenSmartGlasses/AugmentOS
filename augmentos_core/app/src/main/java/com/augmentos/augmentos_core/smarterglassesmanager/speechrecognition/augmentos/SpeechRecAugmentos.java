@@ -55,7 +55,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
         // 2) Let ServerComms know it should forward "interim"/"final" messages to this class.
         ServerComms.getInstance().setSpeechRecAugmentos(this);
 
-        // Rolling buffer to store ~150ms of audio for replay on VAD trigger
+        // Rolling buffer to store ~220ms of audio for replay on VAD trigger
         this.bufferMaxSize = (int) ((16000 * 0.22 * 2) / 512);
         this.rollingBuffer = new LinkedBlockingQueue<>(bufferMaxSize);
 
@@ -81,21 +81,21 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     private void setupVadListener() {
         new Thread(() -> {
             while (true) {
-                boolean newVadState = vadPolicy.shouldPassAudioToRecognizer();
+                boolean newVadIsSpeakingState = vadPolicy.shouldPassAudioToRecognizer();
 
-                if (newVadState && !isSpeaking) {
+                if (newVadIsSpeakingState && !isSpeaking) {
                     // VAD opened
                     sendVadStatus(true);
                     sendBufferedAudio();
                     isSpeaking = true;
-                } else if (!newVadState && isSpeaking) {
+                } else if (!newVadIsSpeakingState && isSpeaking) {
                     // VAD closed
                     sendVadStatus(false);
                     isSpeaking = false;
                 }
 
                 try {
-                    Thread.sleep(50); // Check VAD state ~20 times/s
+                    Thread.sleep(50);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     return;
@@ -150,9 +150,10 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
 
     /**
      * Called by external code to feed raw PCM chunks (16-bit, 16kHz).
+     * runs VAD on decoded data to tell whether or not we should send the encoded data to the backend
      */
     @Override
-    public void ingestAudioChunk(byte[] audioChunk) { // TODO: Reinstantiate VAD once fixed
+    public void ingestAudioChunk(byte[] audioChunk) {
         if (vadPolicy == null) {
             Log.e(TAG, "VAD not initialized yet. Skipping audio.");
             return;
@@ -168,18 +169,25 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
             }
             vadBuffer.offer(sample);
         }
+    }
 
+    /**
+     * Called by external code to feed raw LC3 chunks
+     */
+    @Override
+    public void ingestLC3AudioChunk(byte[] LC3audioChunk) {
         // If currently speaking, send data live
         if (isSpeaking) {
-        ServerComms.getInstance().sendAudioChunk(audioChunk);
+            ServerComms.getInstance().sendAudioChunk(LC3audioChunk);
         }
 
         // Maintain rolling buffer for "catch-up"
         if (rollingBuffer.size() >= bufferMaxSize) {
             rollingBuffer.poll();
         }
-        rollingBuffer.offer(audioChunk);
+        rollingBuffer.offer(LC3audioChunk);
     }
+
 
     /**
      * Converts short[] -> byte[] (little-endian)
@@ -204,12 +212,12 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
      */
     private boolean isVadInitialized() {
         try {
-            Field vadModelField = vadPolicy.getClass().getDeclaredField("vadModel");
-            vadModelField.setAccessible(true);
-            Object vadModel = vadModelField.get(vadPolicy);
-            return vadModel != null;
+            Field vadField = vadPolicy.getClass().getDeclaredField("vad");
+            vadField.setAccessible(true);
+            Object vadInstance = vadField.get(vadPolicy);
+            return vadInstance != null;
         } catch (Exception e) {
-            Log.e(TAG, "Failed to check VAD model init state.", e);
+            Log.e(TAG, "Failed to check VAD init state.", e);
             return false;
         }
     }
@@ -282,6 +290,12 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
             }
         } catch (Exception e) {
             Log.e(TAG, "Error parsing speech JSON: " + msg, e);
+        }
+    }
+
+    public void microphoneStateChanged(boolean state){
+        if (vadPolicy != null){
+            vadPolicy.microphoneStateChanged(state);
         }
     }
 }

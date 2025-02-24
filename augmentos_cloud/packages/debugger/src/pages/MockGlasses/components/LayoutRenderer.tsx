@@ -5,8 +5,6 @@ import {
   Layout,
   TextWall,
   DoubleTextWall,
-  TextRows,
-  TextLine,
   ReferenceCard,
   DashboardCard
 } from '@augmentos/types';
@@ -73,7 +71,7 @@ interface ReferenceCardLayoutProps {
 
 const ReferenceCardLayout: React.FC<ReferenceCardLayoutProps> = ({ layout }) => (
   <div className="reference-card bg-black/20 rounded-lg p-4">
-    {layout.showTitle && (
+    {layout.title && (
       <h3 className="text-lg font-semibold mb-2">
         {layout.title}
       </h3>

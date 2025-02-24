@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -41,7 +42,7 @@ public class ServerComms {
     // ------------------------------------------------------------------------
     // AUDIO QUEUE SYSTEM (ADDED)
     // ------------------------------------------------------------------------
-    private final BlockingQueue<byte[]> audioQueue = new LinkedBlockingQueue<>();
+    private final BlockingQueue<byte[]> audioQueue = new ArrayBlockingQueue<>((int) (10 / 0.01 / 10)); // 10 seconds into the past // calculation is roughly: (n seconds into the past we want) / (length of frame == 10) / (frames per chunk == 10 (Even G1))
     private Thread audioSenderThread;
     private volatile boolean audioSenderRunning = false;
 
@@ -166,8 +167,11 @@ public class ServerComms {
      * Sends a raw PCM audio chunk as binary data.
      */
     public void sendAudioChunk(byte[] audioData) {
-        // Instead of sending immediately, enqueue the data.
-        audioQueue.offer(audioData);
+        // If the queue is full, remove the oldest entry before adding a new one
+        if (!audioQueue.offer(audioData)) {
+            audioQueue.poll(); // Remove the oldest item
+            audioQueue.offer(audioData); // Add the new chunk
+        }
     }
 
     /**
@@ -381,6 +385,8 @@ public class ServerComms {
         JSONArray installedApps;
         JSONArray activeAppPackageNames;
 
+        Log.d(TAG, "Received message of type: " + msg);
+
         switch (type) {
             case "connection_ack":
                 Log.d(TAG, "Received connection_ack. Possibly store sessionId if needed.");
@@ -411,6 +417,12 @@ public class ServerComms {
                     serverCommsCallback.onAuthError();
                 break;
 
+            case "microphone_state_change":
+                boolean isMicrophoneEnabled = msg.optBoolean("isMicrophoneEnabled", true);
+                Log.d(TAG, "Received turn_microphone_on message." + isMicrophoneEnabled);
+                if (serverCommsCallback != null)
+                    serverCommsCallback.onMicrophoneStateChange(isMicrophoneEnabled);
+                break;
 
             case "display_event":
                 Log.d(TAG, "Received display_event: " + msg.toString());

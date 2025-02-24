@@ -16,4 +16,5 @@ public interface ServerCommsCallback {
     void onConnectionStatusChange(WebSocketManager.IncomingMessageHandler.WebSocketStatus status);
     void onRequestSingle(String dataType);
 
+    void onMicrophoneStateChange(boolean isEnabled);
 }

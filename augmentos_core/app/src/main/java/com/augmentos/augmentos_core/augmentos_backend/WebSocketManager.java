@@ -90,8 +90,8 @@ public class WebSocketManager extends WebSocketListener {
         cleanup(); // Clean up any existing connections
 
         client = new OkHttpClient.Builder()
-                .readTimeout(5, TimeUnit.SECONDS)
-                .pingInterval(4, TimeUnit.SECONDS)
+                .readTimeout(12, TimeUnit.SECONDS)
+                .pingInterval(10, TimeUnit.SECONDS)
                 .build();
 
         Request request = new Request.Builder().url(serverUrl).build();
@@ -122,6 +122,7 @@ public class WebSocketManager extends WebSocketListener {
      */
     public void sendText(String text) {
         if (webSocket != null && connected) {
+            Log.d(TAG, "Sending websocket text: " + text);
             webSocket.send(text);
         } else if (webSocket == null && connected) {
             Log.d(TAG, "sendText in a weird state, trying to self-heal");

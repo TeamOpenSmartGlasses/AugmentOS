@@ -9,9 +9,8 @@ import {
   ConversationTranscriber,
   ConversationTranscriptionEventArgs
 } from 'microsoft-cognitiveservices-speech-sdk';
-import { CloudDataStreamMessage, TranscriptionData, UserSession } from '@augmentos/types';
-import { AZURE_SPEECH_KEY, AZURE_SPEECH_REGION } from '@augmentos/types/config/cloud.env';
-import subscriptionService from '../core/subscription.service';
+import { TranscriptionData, UserSession } from '@augmentos/types';
+import { AZURE_SPEECH_KEY, AZURE_SPEECH_REGION } from '@augmentos/config';
 import webSocketService from '../core/websocket.service';
 
 export interface InterimTranscriptionResult extends TranscriptionData {
@@ -87,7 +86,7 @@ export class TranscriptionService {
       this.setupRecognitionHandlers(userSession, recognizer);
 
       // Start recognition
-      console.log('🚀 Starting continuous recognition...');
+      console.log('🚀 Starting continuous recognition...\n');
       recognizer.startTranscribingAsync(
         () => {
           console.log('✅ Recognition started successfully');
@@ -99,7 +98,6 @@ export class TranscriptionService {
             userSession.bufferedAudio.forEach((chunk, index) => {
               try {
                 pushStream.write(chunk);
-                console.log(`✅ Processed buffered chunk ${index + 1}/${userSession.bufferedAudio.length}`);
               } catch (error) {
                 console.error(`❌ Error processing buffered chunk ${index + 1}:`, error);
               }
@@ -121,10 +119,91 @@ export class TranscriptionService {
     }
   }
 
+  // Add this new method
+  gracefullyStopTranscription(userSession: UserSession) {
+    console.log(`\n🛑 [Session ${userSession.sessionId}] Gracefully stopping transcription...`);
+
+    if (!userSession.recognizer || !userSession.pushStream) {
+      console.log('ℹ️ No active transcription to stop');
+      return;
+    }
+
+    // Keep accepting audio for a brief period to ensure we process everything
+    const GRACE_PERIOD_MS = 2000; // 2 seconds grace period
+
+    console.log(`Waiting ${GRACE_PERIOD_MS}ms for buffered audio to process...`);
+
+    // Mark that we're in graceful shutdown
+    userSession.isGracefullyClosing = true;
+
+    setTimeout(() => {
+      // Only stop if we haven't received new audio during grace period
+      if (userSession.isGracefullyClosing) {
+        console.log('Grace period ended, stopping transcription');
+        userSession.isTranscribing = false;
+        this.stopTranscription(userSession);
+      } else {
+        console.log('Received new audio during grace period, keeping transcription active');
+      }
+    }, GRACE_PERIOD_MS);
+  }
+
+  // Add this to TranscriptionService class
+
+  handlePushStreamError(userSession: UserSession, error: any) {
+    console.log('🔄 Handling push stream error...');
+
+    // Check if it's a fatal error or if we can recover
+    const isFatalError = error.message?.includes('closed') ||
+      error.message?.includes('destroyed');
+
+    if (isFatalError) {
+      console.log('❌ Fatal push stream error, stopping transcription');
+      userSession.isTranscribing = false;
+      this.stopTranscription(userSession);
+    } else {
+      console.log('⚠️ Non-fatal push stream error, attempting to recover');
+      // Try to restart the push stream
+      try {
+        this.restartPushStream(userSession);
+      } catch (restartError) {
+        console.error('❌ Failed to restart push stream:', restartError);
+        userSession.isTranscribing = false;
+        this.stopTranscription(userSession);
+      }
+    }
+  }
+
+  private async restartPushStream(userSession: UserSession) {
+    console.log('🔄 Restarting push stream...');
+
+    // Save any buffered audio
+    const bufferedAudio = userSession.bufferedAudio;
+    userSession.bufferedAudio = [];
+
+    // Clean up old push stream
+    if (userSession.pushStream) {
+      try {
+        userSession.pushStream.close();
+      } catch (error) {
+        console.warn('⚠️ Error closing old push stream:', error);
+      }
+    }
+
+    // Create new push stream
+    const { recognizer, pushStream } = await this.startTranscription(userSession);
+    userSession.recognizer = recognizer;
+    userSession.pushStream = pushStream;
+
+    // Restore buffered audio
+    userSession.bufferedAudio = bufferedAudio;
+    console.log('✅ Push stream restarted successfully');
+  }
+
   private setupRecognitionHandlers(userSession: UserSession, recognizer: ConversationTranscriber) {
     recognizer.transcribing = (_sender: any, event: ConversationTranscriptionEventArgs) => {
       if (!event.result.text) return;
-      console.log(`🎤 [Interim] ${event.result.text}`);
+      console.log(`🎤 [Interim][${userSession.userId}]: ${event.result.text}`);
 
       const result: InterimTranscriptionResult = {
         type: 'transcription-interim',
@@ -143,7 +222,7 @@ export class TranscriptionService {
 
     recognizer.transcribed = (_sender: any, event: ConversationTranscriptionEventArgs) => {
       if (!event.result.text) return;
-      console.log(`✅ [Final] ${event.result.text}`);
+      console.log(`✅ [Final][${userSession.userId}] ${event.result.text}`);
 
       const result: FinalTranscriptionResult = {
         type: 'transcription-final',

@@ -36,7 +36,7 @@ router.post('/:packageName/start', async (req, res) => {
     }
 
     // Initiate TPA session
-    const tpaSessionId = await webSocketService.startAppSession(sessionId, session.userId, packageName);
+    const tpaSessionId = await webSocketService.startAppSession(session, packageName);
     session.activeAppSessions.push(tpaSessionId);
 
     res.json({ status: 'initiated', tpaSessionId });
@@ -46,7 +46,7 @@ router.post('/:packageName/start', async (req, res) => {
   }
 });
 
-// Start an app for a session
+// Start an app for a session // TODO(isaiah): Implement stop app.
 router.post('/:packageName/stop', async (req, res) => {
   const { packageName } = req.params;
   const { sessionId } = req.body;

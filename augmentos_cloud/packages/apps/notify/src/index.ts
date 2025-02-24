@@ -7,8 +7,8 @@ import {
   CloudDataStreamMessage,
   DisplayRequest,
 } from '@augmentos/types'; // shared types for cloud TPA messages
-import { CLOUD_PORT, systemApps } from '@augmentos/types/config/cloud.env';
-import { wrapText } from '../../../utils/text-wrapping/wraptText';
+import { CLOUD_PORT, systemApps } from '@augmentos/config';
+import { wrapText } from '@augmentos/utils';
 
 const app = express();
 const PORT = systemApps.notify.port; // Use a different port from your captions app
@@ -30,17 +30,25 @@ interface PhoneNotification {
 }
 
 /**
+ * Wraps a PhoneNotification with an expiration timestamp.
+ */
+interface QueuedNotification {
+  notification: PhoneNotification;
+  expiration: number;
+}
+
+/**
  * SessionData holds the state for each connection:
  * - sessionId (for sending display events)
  * - ws: the WebSocket connection to AugmentOS Cloud
- * - notificationQueue: FIFO queue of notifications
+ * - notificationQueue: FIFO queue of notifications (each with its expiration)
  * - isDisplayingNotification: whether we're actively displaying one
  * - timeoutId: a reference to the scheduled timeout for the next display
  */
 interface SessionData {
   sessionId: string;
   ws: WebSocket;
-  notificationQueue: PhoneNotification[];
+  notificationQueue: QueuedNotification[];
   isDisplayingNotification: boolean;
   timeoutId?: NodeJS.Timeout;
 }
@@ -48,7 +56,7 @@ interface SessionData {
 const activeSessions = new Map<string, SessionData>();
 
 // Duration (in ms) that each notification is displayed.
-const NOTIFICATION_DISPLAY_DURATION = 8500;
+const NOTIFICATION_DISPLAY_DURATION = 10000; // 10 seconds
 
 // Blacklisted app names: notifications from these apps will be ignored.
 const notificationAppBlackList = ['youtube', 'augment', 'maps'];
@@ -72,7 +80,7 @@ app.post('/webhook', async (req, res) => {
         type: 'tpa_connection_init',
         sessionId,
         packageName: PACKAGE_NAME,
-        apiKey: API_KEY
+        apiKey: API_KEY,
       };
       ws.send(JSON.stringify(initMessage));
     });
@@ -98,7 +106,6 @@ app.post('/webhook', async (req, res) => {
       isDisplayingNotification: false,
     });
     res.status(200).json({ status: 'connecting' });
-
   } catch (error) {
     console.error('Error handling webhook:', error);
     res.status(500).json({ error: 'Internal server error' });
@@ -124,7 +131,7 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
         type: 'subscription_update',
         packageName: PACKAGE_NAME,
         sessionId,
-        subscriptions: ['phone_notification']
+        subscriptions: ['phone_notification'],
       };
       ws.send(JSON.stringify(subMessage));
       console.log(`Session ${sessionId} connected and subscribed`);
@@ -135,7 +142,10 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
       const streamMessage = message as CloudDataStreamMessage;
       switch (streamMessage.streamType) {
         case 'phone_notification':
-          console.log(`[Session ${sessionId}] Received phone notification:`, JSON.stringify(streamMessage.data, null, 2));
+          console.log(
+            `[Session ${sessionId}] Received phone notification:`,
+            JSON.stringify(streamMessage.data, null, 2)
+          );
           queueNotification(sessionInfo, streamMessage.data);
           break;
 
@@ -153,18 +163,23 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
 
 /**
  * Checks the notification against the blacklist and queues it if allowed.
+ * Each notification is wrapped with an expiration time (4 * NOTIFICATION_DISPLAY_DURATION).
+ * Even if new notifications keep arriving while we are processing,
+ * they are simply appended to the queue.
  * If no notification is currently being displayed, starts the display process.
  */
 function queueNotification(sessionData: SessionData, notif: PhoneNotification) {
-  console.log(`Queueing notification: ${notif}`);
+  console.log(`Queueing notification from ${notif.app}`);
   for (const blacklisted of notificationAppBlackList) {
     if (notif.app.toLowerCase().includes(blacklisted)) {
       console.log(`Notification from ${notif.app} is blacklisted.`);
       return;
     }
   }
-  // Add the notification to the session's queue.
-  sessionData.notificationQueue.push(notif);
+  const expiration = Date.now() + 4 * NOTIFICATION_DISPLAY_DURATION;
+  // Add the notification (with its expiration) to the session's queue.
+  sessionData.notificationQueue.push({ notification: notif, expiration });
+  // If nothing is being displayed, start processing the queue.
   if (!sessionData.isDisplayingNotification) {
     displayNextNotification(sessionData);
   }
@@ -172,41 +187,52 @@ function queueNotification(sessionData: SessionData, notif: PhoneNotification) {
 
 /**
  * Displays the next notification in the queue.
- * Sends a display event message over the WebSocket.
- * Then schedules the next notification after a fixed duration.
+ * Checks if the notification has expired before displaying it.
+ * Sends a display event message over the WebSocket and schedules the next notification.
+ * This routine naturally handles new notifications that may arrive while processing.
  */
 function displayNextNotification(sessionData: SessionData) {
-  if (sessionData.notificationQueue.length === 0) {
-    sessionData.isDisplayingNotification = false;
-    // Optionally, send a command to clear the display.
-    return;
+  while (sessionData.notificationQueue.length > 0) {
+    const queuedNotification = sessionData.notificationQueue.shift();
+    if (!queuedNotification) continue;
+    // If the notification is expired, skip it.
+    if (Date.now() > queuedNotification.expiration) {
+      console.log(
+        `[Session ${sessionData.sessionId}]: Skipping expired notification from ${queuedNotification.notification.app}`
+      );
+      continue;
+    }
+
+    sessionData.isDisplayingNotification = true;
+    const notification = queuedNotification.notification;
+    const notificationString = constructNotificationString(notification);
+
+    // Build the display event message.
+    const displayEvent: DisplayRequest = {
+      type: 'display_event',
+      view: 'main',
+      packageName: PACKAGE_NAME,
+      sessionId: sessionData.sessionId,
+      layout: {
+        layoutType: 'text_wall',
+        text: notificationString,
+      },
+      durationMs: NOTIFICATION_DISPLAY_DURATION,
+      timestamp: new Date(),
+    };
+
+    sessionData.ws.send(JSON.stringify(displayEvent));
+
+    // Schedule the next notification display.
+    sessionData.timeoutId = setTimeout(() => {
+      // Even if new notifications are queued while the current one is displayed,
+      // this routine will process the (possibly updated) queue.
+      displayNextNotification(sessionData);
+    }, NOTIFICATION_DISPLAY_DURATION);
+    return; // Exit after scheduling a valid notification.
   }
-
-  sessionData.isDisplayingNotification = true;
-  const notification = sessionData.notificationQueue.shift() as PhoneNotification;
-  const notificationString = constructNotificationString(notification);
-
-  // Build the display event message.
-  const displayEvent: DisplayRequest = {
-    type: 'display_event',
-    view: 'main',
-    packageName: PACKAGE_NAME,
-    sessionId: sessionData.sessionId,
-    layout: {
-      layoutType: 'text_wall',
-      text: notificationString,
-    },
-    durationMs: NOTIFICATION_DISPLAY_DURATION,
-    timestamp: new Date(),
-  };
-
-  console.log(`[Session ${sessionData.sessionId}]: Displaying notification: ${notificationString}`);
-  sessionData.ws.send(JSON.stringify(displayEvent));
-
-  // Schedule the next notification display.
-  sessionData.timeoutId = setTimeout(() => {
-    displayNextNotification(sessionData);
-  }, NOTIFICATION_DISPLAY_DURATION);
+  // No notifications left (or all were expired); mark as idle.
+  sessionData.isDisplayingNotification = false;
 }
 
 /**
@@ -216,9 +242,13 @@ function constructNotificationString(notification: PhoneNotification): string {
   const appName = notification.app;
   const title = notification.title;
   // Replace newlines with periods.
-  let text = notification.content.replace(/\n/g, '. ');
+  let text = notification.content
+    .replace(/\n{2,}/g, '. ')
+    .replace(/\n/g, '. ')
+    .replace(/(\.\s*)+/g, '. ');
   const maxLength = 125;
-  const prefix = title && title.trim().length > 0 ? `${appName} - ${title}: ` : `${appName}: `;
+  const prefix =
+    title && title.trim().length > 0 ? `${appName} - ${title}: ` : `${appName}: `;
   let combinedString = prefix + text;
 
   if (combinedString.length > maxLength) {
@@ -244,6 +274,5 @@ app.get('/health', (req, res) => {
 
 // Start the Express server.
 app.listen(PORT, () => {
-  console.log(`Notifications TPA server running at http://localhost:${PORT}`);
-  console.log(`Logo available at http://localhost:${PORT}/logo.png`);
+  console.log(`${PACKAGE_NAME} server running at http://localhost:${PORT}`);
 });

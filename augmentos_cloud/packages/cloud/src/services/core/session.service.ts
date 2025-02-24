@@ -1,17 +1,37 @@
+// augmentos_cloud/packages/cloud/src/services/core/session.service.ts
+
 import { WebSocket } from 'ws';
 import { v4 as uuidv4 } from 'uuid';
 import { StreamType, UserSession } from '@augmentos/types';
-import { TranscriptSegment } from '@augmentos/types/core/transcript';
-import DisplayManager from '../layout/DisplayManager';
+import { TranscriptSegment } from '@augmentos/types';
 import { DisplayRequest } from '@augmentos/types';
 import appService, { SYSTEM_TPAS } from './app.service';
 import transcriptionService from '../processing/transcription.service';
+import DisplayManager from '../layout/DisplayManager6';
+import { lc3Service } from '@augmentos/utils';
 
 const RECONNECT_GRACE_PERIOD_MS = 30000; // 30 seconds
 const LOG_AUDIO = false;
+const PROCESS_AUDIO = true;
 
 export class SessionService {
   private activeSessions = new Map<string, UserSession>();
+  private isLC3Initialized = false;
+
+  constructor() {
+    this.initializeLC3();
+  }
+
+  private async initializeLC3(): Promise<void> {
+    try {
+      await lc3Service.initialize();
+      this.isLC3Initialized = true;
+      console.log('✅ LC3 Service initialized');
+    } catch (error) {
+      console.error('❌ Failed to initialize LC3 service:', error);
+      this.isLC3Initialized = false;
+    }
+  }
 
   createSession(ws: WebSocket, userId = 'anonymous'): UserSession {
     const sessionId = uuidv4();
@@ -48,7 +68,11 @@ export class SessionService {
     if (oldUserSession) {
       newSession.activeAppSessions = oldUserSession.activeAppSessions;
       newSession.transcript = oldUserSession.transcript;
-      newSession.displayManager = oldUserSession.displayManager;
+      newSession.bufferedAudio = oldUserSession.bufferedAudio;
+      newSession.OSSettings = oldUserSession.OSSettings;
+      newSession.appSubscriptions = oldUserSession.appSubscriptions;
+      newSession.appConnections = oldUserSession.appConnections;
+      newSession.whatToStream = oldUserSession.whatToStream;
       newSession.isTranscribing = false; // Reset transcription state
 
       // Clean up old session resources
@@ -76,49 +100,16 @@ export class SessionService {
     }
   }
 
-  // In SessionService, update updateDisplay method
-
   updateDisplay(userSessionId: string, displayRequest: DisplayRequest): void {
-    const session = this.getSession(userSessionId);
-    if (!session) {
-      console.error(`❌ No session found for display update: ${userSessionId}`);
+    const userSession = this.getSession(userSessionId);
+    if (!userSession) {
+      console.error(`❌[${userSessionId}]: No userSession found for display update`);
       return;
     }
-
-    const isSystemApp = SYSTEM_TPAS.some(app => app.packageName === displayRequest.packageName);
-    console.log('📱 Processing display request:', {
-      sessionId: userSessionId,
-      view: displayRequest.view,
-      packageName: displayRequest.packageName,
-      isSystemApp
-    });
-
-    // Update display history
     try {
-      // Give system apps priority in display management
-      // if (isSystemApp) {
-      //   displayRequest.priority = 'high';
-      // }
-      session.displayManager.handleDisplayEvent(displayRequest);
-      console.log('✅ Updated display history');
+      userSession.displayManager.handleDisplayEvent(displayRequest, userSession);
     } catch (error) {
-      console.error('❌ Error updating display history:', error);
-    }
-
-    // Send to glasses client - ensure system app displays always go through
-    if (session.websocket?.readyState === WebSocket.OPEN) {
-      try {
-        session.websocket.send(JSON.stringify(displayRequest));
-        console.log('✅ Sent display update to glasses');
-      } catch (error) {
-        console.error('❌ Error sending display update:', error);
-      }
-    } else {
-      console.error('⚠️ Glasses websocket not ready:', {
-        hasWebsocket: !!session.websocket,
-        readyState: session.websocket?.readyState,
-        isSystemApp
-      });
+      console.error(`❌[${userSessionId}]: Error updating display history:`, error);
     }
   }
 
@@ -128,43 +119,86 @@ export class SessionService {
     }
   }
 
-  handleAudioData(userSession: UserSession, audioData: ArrayBuffer | any): void {
+  async handleAudioData(
+    userSession: UserSession,
+    audioData: ArrayBuffer | any,
+    isLC3 = true
+  ): Promise<void> {
+    // Update the last audio timestamp regardless of transcription state
+    userSession.lastAudioTimestamp = Date.now();
+  
+    // Process LC3 first
+    let processedAudioData = audioData;
+    if (isLC3) {
+      if (!this.isLC3Initialized) {
+        await this.initializeLC3();
+        if (!this.isLC3Initialized) {
+          processedAudioData = audioData;
+        }
+      }
+  
+      if (this.isLC3Initialized) {
+        try {
+          processedAudioData = await lc3Service.decodeAudioChunk(audioData);
+        } catch (error) {
+          console.error('❌ Error decoding LC3 audio:', error);
+          processedAudioData = audioData;
+        }
+      }
+    }
+  
+    // Always buffer if we're not actively transcribing
+    // This ensures we don't lose audio during VAD transitions
     if (!userSession.isTranscribing) {
-      if (LOG_AUDIO) console.log('🔇 Not processing audio - transcription is disabled');
+      if (LOG_AUDIO) console.log('📦 Buffering audio while transcription is paused');
+      userSession.bufferedAudio.push(processedAudioData);
+      
+      // Keep buffer from growing too large
+      const MAX_BUFFER_SIZE = 1000; // About 20 seconds of audio at 50ms chunks
+      if (userSession.bufferedAudio.length > MAX_BUFFER_SIZE) {
+        console.log(`⚠️[${userSession}] Buffer exceeded ${MAX_BUFFER_SIZE} chunks, removing oldest chunks`);
+        userSession.bufferedAudio = userSession.bufferedAudio.slice(-MAX_BUFFER_SIZE);
+      }
       return;
     }
-
+  
+    // If we have a push stream, try to write to it
     if (userSession.pushStream) {
       try {
+        // Process any buffered audio first
+        if (userSession.bufferedAudio.length > 0) {
+          console.log(`📤 Processing ${userSession.bufferedAudio.length} buffered chunks`);
+          for (const chunk of userSession.bufferedAudio) {
+            await userSession.pushStream.write(chunk);
+          }
+          userSession.bufferedAudio = [];
+          console.log('✅ Finished processing buffer');
+        }
+  
+        // Now write the current chunk
+        await userSession.pushStream.write(processedAudioData);
+        
         if (LOG_AUDIO) {
-          console.log('🎤 Writing audio chunk to push stream');
-          console.log('Session state:', {
-            id: userSession.sessionId,
+          console.log('🎤 Wrote audio chunk to push stream', {
+            sessionId: userSession.sessionId,
             hasRecognizer: !!userSession.recognizer,
             isTranscribing: userSession.isTranscribing,
             bufferSize: userSession.bufferedAudio.length
           });
         }
-        userSession.pushStream.write(audioData);
       } catch (error) {
         console.error('❌ Error writing to push stream:', error);
-        console.error('Current session state:', {
-          id: userSession.sessionId,
-          hasRecognizer: !!userSession.recognizer,
-          isTranscribing: userSession.isTranscribing,
-          bufferSize: userSession.bufferedAudio.length
-        });
-        userSession.isTranscribing = false;
-        transcriptionService.stopTranscription(userSession);
+        // Don't immediately stop - let transcription service handle cleanup
+        transcriptionService.handlePushStreamError(userSession, error);
       }
     } else {
-      userSession.bufferedAudio.push(audioData);
+      // No push stream yet, keep buffering
+      userSession.bufferedAudio.push(processedAudioData);
       if (userSession.bufferedAudio.length === 1) {
-        console.log(`📦 Started buffering audio for session ${userSession.sessionId}`);
-        console.log('Waiting for push stream initialization...');
+        console.log(`📦 Started new buffer for session ${userSession.sessionId}`);
       }
       if (userSession.bufferedAudio.length % 100 === 0) {
-        console.log(`📦 Buffered ${userSession.bufferedAudio.length} audio chunks`);
+        console.log(`📦 Buffer size: ${userSession.bufferedAudio.length} chunks`);
       }
     }
   }
@@ -210,6 +244,12 @@ export class SessionService {
 }
 
 export const sessionService = new SessionService();
+
+// Initialize LC3 service
+lc3Service.initialize().catch(error => {
+  console.error('Failed to initialize LC3 service:', error);
+});
+
 console.log('✅ Session Service');
 
 export default sessionService;

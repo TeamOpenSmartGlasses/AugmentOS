@@ -8,9 +8,9 @@
  */
 
 import { AppI, StopWebhookRequest, StopWebhookResponse } from '@augmentos/types';
-import { AppState } from '@augmentos/types/core/app.session';
+import { AppState } from '@augmentos/types';
 import axios, { AxiosError } from 'axios';
-import { systemApps } from '@augmentos/types/config/cloud.env';
+import { systemApps } from '@augmentos/config';
 
 
 /**
@@ -27,27 +27,38 @@ export const APP_STORE: AppI[] = [
     logoURL: `https://cloud.augmentos.org/${systemApps.captions.packageName}.png`,
   },
   {
-    packageName: systemApps.flash.packageName,
-    name: systemApps.flash.name,
-    description: "⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️",
-    webhookURL: `http://localhost:${systemApps.flash.port}/webhook`,
-    logoURL: `https://cloud.augmentos.org/${systemApps.flash.packageName}.png`,
-  },
-  {
     packageName: systemApps.notify.packageName,
     name: systemApps.notify.name,
     description: "Show notifications from your device 🔔",
     webhookURL: `http://localhost:${systemApps.notify.port}/webhook`,
     logoURL: `https://cloud.augmentos.org/${systemApps.notify.packageName}.png`,
   },
-  // {
-  //   packageName: systemApps.mira.packageName,
-  //   name: systemApps.mira.name,
-  //   description: "Mira AI, your proactive agent making all of your conversations better one insight at a time. 🚀",
-  //   webhookURL: `http://localhost:${systemApps.mira.port}/webhook`,
-  //   logoURL: `https://cloud.augmentos.org/${systemApps.mira.packageName}.png`,
-  // }
+  {
+    packageName: systemApps.mira.packageName,
+    name: systemApps.mira.name,
+    description: "Mira AI, your proactive agent making all of your conversations better one insight at a time. 🚀",
+    webhookURL: `http://localhost:${systemApps.mira.port}/webhook`,
+    logoURL: `https://cloud.augmentos.org/${systemApps.mira.packageName}.png`,
+  },
+  {
+    packageName: systemApps.merge.packageName,
+    name: systemApps.merge.name,
+    description: "Merge AI, your proactive agent making all of your conversations better one insight at a time. 🚀",
+    webhookURL: `http://localhost:${systemApps.merge.port}/webhook`,
+    logoURL: `https://cloud.augmentos.org/${systemApps.merge.packageName}.png`,
+  }
 ];
+
+// if we are not in production, add the dashboard to the app 
+if (process.env.NODE_ENV !== 'production') {
+  APP_STORE.push(  {
+    packageName: systemApps.flash.packageName,
+    name: systemApps.flash.name,
+    description: "⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️",
+    webhookURL: `http://localhost:${systemApps.flash.port}/webhook`,
+    logoURL: `https://cloud.augmentos.org/${systemApps.flash.packageName}.png`,
+  });
+}
 
 /**
  * System TPAs that are always available.
@@ -180,17 +191,17 @@ export class AppService implements IAppService {
         await axios.post(url, payload, {
           headers: {
             'Content-Type': 'application/json',
-            // Add signature/authentication headers here when implemented
           },
-          timeout: 5000 // 5 second timeout
+          timeout: 10000 // Increase timeout to 10 seconds
         });
         return;
       } catch (error: unknown) {
         if (attempt === maxRetries - 1) {
-          // check if error is an AxiosError.
           if (axios.isAxiosError(error)) {
-            // log the error message
-            console.error(`Webhook failed after ${maxRetries} attempts: ${(error as AxiosError).message}`);
+            console.error(`Webhook failed: ${error}`);
+            console.error(`URL: ${url}`);
+            console.error(`Response: ${error.response?.data}`);
+            console.error(`Status: ${error.response?.status}`);
           }
           throw new Error(`Webhook failed after ${maxRetries} attempts: ${(error as AxiosError).message || 'Unknown error'}`);
         }

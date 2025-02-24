@@ -1,7 +1,7 @@
 //backend/src/routes/apps.ts
 import express from 'express';
 import sessionService from '../services/core/session.service';
-import { TranscriptSegment } from '@augmentos/types/core/transcript';
+import { TranscriptSegment } from '@augmentos/types';
 const router = express.Router();
 
 // GET /api/transcripts/:appSessionId
@@ -32,7 +32,7 @@ router.get('/api/transcripts/:appSessionId', async (req, res) => {
     }
 
     const transcriptSegments = userSession.transcript.segments;
-    console.log('\n\n\ntranscriptSegments:', userSession, "\n\n\n");
+    // console.log('\n\n\ntranscriptSegments:', userSession, "\n\n\n");
 
     const filteredTranscriptSegments = transcriptSegments.filter((segment: TranscriptSegment) => {
       const startTime = new Date(segment.timestamp);

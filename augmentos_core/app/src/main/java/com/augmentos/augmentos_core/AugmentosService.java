@@ -12,7 +12,6 @@ import static com.augmentos.augmentos_core.BatteryOptimizationHelper.isSystemApp
 import static com.augmentos.augmentos_core.Constants.notificationFilterKey;
 import static com.augmentos.augmentos_core.Constants.newsSummaryKey;
 import static com.augmentos.augmentos_core.Constants.augmentOsMainServiceNotificationId;
-import static com.augmentos.augmentos_core.statushelpers.JsonHelper.convertJsonToMap;
 
 
 import android.app.Notification;
@@ -88,10 +87,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Collections;
 import java.util.List;
 //SpeechRecIntermediateOutputEvent
@@ -536,7 +533,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     };
 
     private void playStartupSequenceOnSmartGlasses() {
-        if (smartGlassesService == null) return;
+        if (smartGlassesService == null || smartGlassesService.windowManager == null) return;
 
         Handler handler = new Handler(Looper.getMainLooper());
         int delay = 250; // Frame delay
@@ -549,6 +546,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             @Override
             public void run() {
+                // Check for null each time before updating the UI
+                if (smartGlassesService == null || smartGlassesService.windowManager == null) {
+                    return;
+                }
+
                 if (cycles >= totalCycles) {
                     // End animation with final message
                     smartGlassesService.windowManager.showAppLayer(
@@ -579,7 +581,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         handler.postDelayed(animate, 350); // Start animation
     }
-
 
     @Subscribe
     public void onSmartRingButtonEvent(SmartRingButtonOutputEvent event) {
@@ -769,7 +770,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                     brightnessString = brightnessLevel + "%";
                 }
                 connectedGlasses.put("brightness", brightnessString);
-                Log.d(TAG, "Connected glasses info: " + headUpAngle);
+//                Log.d(TAG, "Connected glasses info: " + headUpAngle);
                 if (headUpAngle == null) {
                     headUpAngle = 20;
                 }
@@ -873,6 +874,13 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             }
 
             @Override
+            public void onMicrophoneStateChange(boolean microphoneEnabled) {
+                if (smartGlassesService != null  && SmartGlassesAndroidService.getSensingEnabled(getApplicationContext())) {
+                    smartGlassesService.changeMicrophoneState(microphoneEnabled);
+                }
+            }
+
+            @Override
             public void onConnectionStatusChange(WebSocketManager.IncomingMessageHandler.WebSocketStatus status) {
                 webSocketStatus = status;
                 sendStatusToAugmentOsManager();
@@ -956,10 +964,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Disconnecting from wearable: " + wearableId);
         // Logic to disconnect wearable
         stopSmartGlassesService();
-
-        //reset some local variables
-        brightnessLevel = null;
-        batteryLevel = null;
+        sendStatusToAugmentOsManager();
     }
 
     @Override
@@ -967,6 +972,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Forgetting wearable");
         savePreferredWearable(this, "");
         deleteEvenSharedPreferences(this);
+        brightnessLevel = null;
+        batteryLevel = null;
         stopSmartGlassesService();
         sendStatusToAugmentOsManager();
     }

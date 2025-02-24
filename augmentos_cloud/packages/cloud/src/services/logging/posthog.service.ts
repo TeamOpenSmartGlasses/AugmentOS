@@ -1,6 +1,6 @@
 // posthog.service.ts
 import { PostHog } from 'posthog-node';
-import { POSTHOG_PROJECT_API_KEY, POSTHOG_HOST } from '@augmentos/types/config/cloud.env';
+import { POSTHOG_PROJECT_API_KEY, POSTHOG_HOST } from '@augmentos/config';
 
 // Initialize PostHog client if API key is provided
 let posthogClient: PostHog | null = null;

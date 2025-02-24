@@ -27,6 +27,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.concurrent.atomic.AtomicBoolean;
+
 public class MicrophoneLocalAndBluetooth {
     private static final String TAG = "WearableAi_MicrophoneLocalAndBluetooth";
 
@@ -46,6 +47,9 @@ public class MicrophoneLocalAndBluetooth {
     private final AtomicBoolean recordingInProgress = new AtomicBoolean(false);
 
     private HearItBleMicrophone hearItBleMicrophone;
+
+    // Flag to track receiver registration status
+    private boolean isReceiverRegistered = false;
 
     private final BroadcastReceiver bluetoothStateReceiver = new BroadcastReceiver() {
         private BluetoothState bluetoothState = BluetoothState.UNAVAILABLE;
@@ -69,6 +73,7 @@ public class MicrophoneLocalAndBluetooth {
                         break;
                     case AudioManager.SCO_AUDIO_STATE_CONNECTING:
                         handleBluetoothStateChange(BluetoothState.UNAVAILABLE);
+                        break;
                     case AudioManager.SCO_AUDIO_STATE_DISCONNECTED:
                         handleBluetoothStateChange(BluetoothState.UNAVAILABLE);
                         break;
@@ -163,6 +168,7 @@ public class MicrophoneLocalAndBluetooth {
         filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
 
         mContext.registerReceiver(bluetoothStateReceiver, filter);
+        isReceiverRegistered = true;
 
         mIsCountDownOn = true;
         mCountDown.start();
@@ -171,10 +177,14 @@ public class MicrophoneLocalAndBluetooth {
     private void stopBluetoothSco() {
         mIsCountDownOn = false;
         mCountDown.cancel();
-        try {
-            mContext.unregisterReceiver(bluetoothStateReceiver);
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
+        if (isReceiverRegistered) {
+            try {
+                mContext.unregisterReceiver(bluetoothStateReceiver);
+                isReceiverRegistered = false;
+                Log.d(TAG, "Bluetooth state receiver unregistered in stopBluetoothSco()");
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -225,7 +235,6 @@ public class MicrophoneLocalAndBluetooth {
 
                 @Override
                 public void onPcmDataAvailable(byte[] pcmData) {
-//                    Log.d(TAG, "GOT HEAR IT AUDIO DATA");
                     ByteBuffer b_buffer = ByteBuffer.allocate(pcmData.length);
                     b_buffer.put(pcmData);
                     mChunkCallback.onSuccess(b_buffer);
@@ -253,10 +262,20 @@ public class MicrophoneLocalAndBluetooth {
         }
 
         recordingInProgress.set(false);
-        recorder.stop();
-        recorder.release();
-        recorder = null;
-        recordingThread = null;
+        try {
+            // Only call stop if the recorder is actually recording.
+            if (recorder.getRecordingState() == AudioRecord.RECORDSTATE_RECORDING) {
+                recorder.stop();
+            } else {
+                Log.d(TAG, "AudioRecord is not recording; skipping stop.");
+            }
+        } catch (IllegalStateException e) {
+            Log.e(TAG, "Error stopping AudioRecord", e);
+        } finally {
+            recorder.release();
+            recorder = null;
+            recordingThread = null;
+        }
     }
 
     private void activateBluetoothSco() {
@@ -303,7 +322,6 @@ public class MicrophoneLocalAndBluetooth {
                 if (result < 0) {
                     Log.d(TAG, "ERROR");
                 }
-//                Log.d(TAG, "GOT MAIN AUDIO DATA");
                 b_buffer.order(ByteOrder.LITTLE_ENDIAN);
                 b_buffer.asShortBuffer().put(short_buffer);
                 if (hearItBleMicrophone != null && !hearItBleMicrophone.isConnected()) {
@@ -334,13 +352,11 @@ public class MicrophoneLocalAndBluetooth {
     }
 
     private CountDownTimer mCountDown = new CountDownTimer(1201, 400) {
-        @SuppressWarnings("synthetic-access")
         @Override
         public void onTick(long millisUntilFinished) {
             audioManager.startBluetoothSco();
         }
 
-        @SuppressWarnings("synthetic-access")
         @Override
         public void onFinish() {
             mIsCountDownOn = false;
@@ -361,9 +377,10 @@ public class MicrophoneLocalAndBluetooth {
         mCountDown.cancel();
         deactivateBluetoothSco();
         audioManager.setMode(AudioManager.MODE_NORMAL);
-        if (mContext != null) {
+        if (mContext != null && isReceiverRegistered) {
             try {
                 mContext.unregisterReceiver(bluetoothStateReceiver);
+                isReceiverRegistered = false;
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             }
