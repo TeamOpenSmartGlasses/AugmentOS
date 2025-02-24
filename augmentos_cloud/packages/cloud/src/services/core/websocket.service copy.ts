@@ -376,7 +376,7 @@ export class WebSocketService {
   }
 
   /**
-   * 🤓 Handles messages from glasses clients.
+   * 🤓 Handles messages from glasses client.
    * @param userSession - User Session identifier
    * @param ws - WebSocket connection
    * @param message - Parsed message from client

@@ -362,6 +362,7 @@ export class WebSocketService {
       const endTimestamp = new Date();
       const connectionDuration = endTimestamp.getTime() - startTimestamp.getTime();
       PosthogService.trackEvent('disconnected', userSession.userId, {
+        userId: userSession.userId,
         sessionId: userSession.sessionId,
         timestamp: new Date().toISOString(),
         duration: connectionDuration

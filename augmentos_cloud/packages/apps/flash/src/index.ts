@@ -1,5 +1,5 @@
 import path from 'path';
-import { TpaServer, TpaSession } from '@augmentos/clients';
+import { TpaServer, TpaSession } from '@augmentos/sdk';
 import { CLOUD_PORT, systemApps } from '@augmentos/config';
 
 const PORT = systemApps.flash.port;

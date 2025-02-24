@@ -1,4 +1,4 @@
-# @augmentos/clients
+# @augmentos/sdk
 
 A TypeScript client library for building Third Party Apps (TPAs) for AugmentOS Cloud. This library provides a flexible, type-safe interface for handling WebSocket connections, managing layouts, and processing real-time data streams.
 
@@ -13,7 +13,7 @@ A TypeScript client library for building Third Party Apps (TPAs) for AugmentOS C
 ## Installation
 
 ```bash
-bun add @augmentos/clients
+bun add @augmentos/sdk
 ```
 
 ## Quick Start
