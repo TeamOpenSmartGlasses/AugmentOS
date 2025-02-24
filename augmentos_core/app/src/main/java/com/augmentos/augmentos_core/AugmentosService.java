@@ -957,10 +957,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Disconnecting from wearable: " + wearableId);
         // Logic to disconnect wearable
         stopSmartGlassesService();
-
-        //reset some local variables
-        brightnessLevel = null;
-        batteryLevel = null;
+        sendStatusToAugmentOsManager();
     }
 
     @Override
@@ -968,6 +965,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Forgetting wearable");
         savePreferredWearable(this, "");
         deleteEvenSharedPreferences(this);
+        brightnessLevel = null;
+        batteryLevel = null;
         stopSmartGlassesService();
         sendStatusToAugmentOsManager();
     }
