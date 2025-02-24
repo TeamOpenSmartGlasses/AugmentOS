@@ -163,6 +163,8 @@
 
   </application>
 
+    <queries> <intent> <action android:name="android.media.action.IMAGE_CAPTURE" /> </intent> </queries>
+
   <queries>
     <intent>
       <action android:name="android.intent.action.TTS_SERVICE" />

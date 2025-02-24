@@ -6,7 +6,7 @@ public class MentraLive extends SmartGlassesDevice {
         deviceIconName = "vuzix_shield";
         anySupport = true;
         fullSupport = true;
-        glassesOs = SmartGlassesOperatingSystem.SELF_OS_GLASSES;
+        glassesOs = SmartGlassesOperatingSystem.ANDROID_OS_GLASSES;
         hasDisplay = false;
         hasSpeakers = true;
         hasCamera = true;

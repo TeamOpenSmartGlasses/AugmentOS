@@ -14,6 +14,7 @@ import androidx.lifecycle.LifecycleOwner;
 
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.AudioChunkNewEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.DisableBleScoAudioEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators.special.SelfSGC;
 import com.augmentos.augmentoslib.events.DisplayCustomContentRequestEvent;
 import com.augmentos.augmentoslib.events.DoubleTextWallViewRequestEvent;
 import com.augmentos.augmentoslib.events.HomeScreenEvent;
@@ -134,6 +135,8 @@ class SmartGlassesRepresentative {
                 return new UltraliteSGC(context, smartGlassesDevice, lifecycleOwner);
             case EVEN_REALITIES_G1_MCU_OS_GLASSES:
                 return new EvenRealitiesG1SGC(context, smartGlassesDevice);
+            case SELF_OS_GLASSES:
+                return new SelfSGC(context, smartGlassesDevice);
             default:
                 return null;  // or throw an exception
         }
@@ -345,13 +348,6 @@ class SmartGlassesRepresentative {
         Log.d(TAG, "Got text line event: " + receivedEvent.text);
         if (smartGlassesCommunicator != null) {
             smartGlassesCommunicator.displayTextLine(receivedEvent.text);
-        }
-    }
-
-    @Subscribe
-    public void onDisplayCenteredTextRequestEvent(CenteredTextViewRequestEvent receivedEvent){
-        if(smartGlassesCommunicator != null){
-            smartGlassesCommunicator.displayCenteredText(receivedEvent.text);
         }
     }
 

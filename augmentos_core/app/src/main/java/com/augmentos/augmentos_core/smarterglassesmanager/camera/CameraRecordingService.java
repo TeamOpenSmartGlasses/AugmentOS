@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.hardware.camera2.CameraAccessException;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
@@ -20,13 +21,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 
 import com.augmentos.augmentos_core.R;
-import com.pedro.encoder.input.video.CameraHelper;
 import com.pedro.rtmp.utils.ConnectCheckerRtmp;
 import com.pedro.rtplibrary.rtmp.RtmpCamera2;
-import com.pedro.rtplibrary.rtmp.RtmpCamera2.*;
-import com.pedro.rtplibrary.view.OffScreenGlThread;
 import com.pedro.rtplibrary.view.OpenGlView;
-import com.pedro.rtplibrary.view.TakePhotoCallback;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -52,6 +49,7 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
     public static final String ACTION_TAKE_PHOTO = "com.augmentos.camera.ACTION_TAKE_PHOTO";
     public static final String EXTRA_PHOTO_FILE_PATH = "com.augmentos.camera.EXTRA_PHOTO_FILE_PATH";
     public static final String EXTRA_RTMP_URL = "com.augmentos.camera.EXTRA_RTMP_URL";
+    private static String lastPhotoPath;
 
     private RtmpCamera2 rtmpCamera2;
     private OpenGlView glView;
@@ -81,12 +79,15 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
     private boolean audioStereo = true;
     private boolean audioEchoCanceller = false;
     private boolean audioNoiseSuppressor = false;
+    private String dummyRecordingPath;
 
+    private boolean isDummyRecording = false;
     @Override
     public void onCreate() {
         super.onCreate();
         Log.d(TAG, "Service onCreate");
         createNotificationChannel();
+        showNotification("Camera Service", "Service is running");
 
         // Create an off-screen OpenGlView for preview
         //glView = new OpenGlView(this);
@@ -112,16 +113,16 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
         }
 
         // Prepare audio: bitrate, sample rate, stereo, echo canceller, noise suppressor
-        boolean audioPrepared = rtmpCamera2.prepareAudio(
-                128 * 1024,      // audio bitrate
-                44100,           // sample rate
-                true,            // stereo
-                false,           // echo canceller
-                false            // noise suppressor
-        );
-        if (!audioPrepared) {
-            Log.e(TAG, "Failed to prepare audio");
-        }
+//        boolean audioPrepared = rtmpCamera2.prepareAudio(
+//                128 * 1024,      // audio bitrate
+//                44100,           // sample rate
+//                true,            // stereo
+//                false,           // echo canceller
+//                false            // noise suppressor
+//        );
+//        if (!audioPrepared) {
+//            Log.e(TAG, "Failed to prepare audio");
+//        }
 
         // Start the camera preview (even if off-screen) so the camera is active
         rtmpCamera2.startPreview();
@@ -169,9 +170,21 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
 
         currentRetryCount = 0;
 
-        rtmpCamera2.startStream(rtmpUrl);
-        isStreaming = true;
-        showNotification("Streaming", "Live streaming to: " + rtmpUrl);
+        // Hack description
+        // If there is no activity when camera is called, we need to rePrepare the encoders
+        // then need 1000ms delay
+        int delay = 0;
+        if (!rtmpCamera2.isOnPreview()) {
+            Log.d(TAG, "Preview not running, starting preview first");
+            rePrepareEncoders(); // This will start the preview
+            delay = 1000;
+        }
+
+        new Handler(getMainLooper()).postDelayed(() -> {
+            rtmpCamera2.startStream(rtmpUrl);
+            isStreaming = true;
+            showNotification("Streaming", "Live streaming to: " + rtmpUrl);
+        }, delay);
     }
 
     private void rePrepareEncoders() {
@@ -187,12 +200,15 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
             Log.e(TAG, "Failed to re-prepare video");
         }
 
-        boolean audioPrepared = rtmpCamera2.prepareAudio(
-                128 * 1024, 44100, true, false, false
-        );
-        if (!audioPrepared) {
-            Log.e(TAG, "Failed to re-prepare audio");
+        if (!isDummyRecording) {
+            boolean audioPrepared = rtmpCamera2.prepareAudio(
+                    128 * 1024, 44100, true, false, false
+            );
+            if (!audioPrepared) {
+                Log.e(TAG, "Failed to re-prepare audio");
+            }
         }
+
         rtmpCamera2.startPreview();
     }
     private void attemptRetry(String failureReason) {
@@ -233,19 +249,66 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
             return;
         }
         // Create a file path for the recording
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
-        String filePath = getExternalFilesDir(null) + File.separator + "VID_" + timeStamp + ".mp4";
-
-        try {
-            rtmpCamera2.startRecord(filePath);
-            isRecording = true;
-            // showNotification("Recording", "Recording to: " + filePath);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        String filePath;
+        if (isDummyRecording) {
+            File dummyFile = new File(getCacheDir(), "dummy_video.mp4");
+            filePath = dummyFile.getAbsolutePath();
+            Log.d(TAG, "Starting DUMMY recording at: " + filePath);
+        } else {
+            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
+            filePath = getExternalFilesDir(null) + File.separator + "VID_" + timeStamp + ".mp4";
         }
+
+        // Hack description
+        // If there is no activity when camera is called, we need to rePrepare the encoders
+        // then need 1000ms delay
+        int delay = 0;
+        if (!rtmpCamera2.isOnPreview()) {
+            Log.d(TAG, "Preview not running, starting preview first");
+            rePrepareEncoders(); // This will start the preview
+            delay = 1000;
+        }
+
+        new Handler(getMainLooper()).postDelayed(() -> {
+            try {
+                rtmpCamera2.startRecord(filePath);
+                if(isDummyRecording) {
+                    dummyRecordingPath = filePath;
+                }
+                isRecording = true;
+                showNotification("Recording", "Recording to: " + filePath);
+                Log.d(TAG, "Recording started successfully to: " + filePath);
+            } catch (IOException e) {
+                Log.e(TAG, "Failed to start recording", e);
+                throw new RuntimeException(e);
+            } catch (RuntimeException e) {
+                Log.e(TAG, "Runtime exception occurred while starting recording", e);
+                stopSelf();
+                // Check if this is a camera policy error
+                if (e.getCause() instanceof android.hardware.camera2.CameraAccessException) {
+                    android.hardware.camera2.CameraAccessException cameraEx =
+                            (android.hardware.camera2.CameraAccessException) e.getCause();
+
+                    if (cameraEx.getReason() == android.hardware.camera2.CameraAccessException.CAMERA_DISABLED) {
+                        Log.e(TAG, "Camera disabled by policy", e);
+                        //handleCameraDisabledByPolicy();
+                    } else {
+                        Log.e(TAG, "Camera access error: " + cameraEx.getReason(), e);
+                        //handleRecordingFailure("Camera access error: " + cameraEx.getMessage());
+                    }
+                } else {
+                    Log.e(TAG, "Failed to start recording due to RuntimeException", e);
+                    //handleRecordingFailure("RuntimeException: " + e.getMessage());
+                }
+            } catch (Exception e) {
+                stopSelf();
+            }
+
+        }, delay);
     }
 
     private void takePhoto(String filePath) {
+        if(isDummyRecording) return;
         if (filePath == null || filePath.isEmpty()) {
             // Construct a default file path if none provided
             String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
@@ -253,29 +316,67 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
         }
 
         String finalFilePath = filePath;
-        rtmpCamera2.getGlInterface().takePhoto(bitmap -> {
-            if (bitmap == null) {
-                Log.e(TAG, "takePhoto() returned a null Bitmap");
-                return;
-            }
-            // Save the bitmap to the filePath as a JPEG
-            File file = new File(finalFilePath);
-            FileOutputStream fos = null;
-            try {
-                fos = new FileOutputStream(file);
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-                fos.flush();
-                Log.d(TAG, "Photo saved to: " + file.getAbsolutePath());
-            } catch (IOException e) {
-                Log.e(TAG, "Error saving photo", e);
-            } finally {
-                if (fos != null) {
-                    try {
-                        fos.close();
-                    } catch (IOException ignored) { }
+
+        // Hack description
+        // If there is no activity when camera is called, we need to rePrepare the encoders
+        // then need 1000ms delay
+        int delay = 0;
+        if (!rtmpCamera2.isOnPreview()) {
+            Log.d(TAG, "Preview not running, starting preview first");
+         //   rePrepareEncoders(); // This will start the preview
+            delay = 200;
+        }
+
+        isDummyRecording = !isRecording && !isStreaming;
+        if(isDummyRecording) {
+            Log.d(TAG, "Neither recording nor streaming, create temporary dummy stream to enable camera");
+            startLocalRecording();
+        }
+
+        new Handler(getMainLooper()).postDelayed(() -> {
+            rtmpCamera2.getGlInterface().takePhoto(bitmap -> {
+                if (isDummyRecording) {
+                    if(rtmpCamera2.isRecording()) {
+                        rtmpCamera2.stopRecord();
+                    }
+                    isRecording = false;
+                    isDummyRecording = false;
+
+                    if (dummyRecordingPath != null) {
+                        File dummyFile = new File(dummyRecordingPath);
+                        if (dummyFile.exists()) {
+                            boolean deleted = dummyFile.delete();
+                            Log.d(TAG, "Dummy file " + dummyRecordingPath + " deleted: " + deleted);
+                        }
+                    }
                 }
-            }
-        });
+                if (bitmap == null) {
+                    Log.e(TAG, "takePhoto() returned a null Bitmap");
+                    return;
+                }
+                // Save the bitmap to the filePath as a JPEG
+                File file = new File(finalFilePath);
+                FileOutputStream fos = null;
+                try {
+                    fos = new FileOutputStream(file);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+                    fos.flush();
+                    Log.d(TAG, "Photo saved to: " + file.getAbsolutePath());
+                    lastPhotoPath = file.getAbsolutePath();
+                } catch (IOException e) {
+                    Log.e(TAG, "Error saving photo", e);
+                } finally {
+                    // TODO: uncomment this to prevent possible memory leak
+                    // bitmap.recycle();
+                    if (fos != null) {
+                        try {
+                            fos.close();
+                        } catch (IOException ignored) {
+                        }
+                    }
+                }
+            });
+        }, delay);
     }
 
 
@@ -391,33 +492,38 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
         Intent intent = new Intent(context, CameraRecordingService.class);
         intent.setAction(ACTION_STREAM);
         intent.putExtra(EXTRA_RTMP_URL, rtmpUrl);
-        context.startService(intent);
+        context.startForegroundService(intent);
     }
 
     public static void stopStreaming(Context context) {
         Intent intent = new Intent(context, CameraRecordingService.class);
         intent.setAction(ACTION_STOP);
-        context.startService(intent);
+        context.startForegroundService(intent);
     }
 
     // Static helpers for recording
     public static void startLocalRecording(Context context) {
         Intent intent = new Intent(context, CameraRecordingService.class);
         intent.setAction(ACTION_RECORD);
-        context.startService(intent);
+        context.startForegroundService(intent);
     }
 
     public static void stopLocalRecording(Context context) {
         Intent intent = new Intent(context, CameraRecordingService.class);
         intent.setAction(ACTION_STOP);
-        context.startService(intent);
+        context.startForegroundService(intent);
     }
 
     public static void takePicture(Context context, String filePath) {
         Intent intent = new Intent(context, CameraRecordingService.class);
         intent.setAction(ACTION_TAKE_PHOTO);
         intent.putExtra(EXTRA_PHOTO_FILE_PATH, filePath);
-        context.startService(intent);
+        context.startForegroundService(intent);
+    }
+
+    // Provide a static getter so the webserver can query it:
+    public static String getLastPhotoPath() {
+        return lastPhotoPath;
     }
 
 

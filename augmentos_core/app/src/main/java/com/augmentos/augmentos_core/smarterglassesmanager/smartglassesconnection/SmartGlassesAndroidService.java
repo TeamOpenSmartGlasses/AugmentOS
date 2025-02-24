@@ -22,6 +22,7 @@ import androidx.lifecycle.LifecycleService;
 import androidx.preference.PreferenceManager;
 
 import com.augmentos.augmentos_core.R;
+import com.augmentos.augmentos_core.smarterglassesmanager.camera.CameraRecordingService;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.augmentos.augmentos_core.smarterglassesmanager.comms.MessageTypes;
@@ -123,6 +124,9 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         //start text to speech
         textToSpeechSystem = new TextToSpeechSystem(this);
         textToSpeechSystem.setup();
+
+        // debug line
+        //recordFor5Seconds();
     }
 
     protected void setupEventBusSubscribers() {
@@ -207,6 +211,15 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
 //        }
 //    }
 
+    private void recordFor5Seconds(){
+        CameraRecordingService.startLocalRecording(getApplicationContext());
+        new android.os.Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                CameraRecordingService.stopLocalRecording(getApplicationContext());
+            }
+        }, 5000); // 5000ms = 5 seconds
+    }
 
     @Override
     public void onDestroy() {

@@ -1463,9 +1463,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     // Remaining methods
     @Override
-    public void displayCenteredText(String text) {}
-
-    @Override
     public void showNaturalLanguageCommandScreen(String prompt, String naturalLanguageInput) {}
 
     @Override

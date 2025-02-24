@@ -5,6 +5,7 @@ import static com.augmentos.augmentos_core.smarterglassesmanager.smartglassescom
 import static com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService.getSmartGlassesDeviceFromModelName;
 import static com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService.savePreferredWearable;
 import static com.augmentos.augmentos_core.statushelpers.CoreVersionHelper.getCoreVersion;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AugmentOSAsgClientPackageName;
 import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
 import static com.augmentos.augmentos_core.BatteryOptimizationHelper.handleBatteryOptimization;
 import static com.augmentos.augmentos_core.BatteryOptimizationHelper.isSystemApp;
@@ -139,7 +140,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public SmartGlassesConnectionState previousSmartGlassesConnectionState = SmartGlassesConnectionState.DISCONNECTED;
 
 
-    private AugmentosBlePeripheral blePeripheral;
+    public AugmentosBlePeripheral blePeripheral;
 
     public AugmentosSmartGlassesService smartGlassesService;
     private boolean isSmartGlassesServiceBound = false;
@@ -344,10 +345,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         // Initialize BLE Peripheral
         blePeripheral = new AugmentosBlePeripheral(this, this);
-        if (!edgeTpaSystem.isAppInstalled(AugmentOSManagerPackageName)) {
-            // TODO: While we use simulated puck, disable the BLE Peripheral for testing
-            // TODO: For now, just disable peripheral if manager is installed on same device
-            // blePeripheral.start();
+
+        // If this is the ASG client, start the peripheral
+        if (getPackageName().equals(AugmentOSAsgClientPackageName)) {
+        //    blePeripheral.start();
         }
 
         // Whitelist AugmentOS from battery optimization when system app
