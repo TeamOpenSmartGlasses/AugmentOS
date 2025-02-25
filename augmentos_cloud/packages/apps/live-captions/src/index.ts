@@ -25,6 +25,7 @@ const API_KEY = 'test_key'; // In production, this would be securely stored
 
 const userFinalTranscripts: Map<string, string> = new Map();
 const userTranscriptProcessors: Map<string, TranscriptProcessor> = new Map();
+const userSessions = new Map<string, Set<string>>(); // userId -> Set<sessionId>
 
 // For debouncing transcripts per session
 interface TranscriptDebouncer {
@@ -62,12 +63,12 @@ async function fetchAndApplySettings(sessionId: string, userId: string) {
     const lineWidthSetting = settings.find((s: any) => s.key === 'line_width');
     const numberOfLinesSetting = settings.find((s: any) => s.key === 'number_of_lines');
 
-    console.log(`==========`, lineWidthSetting);
+    // console.log(`==========`, lineWidthSetting);
     const lineWidth = lineWidthSetting ? convertLineWidth(lineWidthSetting.value) : 30; // fallback default
     const numberOfLines = numberOfLinesSetting ? Number(numberOfLinesSetting.value) : 3; // fallback default
 
-    console.log(`==========`, lineWidth);
-    console.log(`==========`, numberOfLines);
+    // console.log(`==========`, lineWidth);
+    // console.log(`==========`, numberOfLines);
     const transcriptProcessor = new TranscriptProcessor(lineWidth, numberOfLines);
     userTranscriptProcessors.set(userId, transcriptProcessor);
   } catch (err) {
@@ -117,12 +118,27 @@ app.post('/webhook', async (req, res) => {
     ws.on('close', () => {
       console.log(`Session ${sessionId} disconnected`);
       activeSessions.delete(sessionId);
-      userFinalTranscripts.delete(sessionId);
+      
+      // Remove session from user's sessions map
+      if (userSessions.has(userId)) {
+        const sessions = userSessions.get(userId)!;
+        sessions.delete(sessionId);
+        if (sessions.size === 0) {
+          userSessions.delete(userId);
+        }
+      }
+      
       transcriptDebouncers.delete(sessionId);
     });
 
+    // Track this session for the user
+    if (!userSessions.has(userId)) {
+      userSessions.set(userId, new Set());
+    }
+    userSessions.get(userId)!.add(sessionId);
+
     activeSessions.set(sessionId, ws);
-    userFinalTranscripts.set(sessionId, "");
+    userFinalTranscripts.set(userId, "");
     // Initialize debouncer for the session
     transcriptDebouncers.set(sessionId, { lastSentTime: 0, timer: null });
 
@@ -168,10 +184,10 @@ function handleMessage(sessionId: string, userId: string, ws: WebSocket, message
  * Processes the transcription, applies debouncing, and then sends a display event.
  */
 function handleTranscription(sessionId: string, userId: string, ws: WebSocket, transcriptionData: any) {
-  let userFinalTranscript = userFinalTranscripts.get(sessionId);
+  let userFinalTranscript = userFinalTranscripts.get(userId);
   if (userFinalTranscript === undefined) {
     userFinalTranscript = "";
-    userFinalTranscripts.set(sessionId, userFinalTranscript);
+    userFinalTranscripts.set(userId, userFinalTranscript);
   }
 
   let transcriptProcessor = userTranscriptProcessors.get(userId);
@@ -191,7 +207,7 @@ function handleTranscription(sessionId: string, userId: string, ws: WebSocket, t
   if (isFinal) {
     const finalLiveCaption = newTranscript.length > 100 ? newTranscript.substring(newTranscript.length - 100) : newTranscript;
 
-    userFinalTranscripts.set(sessionId, finalLiveCaption);
+    userFinalTranscripts.set(userId, finalLiveCaption);
   }
 
   console.log(`[Session ${sessionId}]: finalLiveCaption=${isFinal}`);
@@ -259,28 +275,97 @@ function showTranscriptsToUser(sessionId: string, ws: WebSocket, transcript: str
   ws.send(JSON.stringify(displayRequest));
 }
 
-app.post('/settings', (req, res) => {
-  console.log('Received settings update for captions:', req.body);
-  const { userIdForSettings, settings } = req.body;
-  if (!userIdForSettings || !Array.isArray(settings)) {
-    return res.status(400).json({ error: 'Missing userId or settings array in payload' });
+/**
+ * Refreshes all sessions for a user after settings changes.
+ * Returns true if at least one session was refreshed.
+ */
+function refreshUserSessions(userId: string) {
+  const sessionIds = userSessions.get(userId);
+  if (!sessionIds || sessionIds.size === 0) {
+    console.log(`No active sessions found for user ${userId}`);
+    return false;
   }
-  const lineWidthSetting = settings.find((s: any) => s.key === 'line_width');
-  const numberOfLinesSetting = settings.find((s: any) => s.key === 'number_of_lines');
-
-  if (lineWidthSetting && numberOfLinesSetting) {
-    const newLineWidth = lineWidthSetting.value;
-    const newNumberOfLines = numberOfLinesSetting.value;
-    // Update TranscriptProcessor only for active sessions belonging to this user.
-    userTranscriptProcessors.forEach((processor, userId) => {
-      if (userId === userIdForSettings) {
-        console.log(`Updating TranscriptProcessor for user ${userId} with lineWidth: ${newLineWidth} and numberOfLines: ${newNumberOfLines}`);
-        const newProcessor = new TranscriptProcessor(newLineWidth, newNumberOfLines);
-        userTranscriptProcessors.set(userId, newProcessor);
+  
+  console.log(`Refreshing ${sessionIds.size} sessions for user ${userId}`);
+  
+  // Refresh each session
+  for (const sessionId of sessionIds) {
+    const ws = activeSessions.get(sessionId);
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      console.log(`Refreshing session ${sessionId}`);
+      
+      // Clear display to reset visual state
+      const clearDisplayRequest: DisplayRequest = {
+        type: TpaToCloudMessageType.DISPLAY_REQUEST,
+        view: ViewType.MAIN,
+        packageName: PACKAGE_NAME,
+        sessionId,
+        layout: {
+          layoutType: LayoutType.TEXT_WALL,
+          text: "" // Empty text to clear the display
+        },
+        timestamp: new Date(),
+        durationMs: 0 // Immediate clear
+      };
+      
+      try {
+        ws.send(JSON.stringify(clearDisplayRequest));
+      } catch (error) {
+        console.error(`Error clearing display for session ${sessionId}:`, error);
       }
-    });
+    } else {
+      console.log(`Session ${sessionId} is not open, removing from tracking`);
+      activeSessions.delete(sessionId);
+      sessionIds.delete(sessionId);
+    }
   }
-  res.json({ status: 'settings updated for user in captions app' });
+  
+  return sessionIds.size > 0;
+}
+
+app.post('/settings', (req, res) => {
+  try {
+    console.log('Received settings update for captions:', req.body);
+    const { userIdForSettings, settings } = req.body;
+    
+    if (!userIdForSettings || !Array.isArray(settings)) {
+      return res.status(400).json({ error: 'Missing userId or settings array in payload' });
+    }
+    
+    const lineWidthSetting = settings.find((s: any) => s.key === 'line_width');
+    const numberOfLinesSetting = settings.find((s: any) => s.key === 'number_of_lines');
+
+    // Validate settings
+    let lineWidth = 30; // default
+    if (lineWidthSetting) {
+      lineWidth = typeof lineWidthSetting.value === 'string' ? 
+        convertLineWidth(lineWidthSetting.value) : 
+        (typeof lineWidthSetting.value === 'number' ? lineWidthSetting.value : 30);
+    }
+    
+    let numberOfLines = 3; // default
+    if (numberOfLinesSetting) {
+      numberOfLines = Number(numberOfLinesSetting.value);
+      if (isNaN(numberOfLines) || numberOfLines < 1) numberOfLines = 3;
+    }
+    
+    // Update processor and clear transcript
+    console.log(`Updating settings for user ${userIdForSettings}: lineWidth=${lineWidth}, numberOfLines=${numberOfLines}`);
+    const newProcessor = new TranscriptProcessor(lineWidth, numberOfLines);
+    userTranscriptProcessors.set(userIdForSettings, newProcessor);
+    userFinalTranscripts.set(userIdForSettings, "");
+    
+    // Refresh active sessions
+    const sessionsRefreshed = refreshUserSessions(userIdForSettings);
+    
+    res.json({ 
+      status: 'Settings updated successfully',
+      sessionsRefreshed: sessionsRefreshed
+    });
+  } catch (error) {
+    console.error('Error updating settings:', error);
+    res.status(500).json({ error: 'Internal server error updating settings' });
+  }
 });
 
 // Add a route to verify the server is running

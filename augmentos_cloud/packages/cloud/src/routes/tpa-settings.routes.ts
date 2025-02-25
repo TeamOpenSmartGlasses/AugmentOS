@@ -219,13 +219,15 @@ router.post('/:tpaName', async (req, res) => {
     if (matchingApp) {
       const appEndpoint = `http://localhost:${matchingApp.port}/settings`;
       try {
-        const response = await axios.post(appEndpoint, { settings: updatedPayload });
+        // Add userIdForSettings to the payload that the captions app expects
+        const response = await axios.post(appEndpoint, { 
+          userIdForSettings: userId, 
+          settings: updatedPayload 
+        });
         console.log(`Called app endpoint at ${appEndpoint} with response:`, response.data);
       } catch (err) {
         console.error(`Error calling app endpoint at ${appEndpoint}:`, err);
       }
-    } else {
-      console.warn(`No matching app found for tpaName: ${tpaName}`);
     }
 
     return res.json({ success: true, message: 'Settings updated successfully' });
