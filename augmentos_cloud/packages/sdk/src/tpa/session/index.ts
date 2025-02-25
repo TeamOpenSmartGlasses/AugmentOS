@@ -7,16 +7,30 @@
 import WebSocket from 'ws';
 import { EventManager } from './events';
 import { LayoutManager } from './layouts';
-import type {
-  StreamType,
+import {
+  // Message types
   TpaToCloudMessage,
   CloudToTpaMessage,
-  TpaConnectionInitMessage,
-  TpaSubscriptionUpdateMessage,
+  TpaConnectionInit,
+  TpaSubscriptionUpdate,
+  TpaToCloudMessageType,
+  CloudToTpaMessageType,
+  
+  // Event data types
+  StreamType,
+  ButtonPress,
+  HeadPosition,
+  PhoneNotification,
   TranscriptionData,
-  HeadPositionEvent,
-  ButtonPressEvent,
-  PhoneNotificationEvent,
+  
+  // Type guards
+  isTpaConnectionAck,
+  isTpaConnectionError,
+  isDataStream,
+  isAppStopped,
+  isSettingsUpdate,
+  
+  // Other types
   AppSettings
 } from '@augmentos/types';
 import { CLOUD_PORT } from '@augmentos/config';
@@ -123,7 +137,7 @@ export class TpaSession {
    * @param handler - Function to handle head position updates
    * @returns Cleanup function to remove the handler
    */
-  onHeadPosition(handler: (data: HeadPositionEvent) => void): () => void {
+  onHeadPosition(handler: (data: HeadPosition) => void): () => void {
     return this.events.onHeadPosition(handler);
   }
 
@@ -132,7 +146,7 @@ export class TpaSession {
    * @param handler - Function to handle button events
    * @returns Cleanup function to remove the handler
    */
-  onButtonPress(handler: (data: ButtonPressEvent) => void): () => void {
+  onButtonPress(handler: (data: ButtonPress) => void): () => void {
     return this.events.onButtonPress(handler);
   }
 
@@ -141,7 +155,7 @@ export class TpaSession {
    * @param handler - Function to handle notifications
    * @returns Cleanup function to remove the handler
    */
-  onPhoneNotifications(handler: (data: PhoneNotificationEvent) => void): () => void {
+  onPhoneNotifications(handler: (data: PhoneNotification) => void): () => void {
     return this.events.onPhoneNotifications(handler);
   }
 
@@ -165,8 +179,8 @@ export class TpaSession {
    * @param event - Event name to listen for
    * @param handler - Event handler function
    */
-  on(event: string, handler: (data: any) => void): () => void {
-    return this.events.onConnected(handler);
+  on<T extends StreamType>(event: T, handler: (data: any) => void): () => void {
+    return this.events.on(event, handler);
   }
 
   // =====================================
@@ -240,23 +254,22 @@ export class TpaSession {
    * 📨 Handle incoming messages from cloud
    */
   private handleMessage(message: CloudToTpaMessage): void {
-    switch (message.type) {
-      case 'tpa_connection_ack':
-        this.events.emit('connected', message.settings);
-        this.updateSubscriptions();
-        break;
-
-      case 'tpa_connection_error':
-        this.events.emit('error', new Error(message.message));
-        break;
-
-      case 'data_stream':
-        this.events.emit(message.streamType, message.data);
-        break;
-
-      case 'settings_update':
-        this.events.emit('settings_update', message.settings);
-        break;
+    // Using type guards to determine message type
+    if (isTpaConnectionAck(message)) {
+      this.events.emit('connected', message.settings);
+      this.updateSubscriptions();
+    }
+    else if (isTpaConnectionError(message)) {
+      this.events.emit('error', new Error(message.message));
+    }
+    else if (isDataStream(message)) {
+      this.events.emit(message.streamType, message.data as any);
+    }
+    else if (isSettingsUpdate(message)) {
+      this.events.emit('settings_update', message.settings);
+    }
+    else if (isAppStopped(message)) {
+      this.events.emit('disconnected', `App stopped: ${message.reason}`);
     }
   }
 
@@ -264,11 +277,12 @@ export class TpaSession {
    * 🔐 Send connection initialization message
    */
   private sendConnectionInit(): void {
-    const message: TpaConnectionInitMessage = {
-      type: 'tpa_connection_init',
+    const message: TpaConnectionInit = {
+      type: TpaToCloudMessageType.CONNECTION_INIT,
       sessionId: this.sessionId!,
       packageName: this.config.packageName,
-      apiKey: this.config.apiKey
+      apiKey: this.config.apiKey,
+      timestamp: new Date()
     };
     this.send(message);
   }
@@ -277,10 +291,12 @@ export class TpaSession {
    * 📝 Update subscription list with cloud
    */
   private updateSubscriptions(): void {
-    const message: TpaSubscriptionUpdateMessage = {
-      type: 'subscription_update',
+    const message: TpaSubscriptionUpdate = {
+      type: TpaToCloudMessageType.SUBSCRIPTION_UPDATE,
       packageName: this.config.packageName,
-      subscriptions: Array.from(this.subscriptions)
+      subscriptions: Array.from(this.subscriptions),
+      sessionId: this.sessionId!,
+      timestamp: new Date()
     };
     this.send(message);
   }

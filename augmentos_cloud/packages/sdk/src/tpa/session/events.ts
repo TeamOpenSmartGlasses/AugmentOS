@@ -2,15 +2,22 @@
  * 🎮 Event Manager Module
  */
 import EventEmitter from 'events';
-import type { 
-  StreamType, 
-  StreamDataTypes,
-  TranscriptionData,
-  HeadPositionEvent,
-  ButtonPressEvent,
-  PhoneNotificationEvent,
+import { 
+  StreamType,
+  AppSettings,
   WebSocketError,
-  AppSettings
+  // Event data types
+  ButtonPress,
+  HeadPosition,
+  PhoneNotification,
+  TranscriptionData,
+  TranslationData,
+  GlassesBatteryUpdate,
+  PhoneBatteryUpdate,
+  GlassesConnectionState,
+  LocationUpdate,
+  Vad,
+  NotificationDismissed
 } from '@augmentos/types';
 
 /** 🎯 Type-safe event handler function */
@@ -27,8 +34,30 @@ interface SystemEvents {
 /** 📡 All possible event types */
 type EventType = StreamType | keyof SystemEvents;
 
+/** 📦 Map of stream types to their data types */
+interface StreamDataTypes {
+  [StreamType.BUTTON_PRESS]: ButtonPress;
+  [StreamType.HEAD_POSITION]: HeadPosition;
+  [StreamType.PHONE_NOTIFICATION]: PhoneNotification;
+  [StreamType.TRANSCRIPTION]: TranscriptionData;
+  [StreamType.TRANSLATION]: TranslationData;
+  [StreamType.GLASSES_BATTERY_UPDATE]: GlassesBatteryUpdate;
+  [StreamType.PHONE_BATTERY_UPDATE]: PhoneBatteryUpdate;
+  [StreamType.GLASSES_CONNECTION_STATE]: GlassesConnectionState;
+  [StreamType.LOCATION_UPDATE]: LocationUpdate;
+  [StreamType.VAD]: Vad;
+  [StreamType.NOTIFICATION_DISMISSED]: NotificationDismissed;
+  [StreamType.AUDIO_CHUNK]: ArrayBuffer;
+  [StreamType.VIDEO]: ArrayBuffer;
+  [StreamType.OPEN_DASHBOARD]: never;
+  [StreamType.START_APP]: never;
+  [StreamType.STOP_APP]: never;
+  [StreamType.ALL]: never;
+  [StreamType.WILDCARD]: never;
+}
+
 /** 📦 Data type for an event */
-type EventData<T extends EventType> = T extends StreamType 
+type EventData<T extends EventType> = T extends keyof StreamDataTypes 
   ? StreamDataTypes[T] 
   : T extends keyof SystemEvents 
     ? SystemEvents[T] 
@@ -43,21 +72,41 @@ export class EventManager {
     this.handlers = new Map();
   }
 
+  // Convenience handlers for common event types
+
   onTranscription(handler: Handler<TranscriptionData>) {
-    return this.addHandler('transcription', handler);
+    return this.addHandler(StreamType.TRANSCRIPTION, handler);
   }
 
-  onHeadPosition(handler: Handler<HeadPositionEvent>) {
-    return this.addHandler('head_position', handler);
+  onHeadPosition(handler: Handler<HeadPosition>) {
+    return this.addHandler(StreamType.HEAD_POSITION, handler);
   }
 
-  onButtonPress(handler: Handler<ButtonPressEvent>) {
-    return this.addHandler('button_press', handler);
+  onButtonPress(handler: Handler<ButtonPress>) {
+    return this.addHandler(StreamType.BUTTON_PRESS, handler);
   }
 
-  onPhoneNotifications(handler: Handler<PhoneNotificationEvent>) {
-    return this.addHandler('phone_notification', handler);
+  onPhoneNotifications(handler: Handler<PhoneNotification>) {
+    return this.addHandler(StreamType.PHONE_NOTIFICATION, handler);
   }
+
+  onGlassesBattery(handler: Handler<GlassesBatteryUpdate>) {
+    return this.addHandler(StreamType.GLASSES_BATTERY_UPDATE, handler);
+  }
+
+  onPhoneBattery(handler: Handler<PhoneBatteryUpdate>) {
+    return this.addHandler(StreamType.PHONE_BATTERY_UPDATE, handler);
+  }
+
+  onVoiceActivity(handler: Handler<Vad>) {
+    return this.addHandler(StreamType.VAD, handler);
+  }
+
+  onLocation(handler: Handler<LocationUpdate>) {
+    return this.addHandler(StreamType.LOCATION_UPDATE, handler);
+  }
+
+  // System event handlers
 
   onConnected(handler: Handler<SystemEvents['connected']>) {
     this.emitter.on('connected', handler);
@@ -77,6 +126,15 @@ export class EventManager {
   onSettingsUpdate(handler: Handler<SystemEvents['settings_update']>) {
     this.emitter.on('settings_update', handler);
     return () => this.emitter.off('settings_update', handler);
+  }
+
+  /**
+   * 🔄 Generic event handler
+   * 
+   * Use this for stream types without specific handler methods
+   */
+  on<T extends StreamType>(type: T, handler: Handler<StreamDataTypes[T]>): () => void {
+    return this.addHandler(type, handler);
   }
 
   /**
@@ -117,7 +175,7 @@ export class EventManager {
    * 📡 Emit an event to all registered handlers
    */
   emit<T extends EventType>(event: T, data: EventData<T>): void {
-    // Emit to EventEmitter handlers
+    // Emit to EventEmitter handlers (system events)
     this.emitter.emit(event, data);
 
     // Emit to stream handlers if applicable

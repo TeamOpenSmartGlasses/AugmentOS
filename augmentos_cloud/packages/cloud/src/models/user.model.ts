@@ -1,17 +1,17 @@
 // models/user.model.ts
 import mongoose, { Schema, Document, Model } from 'mongoose';
-import type { AppSettingType } from '@augmentos/types';
+import { AppSettingType, type AppSetting } from '@augmentos/types';
 
 // Extend Document for TypeScript support
 interface UserDocument extends Document {
   email: string;
   runningApps: string[];
-  appSettings: Map<string, AppSettingType[]>;
+  appSettings: Map<string, AppSetting[]>;
 
   addRunningApp(appName: string): Promise<void>;
   removeRunningApp(appName: string): Promise<void>;
-  updateAppSettings(appName: string, settings: AppSettingType[]): Promise<void>;
-  getAppSettings(appName: string): AppSettingType[] | undefined;
+  updateAppSettings(appName: string, settings: AppSetting[]): Promise<void>;
+  getAppSettings(appName: string): AppSetting[] | undefined;
   isAppRunning(appName: string): boolean;
 }
 
@@ -120,18 +120,18 @@ UserSchema.methods.removeRunningApp = async function(this: UserDocument, appName
 UserSchema.methods.updateAppSettings = async function(
   this: UserDocument,
   appName: string, 
-  settings: AppSettingType[]
+  settings: AppSetting[]
 ): Promise<void> {
   // Validate settings before updating
   const isValid = settings.every(setting => {
     switch (setting.type) {
-      case 'toggle':
+      case AppSettingType.TOGGLE:
         return typeof setting.defaultValue === 'boolean';
-      case 'select':
+      case AppSettingType.SELECT:
         return Array.isArray(setting.options) && 
                setting.options.length > 0 &&
                (!setting.defaultValue || setting.options.some(opt => opt.value === setting.defaultValue));
-      case 'text':
+      case AppSettingType.TEXT:
         return true; // Text settings can have any string default value
       default:
         return false;
@@ -146,7 +146,7 @@ UserSchema.methods.updateAppSettings = async function(
   await this.save();
 };
 
-UserSchema.methods.getAppSettings = function(this: UserDocument, appName: string): AppSettingType[] | undefined {
+UserSchema.methods.getAppSettings = function(this: UserDocument, appName: string): AppSetting[] | undefined {
   return this.appSettings.get(appName);
 };
 

@@ -7,6 +7,15 @@
 import express, { type Express } from 'express';
 import path from 'path';
 import { TpaSession } from '../session';
+import {
+  WebhookRequest,
+  WebhookRequestType,
+  WebhookResponse,
+  SessionWebhookRequest,
+  StopWebhookRequest,
+  isSessionWebhookRequest,
+  isStopWebhookRequest
+} from '@augmentos/types';
 
 /**
  * 🔧 Configuration options for TPA Server
@@ -113,6 +122,26 @@ export class TpaServer {
   }
 
   /**
+   * 👥 Stop Handler
+   * Override this method to handle stop requests.
+   * This is where you can clean up resources when a session is stopped.
+   * 
+   * @param sessionId - Unique identifier for this session
+   * @param userId - User's identifier
+   * @param reason - Reason for stopping
+   */
+  protected async onStop(sessionId: string, userId: string, reason: string): Promise<void> {
+    console.log(`Session ${sessionId} stopped for user ${userId}. Reason: ${reason}`);
+    
+    // Default implementation: close the session if it exists
+    const session = this.activeSessions.get(sessionId);
+    if (session) {
+      session.disconnect();
+      this.activeSessions.delete(sessionId);
+    }
+  }
+
+  /**
    * 🚀 Start the Server
    * Starts listening for incoming connections and webhook calls.
    * 
@@ -162,43 +191,92 @@ export class TpaServer {
 
     this.app.post(this.config.webhookPath, async (req, res) => {
       try {
-        const { sessionId, userId } = req.body;
-        console.log(`\n\n🗣️ Received session request for user ${userId}, session ${sessionId}\n\n`);
-
-        // Create new TPA session. This will connect to AugmentOS Cloud via WebSocket automatically for each user's session.
-        const session = new TpaSession({
-          packageName: this.config.packageName,
-          apiKey: this.config.apiKey,
-          serverUrl: this.config.serverUrl
-        });
-
-        // Setup session event handlers
-        const cleanupDisconnect = session.events.onDisconnected(() => {
-          console.log(`👋 Session ${sessionId} disconnected`);
-          this.activeSessions.delete(sessionId);
-        });
-
-        const cleanupError = session.events.onError((error) => {
-          console.error(`❌ [Session ${sessionId}] Error:`, error);
-        });
-
-        // Start the session
-        try {
-          await session.connect(sessionId);
-          this.activeSessions.set(sessionId, session);
-          await this.onSession(session, sessionId, userId);
-          res.status(200).json({ status: 'connected' });
-        } catch (error) {
-          console.error('❌ Failed to connect:', error);
-          cleanupDisconnect();
-          cleanupError();
-          res.status(500).json({ error: 'Failed to connect' });
+        const webhookRequest = req.body as WebhookRequest;
+        
+        // Handle session request
+        if (isSessionWebhookRequest(webhookRequest)) {
+          await this.handleSessionRequest(webhookRequest, res);
+        }
+        // Handle stop request
+        else if (isStopWebhookRequest(webhookRequest)) {
+          await this.handleStopRequest(webhookRequest, res);
+        }
+        // Unknown webhook type
+        else {
+          console.error('❌ Unknown webhook request type');
+          res.status(400).json({ 
+            status: 'error', 
+            message: 'Unknown webhook request type' 
+          } as WebhookResponse);
         }
       } catch (error) {
         console.error('❌ Error handling webhook:', error);
-        res.status(500).json({ error: 'Internal server error' });
+        res.status(500).json({ 
+          status: 'error', 
+          message: 'Internal server error' 
+        } as WebhookResponse);
       }
     });
+  }
+
+  /**
+   * Handle a session request webhook
+   */
+  private async handleSessionRequest(request: SessionWebhookRequest, res: express.Response): Promise<void> {
+    const { sessionId, userId } = request;
+    console.log(`\n\n🗣️ Received session request for user ${userId}, session ${sessionId}\n\n`);
+
+    // Create new TPA session
+    const session = new TpaSession({
+      packageName: this.config.packageName,
+      apiKey: this.config.apiKey,
+      serverUrl: this.config.serverUrl
+    });
+
+    // Setup session event handlers
+    const cleanupDisconnect = session.events.onDisconnected(() => {
+      console.log(`👋 Session ${sessionId} disconnected`);
+      this.activeSessions.delete(sessionId);
+    });
+
+    const cleanupError = session.events.onError((error) => {
+      console.error(`❌ [Session ${sessionId}] Error:`, error);
+    });
+
+    // Start the session
+    try {
+      await session.connect(sessionId);
+      this.activeSessions.set(sessionId, session);
+      await this.onSession(session, sessionId, userId);
+      res.status(200).json({ status: 'success' } as WebhookResponse);
+    } catch (error) {
+      console.error('❌ Failed to connect:', error);
+      cleanupDisconnect();
+      cleanupError();
+      res.status(500).json({ 
+        status: 'error', 
+        message: 'Failed to connect' 
+      } as WebhookResponse);
+    }
+  }
+
+  /**
+   * Handle a stop request webhook
+   */
+  private async handleStopRequest(request: StopWebhookRequest, res: express.Response): Promise<void> {
+    const { sessionId, userId, reason } = request;
+    console.log(`\n\n🛑 Received stop request for user ${userId}, session ${sessionId}, reason: ${reason}\n\n`);
+
+    try {
+      await this.onStop(sessionId, userId, reason);
+      res.status(200).json({ status: 'success' } as WebhookResponse);
+    } catch (error) {
+      console.error('❌ Error handling stop request:', error);
+      res.status(500).json({ 
+        status: 'error', 
+        message: 'Failed to process stop request' 
+      } as WebhookResponse);
+    }
   }
 
   /**

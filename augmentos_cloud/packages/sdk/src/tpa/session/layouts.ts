@@ -15,12 +15,16 @@
  * layouts.showReferenceCard('Weather', 'Sunny and 75°F');
  * ```
  */
-import type { 
-  DisplayRequest, 
+import { 
+  DisplayRequest,
   Layout, 
   TextWall, 
   DoubleTextWall, 
-  ReferenceCard 
+  ReferenceCard,
+  DashboardCard,
+  LayoutType,
+  ViewType,
+  TpaToCloudMessageType
 } from '@augmentos/types';
 
 export class LayoutManager {
@@ -39,15 +43,21 @@ export class LayoutManager {
    * 📦 Creates a display event request
    * 
    * @param layout - Layout configuration to display
+   * @param view - View type (main or dashboard)
    * @param durationMs - How long to show the layout (optional)
    * @returns Formatted display request
    */
-  private createDisplayEvent(layout: Layout, durationMs?: number): DisplayRequest {
+  private createDisplayEvent(
+    layout: Layout, 
+    view: ViewType = ViewType.MAIN,
+    durationMs?: number
+  ): DisplayRequest {
     return {
       timestamp: new Date(),
-      view: "main",
-      type: 'display_event',
+      sessionId: '',  // Will be filled by session
+      type: TpaToCloudMessageType.DISPLAY_REQUEST,
       packageName: this.packageName,
+      view,
       layout,
       durationMs
     };
@@ -62,19 +72,26 @@ export class LayoutManager {
    * - Notifications
    * 
    * @param text - Text content to display
-   * @param durationMs - How long to show the text (optional)
+   * @param options - Optional parameters (view, duration)
    * 
    * @example
    * ```typescript
    * layouts.showTextWall('Connected to server');
    * ```
    */
-  showTextWall(text: string, durationMs?: number) {
+  showTextWall(
+    text: string, 
+    options?: { view?: ViewType; durationMs?: number }
+  ) {
     const layout: TextWall = {
-      layoutType: 'text_wall',
+      layoutType: LayoutType.TEXT_WALL,
       text
     };
-    this.sendMessage(this.createDisplayEvent(layout, durationMs));
+    this.sendMessage(this.createDisplayEvent(
+      layout, 
+      options?.view, 
+      options?.durationMs
+    ));
   }
 
   /**
@@ -88,7 +105,7 @@ export class LayoutManager {
    * 
    * @param topText - Text to show in top section
    * @param bottomText - Text to show in bottom section
-   * @param durationMs - How long to show the layout (optional)
+   * @param options - Optional parameters (view, duration)
    * 
    * @example
    * ```typescript
@@ -98,13 +115,21 @@ export class LayoutManager {
    * );
    * ```
    */
-  showDoubleTextWall(topText: string, bottomText: string, durationMs?: number) {
+  showDoubleTextWall(
+    topText: string, 
+    bottomText: string, 
+    options?: { view?: ViewType; durationMs?: number }
+  ) {
     const layout: DoubleTextWall = {
-      layoutType: 'double_text_wall',
+      layoutType: LayoutType.DOUBLE_TEXT_WALL,
       topText,
       bottomText
     };
-    this.sendMessage(this.createDisplayEvent(layout, durationMs));
+    this.sendMessage(this.createDisplayEvent(
+      layout, 
+      options?.view, 
+      options?.durationMs
+    ));
   }
 
   /**
@@ -118,7 +143,7 @@ export class LayoutManager {
    * 
    * @param title - Card title
    * @param text - Main content text
-   * @param durationMs - How long to show the card (optional)
+   * @param options - Optional parameters (view, duration)
    * 
    * @example
    * ```typescript
@@ -128,12 +153,54 @@ export class LayoutManager {
    * );
    * ```
    */
-  showReferenceCard(title: string, text: string, durationMs?: number) {
+  showReferenceCard(
+    title: string, 
+    text: string, 
+    options?: { view?: ViewType; durationMs?: number }
+  ) {
     const layout: ReferenceCard = {
-      layoutType: 'reference_card',
+      layoutType: LayoutType.REFERENCE_CARD,
       title,
       text
     };
-    this.sendMessage(this.createDisplayEvent(layout, durationMs));
+    this.sendMessage(this.createDisplayEvent(
+      layout, 
+      options?.view, 
+      options?.durationMs
+    ));
+  }
+
+  /**
+   * 📊 Shows a dashboard card with left and right text
+   * 
+   * Best for:
+   * - Key-value pairs
+   * - Dashboard displays
+   * - Metrics
+   * 
+   * @param leftText - Left side text (typically label/key)
+   * @param rightText - Right side text (typically value)
+   * @param options - Optional parameters (view, duration)
+   * 
+   * @example
+   * ```typescript
+   * layouts.showDashboardCard('Weather', '72°F');
+   * ```
+   */
+  showDashboardCard(
+    leftText: string, 
+    rightText: string, 
+    options?: { view?: ViewType; durationMs?: number }
+  ) {
+    const layout: DashboardCard = {
+      layoutType: LayoutType.DASHBOARD_CARD,
+      leftText,
+      rightText
+    };
+    this.sendMessage(this.createDisplayEvent(
+      layout, 
+      options?.view || ViewType.DASHBOARD, 
+      options?.durationMs
+    ));
   }
 }

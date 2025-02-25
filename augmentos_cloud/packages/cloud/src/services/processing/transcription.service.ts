@@ -11,20 +11,9 @@ import {
   ConversationTranscriber,
   ConversationTranscriptionEventArgs
 } from 'microsoft-cognitiveservices-speech-sdk';
-import { TranscriptionData, UserSession } from '@augmentos/types';
+import { StreamType, TranscriptionData, UserSession } from '@augmentos/types';
 import { AZURE_SPEECH_KEY, AZURE_SPEECH_REGION } from '@augmentos/config';
 import webSocketService from '../core/websocket.service';
-
-export interface InterimTranscriptionResult extends TranscriptionData {
-  type: 'transcription-interim';
-  isFinal: false;
-}
-
-export interface FinalTranscriptionResult extends TranscriptionData {
-  type: 'transcription-final',
-  isFinal: true;
-  duration: number;
-}
 
 export class TranscriptionService {
   private speechConfig: azureSpeechSDK.SpeechConfig;
@@ -64,28 +53,28 @@ export class TranscriptionService {
       hasPushStream: !!userSession.pushStream,
       isTranscribing: userSession.isTranscribing
     });
-  
+
     if (userSession.recognizer && userSession.pushStream) {
       console.log('⚠️ Transcription already active, reusing existing resources');
       return { recognizer: userSession.recognizer, pushStream: userSession.pushStream };
     }
-  
+
     this.sessionStartTime = Date.now();
-  
+
     try {
       console.log('🔄 Creating new transcription resources...');
       const pushStream = AudioInputStream.createPushStream();
       const audioConfig = AudioConfig.fromStreamInput(pushStream);
       const recognizer = new ConversationTranscriber(this.speechConfig, audioConfig);
-  
+
       userSession.pushStream = pushStream;
       userSession.recognizer = recognizer;
-  
+
       console.log('✅ Created new recognizer and push stream');
-  
+
       // Set up recognition handlers
       this.setupRecognitionHandlers(userSession, recognizer);
-  
+
       // Start recognition
       console.log('🚀 Starting continuous recognition...\n');
       recognizer.startTranscribingAsync(
@@ -98,7 +87,7 @@ export class TranscriptionService {
           this.cleanupTranscriptionResources(userSession);
         }
       );
-  
+
       return { recognizer, pushStream };
     } catch (error) {
       console.error('❌ Error creating transcription:', error);
@@ -107,79 +96,6 @@ export class TranscriptionService {
     }
   }
 
-  // startTranscription(userSession: UserSession) {
-  //   console.log(`\n🎙️ [Session ${userSession.sessionId}] Starting transcription...`);
-  //   console.log('Current session state:', {
-  //     hasRecognizer: !!userSession.recognizer,
-  //     hasPushStream: !!userSession.pushStream,
-  //     isTranscribing: userSession.isTranscribing,
-  //     // bufferedAudioChunks: userSession.bufferedAudio.length
-  //   });
-
-  //   if (userSession.recognizer && userSession.pushStream) {
-  //     console.log('⚠️ Transcription already active, reusing existing resources');
-  //     return { recognizer: userSession.recognizer, pushStream: userSession.pushStream };
-  //   }
-
-  //   this.sessionStartTime = Date.now();
-
-  //   try {
-  //     console.log('🔄 Creating new transcription resources...');
-  //     const pushStream = AudioInputStream.createPushStream();
-  //     const audioConfig = AudioConfig.fromStreamInput(pushStream);
-  //     const recognizer = new ConversationTranscriber(this.speechConfig, audioConfig);
-
-  //     userSession.pushStream = pushStream;
-  //     userSession.recognizer = recognizer;
-
-  //     console.log('✅ Created new recognizer and push stream');
-
-  //     // Set up recognition handlers
-  //     this.setupRecognitionHandlers(userSession, recognizer);
-
-  //     // Start recognition
-  //     console.log('🚀 Starting continuous recognition...\n');
-  //     recognizer.startTranscribingAsync(
-  //       () => {
-  //         console.log('✅ Recognition started successfully');
-  //         userSession.isTranscribing = true;
-    
-  //         // Process buffered audio
-  //         if (userSession.bufferedAudio.length > 0) {
-  //           const MAX_AGE_MS = 10000; // Only process last 10 seconds
-  //           const now = Date.now();
-  //           const recentChunks = userSession.bufferedAudio.filter(chunk => 
-  //             (now - chunk.timestamp) < MAX_AGE_MS
-  //           );
-    
-  //           if (recentChunks.length > 0) {
-  //             console.log(`📦 Processing ${recentChunks.length} recent chunks out of ${userSession.bufferedAudio.length} total buffered`);
-  //             recentChunks.forEach((chunk, index) => {
-  //               try {
-  //                 pushStream.write(chunk.data);
-  //               } catch (error) {
-  //                 console.error(`❌ Error processing buffered chunk ${index + 1}:`, error);
-  //               }
-  //             });
-  //           }
-  //           userSession.bufferedAudio = [];
-  //         }
-  //       },
-  //       (error) => {
-  //         console.error('❌ Failed to start recognition:', error);
-  //         this.cleanupTranscriptionResources(userSession);
-  //       }
-  //     );
-
-  //     return { recognizer, pushStream };
-  //   } catch (error) {
-  //     console.error('❌ Error creating transcription:', error);
-  //     this.cleanupTranscriptionResources(userSession);
-  //     throw error;
-  //   }
-  // }
-
-  // Add this new method
   gracefullyStopTranscription(userSession: UserSession) {
     console.log(`\n🛑 [Session ${userSession.sessionId}] Gracefully stopping transcription...`);
 
@@ -208,8 +124,6 @@ export class TranscriptionService {
     }, GRACE_PERIOD_MS);
   }
 
-  // Add this to TranscriptionService class
-
   handlePushStreamError(userSession: UserSession, error: any) {
     console.log('🔄 Handling push stream error...');
 
@@ -236,7 +150,7 @@ export class TranscriptionService {
 
   private async restartPushStream(userSession: UserSession) {
     console.log('🔄 Restarting push stream...');
-  
+
     // Clean up old push stream
     if (userSession.pushStream) {
       try {
@@ -245,48 +159,23 @@ export class TranscriptionService {
         console.warn('⚠️ Error closing old push stream:', error);
       }
     }
-  
+
     // Create new push stream
     const { recognizer, pushStream } = await this.startTranscription(userSession);
     userSession.recognizer = recognizer;
     userSession.pushStream = pushStream;
-  
+
     console.log('✅ Push stream restarted successfully');
   }
-  
-  // private async restartPushStream(userSession: UserSession) {
-  //   console.log('🔄 Restarting push stream...');
-
-  //   // Save any buffered audio
-  //   const bufferedAudio = userSession.bufferedAudio;
-  //   userSession.bufferedAudio = [];
-
-  //   // Clean up old push stream
-  //   if (userSession.pushStream) {
-  //     try {
-  //       userSession.pushStream.close();
-  //     } catch (error) {
-  //       console.warn('⚠️ Error closing old push stream:', error);
-  //     }
-  //   }
-
-  //   // Create new push stream
-  //   const { recognizer, pushStream } = await this.startTranscription(userSession);
-  //   userSession.recognizer = recognizer;
-  //   userSession.pushStream = pushStream;
-
-  //   // Restore buffered audio
-  //   userSession.bufferedAudio = bufferedAudio;
-  //   console.log('✅ Push stream restarted successfully');
-  // }
 
   private setupRecognitionHandlers(userSession: UserSession, recognizer: ConversationTranscriber) {
     recognizer.transcribing = (_sender: any, event: ConversationTranscriptionEventArgs) => {
       if (!event.result.text) return;
       console.log(`🎤 [Interim][${userSession.userId}]: ${event.result.text}`);
 
-      const result: InterimTranscriptionResult = {
-        type: 'transcription-interim',
+      const transcriptionData: TranscriptionData = {
+        // type: 'transcription-interim',
+        type: StreamType.TRANSCRIPTION,
         text: event.result.text,
         startTime: this.calculateRelativeTime(event.result.offset),
         endTime: this.calculateRelativeTime(event.result.offset + event.result.duration),
@@ -294,22 +183,23 @@ export class TranscriptionService {
         speakerId: event.result.speakerId,
       };
 
-      this.broadcastTranscriptionResult(userSession, result);
+      this.broadcastTranscriptionResult(userSession, transcriptionData);
 
       // TODO(isaiah): For now we're only saving final transcriptions to the transcript history.
-      // this.updateTranscriptHistory(userSession, event, false);
+      this.updateTranscriptHistory(userSession, event, false);
     };
 
     recognizer.transcribed = (_sender: any, event: ConversationTranscriptionEventArgs) => {
       if (!event.result.text) return;
       console.log(`✅ [Final][${userSession.userId}] ${event.result.text}`);
 
-      const result: FinalTranscriptionResult = {
-        type: 'transcription-final',
+      const result: TranscriptionData = {
+        // type: 'transcription-final',
+        type: StreamType.TRANSCRIPTION,
+        isFinal: true,
         text: event.result.text,
         startTime: this.calculateRelativeTime(event.result.offset),
         endTime: this.calculateRelativeTime(event.result.offset + event.result.duration),
-        isFinal: true,
         speakerId: event.result.speakerId,
         duration: event.result.duration
       };
@@ -397,54 +287,72 @@ export class TranscriptionService {
     return absoluteTime - this.sessionStartTime;
   }
 
-  private updateTranscriptHistory(userSession: UserSession, event: ConversationTranscriptionEventArgs, isFinal: boolean) {
-    console.log('📝 Updating transcript history...');
-    // let addSegment = false;
-
-    // if (userSession.transcript.segments.length > 0) {
-    //   const lastSegment = userSession.transcript.segments[userSession.transcript.segments.length - 1];
-    //   if (lastSegment.resultId === event.result.resultId) {
-    //     console.log('🔄 Updating existing segment');
-    //     lastSegment.text = event.result.text;
-    //     lastSegment.timestamp = new Date();
-    //   } else {
-    //     console.log('➕ Adding new segment');
-    //     addSegment = true;
-    //   }
-    // } else {
-    //   console.log('➕ Adding first segment');
-    //   addSegment = true;
-    // }
-
+  private updateTranscriptHistory(userSession: UserSession, event: ConversationTranscriptionEventArgs, isFinal: boolean) {    
+    const segments = userSession.transcript.segments;
+    
+    // Check if the last segment is an interim transcript
+    const hasInterimLast = segments.length > 0 && !segments[segments.length - 1].isFinal;
+    
     if (isFinal) {
-      // Add a new segment to the transcript history
-      userSession.transcript.segments.push({
+      // For final transcripts:
+      
+      // If the last segment is interim, remove it (more efficient than filtering the entire array)
+      if (hasInterimLast) {
+        segments.pop();
+      }
+      
+      // Add the new final segment
+      segments.push({
         resultId: event.result.resultId,
         speakerId: event.result.speakerId,
         text: event.result.text,
         timestamp: new Date(),
-        isFinal
+        isFinal: true
       });
+      
+    } else {
+      // For interim transcripts:
+      
+      // If the last segment is already interim, update it
+      if (hasInterimLast) {
+        segments[segments.length - 1] = {
+          resultId: event.result.resultId,
+          speakerId: event.result.speakerId,
+          text: event.result.text,
+          timestamp: new Date(),
+          isFinal: false
+        };
+      } else {
+        // Add a new interim segment
+        segments.push({
+          resultId: event.result.resultId,
+          speakerId: event.result.speakerId,
+          text: event.result.text,
+          timestamp: new Date(),
+          isFinal: false
+        });
+      }
     }
   }
 
   // Inside TranscriptionService class
-  private broadcastTranscriptionResult(userSession: UserSession, results: TranscriptionData) {
+  private broadcastTranscriptionResult(userSession: UserSession, transcriptionData: TranscriptionData) {
     console.log('📢 Broadcasting transcription result');
 
     try {
       // Use the webSocketService's broadcast method
       webSocketService.broadcastToTpa(
         userSession.sessionId,
-        'transcription',
-        results
+        StreamType.TRANSCRIPTION,
+        transcriptionData
+        // 'transcription',
       );
     } catch (error) {
       console.error('❌ Error broadcasting transcription:', error);
       console.log('Failed to broadcast:', {
         sessionId: userSession.sessionId,
-        resultType: results.type,
-        text: results.text?.slice(0, 50) + '...'  // Log first 50 chars
+        resultType: transcriptionData.type,
+        text: transcriptionData.text?.slice(0, 50) + '...'  // Log first 50 chars
       });
     }
   }
