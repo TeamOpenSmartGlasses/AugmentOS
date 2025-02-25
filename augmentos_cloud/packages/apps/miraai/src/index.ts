@@ -34,7 +34,7 @@ const explicitWakeWords = [
   "he mia",
   "hey mural",
   "he mural",
-  "hey amira",    
+  "hey amira",
   "hey myra",
   "he myra",
   "hay mira",
@@ -56,13 +56,11 @@ const miraAgent = new MiraAgent();
 
 // Track active sessions and listening state
 const activeSessions = new Map<string, WebSocket>();
-
-interface SessionData {
-  startTime: number;
-  firstTranscriptReceived: boolean;
-}
-const activeListeningSessions = new Map<string, SessionData>();
+// Track sessions that are in the process of capturing the wake-word and query
+const activeListeningSessions = new Map<string, { startTime: number; firstTranscriptReceived: boolean }>();
 const sessionTimers = new Map<string, NodeJS.Timeout>();
+// New map to track if a session is currently processing a query
+const sessionQuerying = new Map<string, boolean>();
 
 app.post('/webhook', async (req, res) => {
   try {
@@ -100,6 +98,7 @@ app.post('/webhook', async (req, res) => {
         sessionTimers.delete(sessionId);
       }
       activeListeningSessions.delete(sessionId);
+      sessionQuerying.delete(sessionId);
     });
 
     activeSessions.set(sessionId, ws);
@@ -142,6 +141,12 @@ async function handleMessage(sessionId: string, ws: WebSocket, message: any, con
 }
 
 async function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData: any) {
+  // If a query is already being processed for this session, ignore additional transcriptions.
+  if (sessionQuerying.get(sessionId)) {
+    console.log(`[Session ${sessionId}]: Query already in progress. Ignoring transcription.`);
+    return;
+  }
+
   const text = transcriptionData.text;
   // Clean the text: lowercase and remove punctuation for easier matching.
   const cleanedText = text.toLowerCase().replace(/[^\w\s]/g, '').trim();
@@ -160,9 +165,9 @@ async function handleTranscription(sessionId: string, ws: WebSocket, transcripti
     // Check if the final transcript ends with a wake word.
     if (endsWithWakeWord(cleanedText)) {
       // If the final transcript ends with just a wake word (or with trailing punctuation),
-      // wait 5 seconds to allow for additional query text.
+      // wait 3 seconds to allow for additional query text.
       timerDuration = 3000;
-      console.log(`[Session ${sessionId}]: Final transcript ends with a wake word; waiting 5 seconds.`);
+      console.log(`[Session ${sessionId}]: Final transcript ends with a wake word; waiting 3 seconds.`);
     } else {
       // Final transcript with additional content should be processed immediately.
       timerDuration = 1500;
@@ -209,6 +214,14 @@ async function handleTranscription(sessionId: string, ws: WebSocket, transcripti
 }
 
 async function processTranscripts(sessionId: string, ws: WebSocket) {
+  // Ensure that if a query is already processing, we do not process a new one.
+  if (sessionQuerying.get(sessionId)) {
+    console.log(`[Session ${sessionId}]: Query is already processing.`);
+    return;
+  }
+  // Set the session as currently processing a query.
+  sessionQuerying.set(sessionId, true);
+
   const sessionData = activeListeningSessions.get(sessionId);
   const startTime = sessionData ? sessionData.startTime : Date.now();
   const durationSeconds = Math.ceil((Date.now() - startTime) / 1000);
@@ -223,13 +236,30 @@ async function processTranscripts(sessionId: string, ws: WebSocket) {
     const rawCombinedText = data.segments.map((segment: any) => segment.text).join(' ');
     const combinedText = removeWakeWord(rawCombinedText);
 
+    console.log("Combined text:", combinedText);
+
+    if (combinedText.trim().length === 0) {
+      console.log("No query provided");
+      const noQueryDisplayRequest: DisplayRequest = {
+        type: 'display_event',
+        view: 'main',
+        packageName: PACKAGE_NAME,
+        sessionId,
+        layout: { layoutType: 'text_wall', text: wrapText("No query provided", 30) },
+        durationMs: 5000,
+        timestamp: new Date()
+      };
+      ws.send(JSON.stringify(noQueryDisplayRequest));
+      return;
+    }
+
     const displayProcessingQueryRequest: DisplayRequest = {
       type: 'display_event',
       view: 'main',
       packageName: PACKAGE_NAME,
       sessionId,
       layout: { layoutType: 'text_wall', text: wrapText("Processing query: " + combinedText, 30) },
-      durationMs: 7000,
+      durationMs: 8000,
       timestamp: new Date()
     };
     ws.send(JSON.stringify(displayProcessingQueryRequest));
@@ -249,7 +279,7 @@ async function processTranscripts(sessionId: string, ws: WebSocket) {
       packageName: PACKAGE_NAME,
       sessionId,
       layout: { layoutType: 'text_wall', text: wrapText(agentResponse, 30) },
-      durationMs: 6000,
+      durationMs: 8000,
       timestamp: new Date()
     };
     ws.send(JSON.stringify(displayRequest));
@@ -261,6 +291,10 @@ async function processTranscripts(sessionId: string, ws: WebSocket) {
       clearTimeout(sessionTimers.get(sessionId));
       sessionTimers.delete(sessionId);
     }
+    // Reset the querying state so the user can make new queries.
+    setTimeout(() => {
+      sessionQuerying.delete(sessionId);
+    }, 1000);
   }
 }
 

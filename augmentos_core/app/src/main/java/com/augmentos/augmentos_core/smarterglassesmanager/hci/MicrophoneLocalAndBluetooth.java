@@ -181,6 +181,7 @@ public class MicrophoneLocalAndBluetooth {
             try {
                 mContext.unregisterReceiver(bluetoothStateReceiver);
                 isReceiverRegistered = false;
+                Log.d(TAG, "Bluetooth state receiver unregistered in stopBluetoothSco()");
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             }
@@ -261,10 +262,20 @@ public class MicrophoneLocalAndBluetooth {
         }
 
         recordingInProgress.set(false);
-        recorder.stop();
-        recorder.release();
-        recorder = null;
-        recordingThread = null;
+        try {
+            // Only call stop if the recorder is actually recording.
+            if (recorder.getRecordingState() == AudioRecord.RECORDSTATE_RECORDING) {
+                recorder.stop();
+            } else {
+                Log.d(TAG, "AudioRecord is not recording; skipping stop.");
+            }
+        } catch (IllegalStateException e) {
+            Log.e(TAG, "Error stopping AudioRecord", e);
+        } finally {
+            recorder.release();
+            recorder = null;
+            recordingThread = null;
+        }
     }
 
     private void activateBluetoothSco() {

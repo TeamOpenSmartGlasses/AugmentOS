@@ -109,7 +109,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final long DELAY_BETWEEN_SENDS_MS = 8; //not using now
     private static final long DELAY_BETWEEN_CHUNKS_SEND = 16; //super small just in case
     private static final long DELAY_BETWEEN_ACTIONS_SEND = 250; //not using now
-    private static final long HEARTBEAT_INTERVAL_MS = 30000;
+    private static final long HEARTBEAT_INTERVAL_MS = 15000;
     private static final long MICBEAT_INTERVAL_MS = (1000 * 60) * 30; //micbeat every 30 minutes
 
     private int leftReconnectAttempts = 0;
@@ -288,10 +288,18 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     if ("Left".equals(side)) {
                         isLeftConnected = false;
                         leftReconnectAttempts++;
+                        if (leftGlassGatt != null){
+                            leftGlassGatt.disconnect();
+                            leftGlassGatt.close();
+                        }
                         leftGlassGatt = null;
                     } else {
                         isRightConnected = false;
                         rightReconnectAttempts++;
+                        if (rightGlassGatt != null){
+                            rightGlassGatt.disconnect();
+                            rightGlassGatt.close();
+                        }
                         rightGlassGatt = null;
                     }
 
@@ -315,7 +323,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 if ("Left".equals(side)) {
                     isLeftConnected = false;
                     leftReconnectAttempts++;
-                    leftGlassGatt = null;
+                    if (leftGlassGatt != null){
+                        leftGlassGatt.disconnect();
+                        leftGlassGatt.close();
+                        leftGlassGatt = null;
+                    }
                     // If right is still connected, disconnect it too
                     if (rightGlassGatt != null) {
                         Log.d(TAG, "Left glass disconnected - forcing disconnection from right glass.");
@@ -328,7 +340,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 } else { // side equals "Right"
                     isRightConnected = false;
                     rightReconnectAttempts++;
-                    rightGlassGatt = null;
+                    if (rightGlassGatt != null){
+                        rightGlassGatt.disconnect();
+                        rightGlassGatt.close();
+                        rightGlassGatt = null;
+                    }
                     // If left is still connected, disconnect it too
                     if (leftGlassGatt != null) {
                         Log.d(TAG, "Right glass disconnected - forcing disconnection from left glass.");
@@ -541,7 +557,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 sendWhiteListCommand(10);
 
                 //start heartbeat
-                startHeartbeat(20000);
+                startHeartbeat(10000);
 
                 //start mic beat
                 startMicBeat(30000);
@@ -1389,16 +1405,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
         if (leftGlassGatt != null) {
             leftGlassGatt.disconnect();
-        }
-
-        if (leftGlassGatt != null) {
             leftGlassGatt.close();
             leftGlassGatt = null;
         }
         if (rightGlassGatt != null) {
             rightGlassGatt.disconnect();
-        }
-        if (rightGlassGatt != null) {
             rightGlassGatt.close();
             rightGlassGatt = null;
         }
