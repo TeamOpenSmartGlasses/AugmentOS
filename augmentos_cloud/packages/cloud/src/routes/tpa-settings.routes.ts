@@ -8,6 +8,9 @@ import { AUGMENTOS_AUTH_JWT_SECRET, systemApps } from '@augmentos/config';
 import { User } from '@augmentos/cloud/src/models/user.model';
 
 
+console.log('systemApps', systemApps);
+
+
 const router = express.Router();
 
 // GET /tpasettings/:tpaName

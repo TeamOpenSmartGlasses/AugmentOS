@@ -21,25 +21,31 @@ const AppSettingUpdateSchema = new Schema({
   value: { type: Schema.Types.Mixed, required: true }
 }, { _id: false });
 
-// Setting schemas (unchanged)
-const ToggleSettingSchema = new Schema({
-  type: { type: String, enum: ['toggle'], required: true },
-  key: { type: String, required: true },
-  label: { type: String, required: true },
-  defaultValue: { type: Boolean, required: true }
-});
+// // Setting schemas (unchanged)
+// const ToggleSettingSchema = new Schema({
+//   type: { type: String, enum: ['toggle'], required: true },
+//   key: { type: String, required: true },
+//   label: { type: String, required: true },
+//   defaultValue: { type: Boolean, required: true }
+// });
 
-const TextSettingSchema = new Schema({
-  type: { type: String, enum: ['text'], required: true },
-  key: { type: String, required: true },
-  label: { type: String, required: true },
-  defaultValue: { type: String }
-});
+// const TextSettingSchema = new Schema({
+//   type: { type: String, enum: ['text'], required: true },
+//   key: { type: String, required: true },
+//   label: { type: String, required: true },
+//   defaultValue: { type: String }
+// });
 
-const SelectOptionSchema = new Schema({
-  label: { type: String, required: true },
-  value: { type: String, required: true }
-});
+// const SelectOptionSchema = new Schema({
+//   label: { type: String, required: true },
+//   value: { type: String, required: true }
+// });
+
+// const SelectSettingSchema = new Schema({
+//   type: { type: String, enum: ['select'], required: true },
+//   key: { type: String, required: true },
+//   label: { type: String, required: true },
+// });
 
 // --- User Schema ---
 const UserSchema = new Schema<UserDocument>({
@@ -85,10 +91,10 @@ const UserSchema = new Schema<UserDocument>({
   }
 });
 
-// Add discriminators
-AppSettingSchema.discriminator('toggle', ToggleSettingSchema);
-AppSettingSchema.discriminator('text', TextSettingSchema);
-AppSettingSchema.discriminator('select', SelectSettingSchema);
+// // Add discriminators
+// AppSettingUpdateSchema.discriminator('toggle', ToggleSettingSchema);
+// AppSettingUpdateSchema.discriminator('text', TextSettingSchema);
+// AppSettingUpdateSchema.discriminator('select', SelectSettingSchema);
 
 // Create compound index for unique running apps per user
 UserSchema.index({ email: 1, 'runningApps': 1 }, { unique: true });

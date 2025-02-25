@@ -43,11 +43,11 @@ const activeSessions = new Map<string, WebSocket>();
 function convertLineWidth(width: string | number): number {
   if (typeof width === 'number') return width;
   switch (width.toLowerCase()) {
-    case 'very narrow': return 25;
-    case 'narrow': return 35;
-    case 'medium': return 45;
-    case 'wide': return 60;
-    case 'very wide': return 80;
+    case 'very narrow': return 21;
+    case 'narrow': return 30;
+    case 'medium': return 38;
+    case 'wide': return 46;
+    case 'very wide': return 55;
     default: return 45;
   }
 }
@@ -152,7 +152,7 @@ function handleMessage(sessionId: string, userId: string, ws: WebSocket, message
     }
 
     case CloudToTpaMessageType.DATA_STREAM: {
-      const streamMessage = message as CloudDataStreamMessage;
+      const streamMessage = message as DataStream;
       if (streamMessage.streamType === StreamType.TRANSCRIPTION) {
         handleTranscription(sessionId, userId, ws, streamMessage.data);
       }
