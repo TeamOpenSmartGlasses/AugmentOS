@@ -22,8 +22,8 @@ interface SearchInput {
  * The tool returns a JSON string with the search result details.
  */
 export class SearchToolForAgents extends Tool {
-  name = 'search';
-  description = 'Searches the web for information about a given query.';
+  name = 'Search Engine';
+  description = 'Searches the web for information about a given query. Pass this tool specific queries and/or keywords to quickly search the WWW to retrieve information on any topic like academic research, history, entertainment, current events. This tool does NOT work for personal information and does NOT work for math.';
   private serpApi: SerpAPI;
 
   constructor() {
@@ -51,15 +51,16 @@ export class SearchToolForAgents extends Tool {
     try {
       // Invoke the SerpAPI call with the search query.
       const searchUrl = `https://serpapi.com/search?q=${encodeURIComponent(searchKeyword)}&engine=google&api_key=${SERPAPI_API_KEY}&hl=en&gl=us`;
+      await new Promise(resolve => setTimeout(resolve, 200));
       const response = await fetch(searchUrl);
       const result = await response.json();
       
       // Log the raw results if needed.
-      console.log("$$$$$ SearchToolForAgents Result:", JSON.stringify(result));
+      // console.log("$$$$$ SearchToolForAgents Result:", JSON.stringify(result));
 
       // Format the results using the helper function.
       const formattedOutput = this.formatSearchResults(result);
-      console.log("Formatted Search Results:\n", formattedOutput);
+      // console.log("Formatted Search Results:\n", formattedOutput);
       
       // Return the formatted result as a JSON string.
       return JSON.stringify({ result: formattedOutput });
@@ -78,9 +79,9 @@ export class SearchToolForAgents extends Tool {
     // Format organic results
     const organicResults = result.organic_results || [];
     organicResults.forEach((entry: any) => {
-      const title = entry.title || "No Title";
-      const source = entry.source || "No Source";
-      const snippet = entry.snippet || "No Snippet";
+      const title = entry.title.trim() || "No Title";
+      const source = entry.source.trim() || "No Source";
+      const snippet = entry.snippet.trim() || "No Snippet";
       formattedLines.push(`Title: ${title}\nSource: ${source}\nSnippet: ${snippet}`);
     });
   
@@ -108,6 +109,8 @@ export class SearchToolForAgents extends Tool {
         }
       }
     }
+
+    // console.log("Formatted Lines:", formattedLines);
   
     // Join all entries with an extra newline between them
     return formattedLines.join("\n");
