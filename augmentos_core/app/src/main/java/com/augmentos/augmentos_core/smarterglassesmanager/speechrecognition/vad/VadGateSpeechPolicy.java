@@ -24,8 +24,8 @@ public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
     private boolean isCurrentlySpeech;
 
     public VadGateSpeechPolicy(Context context){
-       mContext = context;
-       isCurrentlySpeech = false;
+        mContext = context;
+        isCurrentlySpeech = false;
     }
 
     public void startVad(int blockSizeSamples){
@@ -95,4 +95,18 @@ public class VadGateSpeechPolicy implements SpeechDetectionPolicy {
     public void stop() {
         vad.close();
     }
+
+    public void microphoneStateChanged(boolean state) {
+        if (!state) {
+            // Microphone turned off: force immediate silence.
+            isCurrentlySpeech = false;
+
+            // Optionally flush the VAD's internal state by processing a silent frame.
+            short[] silentFrame = new short[512];
+            vad.isSpeech(silentFrame);
+            Log.d(TAG, "Microphone turned off; forced state to SILENCE.");
+        }
+    }
 }
+
+

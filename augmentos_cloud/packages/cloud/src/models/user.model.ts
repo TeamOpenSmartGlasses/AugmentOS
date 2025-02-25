@@ -1,16 +1,17 @@
+// models/user.model.ts
 import mongoose, { Schema, Document, Model } from 'mongoose';
-import type { AppSettingType } from '@augmentos/types';
+import { AppSettingType, type AppSetting } from '@augmentos/types';
 
 // Extend Document for TypeScript support
 interface UserDocument extends Document {
   email: string;
   runningApps: string[];
-  appSettings: Map<string, AppSettingType[]>;
+  appSettings: Map<string, AppSetting[]>;
 
   addRunningApp(appName: string): Promise<void>;
   removeRunningApp(appName: string): Promise<void>;
   updateAppSettings(appName: string, settings: { key: string; value: any }[]): Promise<void>;
-  getAppSettings(appName: string): AppSettingType[] | undefined;
+  getAppSettings(appName: string): AppSetting[] | undefined;
   isAppRunning(appName: string): boolean;
 }
 
@@ -19,6 +20,26 @@ const AppSettingUpdateSchema = new Schema({
   key: { type: String, required: true },
   value: { type: Schema.Types.Mixed, required: true }
 }, { _id: false });
+
+// Setting schemas (unchanged)
+const ToggleSettingSchema = new Schema({
+  type: { type: String, enum: ['toggle'], required: true },
+  key: { type: String, required: true },
+  label: { type: String, required: true },
+  defaultValue: { type: Boolean, required: true }
+});
+
+const TextSettingSchema = new Schema({
+  type: { type: String, enum: ['text'], required: true },
+  key: { type: String, required: true },
+  label: { type: String, required: true },
+  defaultValue: { type: String }
+});
+
+const SelectOptionSchema = new Schema({
+  label: { type: String, required: true },
+  value: { type: String, required: true }
+});
 
 // --- User Schema ---
 const UserSchema = new Schema<UserDocument>({
@@ -29,7 +50,9 @@ const UserSchema = new Schema<UserDocument>({
     trim: true,
     lowercase: true,
     validate: {
-      validator: (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
+      validator: (email: string) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      },
       message: 'Invalid email format'
     }
   },
@@ -62,8 +85,15 @@ const UserSchema = new Schema<UserDocument>({
   }
 });
 
-// --- Instance Methods ---
+// Add discriminators
+AppSettingSchema.discriminator('toggle', ToggleSettingSchema);
+AppSettingSchema.discriminator('text', TextSettingSchema);
+AppSettingSchema.discriminator('select', SelectSettingSchema);
 
+// Create compound index for unique running apps per user
+UserSchema.index({ email: 1, 'runningApps': 1 }, { unique: true });
+
+// Instance methods
 UserSchema.methods.addRunningApp = async function(this: UserDocument, appName: string): Promise<void> {
   if (!this.runningApps.includes(appName)) {
     this.runningApps.push(appName);
@@ -108,8 +138,7 @@ UserSchema.methods.updateAppSettings = async function(
     ([key, value]) => ({ key, value })
   );
 
-  // Set and save the updated settings.
-  this.appSettings.set(appName, updatedSettingsArray);
+  this.appSettings.set(appName, settings);
   await this.save();
 
   console.log('Updated settings:', JSON.stringify(updatedSettingsArray));
@@ -117,7 +146,7 @@ UserSchema.methods.updateAppSettings = async function(
   console.log('Settings retrieved after save:', JSON.stringify(afterUpdate));
 };
 
-UserSchema.methods.getAppSettings = function(this: UserDocument, appName: string): AppSettingType[] | undefined {
+UserSchema.methods.getAppSettings = function(this: UserDocument, appName: string): AppSetting[] | undefined {
   return this.appSettings.get(appName);
 };
 

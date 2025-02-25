@@ -115,10 +115,8 @@ class SmartGlassesRepresentative {
 
         if (SmartGlassesAndroidService.getSensingEnabled(context)) {
             // If the glasses don't support a microphone, handle local microphone
-            if (smartGlassesDevice.useScoMic || SmartGlassesAndroidService.getForceCoreOnboardMic(context)) {
+            if (!smartGlassesDevice.getHasInMic() || SmartGlassesAndroidService.getForceCoreOnboardMic(context)) {
                 connectAndStreamLocalMicrophone(true);
-            } else if (!smartGlassesDevice.getHasInMic() && !smartGlassesDevice.getHasOutMic()) {
-                connectAndStreamLocalMicrophone(false);
             }
         }
     }
@@ -185,7 +183,7 @@ class SmartGlassesRepresentative {
         }
 
         if (enableBluetoothMic) {
-            connectAndStreamLocalMicrophone(smartGlassesDevice.useScoMic);
+            connectAndStreamLocalMicrophone(true);
         }
     }
 

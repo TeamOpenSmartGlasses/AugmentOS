@@ -590,6 +590,9 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
             Log.d(TAG, "111 Changing microphone state to " + isMicrophoneEnabled);
             smartGlassesRepresentative.changeBluetoothMicState(isMicrophoneEnabled);
         }
+
+        //tell speech rec that we stopped
+        speechRecSwitchSystem.microphoneStateChanged(isMicrophoneEnabled);
     }
 
     public void sendHomeScreen(){

@@ -528,7 +528,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     };
 
     private void playStartupSequenceOnSmartGlasses() {
-        if (smartGlassesService == null) return;
+        if (smartGlassesService == null || smartGlassesService.windowManager == null) return;
 
         Handler handler = new Handler(Looper.getMainLooper());
         int delay = 250; // Frame delay
@@ -541,6 +541,11 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             @Override
             public void run() {
+                // Check for null each time before updating the UI
+                if (smartGlassesService == null || smartGlassesService.windowManager == null) {
+                    return;
+                }
+
                 if (cycles >= totalCycles) {
                     // End animation with final message
                     smartGlassesService.windowManager.showAppLayer(
@@ -571,7 +576,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         handler.postDelayed(animate, 350); // Start animation
     }
-
 
     @Subscribe
     public void onSmartRingButtonEvent(SmartRingButtonOutputEvent event) {
@@ -864,7 +868,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
             @Override
             public void onMicrophoneStateChange(boolean microphoneEnabled) {
-                if (smartGlassesService != null) {
+                if (smartGlassesService != null  && SmartGlassesAndroidService.getSensingEnabled(getApplicationContext())) {
                     smartGlassesService.changeMicrophoneState(microphoneEnabled);
                 }
             }
@@ -954,10 +958,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Disconnecting from wearable: " + wearableId);
         // Logic to disconnect wearable
         stopSmartGlassesService();
-
-        //reset some local variables
-        brightnessLevel = null;
-        batteryLevel = null;
+        sendStatusToAugmentOsManager();
     }
 
     @Override
@@ -965,6 +966,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Forgetting wearable");
         savePreferredWearable(this, "");
         deleteEvenSharedPreferences(this);
+        brightnessLevel = null;
+        batteryLevel = null;
         stopSmartGlassesService();
         sendStatusToAugmentOsManager();
     }

@@ -1,21 +1,27 @@
-// @augmentos/utils/src/lc3/LC3Service.ts
-
 import * as fs from 'fs';
 import * as path from 'path';
+
+interface LC3Instance {
+  samples: Float32Array;
+  frame: Uint8Array;
+  decode(): void;
+}
 
 export class LC3Service {
   private static instance: LC3Service;
   private lc3Exports: WebAssembly.Exports | null = null;
-  private decoder: number | null = null;
+  private decoder: LC3Instance | null = null;
   private initialized = false;
-  private lastAllocationSize = 0;
-  private memoryFailureCount = 0;
-  private readonly MAX_RETRIES = 3;
-
+  private allocationSize = 0;
+  
   // LC3 decoding parameters
   private readonly frameDurationUs = 10000; // 10ms per frame
   private readonly sampleRateHz = 16000;    // 16kHz
   private readonly bytesPerFrame = 20;      // LC3 compressed bytes per frame
+  private readonly frameBytes = 20;         // Fixed for our case
+  
+  private decoderSize = 0;
+  private frameSamples = 0;
 
   private constructor() {}
 
@@ -36,32 +42,31 @@ export class LC3Service {
       
       const wasmBuffer = fs.readFileSync(wasmPath);
       
-      // Initialize with modest memory
-      const wasmModule = await WebAssembly.instantiate(wasmBuffer, {
-        env: {
-          memory: new WebAssembly.Memory({ 
-            initial: 16,  // Start with 1MB
-            maximum: 512  // Allow up to 32MB if needed
-          })
-        }
-      });
-      
+      // Initialize WebAssembly
+      const wasmModule = await WebAssembly.instantiate(wasmBuffer, {});
       this.lc3Exports = wasmModule.instance.exports;
 
-      // Initialize decoder
-      const decoderSize = (this.lc3Exports.lc3_decoder_size as Function)(
+      // Calculate sizes
+      this.frameSamples = (this.lc3Exports.lc3_frame_samples as Function)(
         this.frameDurationUs,
         this.sampleRateHz
       );
       
-      this.decoder = this.allocateMemory(decoderSize);
-      
-      (this.lc3Exports.lc3_setup_decoder as Function)(
+      this.decoderSize = (this.lc3Exports.lc3_decoder_size as Function)(
         this.frameDurationUs,
-        this.sampleRateHz,
-        this.sampleRateHz,
-        this.decoder
+        this.sampleRateHz
       );
+
+      // Calculate total memory needed: decoder + samples + frame buffer
+      this.allocationSize = this.decoderSize +
+                           (this.frameSamples * 4) + // Float32 samples
+                           this.frameBytes;          // frame buffer
+                           
+      // Align to 4 bytes
+      this.allocationSize = Math.ceil(this.allocationSize / 4) * 4;
+
+      // Create decoder instance
+      this.decoder = this.createDecoder();
 
       this.initialized = true;
       console.log('✅ LC3 Service initialized');
@@ -71,89 +76,87 @@ export class LC3Service {
     }
   }
 
-  private allocateMemory(size: number): number {
+  private createDecoder(): LC3Instance {
     if (!this.lc3Exports) throw new Error('LC3 not initialized');
-    
-    try {
-      // If last allocation was successful, try same size first
-      if (this.lastAllocationSize > 0 && size <= this.lastAllocationSize) {
-        const ptr = (this.lc3Exports.memory as WebAssembly.Memory).grow(
-          Math.ceil(this.lastAllocationSize / (64 * 1024))
-        );
-        return ptr * 64 * 1024;
-      }
 
-      // Try allocating requested size
-      const pages = Math.ceil(size / (64 * 1024));
-      const ptr = (this.lc3Exports.memory as WebAssembly.Memory).grow(pages);
-      this.lastAllocationSize = size;
-      this.memoryFailureCount = 0; // Reset failure count on success
-      return ptr * 64 * 1024;
-    } catch (error) {
-      console.error('Failed to allocate memory:', error);
-      this.memoryFailureCount++;
-      
-      if (this.memoryFailureCount >= this.MAX_RETRIES) {
-        // Try to reinitialize WASM with fresh memory
-        this.initialized = false;
-        this.initialize().catch(console.error);
-      }
-      
-      throw error;
+    const memory = this.lc3Exports.memory as WebAssembly.Memory;
+    const basePtr = memory.buffer.byteLength;
+
+    // Ensure we have enough memory
+    const pagesNeeded = Math.ceil((basePtr + this.allocationSize) / (64 * 1024));
+    const currentPages = memory.buffer.byteLength / (64 * 1024);
+    
+    if (pagesNeeded > currentPages) {
+      memory.grow(pagesNeeded - currentPages);
     }
+
+    // Layout memory regions
+    const decoderPtr = basePtr;
+    const samplePtr = decoderPtr + this.decoderSize;
+    const framePtr = samplePtr + (this.frameSamples * 4);
+
+    // Initialize decoder
+    (this.lc3Exports.lc3_setup_decoder as Function)(
+      this.frameDurationUs,
+      this.sampleRateHz,
+      this.sampleRateHz,
+      decoderPtr
+    );
+
+    return {
+      samples: new Float32Array(memory.buffer, samplePtr, this.frameSamples),
+      frame: new Uint8Array(memory.buffer, framePtr, this.frameBytes),
+      decode: () => {
+        (this.lc3Exports!.lc3_decode as Function)(
+          decoderPtr,
+          framePtr,
+          this.frameBytes,
+          3,  // Float format (3) for better performance
+          samplePtr,
+          1
+        );
+      }
+    };
   }
 
   async decodeAudioChunk(audioData: ArrayBuffer): Promise<ArrayBuffer | null> {
     if (!this.initialized || !this.lc3Exports || !this.decoder) {
-      // If not initialized, try to initialize but return null for this chunk
       if (!this.initialized) {
-        this.initialize().catch(console.error);
+        await this.initialize();
       }
       return null;
     }
 
     try {
-      const encodedSize = audioData.byteLength;
-      const numFrames = Math.floor(encodedSize / this.bytesPerFrame);
-      const frameSamples = (this.lc3Exports.lc3_frame_samples as Function)(
-        this.frameDurationUs,
-        this.sampleRateHz
-      );
-      const pcmBytesPerFrame = frameSamples * 2; // 16-bit PCM
-      const outputSize = numFrames * pcmBytesPerFrame;
+      const numFrames = Math.floor(audioData.byteLength / this.bytesPerFrame);
+      const totalSamples = numFrames * this.frameSamples;
+      const outputBuffer = new ArrayBuffer(totalSamples * 2); // 16-bit PCM
+      const outputView = new DataView(outputBuffer);
+      const inputData = new Uint8Array(audioData);
 
-      // Allocate input and output buffers
-      const inputPtr = this.allocateMemory(encodedSize);
-      const outputPtr = this.allocateMemory(outputSize);
-
-      // Copy input data to WASM memory
-      const memoryBuffer = new Uint8Array((this.lc3Exports.memory as WebAssembly.Memory).buffer);
-      memoryBuffer.set(new Uint8Array(audioData), inputPtr);
-
-      // Decode frames
       let outputOffset = 0;
       for (let i = 0; i < numFrames; i++) {
-        const inputFramePtr = inputPtr + i * this.bytesPerFrame;
-        const outputFramePtr = outputPtr + outputOffset;
-
-        (this.lc3Exports.lc3_decode as Function)(
-          this.decoder,
-          inputFramePtr,
-          this.bytesPerFrame,
-          0, // PCM format: 0 = S16
-          outputFramePtr,
-          1
+        // Copy frame data
+        this.decoder.frame.set(
+          inputData.subarray(i * this.bytesPerFrame, (i + 1) * this.bytesPerFrame)
         );
 
-        outputOffset += pcmBytesPerFrame;
+        // Decode frame
+        this.decoder.decode();
+
+        // Convert Float32 samples to Int16 PCM
+        for (let j = 0; j < this.frameSamples; j++) {
+          const pcmValue = Math.max(-32768, 
+            Math.min(32767, Math.floor(this.decoder.samples[j] * 32768))
+          );
+          outputView.setInt16(outputOffset, pcmValue, true);
+          outputOffset += 2;
+        }
       }
 
-      // Extract decoded PCM data
-      return memoryBuffer.slice(outputPtr, outputPtr + outputSize).buffer;
+      return outputBuffer;
     } catch (error) {
       console.error('❌ Error decoding LC3 audio:', error);
-      
-      // Return null instead of throwing to keep transcription going
       return null;
     }
   }

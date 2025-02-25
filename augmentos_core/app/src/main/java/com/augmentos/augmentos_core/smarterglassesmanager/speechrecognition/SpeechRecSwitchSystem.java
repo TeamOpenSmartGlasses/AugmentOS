@@ -18,9 +18,18 @@ public class SpeechRecSwitchSystem {
     private SpeechRecFramework speechRecFramework;
     private Context mContext;
     public String currentLanguage;
+    public boolean microphoneState;
 
     public SpeechRecSwitchSystem(Context mContext) {
         this.mContext = mContext;
+        this.microphoneState = true;
+    }
+
+    public void microphoneStateChanged(boolean state){
+        microphoneState = state;
+        if (speechRecFramework != null){
+            speechRecFramework.microphoneStateChanged(state);
+        }
     }
 
     public void startAsrFramework(ASR_FRAMEWORKS asrFramework) {

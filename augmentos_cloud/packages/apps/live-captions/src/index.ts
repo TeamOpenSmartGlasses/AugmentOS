@@ -3,10 +3,16 @@ import express from 'express';
 import WebSocket from 'ws';
 import path from 'path';
 import {
-  TpaConnectionInitMessage,
-  CloudDataStreamMessage,
+  TpaConnectionInit,
+  DataStream,
   DisplayRequest,
-  TpaSubscriptionUpdateMessage,
+  TpaSubscriptionUpdate,
+  TpaToCloudMessageType,
+  StreamType,
+  CloudToGlassesMessageType,
+  CloudToTpaMessageType,
+  ViewType,
+  LayoutType,
 } from '@augmentos/types'; // Import the types from the shared package
 import { TranscriptProcessor } from '@augmentos/utils';
 import { systemApps, CLOUD_PORT } from '@augmentos/config';
@@ -84,8 +90,9 @@ app.post('/webhook', async (req, res) => {
     ws.on('open', () => {
       console.log(`\n[Session ${sessionId}]\n connected to augmentos-cloud\n`);
       // Send connection init with session ID
-      const initMessage: TpaConnectionInitMessage = {
-        type: 'tpa_connection_init',
+      const initMessage: TpaConnectionInit = {
+        // type: 'tpa_connection_init',
+        type: TpaToCloudMessageType.CONNECTION_INIT,
         sessionId,
         packageName: PACKAGE_NAME,
         apiKey: API_KEY
@@ -131,22 +138,22 @@ app.use(express.static(path.join(__dirname, './public')));
 
 function handleMessage(sessionId: string, userId: string, ws: WebSocket, message: any) {
   switch (message.type) {
-    case 'tpa_connection_ack': {
+    case CloudToTpaMessageType.CONNECTION_ACK: {
       // Connection acknowledged, subscribe to transcription
-      const subMessage: TpaSubscriptionUpdateMessage = {
-        type: 'subscription_update',
+      const subMessage: TpaSubscriptionUpdate = {
+        type: TpaToCloudMessageType.SUBSCRIPTION_UPDATE,
         packageName: PACKAGE_NAME,
         sessionId,
-        subscriptions: ['transcription']
+        subscriptions: [StreamType.TRANSCRIPTION]
       };
       ws.send(JSON.stringify(subMessage));
       console.log(`Session ${sessionId} connected and subscribed`);
       break;
     }
 
-    case 'data_stream': {
+    case CloudToTpaMessageType.DATA_STREAM: {
       const streamMessage = message as CloudDataStreamMessage;
-      if (streamMessage.streamType === 'transcription') {
+      if (streamMessage.streamType === StreamType.TRANSCRIPTION) {
         handleTranscription(sessionId, userId, ws, streamMessage.data);
       }
       break;
@@ -234,13 +241,13 @@ function debounceAndShowTranscript(sessionId: string, userId: string, ws: WebSoc
  * Sends a display event (transcript) to the cloud.
  */
 function showTranscriptsToUser(sessionId: string, ws: WebSocket, transcript: string, isFinal: boolean) {
-  const displayEvent: DisplayRequest = {
-    type: 'display_event',
-    view: "main",
+  const displayRequest: DisplayRequest = {
+    type: TpaToCloudMessageType.DISPLAY_REQUEST,
+    view: ViewType.MAIN,
     packageName: PACKAGE_NAME,
     sessionId,
     layout: {
-      layoutType: 'text_wall',
+      layoutType: LayoutType.TEXT_WALL,
       text: transcript
     },
     timestamp: new Date(),
@@ -249,7 +256,7 @@ function showTranscriptsToUser(sessionId: string, ws: WebSocket, transcript: str
     durationMs: 20 * 1000 // 20 seconds. If no other transcript is received it will be cleared after this time.
   };
 
-  ws.send(JSON.stringify(displayEvent));
+  ws.send(JSON.stringify(displayRequest));
 }
 
 app.post('/settings', (req, res) => {
