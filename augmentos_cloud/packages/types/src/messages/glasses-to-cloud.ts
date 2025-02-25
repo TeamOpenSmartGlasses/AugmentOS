@@ -2,6 +2,7 @@
 
 import { BaseMessage } from './base';
 import { GlassesToCloudMessageType, ControlActionTypes, EventTypes } from '../message-types';
+import { StreamType } from 'src/streams';
 
 //===========================================================
 // Control actions
@@ -101,7 +102,7 @@ export interface GlassesConnectionState extends BaseMessage {
  * Location update from glasses
  */
 export interface LocationUpdate extends BaseMessage {
-  type: GlassesToCloudMessageType.LOCATION_UPDATE;
+  type: GlassesToCloudMessageType.LOCATION_UPDATE | StreamType.LOCATION_UPDATE;
   lat: number;
   lng: number;
 }
