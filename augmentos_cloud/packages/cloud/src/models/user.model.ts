@@ -2,12 +2,19 @@
 import mongoose, { Schema, Document, Model } from 'mongoose';
 import { AppSettingType, type AppSetting } from '@augmentos/types';
 
+interface Location {
+  lat: number;
+  lng: number;
+}
+
 // Extend Document for TypeScript support
 interface UserDocument extends Document {
   email: string;
   runningApps: string[];
   appSettings: Map<string, AppSetting[]>;
+  location?: Location;
 
+  setLocation(location: Location): Promise<void>;
   addRunningApp(appName: string): Promise<void>;
   removeRunningApp(appName: string): Promise<void>;
   updateAppSettings(appName: string, settings: AppSetting[]): Promise<void>;
@@ -61,6 +68,14 @@ const UserSchema = new Schema<UserDocument>({
       message: 'Invalid email format'
     }
   },
+  // Cache location so timezones can be calculated by dashboard manager immediately.
+  location: {
+    type: {
+      lat: { type: Number, required: true },
+      lng: { type: Number, required: true }
+    }
+  },
+
   runningApps: { 
     type: [String], 
     default: [],
@@ -103,6 +118,13 @@ AppSettingSchema.discriminator('select', SelectSettingSchema);
 UserSchema.index({ email: 1, 'runningApps': 1 }, { unique: true });
 
 // Instance methods
+// Update location.
+
+UserSchema.methods.setLocation = async function(this: UserDocument, location: Location): Promise<void> {
+  this.location = location;
+  await this.save();
+}
+
 UserSchema.methods.addRunningApp = async function(this: UserDocument, appName: string): Promise<void> {
   if (!this.runningApps.includes(appName)) {
     this.runningApps.push(appName);

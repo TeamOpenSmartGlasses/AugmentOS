@@ -71,6 +71,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final String TAG = "WearableAi_EvenRealitiesG1SGC";
     public static final String SHARED_PREFS_NAME = "EvenRealitiesPrefs";
     private int heartbeatCount = 0;
+    private int micBeatCount = 0;
     private BluetoothAdapter bluetoothAdapter;
 
     public static final String LEFT_DEVICE_KEY = "SavedG1LeftName";
@@ -128,7 +129,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     //mic heartbeat turn on
     private Handler micBeatHandler = new Handler();
-    private boolean isMicBeatRunning = false;
     private Runnable micBeatRunnable;
 
     //white list sender
@@ -289,6 +289,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         isLeftConnected = false;
                         leftReconnectAttempts++;
                         if (leftGlassGatt != null){
+                            leftGlassGatt.disconnect();
                             leftGlassGatt.close();
                         }
                         leftGlassGatt = null;
@@ -296,6 +297,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         isRightConnected = false;
                         rightReconnectAttempts++;
                         if (rightGlassGatt != null){
+                            rightGlassGatt.disconnect();
                             rightGlassGatt.close();
                         }
                         rightGlassGatt = null;
@@ -321,7 +323,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 if ("Left".equals(side)) {
                     isLeftConnected = false;
                     leftReconnectAttempts++;
-                    leftGlassGatt = null;
+                    if (leftGlassGatt != null){
+                        leftGlassGatt.disconnect();
+                        leftGlassGatt.close();
+                        leftGlassGatt = null;
+                    }
                     // If right is still connected, disconnect it too
                     if (rightGlassGatt != null) {
                         Log.d(TAG, "Left glass disconnected - forcing disconnection from right glass.");
@@ -334,7 +340,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                 } else { // side equals "Right"
                     isRightConnected = false;
                     rightReconnectAttempts++;
-                    rightGlassGatt = null;
+                    if (rightGlassGatt != null){
+                        rightGlassGatt.disconnect();
+                        rightGlassGatt.close();
+                        rightGlassGatt = null;
+                    }
                     // If left is still connected, disconnect it too
                     if (leftGlassGatt != null) {
                         Log.d(TAG, "Right glass disconnected - forcing disconnection from left glass.");
@@ -1007,6 +1017,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             Log.d(TAG, "Connecting to GATT for Right Glass...");
             rightGlassGatt = device.connectGatt(context, false, rightGattCallback);
             isRightConnected = true;
+
+            startHeartbeat(10000);
+            startMicBeat(30000);
         }
         else {
             Log.d(TAG, "Waiting for left glass before connecting right");
@@ -1395,16 +1408,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
         if (leftGlassGatt != null) {
             leftGlassGatt.disconnect();
-        }
-
-        if (leftGlassGatt != null) {
             leftGlassGatt.close();
             leftGlassGatt = null;
         }
         if (rightGlassGatt != null) {
             rightGlassGatt.disconnect();
-        }
-        if (rightGlassGatt != null) {
             rightGlassGatt.close();
             rightGlassGatt = null;
         }
@@ -1553,7 +1561,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     private void startHeartbeat(int delay) {
         Log.d(TAG, "Starting heartbeat");
-        heartbeatCount = 0;
+        if (heartbeatCount > 0) stopHeartbeat();
 
         heartbeatRunnable = new Runnable() {
             @Override
@@ -1572,10 +1580,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     //periodically send a mic ON request so it never turns off
     private void startMicBeat(int delay) {
-        if (isMicBeatRunning) {
-            return;
-        }
-        isMicBeatRunning = true;
+        Log.d(TAG, "Starting micbeat");
+        if (micBeatCount > 0) stopMicBeat();
 
         micBeatRunnable = new Runnable() {
             @Override
@@ -1697,6 +1703,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         if (heartbeatHandler != null) {
             heartbeatHandler.removeCallbacksAndMessages(null);
             heartbeatHandler.removeCallbacksAndMessages(heartbeatRunnable);
+            heartbeatCount = 0;
         }
     }
 
@@ -1705,7 +1712,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             micBeatHandler.removeCallbacksAndMessages(null);
             micBeatHandler.removeCallbacksAndMessages(micBeatRunnable);
             micBeatRunnable = null;
-            isMicBeatRunning = false;
+            micBeatCount = 0;
         }
     }
 
