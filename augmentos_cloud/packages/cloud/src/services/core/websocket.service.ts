@@ -50,7 +50,7 @@ import sessionService, { SessionService } from './session.service';
 import subscriptionService, { SubscriptionService } from './subscription.service';
 import transcriptionService, { TranscriptionService } from '../processing/transcription.service';
 import appService, { IAppService } from './app.service';
-import { AppStateChange, AuthError, CloudToGlassesMessage, CloudToGlassesMessageType, CloudToTpaMessage, CloudToTpaMessageType, ConnectionAck, ConnectionError, ConnectionInit, DataStream, DisplayRequest, GlassesConnectionState, GlassesToCloudMessage, GlassesToCloudMessageType, HeadPosition, MicrophoneStateChange, StartApp, StopApp, StreamType, TpaConnectionAck, TpaConnectionError, TpaConnectionInit, TpaSubscriptionUpdate, TpaToCloudMessage, UserSession, Vad } from '@augmentos/types';
+import { AppStateChange, AuthError, CloudToGlassesMessage, CloudToGlassesMessageType, CloudToTpaMessage, CloudToTpaMessageType, ConnectionAck, ConnectionError, ConnectionInit, DataStream, DisplayRequest, GlassesConnectionState, GlassesToCloudMessage, GlassesToCloudMessageType, HeadPosition, LocationUpdate, MicrophoneStateChange, StartApp, StopApp, StreamType, TpaConnectionAck, TpaConnectionError, TpaConnectionInit, TpaSubscriptionUpdate, TpaToCloudMessage, UserSession, Vad } from '@augmentos/types';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { PosthogService } from '../logging/posthog.service';
 import { AUGMENTOS_AUTH_JWT_SECRET, systemApps } from '@augmentos/config';
@@ -217,7 +217,6 @@ export class WebSocketService {
 
       // Trigger boot screen.
       userSession.displayManager.handleAppStart(app.packageName, userSession);
-
 
       // Set timeout to clean up pending session
       setTimeout(() => {
@@ -643,7 +642,7 @@ export class WebSocketService {
             if (!mediaSubscriptions) {
               console.log('No media subscriptions, sending microphone state change message');
               this.sendDebouncedMicrophoneStateChange(ws, userSession, false);
-            }            
+            }
 
             // Remove app from active list
             userSession.activeAppSessions = userSession.activeAppSessions.filter(
@@ -757,10 +756,10 @@ export class WebSocketService {
           // const vadMessage = message as VADStateMessage;
           const vadMessage = message as Vad;
           console.log(`\n🎤 VAD State Change: status ${vadMessage.status}`);
-        
+
           const isSpeaking = vadMessage.status === true || vadMessage.status === 'true';
           console.log(`VAD speaking state: ${isSpeaking}`);
-        
+
           try {
             if (isSpeaking) {
               console.log('🎙️ VAD detected speech - starting transcription');
@@ -778,7 +777,24 @@ export class WebSocketService {
           }
           break;
         }
-        
+
+        // Cache location for dashboard.
+        case GlassesToCloudMessageType.LOCATION_UPDATE: {
+          const locationUpdate = message as LocationUpdate;
+          try {
+            const user = await User.findByEmail(userSession.userId);
+            if (user) {
+              await user.setLocation(locationUpdate);
+            }
+          }
+          catch (error) {
+            console.error(`\n\n[websocket.service] Error updating user location:`, error, `\n\n`);
+          }
+
+          // userSession.location = locationUpdate.location;
+          break;
+        }
+
         // All other message types are broadcast to TPAs.
         default: {
           console.warn(`[Session ${userSession.sessionId}] Catching and Sending message type:`, message.type);
@@ -819,7 +835,7 @@ export class WebSocketService {
       currentAppSession = appSessionId;
     }
     let userSessionId: string = '';
-    let userSession : UserSession | null = null;
+    let userSession: UserSession | null = null;
 
     ws.on('message', async (data: Buffer | string, isBinary: boolean) => {
       // console.log('\n\n~~Received message from TPA~~\n', data.toString(), data);
@@ -839,14 +855,7 @@ export class WebSocketService {
         try {
           switch (message.type) {
             case 'tpa_connection_init': {
-              // const initMessage = message as TpaConnectionInitMessage;
               const initMessage = message as TpaConnectionInit;
-              if (!userSession) {
-                console.error(`\n\n[websocket.service] User session not found for ${userSessionId}\n\n`);
-                ws.close(1008, 'No active session');
-                return;
-              }
-              
               await this.handleTpaInit(ws, initMessage, setCurrentSessionId);
               break;
             }
@@ -1046,6 +1055,27 @@ export class WebSocketService {
     };
     ws.send(JSON.stringify(ackMessage));
     console.log(`TPA ${initMessage.packageName} connected for session ${initMessage.sessionId}`);
+
+    // If this is the dashboard app, send the current location if it's cached. so it can update the timezone.
+    try {
+      const user = await User.findByEmail(userSession.userId);
+      if (user && initMessage.packageName === systemApps.dashboard.packageName) {
+        const location = user.location;
+        if (location) {
+          const locationUpdate: LocationUpdate = {
+            type: GlassesToCloudMessageType.LOCATION_UPDATE,
+            sessionId: userSessionId,
+            lat: location.lat,
+            lng: location.lng,
+            timestamp: new Date()
+          };
+          ws.send(JSON.stringify(locationUpdate));
+        }
+      }
+    }
+    catch (error) {
+      console.error(`\n\n[websocket.service] Error sending location to dashboard:`, error, `\n\n`);
+    }
   }
 
   /**
