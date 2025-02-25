@@ -550,7 +550,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                     // End animation with final message
                     smartGlassesService.windowManager.showAppLayer(
                             "system",
-                            () -> smartGlassesService.sendTextWall("                                     /// AugmentOS Connected \\\\\\"),
+                            () -> smartGlassesService.sendTextWall("                  /// AugmentOS Connected \\\\\\"),
                             6
                     );
                     return; // Stop looping
@@ -559,7 +559,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 // Send current frame
                 smartGlassesService.windowManager.showAppLayer(
                         "system",
-                        () -> smartGlassesService.sendTextWall("                                       " + ARROW_FRAMES[frameIndex] + " AugmentOS Booting " + ARROW_FRAMES[frameIndex]),
+                        () -> {
+                                smartGlassesService.sendTextWall("                    " + ARROW_FRAMES[frameIndex] + " AugmentOS Booting " + ARROW_FRAMES[frameIndex]);
+//                            if (frameIndex % 2 == 0) {
+//                                smartGlassesService.sendTextWall("                    " + ARROW_FRAMES[frameIndex] + " AugmentOS Booting " + ARROW_FRAMES[frameIndex]);
+//                            } else {
+//                                smartGlassesService.sendTextWall("                  /// AugmentOS Connected \\\\\\");
+//                            }
+                        },
                         6
                 );
 
