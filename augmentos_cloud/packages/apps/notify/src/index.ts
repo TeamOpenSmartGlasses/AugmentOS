@@ -2,10 +2,14 @@ import express from 'express';
 import WebSocket from 'ws';
 import path from 'path';
 import {
-  TpaConnectionInitMessage,
-  TpaSubscriptionUpdateMessage,
-  CloudDataStreamMessage,
+  TpaConnectionInit,
+  TpaSubscriptionUpdate,
+  DataStream,
   DisplayRequest,
+  TpaToCloudMessageType,
+  StreamType,
+  ViewType,
+  LayoutType,
 } from '@augmentos/types'; // shared types for cloud TPA messages
 import { CLOUD_PORT, systemApps } from '@augmentos/config';
 import { wrapText } from '@augmentos/utils';
@@ -76,8 +80,9 @@ app.post('/webhook', async (req, res) => {
     ws.on('open', () => {
       console.log(`\n[Session ${sessionId}]\n connected to augmentos-cloud\n`);
       // Send connection init with session ID
-      const initMessage: TpaConnectionInitMessage = {
-        type: 'tpa_connection_init',
+      const initMessage: TpaConnectionInit = {
+        // type: 'tpa_connection_init',
+        type: TpaToCloudMessageType.CONNECTION_INIT,
         sessionId,
         packageName: PACKAGE_NAME,
         apiKey: API_KEY,
@@ -127,11 +132,13 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
   switch (message.type) {
     case 'tpa_connection_ack': {
       // Connection acknowledged, subscribe to transcription
-      const subMessage: TpaSubscriptionUpdateMessage = {
-        type: 'subscription_update',
+      const subMessage: TpaSubscriptionUpdate = {
+        // type: 'subscription_update',
+        type: TpaToCloudMessageType.SUBSCRIPTION_UPDATE,
         packageName: PACKAGE_NAME,
         sessionId,
-        subscriptions: ['phone_notification'],
+        // subscriptions: ['phone_notification'],
+        subscriptions: [StreamType.PHONE_NOTIFICATION],
       };
       ws.send(JSON.stringify(subMessage));
       console.log(`Session ${sessionId} connected and subscribed`);
@@ -139,14 +146,15 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
     }
 
     case 'data_stream': {
-      const streamMessage = message as CloudDataStreamMessage;
+      const streamMessage = message as DataStream;
       switch (streamMessage.streamType) {
-        case 'phone_notification':
+        // case 'phone_notification':
+        case StreamType.PHONE_NOTIFICATION:
           console.log(
             `[Session ${sessionId}] Received phone notification:`,
             JSON.stringify(streamMessage.data, null, 2)
           );
-          queueNotification(sessionInfo, streamMessage.data);
+          queueNotification(sessionInfo, streamMessage.data as PhoneNotification);
           break;
 
         // add more streams here if needed
@@ -208,20 +216,23 @@ function displayNextNotification(sessionData: SessionData) {
     const notificationString = constructNotificationString(notification);
 
     // Build the display event message.
-    const displayEvent: DisplayRequest = {
-      type: 'display_event',
-      view: 'main',
+    const displayRequest: DisplayRequest = {
+      // type: 'display_event',
+      // view: 'main',
+      type: TpaToCloudMessageType.DISPLAY_REQUEST,
+      view: ViewType.MAIN,
       packageName: PACKAGE_NAME,
       sessionId: sessionData.sessionId,
       layout: {
-        layoutType: 'text_wall',
+        // layoutType: 'text_wall',
+        layoutType: LayoutType.TEXT_WALL,
         text: notificationString,
       },
       durationMs: NOTIFICATION_DISPLAY_DURATION,
       timestamp: new Date(),
     };
 
-    sessionData.ws.send(JSON.stringify(displayEvent));
+    sessionData.ws.send(JSON.stringify(displayRequest));
 
     // Schedule the next notification display.
     sessionData.timeoutId = setTimeout(() => {

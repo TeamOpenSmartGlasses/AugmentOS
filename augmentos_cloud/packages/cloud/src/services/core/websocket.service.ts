@@ -1,4 +1,4 @@
-// websocket.service.ts.
+// augmentos_cloud/packages/cloud/core/websocket.service.ts.
 
 /**
  * @fileoverview WebSocket service that handles both glasses client and TPA connections.
@@ -16,44 +16,46 @@
 
 import { WebSocketServer, WebSocket } from 'ws';
 import { Server } from 'http';
-import {
-  // Client Messages
-  GlassesToCloudMessage,
-  GlassesConnectionInitMessage,
-  CloudConnectionAckMessage,
-  CloudConnectionErrorMessage,
+// import {
+//   // Client Messages
+//   GlassesToCloudMessage,
+//   GlassesConnectionInitMessage,
+//   CloudConnectionAckMessage,
+//   CloudConnectionErrorMessage,
 
-  // TPA Messages
-  TpaConnectionInitMessage,
-  CloudTpaConnectionAckMessage,
-  TpaToCloudMessage,
-  TpaSubscriptionUpdateMessage,
-  CloudDataStreamMessage,
+//   // TPA Messages
+//   TpaConnectionInitMessage,
+//   CloudTpaConnectionAckMessage,
+//   TpaToCloudMessage,
+//   TpaSubscriptionUpdateMessage,
+//   CloudDataStreamMessage,
 
-  // Common
-  WebSocketError,
-  StreamType,
-  GlassesStartAppMessage,
-  GlassesStopAppMessage,
-  HeadPositionEvent,
-  CloudToTpaMessage,
-  CloudAppStateChangeMessage,
-  UserSession,
-  CloudAuthErrorMessage,
-  VADStateMessage,
-  CloudMicrophoneStateChangeMessage,
-  GlassesConnectionStateEvent,
-} from '@augmentos/types';
+//   // Common
+//   WebSocketError,
+//   StreamType,
+//   GlassesStartAppMessage,
+//   GlassesStopAppMessage,
+//   HeadPositionEvent,
+//   CloudToTpaMessage,
+//   CloudAppStateChangeMessage,
+//   UserSession,
+//   CloudAuthErrorMessage,
+//   VADStateMessage,
+//   CloudMicrophoneStateChangeMessage,
+//   GlassesConnectionStateEvent,
+//   GlassesToCloudMessageType,
+// } from '@augmentos/types';
 
 import sessionService, { SessionService } from './session.service';
 import subscriptionService, { SubscriptionService } from './subscription.service';
 import transcriptionService, { TranscriptionService } from '../processing/transcription.service';
 import appService, { IAppService } from './app.service';
-import { DisplayRequest } from '@augmentos/types';
+import { AppStateChange, AuthError, CloudToGlassesMessage, CloudToGlassesMessageType, CloudToTpaMessage, CloudToTpaMessageType, ConnectionAck, ConnectionError, ConnectionInit, DataStream, DisplayRequest, GlassesConnectionState, GlassesToCloudMessage, GlassesToCloudMessageType, HeadPosition, MicrophoneStateChange, StartApp, StopApp, StreamType, TpaConnectionAck, TpaConnectionError, TpaConnectionInit, TpaSubscriptionUpdate, TpaToCloudMessage, UserSession, Vad } from '@augmentos/types';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { PosthogService } from '../logging/posthog.service';
 import { AUGMENTOS_AUTH_JWT_SECRET, systemApps } from '@augmentos/config';
 import { User } from '../../models/user.model';
+import { Connection } from 'microsoft-cognitiveservices-speech-sdk';
 
 // Constants
 const TPA_SESSION_TIMEOUT_MS = 5000;  // 30 seconds
@@ -114,8 +116,8 @@ export class WebSocketService {
 
     if (!debouncer) {
       // First call: send immediately.
-      const message: CloudMicrophoneStateChangeMessage = {
-        type: 'microphone_state_change',
+      const message: MicrophoneStateChange = {
+        type: CloudToGlassesMessageType.MICROPHONE_STATE_CHANGE,
         sessionId: userSession.sessionId,
         userSession: {
           sessionId: userSession.sessionId,
@@ -150,8 +152,8 @@ export class WebSocketService {
       // Only send if the final state differs from the last sent state.
       if (debouncer!.lastState !== debouncer!.lastSentState) {
         console.log('Sending microphone state change message');
-        const message: CloudMicrophoneStateChangeMessage = {
-          type: 'microphone_state_change',
+        const message: MicrophoneStateChange = {
+          type: CloudToGlassesMessageType.MICROPHONE_STATE_CHANGE,
           sessionId: userSession.sessionId,
           userSession: {
             sessionId: userSession.sessionId,
@@ -263,8 +265,9 @@ export class WebSocketService {
       const websocket = userSession.appConnections.get(packageName);
 
       if (websocket && websocket.readyState === WebSocket.OPEN) {
-        const streamMessage: CloudDataStreamMessage = {
-          type: 'data_stream',
+        // CloudDataStreamMessage
+        const streamMessage: DataStream = {
+          type: CloudToTpaMessageType.DATA_STREAM,
           sessionId: tpaSessionId,
           streamType,
           data,
@@ -339,7 +342,8 @@ export class WebSocketService {
       } catch (error) {
         console.error(`Error handling glasses message:`, error);
         this.sendError(ws, {
-          code: 'MESSAGE_HANDLING_ERROR',
+          // code: 'MESSAGE_HANDLING_ERROR',
+          type: CloudToGlassesMessageType.CONNECTION_ERROR,
           message: 'Error processing message'
         });
       }
@@ -362,6 +366,7 @@ export class WebSocketService {
       const endTimestamp = new Date();
       const connectionDuration = endTimestamp.getTime() - startTimestamp.getTime();
       PosthogService.trackEvent('disconnected', userSession.userId, {
+        userId: userSession.userId,
         sessionId: userSession.sessionId,
         timestamp: new Date().toISOString(),
         duration: connectionDuration
@@ -393,12 +398,13 @@ export class WebSocketService {
         sessionId: userSession.sessionId,
         eventType: message.type,
         timestamp: new Date().toISOString()
-        // message: message, // May contain sensitive data so let's not log it. just the event name cause i'm ethical like that 😇
       });
 
       switch (message.type) {
-        case 'connection_init': {
-          const initMessage = message as GlassesConnectionInitMessage;
+        // 'connection_init'
+        case GlassesToCloudMessageType.CONNECTION_INIT: {
+          // const initMessage = message as GlassesConnectionInitMessage;
+          const initMessage = message as ConnectionInit;
           const coreToken = initMessage.coreToken || "";
           let userId = '';
 
@@ -413,8 +419,10 @@ export class WebSocketService {
           catch (error) {
             console.error(`[websocket.service] Error verifying core token:`, error);
             console.error('User ID is required');
-            const errorMessage: CloudAuthErrorMessage = {
-              type: 'auth_error',
+            // const errorMessage: CloudAuthErrorMessage = {
+            const errorMessage: AuthError = {
+              // type: 'auth_error',
+              type: CloudToGlassesMessageType.AUTH_ERROR,
               message: 'User not authenticated',
               timestamp: new Date()
             };
@@ -460,17 +468,6 @@ export class WebSocketService {
 
           // Start transcription
           this.transcriptionService.startTranscription(userSession);
-          // this.transcriptionService.startTranscription(
-          //   userSession,
-          // (result) => {
-          //   console.log(`[Session ${userSession.sessionId}] Recognizing:`, result.text);
-          //   this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
-          // },
-          // (result) => {
-          //   console.log(`[Session ${userSession.sessionId}] Final result ${result?.speakerId}:`, result.text);
-          //   this.broadcastToTpa(userSession.sessionId, "transcription", result as any);
-          // }
-          // );
 
           // this.sessionService.setAudioHandlers(userSession, pushStream, recognizer);
           const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
@@ -504,8 +501,9 @@ export class WebSocketService {
             whatToStream: Array.from(new Set(whatToStream)),
           };
 
-          const ackMessage: CloudConnectionAckMessage = {
-            type: 'connection_ack',
+          // const ackMessage: CloudConnectionAckMessage = {
+          const ackMessage: ConnectionAck = {
+            type: CloudToGlassesMessageType.CONNECTION_ACK,
             sessionId: userSession.sessionId,
             userSession: userSessionData,
             timestamp: new Date()
@@ -522,7 +520,7 @@ export class WebSocketService {
         }
 
         case 'start_app': {
-          const startMessage = message as GlassesStartAppMessage;
+          const startMessage = message as StartApp;
           console.log(`Starting app ${startMessage.packageName}`);
           await this.startAppSession(userSession, startMessage.packageName);
 
@@ -560,8 +558,9 @@ export class WebSocketService {
             whatToStream: Array.from(new Set(whatToStream)),
           };
 
-          const clientResponse: CloudAppStateChangeMessage = {
-            type: 'app_state_change',
+          const clientResponse: AppStateChange = {
+            // type: 'app_state_change',
+            type: CloudToGlassesMessageType.APP_STATE_CHANGE,
             sessionId: userSession.sessionId, // TODO: Remove this field and check all references.
             userSession: userSessionData,
             timestamp: new Date()
@@ -598,7 +597,7 @@ export class WebSocketService {
 
         // In handleGlassesMessage method, update the 'stop_app' case:
         case 'stop_app': {
-          const stopMessage = message as GlassesStopAppMessage;
+          const stopMessage = message as StopApp;
           PosthogService.trackEvent(`stop_app:${stopMessage.packageName}`, userSession.userId, {
             sessionId: userSession.sessionId,
             eventType: message.type,
@@ -683,8 +682,9 @@ export class WebSocketService {
               whatToStream: Array.from(new Set(whatToStream)),
             };
 
-            const clientResponse: CloudAppStateChangeMessage = {
-              type: 'app_state_change',
+            const clientResponse: AppStateChange = {
+              // type: 'app_state_change',
+              type: CloudToGlassesMessageType.APP_STATE_CHANGE,
               sessionId: userSession.sessionId, // TODO: Remove this field and check all references.
               userSession: userSessionData,
               timestamp: new Date()
@@ -714,14 +714,16 @@ export class WebSocketService {
           break;
         }
 
-        case 'head_position': {
-          const headMessage = message as HeadPositionEvent;
-          this.broadcastToTpa(userSession.sessionId, 'head_position', headMessage);
-          break;
-        }
+        // // head_position
+        // case GlassesToCloudMessageType.HEAD_POSITION: {
+        //   const headMessage = message as HeadPosition;
+        //   this.broadcastToTpa(userSession.sessionId, StreamType.HEAD_POSITION, headMessage);
+        //   break;
+        // }
 
-        case 'glasses_connection_state': {
-          const glassesConnectionStateMessage = message as GlassesConnectionStateEvent;
+        // case 'glasses_connection_state': {
+        case GlassesToCloudMessageType.GLASSES_CONNECTION_STATE: {
+          const glassesConnectionStateMessage = message as GlassesConnectionState;
 
           console.log('Glasses connection state:', glassesConnectionStateMessage);
 
@@ -732,7 +734,7 @@ export class WebSocketService {
           }
 
           // Track the connection state event
-          PosthogService.trackEvent("glasses_connection_state", userSession.userId, {
+          PosthogService.trackEvent(GlassesToCloudMessageType.GLASSES_CONNECTION_STATE, userSession.userId, {
             sessionId: userSession.sessionId,
             eventType: message.type,
             timestamp: new Date().toISOString(),
@@ -751,8 +753,9 @@ export class WebSocketService {
           break;
         }
 
-        case 'VAD': {
-          const vadMessage = message as VADStateMessage;
+        case GlassesToCloudMessageType.VAD: {
+          // const vadMessage = message as VADStateMessage;
+          const vadMessage = message as Vad;
           console.log(`\n🎤 VAD State Change: status ${vadMessage.status}`);
         
           const isSpeaking = vadMessage.status === true || vadMessage.status === 'true';
@@ -760,15 +763,13 @@ export class WebSocketService {
         
           try {
             if (isSpeaking) {
-              console.log('🎙️ VAD detected speech - ensuring transcription is active');
-              if (!userSession.isTranscribing) {
-                userSession.isTranscribing = true;
-                transcriptionService.startTranscription(userSession);
-              }
+              console.log('🎙️ VAD detected speech - starting transcription');
+              userSession.isTranscribing = true;
+              transcriptionService.startTranscription(userSession);
             } else {
-              console.log('🤫 VAD detected silence - gracefully stopping transcription');
-              // Don't immediately stop - let the transcription service handle graceful shutdown
-              transcriptionService.gracefullyStopTranscription(userSession);
+              console.log('🤫 VAD detected silence - stopping transcription');
+              userSession.isTranscribing = false;
+              transcriptionService.stopTranscription(userSession);
             }
           } catch (error) {
             console.error('❌ Error handling VAD state change:', error);
@@ -777,7 +778,7 @@ export class WebSocketService {
           }
           break;
         }
-
+        
         // All other message types are broadcast to TPAs.
         default: {
           console.warn(`[Session ${userSession.sessionId}] Catching and Sending message type:`, message.type);
@@ -788,8 +789,9 @@ export class WebSocketService {
     } catch (error) {
       console.error(`[Session ${userSession.sessionId}] Error handling message:`, error);
       // Optionally send error to client
-      const errorMessage: CloudConnectionErrorMessage = {
-        type: 'connection_error',
+      // const errorMessage: CloudConnectionErrorMessage = {
+      const errorMessage: ConnectionError = {
+        type: CloudToGlassesMessageType.CONNECTION_ERROR,
         message: error instanceof Error ? error.message : 'Error processing message',
         timestamp: new Date()
       };
@@ -837,7 +839,8 @@ export class WebSocketService {
         try {
           switch (message.type) {
             case 'tpa_connection_init': {
-              const initMessage = message as TpaConnectionInitMessage;
+              // const initMessage = message as TpaConnectionInitMessage;
+              const initMessage = message as TpaConnectionInit;
               if (!userSession) {
                 console.error(`\n\n[websocket.service] User session not found for ${userSessionId}\n\n`);
                 ws.close(1008, 'No active session');
@@ -855,7 +858,7 @@ export class WebSocketService {
                 return;
               }
 
-              const subMessage = message as TpaSubscriptionUpdateMessage;
+              const subMessage = message as TpaSubscriptionUpdate;
               // if (!userSession) {
               //   console.error(`\n\n[websocket.service] User session not found for ${userSessionId}\n\n`);
               //   ws.close(1008, 'No active session');
@@ -902,8 +905,9 @@ export class WebSocketService {
                 whatToStream: Array.from(new Set(whatToStream)),
               };
 
-              const clientResponse: CloudAppStateChangeMessage = {
-                type: 'app_state_change',
+              const clientResponse: AppStateChange = {
+                // type: 'app_state_change',
+                type: CloudToGlassesMessageType.APP_STATE_CHANGE,
                 sessionId: userSession.sessionId, // TODO: Remove this field and check all references.
                 userSession: userSessionData,
                 timestamp: new Date()
@@ -927,7 +931,8 @@ export class WebSocketService {
         catch (error) {
           console.error('Error handling TPA message:', message, error);
           this.sendError(ws, {
-            code: 'MESSAGE_HANDLING_ERROR',
+            // code: 'MESSAGE_HANDLING_ERROR',
+            type: CloudToTpaMessageType.CONNECTION_ERROR,
             message: 'Error processing message'
           });
           PosthogService.trackEvent("error-handleTpaMessage", "anonymous", {
@@ -940,7 +945,7 @@ export class WebSocketService {
       } catch (error) {
         console.error('Error handling TPA message:', error);
         this.sendError(ws, {
-          code: 'MESSAGE_HANDLING_ERROR',
+          type: CloudToTpaMessageType.CONNECTION_ERROR,
           message: 'Error processing message'
         });
       }
@@ -996,7 +1001,7 @@ export class WebSocketService {
    */
   private async handleTpaInit(
     ws: WebSocket,
-    initMessage: TpaConnectionInitMessage,
+    initMessage: TpaConnectionInit,
     setCurrentSessionId: (sessionId: string) => void
   ): Promise<void> {
     // const pendingSession = this.pendingTpaSessions.get(initMessage.appSessionId);
@@ -1033,8 +1038,9 @@ export class WebSocketService {
     userSession.appConnections.set(initMessage.packageName, ws as any);
     setCurrentSessionId(initMessage.sessionId);
 
-    const ackMessage: CloudTpaConnectionAckMessage = {
-      type: 'tpa_connection_ack',
+    const ackMessage: TpaConnectionAck = {
+      // type: 'tpa_connection_ack',
+      type: CloudToTpaMessageType.CONNECTION_ACK,
       sessionId: initMessage.sessionId,
       timestamp: new Date()
     };
@@ -1048,9 +1054,9 @@ export class WebSocketService {
    * @param error - Error details
    * @private
    */
-  private sendError(ws: WebSocket, error: WebSocketError): void {
-    const errorMessage: CloudConnectionErrorMessage = {
-      type: 'connection_error',
+  private sendError(ws: WebSocket, error: ConnectionError | AuthError | TpaConnectionError): void {
+    const errorMessage: CloudToGlassesMessage | CloudToTpaMessage = {
+      type: CloudToGlassesMessageType.CONNECTION_ERROR,
       message: error.message,
       timestamp: new Date()
     };
