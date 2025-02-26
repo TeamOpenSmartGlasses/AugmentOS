@@ -292,8 +292,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               style={[
                 styles.label,
                 isDarkTheme ? styles.lightText : styles.darkText,
-                (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
               ]}
             >
               Contextual Dashboard
@@ -303,8 +301,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
                 style={[
                   styles.value,
                   isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-                  (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
-                    styles.disabledItem,
                 ]}
               >
                 {`Show a summary of your phone notifications when you ${
@@ -318,7 +314,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
             )}
           </View>
           <Switch
-            disabled={!status.glasses_info?.model_name}
             value={isContextualDashboardEnabled}
             onValueChange={toggleContextualDashboard}
             trackColor={switchColors.trackColor}
