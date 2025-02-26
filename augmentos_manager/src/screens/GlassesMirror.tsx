@@ -1,17 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {
   View,
   Text,
-  ScrollView,
   StyleSheet,
-  TouchableOpacity,
   Image,
 } from 'react-native';
-import {useFocusEffect} from '@react-navigation/native';
 import NavigationBar from '../components/NavigationBar.tsx';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { MOCK_CONNECTION } from '../consts.tsx';
-import GlobalEventEmitter from '../logic/GlobalEventEmitter.tsx';
 import { useStatus } from '../providers/AugmentOSStatusProvider.tsx';
 import { useGlassesMirror } from '../providers/GlassesMirrorContext.tsx';
 
@@ -20,13 +14,14 @@ interface GlassesMirrorProps {
 }
 
 const GlassesMirror: React.FC<GlassesMirrorProps> = ({isDarkTheme}) => {
-  // State to hold the list of display events
-  const [displayEvents, setDisplayEvents] = useState<any[]>([]);
   const { status } = useStatus();
-  const { events } = useGlassesMirror(); // <-- from context
+  const { events } = useGlassesMirror(); // From context
 
   // Helper to check if we have a glasses model name
   const isGlassesConnected = !!status.glasses_info?.model_name;
+  
+  // Get only the last event
+  const lastEvent = events.length > 0 ? events[events.length - 1] : null;
 
   return (
     <View
@@ -52,30 +47,31 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({isDarkTheme}) => {
       </View>
 
       {/* 
-        If the glasses are connected, show the events.
+        If the glasses are connected, show the last event.
         Otherwise, show a simple fallback message.
       */}
       {isGlassesConnected ? (
-        <ScrollView style={styles.contentContainer}>
-        {events.map((evt, idx) => {
-          const { layout } = evt;
-          if (!layout || !layout.layoutType) {
-            return (
-              <View key={idx} style={[styles.card, isDarkTheme ? styles.cardDark : styles.cardLight]}>
-                <Text style={isDarkTheme ? styles.darkText : styles.lightText}>
-                  Unknown layout data
-                </Text>
+        <View style={styles.contentContainer}>
+          {lastEvent ? (
+            <View style={styles.glassesDisplayContainer}>
+              <View style={styles.glassesScreen}>
+                {lastEvent.layout && lastEvent.layout.layoutType ? (
+                  renderLayout(lastEvent.layout)
+                ) : (
+                  <Text style={styles.glassesText}>
+                    Unknown layout data
+                  </Text>
+                )}
               </View>
-            );
-          }
-
-          return (
-            <View key={idx} style={[styles.card, isDarkTheme ? styles.cardDark : styles.cardLight]}>
-              {renderLayout(layout, isDarkTheme)}
             </View>
-          );
-        })}
-      </ScrollView>
+          ) : (
+            <View style={styles.fallbackContainer}>
+              <Text style={[isDarkTheme ? styles.darkText : styles.lightText, styles.fallbackText]}>
+                No display events available
+              </Text>
+            </View>
+          )}
+        </View>
       ) : (
         <View style={styles.fallbackContainer}>
           <Text style={[isDarkTheme ? styles.darkText : styles.lightText, styles.fallbackText]}>
@@ -92,8 +88,8 @@ const GlassesMirror: React.FC<GlassesMirrorProps> = ({isDarkTheme}) => {
 /**
  *  Render logic for each layoutType
  */
-function renderLayout(layout: any, isDarkTheme: boolean) {
-  const textStyle = isDarkTheme ? styles.darkText : styles.lightText;
+function renderLayout(layout: any) {
+  const textStyle = styles.glassesText;
 
   switch (layout.layoutType) {
     case 'reference_card': {
@@ -108,8 +104,11 @@ function renderLayout(layout: any, isDarkTheme: boolean) {
     case 'text_wall':
     case 'text_line': {
       const { text } = layout;
+      // Even if text is empty, show a placeholder message for text_wall layouts
       return (
-        <Text style={[styles.cardContent, textStyle]}>{text}</Text>
+        <Text style={[styles.cardContent, textStyle]}>
+          {text || text === "" ? text : ""}
+        </Text>
       );
     }
     case 'double_text_wall': {
@@ -138,7 +137,7 @@ function renderLayout(layout: any, isDarkTheme: boolean) {
       return (
         <Image
           source={{ uri: imageUri }}
-          style={{ width: 200, height: 200, resizeMode: 'contain' }}
+          style={{ width: 200, height: 200, resizeMode: 'contain', tintColor: '#00FF00' }}
         />
       );
     }
@@ -200,23 +199,39 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 0,
   },
-  card: {
-    marginVertical: 10,
+  // Glasses display styling
+  glassesDisplayContainer: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  glassesScreen: {
+    width: '100%',
+    minHeight: 200,
+    backgroundColor: '#000000',
     borderRadius: 10,
-    padding: 10,
+    padding: 15,
+    borderWidth: 2,
+    borderColor: '#333333',
   },
-  cardLight: {
-    backgroundColor: '#ffffff',
-    borderColor: '#ddd',
-    borderWidth: 1,
+  glassesText: {
+    color: '#00FF00', // Bright green color for monochrome display
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 16,
   },
-  cardDark: {
-    backgroundColor: '#1e1e1e',
-    borderColor: '#444',
+  emptyTextWall: {
     borderWidth: 1,
+    borderColor: '#00FF00',
+    borderStyle: 'dashed',
+    width: '100%',
+    height: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   cardTitle: {
     fontSize: 18,
@@ -227,7 +242,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Montserrat-Regular',
   },
-
   // Fallback
   fallbackContainer: {
     flex: 1,

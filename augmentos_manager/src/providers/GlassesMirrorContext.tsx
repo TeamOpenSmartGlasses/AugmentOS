@@ -21,8 +21,10 @@ export const GlassesMirrorProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     const handleGlassesDisplayEvent = (event: any) => {
       console.log('Global Listener: GOT A GLASSES DISPLAY EVENT', event);
-      setEvents(prev => [...prev, event]);
-    };
+ //     setEvents(prev => [...prev, event]);
+      setEvents([event]);
+   
+};
 
     if (!MOCK_CONNECTION) {
       GlobalEventEmitter.on('GLASSES_DISPLAY_EVENT', handleGlassesDisplayEvent);
