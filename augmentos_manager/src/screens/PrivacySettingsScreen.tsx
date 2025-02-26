@@ -135,24 +135,19 @@ const PrivacySettingsScreen: React.FC<PrivacySettingsScreenProps> = ({
             <Text
               style={[
                 styles.label,
-                isDarkTheme ? styles.lightText : styles.darkText,
-                (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
+                isDarkTheme ? styles.lightText : styles.darkText
               ]}>
               Sensing
             </Text>
             <Text
               style={[
                 styles.value,
-                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-                (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
+                isDarkTheme ? styles.lightSubtext : styles.darkSubtext
               ]}>
               Enable microphones & cameras.
             </Text>
           </View>
           <Switch
-            disabled={!status.glasses_info?.model_name}
             value={isSensingEnabled}
             onValueChange={toggleSensing}
             trackColor={switchColors.trackColor}
