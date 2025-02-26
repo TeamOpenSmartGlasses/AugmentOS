@@ -279,7 +279,7 @@ function showTranscriptsToUser(sessionId: string, ws: WebSocket, transcript: str
  * Refreshes all sessions for a user after settings changes.
  * Returns true if at least one session was refreshed.
  */
-function refreshUserSessions(userId: string) {
+function refreshUserSessions(userId: string, newUserTranscript: string) {
   const sessionIds = userSessions.get(userId);
   if (!sessionIds || sessionIds.size === 0) {
     console.log(`No active sessions found for user ${userId}`);
@@ -287,6 +287,7 @@ function refreshUserSessions(userId: string) {
   }
   
   console.log(`Refreshing ${sessionIds.size} sessions for user ${userId}`);
+  console.log(`New user transcript: ${newUserTranscript}`);
   
   // Refresh each session
   for (const sessionId of sessionIds) {
@@ -302,10 +303,10 @@ function refreshUserSessions(userId: string) {
         sessionId,
         layout: {
           layoutType: LayoutType.TEXT_WALL,
-          text: "" // Empty text to clear the display
+          text: newUserTranscript // Empty text to clear the display
         },
         timestamp: new Date(),
-        durationMs: 0 // Immediate clear
+        durationMs: 20 * 1000 // 20 seconds. If no other transcript is received it will be cleared after this time.
       };
       
       try {
@@ -351,12 +352,15 @@ app.post('/settings', (req, res) => {
     
     // Update processor and clear transcript
     console.log(`Updating settings for user ${userIdForSettings}: lineWidth=${lineWidth}, numberOfLines=${numberOfLines}`);
+    const lastUserTranscript = userTranscriptProcessors.get(userIdForSettings)?.getLastUserTranscript() || "";
     const newProcessor = new TranscriptProcessor(lineWidth, numberOfLines);
     userTranscriptProcessors.set(userIdForSettings, newProcessor);
-    userFinalTranscripts.set(userIdForSettings, "");
-    
+    userFinalTranscripts.set(userIdForSettings, lastUserTranscript);
+
+    const newUserTranscript = userTranscriptProcessors.get(userIdForSettings)?.processString(lastUserTranscript, true) || "";
+
     // Refresh active sessions
-    const sessionsRefreshed = refreshUserSessions(userIdForSettings);
+    const sessionsRefreshed = refreshUserSessions(userIdForSettings, newUserTranscript);
     
     res.json({ 
       status: 'Settings updated successfully',
