@@ -79,9 +79,9 @@ export class SearchToolForAgents extends Tool {
     // Format organic results
     const organicResults = result.organic_results || [];
     organicResults.forEach((entry: any) => {
-      const title = entry.title.trim() || "No Title";
-      const source = entry.source.trim() || "No Source";
-      const snippet = entry.snippet.trim() || "No Snippet";
+      const title = entry.title?.trim() || "No Title";
+      const source = entry.source?.trim() || "No Source";
+      const snippet = entry.snippet?.trim() || "No Snippet";
       formattedLines.push(`Title: ${title}\nSource: ${source}\nSnippet: ${snippet}`);
     });
   

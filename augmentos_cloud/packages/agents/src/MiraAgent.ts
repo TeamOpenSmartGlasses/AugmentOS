@@ -23,7 +23,7 @@ Utilize available tools when necessary and adhere to the following guidelines:
    {{"insight": "<concise answer>"}}
 5. If the query is empty, return Final Answer: {{"insight": "No query provided."}}
 6. Do not output any other text.
-7. For context, today's date is ${new Date().toLocaleDateString()}.
+7. For context, today's date is ${new Date().toUTCString().split(' ').slice(0,4).join(' ')}.
 
 User Query:
 {query}
@@ -96,6 +96,8 @@ export class MiraAgent implements Agent {
         template: this.agentPrompt,
         inputVariables: ["transcript_history", "insight_history", "query", "input", "tools", "tool_names", "agent_scratchpad"],
       });
+
+      // console.log("Prompt:", prompt.template);
 
       const agent = await createReactAgent({
         llm,
