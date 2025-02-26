@@ -262,6 +262,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
                         if (gatt.getDevice() != null) {
                             // Close the current gatt connection
+                            gatt.disconnect();
                             gatt.close();
                         }
 
