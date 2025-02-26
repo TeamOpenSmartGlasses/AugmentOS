@@ -15,7 +15,7 @@ import {
   StopWebhookRequest,
   isSessionWebhookRequest,
   isStopWebhookRequest
-} from '@augmentos/types';
+} from '../../types';
 
 /**
  * 🔧 Configuration options for TPA Server

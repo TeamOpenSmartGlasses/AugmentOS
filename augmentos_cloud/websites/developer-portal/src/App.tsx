@@ -11,8 +11,8 @@ import DashboardHome from './pages/DashboardHome';
 // import SignUp from './pages/SignUp';
 import TPAList from './pages/TPAList';
 import CreateTPA from './pages/CreateTPA';
-// import EditTPA from './pages/EditTPA';
-// import NotFound from './pages/NotFound';
+import EditTPA from './pages/EditTPA';
+import NotFound from './pages/NotFound';
 
 const App: React.FC = () => {
   return (
@@ -29,10 +29,10 @@ const App: React.FC = () => {
         <Route path="/dashboard" element={<DashboardHome />} />
         <Route path="/tpas" element={<TPAList />} />
         <Route path="/tpas/create" element={<CreateTPA />} />
-        {/* <Route path="/tpas/:packageName/edit" element={<EditTPA />} /> */}
+        <Route path="/tpas/:packageName/edit" element={<EditTPA />} />
 
         {/* Catch-all Not Found route */}
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<NotFound />} />
         <Route path="*" element={<LandingPage />} />
       </Routes>
     </BrowserRouter>

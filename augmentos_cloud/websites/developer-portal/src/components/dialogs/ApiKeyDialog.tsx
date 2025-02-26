@@ -62,7 +62,8 @@ const ApiKeyDialog: React.FC<ApiKeyDialogProps> = ({ tpa, open, onOpenChange }) 
       setApiKey(newKey);
       setSuccess("API key regenerated successfully");
       setShowConfirmation(false);
-    } catch (err) {
+    } catch (err: unknown) {
+      console.error(err);
       setError("Failed to regenerate API key. Please try again.");
     } finally {
       setIsRegenerating(false);

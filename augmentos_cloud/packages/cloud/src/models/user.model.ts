@@ -1,6 +1,6 @@
 // models/user.model.ts
 import mongoose, { Schema, Document, Model } from 'mongoose';
-import { AppSettingType, type AppSetting } from '@augmentos/types';
+import { AppSettingType, type AppSetting } from '@augmentos/sdk';
 
 interface Location {
   lat: number;

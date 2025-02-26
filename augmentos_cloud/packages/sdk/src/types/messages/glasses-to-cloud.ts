@@ -2,7 +2,7 @@
 
 import { BaseMessage } from './base';
 import { GlassesToCloudMessageType, ControlActionTypes, EventTypes } from '../message-types';
-import { StreamType } from 'src/streams';
+import { StreamType } from '../streams';
 
 //===========================================================
 // Control actions

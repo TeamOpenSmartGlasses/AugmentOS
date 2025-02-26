@@ -16,41 +16,11 @@
 
 import { WebSocketServer, WebSocket } from 'ws';
 import { Server } from 'http';
-// import {
-//   // Client Messages
-//   GlassesToCloudMessage,
-//   GlassesConnectionInitMessage,
-//   CloudConnectionAckMessage,
-//   CloudConnectionErrorMessage,
-
-//   // TPA Messages
-//   TpaConnectionInitMessage,
-//   CloudTpaConnectionAckMessage,
-//   TpaToCloudMessage,
-//   TpaSubscriptionUpdateMessage,
-//   CloudDataStreamMessage,
-
-//   // Common
-//   WebSocketError,
-//   StreamType,
-//   GlassesStartAppMessage,
-//   GlassesStopAppMessage,
-//   HeadPositionEvent,
-//   CloudToTpaMessage,
-//   CloudAppStateChangeMessage,
-//   UserSession,
-//   CloudAuthErrorMessage,
-//   VADStateMessage,
-//   CloudMicrophoneStateChangeMessage,
-//   GlassesConnectionStateEvent,
-//   GlassesToCloudMessageType,
-// } from '@augmentos/types';
-
 import sessionService, { SessionService } from './session.service';
 import subscriptionService, { SubscriptionService } from './subscription.service';
 import transcriptionService, { TranscriptionService } from '../processing/transcription.service';
 import appService, { IAppService } from './app.service';
-import { AppStateChange, AuthError, CloudToGlassesMessage, CloudToGlassesMessageType, CloudToTpaMessage, CloudToTpaMessageType, ConnectionAck, ConnectionError, ConnectionInit, DataStream, DisplayRequest, GlassesConnectionState, GlassesToCloudMessage, GlassesToCloudMessageType, HeadPosition, LocationUpdate, MicrophoneStateChange, StartApp, StopApp, StreamType, TpaConnectionAck, TpaConnectionError, TpaConnectionInit, TpaSubscriptionUpdate, TpaToCloudMessage, UserSession, Vad } from '@augmentos/types';
+import { AppStateChange, AuthError, CloudToGlassesMessage, CloudToGlassesMessageType, CloudToTpaMessage, CloudToTpaMessageType, ConnectionAck, ConnectionError, ConnectionInit, DataStream, DisplayRequest, GlassesConnectionState, GlassesToCloudMessage, GlassesToCloudMessageType, HeadPosition, LocationUpdate, MicrophoneStateChange, StartApp, StopApp, StreamType, TpaConnectionAck, TpaConnectionError, TpaConnectionInit, TpaSubscriptionUpdate, TpaToCloudMessage, UserSession, Vad } from '@augmentos/sdk';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { PosthogService } from '../logging/posthog.service';
 import { AUGMENTOS_AUTH_JWT_SECRET, systemApps } from '@augmentos/config';

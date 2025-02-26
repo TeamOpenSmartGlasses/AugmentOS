@@ -2,9 +2,9 @@
 
 import { WebSocket } from 'ws';
 import { v4 as uuidv4 } from 'uuid';
-import { StreamType, UserSession } from '@augmentos/types';
-import { TranscriptSegment } from '@augmentos/types';
-import { DisplayRequest } from '@augmentos/types';
+import { StreamType, UserSession } from '@augmentos/sdk';
+import { TranscriptSegment } from '@augmentos/sdk';
+import { DisplayRequest } from '@augmentos/sdk';
 import appService, { SYSTEM_TPAS } from './app.service';
 import transcriptionService from '../processing/transcription.service';
 import DisplayManager from '../layout/DisplayManager6.1';

@@ -10,7 +10,7 @@
   },
 
   "dependencies": {
-    "@augmentos/types": "workspace:*",
+    "@augmentos/sdk": "workspace:*",
     "@augmentos/config": "workspace:*",
     "@augmentos/utils": "workspace:*",
     "@augmentos/agents": "workspace:*"

@@ -110,14 +110,18 @@ const SharingDialog: React.FC<SharingDialogProps> = ({ tpa, open, onOpenChange }
               Share this link with anyone to let them install your TPA:
             </p>
             <div className="flex items-center gap-2">
-              <div className="flex-1 font-mono text-sm p-2 border rounded-md bg-gray-50 truncate">
-                {getInstallationLink()}
+              <div className="flex-1 relative">
+                <Input 
+                  readOnly
+                  value={getInstallationLink()}
+                  className="pr-10 font-mono text-sm"
+                />
               </div>
               <Button 
                 variant="outline" 
                 size="sm"
                 onClick={handleCopyLink}
-                className="shrink-0"
+                className="shrink-0 ml-2"
               >
                 {isLinkCopied ? 
                   <CheckCircle className="h-4 w-4 text-green-600" /> : 
@@ -193,7 +197,7 @@ const SharingDialog: React.FC<SharingDialogProps> = ({ tpa, open, onOpenChange }
           </Alert>
         </div>
         
-        <DialogFooter>
+        <DialogFooter className="mt-4">
           <Button onClick={() => onOpenChange(false)}>
             Done
           </Button>

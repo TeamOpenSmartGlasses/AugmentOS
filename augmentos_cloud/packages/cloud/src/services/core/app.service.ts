@@ -7,8 +7,7 @@
  * to maintain core functionality regardless of database state.
  */
 
-import { AppI, StopWebhookRequest, TpaType, WebhookResponse } from '@augmentos/types';
-import { AppState } from '@augmentos/types';
+import { AppI, StopWebhookRequest, TpaType, WebhookResponse, AppState } from '@augmentos/sdk';
 import axios, { AxiosError } from 'axios';
 import { systemApps } from '@augmentos/config';
 
@@ -55,7 +54,7 @@ export const APP_STORE: AppI[] = [
 
 // if we are not in production, add the dashboard to the app 
 if (process.env.NODE_ENV !== 'production') {
-  APP_STORE.push(  {
+  APP_STORE.push({
     packageName: systemApps.flash.packageName,
     name: systemApps.flash.name,
     tpaType: TpaType.BACKGROUND,
@@ -228,15 +227,11 @@ export class AppService implements IAppService {
     status: number;
     data: WebhookResponse;
   }> {
-    try {
-      const response = await axios.post(`${webhookUrl}/stop`, payload);
-      return {
-        status: response.status,
-        data: response.data
-      };
-    } catch (error) {
-      throw error;
-    }
+    const response = await axios.post(`${webhookUrl}/stop`, payload);
+    return {
+      status: response.status,
+      data: response.data
+    };
   }
 
   /**

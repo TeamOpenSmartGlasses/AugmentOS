@@ -18,7 +18,7 @@ import {
   LocationUpdate,
   Vad,
   NotificationDismissed
-} from '@augmentos/types';
+} from '../../types';
 
 /** 🎯 Type-safe event handler function */
 type Handler<T> = (data: T) => void;

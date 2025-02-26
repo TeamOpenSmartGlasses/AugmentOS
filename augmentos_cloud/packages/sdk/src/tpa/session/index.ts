@@ -32,7 +32,7 @@ import {
   
   // Other types
   AppSettings
-} from '@augmentos/types';
+} from '../../types';
 import { CLOUD_PORT } from '@augmentos/config';
 
 /**

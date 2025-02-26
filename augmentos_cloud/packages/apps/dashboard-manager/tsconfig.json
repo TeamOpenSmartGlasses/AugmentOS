@@ -11,7 +11,6 @@
     "baseUrl": ".",
     "paths": {
       "@augmentos/sdk": ["../sdk/dist"],
-      "@augmentos/types": ["../types/dist"],
       "@augmentos/config": ["../config/dist"],
       "@augmentos/utils": ["../utils/dist"],
       "@augmentos/agents": ["../agents/dist"],

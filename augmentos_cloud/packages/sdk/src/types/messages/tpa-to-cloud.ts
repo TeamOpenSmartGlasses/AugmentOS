@@ -3,7 +3,7 @@
 import { BaseMessage } from './base';
 import { TpaToCloudMessageType } from '../message-types';
 import { StreamType } from '../streams';
-import { DisplayRequest } from 'src/layouts';
+import { DisplayRequest } from '../layouts';
 
 /**
  * Connection initialization from TPA
