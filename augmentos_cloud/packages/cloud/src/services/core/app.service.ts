@@ -7,7 +7,7 @@
  * to maintain core functionality regardless of database state.
  */
 
-import { AppI, StopWebhookRequest, StopWebhookResponse } from '@augmentos/types';
+import { AppI, StopWebhookRequest, TpaType, WebhookResponse } from '@augmentos/types';
 import { AppState } from '@augmentos/types';
 import axios, { AxiosError } from 'axios';
 import { systemApps } from '@augmentos/config';
@@ -22,6 +22,7 @@ export const APP_STORE: AppI[] = [
   {
     packageName: systemApps.captions.packageName,
     name: systemApps.captions.name,
+    tpaType: TpaType.STANDARD,
     description: "Constant Live captions from your device microphone 🗣️🎙️",
     webhookURL: `http://localhost:${systemApps.captions.port}/webhook`,
     logoURL: `https://cloud.augmentos.org/${systemApps.captions.packageName}.png`,
@@ -29,6 +30,7 @@ export const APP_STORE: AppI[] = [
   {
     packageName: systemApps.notify.packageName,
     name: systemApps.notify.name,
+    tpaType: TpaType.BACKGROUND,
     description: "Show notifications from your device 🔔",
     webhookURL: `http://localhost:${systemApps.notify.port}/webhook`,
     logoURL: `https://cloud.augmentos.org/${systemApps.notify.packageName}.png`,
@@ -36,6 +38,7 @@ export const APP_STORE: AppI[] = [
   {
     packageName: systemApps.mira.packageName,
     name: systemApps.mira.name,
+    tpaType: TpaType.BACKGROUND,
     description: "Mira AI, your proactive agent making all of your conversations better one insight at a time. 🚀",
     webhookURL: `http://localhost:${systemApps.mira.port}/webhook`,
     logoURL: `https://cloud.augmentos.org/${systemApps.mira.packageName}.png`,
@@ -43,6 +46,7 @@ export const APP_STORE: AppI[] = [
   {
     packageName: systemApps.merge.packageName,
     name: systemApps.merge.name,
+    tpaType: TpaType.BACKGROUND,
     description: "Merge AI, your proactive agent making all of your conversations better one insight at a time. 🚀",
     webhookURL: `http://localhost:${systemApps.merge.port}/webhook`,
     logoURL: `https://cloud.augmentos.org/${systemApps.merge.packageName}.png`,
@@ -54,6 +58,7 @@ if (process.env.NODE_ENV !== 'production') {
   APP_STORE.push(  {
     packageName: systemApps.flash.packageName,
     name: systemApps.flash.name,
+    tpaType: TpaType.BACKGROUND,
     description: "⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️",
     webhookURL: `http://localhost:${systemApps.flash.port}/webhook`,
     logoURL: `https://cloud.augmentos.org/${systemApps.flash.packageName}.png`,
@@ -69,11 +74,11 @@ export const SYSTEM_TPAS: AppI[] = [
   {
     packageName: systemApps.dashboard.packageName,
     name: systemApps.dashboard.name,
+    tpaType: TpaType.BACKGROUND,
     description: "The time, The news, The weather, The notifications, The everything. 😎🌍🚀",
     webhookURL: `http://localhost:${systemApps.dashboard.port}/webhook`,
     logoURL: `https://cloud.augmentos.org/${systemApps.dashboard.packageName}.png`,
   },
-
 ];
 
 // Map systemApps to SYSTEM_TPAS.
@@ -110,7 +115,7 @@ export interface IAppService {
   triggerWebhook(url: string, payload: WebhookPayload): Promise<void>;
   triggerStopWebhook(webhookUrl: string, payload: StopWebhookRequest): Promise<{
     status: number;
-    data: StopWebhookResponse;
+    data: WebhookResponse;
   }>;
   validateApiKey(packageName: string, apiKey: string): Promise<boolean>;
   getAppState(packageName: string, userId: string): Promise<AppState>;
@@ -221,7 +226,7 @@ export class AppService implements IAppService {
  */
   async triggerStopWebhook(webhookUrl: string, payload: StopWebhookRequest): Promise<{
     status: number;
-    data: StopWebhookResponse;
+    data: WebhookResponse;
   }> {
     try {
       const response = await axios.post(`${webhookUrl}/stop`, payload);
@@ -259,7 +264,7 @@ export class AppService implements IAppService {
     const userStates = this.appStates.get(userId) || new Map<string, AppState>();
 
     // Return existing state or default to not_installed
-    return userStates.get(packageName) || 'not_installed';
+    return userStates.get(packageName) || AppState.NOT_INSTALLED;
   }
 
   /**

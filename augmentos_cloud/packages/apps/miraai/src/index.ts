@@ -3,10 +3,14 @@ import express from 'express';
 import WebSocket from 'ws';
 import path from 'path';
 import {
-  TpaConnectionInitMessage,
-  TpaSubscriptionUpdateMessage,
-  CloudDataStreamMessage,
+  TpaConnectionInit,
+  TpaSubscriptionUpdate,
+  DataStream,
   DisplayRequest,
+  TpaToCloudMessageType,
+  StreamType,
+  ViewType,
+  LayoutType,
 } from '@augmentos/types';
 
 import { CLOUD_PORT, systemApps } from '@augmentos/config';
@@ -71,8 +75,9 @@ app.post('/webhook', async (req, res) => {
     
     ws.on('open', () => {
       console.log(`\n[Session ${sessionId}]\n connected to augmentos-cloud`);
-      const initMessage: TpaConnectionInitMessage = {
-        type: 'tpa_connection_init',
+      const initMessage: TpaConnectionInit = {
+        // type: 'tpa_connection_init',
+        type: TpaToCloudMessageType.CONNECTION_INIT,
         sessionId,
         packageName: PACKAGE_NAME,
         apiKey: API_KEY
@@ -118,19 +123,22 @@ async function debug() {
 async function handleMessage(sessionId: string, ws: WebSocket, message: any, conversation_context?: string) {
   switch (message.type) {
     case 'tpa_connection_ack': {
-      const subMessage: TpaSubscriptionUpdateMessage = {
-        type: 'subscription_update',
+      const subMessage: TpaSubscriptionUpdate = {
+        // type: 'subscription_update',
+        type: TpaToCloudMessageType.SUBSCRIPTION_UPDATE,
         packageName: PACKAGE_NAME,
         sessionId,
-        subscriptions: ['transcription']
+        // subscriptions: ['transcription']
+        subscriptions: [StreamType.TRANSCRIPTION]
       };
       ws.send(JSON.stringify(subMessage));
       console.log(`Session ${sessionId} connected and subscribed`);
       break;
     }
     case 'data_stream': {
-      const streamMessage = message as CloudDataStreamMessage;
-      if (streamMessage.streamType === 'transcription') {
+      const streamMessage = message as DataStream;
+      // if (streamMessage.streamType === 'transcription') {
+      if (streamMessage.streamType === StreamType.TRANSCRIPTION) {
         await handleTranscription(sessionId, ws, streamMessage.data);
       }
       break;
@@ -184,11 +192,17 @@ async function handleTranscription(sessionId: string, ws: WebSocket, transcripti
 
   // Send immediate display feedback (e.g., "Listening...")
   const listeningDisplayRequest: DisplayRequest = {
-    type: 'display_event',
-    view: 'main',
+    // type: 'display_event',
+    // view: 'main',
+    type: TpaToCloudMessageType.DISPLAY_REQUEST,
+    view: ViewType.MAIN,
     packageName: PACKAGE_NAME,
     sessionId,
-    layout: { layoutType: 'text_wall', text: "Listening..." },
+    layout: { 
+      // layoutType: 'text_wall', 
+      layoutType: LayoutType.TEXT_WALL,
+      text: "Listening..." 
+    },
     durationMs: 10000,
     timestamp: new Date()
   };
@@ -241,11 +255,17 @@ async function processTranscripts(sessionId: string, ws: WebSocket) {
     if (combinedText.trim().length === 0) {
       console.log("No query provided");
       const noQueryDisplayRequest: DisplayRequest = {
-        type: 'display_event',
-        view: 'main',
+        // type: 'display_event',
+        // view: 'main',
+        type: TpaToCloudMessageType.DISPLAY_REQUEST,
+        view: ViewType.MAIN,
         packageName: PACKAGE_NAME,
         sessionId,
-        layout: { layoutType: 'text_wall', text: wrapText("No query provided", 30) },
+        layout: { 
+          // layoutType: 'text_wall', 
+          layoutType: LayoutType.TEXT_WALL,
+          text: wrapText("No query provided", 30) 
+        },
         durationMs: 5000,
         timestamp: new Date()
       };
@@ -254,11 +274,17 @@ async function processTranscripts(sessionId: string, ws: WebSocket) {
     }
 
     const displayProcessingQueryRequest: DisplayRequest = {
-      type: 'display_event',
-      view: 'main',
+      // type: 'display_event',
+      // view: 'main',
+      type: TpaToCloudMessageType.DISPLAY_REQUEST,
+      view: ViewType.MAIN,
       packageName: PACKAGE_NAME,
       sessionId,
-      layout: { layoutType: 'text_wall', text: wrapText("Processing query: " + combinedText, 30) },
+      layout: { 
+        // layoutType: 'text_wall', 
+        layoutType: LayoutType.TEXT_WALL,
+        text: wrapText("Processing query: " + combinedText, 30) 
+      },
       durationMs: 8000,
       timestamp: new Date()
     };
@@ -274,11 +300,17 @@ async function processTranscripts(sessionId: string, ws: WebSocket) {
     }
 
     const displayRequest: DisplayRequest = {
-      type: 'display_event',
-      view: 'main',
+      // type: 'display_event',
+      // view: 'main',
+      type: TpaToCloudMessageType.DISPLAY_REQUEST,
+      view: ViewType.MAIN,
       packageName: PACKAGE_NAME,
       sessionId,
-      layout: { layoutType: 'text_wall', text: wrapText(agentResponse, 30) },
+      layout: { 
+        // layoutType: 'text_wall', 
+        layoutType: LayoutType.TEXT_WALL,
+        text: wrapText(agentResponse, 30) 
+      },
       durationMs: 8000,
       timestamp: new Date()
     };

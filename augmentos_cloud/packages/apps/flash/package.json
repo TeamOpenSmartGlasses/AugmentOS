@@ -9,7 +9,7 @@
     "dev": "tsx watch src/index.ts"
   },
   "dependencies": {
-    "@augmentos/clients": "workspace:*",
+    "@augmentos/sdk": "workspace:*",
     "@augmentos/types": "workspace:*",
     "@augmentos/config": "workspace:*",
     "@augmentos/utils": "workspace:*"

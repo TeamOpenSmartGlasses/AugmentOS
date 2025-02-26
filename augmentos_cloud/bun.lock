@@ -45,17 +45,6 @@
         "typescript": "^5.0.0",
       },
     },
-    "packages/clients": {
-      "name": "@augmentos/clients",
-      "version": "1.0.0",
-      "dependencies": {
-        "@augmentos/config": "workspace:*",
-        "@augmentos/types": "workspace:*",
-      },
-      "devDependencies": {
-        "typescript": "^5.0.0",
-      },
-    },
     "packages/cloud": {
       "name": "@augmentos/cloud",
       "version": "1.0.0",
@@ -164,6 +153,17 @@
         "vite": "^4.3.2",
       },
     },
+    "packages/sdk": {
+      "name": "@augmentos/sdk",
+      "version": "1.0.1",
+      "dependencies": {
+        "@augmentos/config": "workspace:*",
+        "@augmentos/types": "workspace:*",
+      },
+      "devDependencies": {
+        "typescript": "^5.0.0",
+      },
+    },
     "packages/types": {
       "name": "@augmentos/types",
       "version": "1.0.0",
@@ -192,13 +192,13 @@
 
     "@augmentos/agents": ["@augmentos/agents@workspace:packages/agents"],
 
-    "@augmentos/clients": ["@augmentos/clients@workspace:packages/clients"],
-
     "@augmentos/cloud": ["@augmentos/cloud@workspace:packages/cloud"],
 
     "@augmentos/config": ["@augmentos/config@workspace:packages/config"],
 
     "@augmentos/debugger": ["@augmentos/debugger@workspace:packages/debugger"],
+
+    "@augmentos/sdk": ["@augmentos/sdk@workspace:packages/sdk"],
 
     "@augmentos/types": ["@augmentos/types@workspace:packages/types"],
 

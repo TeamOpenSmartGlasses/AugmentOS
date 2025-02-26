@@ -1,5 +1,5 @@
 import { systemApps } from '@augmentos/config';
-import { ActiveDisplay, Layout, DisplayRequest, DisplayManagerI, UserSession } from '@augmentos/types';
+import { ActiveDisplay, Layout, DisplayRequest, DisplayManagerI, UserSession, TpaToCloudMessageType, ViewType, LayoutType } from '@augmentos/types';
 import { WebSocket } from 'ws';
 
 interface DisplayState {
@@ -266,11 +266,11 @@ class DisplayManager implements DisplayManagerI {
     });
 
     const bootRequest: DisplayRequest = {
-      type: 'display_event',
-      view: 'main',
+      type: TpaToCloudMessageType.DISPLAY_REQUEST,
+      view: ViewType.MAIN,
       packageName: systemApps.dashboard.packageName,
       layout: {
-        layoutType: "reference_card",
+        layoutType: LayoutType.REFERENCE_CARD,
         title: `// AugmentOS - Starting App${this.bootingApps.size > 1 ? 's' : ''}`,
         text: bootingAppNames.join(", ")
       },
@@ -284,10 +284,16 @@ class DisplayManager implements DisplayManagerI {
     if (!this.userSession) return;
 
     const clearRequest: DisplayRequest = {
-      type: 'display_event',
-      view: viewName,
+      // type: 'display_event',
+      // view: viewName,
+      type: TpaToCloudMessageType.DISPLAY_REQUEST,
+      view: viewName as ViewType,
       packageName: systemApps.dashboard.packageName,
-      layout: { layoutType: 'text_wall', text: '' },
+      layout: { 
+        // layoutType: 'text_wall', 
+        layoutType: LayoutType.TEXT_WALL,
+        text: '' 
+      },
       timestamp: new Date()
     };
     this.sendDisplay(clearRequest);

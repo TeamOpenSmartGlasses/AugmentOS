@@ -555,7 +555,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                     // End animation with final message
                     smartGlassesService.windowManager.showAppLayer(
                             "system",
-                            () -> smartGlassesService.sendTextWall("                                     /// AugmentOS Connected \\\\\\"),
+                            () -> smartGlassesService.sendTextWall("                  /// AugmentOS Connected \\\\\\"),
                             6
                     );
                     return; // Stop looping
@@ -564,7 +564,14 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 // Send current frame
                 smartGlassesService.windowManager.showAppLayer(
                         "system",
-                        () -> smartGlassesService.sendTextWall("                                       " + ARROW_FRAMES[frameIndex] + " AugmentOS Booting " + ARROW_FRAMES[frameIndex]),
+                        () -> {
+                                smartGlassesService.sendTextWall("                    " + ARROW_FRAMES[frameIndex] + " AugmentOS Booting " + ARROW_FRAMES[frameIndex]);
+//                            if (frameIndex % 2 == 0) {
+//                                smartGlassesService.sendTextWall("                    " + ARROW_FRAMES[frameIndex] + " AugmentOS Booting " + ARROW_FRAMES[frameIndex]);
+//                            } else {
+//                                smartGlassesService.sendTextWall("                  /// AugmentOS Connected \\\\\\");
+//                            }
+                        },
                         6
                 );
 
@@ -746,6 +753,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             // Adding puck battery life and charging status
             JSONObject coreInfo = new JSONObject();
             coreInfo.put("augmentos_core_version", getCoreVersion(this));
+            coreInfo.put("core_token", authHandler.getCoreToken());
             coreInfo.put("cloud_connection_status", webSocketStatus.name());
             coreInfo.put("puck_battery_life", batteryStatusHelper.getBatteryLevel());
             coreInfo.put("charging_status", batteryStatusHelper.isBatteryCharging());
