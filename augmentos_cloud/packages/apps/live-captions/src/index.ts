@@ -16,6 +16,7 @@ import {
 } from '@augmentos/types'; // Import the types from the shared package
 import { TranscriptProcessor } from '@augmentos/utils';
 import { systemApps, CLOUD_PORT } from '@augmentos/config';
+import axios from 'axios';
 
 const app = express();
 const PORT = systemApps.captions.port;
@@ -24,6 +25,7 @@ const API_KEY = 'test_key'; // In production, this would be securely stored
 
 const userFinalTranscripts: Map<string, string> = new Map();
 const userTranscriptProcessors: Map<string, TranscriptProcessor> = new Map();
+const userSessions = new Map<string, Set<string>>(); // userId -> Set<sessionId>
 
 // For debouncing transcripts per session
 interface TranscriptDebouncer {
@@ -37,6 +39,45 @@ app.use(express.json());
 
 // Track active sessions
 const activeSessions = new Map<string, WebSocket>();
+
+
+function convertLineWidth(width: string | number): number {
+  if (typeof width === 'number') return width;
+  switch (width.toLowerCase()) {
+    case 'very narrow': return 21;
+    case 'narrow': return 30;
+    case 'medium': return 38;
+    case 'wide': return 46;
+    case 'very wide': return 55;
+    default: return 45;
+  }
+}
+
+async function fetchAndApplySettings(sessionId: string, userId: string) {
+  try {
+    const response = await axios.get(`http://localhost:${CLOUD_PORT}/tpasettings/user/${PACKAGE_NAME}`, {
+      headers: { Authorization: `Bearer ${userId}` }
+    });
+    const settings = response.data.settings;
+    console.log(`Fetched settings for session ${sessionId}:`, settings);
+    const lineWidthSetting = settings.find((s: any) => s.key === 'line_width');
+    const numberOfLinesSetting = settings.find((s: any) => s.key === 'number_of_lines');
+
+    // console.log(`==========`, lineWidthSetting);
+    const lineWidth = lineWidthSetting ? convertLineWidth(lineWidthSetting.value) : 30; // fallback default
+    const numberOfLines = numberOfLinesSetting ? Number(numberOfLinesSetting.value) : 3; // fallback default
+
+    // console.log(`==========`, lineWidth);
+    // console.log(`==========`, numberOfLines);
+    const transcriptProcessor = new TranscriptProcessor(lineWidth, numberOfLines);
+    userTranscriptProcessors.set(userId, transcriptProcessor);
+  } catch (err) {
+    console.error(`Error fetching settings for session ${sessionId}:`, err);
+    // Fallback to default values.
+    const transcriptProcessor = new TranscriptProcessor(30, 3);
+    userTranscriptProcessors.set(userId, transcriptProcessor);
+  }
+}
 
 // Handle webhook call from AugmentOS Cloud
 app.post('/webhook', async (req, res) => {
@@ -58,12 +99,17 @@ app.post('/webhook', async (req, res) => {
         apiKey: API_KEY
       };
       ws.send(JSON.stringify(initMessage));
+
+      // Fetch and apply settings for the session
+      fetchAndApplySettings(sessionId, userId).catch(err =>
+        console.error(`Error in fetchAndApplySettings for session ${sessionId}:`, err)
+      );
     });
 
     ws.on('message', (data: Buffer) => {
       try {
         const message = JSON.parse(data.toString());
-        handleMessage(sessionId, ws, message);
+        handleMessage(sessionId, userId, ws, message);
       } catch (error) {
         console.error('Error parsing message:', error);
       }
@@ -72,12 +118,27 @@ app.post('/webhook', async (req, res) => {
     ws.on('close', () => {
       console.log(`Session ${sessionId} disconnected`);
       activeSessions.delete(sessionId);
-      userFinalTranscripts.delete(sessionId);
+      
+      // Remove session from user's sessions map
+      if (userSessions.has(userId)) {
+        const sessions = userSessions.get(userId)!;
+        sessions.delete(sessionId);
+        if (sessions.size === 0) {
+          userSessions.delete(userId);
+        }
+      }
+      
       transcriptDebouncers.delete(sessionId);
     });
 
+    // Track this session for the user
+    if (!userSessions.has(userId)) {
+      userSessions.set(userId, new Set());
+    }
+    userSessions.get(userId)!.add(sessionId);
+
     activeSessions.set(sessionId, ws);
-    userFinalTranscripts.set(sessionId, "");
+    userFinalTranscripts.set(userId, "");
     // Initialize debouncer for the session
     transcriptDebouncers.set(sessionId, { lastSentTime: 0, timer: null });
 
@@ -91,17 +152,14 @@ app.post('/webhook', async (req, res) => {
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, './public')));
 
-function handleMessage(sessionId: string, ws: WebSocket, message: any) {
+function handleMessage(sessionId: string, userId: string, ws: WebSocket, message: any) {
   switch (message.type) {
-    // case 'tpa_connection_ack': {
     case CloudToTpaMessageType.CONNECTION_ACK: {
       // Connection acknowledged, subscribe to transcription
       const subMessage: TpaSubscriptionUpdate = {
-        // type: 'subscription_update',
         type: TpaToCloudMessageType.SUBSCRIPTION_UPDATE,
         packageName: PACKAGE_NAME,
         sessionId,
-        // subscriptions: ['transcription']
         subscriptions: [StreamType.TRANSCRIPTION]
       };
       ws.send(JSON.stringify(subMessage));
@@ -109,12 +167,10 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
       break;
     }
 
-    // case 'data_stream': {
     case CloudToTpaMessageType.DATA_STREAM: {
       const streamMessage = message as DataStream;
-      // if (streamMessage.streamType === 'transcription') {
       if (streamMessage.streamType === StreamType.TRANSCRIPTION) {
-        handleTranscription(sessionId, ws, streamMessage.data);
+        handleTranscription(sessionId, userId, ws, streamMessage.data);
       }
       break;
     }
@@ -127,17 +183,17 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
 /**
  * Processes the transcription, applies debouncing, and then sends a display event.
  */
-function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData: any) {
-  let userFinalTranscript = userFinalTranscripts.get(sessionId);
+function handleTranscription(sessionId: string, userId: string, ws: WebSocket, transcriptionData: any) {
+  let userFinalTranscript = userFinalTranscripts.get(userId);
   if (userFinalTranscript === undefined) {
     userFinalTranscript = "";
-    userFinalTranscripts.set(sessionId, userFinalTranscript);
+    userFinalTranscripts.set(userId, userFinalTranscript);
   }
 
-  let transcriptProcessor = userTranscriptProcessors.get(sessionId);
+  let transcriptProcessor = userTranscriptProcessors.get(userId);
   if (!transcriptProcessor) {
     transcriptProcessor = new TranscriptProcessor(30, 3);
-    userTranscriptProcessors.set(sessionId, transcriptProcessor);
+    userTranscriptProcessors.set(userId, transcriptProcessor);
   }
 
   const isFinal = transcriptionData.isFinal;
@@ -151,19 +207,19 @@ function handleTranscription(sessionId: string, ws: WebSocket, transcriptionData
   if (isFinal) {
     const finalLiveCaption = newTranscript.length > 100 ? newTranscript.substring(newTranscript.length - 100) : newTranscript;
 
-    userFinalTranscripts.set(sessionId, finalLiveCaption);
+    userFinalTranscripts.set(userId, finalLiveCaption);
   }
 
   console.log(`[Session ${sessionId}]: finalLiveCaption=${isFinal}`);
 
-  debounceAndShowTranscript(sessionId, ws, text, isFinal);
+  debounceAndShowTranscript(sessionId, userId, ws, text, isFinal);
 }
 
 /**
  * Debounces the sending of transcript display events so that non-final transcripts
  * are not sent too frequently. Final transcripts are sent immediately.
  */
-function debounceAndShowTranscript(sessionId: string, ws: WebSocket, transcript: string, isFinal: boolean) {
+function debounceAndShowTranscript(sessionId: string, userId: string, ws: WebSocket, transcript: string, isFinal: boolean) {
   const debounceDelay = 400; // in milliseconds
   const debouncer = transcriptDebouncers.get(sessionId);
   if (!debouncer) {
@@ -202,14 +258,11 @@ function debounceAndShowTranscript(sessionId: string, ws: WebSocket, transcript:
  */
 function showTranscriptsToUser(sessionId: string, ws: WebSocket, transcript: string, isFinal: boolean) {
   const displayRequest: DisplayRequest = {
-    // type: 'display_event',
-    // view: "main",
     type: TpaToCloudMessageType.DISPLAY_REQUEST,
     view: ViewType.MAIN,
     packageName: PACKAGE_NAME,
     sessionId,
     layout: {
-      // layoutType: 'text_wall',
       layoutType: LayoutType.TEXT_WALL,
       text: transcript
     },
@@ -221,6 +274,103 @@ function showTranscriptsToUser(sessionId: string, ws: WebSocket, transcript: str
 
   ws.send(JSON.stringify(displayRequest));
 }
+
+/**
+ * Refreshes all sessions for a user after settings changes.
+ * Returns true if at least one session was refreshed.
+ */
+function refreshUserSessions(userId: string, newUserTranscript: string) {
+  const sessionIds = userSessions.get(userId);
+  if (!sessionIds || sessionIds.size === 0) {
+    console.log(`No active sessions found for user ${userId}`);
+    return false;
+  }
+  
+  console.log(`Refreshing ${sessionIds.size} sessions for user ${userId}`);
+  console.log(`New user transcript: ${newUserTranscript}`);
+  
+  // Refresh each session
+  for (const sessionId of sessionIds) {
+    const ws = activeSessions.get(sessionId);
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      console.log(`Refreshing session ${sessionId}`);
+      
+      // Clear display to reset visual state
+      const clearDisplayRequest: DisplayRequest = {
+        type: TpaToCloudMessageType.DISPLAY_REQUEST,
+        view: ViewType.MAIN,
+        packageName: PACKAGE_NAME,
+        sessionId,
+        layout: {
+          layoutType: LayoutType.TEXT_WALL,
+          text: newUserTranscript // Empty text to clear the display
+        },
+        timestamp: new Date(),
+        durationMs: 20 * 1000 // 20 seconds. If no other transcript is received it will be cleared after this time.
+      };
+      
+      try {
+        ws.send(JSON.stringify(clearDisplayRequest));
+      } catch (error) {
+        console.error(`Error clearing display for session ${sessionId}:`, error);
+      }
+    } else {
+      console.log(`Session ${sessionId} is not open, removing from tracking`);
+      activeSessions.delete(sessionId);
+      sessionIds.delete(sessionId);
+    }
+  }
+  
+  return sessionIds.size > 0;
+}
+
+app.post('/settings', (req, res) => {
+  try {
+    console.log('Received settings update for captions:', req.body);
+    const { userIdForSettings, settings } = req.body;
+    
+    if (!userIdForSettings || !Array.isArray(settings)) {
+      return res.status(400).json({ error: 'Missing userId or settings array in payload' });
+    }
+    
+    const lineWidthSetting = settings.find((s: any) => s.key === 'line_width');
+    const numberOfLinesSetting = settings.find((s: any) => s.key === 'number_of_lines');
+
+    // Validate settings
+    let lineWidth = 30; // default
+    if (lineWidthSetting) {
+      lineWidth = typeof lineWidthSetting.value === 'string' ? 
+        convertLineWidth(lineWidthSetting.value) : 
+        (typeof lineWidthSetting.value === 'number' ? lineWidthSetting.value : 30);
+    }
+    
+    let numberOfLines = 3; // default
+    if (numberOfLinesSetting) {
+      numberOfLines = Number(numberOfLinesSetting.value);
+      if (isNaN(numberOfLines) || numberOfLines < 1) numberOfLines = 3;
+    }
+    
+    // Update processor and clear transcript
+    console.log(`Updating settings for user ${userIdForSettings}: lineWidth=${lineWidth}, numberOfLines=${numberOfLines}`);
+    const lastUserTranscript = userTranscriptProcessors.get(userIdForSettings)?.getLastUserTranscript() || "";
+    const newProcessor = new TranscriptProcessor(lineWidth, numberOfLines);
+    userTranscriptProcessors.set(userIdForSettings, newProcessor);
+    userFinalTranscripts.set(userIdForSettings, lastUserTranscript);
+
+    const newUserTranscript = userTranscriptProcessors.get(userIdForSettings)?.processString(lastUserTranscript, true) || "";
+
+    // Refresh active sessions
+    const sessionsRefreshed = refreshUserSessions(userIdForSettings, newUserTranscript);
+    
+    res.json({ 
+      status: 'Settings updated successfully',
+      sessionsRefreshed: sessionsRefreshed
+    });
+  } catch (error) {
+    console.error('Error updating settings:', error);
+    res.status(500).json({ error: 'Internal server error updating settings' });
+  }
+});
 
 // Add a route to verify the server is running
 app.get('/health', (req, res) => {

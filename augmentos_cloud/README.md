@@ -311,7 +311,7 @@ Currently implemented system apps:
 const systemApps = {
   captions: {
     port: BASE_PORT + 10,
-    packageName: "com.augmentos.livecaptions",
+    packageName: "com.augmentos.live-captions",
     name: "Live Captions",
   },
   dashboard: {

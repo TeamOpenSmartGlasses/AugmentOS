@@ -17,43 +17,44 @@ interface UserDocument extends Document {
   setLocation(location: Location): Promise<void>;
   addRunningApp(appName: string): Promise<void>;
   removeRunningApp(appName: string): Promise<void>;
-  updateAppSettings(appName: string, settings: AppSetting[]): Promise<void>;
+  updateAppSettings(appName: string, settings: { key: string; value: any }[]): Promise<void>;
   getAppSettings(appName: string): AppSetting[] | undefined;
   isAppRunning(appName: string): boolean;
 }
 
-// Setting schemas (unchanged)
-const ToggleSettingSchema = new Schema({
-  type: { type: String, enum: ['toggle'], required: true },
+// --- New Schema for Lightweight Updates ---
+const AppSettingUpdateSchema = new Schema({
   key: { type: String, required: true },
-  label: { type: String, required: true },
-  defaultValue: { type: Boolean, required: true }
-});
+  value: { type: Schema.Types.Mixed, required: true }
+}, { _id: false });
 
-const TextSettingSchema = new Schema({
-  type: { type: String, enum: ['text'], required: true },
-  key: { type: String, required: true },
-  label: { type: String, required: true },
-  defaultValue: { type: String }
-});
+// // Setting schemas (unchanged)
+// const ToggleSettingSchema = new Schema({
+//   type: { type: String, enum: ['toggle'], required: true },
+//   key: { type: String, required: true },
+//   label: { type: String, required: true },
+//   defaultValue: { type: Boolean, required: true }
+// });
 
-const SelectOptionSchema = new Schema({
-  label: { type: String, required: true },
-  value: { type: String, required: true }
-});
+// const TextSettingSchema = new Schema({
+//   type: { type: String, enum: ['text'], required: true },
+//   key: { type: String, required: true },
+//   label: { type: String, required: true },
+//   defaultValue: { type: String }
+// });
 
-const SelectSettingSchema = new Schema({
-  type: { type: String, enum: ['select'], required: true },
-  key: { type: String, required: true },
-  label: { type: String, required: true },
-  options: [SelectOptionSchema],
-  defaultValue: { type: String }
-});
+// const SelectOptionSchema = new Schema({
+//   label: { type: String, required: true },
+//   value: { type: String, required: true }
+// });
 
-const AppSettingSchema = new Schema({
-  type: { type: String, required: true }
-}, { discriminatorKey: 'type' });
+// const SelectSettingSchema = new Schema({
+//   type: { type: String, enum: ['select'], required: true },
+//   key: { type: String, required: true },
+//   label: { type: String, required: true },
+// });
 
+// --- User Schema ---
 const UserSchema = new Schema<UserDocument>({
   email: { 
     type: String, 
@@ -81,7 +82,6 @@ const UserSchema = new Schema<UserDocument>({
     default: [],
     validate: {
       validator: function(apps: string[]) {
-        // Ensure no duplicates
         return new Set(apps).size === apps.length;
       },
       message: 'Running apps must be unique'
@@ -89,30 +89,27 @@ const UserSchema = new Schema<UserDocument>({
   },
   appSettings: {
     type: Map,
-    of: [AppSettingSchema],
+    of: [AppSettingUpdateSchema], // Use the new schema for updates
     default: new Map()
   }
 }, { 
   timestamps: true,
-  // Add optimistic concurrency control
   optimisticConcurrency: true,
-  // Modify JSON serialization
   toJSON: {
     transform: (doc, ret) => {
       delete ret.__v;
       ret.id = ret._id;
       delete ret._id;
-      // Convert Map to plain object for JSON
       ret.appSettings = Object.fromEntries(ret.appSettings);
       return ret;
     }
   }
 });
 
-// Add discriminators
-AppSettingSchema.discriminator('toggle', ToggleSettingSchema);
-AppSettingSchema.discriminator('text', TextSettingSchema);
-AppSettingSchema.discriminator('select', SelectSettingSchema);
+// // Add discriminators
+// AppSettingUpdateSchema.discriminator('toggle', ToggleSettingSchema);
+// AppSettingUpdateSchema.discriminator('text', TextSettingSchema);
+// AppSettingUpdateSchema.discriminator('select', SelectSettingSchema);
 
 // Create compound index for unique running apps per user
 UserSchema.index({ email: 1, 'runningApps': 1 }, { unique: true });
@@ -140,32 +137,41 @@ UserSchema.methods.removeRunningApp = async function(this: UserDocument, appName
 };
 
 UserSchema.methods.updateAppSettings = async function(
-  this: UserDocument,
   appName: string, 
-  settings: AppSetting[]
+  settings: { key: string; value: any }[]
 ): Promise<void> {
-  // Validate settings before updating
-  const isValid = settings.every(setting => {
-    switch (setting.type) {
-      case AppSettingType.TOGGLE:
-        return typeof setting.defaultValue === 'boolean';
-      case AppSettingType.SELECT:
-        return Array.isArray(setting.options) && 
-               setting.options.length > 0 &&
-               (!setting.defaultValue || setting.options.some(opt => opt.value === setting.defaultValue));
-      case AppSettingType.TEXT:
-        return true; // Text settings can have any string default value
-      default:
-        return false;
+  console.log('Settings update payload (before saving):', JSON.stringify(settings));
+
+  // Retrieve existing settings and convert subdocuments to plain objects.
+  const existingSettings = this.appSettings.get(appName);
+  let existingSettingsPlain: { key: string; value: any }[] = [];
+  if (existingSettings && Array.isArray(existingSettings)) {
+    existingSettingsPlain = existingSettings.map((s: any) =>
+      typeof s.toObject === 'function' ? s.toObject() : s
+    );
+  }
+
+  // Create a map from the existing settings.
+  const existingSettingsMap = new Map(existingSettingsPlain.map(s => [s.key, s.value]));
+
+  // Merge updates from the payload.
+  settings.forEach(update => {
+    if (update.key !== undefined) { // extra guard to prevent undefined keys
+      existingSettingsMap.set(update.key, update.value);
     }
   });
 
-  if (!isValid) {
-    throw new Error('Invalid settings format');
-  }
+  // Convert the merged map back into an array of settings.
+  const updatedSettingsArray = Array.from(existingSettingsMap.entries()).map(
+    ([key, value]) => ({ key, value })
+  );
 
   this.appSettings.set(appName, settings);
   await this.save();
+
+  console.log('Updated settings:', JSON.stringify(updatedSettingsArray));
+  const afterUpdate = this.appSettings.get(appName);
+  console.log('Settings retrieved after save:', JSON.stringify(afterUpdate));
 };
 
 UserSchema.methods.getAppSettings = function(this: UserDocument, appName: string): AppSetting[] | undefined {
@@ -176,7 +182,7 @@ UserSchema.methods.isAppRunning = function(this: UserDocument, appName: string):
   return this.runningApps.includes(appName);
 };
 
-// Static methods
+// --- Static Methods ---
 UserSchema.statics.findByEmail = async function(email: string): Promise<UserDocument | null> {
   return this.findOne({ email: email.toLowerCase() });
 };
@@ -190,22 +196,18 @@ UserSchema.statics.findOrCreateUser = async function(email: string): Promise<Use
   return user;
 };
 
-// Middleware
+// --- Middleware ---
 UserSchema.pre('save', function(next) {
-  // Ensure email is lowercase
   if (this.email) {
     this.email = this.email.toLowerCase();
   }
-  
-  // Ensure runningApps has no duplicates
   if (this.runningApps) {
     this.runningApps = [...new Set(this.runningApps)];
   }
-  
   next();
 });
 
-// Interface for static methods
+// --- Interface for Static Methods ---
 interface UserModel extends Model<UserDocument> {
   findByEmail(email: string): Promise<UserDocument | null>;
   findOrCreateUser(email: string): Promise<UserDocument>;

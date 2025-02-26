@@ -14,7 +14,7 @@ export const DEBUGGER_PORT = 6173;
 export const systemApps = {
   captions: {
     port: BASE_PORT + 10,
-    packageName: 'org.augmentos.captions',
+    packageName: 'org.augmentos.live-captions',
   },
   flash: {
     port: BASE_PORT + 11,

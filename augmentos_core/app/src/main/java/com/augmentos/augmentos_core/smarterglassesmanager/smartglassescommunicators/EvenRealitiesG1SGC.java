@@ -1900,8 +1900,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     // Constants for text wall display
     private static final int TEXT_COMMAND = 0x4E;  // Text command
-    private static final int DISPLAY_WIDTH = 240;  // Display width in pixels //I know, it's weird, but we printed a bunch of dots and this is the math
-    private static final int DISPLAY_USE_WIDTH = 240;  // How much of the display to use
+    private static final int DISPLAY_WIDTH = 420;
+    private static final int DISPLAY_USE_WIDTH = 420;  // How much of the display to use
+    private static final int DOUBLE_TEXT_WALL_DISPLAY_WIDTH = 240;  // Display width in pixels //I know, it's weird, but we printed a bunch of dots and this is the math
+    private static final int DOUBLE_TEXT_WALL_DISPLAY_USE_WIDTH = 240;  // How much of the display to use
     private static final int FONT_SIZE = 21;      // Font size
     private static final float FONT_DIVIDER = 2.0f;
     private static final int LINES_PER_SCREEN = 5; // Lines per screen
@@ -1913,7 +1915,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     //currently only a single page - 1PAGE CHANGE
     private List<byte[]> createTextWallChunks(String text) {
         // Split text into lines based on display width and font size
-        List<String> lines = splitIntoLines(text);
+        List<String> lines = splitIntoLines(text, DISPLAY_USE_WIDTH);
 
         // Add indentation to each line
         float fontDivider = 2.0f;  // Same as in splitIntoLines
@@ -1996,8 +1998,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     private List<byte[]> createDoubleTextWallChunks(String text1, String text2) {
         // Split both texts into lines
-        List<String> lines1 = splitIntoLines(text1);
-        List<String> lines2 = splitIntoLines(text2);
+        List<String> lines1 = splitIntoLines(text1, DOUBLE_TEXT_WALL_DISPLAY_USE_WIDTH);
+        List<String> lines2 = splitIntoLines(text2, DOUBLE_TEXT_WALL_DISPLAY_USE_WIDTH);
 
         // Ensure we only take up to 5 lines per screen
         while (lines1.size() < LINES_PER_SCREEN) lines1.add("");
@@ -2010,7 +2012,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         int spaceWidth = fontLoader.getGlyph(' ').width + 1;
 
         // Calculate where the right column should start
-        int rightColumnStart = Math.round(DISPLAY_USE_WIDTH * 0.6f);
+        int rightColumnStart = Math.round(DOUBLE_TEXT_WALL_DISPLAY_USE_WIDTH * 0.6f);
 
         // Construct the text output by merging the lines
         StringBuilder pageText = new StringBuilder();
@@ -2086,7 +2088,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         return allChunks;
     }
 
-    private List<String> splitIntoLines(String text) {
+    private List<String> splitIntoLines(String text, int displayUseWidth) {
         // Replace specific symbols
         text = text.replace("⬆", "^").replace("⟶", "-");
 
@@ -2099,7 +2101,12 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
         List<String> lines = new ArrayList<>();
         String[] rawLines = text.split("\n"); // Split by newlines first
-        int charsPerLine = (int) Math.round((DISPLAY_USE_WIDTH / (FONT_SIZE / FONT_DIVIDER) * 1.45)); // Rough estimate
+        int charsPerLine = (int) Math.round((displayUseWidth / (FONT_SIZE / FONT_DIVIDER) * 1.45)); // Rough estimate
+
+//        Log.d(TAG, "Estimated chars per line: " + charsPerLine);
+//        Log.d(TAG, "Processing text into lines" + text);
+//        Log.d(TAG, "Text: " + text.length());
+//        Log.d(TAG, "STRIPPED TEXT" + text.strip().length());
 
         for (String rawLine : rawLines) {
             if (rawLine.isEmpty()) {
