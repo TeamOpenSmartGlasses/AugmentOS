@@ -125,7 +125,7 @@ import {
         if (!key.startsWith(sessionId)) continue;
 
         const [, packageName] = key.split(':');
-        if (subs.has(subscription) || subs.has('*') || subs.has('all')) {
+        if (subs.has(subscription) || subs.has(StreamType.WILDCARD) || subs.has(StreamType.ALL)) {
           subscribedApps.push(packageName);
         }
       }
@@ -198,7 +198,7 @@ import {
       const subs = this.subscriptions.get(key);
       
       if (!subs) return false;
-      return subs.has(subscription) || subs.has('*') || subs.has('all');
+      return subs.has(subscription) || subs.has(StreamType.WILDCARD) || subs.has(StreamType.ALL);
     }
   
     /**
@@ -220,22 +220,22 @@ import {
      * @private
      */
     private isValidSubscription(subscription: StreamType): boolean {
-      const validTypes = new Set([
-        'button_press',
-        'phone_notification',
-        'location_update',
-        'head_position',
-        'glasses_battery_update',
-        'glasses_connection_state',
-        'open_dashboard',
-        'audio_chunk',
-        'video',
-        'transcription',
-        'translation',
-        'all',
-        '*'
-      ]);
-  
+      // const validTypes = new Set([
+      //   'button_press',
+      //   'phone_notification',
+      //   'location_update',
+      //   'head_position',
+      //   'glasses_battery_update',
+      //   'glasses_connection_state',
+      //   'open_dashboard',
+      //   'audio_chunk',
+      //   'video',
+      //   'transcription',
+      //   'translation',
+      //   'all',
+      //   '*'
+      // ]);
+      const validTypes = new Set(Object.values(StreamType));
       return validTypes.has(subscription);
     }
   }

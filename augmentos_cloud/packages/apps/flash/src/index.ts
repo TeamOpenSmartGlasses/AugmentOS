@@ -1,5 +1,5 @@
 import path from 'path';
-import { TpaServer, TpaSession } from '@augmentos/clients';
+import { TpaServer, TpaSession } from '@augmentos/sdk';
 import { CLOUD_PORT, systemApps } from '@augmentos/config';
 
 const PORT = systemApps.flash.port;
@@ -10,7 +10,7 @@ class FlashServer extends TpaServer {
   // Changed from onNewSession to onSession to match parent class
   protected async onSession(session: TpaSession, sessionId: string, userId: string): Promise<void> {
     console.log(`Setting up flash for session ${sessionId}`);
-    session.layouts.showReferenceCard("Flash", "Welcome to Flash!", 3000);
+    session.layouts.showReferenceCard("Flash", "Welcome to Flash!", { durationMs: 3000 });
 
     // Store cleanup functions
     const cleanup = [
@@ -20,7 +20,7 @@ class FlashServer extends TpaServer {
         session.layouts.showReferenceCard(
           "Flash 2",
           data.text,
-          data.isFinal ? 3000 : undefined
+          { durationMs: data.isFinal ? 3000 : undefined }
         );
 
         // Log transcription
@@ -30,7 +30,7 @@ class FlashServer extends TpaServer {
       // Handle connection events
       session.events.onConnected((settings) => {
         console.log(`\n[User ${userId}] connected to augmentos-cloud\n`);
-        session.layouts.showReferenceCard("Flash", "Connected to AugmentOS", 2000);
+        session.layouts.showReferenceCard("Flash", "Connected to AugmentOS", { durationMs: 2000 });
       }),
 
       // Handle errors

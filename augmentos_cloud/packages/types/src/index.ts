@@ -1,20 +1,131 @@
-// augmentos_cloud/packages/types/src/index.ts
+// src/index.ts
 
-// Model exports
-export * from './core/app';
-export * from './core/app.session';
-export * from './core/user.session';
-export * from './core/transcript';
+// Message type enums
+export * from './message-types';
 
-// Event exports
-export * from './events/hardware';
-export * from './layout/layout';
-export * from './events/phone';
+// Base message type
+export * from './messages/base';
 
-// WebSocket exports
-export * from './websocket/common';
-export * from './websocket/client';
-export * from './websocket/tpa';
+// Messages by direction
+export * from './messages/glasses-to-cloud';
+export * from './messages/cloud-to-glasses';
+export * from './messages/tpa-to-cloud';
+export * from './messages/cloud-to-tpa';
 
-export * from "./webhook";
+// Stream types
+export * from './streams';
 
+// Layout types
+export * from './layouts';
+
+// Other system enums
+export * from './enums';
+
+// Core model interfaces
+export * from './models';
+
+// Session-related interfaces
+export * from './user-session';
+
+// Webhook interfaces
+export * from './webhooks';
+
+
+// Re-export common types for convenience
+// This allows developers to import commonly used types directly from the package root
+// without having to know exactly which file they come from
+
+// From messages/glasses-to-cloud.ts
+export {
+  ButtonPress,
+  HeadPosition,
+  GlassesBatteryUpdate,
+  PhoneBatteryUpdate,
+  GlassesConnectionState,
+  LocationUpdate,
+  Vad,
+  PhoneNotification,
+  NotificationDismissed,
+  StartApp,
+  StopApp,
+  ConnectionInit,
+  DashboardState,
+  OpenDashboard,
+  GlassesToCloudMessage
+} from './messages/glasses-to-cloud';
+
+// From messages/cloud-to-glasses.ts
+export {
+  ConnectionAck,
+  ConnectionError,
+  AuthError,
+  DisplayEvent,
+  AppStateChange,
+  MicrophoneStateChange,
+  CloudToGlassesMessage
+} from './messages/cloud-to-glasses';
+
+// From messages/tpa-to-cloud.ts
+export {
+  TpaConnectionInit,
+  TpaSubscriptionUpdate,
+  TpaToCloudMessage
+} from './messages/tpa-to-cloud';
+
+// From messages/cloud-to-tpa.ts
+export {
+  TpaConnectionAck,
+  TpaConnectionError,
+  AppStopped,
+  SettingsUpdate,
+  DataStream,
+  CloudToTpaMessage
+} from './messages/cloud-to-tpa';
+
+// From layout.ts
+export {
+  TextWall,
+  DoubleTextWall,
+  DashboardCard,
+  ReferenceCard,
+  Layout,
+  DisplayRequest
+} from './layouts';
+
+// Type guards - re-export the most commonly used ones for convenience
+export {
+  isButtonPress,
+  isHeadPosition,
+  isConnectionInit,
+  isStartApp,
+  isStopApp
+} from './messages/glasses-to-cloud';
+
+export {
+  isConnectionAck,
+  isDisplayEvent,
+  isAppStateChange
+} from './messages/cloud-to-glasses';
+
+export {
+  isTpaConnectionInit,
+  isTpaSubscriptionUpdate,
+  isDisplayRequest
+} from './messages/tpa-to-cloud';
+
+export {
+  isTpaConnectionAck,
+  isDataStream,
+  isAppStopped
+} from './messages/cloud-to-tpa';
+
+
+
+/**
+ * WebSocket error information
+ */
+export interface WebSocketError {
+  code: string;
+  message: string;
+  details?: unknown;
+}

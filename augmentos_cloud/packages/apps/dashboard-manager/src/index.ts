@@ -3,11 +3,16 @@ import WebSocket from 'ws';
 import path from 'path';
 import { v4 as uuidv4 } from 'uuid'; // if you need unique IDs
 import {
-  TpaConnectionInitMessage,
-  TpaSubscriptionUpdateMessage,
-  CloudDataStreamMessage,
+  TpaConnectionInit,
+  TpaSubscriptionUpdate,
+  DataStream,
   DisplayRequest,
   DoubleTextWall,
+  LayoutType,
+  TpaType,
+  TpaToCloudMessageType,
+  ViewType,
+  StreamType,
 } from '@augmentos/types';
 import tzlookup from 'tz-lookup';
 import { NewsAgent } from '@augmentos/agents';
@@ -66,7 +71,8 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
 
     // Create a new dashboard card
     const dashboardCard: DoubleTextWall = {
-      layoutType: 'double_text_wall',
+      // layoutType: 'double_text_wall',
+      layoutType: LayoutType.DOUBLE_TEXT_WALL,
       topText: 'Loading contextual dashboard...',
       bottomText: '',
     };
@@ -84,8 +90,9 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     ws.on('open', async () => {
       console.log(`[Session ${sessionId}] Connected to augmentos-cloud`);
 
-      const initMessage: TpaConnectionInitMessage = {
-        type: 'tpa_connection_init',
+      const initMessage: TpaConnectionInit = {
+        // type: 'tpa_connection_init',
+        type: TpaToCloudMessageType.CONNECTION_INIT,
         sessionId: sessionId,
         packageName: PACKAGE_NAME,
         apiKey: API_KEY,
@@ -93,8 +100,10 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
       ws.send(JSON.stringify(initMessage));
 
       const displayRequest: DisplayRequest = {
-        type: 'display_event',
-        view: 'dashboard',
+        // type: 'display_event',
+        // view: 'dashboard',
+        type: TpaToCloudMessageType.DISPLAY_REQUEST,
+        view: ViewType.DASHBOARD,
         packageName: PACKAGE_NAME,
         sessionId: sessionId,
         layout: dashboardCard,
@@ -162,11 +171,13 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
   switch (message.type) {
     case 'tpa_connection_ack': {
       // Connection acknowledged, subscribe to transcription
-      const subMessage: TpaSubscriptionUpdateMessage = {
-        type: 'subscription_update',
+      const subMessage: TpaSubscriptionUpdate = {
+        // type: 'subscription_update',
+        type: TpaToCloudMessageType.SUBSCRIPTION_UPDATE,
         packageName: PACKAGE_NAME,
         sessionId: sessionId,
-        subscriptions: ['phone_notification', 'location_update', 'head_position', 'glasses_battery_update']
+        // subscriptions: ['phone_notification', 'location_update', 'head_position', 'glasses_battery_update']
+        subscriptions: [StreamType.PHONE_NOTIFICATION, StreamType.LOCATION_UPDATE, StreamType.HEAD_POSITION, StreamType.GLASSES_BATTERY_UPDATE]
       };
       ws.send(JSON.stringify(subMessage));
       console.log(`Session ${sessionId} connected and subscribed`);
@@ -174,23 +185,27 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
     }
 
     case 'data_stream': {
-      const streamMessage = message as CloudDataStreamMessage;
+      const streamMessage = message as DataStream;
       switch (streamMessage.streamType) {
-        case 'phone_notification':
+        // case 'phone_notification':
+        case StreamType.PHONE_NOTIFICATION:
           // Instead of immediately handling the notification,
           // cache it and send the entire list to the NotificationFilterAgent.
           handlePhoneNotification(sessionId, streamMessage.data);
           break;
 
-        case 'location_update':
+        // case 'location_update':
+        case StreamType.LOCATION_UPDATE:
           handleLocationUpdate(sessionId, streamMessage.data);
           break;
         
-        case 'head_position':
+        // case 'head_position':
+        case StreamType.HEAD_POSITION:
           handleHeadPosition(sessionId, streamMessage.data);
           break;
 
-        case 'glasses_battery_update':
+        // case 'glasses_battery_update':
+        case StreamType.GLASSES_BATTERY_UPDATE:
           // NEW: Update battery only if the level has changed.
           handleGlassesBatteryUpdate(sessionId, streamMessage.data);
           break;
@@ -496,12 +511,15 @@ async function updateDashboard(sessionId?: string) {
 
     // Create display event.
     const displayRequest: DisplayRequest = {
-      type: 'display_event',
-      view: 'dashboard',
+      // type: 'display_event',
+      // view: 'dashboard',
+      type: TpaToCloudMessageType.DISPLAY_REQUEST,
+      view: ViewType.DASHBOARD,
       packageName: PACKAGE_NAME,
       sessionId: sessionId,
       layout: {
-        layoutType: 'double_text_wall',
+        // layoutType: 'double_text_wall',
+        layoutType: LayoutType.DOUBLE_TEXT_WALL,
         topText: leftText,
         bottomText: rightText,
       },

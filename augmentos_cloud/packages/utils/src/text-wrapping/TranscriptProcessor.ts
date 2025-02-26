@@ -3,10 +3,11 @@ export class TranscriptProcessor {
   private maxLines: number;
   private lines: string[];
   private partialText: string;
-
+  private lastUserTranscript: string;
   constructor(maxCharsPerLine: number, maxLines: number) {
     this.maxCharsPerLine = maxCharsPerLine;
     this.maxLines = maxLines;
+    this.lastUserTranscript = "";
     this.lines = [];
     this.partialText = "";
   }
@@ -17,6 +18,7 @@ export class TranscriptProcessor {
     if (!isFinal) {
       // Store this as the current partial text (overwriting old partial)
       this.partialText = newText;
+      this.lastUserTranscript = newText;
       return this.buildPreview(this.partialText);
     } else {
       // We have a final text -> clear out the partial text to avoid duplication
@@ -28,6 +30,7 @@ export class TranscriptProcessor {
         this.appendToLines(chunk);
       }
 
+      this.lastUserTranscript = newText;
       // Return only the finalized lines
       return this.getTranscript();
     }
@@ -116,8 +119,11 @@ export class TranscriptProcessor {
 
     // Clear the lines
     this.lines = [];
-
     return finalString;
+  }
+
+  public getLastUserTranscript(): string {
+    return this.lastUserTranscript;
   }
 
   public clear(): void {
