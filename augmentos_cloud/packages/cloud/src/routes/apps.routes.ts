@@ -3,6 +3,7 @@ import express from 'express';
 import webSocketService from '../services/core/websocket.service';
 import sessionService from '../services/core/session.service';
 import appService from '../services/core/app.service';
+import { CLOUD_VERSION } from '@augmentos/config';
 import { get } from 'http';
 
 const router = express.Router();
@@ -73,6 +74,10 @@ router.post('/:packageName/stop', async (req, res) => {
     console.error(`Error starting app ${packageName}:`, error);
     res.status(500).json({ error: 'Error starting app' });
   }
+});
+
+router.get('/version', async (req, res) => {
+  res.json({ version: CLOUD_VERSION });
 });
 
 export default router;
