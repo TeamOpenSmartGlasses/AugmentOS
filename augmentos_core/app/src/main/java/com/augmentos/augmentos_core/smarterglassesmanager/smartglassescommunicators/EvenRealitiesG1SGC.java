@@ -1914,20 +1914,16 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     //currently only a single page - 1PAGE CHANGE
     private List<byte[]> createTextWallChunks(String text) {
-        // Split text into lines based on display width and font size
-        List<String> lines = splitIntoLines(text, DISPLAY_WIDTH);
+        int margin = 20; // Left margin in spaces
 
-        // TODO: convert this to X position
-        // Add indentation to each line
-//        float fontDivider = 2.0f;  // Same as in splitIntoLines
-//        int unusedWidth = DISPLAY_WIDTH - DISPLAY_USE_WIDTH;
-//        int indentChars = Math.round(unusedWidth / (FONT_SIZE / FONT_DIVIDER) / 2);
-//        lines = lines.stream()
-//                .map(line -> " ".repeat(indentChars) + line)
-//                .collect(Collectors.toList());
+        int spaceWidth = calculateTextWidth(" ");
+
+        // Calculate effective display width after accounting for left and right margins in spaces
+        int marginWidth = margin * spaceWidth; // Width of left margin in pixels
+        int effectiveWidth = DISPLAY_WIDTH - (2 * marginWidth); // Subtract left and right margins
+
 
         // Calculate total pages
-//        int totalPages = (int) Math.ceil((double) lines.size() / LINES_PER_SCREEN);
         int totalPages = 1; //hard set to 1 since we only do 1 page - 1PAGECHANGE
 
         List<byte[]> allChunks = new ArrayList<>();
@@ -1939,13 +1935,16 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             int endLine = Math.min(startLine + LINES_PER_SCREEN, lines.size());
             List<String> pageLines = lines.subList(startLine, endLine);
 
-            // Combine lines for this page
+            // Combine lines for this page with proper indentation
             StringBuilder pageText = new StringBuilder();
+            int spaceWidth = calculateTextWidth(" ");
+
             for (String line : pageLines) {
-                //Log.d(TAG, "LINE: " + line);
-                pageText.append(line).append("\n");
+                // Calculate spaces needed to reach xPosition
+                int indentSpaces = calculateSpacesForAlignment(0, xPosition, spaceWidth);
+                String indentation = " ".repeat(indentSpaces);
+                pageText.append(indentation).append(line).append("\n");
             }
-            //Log.d(TAG, "PAGE TEXT: " + pageText);
 
             byte[] textBytes = pageText.toString().getBytes(StandardCharsets.UTF_8);
             int totalChunks = (int) Math.ceil((double) textBytes.length / MAX_CHUNK_SIZE);
@@ -1964,8 +1963,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         (byte) totalChunks,     // Total packages
                         (byte) i,               // Current package number
                         screenStatus,           // Screen status
-                        (byte) 0x00,                   // new_char_pos0 (high)
-                        (byte) 0x00,                   // new_char_pos1 (low)
+                        (byte) 0x00,            // new_char_pos0 (high)
+                        (byte) 0x00,            // new_char_pos1 (low)
                         (byte) page,            // Current page number
                         (byte) totalPages       // Max page number
                 };
@@ -1982,8 +1981,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             textSeqNum = (textSeqNum + 1) % 256;
             break; //hard set to 1  - 1PAGECHANGE
         }
-
-//        Log.d(TAG, "TOTAL PAGES: " + totalPages);
 
         return allChunks;
     }
