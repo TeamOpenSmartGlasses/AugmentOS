@@ -17,6 +17,9 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
 
+    <!-- For error reporting -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
 
     <!-- Add Permission for Notification Listener -->
     <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />

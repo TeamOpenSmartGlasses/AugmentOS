@@ -32,6 +32,8 @@ import VerifyEmailScreen from './screens/VerifyEmail.tsx';
 import PrivacySettingsScreen from './screens/PrivacySettingsScreen.tsx';
 import GrantPermissionsScreen from './screens/GrantPermissionsScreen.tsx';
 import ConnectingToPuckComponent from './components/ConnectingToPuckComponent.tsx';
+import { GlassesMirrorProvider } from './providers/GlassesMirrorContext.tsx';
+import ErrorReportScreen from './screens/ErrorReportScreen.tsx';
 
 const linking = {
   prefixes: ['https://augmentos.org'],
@@ -261,6 +263,11 @@ const App: React.FC = () => {
                     />
                   )}
                 </Stack.Screen>
+                <Stack.Screen 
+                  name="ErrorReportScreen" 
+                  component={ErrorReportScreen} 
+                  options={{ title: 'Report an Error' }} 
+                />
                 <Stack.Screen name="SelectGlassesModelScreen"
                   options={{ title: 'Select Glasses' }}
                 >

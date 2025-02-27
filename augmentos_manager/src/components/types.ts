@@ -24,6 +24,7 @@ export type RootStackParamList = {
   SelectGlassesBluetoothScreen: { glassesModelName: string };
   GlassesPairingGuideScreen: { glassesModelName: string };
   AppSettings: { packageName: string, appName: string };
+  ErrorReportScreen: undefined;
 };
 
 
