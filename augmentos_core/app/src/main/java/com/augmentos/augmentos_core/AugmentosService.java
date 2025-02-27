@@ -397,7 +397,6 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         });
 
         locationSystem = new LocationSystem(this);
-        locationSystem.startLocationSending();
     }
 
     private void createNotificationChannel() {
@@ -842,7 +841,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         ServerComms.getInstance().setServerCommsCallback(new ServerCommsCallback() {
             @Override
             public void onConnectionAck() {
-
+                locationSystem.sendLocationToServer();
             }
 
             @Override

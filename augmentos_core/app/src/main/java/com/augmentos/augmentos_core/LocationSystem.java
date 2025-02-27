@@ -37,10 +37,6 @@ public class LocationSystem {
         scheduleLocationUpdates();
     }
 
-    public void startLocationSending() {
-        scheduleLocationUpdates();
-    }
-
     public void requestLocationUpdate() {
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
@@ -61,7 +57,7 @@ public class LocationSystem {
         }
     }
 
-    private void sendLocationToServer() {
+    public void sendLocationToServer() {
         double latitude = getNewLat();
         double longitude = getNewLng();
 
@@ -87,7 +83,7 @@ public class LocationSystem {
     private boolean firstLockAcquired = false;
     private final long firstLockPollingInterval = 5000; // 5 seconds
 
-    private void scheduleLocationUpdates() {
+    public void scheduleLocationUpdates() {
         locationSendingRunnableCode = new Runnable() {
             @Override
             public void run() {
