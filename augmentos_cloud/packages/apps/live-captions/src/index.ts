@@ -48,7 +48,7 @@ function convertLineWidth(width: string | number): number {
     case 'narrow': return 30;
     case 'medium': return 38;
     case 'wide': return 46;
-    case 'very wide': return 55;
+    case 'very wide': return 52;
     default: return 45;
   }
 }

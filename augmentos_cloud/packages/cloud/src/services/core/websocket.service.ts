@@ -775,6 +775,7 @@ export class WebSocketService {
             userSession.isTranscribing = false;
             transcriptionService.stopTranscription(userSession);
           }
+          this.broadcastToTpa(userSession.sessionId, message.type as any, message as any);
           break;
         }
 
@@ -790,7 +791,8 @@ export class WebSocketService {
           catch (error) {
             console.error(`\n\n[websocket.service] Error updating user location:`, error, `\n\n`);
           }
-
+          this.broadcastToTpa(userSession.sessionId, message.type as any, message as any);
+          console.warn(`[Session ${userSession.sessionId}] Catching and Sending message type:`, message.type);
           // userSession.location = locationUpdate.location;
           break;
         }

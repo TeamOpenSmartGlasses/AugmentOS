@@ -5,8 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import axios from 'axios';
 import { AUGMENTOS_AUTH_JWT_SECRET, systemApps } from '@augmentos/config';
-import { User } from '@augmentos/cloud/src/models/user.model';
-
+import { User } from '../models/user.model';
 
 console.log('systemApps', systemApps);
 
