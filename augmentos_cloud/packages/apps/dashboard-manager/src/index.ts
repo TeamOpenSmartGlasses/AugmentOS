@@ -224,7 +224,6 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
 
 function handleLocationUpdate(sessionId: string, locationData: any) {
   const sessionInfo = activeSessions.get(sessionId);
-  console.log("@@@@@@@@@@@@@@@@@@@@")
   if (!sessionInfo) return;
 
   // Extract lat, lng, and timestamp from the locationData.
