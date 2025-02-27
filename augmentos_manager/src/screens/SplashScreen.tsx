@@ -54,7 +54,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({}) => {
           } else if (simulatedPuck) {
               navigation.reset({
               index: 0,
-              routes: [{ name: 'Home' }],
+              routes: [{ name: 'SimulatedPuckOnboard' }],
             });
           } else {
             navigation.reset({
