@@ -1901,11 +1901,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     // Constants for text wall display
     private static final int TEXT_COMMAND = 0x4E;  // Text command
-    private static final int DISPLAY_WIDTH = 420;
-    private static final int DISPLAY_USE_WIDTH = 420;  // How much of the display to use
-    private static final int DOUBLE_TEXT_WALL_DISPLAY_WIDTH = 240;  // Display width in pixels //I know, it's weird, but we printed a bunch of dots and this is the math
-    private static final int DOUBLE_TEXT_WALL_DISPLAY_USE_WIDTH = 240;  // How much of the display to use
-    private static final int FONT_SIZE = 21;      // Font size
+    private static final int DISPLAY_WIDTH = 488;
+    private static final int DISPLAY_USE_WIDTH = 488;  // How much of the display to use
+    private static final float FONT_MULTIPLIER = 1/50.0f;
+    private static final int OLD_FONT_SIZE = 21;      // Font size
     private static final float FONT_DIVIDER = 2.0f;
     private static final int LINES_PER_SCREEN = 5; // Lines per screen
     private static final int MAX_CHUNK_SIZE = 176; // Maximum chunk size for BLE packets
@@ -1915,19 +1914,16 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     //currently only a single page - 1PAGE CHANGE
     private List<byte[]> createTextWallChunks(String text) {
-        // Split text into lines based on display width and font size
-        List<String> lines = splitIntoLines(text, DISPLAY_USE_WIDTH);
+        int margin = 20; // Left margin in spaces
 
-        // Add indentation to each line
-        float fontDivider = 2.0f;  // Same as in splitIntoLines
-        int unusedWidth = DISPLAY_WIDTH - DISPLAY_USE_WIDTH;
-        int indentChars = Math.round(unusedWidth / (FONT_SIZE / FONT_DIVIDER) / 2);
-        lines = lines.stream()
-                .map(line -> " ".repeat(indentChars) + line)
-                .collect(Collectors.toList());
+        int spaceWidth = calculateTextWidth(" ");
+
+        // Calculate effective display width after accounting for left and right margins in spaces
+        int marginWidth = margin * spaceWidth; // Width of left margin in pixels
+        int effectiveWidth = DISPLAY_WIDTH - (2 * marginWidth); // Subtract left and right margins
+
 
         // Calculate total pages
-//        int totalPages = (int) Math.ceil((double) lines.size() / LINES_PER_SCREEN);
         int totalPages = 1; //hard set to 1 since we only do 1 page - 1PAGECHANGE
 
         List<byte[]> allChunks = new ArrayList<>();
@@ -1939,13 +1935,16 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             int endLine = Math.min(startLine + LINES_PER_SCREEN, lines.size());
             List<String> pageLines = lines.subList(startLine, endLine);
 
-            // Combine lines for this page
+            // Combine lines for this page with proper indentation
             StringBuilder pageText = new StringBuilder();
+            int spaceWidth = calculateTextWidth(" ");
+
             for (String line : pageLines) {
-                //Log.d(TAG, "LINE: " + line);
-                pageText.append(line).append("\n");
+                // Calculate spaces needed to reach xPosition
+                int indentSpaces = calculateSpacesForAlignment(0, xPosition, spaceWidth);
+                String indentation = " ".repeat(indentSpaces);
+                pageText.append(indentation).append(line).append("\n");
             }
-            //Log.d(TAG, "PAGE TEXT: " + pageText);
 
             byte[] textBytes = pageText.toString().getBytes(StandardCharsets.UTF_8);
             int totalChunks = (int) Math.ceil((double) textBytes.length / MAX_CHUNK_SIZE);
@@ -1964,8 +1963,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         (byte) totalChunks,     // Total packages
                         (byte) i,               // Current package number
                         screenStatus,           // Screen status
-                        (byte) 0x00,                   // new_char_pos0 (high)
-                        (byte) 0x00,                   // new_char_pos1 (low)
+                        (byte) 0x00,            // new_char_pos0 (high)
+                        (byte) 0x00,            // new_char_pos1 (low)
                         (byte) page,            // Current page number
                         (byte) totalPages       // Max page number
                 };
@@ -1983,8 +1982,6 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             break; //hard set to 1  - 1PAGECHANGE
         }
 
-//        Log.d(TAG, "TOTAL PAGES: " + totalPages);
-
         return allChunks;
     }
 
@@ -1994,60 +1991,73 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             G1FontLoader.FontGlyph glyph = fontLoader.getGlyph(c);
             width += glyph.width + 1; // Add 1 pixel per character for spacing
         }
-        return width;
+        return width * 2;
     }
 
     private List<byte[]> createDoubleTextWallChunks(String text1, String text2) {
-        // Split both texts into lines
-        List<String> lines1 = splitIntoLines(text1, DOUBLE_TEXT_WALL_DISPLAY_USE_WIDTH);
-        List<String> lines2 = splitIntoLines(text2, DOUBLE_TEXT_WALL_DISPLAY_USE_WIDTH);
+        // Define column widths and positions
+        final int LEFT_COLUMN_WIDTH = (int)(DISPLAY_WIDTH * 0.4);  // 40% of display for left column
+        final int RIGHT_COLUMN_START = (int)(DISPLAY_WIDTH * 0.6);  // Right column starts at 60%
 
-        // Ensure we only take up to 5 lines per screen
+        // Split texts into lines with specific width constraints
+        List<String> lines1 = splitIntoLines(text1, LEFT_COLUMN_WIDTH);
+        List<String> lines2 = splitIntoLines(text2, DISPLAY_WIDTH - RIGHT_COLUMN_START);
+
+        // Ensure we have exactly LINES_PER_SCREEN lines (typically 5)
         while (lines1.size() < LINES_PER_SCREEN) lines1.add("");
         while (lines2.size() < LINES_PER_SCREEN) lines2.add("");
 
         lines1 = lines1.subList(0, LINES_PER_SCREEN);
         lines2 = lines2.subList(0, LINES_PER_SCREEN);
 
-        // Get space width (each space is 2 pixels + 1 extra padding pixel, so 3 total)
-        int spaceWidth = fontLoader.getGlyph(' ').width + 1;
+        // Get precise space width
+        int spaceWidth = calculateTextWidth(" ");
 
-        // Calculate where the right column should start
-        int rightColumnStart = Math.round(DOUBLE_TEXT_WALL_DISPLAY_USE_WIDTH * 0.6f);
-
-        // Construct the text output by merging the lines
+        // Construct the text output by merging the lines with precise positioning
         StringBuilder pageText = new StringBuilder();
-        for (int i = 0; i < LINES_PER_SCREEN; i++) {  // Leave last line for debug
+        for (int i = 0; i < LINES_PER_SCREEN; i++) {
             String leftText = lines1.get(i).replace("\u2002", ""); // Drop enspaces
             String rightText = lines2.get(i).replace("\u2002", "");
 
-            // Calculate width of left text
+            // Calculate width of left text in pixels
             int leftTextWidth = calculateTextWidth(leftText);
 
-            // Calculate spacing needed
-            int neededSpacingPixels = rightColumnStart - leftTextWidth;
-            // Base spaces (at least 3)
-            int baseSpaces = Math.max(neededSpacingPixels / spaceWidth, 3);
-            // Check remainder to see if we should add one extra space
-            int remainder = neededSpacingPixels % spaceWidth;
-            boolean addExtraSpace = (neededSpacingPixels >= 0) && (remainder == 1 || remainder == 2);
-            // Cap at 60 spaces
-            int safeSpaces = Math.min(baseSpaces + (addExtraSpace ? 1 : 0), 60);
+            // Calculate exactly how many spaces are needed to position the right column correctly
+            int spacesNeeded = calculateSpacesForAlignment(leftTextWidth, RIGHT_COLUMN_START, spaceWidth);
 
-            // Log compressed info
-            Log.d(TAG, String.format("L: '%s' (W=%d) | Spaces=%d%s | R: '%s'",
-                    leftText, leftTextWidth, safeSpaces,
-                    addExtraSpace ? " + extra space" : "", rightText));
+            // Log detailed alignment info for debugging
+            Log.d(TAG, String.format("Line %d: Left='%s' (width=%dpx) | Spaces=%d | Right='%s'",
+                    i, leftText, leftTextWidth, spacesNeeded, rightText));
 
-            // Construct the full line
+            // Construct the full line with precise alignment
             pageText.append(leftText)
-                    .append(" ".repeat(safeSpaces))
+                    .append(" ".repeat(spacesNeeded))
                     .append(rightText)
                     .append("\n");
         }
 
-        // Convert **everything**, including debug line, into bytes and chunk it
-        byte[] textBytes = pageText.toString().getBytes(StandardCharsets.UTF_8);
+        // Convert to bytes and chunk for transmission
+        return chunkTextForTransmission(pageText.toString());
+    }
+
+    private int calculateSpacesForAlignment(int currentWidth, int targetPosition, int spaceWidth) {
+        // Calculate space needed in pixels
+        int pixelsNeeded = targetPosition - currentWidth;
+
+        // Calculate spaces needed (with minimum of 1 space for separation)
+        if (pixelsNeeded <= 0) {
+            return 1; // Ensure at least one space between columns
+        }
+
+        // Calculate the exact number of spaces needed
+        int spaces = (int)Math.ceil((double)pixelsNeeded / spaceWidth);
+
+        // Cap at a reasonable maximum
+        return Math.min(spaces, 100);
+    }
+
+    private List<byte[]> chunkTextForTransmission(String text) {
+        byte[] textBytes = text.getBytes(StandardCharsets.UTF_8);
         int totalChunks = (int) Math.ceil((double) textBytes.length / MAX_CHUNK_SIZE);
 
         List<byte[]> allChunks = new ArrayList<>();
@@ -2078,72 +2088,104 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             allChunks.add(chunk.array());
         }
 
-        // **Ensure BLE packet limit is respected**
-        if (allChunks.size() > totalChunks) {
-            Log.e(TAG, "Chunking error: Exceeded totalChunks!");
-        }
-
         // Increment sequence number for next page
         textSeqNum = (textSeqNum + 1) % 256;
 
         return allChunks;
     }
 
-    private List<String> splitIntoLines(String text, int displayUseWidth) {
+    private int calculateSubstringWidth(String text, int start, int end) {
+        return calculateTextWidth(text.substring(start, end));
+    }
+
+    private List<String> splitIntoLines(String text, int maxDisplayWidth) {
         // Replace specific symbols
         text = text.replace("⬆", "^").replace("⟶", "-");
 
-        // Handle the specific case of " " (single space)
-        if (" ".equals(text)) {
-            List<String> lines = new ArrayList<>();
-            lines.add(" "); // Add a single space as a line
+        List<String> lines = new ArrayList<>();
+
+        // Handle empty or single space case
+        if (text.isEmpty() || " ".equals(text)) {
+            lines.add(text);
             return lines;
         }
 
-        List<String> lines = new ArrayList<>();
-        String[] rawLines = text.split("\n"); // Split by newlines first
-        int charsPerLine = (int) Math.round((displayUseWidth / (FONT_SIZE / FONT_DIVIDER) * 1.45)); // Rough estimate
+        // Split by newlines first
+        String[] rawLines = text.split("\n");
 
-//        Log.d(TAG, "Estimated chars per line: " + charsPerLine);
-//        Log.d(TAG, "Processing text into lines" + text);
-//        Log.d(TAG, "Text: " + text.length());
-//        Log.d(TAG, "STRIPPED TEXT" + text.strip().length());
+        Log.d(TAG, "Splitting text into lines..." + Arrays.toString(rawLines));
 
         for (String rawLine : rawLines) {
+            // Add empty lines for newlines
             if (rawLine.isEmpty()) {
-                // Add an empty line for \n
                 lines.add("");
                 continue;
             }
 
-            // Wrap text (similar to wrapText) using our rough charsPerLine
-            String current = rawLine; //.trim();
-            while (!current.isEmpty()) {
-                // If shorter than max length, just add
-                if (current.length() <= charsPerLine) {
-                    lines.add(current);
+            int lineLength = rawLine.length();
+            int startIndex = 0;
+
+            while (startIndex < lineLength) {
+                // Get maximum possible end index
+                int endIndex = lineLength;
+
+                // Calculate width of the entire remaining text
+                int lineWidth = calculateSubstringWidth(rawLine, startIndex, endIndex);
+
+                Log.d(TAG, "Line length: " + rawLine);
+                Log.d(TAG, "Calculating line width: " + lineWidth);
+
+                // If entire line fits, add it and move to next line
+                if (lineWidth <= maxDisplayWidth) {
+                    lines.add(rawLine.substring(startIndex));
                     break;
                 }
 
-                // Otherwise, find the best split position
-                int splitIndex = charsPerLine;
+                // Binary search to find the maximum number of characters that fit
+                int left = startIndex + 1;
+                int right = lineLength;
+                int bestSplitIndex = startIndex + 1;
 
-                // Move splitIndex left until we find a space
-                while (splitIndex > 0 && current.charAt(splitIndex) != ' ') {
-                    splitIndex--;
+                while (left <= right) {
+                    int mid = left + (right - left) / 2;
+                    int width = calculateSubstringWidth(rawLine, startIndex, mid);
+
+                    if (width <= maxDisplayWidth) {
+                        bestSplitIndex = mid;
+                        left = mid + 1;
+                    } else {
+                        right = mid - 1;
+                    }
                 }
 
-                // If no space was found, force the split at charsPerLine
-                if (splitIndex == 0) {
-                    splitIndex = charsPerLine;
+                // Now find a good place to break (preferably at a space)
+                int splitIndex = bestSplitIndex;
+
+                // Look for a space to break at
+                boolean foundSpace = false;
+                for (int i = bestSplitIndex; i > startIndex; i--) {
+                    if (rawLine.charAt(i - 1) == ' ') {
+                        splitIndex = i;
+                        foundSpace = true;
+                        break;
+                    }
                 }
 
-                // Extract the chunk, trim it, and add to result lines
-                String chunk = current.substring(0, splitIndex); //.trim();
-                lines.add(chunk);
+                // If we couldn't find a space in a reasonable range, use the calculated split point
+                if (!foundSpace && bestSplitIndex - startIndex > 2) {
+                    splitIndex = bestSplitIndex;
+                }
 
-                // Remove that chunk (plus leading/trailing spaces) from current
-                current = current.substring(splitIndex); //.trim();
+                // Add the line
+                String line = rawLine.substring(startIndex, splitIndex).trim();
+                lines.add(line);
+
+                // Skip any spaces at the beginning of the next line
+                while (splitIndex < lineLength && rawLine.charAt(splitIndex) == ' ') {
+                    splitIndex++;
+                }
+
+                startIndex = splitIndex;
             }
         }
 
