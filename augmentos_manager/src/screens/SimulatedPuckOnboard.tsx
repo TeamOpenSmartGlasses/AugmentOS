@@ -12,20 +12,16 @@ import { loadSetting } from '../augmentos_core_comms/SettingsHelper';
 import {
   SETTINGS_KEYS,
   SIMULATED_PUCK_DEFAULT,
-  AUGMENTOS_CORE_PACKAGE_NAME,
 } from '../consts';
 import {
-  isAugmentOsCoreInstalled,
   openCorePermissionsActivity,
-  areAllCorePermissionsGranted
+  areAllCorePermissionsGranted,
 } from '../augmentos_core_comms/CoreServiceStarter';
 import { ScrollView } from 'react-native-gesture-handler';
 import { NavigationProps } from '../components/types';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from '../components/Button';
 import InstallApkModule from '../logic/InstallApkModule';
-import { fetchAppStoreData } from '../utils/backendUtils.ts';
-import BluetoothService from '../BluetoothService.tsx';
 
 interface SimulatedPuckOnboardProps {
   isDarkTheme: boolean;
@@ -38,18 +34,12 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
 }) => {
   const [isSimulatedPuck, setIsSimulatedPuck] = useState(false);
   const [isCoreInstalled, setIsCoreInstalled] = useState(false);
-  const [isCoreOutdated, setIsCoreOutdated] = useState(true);
   const [isDownloadingCore, setIsDownloadingCore] = useState(false);
-  const [appStoreVersion, setAppStoreVersion] = useState<string | null>(null);
   // Single loading gate
   const [isLoading, setIsLoading] = useState(true);
 
   const { status } = useStatus();
   const navigation = useNavigation<NavigationProps>();
-    const bluetoothService = BluetoothService.getInstance();
-
-  // Use a ref flag to ensure we only fetch the app store data once.
-  const didFetchStoreData = useRef(false);
 
   // ---------------------------------------------------------------
   // 1) On mount or when status changes, initialize:
@@ -75,17 +65,6 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
           openCorePermissionsActivity();
         }
 
-        // // 2. Fetch data from app store only once.
-        // if (!didFetchStoreData.current) {
-        //   didFetchStoreData.current = true;
-        //   const storeData = await fetchAppStoreData();
-        //   const matchedApp = storeData.find(
-        //     (app) => app.packageName === AUGMENTOS_CORE_PACKAGE_NAME
-        //   );
-        //   const storeVersion = matchedApp?.version ?? null;
-        //   setAppStoreVersion(storeVersion);
-        // }
-
         // // 3. Check if core is installed
         // const installed = await isAugmentOsCoreInstalled();
         // setIsCoreInstalled(installed);
@@ -99,35 +78,6 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
 
     initialize();
   }, [status]); // status remains in dependencies
-
-  // // ---------------------------------------------------------------
-  // // 2) When status, appStoreVersion, or isCoreInstalled change,
-  // //    compare the local core version with the store version.
-  // // ---------------------------------------------------------------
-  // useEffect(() => {
-  //   if (isCoreInstalled && appStoreVersion && status?.augmentos_core_version) {
-  //     if (status.core_info.augmentos_core_version >= appStoreVersion) {
-  //       setIsCoreOutdated(false);
-  //       // Open permission screen immediately if needed.
-
-  //     } else {
-  //       setIsCoreOutdated(true);
-  //     }
-  //   }
-  // }, [status, appStoreVersion, isCoreInstalled]);
-
-  // // ---------------------------------------------------------------
-  // // 3) If we detect the puck connected, the core is installed, and it
-  // //    is not outdated => navigate to Home.
-  // // ---------------------------------------------------------------
-  // useEffect(() => {
-  //   if (!isLoading && status?.puck_connected && isCoreInstalled && !isCoreOutdated) {
-  //     navigation.reset({
-  //       index: 0,
-  //       routes: [{ name: 'Home' }],
-  //     });
-  //   }
-  // }, [status, isCoreInstalled, isCoreOutdated, isLoading, navigation]);
 
   // // ---------------------------------------------------------------
   // // 4) Listen for app state changes to update installation status,
@@ -155,20 +105,6 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
     };
   }, [status]);
 
-  // // ---------------------------------------------------------------
-  // // 5) Handler for installing/updating the core
-  // // ---------------------------------------------------------------
-  // const handleInstallLink = () => {
-  //   setIsDownloadingCore(true);
-  //   InstallApkModule.downloadCoreApk()
-  //     .then(() => {
-  //       // Optionally re-check installation/version after download.
-  //     })
-  //     .finally(() => {
-  //       setIsDownloadingCore(false);
-  //     });
-  // };
-
   // ---------------------------------------------------------------
   // If "isLoading" is true, show ONE smooth loader
   // ---------------------------------------------------------------
@@ -194,13 +130,8 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
   // ---------------------------------------------------------------
   // Past this point, we show the normal UI
   // ---------------------------------------------------------------
-  const instructionText = isCoreInstalled
-    ? 'Your AugmentOS Core is outdated. Please update AugmentOS Core to continue.'
-    : "To use AugmentOS, you'll need to install AugmentOS Core.";
-
-  const buttonText = isCoreInstalled
-    ? 'Update AugmentOS Core'
-    : 'Install AugmentOS Core';
+  const instructionText = 'Your AugmentOS is outdated. Please update AugmentOS to continue.';
+  const buttonText = 'Update AugmentOS';
 
   return (
     <View
