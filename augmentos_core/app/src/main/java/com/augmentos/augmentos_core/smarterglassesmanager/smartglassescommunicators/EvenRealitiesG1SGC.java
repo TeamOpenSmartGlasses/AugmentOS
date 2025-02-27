@@ -1914,14 +1914,17 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     //currently only a single page - 1PAGE CHANGE
     private List<byte[]> createTextWallChunks(String text) {
-        int margin = 20; // Left margin in spaces
+        int margin = 20;
 
+        // Get width of single space character
         int spaceWidth = calculateTextWidth(" ");
 
         // Calculate effective display width after accounting for left and right margins in spaces
         int marginWidth = margin * spaceWidth; // Width of left margin in pixels
         int effectiveWidth = DISPLAY_WIDTH - (2 * marginWidth); // Subtract left and right margins
 
+        // Split text into lines based on effective display width
+        List<String> lines = splitIntoLines(text, effectiveWidth);
 
         // Calculate total pages
         int totalPages = 1; //hard set to 1 since we only do 1 page - 1PAGECHANGE
@@ -1937,12 +1940,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
             // Combine lines for this page with proper indentation
             StringBuilder pageText = new StringBuilder();
-            int spaceWidth = calculateTextWidth(" ");
 
             for (String line : pageLines) {
-                // Calculate spaces needed to reach xPosition
-                int indentSpaces = calculateSpacesForAlignment(0, xPosition, spaceWidth);
-                String indentation = " ".repeat(indentSpaces);
+                // Add the exact number of spaces for indentation
+                String indentation = " ".repeat(margin);
                 pageText.append(indentation).append(line).append("\n");
             }
 
