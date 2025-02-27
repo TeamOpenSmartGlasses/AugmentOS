@@ -21,6 +21,12 @@ export type RootStackParamList = {
   PrivacySettingsScreen: undefined;
   GrantPermissionsScreen: undefined;
   SelectGlassesModelScreen: undefined;
+  VersionUpdateScreen: {
+    isDarkTheme: boolean;
+    connectionError?: boolean;
+    localVersion?: string;
+    cloudVersion?: string;
+  };
   SelectGlassesBluetoothScreen: { glassesModelName: string };
   GlassesPairingGuideScreen: { glassesModelName: string };
   AppSettings: { packageName: string, appName: string };
