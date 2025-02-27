@@ -1914,7 +1914,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     //currently only a single page - 1PAGE CHANGE
     private List<byte[]> createTextWallChunks(String text) {
-        int margin = 20;
+        int margin = 5;
 
         // Get width of single space character
         int spaceWidth = calculateTextWidth(" ");
