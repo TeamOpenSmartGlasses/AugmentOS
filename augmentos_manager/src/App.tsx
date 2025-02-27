@@ -32,6 +32,7 @@ import VerifyEmailScreen from './screens/VerifyEmail.tsx';
 import PrivacySettingsScreen from './screens/PrivacySettingsScreen.tsx';
 import GrantPermissionsScreen from './screens/GrantPermissionsScreen.tsx';
 import ConnectingToPuckComponent from './components/ConnectingToPuckComponent.tsx';
+import VersionUpdateScreen from './screens/VersionUpdateScreen.tsx';
 import { GlassesMirrorProvider } from './providers/GlassesMirrorContext.tsx';
 
 const linking = {
@@ -74,10 +75,20 @@ const App: React.FC = () => {
                   component={LoginScreen}
                   options={{ headerShown: false }}
                 />
-                  <Stack.Screen
+                <Stack.Screen
                   name="VerifyEmailScreen"
                   component={VerifyEmailScreen}
                   options={{ headerShown: false }}
+                />
+
+                <Stack.Screen
+                  name="VersionUpdateScreen"
+                  component={VersionUpdateScreen}
+                  options={{
+                    headerShown: false,
+                    // Optional: prevent going back with hardware back button on Android
+                    gestureEnabled: false,
+                  }}
                 />
 
                 <Stack.Screen name="Home" options={{ headerShown: false }}>
