@@ -565,8 +565,10 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         Log.d(TAG, "Changing microphone state to " + isMicrophoneEnabled);
         Log.d(TAG, "Microphone state changed to " + getForceCoreOnboardMic(this.getApplicationContext()));
         if (smartGlassesRepresentative.smartGlassesDevice.getHasInMic() && !getForceCoreOnboardMic(this.getApplicationContext())) {
+            // If we should be using the glasses microphone
             smartGlassesRepresentative.smartGlassesCommunicator.changeSmartGlassesMicrophoneState(isMicrophoneEnabled);
         } else {
+            // If we should be using the phone's mic
             Log.d(TAG, "111 Changing microphone state to " + isMicrophoneEnabled);
             smartGlassesRepresentative.changeBluetoothMicState(isMicrophoneEnabled);
         }

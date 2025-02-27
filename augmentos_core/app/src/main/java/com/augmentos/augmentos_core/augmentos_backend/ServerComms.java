@@ -398,20 +398,20 @@ public class ServerComms {
                 break;
 
             case "app_state_change":
-                Log.d(TAG, "Received app_state_change.");
+                //Log.d(TAG, "Received app_state_change.");
                 if (serverCommsCallback != null)
                     serverCommsCallback.onAppStateChange(parseAppList(msg));
                 break;
 
             case "connection_error":
                 String errorMsg = msg.optString("message", "Unknown error");
-                Log.e(TAG, "connection_error from server: " + errorMsg);
+                //Log.e(TAG, "connection_error from server: " + errorMsg);
                 if (serverCommsCallback != null)
                     serverCommsCallback.onConnectionError(errorMsg);
                 break;
 
             case "auth_error":
-                Log.d(TAG, "Server is requesting a reconnect.");
+                //Log.d(TAG, "Server is requesting a reconnect.");
                 disconnectWebSocket();
                 if (serverCommsCallback != null)
                     serverCommsCallback.onAuthError();
@@ -419,13 +419,13 @@ public class ServerComms {
 
             case "microphone_state_change":
                 boolean isMicrophoneEnabled = msg.optBoolean("isMicrophoneEnabled", true);
-                Log.d(TAG, "Received turn_microphone_on message." + isMicrophoneEnabled);
+                //Log.d(TAG, "Received turn_microphone_on message." + isMicrophoneEnabled);
                 if (serverCommsCallback != null)
                     serverCommsCallback.onMicrophoneStateChange(isMicrophoneEnabled);
                 break;
 
             case "display_event":
-                Log.d(TAG, "Received display_event: " + msg.toString());
+                //Log.d(TAG, "Received display_event: " + msg.toString());
                 String view = msg.optString("view");
                 boolean isDashboard = view.equals("dashboard");
 
@@ -438,7 +438,7 @@ public class ServerComms {
                 break;
 
             case "request_single":
-                Log.d(TAG, "Received request_core_status: " + msg.toString());
+                //Log.d(TAG, "Received request_core_status: " + msg.toString());
                 String dataType = msg.optString("data_type");
                 if (serverCommsCallback != null)
                     serverCommsCallback.onRequestSingle(dataType);
