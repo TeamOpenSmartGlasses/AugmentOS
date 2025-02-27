@@ -56,8 +56,6 @@
 
     "react-native-config": "^1.5.5",
 
-    "react-native-device-info": "^14.0.4",
-
     "react-native-elements": "^3.4.3",
 
     "react-native-gesture-handler": "^2.20.1",
