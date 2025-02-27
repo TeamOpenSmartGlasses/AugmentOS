@@ -112,7 +112,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private static final long DELAY_BETWEEN_ACTIONS_SEND = 250; //not using now
     private static final long HEARTBEAT_INTERVAL_MS = 15000;
     private static final long MICBEAT_INTERVAL_MS = (1000 * 60) * 30; //micbeat every 30 minutes
-
+    private int batteryLeft = -1;
+    private int batteryRight = -1;
     private int leftReconnectAttempts = 0;
     private int rightReconnectAttempts = 0;
     private int reconnectAttempts = 0;  // Counts the number of reconnect attempts
@@ -451,10 +452,17 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         //BATTERY RESPONSE
                         else if (data.length > 2 && data[0] == 0x2C && data[1] == 0x66) {
                             if (deviceName.contains("L_")) {
-                                Log.d(TAG, "Battery response received");
-                                int batteryLevel = data[2];
+                                //Log.d(TAG, "LEFT Battery response received");
+                                batteryLeft = data[2];
+                            } else if (deviceName.contains("R_")) {
+                                //Log.d(TAG, "RIGHT Battery response received");
+                                batteryRight = data[2];
+                            }
 
-                                EventBus.getDefault().post(new BatteryLevelEvent(batteryLevel));
+                            if(batteryLeft != -1 && batteryRight != -1) {
+                                int minBatt = Math.min(batteryLeft, batteryRight);
+                                //Log.d(TAG, "Minimum Battery Level: " + minBatt);
+                                EventBus.getDefault().post(new BatteryLevelEvent(minBatt));
                             }
                         }
                         //HEARTBEAT RESPONSE
@@ -519,10 +527,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             // Mark as connected but wait for setup below to update connection state
             if ("Left".equals(side)) {
                 isLeftConnected = true;
-                Log.d(TAG, "PROC_QUEUE - left side setup complete");
+                //Log.d(TAG, "PROC_QUEUE - left side setup complete");
             } else {
                 isRightConnected = true;
-                Log.d(TAG, "PROC_QUEUE - right side setup complete");
+                //Log.d(TAG, "PROC_QUEUE - right side setup complete");
             }
 
             //setup the G1s
@@ -1223,11 +1231,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     }
 
                     if (leftSuccess) {
-                        Log.d(TAG, "PROC_QUEUE - WAIT ON LEFT");
+                        //Log.d(TAG, "PROC_QUEUE - WAIT ON LEFT");
                         leftWaiter.waitWhileTrue();
-                        Log.d(TAG, "PROC_QUEUE - DONE WAIT ON LEFT");
+                        //Log.d(TAG, "PROC_QUEUE - DONE WAIT ON LEFT");
                     } else {
-                        Log.d(TAG, "PROC_QUEUE - LEFT send fail");
+                        //Log.d(TAG, "PROC_QUEUE - LEFT send fail");
                     }
 
 //                    Thread.sleep(DELAY_BETWEEN_SENDS_MS);
@@ -1241,11 +1249,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
                     //wait to make sure the right happens
                     if (rightSuccess) {
-                        Log.d(TAG, "PROC_QUEUE - WAIT ON RIGHT");
+                        //Log.d(TAG, "PROC_QUEUE - WAIT ON RIGHT");
                         rightWaiter.waitWhileTrue();
-                        Log.d(TAG, "PROC_QUEUE - DONE WAIT ON RIGHT");
+                        //Log.d(TAG, "PROC_QUEUE - DONE WAIT ON RIGHT");
                     } else {
-                        Log.d(TAG, "PROC_QUEUE - LEFT send fail");
+                        //Log.d(TAG, "PROC_QUEUE - LEFT send fail");
                     }
 
                     Thread.sleep(DELAY_BETWEEN_CHUNKS_SEND);
@@ -1719,10 +1727,10 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
         sendDataSequentially(heartbeatPacket, false, 100);
 
-//        if (heartbeatCount < 3 || heartbeatCount % 10 == 0) {
-//            queryBatterStatusHandler.post(this::queryBatteryStatus);
-//        }
-        queryBatteryStatusHandler.postDelayed(this::queryBatteryStatus, 500);
+        if (batteryLeft == -1 || batteryRight == -1 || heartbeatCount % 10 == 0) {
+             queryBatteryStatusHandler.postDelayed(this::queryBatteryStatus, 500);
+        }
+        //queryBatteryStatusHandler.postDelayed(this::queryBatteryStatus, 500);
 
         heartbeatCount++;
     }

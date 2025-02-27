@@ -291,6 +291,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Subscribe
     public void onGlassBatteryLevelEvent(BatteryLevelEvent event) {
+        if (batteryLevel != null && event.batteryLevel == batteryLevel) return;
         batteryLevel = event.batteryLevel;
         ServerComms.getInstance().sendGlassesBatteryUpdate(event.batteryLevel, false, -1);
         sendStatusToAugmentOsManager();
