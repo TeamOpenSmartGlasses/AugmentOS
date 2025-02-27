@@ -14,6 +14,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from '../components/Button';
 import InstallApkModule from '../bridge/InstallApkModule.tsx';
+import DeviceInfo from 'react-native-device-info';
 
 interface VersionUpdateScreenProps {
   route: {
@@ -41,7 +42,7 @@ const VersionUpdateScreen: React.FC<VersionUpdateScreenProps> = ({
   // Get local version from env file
   const getLocalVersion = () => {
     try {
-      const version = Config.AUGMENTOS_VERSION;
+      const version = DeviceInfo.getVersion();
       console.log('Local version from env:', version);
       return version || null;
     } catch (error) {

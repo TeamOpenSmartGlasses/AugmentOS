@@ -25,6 +25,7 @@ import BackendServerComms from '../backend_comms/BackendServerComms.tsx';
 import semver from 'semver';
 import { Config } from 'react-native-config';
 import CloudConnection from '../components/CloudConnection.tsx';
+import DeviceInfo from 'react-native-device-info';
 
 interface HomepageProps {
   isDarkTheme: boolean;
@@ -47,7 +48,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
   // Get local version from env file
   const getLocalVersion = () => {
     try {
-      const version = Config.AUGMENTOS_VERSION;
+      const version = DeviceInfo.getVersion();
       console.log('Local version from env:', version);
       return version || null;
     } catch (error) {
