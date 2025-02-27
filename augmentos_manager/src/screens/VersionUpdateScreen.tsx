@@ -13,7 +13,7 @@ import BackendServerComms from '../backend_comms/BackendServerComms';
 import { ScrollView } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from '../components/Button';
-import InstallApkModule from '../logic/InstallApkModule.tsx';
+import InstallApkModule from '../bridge/InstallApkModule.tsx';
 
 interface VersionUpdateScreenProps {
   route: {
