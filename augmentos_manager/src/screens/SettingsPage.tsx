@@ -202,6 +202,28 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     status.glasses_info?.brightness === '-' ||
     !status.glasses_info.model_name.toLowerCase().includes('even');
 
+ // Fixed slider props to avoid warning
+ const sliderProps = {
+  disabled: !status.glasses_info?.model_name ||
+           status.glasses_info?.brightness === '-' ||
+           !status.glasses_info.model_name.toLowerCase().includes('even'),
+  style: styles.slider,
+  minimumValue: 0,
+  maximumValue: 100,
+  step: 1,
+  onSlidingComplete: (value: number) => changeBrightness(value),
+  value: brightness ?? 50,
+  minimumTrackTintColor: styles.minimumTrackTintColor.color,
+  maximumTrackTintColor: isDarkTheme 
+    ? styles.maximumTrackTintColorDark.color 
+    : styles.maximumTrackTintColorLight.color,
+  thumbTintColor: styles.thumbTintColor.color,
+  // Using inline objects instead of defaultProps
+  thumbTouchSize: { width: 40, height: 40 },
+  trackStyle: { height: 5 },
+  thumbStyle: { height: 20, width: 20 }
+};
+
   return (
     <View
       style={[
@@ -348,8 +370,8 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
           />
         </TouchableOpacity>
 
-        {/* Brightness Slider */}
-        <View style={styles.settingItem}>
+               {/* Brightness Slider */}
+               <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
             <Text
               style={[
@@ -372,27 +394,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               Adjust the brightness level of your smart glasses.
             </Text>
             <Slider
-              disabled={
-                !status.glasses_info?.model_name ||
-                status.glasses_info?.brightness === '-' ||
-                !status.glasses_info.model_name.toLowerCase().includes('even')
-              }
-              style={styles.slider}
-              minimumValue={0}
-              maximumValue={100}
-              thumbTouchSize={styles.thumbTouchSize}
-              trackStyle={styles.trackStyle}
-              thumbStyle={styles.thumbStyle}
-              step={1}
-              onSlidingComplete={(value) => changeBrightness(value)}
-              value={brightness ?? 50}
-              minimumTrackTintColor={styles.minimumTrackTintColor.color}
-              maximumTrackTintColor={
-                isDarkTheme
-                  ? styles.maximumTrackTintColorDark.color
-                  : styles.maximumTrackTintColorLight.color
-              }
-              thumbTintColor={styles.thumbTintColor.color}
+              {...sliderProps}
             />
           </View>
         </View>
