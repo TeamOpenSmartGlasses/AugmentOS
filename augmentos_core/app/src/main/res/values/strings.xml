@@ -37,7 +37,20 @@
             <!-- Add more languages here -->
         </string-array>
 
-
+    <string name="video_recording_started">Recording started</string>
+    <string name="video_recording_stopped">Recording stopped</string>
+    <string name="video_recording_paused">Recording paused</string>
+    <string name="video_recording_resumed">Recording resumed</string>
+    <string name="current_camera">Current camera</string>
+    <string name="switched_front_camera">Switched to front camera</string>
+    <string name="switched_rear_camera">Switched to rear camera</string>
+    <string name="notification_video_recording">Video recording</string>
+    <string name="notification_video_recording_progress_description">Recording is in progress</string>
+    <string name="notification_video_recording_paused_description">Recording is paused</string>
+    <string name="button_start">Start</string>
+    <string name="button_pause">Pause</string>
+    <string name="button_stop">Stop</string>
+    <string name="button_resume">Resume</string>
 
   <!-- Entering API key message. -->
   <string name="google_api_key">API_KEY_ERROR</string>

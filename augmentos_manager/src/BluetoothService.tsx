@@ -5,15 +5,15 @@ import { TextDecoder } from 'text-encoding';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { AppState } from 'react-native';
 import { ENABLE_PHONE_NOTIFICATIONS_DEFAULT, INTENSE_LOGGING, MOCK_CONNECTION, SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from './consts';
-import { loadSetting, saveSetting } from './augmentos_core_comms/SettingsHelper';
-import {isAugmentOsCoreInstalled, openCorePermissionsActivity, startExternalService } from './augmentos_core_comms/CoreServiceStarter';
-import ManagerCoreCommsService from './augmentos_core_comms/ManagerCoreCommsService';
+import { loadSetting, saveSetting } from './logic/SettingsHelper';
+import {isAugmentOsCoreInstalled, openCorePermissionsActivity, startExternalService } from './bridge/CoreServiceStarter';
+import ManagerCoreCommsService from './bridge/ManagerCoreCommsService';
 import GlobalEventEmitter from './logic/GlobalEventEmitter';
 import {
   checkNotificationPermission,
   NotificationEventEmitter,
   NotificationService,
-} from './augmentos_core_comms/NotificationServiceUtils';
+} from './logic/NotificationServiceUtils';
 import { time } from 'console';
 
 const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
@@ -573,8 +573,9 @@ export class BluetoothService extends EventEmitter {
     try {
       if ('status' in jsonData) {
         this.emit('statusUpdateReceived', jsonData);
-      } else if ('glasses_display_data' in jsonData) {
-        // Handle screen mirror status
+      } else if ('glasses_display_event' in jsonData) {
+        let glasses_display_event = (jsonData as any).glasses_display_event;
+        GlobalEventEmitter.emit('GLASSES_DISPLAY_EVENT', glasses_display_event);
       } else if ('ping' in jsonData) {
         // Do nothing?
       } else if ('notify_manager' in jsonData) {

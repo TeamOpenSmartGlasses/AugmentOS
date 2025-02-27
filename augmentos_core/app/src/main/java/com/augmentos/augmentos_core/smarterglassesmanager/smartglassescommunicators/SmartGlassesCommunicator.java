@@ -55,9 +55,6 @@ public abstract class SmartGlassesCommunicator {
 
     public abstract void displayBitmap(Bitmap bmp);
 
-    //display centered text
-    public abstract void displayCenteredText(String text);
-
     public abstract void displayCustomContent(String json);
 
     //home screen

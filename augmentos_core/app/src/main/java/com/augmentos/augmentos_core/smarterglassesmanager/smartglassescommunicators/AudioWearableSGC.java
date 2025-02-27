@@ -108,11 +108,6 @@ public class AudioWearableSGC extends SmartGlassesCommunicator {
 
     }
 
-    public void displayCenteredText(String text){
-        //TODO: Find a way to add (optional) pauses between lines?
-        displayTextLine(text);
-    }
-
     @Override
     public void displayCustomContent(String json) {
         displayTextLine(json);

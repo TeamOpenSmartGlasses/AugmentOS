@@ -784,11 +784,6 @@ public class AndroidSGC extends SmartGlassesCommunicator {
         displayReferenceCardSimple("", text);
     }
 
-    public void displayCenteredText(String text){
-        //TODO: Complete this
-        displayTextLine(text);
-    }
-
     public void displayCustomContent(String json) {
         displayReferenceCardSimple("CustomDisplayNotImplemented", json);
     }

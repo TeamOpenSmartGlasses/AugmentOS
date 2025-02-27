@@ -1,6 +1,6 @@
 import React ,{useEffect}from 'react';
 import {View, Text, ActivityIndicator, StyleSheet} from 'react-native';
-import {useStatus} from "../AugmentOSStatusProvider.tsx";
+import {useStatus} from "../providers/AugmentOSStatusProvider.tsx";
 import {useNavigation} from "@react-navigation/native";
 import {NavigationProps} from "./types.ts";
 import { useAuth } from '../AuthContext.tsx';

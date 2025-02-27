@@ -14,7 +14,7 @@ import SelectSetting from '../components/settings/SelectSetting';
 import MultiSelectSetting from '../components/settings/MultiSelectSetting';
 import TitleValueSetting from '../components/settings/TitleValueSetting';
 import LoadingComponent from '../components/LoadingComponent';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider';
 import BackendServerComms from '../backend_comms/BackendServerComms';
 
 type AppSettingsProps = NativeStackScreenProps<RootStackParamList, 'AppSettings'> & {

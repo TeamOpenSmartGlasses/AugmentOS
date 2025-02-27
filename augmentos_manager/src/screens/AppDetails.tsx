@@ -25,9 +25,9 @@ type AppDetailsProps = NativeStackScreenProps<
   isDarkTheme: boolean;
   toggleTheme: () => void;
 };
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider.tsx';
 import appStore from "./AppStore.tsx";
-import InstallApkModule from '../logic/InstallApkModule.tsx';
+import InstallApkModule from '../bridge/InstallApkModule.tsx';
 import { AUGMENTOS_MANAGER_PACKAGE_NAME, AUGMENTOS_CORE_PACKAGE_NAME } from '../consts.tsx';
 
 const AppDetails: React.FC<AppDetailsProps> = ({

@@ -1,7 +1,7 @@
 import React, {useMemo, useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {useStatus} from '../AugmentOSStatusProvider';
+import {useStatus} from '../providers/AugmentOSStatusProvider';
 import AppIcon from './AppIcon';
 import {BluetoothService} from '../BluetoothService';
 

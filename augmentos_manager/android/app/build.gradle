@@ -43,8 +43,8 @@ android {
         applicationId "com.augmentos.augmentos_manager"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 19
+        versionName "1.9.0"
         multiDexEnabled true  // Add this if your app exceeds 64K method limit
     }
     signingConfigs {

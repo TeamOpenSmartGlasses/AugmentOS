@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Server</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --background-color: #f5f7fa;
+            --text-color: #2c3e50;
+            --success-color: #2ecc71;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 300;
+            font-size: 2.5rem;
+        }
+
+        .camera-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .camera-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .photo-frame {
+            margin: 20px auto;
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        #latestPhoto {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+        }
+
+        .loading-indicator {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .spinner {
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 5px solid var(--primary-color);
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        .status-text {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            display: none;
+            color: var(--success-color);
+            text-align: center;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .photo-container {
+            margin-top: 30px;
+        }
+
+        .photo-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+<h1>Camera Web Server</h1>
+
+<div class="camera-container">
+    <div class="button-container">
+        <button id="captureButton" onclick="takePicture()">
+            <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+            </svg>
+            Take a Picture
+        </button>
+    </div>
+
+    <div id="successMessage" class="success-message">Photo captured successfully!</div>
+</div>
+
+<div class="photo-container">
+    <h2 class="photo-title">Latest Photo</h2>
+    <div class="photo-frame">
+        <img id="latestPhoto" src="/latest-photo" alt="Latest photo" />
+        <div id="loadingIndicator" class="loading-indicator">
+            <div class="spinner"></div>
+            <div class="status-text">Processing photo...</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const captureButton = document.getElementById('captureButton');
+    const latestPhoto = document.getElementById('latestPhoto');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const successMessage = document.getElementById('successMessage');
+
+    // Create audio element for camera sound
+    const cameraSound = new Audio('assets/camera_sound.mp3');
+
+    function takePicture() {
+        // Disable button and show loading state
+        captureButton.disabled = true;
+
+        // Play camera shutter sound
+        cameraSound.currentTime = 0; // Reset sound to beginning
+        cameraSound.play().catch(e => console.log('Audio playback error:', e));
+
+        // Show loading indicator
+        loadingIndicator.style.display = 'block';
+        latestPhoto.style.opacity = '0.3';
+
+        fetch('/take-picture')
+            .then(response => response.text())
+            .then(text => {
+                // Add a 3-second delay to account for camera processing time
+                setTimeout(() => {
+                    // Force the image to reload with cache busting
+                    latestPhoto.src = '/latest-photo?cachebust=' + Date.now();
+
+                    // When the new image has loaded
+                    latestPhoto.onload = function() {
+                        // Hide loading indicator
+                        loadingIndicator.style.display = 'none';
+                        latestPhoto.style.opacity = '1';
+
+                        // Show success message
+                        successMessage.style.display = 'block';
+
+                        // Enable button
+                        captureButton.disabled = false;
+
+                        // Hide the success message after 3 seconds
+                        setTimeout(() => {
+                            successMessage.style.display = 'none';
+                        }, 3000);
+                    };
+                }, 3000); // 3 second delay
+            })
+            .catch(err => {
+                // Hide loading indicator
+                loadingIndicator.style.display = 'none';
+                latestPhoto.style.opacity = '1';
+
+                // Enable button
+                captureButton.disabled = false;
+
+                alert('Error: ' + err);
+            });
+    }
+</script>
+</body>
+</html>

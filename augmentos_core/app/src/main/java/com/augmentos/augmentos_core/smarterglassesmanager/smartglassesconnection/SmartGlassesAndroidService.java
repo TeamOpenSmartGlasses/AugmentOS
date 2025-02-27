@@ -22,6 +22,7 @@ import androidx.lifecycle.LifecycleService;
 import androidx.preference.PreferenceManager;
 
 import com.augmentos.augmentos_core.R;
+import com.augmentos.augmentos_core.smarterglassesmanager.camera.CameraRecordingService;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.NewAsrLanguagesEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.augmentos.augmentos_core.smarterglassesmanager.comms.MessageTypes;
@@ -187,27 +188,6 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         });
     }
 
-//    public boolean tryConnectToPreferredWearable() {
-//        String preferredWearableName = getPreferredWearable(getApplicationContext());
-//
-//        if (preferredWearableName == null || preferredWearableName.trim().isEmpty()) {
-//            Log.d(TAG, "No preferred wearable stored. Cannot connect.");
-//            return false;
-//        }
-//
-//        SmartGlassesDevice matchingDevice = getSmartGlassesDeviceFromModelName(preferredWearableName);
-//
-//        if (matchingDevice != null) {
-//            Log.d(TAG, "Trying to connect to preferred wearable: " + preferredWearableName);
-//            connectToSmartGlasses(matchingDevice);
-//            return true;
-//        } else {
-//            Log.d(TAG, "Preferred wearable \"" + preferredWearableName + "\" not recognized in our known devices list.");
-//            return false;
-//        }
-//    }
-
-
     @Override
     public void onDestroy() {
         Log.d(TAG, "WearableAiAspService killing itself and all its children");
@@ -364,7 +344,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         String CHANNEL_ID = myChannelId;
 
         NotificationChannel channel = new NotificationChannel(CHANNEL_ID, notificationAppName,
-                NotificationManager.IMPORTANCE_HIGH);
+                NotificationManager.IMPORTANCE_LOW);
         channel.setDescription(notificationDescription);
         manager.createNotificationChannel(channel);
 
@@ -585,8 +565,10 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         Log.d(TAG, "Changing microphone state to " + isMicrophoneEnabled);
         Log.d(TAG, "Microphone state changed to " + getForceCoreOnboardMic(this.getApplicationContext()));
         if (smartGlassesRepresentative.smartGlassesDevice.getHasInMic() && !getForceCoreOnboardMic(this.getApplicationContext())) {
+            // If we should be using the glasses microphone
             smartGlassesRepresentative.smartGlassesCommunicator.changeSmartGlassesMicrophoneState(isMicrophoneEnabled);
         } else {
+            // If we should be using the phone's mic
             Log.d(TAG, "111 Changing microphone state to " + isMicrophoneEnabled);
             smartGlassesRepresentative.changeBluetoothMicState(isMicrophoneEnabled);
         }

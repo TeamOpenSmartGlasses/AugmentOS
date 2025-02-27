@@ -13,9 +13,9 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Slider } from 'react-native-elements';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider';
 import { BluetoothService } from '../BluetoothService';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
+import { loadSetting, saveSetting } from '../logic/SettingsHelper';
 import { SETTINGS_KEYS } from '../consts';
 import NavigationBar from '../components/NavigationBar';
 import { supabase } from '../supabaseClient';
@@ -135,24 +135,19 @@ const PrivacySettingsScreen: React.FC<PrivacySettingsScreenProps> = ({
             <Text
               style={[
                 styles.label,
-                isDarkTheme ? styles.lightText : styles.darkText,
-                (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
+                isDarkTheme ? styles.lightText : styles.darkText
               ]}>
               Sensing
             </Text>
             <Text
               style={[
                 styles.value,
-                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-                (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
+                isDarkTheme ? styles.lightSubtext : styles.darkSubtext
               ]}>
               Enable microphones & cameras.
             </Text>
           </View>
           <Switch
-            disabled={!status.glasses_info?.model_name}
             value={isSensingEnabled}
             onValueChange={toggleSensing}
             trackColor={switchColors.trackColor}

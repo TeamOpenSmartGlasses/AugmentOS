@@ -5,6 +5,7 @@ import static com.augmentos.augmentos_core.smarterglassesmanager.smartglassescom
 import static com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService.getSmartGlassesDeviceFromModelName;
 import static com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService.savePreferredWearable;
 import static com.augmentos.augmentos_core.statushelpers.CoreVersionHelper.getCoreVersion;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AugmentOSAsgClientPackageName;
 import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
 import static com.augmentos.augmentos_core.BatteryOptimizationHelper.handleBatteryOptimization;
 import static com.augmentos.augmentos_core.BatteryOptimizationHelper.isSystemApp;
@@ -101,7 +102,7 @@ import okhttp3.Response;
 public class AugmentosService extends Service implements AugmentOsActionsCallback {
     public static final String TAG = "AugmentOS_AugmentOSService";
 
-    private final IBinder binder = new LocalBinder();
+   private final IBinder binder = new LocalBinder();
 
     private final String notificationAppName = "AugmentOS Core";
     private final String notificationDescription = "Running in foreground";
@@ -136,7 +137,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public SmartGlassesConnectionState previousSmartGlassesConnectionState = SmartGlassesConnectionState.DISCONNECTED;
 
 
-    private AugmentosBlePeripheral blePeripheral;
+    public AugmentosBlePeripheral blePeripheral;
 
     public AugmentosSmartGlassesService smartGlassesService;
     private boolean isSmartGlassesServiceBound = false;
@@ -153,6 +154,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     private AsrPlanner asrPlanner;
     private HTTPServerComms httpServerComms;
 
+    JSONObject cachedDashboardDisplayObject;
     Runnable cachedDashboardDisplayRunnable;
     List<ThirdPartyCloudApp> cachedThirdPartyAppList;
     private WebSocketManager.IncomingMessageHandler.WebSocketStatus webSocketStatus = WebSocketManager.IncomingMessageHandler.WebSocketStatus.DISCONNECTED;
@@ -260,6 +262,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                         -1
                 );
             }
+            if(cachedDashboardDisplayObject != null && blePeripheral != null) {
+                blePeripheral.sendGlassesDisplayEventToManager(cachedDashboardDisplayObject);
+            }
             return;
         }
 
@@ -286,6 +291,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Subscribe
     public void onGlassBatteryLevelEvent(BatteryLevelEvent event) {
+        if (batteryLevel != null && event.batteryLevel == batteryLevel) return;
         batteryLevel = event.batteryLevel;
         ServerComms.getInstance().sendGlassesBatteryUpdate(event.batteryLevel, false, -1);
         sendStatusToAugmentOsManager();
@@ -341,10 +347,10 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         // Initialize BLE Peripheral
         blePeripheral = new AugmentosBlePeripheral(this, this);
-        if (!edgeTpaSystem.isAppInstalled(AugmentOSManagerPackageName)) {
-            // TODO: While we use simulated puck, disable the BLE Peripheral for testing
-            // TODO: For now, just disable peripheral if manager is installed on same device
-            // blePeripheral.start();
+
+        // If this is the ASG client, start the peripheral
+        if (getPackageName().equals(AugmentOSAsgClientPackageName)) {
+        //    blePeripheral.start();
         }
 
         // Whitelist AugmentOS from battery optimization when system app
@@ -848,12 +854,15 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             @Override
             public void onDisplayEvent(JSONObject displayData) {
                 Runnable newRunnable = parseDisplayEventMessage(displayData);
-                if (smartGlassesService != null )
+                if (smartGlassesService != null)
                     smartGlassesService.windowManager.showAppLayer("serverappid", newRunnable, -1);
+                if (blePeripheral != null)
+                    blePeripheral.sendGlassesDisplayEventToManager(displayData);
             }
 
             @Override
             public void onDashboardDisplayEvent(JSONObject dashboardDisplayData) {
+                cachedDashboardDisplayObject = dashboardDisplayData;
                 cachedDashboardDisplayRunnable = parseDisplayEventMessage(dashboardDisplayData);
             }
 
@@ -891,8 +900,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 switch (dataType) {
                     case "core_status":
                         Log.d(TAG, "Server wants a core_status");
-                        JSONObject status = generateStatusJson();
-                        ServerComms.getInstance().sendCoreStatus(status);
+                        sendStatusToBackend();
                     break;
                     case "photo":
                         Log.d(TAG, "Server wants a photo");
@@ -984,12 +992,9 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         Log.d("AugmentOsService", "Starting app: " + packageName);
         // Logic to start the app by package name
 
-        // Only allow starting apps if glasses are connected
-        if (smartGlassesService != null && smartGlassesService.getConnectedSmartGlasses() != null) {
-            ServerComms.getInstance().startApp(packageName);
-        } else {
-            Log.d(TAG, "Not starting app because glasses aren't connected.");
-            blePeripheral.sendNotifyManager("Must connect glasses to start an app", "error");
+        ServerComms.getInstance().startApp(packageName);
+        if (smartGlassesService == null || smartGlassesService.getConnectedSmartGlasses() == null) {
+        //    blePeripheral.sendNotifyManager("Connect glasses to use your app", "success");
         }
     }
 
@@ -1193,6 +1198,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
     @Override
     public IBinder onBind(Intent intent) {
+        Log.d(TAG, "Something bound");
         return binder;
     }
 }

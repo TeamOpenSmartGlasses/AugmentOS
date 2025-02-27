@@ -8,6 +8,7 @@ public class AugmentOSGlobalConstants {
     public static final String APP_PKG_NAME = "APP_PKG_NAME";
 
     public static final String AugmentOSManagerPackageName = "com.augmentos.augmentos_manager";
+    public static final String AugmentOSAsgClientPackageName = "com.augmentos.asg_client";
     public static final String AugmentOSPkgName = "com.augmentos.augmentoslib";
     public static final String FROM_TPA_FILTER = "com.augmentos.fromtpa";
     public static final String TO_TPA_FILTER = "com.augmentos.totpa";

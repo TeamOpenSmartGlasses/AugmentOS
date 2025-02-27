@@ -1,0 +1,120 @@
+plugins {
+    id 'com.android.application'
+    id 'androidx.navigation.safeargs'
+}
+
+// 1. Import classes for file/stream and properties
+import java.util.Properties
+
+// 2. Create a Properties object and load from .env if present
+def envFile = rootProject.file(".env")     // point to root project’s .env
+def Properties envProperties = new Properties()
+
+if (envFile.exists()) {
+    envProperties.load(new FileInputStream(envFile))
+} else {
+    logger.warn(".env file not found at ${envFile}")
+}
+
+android {
+    namespace 'com.augmentos.asg_client'
+    compileSdk 33
+
+    buildFeatures {
+        aidl = true
+    }
+
+    defaultConfig {
+        applicationId "com.augmentos.asg_client"
+
+        minSdk 28
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a"
+        }
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+        // 3. Inject environment variables into BuildConfig
+        //    Using them as strings for simplicity.
+        //    If you want a boolean, see the note below.
+
+        buildConfigField "String", "AUGMENTOS_HOST", "\"${envProperties['AUGMENTOS_HOST'] ?: ""}\""
+        buildConfigField "String", "AUGMENTOS_PORT", "\"${envProperties['AUGMENTOS_PORT'] ?: ""}\""
+        buildConfigField "String", "AUGMENTOS_SECURE", "\"${envProperties['AUGMENTOS_SECURE'] ?: ""}\""
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1,DEPENDENCIES}'
+            excludes += '/META-INF/INDEX.LIST'
+            excludes += "com/augmentos/augmentoslib/DataStreamType.class"
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'com.google.api.grpc:grpc-google-cloud-speech-v1p1beta1:2.6.0'
+    implementation 'com.google.flogger:flogger:0.7.4'
+    implementation 'com.google.flogger:flogger-system-backend:0.7.4'
+    implementation 'com.google.protobuf:protobuf-java:3.21.12'
+    implementation 'com.google.protobuf:protobuf-java-util:3.21.12'
+    implementation 'joda-time:joda-time:2.12.2'
+    implementation 'io.grpc:grpc-okhttp:1.53.0'
+    implementation project(':AugmentOSLib')
+    implementation 'com.squareup.picasso:picasso:2.8'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //navigation
+    def nav_version = "2.5.3"
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+    implementation "androidx.navigation:navigation-runtime:$nav_version"
+    implementation "androidx.fragment:fragment:1.5.5"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.2.0"
+
+    //REST API volley
+    implementation 'com.android.volley:volley:1.2.1';
+
+    //EventBus, greenrobot
+    implementation("org.greenrobot:eventbus:3.3.1")
+
+    implementation project(path: ":augmentos_core")
+    implementation project(path: ':AugmentOSLib')
+    implementation project(path: ":SmartGlassesManager")
+
+
+
+    //location services
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+
+    //websocket
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
+
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+    implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
+
+    // SGM leftover for ASG connector
+    implementation "org.java-websocket:Java-WebSocket:1.5.2"
+
+    // For demo
+    //implementation 'org.nanohttpd:nanohttpd:2.3.3'
+    implementation 'org.nanohttpd:nanohttpd:2.3.1'
+
+}

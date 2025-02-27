@@ -12,12 +12,12 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {useStatus} from '../AugmentOSStatusProvider';
+import {useStatus} from '../providers/AugmentOSStatusProvider';
 import BluetoothService from '../BluetoothService';
-import {loadSetting, saveSetting} from '../augmentos_core_comms/SettingsHelper';
+import {loadSetting, saveSetting} from '../logic/SettingsHelper';
 import {SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT} from '../consts';
-import ManagerCoreCommsService from '../augmentos_core_comms/ManagerCoreCommsService';
-import { openCorePermissionsActivity, stopExternalService } from '../augmentos_core_comms/CoreServiceStarter';
+import ManagerCoreCommsService from '../bridge/ManagerCoreCommsService';
+import { openCorePermissionsActivity, stopExternalService } from '../bridge/CoreServiceStarter';
 import { ScrollView } from 'react-native-gesture-handler';
 
 interface SimulatedPuckSettingsProps {

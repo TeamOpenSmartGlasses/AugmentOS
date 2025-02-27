@@ -358,9 +358,6 @@ public class UltraliteSGC extends SmartGlassesCommunicator {
         screenIsClear = false;
     }
 
-    public void displayCenteredText(String text){
-    }
-
     public void displayCustomContent(String json) {
         displayReferenceCardSimple("CustomDisplayNotImplemented", json);
     }

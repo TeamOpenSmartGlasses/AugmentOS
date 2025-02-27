@@ -29,8 +29,6 @@
 
   <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
-  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 <!--  <uses-permission android:name="android.permission.CAMERA" />-->
@@ -41,7 +39,16 @@
 
 <!--  <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />-->
 
-  <!-- Application node is not neccessary for libraries -->
+    <!-- BACKGROUND CAMERA FOR GLASSES -->
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.WRITE_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+
+
+    <!-- Application node is not neccessary for libraries -->
   <application>
 <!--      android:usesCleartextTraffic="true"-->
 <!--      android:icon="@mipmap/ic_launcher"-->
@@ -103,6 +110,11 @@
     <service android:name=".ScreenCaptureService"
         android:exported="false"
         android:foregroundServiceType="mediaProjection" />
+      <service
+          android:name=".smarterglassesmanager.camera.CameraRecordingService"
+          android:enabled="true"
+          android:exported="false"
+          android:foregroundServiceType="camera|microphone" />
     <service android:name="com.augmentos.augmentos_core.AugmentosService"
         android:foregroundServiceType="microphone"
         android:exported="true"
@@ -150,6 +162,8 @@
     </provider>
 
   </application>
+
+    <queries> <intent> <action android:name="android.media.action.IMAGE_CAPTURE" /> </intent> </queries>
 
   <queries>
     <intent>

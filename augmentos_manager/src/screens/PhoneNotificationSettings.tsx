@@ -12,14 +12,14 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider';
 import BluetoothService from '../BluetoothService';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
+import { loadSetting, saveSetting } from '../logic/SettingsHelper';
 import { ENABLE_PHONE_NOTIFICATIONS_DEFAULT, SETTINGS_KEYS } from '../consts';
-import ManagerCoreCommsService from '../augmentos_core_comms/ManagerCoreCommsService';
-import { openCorePermissionsActivity, stopExternalService } from '../augmentos_core_comms/CoreServiceStarter';
+import ManagerCoreCommsService from '../bridge/ManagerCoreCommsService';
+import { openCorePermissionsActivity, stopExternalService } from '../bridge/CoreServiceStarter';
 import { ScrollView } from 'react-native-gesture-handler';
-import { checkNotificationPermission, NotificationService, requestNotificationPermission, } from '../augmentos_core_comms/NotificationServiceUtils';
+import { checkNotificationPermission, NotificationService, requestNotificationPermission, } from '../logic/NotificationServiceUtils';
 import GlobalEventEmitter from '../logic/GlobalEventEmitter';
 
 interface PhoneNotificationSettingsProps {
