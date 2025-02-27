@@ -224,6 +224,7 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
 
 function handleLocationUpdate(sessionId: string, locationData: any) {
   const sessionInfo = activeSessions.get(sessionId);
+  console.log("@@@@@@@@@@@@@@@@@@@@")
   if (!sessionInfo) return;
 
   // Extract lat, lng, and timestamp from the locationData.
@@ -260,9 +261,7 @@ function handleLocationUpdate(sessionId: string, locationData: any) {
   );
 
   // Call updateDashboard if this was the first location update
-  if (isFirstLocationUpdate) {
-    updateDashboard(sessionId);
-  }
+  updateDashboard(sessionId);
 }
 
 function handleHeadPosition(sessionId: string, headPositionData: any) {

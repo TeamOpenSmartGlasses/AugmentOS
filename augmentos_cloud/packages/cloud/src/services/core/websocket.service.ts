@@ -1071,7 +1071,8 @@ export class WebSocketService {
             lng: location.lng,
             timestamp: new Date()
           };
-          ws.send(JSON.stringify(locationUpdate));
+          // ws.send(JSON.stringify(locationUpdate));
+          this.broadcastToTpa(userSessionId, StreamType.LOCATION_UPDATE, locationUpdate);
         }
       }
     }
