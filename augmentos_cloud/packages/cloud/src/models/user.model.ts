@@ -18,7 +18,8 @@ interface UserDocument extends Document {
   addRunningApp(appName: string): Promise<void>;
   removeRunningApp(appName: string): Promise<void>;
   updateAppSettings(appName: string, settings: { key: string; value: any }[]): Promise<void>;
-  getAppSettings(appName: string): AppSetting[] | undefined;
+  // getAppSettings(appName: string): AppSetting[] | undefined;
+  getAppSettings(appName: string): any[] | undefined;
   isAppRunning(appName: string): boolean;
 }
 

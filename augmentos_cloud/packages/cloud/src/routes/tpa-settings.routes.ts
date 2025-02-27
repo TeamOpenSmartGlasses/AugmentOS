@@ -85,7 +85,7 @@ router.get('/:tpaName', async (req, res) => {
     // Merge config settings with stored values.
     const mergedSettings = tpaConfig.settings.map((setting: any) => {
       if (setting.type === 'group') return setting;
-      const stored = storedSettings.find((s: any) => s.key === setting.key);
+      const stored = storedSettings?.find((s: any) => s.key === setting.key);
       return {
         ...setting,
         selected: stored && stored.value !== undefined ? stored.value : setting.defaultValue
