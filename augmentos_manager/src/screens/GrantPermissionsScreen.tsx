@@ -14,8 +14,10 @@ import {
   AppState,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { displayPermissionDeniedWarning, doesHaveAllPermissions, requestGrantPermissions } from '../logic/PermissionsUtils';
+import { displayPermissionDeniedWarning, doesHaveAllPermissions, requestGrantPermissions as requestGrantBasicPermissions } from '../logic/PermissionsUtils';
 import Button from '../components/Button';
+import { checkNotificationPermission } from '../logic/NotificationServiceUtils';
+import { checkAndRequestNotificationAccessSpecialPermission, checkNotificationAccessSpecialPermission } from "../utils/NotificationServiceUtils";
 
 interface GrantPermissionsScreenProps {
   isDarkTheme: boolean;
@@ -95,10 +97,25 @@ const GrantPermissionsScreen: React.FC<GrantPermissionsScreenProps> = ({
   }, [appState, isMonitoringAppState]);
 
   const triggerGrantPermissions = async () => {
-    await requestGrantPermissions();
+    let allBasicPermissionsGranted = await requestGrantBasicPermissions();
+    console.log("DID WE GET ALL THE BASIC PERMISSIONS???");
+    console.log(allBasicPermissionsGranted);
 
-    if (!(await doesHaveAllPermissions()))
-      setIsMonitoringAppState(true);
+    if ((await doesHaveAllPermissions())) {
+      console.log("WE SUPPOSEDLY HAVE ALL THE PERMSSS");
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'SplashScreen' }],
+      });
+    } else {
+      console.log(" WE NEED MOR PERMS ");
+      let doesHaveSpecialNotificationPermission = await checkNotificationAccessSpecialPermission();
+      if(!doesHaveSpecialNotificationPermission) {
+        console.log("WE NEED MORE NOTIFICATION PERMSS");
+        checkAndRequestNotificationAccessSpecialPermission();
+        setIsMonitoringAppState(true);
+      }
+    }
   }
 
   return (
@@ -121,6 +138,7 @@ const GrantPermissionsScreen: React.FC<GrantPermissionsScreenProps> = ({
             AugmentOS needs permissions to function properly. Please grant access to continue using all features.
           </Text>
           <Button
+          disabled={false}
             onPress={() => { triggerGrantPermissions() }}
             isDarkTheme={isDarkTheme}
           >

@@ -5,12 +5,8 @@ import { checkAndRequestNotificationAccessSpecialPermission, checkNotificationAc
 export const requestGrantPermissions = async () => {
   // Request permissions on Android
   if (Platform.OS === 'android' && Platform.Version >= 23) {
-    PermissionsAndroid.requestMultiple(getAndroidPermissions()).then(async (result) => {
+    return PermissionsAndroid.requestMultiple(getAndroidPermissions()).then(async (result) => {
       console.log('Permissions granted:', result);
-
-      //if (await checkNotificationPermission() && !(await NotificationService.isNotificationListenerEnabled())) {
-      //  await NotificationService.startNotificationListenerService()
-      //}
 
       const allGranted = Object.values(result).every(
         (value) => value === PermissionsAndroid.RESULTS.GRANTED
@@ -21,21 +17,30 @@ export const requestGrantPermissions = async () => {
         // Optionally handle partial denial here
         await displayPermissionDeniedWarning();
       }
+      return allGranted;
     })
       .catch((error) => {
         console.error('Error requesting permissions:', error);
+        return false;
       });
   }
+  return true;
 };
 
-export const displayPermissionDeniedWarning = async () => {
-  Alert.alert(
-    'Permissions Required',
-    'Some permissions were denied. Please go to Settings and enable all required permissions for the app to function properly.',
-    [
-      { text: 'OK', style: 'default' },
-    ]
-  );
+export const displayPermissionDeniedWarning = () => {
+  return new Promise((resolve) => {
+    Alert.alert(
+      'Permissions Required', 
+      'Some permissions were denied. Please go to Settings and enable all required permissions for the app to function properly.',
+      [
+        { 
+          text: 'OK',
+          style: 'default',
+          onPress: () => resolve(true)
+        },
+      ]
+    );
+  });
 };
 
 export const doesHaveAllPermissions = async () => {
@@ -48,11 +53,8 @@ export const doesHaveAllPermissions = async () => {
       }
     }
 
-    try {
-      await checkAndRequestNotificationAccessSpecialPermission();
-    } catch (error) {
-      console.warn('Notification permission request error:', error);
-    }
+    let notificationPerms = await checkNotificationAccessSpecialPermission();
+    if (!notificationPerms) allGranted = false;
 
     return allGranted;
   } else if (Platform.OS === 'ios') {
@@ -65,6 +67,10 @@ export const doesHaveAllPermissions = async () => {
 export const getAndroidPermissions = (): Permission[] => {
   const list = [];
   if (Platform.OS === 'android') {
+    if (Platform.Version < 29) {
+      list.push(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE);
+    }
+
     if (Platform.Version >= 23) {
       list.push(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
     }
@@ -75,7 +81,14 @@ export const getAndroidPermissions = (): Permission[] => {
     }
     if (Platform.Version >= 33) {
       list.push(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
+    } else {
+      list.push(PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE);
     }
+
+    list.push(PermissionsAndroid.PERMISSIONS.READ_CALENDAR);
+    list.push(PermissionsAndroid.PERMISSIONS.WRITE_CALENDAR);
+    list.push(PermissionsAndroid.PERMISSIONS.RECORD_AUDIO);
+    list.push(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
   }
   return list as Permission[];
 }
