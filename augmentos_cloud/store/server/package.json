@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@augmentos/sdk": "^1.0.6",
-    "@supabase/supabase-js": "^2.49.1"
+    "@supabase/supabase-js": "^2.49.1",
+    "axios": "^1.8.1"
   },
   "devDependencies": {
     "typescript": "^5.0.0",

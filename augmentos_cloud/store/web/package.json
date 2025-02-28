@@ -22,6 +22,7 @@
     "@supabase/auth-ui-shared": "^0.1.8",
     "@supabase/supabase-js": "^2.49.1",
     "@tailwindcss/vite": "^4.0.8",
+    "axios": "^1.8.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.0",
