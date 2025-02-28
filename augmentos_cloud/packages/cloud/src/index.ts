@@ -62,6 +62,8 @@ app.use(cors({
     "https://staging.augmentos.dev",
     "https://prod.appstore.augmentos.dev",
     "https://prod.augmentos.dev",
+
+    "https://augmentos-developer-portal.netlify.app",
   ]
 }));
 
