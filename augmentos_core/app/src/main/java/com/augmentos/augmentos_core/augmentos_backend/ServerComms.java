@@ -1,5 +1,6 @@
 package com.augmentos.augmentos_core.augmentos_backend;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.augmentos.augmentos_core.BuildConfig;
@@ -46,10 +47,18 @@ public class ServerComms {
     private Thread audioSenderThread;
     private volatile boolean audioSenderRunning = false;
 
-    // 2) Provide a global accessor
+
+    public static synchronized ServerComms getInstance(Context context) {
+        if (instance == null) {
+            instance = new ServerComms(context);
+        }
+        return instance;
+    }
+
+
     public static synchronized ServerComms getInstance() {
         if (instance == null) {
-            instance = new ServerComms(); // calls private constructor
+            throw new IllegalStateException("ServerComms not initialized. Call getInstance(Context) first.");
         }
         return instance;
     }
@@ -58,9 +67,9 @@ public class ServerComms {
         this.serverCommsCallback = callback;
     }
 
-    private ServerComms() {
+    private ServerComms(Context context) {
         // Create the underlying WebSocketManager (OkHttp-based).
-        this.wsManager = new WebSocketManager(new WebSocketManager.IncomingMessageHandler() {
+        this.wsManager = new WebSocketManager(context, new WebSocketManager.IncomingMessageHandler() {
             @Override
             public void onIncomingMessage(JSONObject msg) {
                 handleIncomingMessage(msg);
@@ -107,9 +116,6 @@ public class ServerComms {
             }
         });
 
-        // --------------------------------------------------------------------
-        // START THE AUDIO SENDER THREAD
-        // --------------------------------------------------------------------
     }
 
     /**
@@ -456,7 +462,6 @@ public class ServerComms {
 
             case "reconnect":
                 Log.d(TAG, "Server is requesting a reconnect.");
-                //attemptReconnect();
                 break;
 
             default:
@@ -571,4 +576,10 @@ public class ServerComms {
         }
     }
 
+
+
+    public void cleanup() {
+        wsManager.cleanup();
+        disconnectWebSocket();
+    }
 }

@@ -1,5 +1,11 @@
 package com.augmentos.augmentoslib;
 
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTIFICATION_CHANNEL_ID;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTIFICATION_CHANNEL_NAME;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTIFICATION_DESCRIPTION;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTIFICATION_ID;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTIFICATION_TITLE;
+
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -62,6 +68,30 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
                 .setOngoing(true).build();
     }
 
+    public static Notification buildSharedForegroundNotification(Context context) {
+        String title = AUGMENTOS_NOTIFICATION_TITLE;
+        String description = AUGMENTOS_NOTIFICATION_DESCRIPTION;
+
+        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    AUGMENTOS_NOTIFICATION_CHANNEL_ID,
+                    AUGMENTOS_NOTIFICATION_CHANNEL_NAME,
+                    NotificationManager.IMPORTANCE_HIGH
+            );
+            //channel.setDescription(description);
+            manager.createNotificationChannel(channel);
+        }
+
+        return new NotificationCompat.Builder(context, AUGMENTOS_NOTIFICATION_CHANNEL_ID)
+                .setContentTitle(title)
+                .setContentText(description)
+                .setSmallIcon(android.R.drawable.sym_def_app_icon)
+                .setOngoing(true)
+                .build();
+    }
+
+
     public class LocalBinder extends Binder {
         public SmartGlassesAndroidService getService() {
             // Return this instance of LocalService so clients can call public methods
@@ -91,7 +121,9 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
                 case ACTION_START_FOREGROUND_SERVICE:
                     // start the service in the foreground
                     Log.d("TEST", "starting foreground");
-                    startForeground(NOTIFICATION_ID, updateNotification());
+                    //startForeground(NOTIFICATION_ID, updateNotification());
+                    startForeground(AUGMENTOS_NOTIFICATION_ID, buildSharedForegroundNotification(this));
+
                     setup();
                     break;
                 case ACTION_STOP_FOREGROUND_SERVICE:

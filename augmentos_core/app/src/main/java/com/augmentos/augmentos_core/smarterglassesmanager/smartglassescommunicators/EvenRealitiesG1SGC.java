@@ -405,6 +405,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     if (characteristic.getUuid().equals(UART_RX_CHAR_UUID)) {
                         byte[] data = characteristic.getValue();
                         String deviceName = gatt.getDevice().getName();
+                        if (deviceName == null) return;
 
                         // Handle MIC audio data
                         if (data.length > 0 && (data[0] & 0xFF) == 0xF1) {
@@ -771,6 +772,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     private void connectToGatt(BluetoothDevice device) {
         Log.d(TAG, "connectToGatt called");
+        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled()) {
+            Log.e(TAG, "Bluetooth is disabled or not available. Cannot reconnect to glasses.");
+            return;
+        }
 
         // re-set services waiter
         if (device.getName().contains("_L_")) {

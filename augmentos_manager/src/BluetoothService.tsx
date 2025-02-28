@@ -15,6 +15,7 @@ import {
   NotificationService,
 } from './logic/NotificationServiceUtils';
 import { time } from 'console';
+import { checkNotificationAccessSpecialPermission } from './utils/NotificationServiceUtils';
 
 const eventEmitter = new NativeEventEmitter(ManagerCoreCommsService);
 
@@ -73,7 +74,7 @@ export class BluetoothService extends EventEmitter {
     }
 
     let enablePhoneNotifications = await loadSetting(SETTINGS_KEYS.ENABLE_PHONE_NOTIFICATIONS, ENABLE_PHONE_NOTIFICATIONS_DEFAULT);
-    if (enablePhoneNotifications && await checkNotificationPermission() && !(await NotificationService.isNotificationListenerEnabled())) {
+    if (enablePhoneNotifications && await checkNotificationAccessSpecialPermission() && !(await NotificationService.isNotificationListenerEnabled())) {
       await NotificationService.startNotificationListenerService();
     }
 
