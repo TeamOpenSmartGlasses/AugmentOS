@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { cn } from "@/lib/Utils"
+import { cn } from "@/lib2/utils"
 
 function Table({ className, ...props }: React.ComponentProps<"table">) {
   return (
