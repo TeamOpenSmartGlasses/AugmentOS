@@ -4,7 +4,7 @@
     "": {
       "name": "@augmentos/appstore",
       "dependencies": {
-        "@augmentos/sdk": "^1.0.5",
+        "@augmentos/sdk": "^1.0.6",
         "@supabase/supabase-js": "^2.49.1",
       },
       "devDependencies": {
@@ -14,7 +14,7 @@
     },
   },
   "packages": {
-    "@augmentos/sdk": ["@augmentos/sdk@1.0.5", "", {}, "sha512-SAfxzeNnmX/k6kntwnmKDhFyqHYuAjfyNYEhRMSQo3F1T3wD2hEebJqhun+ALfBlQ4ryW9yVOhH0mT9c3EImaw=="],
+    "@augmentos/sdk": ["@augmentos/sdk@1.0.6", "", {}, "sha512-9Eb/XTtEf4WZKydkf4ccyR48rVrMw1sLG7YheU3tZxMlSda1iBclUTE7I6NhIOpQjUDztrM8hP64JS652YPGZg=="],
 
     "@supabase/auth-js": ["@supabase/auth-js@2.68.0", "", { "dependencies": { "@supabase/node-fetch": "^2.6.14" } }, "sha512-odG7nb7aOmZPUXk6SwL2JchSsn36Ppx11i2yWMIc/meUO2B2HK9YwZHPK06utD9Ql9ke7JKDbwGin/8prHKxxQ=="],
 
