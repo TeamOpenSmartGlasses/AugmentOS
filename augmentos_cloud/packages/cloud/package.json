@@ -7,6 +7,7 @@
   },
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.json && bun run sentry:sourcemaps && npm run sentry:sourcemaps",
+    "postbuild": "cp -r src/public dist/public",
     "start": "NODE_ENV=production node dist/index.js",
     "dev": "tsx watch src/index.ts",
     "deploy": "bun run build && bun run start",
