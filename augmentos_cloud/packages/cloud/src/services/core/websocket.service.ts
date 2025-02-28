@@ -16,41 +16,11 @@
 
 import { WebSocketServer, WebSocket } from 'ws';
 import { Server } from 'http';
-// import {
-//   // Client Messages
-//   GlassesToCloudMessage,
-//   GlassesConnectionInitMessage,
-//   CloudConnectionAckMessage,
-//   CloudConnectionErrorMessage,
-
-//   // TPA Messages
-//   TpaConnectionInitMessage,
-//   CloudTpaConnectionAckMessage,
-//   TpaToCloudMessage,
-//   TpaSubscriptionUpdateMessage,
-//   CloudDataStreamMessage,
-
-//   // Common
-//   WebSocketError,
-//   StreamType,
-//   GlassesStartAppMessage,
-//   GlassesStopAppMessage,
-//   HeadPositionEvent,
-//   CloudToTpaMessage,
-//   CloudAppStateChangeMessage,
-//   UserSession,
-//   CloudAuthErrorMessage,
-//   VADStateMessage,
-//   CloudMicrophoneStateChangeMessage,
-//   GlassesConnectionStateEvent,
-//   GlassesToCloudMessageType,
-// } from '@augmentos/types';
-
 import sessionService, { SessionService } from './session.service';
 import subscriptionService, { SubscriptionService } from './subscription.service';
 import transcriptionService, { TranscriptionService } from '../processing/transcription.service';
-import appService, { IAppService } from './app.service';
-import { AppStateChange, AuthError, CloudToGlassesMessage, CloudToGlassesMessageType, CloudToTpaMessage, CloudToTpaMessageType, ConnectionAck, ConnectionError, ConnectionInit, DataStream, DisplayRequest, GlassesConnectionState, GlassesToCloudMessage, GlassesToCloudMessageType, HeadPosition, LocationUpdate, MicrophoneStateChange, StartApp, StopApp, StreamType, TpaConnectionAck, TpaConnectionError, TpaConnectionInit, TpaSubscriptionUpdate, TpaToCloudMessage, UserSession, Vad } from '@augmentos/types';
+import appService, { AppService } from './app.service';
+import { AppStateChange, AuthError, CloudToGlassesMessage, CloudToGlassesMessageType, CloudToTpaMessage, CloudToTpaMessageType, ConnectionAck, ConnectionError, ConnectionInit, DataStream, DisplayRequest, GlassesConnectionState, GlassesToCloudMessage, GlassesToCloudMessageType, HeadPosition, LocationUpdate, MicrophoneStateChange, StartApp, StopApp, StreamType, TpaConnectionAck, TpaConnectionError, TpaConnectionInit, TpaSubscriptionUpdate, TpaToCloudMessage, UserSession, Vad } from '@augmentos/sdk';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { PosthogService } from '../logging/posthog.service';
 import { AUGMENTOS_AUTH_JWT_SECRET, systemApps } from '@augmentos/config';
@@ -74,7 +44,7 @@ export class WebSocketService {
     private readonly sessionService: SessionService,
     private readonly subscriptionService: SubscriptionService,
     private readonly transcriptionService: TranscriptionService,
-    private readonly appService: IAppService,
+    private readonly appService: AppService,
   ) {
     this.glassesWss = new WebSocketServer({ noServer: true });
     this.tpaWss = new WebSocketServer({ noServer: true });
@@ -109,7 +79,7 @@ export class WebSocketService {
     ws: WebSocket,
     userSession: UserSession,
     isEnabled: boolean,
-    delay: number = 1000
+    delay = 1000
   ): void {
     const sessionId = userSession.sessionId;
     let debouncer = this.microphoneStateChangeDebouncers.get(sessionId);
@@ -317,11 +287,11 @@ export class WebSocketService {
    * @param ws - WebSocket connection
    * @private
    */
-  private handleGlassesConnection(ws: WebSocket): void {
+  private async handleGlassesConnection(ws: WebSocket): Promise<void> {
     console.log('[websocket.service] New glasses client attempting to connect...');
     const startTimestamp = new Date();
 
-    const userSession = this.sessionService.createSession(ws);
+    const userSession = await this.sessionService.createSession(ws);
     ws.on('message', async (message: Buffer | string, isBinary: boolean) => {
       try {
         if (isBinary && Buffer.isBuffer(message)) {
@@ -834,7 +804,7 @@ export class WebSocketService {
     const setCurrentSessionId = (appSessionId: string) => {
       currentAppSession = appSessionId;
     }
-    let userSessionId: string = '';
+    let userSessionId = '';
     let userSession: UserSession | null = null;
 
     ws.on('message', async (data: Buffer | string, isBinary: boolean) => {
@@ -1044,7 +1014,7 @@ export class WebSocketService {
     // );
 
     // this.tpaConnections.set(initMessage.sessionId, { packageName: initMessage.packageName, userSessionId, websocket: ws });
-    userSession.appConnections.set(initMessage.packageName, ws as any);
+    userSession.appConnections.set(initMessage.packageName, ws as WebSocket);
     setCurrentSessionId(initMessage.sessionId);
 
     const ackMessage: TpaConnectionAck = {
@@ -1106,7 +1076,7 @@ export function createWebSocketService(
   sessionService: SessionService,
   subscriptionService: SubscriptionService,
   transcriptionService: TranscriptionService,
-  appService: IAppService,
+  appService: AppService,
 ): WebSocketService {
   return new WebSocketService(
     sessionService,

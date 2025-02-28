@@ -4,23 +4,20 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "concurrently -n \"utils,agents,clients,types,config,dashboard,flash,live-captions,miraai,notify,cloud\" -c \"bgBlue.bold,bgBlue.bold,bgGreen.bold,bgMagenta.bold,bgYellow.bold,bgCyan.bold,bgRed.bold,bgBlue.bold,bgGreen.bold,bgMagenta.bold,bgYellow.bold\" \"cd packages/utils && bun run dev\" \"cd packages/agents && bun run dev\" \"cd packages/clients && bun run dev\" \"cd packages/types && bun run dev\" \"cd packages/config && bun run dev\" \"cd packages/apps/dashboard-manager && bun run dev\" \"cd packages/apps/flash && bun run dev\" \"cd packages/apps/live-captions && bun run dev\" \"cd packages/apps/miraai && bun run dev\" \"cd packages/apps/notify && bun run dev\" \"cd packages/cloud && bun run dev\"",
-    "build": "concurrently \"cd packages/types && bun run build\" \"cd packages/clients && bun run build\" \"cd packages/config && bun run build\" \"cd packages/utils && bun run build\" \"cd packages/agents && bun run build\"  \"cd packages/apps/dashboard-manager && bun run build\" \"cd packages/apps/flash && bun run build\" \"cd packages/apps/live-captions && bun run build\" \"cd packages/apps/miraai && bun run build\" \"cd packages/apps/notify && bun run build\" \"cd packages/cloud && bun run build\"",
-
+    "dev": "concurrently -n \"utils,agents,sdk,config,dashboard,flash,live-captions,miraai,notify,cloud\" -c \"bgBlue.bold,bgBlue.bold,bgGreen.bold,bgMagenta.bold,bgYellow.bold,bgCyan.bold,bgRed.bold,bgBlue.bold,bgGreen.bold,bgMagenta.bold,bgYellow.bold\" \"cd packages/utils && bun run dev\" \"cd packages/agents && bun run dev\" \"cd packages/sdk && bun run dev\" \"cd packages/config && bun run dev\" \"cd packages/apps/dashboard-manager && bun run dev\" \"cd packages/apps/flash && bun run dev\" \"cd packages/apps/live-captions && bun run dev\" \"cd packages/apps/miraai && bun run dev\" \"cd packages/apps/notify && bun run dev\" \"cd packages/cloud && bun run dev\"",
+    "build": "concurrently \"cd packages/sdk && bun run build\" \"cd packages/config && bun run build\" \"cd packages/utils && bun run build\" \"cd packages/agents && bun run build\"  \"cd packages/apps/dashboard-manager && bun run build\" \"cd packages/apps/flash && bun run build\" \"cd packages/apps/live-captions && bun run build\" \"cd packages/apps/miraai && bun run build\" \"cd packages/apps/notify && bun run build\" \"cd packages/cloud && bun run build\"",
     "start:prod": "pm2 start ecosystem.config.js",
     "stop:prod": "pm2 delete ecosystem.config.js",
     "logs:prod": "pm2 logs ecosystem.config.js",
     "restart:prod": "pm2 restart ecosystem.config.js",
     "monitor:prod": "pm2 monit",
     "deploy:prod": "bun run stop:prod && bun run build && bun run start:prod",
-
     "start:dev": "pm2 start dev-ecosystem.config.js",
     "stop:dev": "pm2 delete dev-ecosystem.config.js",
     "logs:dev": "pm2 logs dev-ecosystem.config.js",
     "restart:dev": "pm2 restart dev-ecosystem.config.js",
     "monitor:dev": "pm2 monit",
     "deploy:dev": "bun run stop:dev && bun run build && bun run start:dev",
-
     "start:staging": "pm2 start staging-ecosystem.config.js",
     "stop:staging": "pm2 delete staging-ecosystem.config.js",
     "logs:staging": "pm2 logs staging-ecosystem.config.js",
@@ -40,6 +37,7 @@
     "@sentry/tracing": "^7.120.3",
     "@types/bun": "^1.2.2",
     "assemblyai": "^4.9.0",
+    "axios": "^1.8.1",
     "langchain": "^0.3.18",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",

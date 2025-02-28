@@ -10,7 +10,7 @@ import {
   StreamType,
   ViewType,
   LayoutType,
-} from '@augmentos/types'; // shared types for cloud TPA messages
+} from '@augmentos/sdk'; // shared types for cloud TPA messages
 import { CLOUD_PORT, systemApps } from '@augmentos/config';
 import { wrapText } from '@augmentos/utils';
 

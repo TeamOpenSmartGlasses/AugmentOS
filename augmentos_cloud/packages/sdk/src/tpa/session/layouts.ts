@@ -25,7 +25,7 @@ import {
   LayoutType,
   ViewType,
   TpaToCloudMessageType
-} from '@augmentos/types';
+} from '../../types';
 
 export class LayoutManager {
   /**

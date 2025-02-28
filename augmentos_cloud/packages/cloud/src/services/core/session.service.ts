@@ -2,9 +2,9 @@
 
 import { WebSocket } from 'ws';
 import { v4 as uuidv4 } from 'uuid';
-import { StreamType, UserSession } from '@augmentos/types';
-import { TranscriptSegment } from '@augmentos/types';
-import { DisplayRequest } from '@augmentos/types';
+import { StreamType, UserSession } from '@augmentos/sdk';
+import { TranscriptSegment } from '@augmentos/sdk';
+import { DisplayRequest } from '@augmentos/sdk';
 import appService, { SYSTEM_TPAS } from './app.service';
 import transcriptionService from '../processing/transcription.service';
 import DisplayManager from '../layout/DisplayManager6.1';
@@ -39,14 +39,14 @@ export class SessionService {
     }
   }
 
-  createSession(ws: WebSocket, userId = 'anonymous'): UserSession {
+  async createSession(ws: WebSocket, userId = 'anonymous'): Promise<UserSession> {
     const sessionId = uuidv4();
     const session: UserSession = {
       sessionId,
       userId,
       startTime: new Date(),
       activeAppSessions: [],
-      installedApps: appService.getSystemApps(),
+      installedApps: await appService.getAllApps(),
       whatToStream: new Array<StreamType>(),
       appSubscriptions: new Map<string, StreamType[]>(),
       loadingApps: [],
