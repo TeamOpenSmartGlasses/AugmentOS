@@ -210,7 +210,7 @@ class SmartGlassesRepresentative {
         byte[] audio_bytes = chunk.array();
 
         //encode as LC3
-        byte[] lc3Data = chunk.array();
+        byte[] lc3Data = L3cCpp.encodeLC3(chunk.array());
         // Log.d(TAG, "LC3 Data encoded: " + lc3Data.toString());
 
         //throw off new audio chunk event

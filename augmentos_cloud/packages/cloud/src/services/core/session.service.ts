@@ -218,7 +218,7 @@ export class SessionService {
     let processedAudioData = audioData;
     if (isLC3 && this.isLC3Initialized) {
       try {
-        processedAudioData = audioData;
+        processedAudioData = await lc3Service.decodeAudioChunk(audioData);
       } catch (error) {
         console.error('❌ Error decoding LC3 audio:', error);
         processedAudioData = audioData;
