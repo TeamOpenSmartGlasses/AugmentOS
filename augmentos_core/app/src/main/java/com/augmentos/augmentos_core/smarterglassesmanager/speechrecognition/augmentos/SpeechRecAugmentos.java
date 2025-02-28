@@ -108,13 +108,13 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
      * Drains the rolling buffer (last ~150ms) and sends it immediately when VAD opens.
      */
     private void sendBufferedAudio() {
-        List<byte[]> bufferDump = new ArrayList<>();
-        rollingBuffer.drainTo(bufferDump);
-
-        for (byte[] chunk : bufferDump) {
-            // Now we send audio chunks through ServerComms (single WebSocket).
-            ServerComms.getInstance().sendAudioChunk(chunk);
-        }
+//        List<byte[]> bufferDump = new ArrayList<>();
+//        rollingBuffer.drainTo(bufferDump);
+//
+//        for (byte[] chunk : bufferDump) {
+//            // Now we send audio chunks through ServerComms (single WebSocket).
+//            ServerComms.getInstance().sendAudioChunk(chunk);
+//        }
     }
 
     /**
@@ -177,15 +177,15 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     @Override
     public void ingestLC3AudioChunk(byte[] LC3audioChunk) {
         // If currently speaking, send data live
-        if (isSpeaking) {
-            ServerComms.getInstance().sendAudioChunk(LC3audioChunk);
-        }
-
-        // Maintain rolling buffer for "catch-up"
-        if (rollingBuffer.size() >= bufferMaxSize) {
-            rollingBuffer.poll();
-        }
-        rollingBuffer.offer(LC3audioChunk);
+//        if (isSpeaking) {
+        ServerComms.getInstance().sendAudioChunk(LC3audioChunk);
+//        }
+//
+//        // Maintain rolling buffer for "catch-up"
+//        if (rollingBuffer.size() >= bufferMaxSize) {
+//            rollingBuffer.poll();
+//        }
+//        rollingBuffer.offer(LC3audioChunk);
     }
 
 
