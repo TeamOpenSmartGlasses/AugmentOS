@@ -1,4 +1,4 @@
-// models/app.model.ts
+// store/server/src/models/app.model.ts
 import mongoose, { Schema, Document } from 'mongoose';
 import { AppI as _AppI, AppSettings, TpaType } from '@augmentos/sdk';
 
@@ -23,7 +23,7 @@ const AppSchema: Schema = new Schema({
     default: TpaType.STANDARD
   },
   appStoreId: { type: String },
-  developerId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  developerId: { type: String, required: true },
   
   // Auth fields
   hashedApiKey: { type: String, required: true },

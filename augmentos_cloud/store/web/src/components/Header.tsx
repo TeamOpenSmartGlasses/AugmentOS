@@ -1,57 +1,63 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
+import { Button } from './ui/button';
 
-interface HeaderProps {
-  activeTab: 'available' | 'installed' | 'browse';
-  onTabChange: (tab: 'available' | 'installed' | 'browse') => void;
-  isAuthenticated: boolean;
-}
+const Header: React.FC = () => {
+  const { isAuthenticated, signOut, user } = useAuth();
+  const navigate = useNavigate();
 
-export function Header({ activeTab, onTabChange, isAuthenticated }: HeaderProps) {
+  // Handle sign out
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
+  };
+
   return (
-    <header className="bg-white shadow">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center pt-4">
-          <h1 className="text-2xl font-bold text-gray-800">App Store</h1>
-        </div>
-          {!isAuthenticated && (
-            <div className="text-sm text-gray-500">Public Browse Mode</div>
-          )}
-        
-        <div className="flex border-b border-gray-200">
-          {isAuthenticated ? (
-            // Authenticated navigation
-            <>
-              <button
-                className={`py-2 px-4 text-sm font-medium ${
-                  activeTab === 'available'
-                    ? 'text-blue-600 border-b-2 border-blue-500'
-                    : 'text-gray-500 hover:text-gray-700'
-                }`}
-                onClick={() => onTabChange('available')}
+    <header className="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-sm">
+      <div className="mx-auto px-10 py-4">
+        <div className="flex items-center justify-between">
+
+          {/* Logo and Site Name */}
+          <div className="flex flex-col items-start select-none">
+            <Link to="/" className="flex items-end ">
+              <h1 className="font-cuprum font-bold text-3xl">.\</h1>
+              <h1 className="font-light text-xl pb-0.5 pl-1">ugment</h1>
+              <h1 className="font-bold text-xl pb-0.5">OS</h1>
+            </Link>
+            <span className="font-light text-sm text-gray-800">App Store</span>
+          </div>
+
+          {/* Authentication */}
+          <div className="flex items-center">
+            {isAuthenticated ? (
+              <div className="flex flex-col items-end">
+                <span className="text-sm text-gray-600 px-3">
+                  {user?.email}
+                </span>
+                <Button
+                  onClick={handleSignOut}
+                  variant="ghost"
+                  size={'sm'}
+                // className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm"
+                >
+                  Sign Out
+                </Button>
+              </div>
+            ) : (
+              <Button
+                onClick={() => navigate('/login')}
+                variant="default"
+              // className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm"
               >
-                Available Apps
-              </button>
-              <button
-                className={`py-2 px-4 text-sm font-medium ${
-                  activeTab === 'installed'
-                    ? 'text-blue-600 border-b-2 border-blue-500'
-                    : 'text-gray-500 hover:text-gray-700'
-                }`}
-                onClick={() => onTabChange('installed')}
-              >
-                My Apps
-              </button>
-            </>
-          ) : (
-            // Public navigation
-            <button
-              className={`py-2 px-4 text-sm font-medium text-blue-600 border-b-2 border-blue-500`}
-            >
-              Browse Apps
-            </button>
-          )}
+                Sign In
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </header>
   );
-}
+};
+
+export default Header;

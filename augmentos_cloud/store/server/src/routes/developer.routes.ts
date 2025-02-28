@@ -109,12 +109,27 @@ export function setupDevPortalRoutes(app: Express) {
       const email = (req as DevPortalRequest).developerEmail;
       const tpaData = req.body;
       
-      const result = await appService.createApp(tpaData, email);
+      // Check if TPA with this package name already exists
+      const existingTpa = await appService.getAppByPackageName(tpaData.packageName);
+      if (existingTpa) {
+        return res.status(409).json({ 
+          error: `TPA with package name '${tpaData.packageName}' already exists`
+        });
+      }
       
+      const result = await appService.createApp(tpaData, email);
       res.status(201).json(result);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error creating TPA:', error);
-      res.status(500).json({ error: 'Failed to create TPA' });
+      
+      // Handle duplicate key error specifically
+      if (error.code === 11000 && error.keyPattern?.packageName) {
+        return res.status(409).json({ 
+          error: `TPA with package name '${error.keyValue.packageName}' already exists`
+        });
+      }
+      
+      res.status(500).json({ error: error.message || 'Failed to create TPA' });
     }
   };
 

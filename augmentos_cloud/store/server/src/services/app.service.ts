@@ -14,14 +14,14 @@ export async function getPublicApps(): Promise<AppI[]> {
  * Get all available apps
  */
 export async function getAvailableApps(): Promise<AppI[]> {
-  return App.find().lean();
+  return App.find();
 }
 
 /**
  * Get apps installed by a user
  */
-export async function getInstalledApps(userId: string): Promise<any[]> {
-  const user = await User.findById(userId).lean();
+export async function getInstalledApps(email: string): Promise<any[]> {
+  const user = await User.findOne({ email }).lean();
 
   if (!user || !user.installedApps || user.installedApps.length === 0) {
     return [];
@@ -47,7 +47,7 @@ export async function getInstalledApps(userId: string): Promise<any[]> {
 /**
  * Install an app for a user
  */
-export async function installApp(userId: string, packageName: string): Promise<void> {
+export async function installApp(email: string, packageName: string): Promise<void> {
   // Check if App exists
   const app = await App.findOne({ packageName });
   if (!app) {
@@ -55,9 +55,9 @@ export async function installApp(userId: string, packageName: string): Promise<v
   }
 
   // Find user
-  const user = await User.findById(userId);
+  const user = await User.findOne({ email });
   if (!user) {
-    throw new Error(`User with ID ${userId} not found`);
+    throw new Error(`User with ID ${email} not found`);
   }
 
   // Check if installedApps exists, if not create it
@@ -83,11 +83,11 @@ export async function installApp(userId: string, packageName: string): Promise<v
 /**
  * Uninstall an app for a user
  */
-export async function uninstallApp(userId: string, packageName: string): Promise<void> {
+export async function uninstallApp(email: string, packageName: string): Promise<void> {
   // Find user
-  const user = await User.findById(userId);
+  const user = await User.findOne({ email });
   if (!user) {
-    throw new Error(`User with ID ${userId} not found`);
+    throw new Error(`User with ID ${email} not found`);
   }
 
   // If installedApps doesn't exist, nothing to do

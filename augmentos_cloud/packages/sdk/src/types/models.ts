@@ -10,8 +10,8 @@ export interface AppI {
   packageName: string;
   name: string;
   webhookURL: string;
-  logoURL: string;
   webviewURL?: string;            // URL for phone UI
+  logoURL: string;
   tpaType: TpaType;               // Type of TPA
   appStoreId?: string;            // Which app store registered this TPA
   developerId?: string;
@@ -24,6 +24,8 @@ export interface AppI {
   description?: string;
   version?: string;
   settings?: AppSettings;
+
+  isPublic?: boolean;
 }
 
 /**

@@ -39,14 +39,14 @@ export class SessionService {
     }
   }
 
-  createSession(ws: WebSocket, userId = 'anonymous'): UserSession {
+  async createSession(ws: WebSocket, userId = 'anonymous'): Promise<UserSession> {
     const sessionId = uuidv4();
     const session: UserSession = {
       sessionId,
       userId,
       startTime: new Date(),
       activeAppSessions: [],
-      installedApps: appService.getSystemApps(),
+      installedApps: await appService.getAllApps(),
       whatToStream: new Array<StreamType>(),
       appSubscriptions: new Map<string, StreamType[]>(),
       loadingApps: [],

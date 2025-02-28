@@ -43,6 +43,7 @@
     "@augmentos/sdk": "workspace:*",
     "@sentry/bun": "^9.1.0",
     "@sentry/cli": "^2.42.1",
+    "@supabase/supabase-js": "^2.49.1",
     "axios": "^1.7.4",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",

@@ -1,4 +1,4 @@
-// models/user.model.ts - For App Store TPA
+// store/server/src/models/user.model.ts - For App Store TPA
 import mongoose, { Schema, Document } from 'mongoose';
 
 // Interface that matches the fields we need from the main User schema

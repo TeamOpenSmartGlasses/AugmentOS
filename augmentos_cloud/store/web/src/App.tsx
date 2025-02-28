@@ -1,125 +1,67 @@
-import React, { useState, useEffect } from 'react';
-import { AppList } from './components/AppList';
-import { Header } from './components/Header';
-import { useToken } from './hooks/useToken';
-import { fetchAvailableApps, fetchInstalledApps, fetchPublicApps } from './api';
-import { App } from './types';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './hooks/useAuth';
+import { Toaster } from 'sonner';
 
-function Webview() {
-  const token = useToken();
-  const [availableApps, setAvailableApps] = useState<App[]>([]);
-  const [installedApps, setInstalledApps] = useState<App[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'available' | 'installed' | 'browse'>('available');
+// Pages
+import AppStore from './pages/AppStore';
+import LoginPage from './pages/LoginPage';
+import NotFound from './pages/NotFound';
 
-  // Track if the user is authenticated
-  const isAuthenticated = !!token;
+// Loading spinner component (simplified)
+const LoadingSpinner: React.FC = () => (
+  <div className="flex items-center justify-center min-h-screen">
+    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+  </div>
+);
 
-  useEffect(() => {
-    // If not authenticated, default to browse tab
-    if (!isAuthenticated && activeTab !== 'browse') {
-      setActiveTab('browse');
-    }
-    
-    // If authenticated, don't allow browse tab
-    if (isAuthenticated && activeTab === 'browse') {
-      setActiveTab('available');
-    }
-  }, [isAuthenticated, activeTab]);
+// Protected route component
+const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { isAuthenticated, isLoading } = useAuth();
 
-  useEffect(() => {
-    async function loadData() {
-      try {
-        // For the browse tab and available tab, fetch available apps
-        if (activeTab === 'browse' || activeTab === 'available') {
-          const availableData = isAuthenticated 
-            ? await fetchAvailableApps(token!)
-            : await fetchPublicApps(); // Create this function for public browsing
-            
-          setAvailableApps(availableData.apps);
-        }
-        
-        // Only fetch installed apps if authenticated and on installed tab
-        if (isAuthenticated && activeTab === 'installed') {
-          const installedData = await fetchInstalledApps(token!);
-          setInstalledApps(installedData.apps);
-        }
-        
-        setLoading(false);
-      } catch (err) {
-        console.error('Error loading apps:', err);
-        setError('Failed to load apps. Please try again.');
-        setLoading(false);
-      }
-    }
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
-    setLoading(true);
-    loadData();
-  }, [token, activeTab, isAuthenticated]);
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
 
-  const handleInstall = async (packageName: string) => {
-    if (!isAuthenticated) {
-      setError('You need to be authenticated to install apps');
-      return;
-    }
-    
-    // Implement app installation logic
-    console.log(`Installing ${packageName}`);
-  };
+  return <>{children}</>;
+};
 
-  const handleUninstall = async (packageName: string) => {
-    if (!isAuthenticated) {
-      setError('You need to be authenticated to uninstall apps');
-      return;
-    }
-    
-    // Implement app uninstallation logic
-    console.log(`Uninstalling ${packageName}`);
-  };
+// Main routes component
+const AppRoutes: React.FC = () => {
+  const { isLoading } = useAuth();
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <Header 
-        activeTab={activeTab} 
-        onTabChange={setActiveTab}
-        isAuthenticated={isAuthenticated}
-      />
-      
-      <main className="container mx-auto py-6 px-4">
-        {!isAuthenticated && activeTab !== 'browse' && (
-          <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
-            <p className="font-medium">You are browsing in public mode</p>
-            <p className="text-sm">Launch the App Store from AugmentOS to install apps.</p>
-          </div>
-        )}
-        
-        {loading ? (
-          <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-          </div>
-        ) : error ? (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-            <p>{error}</p>
-            <button 
-              className="text-sm text-red-700 underline mt-2"
-              onClick={() => setError(null)}
-            >
-              Dismiss
-            </button>
-          </div>
-        ) : (
-          <AppList 
-            apps={activeTab === 'installed' ? installedApps : availableApps}
-            type={activeTab}
-            onInstall={handleInstall}
-            onUninstall={handleUninstall}
-            isAuthenticated={isAuthenticated}
-          />
-        )}
-      </main>
-    </div>
+    <Routes>
+      <Route path="/" element={<AppStore />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/webview" element={
+        <ProtectedRoute>
+          <AppStore />
+        </ProtectedRoute>
+      } />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
-}
+};
 
-export default Webview;
+// Main App component
+const App: React.FC = () => {
+  return (
+    <AuthProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <Toaster position="top-right" richColors />
+      </BrowserRouter>
+    </AuthProvider>
+  );
+};
+
+export default App;

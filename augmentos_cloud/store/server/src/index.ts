@@ -4,6 +4,11 @@ import { setupAppRoutes } from './routes/appstore.routes';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import express, { Express } from 'express';
+import { setupDevPortalRoutes } from './routes/developer.routes';
+import * as mongoConnection from "./connections/mongodb.connection";
+
+// Initialize MongoDB connection
+mongoConnection.init();
 
 // Load environment variables
 dotenv.config();
@@ -66,26 +71,9 @@ class AppStoreTpaServer extends TpaServer {
 
     // Set up app routes
     setupAppRoutes(app, this.tokenSecretKey);
+    setupDevPortalRoutes(app);
     console.log('App Store API routes set up');
 
-    // In your setupApiRoutes() method, add this after calling setupAppRoutes()
-    console.log('Routes registered:');
-    const routes: any = [];
-
-    // Helper function to print routes
-    function print(path: any, layer: any) {
-      if (layer.route) {
-        layer.route.stack.forEach(print.bind(null, path.concat(layer.route.path)));
-      } else if (layer.name === 'router' && layer.handle.stack) {
-        layer.handle.stack.forEach(print.bind(null, path.concat(layer.regexp)));
-      } else if (layer.method) {
-        routes.push(`${layer.method.toUpperCase()} ${path.concat(layer.regexp).filter(Boolean).join('')}`);
-      }
-    }
-
-    // Display all registered routes
-    app._router.stack.forEach(print.bind(null, []));
-    console.log(routes);
   }
 
   /**
