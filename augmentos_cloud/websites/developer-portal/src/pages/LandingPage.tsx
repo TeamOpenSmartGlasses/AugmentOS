@@ -26,17 +26,20 @@ const LandingPage: React.FC = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-100 min-h-[80vh] flex items-center">
+      <section className="py-20 bg-gradient-to-b from-white to-gray-100 my-0 flex items-center">
         <div className="container mx-auto px-4 text-center">
+          <div className="flex items-center justify-center mb-10">
+            <img src="/g1.webp" alt="Hero" className="w-96" />
+          </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Build the Future of Computing with AugmentOS
+            The easiest way to build apps for smart glasses.
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto">
-            Create powerful apps for smart glasses in minutes, not months
+            Build and deploy your own Third Party Applications (TPAs) for smart glasses in minutes, not months.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/signup"
+              href="/signin"
               className="px-6 py-3 rounded-md bg-black text-white font-medium hover:bg-stone-900 inline-flex items-center justify-center gap-2"
             >
               Start Building
@@ -45,7 +48,7 @@ const LandingPage: React.FC = () => {
               </svg>
             </a>
             <a
-              href="/docs"
+              href="https://www.npmjs.com/package/@augmentos/sdk"
               className="px-6 py-3 rounded-md border border-gray-300 font-medium hover:bg-gray-100"
             >
               View Documentation
@@ -89,7 +92,7 @@ const LandingPage: React.FC = () => {
               </div>
             </div>
             <div className="mt-10 text-center">
-              <a href="/signup" className="px-6 py-3 rounded-md bg-blue-600 text-white font-medium hover:bg-blue-700">
+              <a href="/signin" className="px-6 py-3 rounded-md bg-blue-600 text-white font-medium hover:bg-blue-700">
                 Create Developer Account
               </a>
             </div>

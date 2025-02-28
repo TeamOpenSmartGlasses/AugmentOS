@@ -108,6 +108,12 @@ export class TpaServer {
     this.setupShutdown();
   }
 
+  // Expose Express app for custom routes.
+  // This is useful for adding custom API routes or middleware.
+  public getExpressApp(): Express {
+    return this.app;
+  }
+
   /**
    * 👥 Session Handler
    * Override this method to handle new TPA sessions.
@@ -132,7 +138,7 @@ export class TpaServer {
    */
   protected async onStop(sessionId: string, userId: string, reason: string): Promise<void> {
     console.log(`Session ${sessionId} stopped for user ${userId}. Reason: ${reason}`);
-    
+
     // Default implementation: close the session if it exists
     const session = this.activeSessions.get(sessionId);
     if (session) {
@@ -170,6 +176,31 @@ export class TpaServer {
   }
 
   /**
+ * 🔐 Generate a TPA token for a user
+ * This should be called when handling a session webhook request.
+ * 
+ * @param userId - User identifier
+ * @param sessionId - Session identifier
+ * @param secretKey - Secret key for signing the token
+ * @returns JWT token string
+ */
+  protected generateToken(
+    userId: string,
+    sessionId: string,
+    secretKey: string
+  ): string {
+    const { createToken } = require('../token/utils');
+    return createToken(
+      {
+        userId,
+        packageName: this.config.packageName,
+        sessionId
+      },
+      { secretKey }
+    );
+  }
+
+  /**
    * 🧹 Add Cleanup Handler
    * Register a function to be called during server shutdown.
    * 
@@ -192,7 +223,7 @@ export class TpaServer {
     this.app.post(this.config.webhookPath, async (req, res) => {
       try {
         const webhookRequest = req.body as WebhookRequest;
-        
+
         // Handle session request
         if (isSessionWebhookRequest(webhookRequest)) {
           await this.handleSessionRequest(webhookRequest, res);
@@ -204,16 +235,16 @@ export class TpaServer {
         // Unknown webhook type
         else {
           console.error('❌ Unknown webhook request type');
-          res.status(400).json({ 
-            status: 'error', 
-            message: 'Unknown webhook request type' 
+          res.status(400).json({
+            status: 'error',
+            message: 'Unknown webhook request type'
           } as WebhookResponse);
         }
       } catch (error) {
         console.error('❌ Error handling webhook:', error);
-        res.status(500).json({ 
-          status: 'error', 
-          message: 'Internal server error' 
+        res.status(500).json({
+          status: 'error',
+          message: 'Internal server error'
         } as WebhookResponse);
       }
     });
@@ -253,9 +284,9 @@ export class TpaServer {
       console.error('❌ Failed to connect:', error);
       cleanupDisconnect();
       cleanupError();
-      res.status(500).json({ 
-        status: 'error', 
-        message: 'Failed to connect' 
+      res.status(500).json({
+        status: 'error',
+        message: 'Failed to connect'
       } as WebhookResponse);
     }
   }
@@ -272,9 +303,9 @@ export class TpaServer {
       res.status(200).json({ status: 'success' } as WebhookResponse);
     } catch (error) {
       console.error('❌ Error handling stop request:', error);
-      res.status(500).json({ 
-        status: 'error', 
-        message: 'Failed to process stop request' 
+      res.status(500).json({
+        status: 'error',
+        message: 'Failed to process stop request'
       } as WebhookResponse);
     }
   }
@@ -286,8 +317,8 @@ export class TpaServer {
   private setupHealthCheck(): void {
     if (this.config.healthCheck) {
       this.app.get('/health', (req, res) => {
-        res.json({ 
-          status: 'healthy', 
+        res.json({
+          status: 'healthy',
           app: this.config.packageName,
           activeSessions: this.activeSessions.size
         });

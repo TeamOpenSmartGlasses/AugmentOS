@@ -1,42 +1,79 @@
 // App.tsx
 import React from 'react';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import { ThemeProvider } from "@/components/ui/theme-provider";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 // Pages
 import LandingPage from './pages/LandingPage';
 import DashboardHome from './pages/DashboardHome';
 
-// import SignIn from './pages/SignIn';
+import LoginOrSignup from './pages/AuthPage';
 // import SignUp from './pages/SignUp';
 import TPAList from './pages/TPAList';
 import CreateTPA from './pages/CreateTPA';
 import EditTPA from './pages/EditTPA';
 import NotFound from './pages/NotFound';
+import { AuthProvider, useAuth } from './hooks/useAuth';
+
+// Protected route component
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated, isLoading } = useAuth();
+
+  if (isLoading) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return <Navigate to="/signin" replace />;
+  }
+
+  return <>{children}</>;
+}
 
 const App: React.FC = () => {
   return (
-    // <DashboardHome />
-    // <ThemeProvider defaultTheme="light" storageKey="augmentos-theme">
-    <BrowserRouter>
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<LandingPage />} />
-        {/* <Route path="/signin" element={<SignIn />} /> */}
-        {/* <Route path="/signup" element={<SignUp />} /> */}
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<LandingPage />} />
 
-        {/* Dashboard Routes - No auth for now */}
-        <Route path="/dashboard" element={<DashboardHome />} />
-        <Route path="/tpas" element={<TPAList />} />
-        <Route path="/tpas/create" element={<CreateTPA />} />
-        <Route path="/tpas/:packageName/edit" element={<EditTPA />} />
+          {/* Login or Signup */}
+          <Route path="/login" element={<LoginOrSignup />} />
+          <Route path="/signup" element={<LoginOrSignup />} />
+          <Route path="/signin" element={<LoginOrSignup />} />
 
-        {/* Catch-all Not Found route */}
-        <Route path="*" element={<NotFound />} />
-        <Route path="*" element={<LandingPage />} />
-      </Routes>
-    </BrowserRouter>
-    // </ThemeProvider>
+          {/* Dashboard Routes - No auth for now */}
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <DashboardHome />
+            </ProtectedRoute>
+          } />
+          <Route path="/tpas" element={
+            <ProtectedRoute>
+              <TPAList />
+            </ProtectedRoute>
+          } />
+          <Route path="/tpas/create" element={
+            <ProtectedRoute>
+              <CreateTPA />
+            </ProtectedRoute>
+          } />
+          <Route path="/tpas/:packageName/edit" element={
+            <ProtectedRoute>
+              <EditTPA />
+            </ProtectedRoute>
+          } />
+
+          {/* Catch-all Not Found route */}
+          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<LandingPage />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 };
 

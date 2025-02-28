@@ -1,4 +1,5 @@
-// src/models.ts - Core models
+// @augmentos/sdk
+// packages/sdk/types/src/models.ts - Core models
 
 import { AppSettingType, AppState, Language, TpaType } from './enums';
 

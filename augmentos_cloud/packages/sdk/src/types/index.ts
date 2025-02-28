@@ -1,5 +1,7 @@
 // src/index.ts
 
+export * from './token';
+
 // Message type enums
 export * from './message-types';
 
