@@ -27,8 +27,6 @@ const AuthPage: React.FC = () => {
       {/* Main Content */}
       <main className="flex-1 flex items-center justify-center bg-gray-100 px-4 py-12">
         <div className="w-full max-w-md p-8 justify-center items-center flex flex-col">
-          {/* <h2 className="text-2xl font-bold mb-6 text-center">Developer Portal</h2> */}
-
           <div className='select-none flex flex-col items-center'>
             <div className="flex items-end gap-0 cursor-pointer">
               <h1 className="font-cuprum font-bold text-5xl">.\</h1>
@@ -45,7 +43,6 @@ const AuthPage: React.FC = () => {
             redirectTo={`${window.location.origin}/dashboard`}
             onlyThirdPartyProviders={true}
             magicLink={false}
-
           />
         </div>
       </main>
