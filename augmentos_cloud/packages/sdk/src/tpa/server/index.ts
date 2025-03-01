@@ -44,7 +44,7 @@ export interface TpaServerConfig {
    * Set to false to disable static file serving
    */
   publicDir?: string | false;
-  /** 🔌 WebSocket server URL for AugmentOS Cloud */
+  /** 🔌 WebSocket server URL for AugmentOS Cloud (default: 'wss://staging.augmentos.org/tpa-ws') */
   augmentOSWebsocketUrl?: string;
   /** ❤️ Enable health check endpoint at /health (default: true) */
   healthCheck?: boolean;
@@ -92,6 +92,7 @@ export class TpaServer {
     this.config = {
       port: 7010,
       webhookPath: '/webhook',
+      augmentOSWebsocketUrl: "wss://staging.augmentos.org/tpa-ws",
       publicDir: false,
       healthCheck: true,
       ...config

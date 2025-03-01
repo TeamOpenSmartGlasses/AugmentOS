@@ -49,7 +49,7 @@ const app = new CaptionsApp({
   packageName: 'org.example.captions',
   apiKey: 'your_api_key',
   port: 3000,
-  augmentOSWebsocketUrl: 'ws://staging.augmentos.org/tpa-ws'
+  augmentOSWebsocketUrl: 'wss://staging.augmentos.org/tpa-ws'
 });
 
 app.start().catch(console.error);
@@ -239,8 +239,7 @@ interface TranscriptionData {
 #### Head Position Events
 ```typescript
 interface HeadPosition {
-  position: 'up' | 'down' | 'left' | 'right' | 'center';
-  confidence: number;    // Confidence score (0-1)
+  position: 'up' | 'down'
   timestamp: number;     // Event timestamp
 }
 ```
@@ -249,7 +248,7 @@ interface HeadPosition {
 ```typescript
 interface ButtonPress {
   buttonId: string;      // Identifier for the pressed button
-  type: 'single' | 'double' | 'long'; // Press type
+  type: 'single'
   timestamp: number;     // Event timestamp
 }
 ```
@@ -400,11 +399,7 @@ enum TpaType {
    - Handle network failures gracefully
    - Log errors appropriately
 
-3. **Rate Limiting**
-   - Implement reasonable rate limits
-   - Handle rate limit errors
-
-4. **Data Privacy**
+3. **Data Privacy**
    - Only store necessary user data
    - Clear sensitive data when session ends
    - Follow data protection regulations
