@@ -33,7 +33,7 @@ import {
   // Other types
   AppSettings
 } from '../../types';
-import { CLOUD_PORT } from '@augmentos/config';
+// import { CLOUD_PORT } from '@augmentos/config';
 
 /**
  * ⚙️ Configuration options for TPA Session
@@ -53,7 +53,7 @@ export interface TpaSessionConfig {
   /** 🔑 API key for authentication with AugmentOS Cloud */
   apiKey: string;
   /** 🔌 WebSocket server URL (default: 'ws://localhost:7002/tpa-ws') */
-  serverUrl?: string;
+  augmentOSWebsocketUrl?: string;
   /** 🔄 Automatically attempt to reconnect on disconnect (default: true) */
   autoReconnect?: boolean;
   /** 🔁 Maximum number of reconnection attempts (default: 5) */
@@ -105,7 +105,7 @@ export class TpaSession {
 
   constructor(private config: TpaSessionConfig) {
     this.config = {
-      serverUrl: `ws://localhost:${CLOUD_PORT}/tpa-ws`,
+      augmentOSWebsocketUrl: `ws://dev.augmentos.org/tpa-ws`,
       autoReconnect: false,
       maxReconnectAttempts: 0,
       reconnectDelay: 1000,
@@ -197,7 +197,7 @@ export class TpaSession {
 
     return new Promise((resolve, reject) => {
       try {
-        this.ws = new WebSocket(this.config.serverUrl as string);
+        this.ws = new WebSocket(this.config.augmentOSWebsocketUrl as string);
 
         this.ws.on('open', () => {
           this.sendConnectionInit();

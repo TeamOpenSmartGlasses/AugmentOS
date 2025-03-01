@@ -45,7 +45,7 @@ export interface TpaServerConfig {
    */
   publicDir?: string | false;
   /** 🔌 WebSocket server URL for AugmentOS Cloud */
-  serverUrl?: string;
+  augmentOSWebsocketUrl?: string;
   /** ❤️ Enable health check endpoint at /health (default: true) */
   healthCheck?: boolean;
 }
@@ -261,7 +261,7 @@ export class TpaServer {
     const session = new TpaSession({
       packageName: this.config.packageName,
       apiKey: this.config.apiKey,
-      serverUrl: this.config.serverUrl
+      augmentOSWebsocketUrl: this.config.augmentOSWebsocketUrl
     });
 
     // Setup session event handlers

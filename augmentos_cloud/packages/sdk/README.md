@@ -49,7 +49,7 @@ const app = new CaptionsApp({
   packageName: 'org.example.captions',
   apiKey: 'your_api_key',
   port: 3000,
-  serverUrl: 'ws://localhost:7002/tpa-ws'
+  augmentOSWebsocketUrl: 'ws://staging.augmentos.org/tpa-ws'
 });
 
 app.start().catch(console.error);
