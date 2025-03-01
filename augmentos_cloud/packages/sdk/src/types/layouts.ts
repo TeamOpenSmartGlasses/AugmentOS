@@ -39,10 +39,15 @@ export interface ReferenceCard {
     text: string;
 }
 
+export interface BitmapView {
+    layoutType: LayoutType.BITMAP_VIEW;
+    data: string;
+}
+
 /**
  * Union type for all layouts
  */
-export type Layout = TextWall | DoubleTextWall | DashboardCard | ReferenceCard;
+export type Layout = TextWall | DoubleTextWall | DashboardCard | ReferenceCard | BitmapView;
 
 export interface DisplayRequest extends BaseMessage {
     type: TpaToCloudMessageType.DISPLAY_REQUEST;
