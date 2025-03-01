@@ -2,7 +2,7 @@
 
 import { WebSocket } from 'ws';
 import { v4 as uuidv4 } from 'uuid';
-import { StreamType, UserSession } from '@augmentos/types';
+import { LayoutType, StreamType, TpaToCloudMessageType, UserSession, ViewType } from '@augmentos/types';
 import { TranscriptSegment } from '@augmentos/types';
 import { DisplayRequest } from '@augmentos/types';
 import appService, { SYSTEM_TPAS } from './app.service';
@@ -78,6 +78,22 @@ export class SessionService {
       newSession.appConnections = oldUserSession.appConnections;
       newSession.whatToStream = oldUserSession.whatToStream;
       newSession.isTranscribing = false; // Reset transcription state
+
+      // Transfer LC3Service instance to new session
+      if (oldUserSession.lc3Service) {
+        newSession.lc3Service = oldUserSession.lc3Service;
+      } else {
+        console.error(`❌[${userId}]: No LC3 service found for reconnected session`);
+        const lc3ServiceInstance = new LC3Service();
+        try {
+          lc3ServiceInstance.initialize();
+          console.log(`✅ LC3 Service initialized for reconnected session ${newSession.sessionId}`);
+        }
+        catch (error) {
+          console.error(`❌ Failed to initialize LC3 service for reconnected session ${newSession.sessionId}:`, error);
+        }
+        newSession.lc3Service = lc3ServiceInstance;
+      }
 
       // Clean up old session resources
       if (oldUserSession.recognizer) {
