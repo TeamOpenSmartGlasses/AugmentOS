@@ -166,7 +166,7 @@ function handleMessage(sessionId: string, ws: WebSocket, message: any) {
     return;
   }
 
-  console.log("MESSAGE TYPE: " + message);
+  // console.log("MESSAGE TYPE: " + message);
 
   switch (message.type) {
     case 'tpa_connection_ack': {
@@ -266,10 +266,10 @@ function handleLocationUpdate(sessionId: string, locationData: any) {
 function handleHeadPosition(sessionId: string, headPositionData: any) {
   const sessionInfo = activeSessions.get(sessionId);
 
-  console.log(sessionInfo);
+  // console.log(sessionInfo);
 
   if (!sessionInfo) return;
-  console.log(`[Session ${sessionId}] Received head position:`, headPositionData);
+  // console.log(`[Session ${sessionId}] Received head position:`, headPositionData);
 
   // When head is up, update the news index.
   if (headPositionData.position === 'up') {
@@ -333,7 +333,7 @@ function handleGlassesBatteryUpdate(sessionId: string, glassesBatteryData: any) 
 }
 
 function handleSettings(sessionId: string, settingsData: any) {
-  console.log(`[Session ${sessionId}] Received context_settings:`, settingsData);
+  // console.log(`[Session ${sessionId}] Received context_settings:`, settingsData);
   const sessionInfo = activeSessions.get(sessionId);
   if (sessionInfo) {
     sessionInfo['currentSettings'] = settingsData;
@@ -483,7 +483,7 @@ async function updateDashboard(sessionId?: string) {
           const rankedNotifications = sessionInfo.phoneNotificationRanking || [];
           // The NotificationFilterAgent returns notifications sorted by importance (rank=1 first).
           const topTwoNotifications = rankedNotifications.slice(0, 2);
-          console.log(`[Session ${sessionId}] Ranked Notifications:`, topTwoNotifications);
+          // console.log(`[Session ${sessionId}] Ranked Notifications:`, topTwoNotifications);
           return topTwoNotifications
             .map(notification => wrapText(notification.summary, 25))
             .join('\n');
@@ -525,7 +525,7 @@ async function updateDashboard(sessionId?: string) {
       timestamp: new Date(),
     };
 
-    console.log(`[Session ${sessionId}] Sending updated dashboard:`, displayRequest);
+    // console.log(`[Session ${sessionId}] Sending updated dashboard:`, displayRequest);
     sessionInfo.ws.send(JSON.stringify(displayRequest));
   }
 
@@ -584,7 +584,7 @@ function handlePhoneNotification(sessionId: string, notificationData: any) {
 
   // Add the new notification to the cache.
   sessionInfo.phoneNotificationCache.push(newNotification);
-  console.log(`[Session ${sessionId}] Received phone notification:`, notificationData);
+  // console.log(`[Session ${sessionId}] Received phone notification:`, notificationData);
 
   // Instantiate the NotificationFilterAgent.
   const notificationFilterAgent = new NotificationFilterAgent();
@@ -592,11 +592,11 @@ function handlePhoneNotification(sessionId: string, notificationData: any) {
   // Pass the entire list of notifications to the filter agent.
   notificationFilterAgent.handleContext({ notifications: sessionInfo.phoneNotificationCache })
     .then((filteredNotifications: any) => {
-      console.log(`[Session ${sessionId}] Filtered Notifications:`, filteredNotifications);
+      // console.log(`[Session ${sessionId}] Filtered Notifications:`, filteredNotifications);
       // Save the ranked notifications for later use in the dashboard.
       sessionInfo.phoneNotificationRanking = filteredNotifications;
       // Update the dashboard after the notifications have been filtered.
-      console.log(`[Session ${sessionId}] Updating dashboard after notification filtering.` + filteredNotifications);
+      // console.log(`[Session ${sessionId}] Updating dashboard after notification filtering.` + filteredNotifications);
       updateDashboard(sessionId);
     })
     .catch(err => {
