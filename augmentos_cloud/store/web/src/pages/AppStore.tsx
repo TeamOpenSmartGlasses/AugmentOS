@@ -34,6 +34,7 @@ const AppStore: React.FC = () => {
 
       // Get the available apps (public list for everyone)
       try {
+        // appList = await api.app.getPublicApps();
         appList = await api.app.getAvailableApps();
       } catch (err) {
         console.error('Error fetching public apps:', err);
