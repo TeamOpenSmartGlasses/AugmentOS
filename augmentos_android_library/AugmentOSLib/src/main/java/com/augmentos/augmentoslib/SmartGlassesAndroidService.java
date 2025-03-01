@@ -5,8 +5,10 @@ import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTI
 import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTIFICATION_DESCRIPTION;
 import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTIFICATION_ID;
 import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTIFICATION_TITLE;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
 
 import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
@@ -24,7 +26,6 @@ import androidx.lifecycle.LifecycleService;
 
 import com.augmentos.augmentoslib.events.KillTpaEvent;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.Objects;
@@ -39,34 +40,12 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     public static final String TPA_ACTION = "tpaAction";
     public static final String ACTION_START_FOREGROUND_SERVICE = "AugmentOSLIB_ACTION_START_FOREGROUND_SERVICE";
     public static final String ACTION_STOP_FOREGROUND_SERVICE = "AugmentOSLIB_ACTION_STOP_FOREGROUND_SERVICE";
-    private String NOTIFICATION_DESCRIPTION = "Running in foreground";
-    private final int NOTIFICATION_ID = Math.abs(UUID.randomUUID().hashCode());//Math.abs(getPackageName().hashCode());
-    private static final String CHANNEL_ID = "augmentos_default_channel";
-
-    private static final String CHANNEL_NAME = "AugmentOS Background Service";
     public FocusStates focusState;
 
     public SmartGlassesAndroidService(){
         this.focusState = FocusStates.OUT_FOCUS;
     }
 
-    //service stuff
-    private Notification updateNotification() {
-        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        NotificationCompat.Builder builder;
-
-        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME,
-                NotificationManager.IMPORTANCE_HIGH);
-        channel.setDescription(NOTIFICATION_DESCRIPTION);
-        manager.createNotificationChannel(channel);
-
-        return new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle(CHANNEL_NAME)
-                .setContentText(NOTIFICATION_DESCRIPTION)
-                .setSmallIcon(android.R.drawable.sym_def_app_icon)
-                .setTicker("...")
-                .setOngoing(true).build();
-    }
 
     public static Notification buildSharedForegroundNotification(Context context) {
         String title = AUGMENTOS_NOTIFICATION_TITLE;
@@ -79,8 +58,26 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
                     AUGMENTOS_NOTIFICATION_CHANNEL_NAME,
                     NotificationManager.IMPORTANCE_HIGH
             );
-            //channel.setDescription(description);
+            channel.setDescription(description);
             manager.createNotificationChannel(channel);
+        }
+
+        Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(AugmentOSManagerPackageName);
+
+        PendingIntent pendingIntent = null;
+
+        if (launchIntent != null) {
+            // Optionally, set flags so the existing Activity in the stack is used, rather than creating a new one.
+            // This helps preserve the current Activity state if the user is already in the app.
+            launchIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+            // Use FLAG_IMMUTABLE if you target Android 12+ and don't need the PendingIntent to be mutable
+            pendingIntent = PendingIntent.getActivity(
+                    context,
+                    0,
+                    launchIntent,
+                    PendingIntent.FLAG_IMMUTABLE
+            );
         }
 
         return new NotificationCompat.Builder(context, AUGMENTOS_NOTIFICATION_CHANNEL_ID)
@@ -88,6 +85,7 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
                 .setContentText(description)
                 .setSmallIcon(android.R.drawable.sym_def_app_icon)
                 .setOngoing(true)
+                .setContentIntent(pendingIntent)
                 .build();
     }
 
