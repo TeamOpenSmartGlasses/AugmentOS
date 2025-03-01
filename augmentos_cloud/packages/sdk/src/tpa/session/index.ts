@@ -15,23 +15,24 @@ import {
   TpaSubscriptionUpdate,
   TpaToCloudMessageType,
   CloudToTpaMessageType,
-  
+
   // Event data types
   StreamType,
   ButtonPress,
   HeadPosition,
   PhoneNotification,
   TranscriptionData,
-  
+
   // Type guards
   isTpaConnectionAck,
   isTpaConnectionError,
   isDataStream,
   isAppStopped,
   isSettingsUpdate,
-  
+
   // Other types
-  AppSettings
+  AppSettings,
+  AudioChunk
 } from '../../types';
 // import { CLOUD_PORT } from '@augmentos/config';
 
@@ -254,6 +255,31 @@ export class TpaSession {
    * 📨 Handle incoming messages from cloud
    */
   private handleMessage(message: CloudToTpaMessage): void {
+
+    // Handle binary data (audio or video)
+    if (message instanceof ArrayBuffer) {
+      // Determine which type of binary data we're receiving
+      // This would typically be based on the active subscriptions
+      // or message metadata, but for now let's default to audio chunks
+
+      // Create the appropriate binary message structure
+      if (this.subscriptions.has(StreamType.AUDIO_CHUNK)) {
+        const audioChunk: AudioChunk = {
+          type: StreamType.AUDIO_CHUNK,
+          timestamp: new Date(),
+          arrayBuffer: message,
+          sampleRate: 16000, // Default values that could be set by the server
+          // data: message,
+          // channels: 1,
+          // format: 'pcm'
+        };
+
+        // Emit to subscribers
+        this.events.emit(StreamType.AUDIO_CHUNK, audioChunk);
+      }
+      
+      return;
+    }
     // Using type guards to determine message type
     if (isTpaConnectionAck(message)) {
       this.events.emit('connected', message.settings);

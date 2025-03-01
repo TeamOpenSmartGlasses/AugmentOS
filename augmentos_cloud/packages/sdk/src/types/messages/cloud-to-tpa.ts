@@ -77,6 +77,14 @@ export interface TranslationData {
   confidence: number;  // Translation confidence (0-1)
 }
 
+/**
+ * Audio chunk data
+ */
+export interface AudioChunk extends BaseMessage {
+  type: StreamType.AUDIO_CHUNK;
+  arrayBuffer: ArrayBufferLike;  // The audio data
+  sampleRate?: number;  // Audio sample rate (e.g., 16000 Hz)
+}
 
 //===========================================================
 // Stream data
@@ -101,6 +109,7 @@ export type CloudToTpaMessage =
   | SettingsUpdate
   | TranscriptionData
   | TranslationData
+  | AudioChunk
   | DataStream;
 
 //===========================================================
@@ -125,4 +134,8 @@ export function isSettingsUpdate(message: CloudToTpaMessage): message is Setting
 
 export function isDataStream(message: CloudToTpaMessage): message is DataStream {
   return message.type === CloudToTpaMessageType.DATA_STREAM;
+}
+
+export function isAudioChunk(message: CloudToTpaMessage): message is AudioChunk {
+  return message.type === StreamType.AUDIO_CHUNK;
 }

@@ -302,7 +302,13 @@ export class WebSocketService {
           );
 
           // Pass the ArrayBuffer to Azure Speech or wherever you need it
-          this.sessionService.handleAudioData(userSession, arrayBuf);
+          const _arrayBuffer = await this.sessionService.handleAudioData(userSession, arrayBuf);
+          // send audio chunk to TPA's subscribed to audio_chunk.
+          this.broadcastToTpa(userSession.sessionId, StreamType.AUDIO_CHUNK, { 
+            type: StreamType.AUDIO_CHUNK,
+            arrayBuffer: _arrayBuffer as ArrayBufferLike, 
+          });
+          console.log(`\n\n[websocket.service] Received audio chunk from glasses client\n\n, ${arrayBuf}`);
           return;
         }
 

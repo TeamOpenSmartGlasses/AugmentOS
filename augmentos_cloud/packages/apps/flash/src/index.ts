@@ -27,6 +27,10 @@ class FlashServer extends TpaServer {
         console.log(`[User ${userId}]: ${data.text}`);
       }),
 
+      session.events.onAudioChunk((data) => {
+        console.log(`[User ${userId}]: Received audio chunk of length ${data.arrayBuffer}`);
+      }),
+
       // Handle connection events
       session.events.onConnected((settings) => {
         console.log(`\n[User ${userId}] connected to augmentos-cloud\n`);

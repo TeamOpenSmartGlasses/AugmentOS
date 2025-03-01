@@ -204,7 +204,7 @@ export class SessionService {
     userSession: UserSession,
     audioData: ArrayBuffer | any,
     isLC3 = true
-  ): Promise<void> {
+  ): Promise<ArrayBuffer | void> {
     // Update the last audio timestamp
     userSession.lastAudioTimestamp = Date.now();
   
@@ -221,7 +221,7 @@ export class SessionService {
         processedAudioData = await lc3Service.decodeAudioChunk(audioData);
       } catch (error) {
         console.error('❌ Error decoding LC3 audio:', error);
-        processedAudioData = audioData;
+        processedAudioData = null;
       }
     }
   
@@ -241,6 +241,8 @@ export class SessionService {
         transcriptionService.handlePushStreamError(userSession, error);
       }
     }
+
+    return processedAudioData;
   }
 
   endSession(sessionId: string): void {
