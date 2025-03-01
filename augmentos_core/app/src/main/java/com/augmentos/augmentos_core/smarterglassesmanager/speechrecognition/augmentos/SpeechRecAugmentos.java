@@ -228,8 +228,6 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     @Override
     public void start() {
         Log.d(TAG, "Starting Speech Recognition Service");
-        // Connect the single ServerComms' WebSocket if not already connected
-        // ServerComms.getInstance().connectWebSocket();
     }
 
     /**
