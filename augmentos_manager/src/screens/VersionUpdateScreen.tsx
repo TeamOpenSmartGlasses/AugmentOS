@@ -196,12 +196,12 @@ const VersionUpdateScreen: React.FC<VersionUpdateScreenProps> = ({
             ]}
           >
             {/*{connectionError*/}
-            {/*  ? 'Could not connect to the update server. Please check your connection and try again.'*/}
+            {/*  ? 'Could not connect to the server. Please check your connection and try again.'*/}
             {/*  : isVersionMismatch*/}
             {/*    ? `Your AugmentOS (${localVersion}) is outdated. The latest version is ${cloudVersion}. Please update to continue.`*/}
             {/*    : 'Your AugmentOS is up to date. Returning to home...'}*/}
             {connectionError
-              ? 'Could not connect to the update server. Please check your connection and try again.'
+              ? 'Could not connect to the server. Please check your connection and try again.'
               : isVersionMismatch
                 ? 'Your AugmentOS is outdated. Please update to continue.'
                 : 'Your AugmentOS is up to date. Returning to home...'}
