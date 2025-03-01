@@ -39,7 +39,8 @@ export enum LayoutType {
     TEXT_WALL = 'text_wall',
     DOUBLE_TEXT_WALL = 'double_text_wall',
     DASHBOARD_CARD = 'dashboard_card',
-    REFERENCE_CARD = 'reference_card'
+    REFERENCE_CARD = 'reference_card',
+    BITMAP_VIEW = 'bitmap_view'
 }
 
 /**
