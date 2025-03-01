@@ -317,11 +317,11 @@ export class WebSocketService {
    * @param ws - WebSocket connection
    * @private
    */
-  private handleGlassesConnection(ws: WebSocket): void {
+  private async handleGlassesConnection(ws: WebSocket): Promise<void> {
     console.log('[websocket.service] New glasses client attempting to connect...');
     const startTimestamp = new Date();
 
-    const userSession = this.sessionService.createSession(ws);
+    const userSession = await this.sessionService.createSession(ws);
     ws.on('message', async (message: Buffer | string, isBinary: boolean) => {
       try {
         if (isBinary && Buffer.isBuffer(message)) {
