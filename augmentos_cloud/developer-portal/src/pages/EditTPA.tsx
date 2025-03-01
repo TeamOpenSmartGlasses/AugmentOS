@@ -25,6 +25,7 @@ const EditTPA: React.FC = () => {
     description: '',
     webhookURL: '',
     logoURL: '',
+    isPublic: false,
   });
   
   const [isLoading, setIsLoading] = useState(true);
@@ -51,7 +52,8 @@ const EditTPA: React.FC = () => {
           description: tpaData.description || '',
           webhookURL: tpaData.webhookURL,
           logoURL: tpaData.logoURL,
-          webviewURL: tpaData.webviewURL
+          webviewURL: tpaData.webviewURL,
+          isPublic: tpaData.isPublic || false,
         };
         
         setFormData(tpa);
@@ -135,7 +137,7 @@ const EditTPA: React.FC = () => {
                   Update your Third-Party Application for AugmentOS.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-6 pb-5">
                 {error && (
                   <Alert variant="destructive">
                     <AlertCircle className="h-4 w-4" />
@@ -230,8 +232,25 @@ const EditTPA: React.FC = () => {
                     onChange={handleChange}
                     placeholder="https://yourserver.com/webview" 
                   />
-                  <p className="text-xs text-gray-500 pb-5">
+                  <p className="text-xs text-gray-500">
                     If your TPA has a companion mobile interface, provide the URL here.
+                  </p>
+                </div>
+
+                {/* Toggle switch for isPublic */}
+                <div className="flex items-center justify-between">
+                  <Label htmlFor="isPublic" className="flex items-center">
+                    <span className="mr-2">Public TPA</span>
+                    <input 
+                      id="isPublic" 
+                      name="isPublic"
+                      type="checkbox"
+                      checked={formData.isPublic}
+                      onChange={e => setFormData(prev => ({ ...prev, isPublic: e.target.checked }))}
+                    />
+                  </Label>
+                  <p className="text-xs text-gray-500">
+                    Public TPAs are visible to all AugmentOS users in the app store.
                   </p>
                 </div>
               </CardContent>

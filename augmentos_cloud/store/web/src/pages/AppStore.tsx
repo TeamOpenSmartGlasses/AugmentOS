@@ -21,29 +21,49 @@ const AppStore: React.FC = () => {
   // Fetch apps on component mount
   useEffect(() => {
     fetchApps();
-  }, []);
+  }, [isAuthenticated]); // Re-fetch when authentication state changes
 
-  // Fetch available apps
+  // Fetch available apps and installed status
   const fetchApps = async () => {
     try {
       setIsLoading(true);
       setError(null);
 
       let appList: AppI[] = [];
+      let installedApps: AppI[] = [];
 
-      // TODO(isaiah): Update to use system apps if authenticated
-      if (isAuthenticated) {
-        // If authenticated, get available apps which might include installed status
-        try {
-          appList = await api.app.getAvailableApps();
-        } catch (err) {
-          console.error('Error fetching available apps:', err);
-          // Fall back to public apps
-          appList = await api.app.getAvailableApps();
-        }
-      } else {
-        // If not authenticated, get public apps
+      // Get the available apps (public list for everyone)
+      try {
         appList = await api.app.getAvailableApps();
+      } catch (err) {
+        console.error('Error fetching public apps:', err);
+        setError('Failed to load apps. Please try again.');
+        return;
+      }
+
+      // If authenticated, fetch installed apps and merge with available apps
+      if (isAuthenticated) {
+        try {
+          // Get user's installed apps
+          installedApps = await api.app.getInstalledApps();
+          
+          // Create a map of installed apps for quick lookup
+          const installedMap = new Map<string, boolean>();
+          installedApps.forEach(app => {
+            installedMap.set(app.packageName, true);
+          });
+          
+          // Update the available apps with installed status
+          appList = appList.map(app => ({
+            ...app,
+            isInstalled: installedMap.has(app.packageName)
+          }));
+          
+          console.log('Merged apps with install status:', appList);
+        } catch (err) {
+          console.error('Error fetching installed apps:', err);
+          // Continue with available apps, but without install status
+        }
       }
 
       setApps(appList);
@@ -77,6 +97,27 @@ const AppStore: React.FC = () => {
       setError(null);
 
       const results = await api.app.searchApps(searchQuery);
+
+      // If authenticated, update the search results with installed status
+      if (isAuthenticated) {
+        try {
+          // Get user's installed apps
+          const installedApps = await api.app.getInstalledApps();
+          
+          // Create a map of installed apps for quick lookup
+          const installedMap = new Map<string, boolean>();
+          installedApps.forEach(app => {
+            installedMap.set(app.packageName, true);
+          });
+          
+          // Update search results with installed status
+          results.forEach(app => {
+            app.isInstalled = installedMap.has(app.packageName);
+          });
+        } catch (err) {
+          console.error('Error updating search results with install status:', err);
+        }
+      }
 
       setApps(results);
     } catch (err) {
@@ -153,11 +194,6 @@ const AppStore: React.FC = () => {
     }
   };
 
-  // Navigate to app details
-  // const handleAppClick = (packageName: string) => {
-  //   navigate(`/app/${packageName}`);
-  // };
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -231,7 +267,6 @@ const AppStore: React.FC = () => {
                 <div className="p-4">
                   <div
                     className="flex items-start cursor-pointer"
-                    // onClick={() => handleAppClick(app.packageName)}
                   >
                     <img
                       src={app.logoURL}
@@ -252,7 +287,6 @@ const AppStore: React.FC = () => {
                     {isAuthenticated ? (
                       app.isInstalled ? (
                         <Button
-                          // className="w-full flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
                           className="w-full"
                           onClick={() => handleUninstall(app.packageName)}
                           disabled={installingApp === app.packageName}
@@ -264,7 +298,6 @@ const AppStore: React.FC = () => {
                         </Button>
                       ) : (
                         <Button
-                          // className="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
                           className="w-full"
                           variant={"outline"}
                           onClick={() => handleInstall(app.packageName)}

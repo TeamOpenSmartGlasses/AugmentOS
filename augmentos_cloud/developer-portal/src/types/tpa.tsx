@@ -6,4 +6,5 @@ export interface TPA {
     webhookURL: string;
     logoURL: string;
     webviewURL?: string;
+    isPublic: boolean;
 }
