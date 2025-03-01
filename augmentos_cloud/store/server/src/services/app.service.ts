@@ -6,20 +6,22 @@ import User from '../models/user.model';
 /**
  * Get public apps
  */
-export async function getPublicApps(developerEmail?: string): Promise<AppI[]> {
-  console.log('Getting public apps - developerEmail', developerEmail);
-  if (developerEmail) {
-    const developer
-      = await User.findOne({ email: developerEmail }).lean();
-    if (!developer) {
-      return App.find({ isPublic: true }).lean();
-    }
-    else {
-      // Find all public apps, or apps by the developer.
-      return App.find({ $or: [{ isPublic: true }, { developerId: developer.email}] }).lean();
-    }
-  }
+// export async function getPublicApps(developerEmail?: string): Promise<AppI[]> {
+export async function getPublicApps(): Promise<AppI[]> {
+  // console.log('Getting public apps - developerEmail', developerEmail);
+  // if (developerEmail) {
+  //   const developer
+  //     = await User.findOne({ email: developerEmail }).lean();
+  //   if (!developer) {
+  //     return App.find({ isPublic: true }).lean();
+  //   }
+  //   else {
+  //     // Find all public apps, or apps by the developer.
+  //     return App.find({ $or: [{ isPublic: true }, { developerId: developer.email}] }).lean();
+  //   }
+  // }
   return App.find({ isPublic: true }).lean();
+  // return App.find();
 }
 
 /**
