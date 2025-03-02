@@ -121,7 +121,7 @@ public class AsgClientService extends Service {
         //networkSetupManager = new NetworkSetupManager(getApplicationContext(), cb);
         //networkSetupManager.connectToWifi("Mentra", "interface4");
 
-        //CameraRecordingService.startStreaming(getApplicationContext(), "rtmp://localhost:1935");
+        //CameraRecordingService.startStreaming(getApplicationContext(), "rtmp://10.0.0.193:1935/live/SkaIT7MiJg");
         //CameraRecordingService.takePicture(getApplicationContext(), null);
         //CameraRecordingService.stopLocalRecording(getApplicationContext());
         // FOR THE DEMO APP
