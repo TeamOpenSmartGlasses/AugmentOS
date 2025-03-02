@@ -18,14 +18,23 @@ class ActuallyIsaiahServer extends TpaServer {
   }
 
   protected async onSession(session: TpaSession, sessionId: string, userId: string): Promise<void> {
+    let index = 0;
     // Store cleanup functions
     const cleanup = [
       session.events.onAudioChunk((data) => {
-        console.log('Audio chunk:', data.arrayBuffer.byteLength);
+        // console.log('Audio chunk:', data.arrayBuffer.byteLength);
+        // hex data of the pcm audio chunk.
+        index++;
+        if (index % 10 === 0) {
+          console.log(data.arrayBuffer.slice(0, 42));
+        }
+        // console.log(new Uint8Array(data.arrayBuffer).reduce((acc, val) => acc + val.toString(16).padStart(2, '0'), ''));
+        // session.layouts.showTextWall('Audio chunk received: ' + data.arrayBuffer.slice(0, 42));
       }),
 
       session.events.onTranscription((transcription) => {
         console.log('Transcription:', transcription.text);
+        session.layouts.showTextWall('Transcription: ' + transcription.text);
       }),
 
       // Handle errors

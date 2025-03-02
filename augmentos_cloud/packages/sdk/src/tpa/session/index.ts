@@ -218,7 +218,7 @@ export class TpaSession {
               // Make AUDIO_CHUNK event message.
               const audioChunk: AudioChunk = {
                 type: StreamType.AUDIO_CHUNK,
-                arrayBuffer: data as any,
+                arrayBuffer: arrayBuf,
               };
 
               this.handleMessage(audioChunk);
