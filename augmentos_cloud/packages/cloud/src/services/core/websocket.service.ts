@@ -250,6 +250,29 @@ export class WebSocketService {
     }
   }
 
+  broadcastToTpaAudio(userSession: UserSession, arrayBuffer: ArrayBufferLike): void {
+    const subscribedApps = this.subscriptionService.getSubscribedApps(userSession.sessionId, StreamType.AUDIO_CHUNK);
+
+    for (const packageName of subscribedApps) {
+      const tpaSessionId = `${userSession.sessionId}-${packageName}`;
+      const websocket = userSession.appConnections.get(packageName);
+
+      if (websocket && websocket.readyState === WebSocket.OPEN) {
+        // CloudDataStreamMessage
+        // const streamMessage: DataStream = {
+        //   type: CloudToTpaMessageType.DATA_STREAM,
+        //   sessionId: tpaSessionId,
+        //   streamType
+        //   data,
+        //   timestamp: new Date()
+        // };
+
+        websocket.send(arrayBuffer);
+      } else {
+        console.error(`\n\n[websocket.service] TPA ${packageName} not connected\n\n`);
+      }
+    }
+  }
   /**
    * ⚡️⚡️ Initializes the WebSocket servers for both glasses and TPAs.
    * @private
@@ -304,10 +327,14 @@ export class WebSocketService {
           // Pass the ArrayBuffer to Azure Speech or wherever you need it
           const _arrayBuffer = await this.sessionService.handleAudioData(userSession, arrayBuf);
           // send audio chunk to TPA's subscribed to audio_chunk.
-          this.broadcastToTpa(userSession.sessionId, StreamType.AUDIO_CHUNK, { 
-            type: StreamType.AUDIO_CHUNK,
-            arrayBuffer: _arrayBuffer as ArrayBufferLike, 
-          });
+          if (_arrayBuffer) {
+            console.log([`[${userSession.userId}]: ArrayBuffer: `], _arrayBuffer);
+            // this.broadcastToTpa(userSession.sessionId, StreamType.AUDIO_CHUNK, { 
+            //   type: StreamType.AUDIO_CHUNK,
+            //   arrayBuffer: _arrayBuffer, 
+            // });
+            this.broadcastToTpaAudio(userSession, _arrayBuffer);
+          }
           // console.log(`\n\n[websocket.service] Received audio chunk from glasses client\n\n, ${arrayBuf}`);
           return;
         }

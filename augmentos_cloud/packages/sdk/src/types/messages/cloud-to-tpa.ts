@@ -133,7 +133,7 @@ export function isSettingsUpdate(message: CloudToTpaMessage): message is Setting
 }
 
 export function isDataStream(message: CloudToTpaMessage): message is DataStream {
-  return message.type === CloudToTpaMessageType.DATA_STREAM;
+  return message.type === CloudToTpaMessageType.DATA_STREAM || message.type === StreamType.AUDIO_CHUNK;
 }
 
 export function isAudioChunk(message: CloudToTpaMessage): message is AudioChunk {

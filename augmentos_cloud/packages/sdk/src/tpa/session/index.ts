@@ -32,7 +32,8 @@ import {
 
   // Other types
   AppSettings,
-  AudioChunk
+  AudioChunk,
+  isAudioChunk
 } from '../../types';
 // import { CLOUD_PORT } from '@augmentos/config';
 
@@ -204,7 +205,36 @@ export class TpaSession {
           this.sendConnectionInit();
         });
 
-        this.ws.on('message', (data: Buffer) => {
+        // this.ws.on('message', (data: Buffer) => {
+        this.ws.on('message', async (data: Buffer | string, isBinary: boolean) => {
+          try {
+            if (isBinary && Buffer.isBuffer(data)) {
+              // console.log('Received binary message', data);
+              // Convert Node.js Buffer to ArrayBuffer
+              const arrayBuf: ArrayBufferLike = data.buffer.slice(
+                data.byteOffset,
+                data.byteOffset + data.byteLength
+              );
+              // Make AUDIO_CHUNK event message.
+              const audioChunk: AudioChunk = {
+                type: StreamType.AUDIO_CHUNK,
+                arrayBuffer: data as any,
+              };
+
+              this.handleMessage(audioChunk);
+              return;
+            }
+          } catch (error) {
+            this.events.emit('error', new Error('Failed to parse binary message'));
+          }
+
+
+          // If so, handle it separately.
+          if (data instanceof ArrayBuffer) {
+            // this.handleMessage(data);
+            return;
+          }
+
           try {
             const message = JSON.parse(data.toString()) as CloudToTpaMessage;
             this.handleMessage(message);
@@ -277,9 +307,10 @@ export class TpaSession {
         // Emit to subscribers
         this.events.emit(StreamType.AUDIO_CHUNK, audioChunk);
       }
-      
+
       return;
     }
+
     // Using type guards to determine message type
     if (isTpaConnectionAck(message)) {
       this.events.emit('connected', message.settings);
@@ -287,6 +318,9 @@ export class TpaSession {
     }
     else if (isTpaConnectionError(message)) {
       this.events.emit('error', new Error(message.message));
+    }
+    else if (message.type === StreamType.AUDIO_CHUNK) {
+      this.events.emit(StreamType.AUDIO_CHUNK, message);
     }
     else if (isDataStream(message)) {
       this.events.emit(message.streamType, message.data as any);
@@ -297,6 +331,9 @@ export class TpaSession {
     else if (isAppStopped(message)) {
       this.events.emit('disconnected', `App stopped: ${message.reason}`);
     }
+    // else if (isAudioChunk(message)) {
+    //   this.events.emit(message.streamType, message);
+    // }
   }
 
   /**
