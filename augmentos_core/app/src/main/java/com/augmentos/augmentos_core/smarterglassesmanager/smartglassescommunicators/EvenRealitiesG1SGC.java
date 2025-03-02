@@ -189,6 +189,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private Runnable rightConnectionTimeoutRunnable;
     private boolean isBondingReceiverRegistered = false;
     private boolean shouldRunOnboardMic;
+    private boolean lastThingDisplayedWasAnImage = false;
 
     // lock writing until the last write is successful
     //fonts in G1
@@ -1642,6 +1643,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     public void showHomeScreen() {
         displayTextWall(" ");
 //        clearG1Screen();
+
+        if (lastThingDisplayedWasAnImage) {
+            clearG1Screen();
+            lastThingDisplayedWasAnImage = false;
+        }
     }
 
     public void clearG1Screen() {
@@ -2516,6 +2522,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
             // Calculate and send CRC
             sendBmpCRC(bmpData);
+
+            lastThingDisplayedWasAnImage = true;
 
         } catch (Exception e) {
             Log.e(TAG, "Error in displayBitmapImage: " + e.getMessage());

@@ -699,7 +699,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                         for (int k = 0; k < rowsArray.length(); k++)
                             stringsArray[k] = rowsArray.getString(k);
                         return () -> smartGlassesService.sendRowsCard(stringsArray);
-                    case "bitmap":
+                    case "bitmap_view":
                         String base64Data = layout.getString("data");
                         byte[] decodedBytes = android.util.Base64.decode(base64Data, android.util.Base64.DEFAULT);
                         Bitmap bmp = BitmapJavaUtils.bytesToBitmap(decodedBytes);
@@ -875,8 +875,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 Runnable newRunnable = parseDisplayEventMessage(displayData);
                 if (smartGlassesService != null)
                     smartGlassesService.windowManager.showAppLayer("serverappid", newRunnable, -1);
-                if (blePeripheral != null)
-                    blePeripheral.sendGlassesDisplayEventToManager(displayData);
+                //if (blePeripheral != null)
+                //    blePeripheral.sendGlassesDisplayEventToManager(displayData);
             }
 
             @Override
