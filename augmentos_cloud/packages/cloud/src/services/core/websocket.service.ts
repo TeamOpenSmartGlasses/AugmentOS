@@ -328,7 +328,7 @@ export class WebSocketService {
           const _arrayBuffer = await this.sessionService.handleAudioData(userSession, arrayBuf);
           // send audio chunk to TPA's subscribed to audio_chunk.
           if (_arrayBuffer) {
-            console.log([`[${userSession.userId}]: ArrayBuffer: `], _arrayBuffer);
+            // console.log([`[${userSession.userId}]: ArrayBuffer: `], _arrayBuffer);
             // this.broadcastToTpa(userSession.sessionId, StreamType.AUDIO_CHUNK, { 
             //   type: StreamType.AUDIO_CHUNK,
             //   arrayBuffer: _arrayBuffer, 
