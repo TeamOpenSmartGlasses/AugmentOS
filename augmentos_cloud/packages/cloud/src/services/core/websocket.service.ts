@@ -308,7 +308,7 @@ export class WebSocketService {
             type: StreamType.AUDIO_CHUNK,
             arrayBuffer: _arrayBuffer as ArrayBufferLike, 
           });
-          console.log(`\n\n[websocket.service] Received audio chunk from glasses client\n\n, ${arrayBuf}`);
+          // console.log(`\n\n[websocket.service] Received audio chunk from glasses client\n\n, ${arrayBuf}`);
           return;
         }
 

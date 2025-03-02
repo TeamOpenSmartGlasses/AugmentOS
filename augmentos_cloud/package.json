@@ -23,7 +23,12 @@
     "logs:staging": "pm2 logs staging-ecosystem.config.js",
     "restart:staging": "pm2 restart staging-ecosystem.config.js",
     "monitor:staging": "pm2 monit",
-    "deploy:staging": "bun run stop:staging && bun run build && bun run start:staging"
+    "deploy:staging": "bun run stop:staging && bun run build && bun run start:staging",
+
+    "deploy:isaiah": "bun run stop:isaiah && bun run build && bun run start:isaiah",
+    "deploy:israelov": "bun run stop:israelov && bun run build && bun run start:israelov",
+    "deploy:nicolo": "bun run stop:nicolo && bun run build && bun run start:nicolo",
+    "deploy:cayden": "bun run stop:cayden && bun run build && bun run start:cayden"
   },
   "dependencies": {
     "@langchain/anthropic": "^0.3.13",

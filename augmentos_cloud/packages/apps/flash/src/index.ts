@@ -28,7 +28,7 @@ class FlashServer extends TpaServer {
       }),
 
       session.events.onAudioChunk((data) => {
-        console.log(`[User ${userId}]: Received audio chunk of length ${data.arrayBuffer}`);
+        // console.log(`[User ${userId}]: Received audio chunk of length ${data.arrayBuffer}`);
       }),
 
       // Handle connection events
