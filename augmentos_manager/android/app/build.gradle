@@ -110,6 +110,8 @@ dependencies {
     implementation project(path: ":augmentos_core")
     implementation 'com.facebook.react:hermes-android:0.75.4'
 
+    //implementation "androidx.lifecycle:lifecycle-process:2.5.1" // Use the version appropriate for your project
+
     implementation project(':react-native-config')
 }
 

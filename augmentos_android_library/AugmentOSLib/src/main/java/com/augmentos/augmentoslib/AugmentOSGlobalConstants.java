@@ -7,6 +7,17 @@ public class AugmentOSGlobalConstants {
     public static final String EVENT_ID = "EVENT_ID";
     public static final String APP_PKG_NAME = "APP_PKG_NAME";
 
+    // Shared notification Info
+    public static final String AUGMENTOS_NOTIFICATION_CHANNEL_NAME = "AugmentOS is cool";
+
+    public static final int AUGMENTOS_NOTIFICATION_ID = 1211;
+    public static final String AUGMENTOS_NOTIFICATION_CHANNEL_ID = "augmentos_notification_channel";
+    public static final String AUGMENTOS_NOTIFICATION_TITLE = "AugmentOS";
+    public static final String AUGMENTOS_NOTIFICATION_DESCRIPTION = "AugmentOS is running";
+    // End Shared Notification Info
+    public static final int SERVICE_CORE_NOTIFICATION_ID = 1001;
+    public static final int SERVICE_TPA_NOTIFICATION_ID = 1002;
+    public static final int GROUP_SUMMARY_NOTIFICATION_ID = 1000;
     public static final String AugmentOSManagerPackageName = "com.augmentos.augmentos_manager";
     public static final String AugmentOSAsgClientPackageName = "com.augmentos.asg_client";
     public static final String AugmentOSPkgName = "com.augmentos.augmentoslib";

@@ -206,7 +206,7 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
           <ConnectedDeviceInfo isDarkTheme={isDarkTheme} />
         </AnimatedSection>
 
-        {status.core_info.puck_connected && status.core_info.cloud_connection_status == "CONNECTED" && (
+        {status.core_info.puck_connected && (
           <>
             {status.apps.length > 0 ? (
               <>

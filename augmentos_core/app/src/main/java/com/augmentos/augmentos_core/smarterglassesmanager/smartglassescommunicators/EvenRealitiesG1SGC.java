@@ -241,50 +241,77 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         gatt.discoverServices();
                     } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
                         Log.d(TAG, side + " glass disconnected, stopping heartbeats");
+                        Log.d(TAG, "Entering STATE_DISCONNECTED branch for side: " + side);
 
                         // Mark both sides as not ready (you could also clear both if one disconnects)
                         leftServicesWaiter.setTrue();
                         rightServicesWaiter.setTrue();
+                        Log.d(TAG, "Set leftServicesWaiter and rightServicesWaiter to true.");
 
                         forceSideDisconnection();
+                        Log.d(TAG, "Called forceSideDisconnection().");
 
                         // Stop any periodic transmissions
                         stopHeartbeat();
                         stopMicBeat();
                         sendQueue.clear();
+                        Log.d(TAG, "Stopped heartbeat and mic beat; cleared sendQueue.");
+
                         updateConnectionState();
+                        Log.d(TAG, "Updated connection state after disconnection.");
 
                         // Compute reconnection delay for both sides (here you could choose the maximum of the two delays or a new delay)
-                        long delayLeft = Math.min(BASE_RECONNECT_DELAY_MS * (1L << leftReconnectAttempts), MAX_RECONNECT_DELAY_MS);
-                        long delayRight = Math.min(BASE_RECONNECT_DELAY_MS * (1L << rightReconnectAttempts), MAX_RECONNECT_DELAY_MS);
-                        long delay = Math.max(delayLeft, delayRight); // or choose another strategy
+//                        long delayLeft = Math.min(BASE_RECONNECT_DELAY_MS * (1L << leftReconnectAttempts), MAX_RECONNECT_DELAY_MS);
+//                        long delayRight = Math.min(BASE_RECONNECT_DELAY_MS * (1L << rightReconnectAttempts), MAX_RECONNECT_DELAY_MS);
+                        long delay = 2000; // or choose another strategy
+//                        Log.d(TAG, "Computed delayLeft: " + delayLeft + " ms, delayRight: " + delayRight + " ms. Using delay: " + delay + " ms.");
 
                         Log.d(TAG, side + " glass disconnected. Scheduling reconnection for both glasses in " + delay + " ms (Left attempts: " + leftReconnectAttempts + ", Right attempts: " + rightReconnectAttempts + ")");
 
-                        if (gatt.getDevice() != null) {
-                            // Close the current gatt connection
-                            gatt.disconnect();
-                            gatt.close();
-                        }
+//                        if (gatt.getDevice() != null) {
+//                            // Close the current gatt connection
+//                            Log.d(TAG, "Closing GATT connection for device: " + gatt.getDevice().getAddress());
+//                            gatt.disconnect();
+//                            gatt.close();
+//                            Log.d(TAG, "GATT connection closed.");
+//                        } else {
+//                            Log.d(TAG, "No GATT device available to disconnect.");
+//                        }
 
                         // Schedule a reconnection for both devices after the delay
                         reconnectHandler.postDelayed(() -> {
+                            Log.d(TAG, "Reconnect handler triggered after delay.");
                             if (gatt.getDevice() != null && !isKilled) {
-                                Log.d(TAG, "Reconnecting to both glasses.");
+                                Log.d(TAG, "Reconnecting to both glasses. isKilled = " + isKilled);
                                 // Assuming you have stored references to both devices:
                                 if (leftDevice != null) {
+                                    Log.d(TAG, "Attempting to reconnect to leftDevice: " + leftDevice.getAddress());
                                     reconnectToGatt(leftDevice);
+                                } else {
+                                    Log.d(TAG, "Left device reference is null.");
                                 }
                                 if (rightDevice != null) {
+                                    Log.d(TAG, "Attempting to reconnect to rightDevice: " + rightDevice.getAddress());
                                     reconnectToGatt(rightDevice);
+                                } else {
+                                    Log.d(TAG, "Right device reference is null.");
                                 }
+                            } else {
+                                Log.d(TAG, "Reconnect handler aborted: either no GATT device or system is killed.");
                             }
                         }, delay);
                     }
                 } else {
+                    Log.e(TAG, "Unexpected connection state encountered for " + side + " glass: " + newState);
                     stopHeartbeat();
                     stopMicBeat();
                     sendQueue.clear();
+
+                    // Mark both sides as not ready (you could also clear both if one disconnects)
+                    leftServicesWaiter.setTrue();
+                    rightServicesWaiter.setTrue();
+
+                    Log.d(TAG, "Stopped heartbeat and mic beat; cleared sendQueue due to connection failure.");
 
                     Log.e(TAG, side + " glass connection failed with status: " + status);
                     if ("Left".equals(side)) {
@@ -306,29 +333,38 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     }
 
                     forceSideDisconnection();
+                    Log.d(TAG, "Called forceSideDisconnection() after connection failure.");
 
-                    gatt.disconnect();
-                    gatt.close();
+//                    gatt.disconnect();
+//                    gatt.close();
+                    Log.d(TAG, "GATT connection disconnected and closed due to failure.");
 
                     connectHandler.postDelayed(() -> {
+                        Log.d(TAG, "Attempting GATT connection for leftDevice immediately.");
                         attemptGattConnection(leftDevice);
-                    },0);
+                    }, 0);
 
                     connectHandler.postDelayed(() -> {
+                        Log.d(TAG, "Attempting GATT connection for rightDevice after 2000 ms delay.");
                         attemptGattConnection(rightDevice);
-                    },2000);
+                    }, 400);
                 }
             }
 
             private void forceSideDisconnection() {
+                Log.d(TAG, "forceSideDisconnection() called for side: " + side);
                 // Force disconnection from the other side if necessary
                 if ("Left".equals(side)) {
                     isLeftConnected = false;
                     leftReconnectAttempts++;
-                    if (leftGlassGatt != null){
+                    Log.d(TAG, "Left glass: Marked as disconnected and incremented leftReconnectAttempts to " + leftReconnectAttempts);
+                    if (leftGlassGatt != null) {
+                        Log.d(TAG, "Left glass GATT exists. Disconnecting and closing leftGlassGatt.");
                         leftGlassGatt.disconnect();
                         leftGlassGatt.close();
                         leftGlassGatt = null;
+                    } else {
+                        Log.d(TAG, "Left glass GATT is already null.");
                     }
                     // If right is still connected, disconnect it too
                     if (rightGlassGatt != null) {
@@ -338,14 +374,21 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         rightGlassGatt = null;
                         isRightConnected = false;
                         rightReconnectAttempts++;
+                        Log.d(TAG, "Right glass marked as disconnected and rightReconnectAttempts incremented to " + rightReconnectAttempts);
+                    } else {
+                        Log.d(TAG, "Right glass GATT already null, no action taken.");
                     }
                 } else { // side equals "Right"
                     isRightConnected = false;
                     rightReconnectAttempts++;
-                    if (rightGlassGatt != null){
+                    Log.d(TAG, "Right glass: Marked as disconnected and incremented rightReconnectAttempts to " + rightReconnectAttempts);
+                    if (rightGlassGatt != null) {
+                        Log.d(TAG, "Right glass GATT exists. Disconnecting and closing rightGlassGatt.");
                         rightGlassGatt.disconnect();
                         rightGlassGatt.close();
                         rightGlassGatt = null;
+                    } else {
+                        Log.d(TAG, "Right glass GATT is already null.");
                     }
                     // If left is still connected, disconnect it too
                     if (leftGlassGatt != null) {
@@ -355,6 +398,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         leftGlassGatt = null;
                         isLeftConnected = false;
                         leftReconnectAttempts++;
+                        Log.d(TAG, "Left glass marked as disconnected and leftReconnectAttempts incremented to " + leftReconnectAttempts);
+                    } else {
+                        Log.d(TAG, "Left glass GATT already null, no action taken.");
                     }
                 }
             }
@@ -369,7 +415,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             @Override
             public void onCharacteristicWrite(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
                 if (status == BluetoothGatt.GATT_SUCCESS) {
-//                    Log.d(TAG, "PROC_QUEUE - " + side + " glass write successful");
+                    Log.d(TAG, "PROC_QUEUE - " + side + " glass write successful");
                 } else {
                     Log.e(TAG, side + " glass write failed with status: " + status);
 
@@ -405,6 +451,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                     if (characteristic.getUuid().equals(UART_RX_CHAR_UUID)) {
                         byte[] data = characteristic.getValue();
                         String deviceName = gatt.getDevice().getName();
+                        if (deviceName == null) return;
 
                         // Handle MIC audio data
                         if (data.length > 0 && (data[0] & 0xFF) == 0xF1) {
@@ -472,7 +519,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
                         }
                         //TEXT RESPONSE
                         else if (data.length > 0 && data[0] == 0x4E) {
-                            Log.d(TAG, "Text response was: " + ((data.length > 1 && (data[1] & 0xFF) == 0xC9) ? "SUCCEED" : "FAIL"));
+                            Log.d(TAG, "Text response on side " + (deviceName.contains("L_") ? "Left" : "Right") + " was: " + ((data.length > 1 && (data[1] & 0xFF) == 0xC9) ? "SUCCEED" : "FAIL"));
                         }
 
 
@@ -770,25 +817,33 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     }
 
     private void connectToGatt(BluetoothDevice device) {
-        Log.d(TAG, "connectToGatt called");
+        Log.d(TAG, "connectToGatt called for device: " + device.getName() + " (" + device.getAddress() + ")");
+        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled()) {
+            Log.e(TAG, "Bluetooth is disabled or not available. Cannot reconnect to glasses.");
+            return;
+        }
 
-        // re-set services waiter
+        // Reset the services waiter based on device name
         if (device.getName().contains("_L_")) {
+            Log.d(TAG, "Device identified as left side. Resetting leftServicesWaiter.");
             leftServicesWaiter.setTrue();
         } else {
+            Log.d(TAG, "Device identified as right side. Resetting rightServicesWaiter.");
             rightServicesWaiter.setTrue();
         }
 
+        // Establish GATT connection based on device name and current connection state
         if (device.getName().contains("_L_") && leftGlassGatt == null) {
-            Log.d(TAG, "Connect GATT to left side");
+            Log.d(TAG, "Connecting GATT to left side.");
             leftGlassGatt = device.connectGatt(context, false, leftGattCallback);
             isLeftConnected = false; // Reset connection state
-//            startConnectionTimeout("Left", leftGlassGatt);
-        } else if (device.getName().contains("_R_") && rightGlassGatt == null) {
-            Log.d(TAG, "Connect GATT to right side");
+            Log.d(TAG, "Left GATT connection initiated. isLeftConnected set to false.");
+        } else if (device.getName().contains("_R_") && rightGlassGatt == null && isLeftConnected) {
+            Log.d(TAG, "Connecting GATT to right side.");
             rightGlassGatt = device.connectGatt(context, false, rightGattCallback);
             isRightConnected = false; // Reset connection state
-//            startConnectionTimeout("Right", rightGlassGatt);
+            Log.d(TAG, "Right GATT connection initiated. isRightConnected set to false.");
         } else {
             Log.d(TAG, "Tried to connect to incorrect or already connected device: " + device.getName());
         }
@@ -1005,33 +1060,93 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
     }
 
+    private Runnable rightConnectionRetryRunnable;
+    private static final long RIGHT_CONNECTION_RETRY_DELAY = 1000; // 1 second
+
     private void attemptGattConnection(BluetoothDevice device) {
-        Log.d(TAG, "attemptGattConnection called");
+        if (!isKilled)
+
+        if (device == null) {
+            Log.d(TAG, "Cannot connect to GATT: Device is null");
+            return;
+        }
+
+        String deviceName = device.getName();
+        Log.d(TAG, "attemptGattConnection called for device: " + deviceName + " (" + device.getAddress() + ")");
+
+        // Check if both devices are bonded before attempting connection
         if (!isLeftBonded || !isRightBonded) {
-            Log.d(TAG, "Cannot connect to GATT: Both devices are not bonded yet");
+            Log.d(TAG, "Cannot connect to GATT: Both devices are not bonded yet (isLeftBonded: " + isLeftBonded + ", isRightBonded: " + isRightBonded + ")");
             return;
         }
 
         connectionState = SmartGlassesConnectionState.CONNECTING;
+        Log.d(TAG, "Setting connectionState to CONNECTING. Notifying connectionEvent.");
         connectionEvent(connectionState);
 
-        // Connect left first
-        if (device.getName().contains("_L_") && leftGlassGatt == null) {
-            Log.d(TAG, "Connecting to GATT for Left Glass...");
-            leftGlassGatt = device.connectGatt(context, false, leftGattCallback);
-            isLeftConnected = true;
-        }
-        // Only connect right after left is fully connected
-        else if (device.getName().contains("_R_") && rightGlassGatt == null && isLeftConnected) {
-            Log.d(TAG, "Connecting to GATT for Right Glass...");
-            rightGlassGatt = device.connectGatt(context, false, rightGattCallback);
-            isRightConnected = true;
+        boolean isLeftDevice = deviceName.contains("_L_");
+        boolean isRightDevice = deviceName.contains("_R_");
 
-            startHeartbeat(10000);
-            startMicBeat(30000);
+        if (isLeftDevice) {
+            connectLeftDevice(device);
+        } else if (isRightDevice) {
+            connectRightDevice(device);
+        } else {
+            Log.d(TAG, "Unknown device type: " + deviceName);
         }
-        else {
-            Log.d(TAG, "Waiting for left glass before connecting right");
+    }
+
+    private void connectLeftDevice(BluetoothDevice device) {
+        if (leftGlassGatt == null) {
+            Log.d(TAG, "Attempting GATT connection for Left Glass...");
+            leftGlassGatt = device.connectGatt(context, false, leftGattCallback);
+            isLeftConnected = false;
+            Log.d(TAG, "Left GATT connection initiated. isLeftConnected set to false.");
+        } else {
+            Log.d(TAG, "Left Glass GATT already exists");
+        }
+    }
+
+    private void connectRightDevice(BluetoothDevice device) {
+        // Only connect right after left is fully connected
+        if (isLeftConnected) {
+            if (rightGlassGatt == null) {
+                Log.d(TAG, "Attempting GATT connection for Right Glass...");
+                rightGlassGatt = device.connectGatt(context, false, rightGattCallback);
+                isRightConnected = false;
+                Log.d(TAG, "Right GATT connection initiated. isRightConnected set to false.");
+
+                // Cancel any pending retry attempts since we're now connecting
+                if (rightConnectionRetryRunnable != null) {
+                    connectHandler.removeCallbacks(rightConnectionRetryRunnable);
+                    rightConnectionRetryRunnable = null;
+                }
+            } else {
+                Log.d(TAG, "Right Glass GATT already exists");
+            }
+        } else {
+            Log.d(TAG, "Waiting for left glass before connecting right. Scheduling retry in " + RIGHT_CONNECTION_RETRY_DELAY + "ms");
+
+            // Cancel any existing retry attempts to avoid duplicate retries
+            if (rightConnectionRetryRunnable != null) {
+                connectHandler.removeCallbacks(rightConnectionRetryRunnable);
+            }
+
+            // Create new retry runnable
+            rightConnectionRetryRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    if (!isKilled) {
+                        Log.d(TAG, "Retrying right glass connection...");
+                        attemptGattConnection(device);
+                    } else {
+                        Log.d(TAG, "Connection cancelled, stopping retry attempts");
+                    }
+                }
+            };
+
+            // Schedule retry
+            connectHandler.postDelayed(rightConnectionRetryRunnable, RIGHT_CONNECTION_RETRY_DELAY);
         }
     }
 
@@ -1400,6 +1515,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             isBondingReceiverRegistered = false;
         }
 
+        if (rightConnectionRetryRunnable != null) {
+            connectHandler.removeCallbacks(rightConnectionRetryRunnable);
+            rightConnectionRetryRunnable = null;
+        }
+
         //disable the microphone
         setMicEnabled(false, 0);
 
@@ -1593,7 +1713,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             @Override
             public void run() {
                 Log.d(TAG, "SENDING MIC BEAT");
-                setMicEnabled(true, 1);
+                setMicEnabled(shouldRunOnboardMic, 1);
                 micBeatHandler.postDelayed(this, MICBEAT_INTERVAL_MS);
             }
         };
@@ -2520,4 +2640,3 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         }
     }
 }
-

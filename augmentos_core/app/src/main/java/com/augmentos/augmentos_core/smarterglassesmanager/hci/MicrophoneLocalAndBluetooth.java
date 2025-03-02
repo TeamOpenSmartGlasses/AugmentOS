@@ -38,15 +38,13 @@ public class MicrophoneLocalAndBluetooth {
     private static final int BUFFER_SIZE_FACTOR = 2;
     private final int bufferSize;
     private boolean bluetoothAudio = false; // are we using local audio or bluetooth audio?
-    private boolean shouldUseHearItBleMicrophone = false; // should we use HearIt BLE microphone?
     private int retries = 0;
     private int retryLimit = 3;
 
     private Handler mHandler;
 
     private final AtomicBoolean recordingInProgress = new AtomicBoolean(false);
-
-    private HearItBleMicrophone hearItBleMicrophone;
+    private final AtomicBoolean isDestroyed = new AtomicBoolean(false); // Add this flag to indicate destruction
 
     // Flag to track receiver registration status
     private boolean isReceiverRegistered = false;
@@ -56,6 +54,11 @@ public class MicrophoneLocalAndBluetooth {
 
         @Override
         public void onReceive(Context context, Intent intent) {
+            if (isDestroyed.get()) {
+                // Don't process events if we're in destroyed state
+                return;
+            }
+
             String action = intent.getAction();
             if (action.equals(AudioManager.ACTION_SCO_AUDIO_STATE_UPDATED)) {
                 int state = intent.getIntExtra(AudioManager.EXTRA_SCO_AUDIO_STATE, -1);
@@ -82,8 +85,12 @@ public class MicrophoneLocalAndBluetooth {
                         break;
                 }
             } else if (action.equals(BluetoothDevice.ACTION_ACL_CONNECTED)) {
+                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                Log.d(TAG, "Bluetooth device connected: " + (device != null ? device.getName() : "Unknown"));
                 handleNewBluetoothDevice();
             } else if (action.equals(BluetoothDevice.ACTION_ACL_DISCONNECTED)) {
+                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                Log.d(TAG, "Bluetooth device disconnected: " + (device != null ? device.getName() : "Unknown"));
                 handleDisconnectBluetoothDevice();
             }
         }
@@ -97,9 +104,18 @@ public class MicrophoneLocalAndBluetooth {
         }
 
         private void handleNewBluetoothDevice() {
+            Log.d(TAG, "New Bluetooth device connected, attempting SCO connection");
             retries = 0;
+            // Try to use Bluetooth audio when a new device connects
+            bluetoothAudio = true;
+            // Reset and start the countdown timer for SCO connection
             mIsCountDownOn = true;
+            if (mCountDown != null) {
+                mCountDown.cancel();
+            }
             mCountDown.start();
+            // Try to activate Bluetooth SCO immediately
+            activateBluetoothSco();
         }
 
         private void handleDisconnectBluetoothDevice() {
@@ -124,10 +140,10 @@ public class MicrophoneLocalAndBluetooth {
     private Context mContext;
 
     private AudioChunkCallback mChunkCallback;
+    private CountDownTimer mCountDown;
 
     public MicrophoneLocalAndBluetooth(Context context, boolean useBluetoothSco, AudioChunkCallback chunkCallback) {
         this(context, chunkCallback);
-        this.shouldUseHearItBleMicrophone = true;
         useBluetoothMic(useBluetoothSco);
     }
 
@@ -144,10 +160,42 @@ public class MicrophoneLocalAndBluetooth {
 
         mHandler = new Handler();
 
+        // Initialize the countdown timer
+        initCountDownTimer();
+
         startRecording();
     }
 
+    private void initCountDownTimer() {
+        if (mCountDown != null) {
+            mCountDown.cancel();
+        }
+
+        mCountDown = new CountDownTimer(1201, 400) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                if (!isDestroyed.get()) {
+                    audioManager.startBluetoothSco();
+                }
+            }
+
+            @Override
+            public void onFinish() {
+                if (isDestroyed.get()) {
+                    return;
+                }
+                mIsCountDownOn = false;
+                bluetoothAudio = false;
+                startRecording();
+            }
+        };
+    }
+
     private void useBluetoothMic(boolean shouldUseBluetoothSco) {
+        if (isDestroyed.get()) {
+            return;
+        }
+
         bluetoothAudio = shouldUseBluetoothSco;
 
         if (shouldUseBluetoothSco) {
@@ -162,13 +210,24 @@ public class MicrophoneLocalAndBluetooth {
     }
 
     private void startBluetoothSco() {
+        if (isDestroyed.get()) {
+            return;
+        }
+
         IntentFilter filter = new IntentFilter();
         filter.addAction(AudioManager.ACTION_SCO_AUDIO_STATE_UPDATED);
         filter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);
         filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
 
-        mContext.registerReceiver(bluetoothStateReceiver, filter);
-        isReceiverRegistered = true;
+        try {
+            if (isReceiverRegistered) {
+                mContext.unregisterReceiver(bluetoothStateReceiver);
+            }
+            mContext.registerReceiver(bluetoothStateReceiver, filter);
+            isReceiverRegistered = true;
+        } catch (Exception e) {
+            Log.e(TAG, "Error registering bluetooth receiver", e);
+        }
 
         mIsCountDownOn = true;
         mCountDown.start();
@@ -176,7 +235,10 @@ public class MicrophoneLocalAndBluetooth {
 
     private void stopBluetoothSco() {
         mIsCountDownOn = false;
-        mCountDown.cancel();
+        if (mCountDown != null) {
+            mCountDown.cancel();
+        }
+
         if (isReceiverRegistered) {
             try {
                 mContext.unregisterReceiver(bluetoothStateReceiver);
@@ -188,11 +250,18 @@ public class MicrophoneLocalAndBluetooth {
         }
     }
 
-    private void startRecording() {
+    private synchronized void startRecording() {
         Log.d(TAG, "Starting recording...");
+
+        if (isDestroyed.get()) {
+            Log.d(TAG, "Not starting recording because the class is destroyed");
+            return;
+        }
+
         if (recorder != null) {
             stopRecording();
         }
+
         if (bluetoothAudio) {
             audioManager.setMode(AudioManager.MODE_IN_CALL);
             EventBus.getDefault().post(new ScoStartEvent(true));
@@ -206,54 +275,43 @@ public class MicrophoneLocalAndBluetooth {
             stopRecording();
             return;
         }
-        recorder = new AudioRecord(MediaRecorder.AudioSource.UNPROCESSED,
-                SAMPLING_RATE_IN_HZ, CHANNEL_CONFIG, AUDIO_FORMAT, bufferSize * 2);
 
-        if (recorder.getState() != AudioRecord.STATE_INITIALIZED) {
-            Log.e(TAG, "Failed to initialize AudioRecord");
-            Toast.makeText(this.mContext, "Error starting onboard microphone", Toast.LENGTH_LONG).show();
+        try {
+            recorder = new AudioRecord(MediaRecorder.AudioSource.UNPROCESSED,
+                    SAMPLING_RATE_IN_HZ, CHANNEL_CONFIG, AUDIO_FORMAT, bufferSize * 2);
+
+            if (recorder.getState() != AudioRecord.STATE_INITIALIZED) {
+                Log.e(TAG, "Failed to initialize AudioRecord");
+                Toast.makeText(this.mContext, "Error starting onboard microphone", Toast.LENGTH_LONG).show();
+                stopRecording();
+                return;
+            }
+
+            recorder.startRecording();
+
+            recordingInProgress.set(true);
+
+            recordingThread = new Thread(new RecordingRunnable(), "Recording Thread");
+            recordingThread.setDaemon(true); // Make it a daemon thread so it doesn't prevent JVM shutdown
+            recordingThread.start();
+        } catch (Exception e) {
+            Log.e(TAG, "Error in startRecording", e);
             stopRecording();
-            return;
-        }
-
-        recorder.startRecording();
-
-        recordingInProgress.set(true);
-
-        recordingThread = new Thread(new RecordingRunnable(), "Recording Thread");
-        recordingThread.start();
-
-        if (bluetoothAudio && shouldUseHearItBleMicrophone) {
-            Log.d(TAG, "Connecting HearItBle... ");
-            hearItBleMicrophone = new HearItBleMicrophone(mContext);
-            hearItBleMicrophone.setHearItBleMicCallback(new HearItBleMicrophone.HearItBleMicCallback() {
-                @Override
-                public void onConnected() {
-                    Log.d(TAG, "--- HearItBle connected!");
-                    stopAndroidMics();
-                }
-
-                @Override
-                public void onPcmDataAvailable(byte[] pcmData) {
-                    ByteBuffer b_buffer = ByteBuffer.allocate(pcmData.length);
-                    b_buffer.put(pcmData);
-                    mChunkCallback.onSuccess(b_buffer);
-                }
-            });
-            hearItBleMicrophone.startScanning();
         }
     }
 
     private void stopAndroidMics(){
         mIsCountDownOn = false;
-        mCountDown.cancel();
+        if (mCountDown != null) {
+            mCountDown.cancel();
+        }
         deactivateBluetoothSco();
         audioManager.setMode(AudioManager.MODE_NORMAL);
 
         stopRecording();
     }
 
-    private void stopRecording() {
+    private synchronized void stopRecording() {
         Log.d(TAG, "Running stopRecording...");
 
         if (recorder == null) {
@@ -262,6 +320,7 @@ public class MicrophoneLocalAndBluetooth {
         }
 
         recordingInProgress.set(false);
+
         try {
             // Only call stop if the recorder is actually recording.
             if (recorder.getRecordingState() == AudioRecord.RECORDSTATE_RECORDING) {
@@ -272,41 +331,85 @@ public class MicrophoneLocalAndBluetooth {
         } catch (IllegalStateException e) {
             Log.e(TAG, "Error stopping AudioRecord", e);
         } finally {
-            recorder.release();
+            try {
+                recorder.release();
+            } catch (Exception e) {
+                Log.e(TAG, "Error releasing AudioRecord", e);
+            }
             recorder = null;
+        }
+
+        // Interrupt the recording thread to ensure it stops
+        if (recordingThread != null) {
+            try {
+                recordingThread.interrupt();
+                // Wait for thread to finish, but not indefinitely
+                recordingThread.join(1000);
+            } catch (InterruptedException e) {
+                Log.e(TAG, "Interrupted while waiting for recording thread to finish", e);
+            }
             recordingThread = null;
         }
     }
 
     private void activateBluetoothSco() {
+        if (isDestroyed.get() || audioManager == null) {
+            return;
+        }
+
         retries += 1;
+        Log.d(TAG, "Activating Bluetooth SCO (attempt " + retries + ")");
 
         if (!audioManager.isBluetoothScoAvailableOffCall()) {
             Log.e(TAG, "SCO is not available, recording is not possible");
             return;
         }
 
-        if (audioManager.isBluetoothScoOn()) {
-            audioManager.stopBluetoothSco();
+        try {
+            // First check if SCO is already on
+            if (audioManager.isBluetoothScoOn()) {
+                Log.d(TAG, "Bluetooth SCO is already on");
+            } else {
+                // If not, try to start it
+                audioManager.setMode(AudioManager.MODE_IN_COMMUNICATION);
+                audioManager.startBluetoothSco();
+                Log.d(TAG, "Started Bluetooth SCO");
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error activating Bluetooth SCO", e);
         }
-        audioManager.startBluetoothSco();
     }
 
     private void deactivateBluetoothSco() {
-        audioManager.stopBluetoothSco();
+        try {
+            audioManager.stopBluetoothSco();
+        } catch (Exception e) {
+            Log.e(TAG, "Error deactivating Bluetooth SCO", e);
+        }
     }
 
     private void bluetoothStateChanged(BluetoothState state) {
-        if (BluetoothState.UNAVAILABLE == state && recordingInProgress.get()) {
+        if (isDestroyed.get()) {
+            return;
+        }
+
+        Log.d(TAG, "Bluetooth state changed to: " + state);
+
+        if (BluetoothState.UNAVAILABLE == state) {
+            Log.d(TAG, "Bluetooth is unavailable, switching to device microphone");
             bluetoothAudio = false;
-            Log.d(TAG, "");
-            stopRecording();
+            if (recordingInProgress.get()) {
+                stopRecording();
+            }
             deactivateBluetoothSco();
-        } else if (BluetoothState.AVAILABLE == state && !recordingInProgress.get()) {
-            bluetoothAudio = true;
             startRecording();
-        } else if (BluetoothState.AVAILABLE == state && !bluetoothAudio) {
+        } else if (BluetoothState.AVAILABLE == state) {
+            Log.d(TAG, "Bluetooth is available, switching to Bluetooth microphone");
             bluetoothAudio = true;
+            if (recordingInProgress.get()) {
+                stopRecording();
+            }
+            activateBluetoothSco();
             startRecording();
         }
     }
@@ -317,18 +420,47 @@ public class MicrophoneLocalAndBluetooth {
             short[] short_buffer = new short[bufferSize];
             ByteBuffer b_buffer = ByteBuffer.allocate(short_buffer.length * 2);
 
-            while (recordingInProgress.get()) {
-                int result = recorder.read(short_buffer, 0, short_buffer.length);
-                if (result < 0) {
-                    Log.d(TAG, "ERROR");
+            AudioRecord localRecorder;
+            while (recordingInProgress.get() && !isDestroyed.get() && !Thread.currentThread().isInterrupted()) {
+                // Store a local reference to the recorder to prevent null pointer issues
+                localRecorder = recorder;
+                try {
+                    // Check if the local recorder is still valid
+                    if (localRecorder == null) {
+                        // Exit the loop if recorder has been released
+                        break;
+                    }
+
+                    int result = localRecorder.read(short_buffer, 0, short_buffer.length);
+                    if (result < 0) {
+                        Log.d(TAG, "Error reading from AudioRecord: " + getBufferReadFailureReason(result));
+                        break;
+                    }
+
+                    b_buffer.order(ByteOrder.LITTLE_ENDIAN);
+                    b_buffer.asShortBuffer().put(short_buffer);
+                    if (!isDestroyed.get() && mChunkCallback != null) {
+                        mChunkCallback.onSuccess(b_buffer);
+                    }
+                    b_buffer.clear();
+
+                    // Update the local recorder reference for the next iteration
+                    localRecorder = recorder;
+
+                    // Add a small sleep to prevent thread from hogging CPU
+                    Thread.sleep(5);
+                } catch (InterruptedException e) {
+                    // Thread was interrupted, exit gracefully
+                    Thread.currentThread().interrupt();
+                    Log.d(TAG, "Recording thread interrupted");
+                    break;
+                } catch (Exception e) {
+                    Log.e(TAG, "Error in recording thread", e);
+                    break;
                 }
-                b_buffer.order(ByteOrder.LITTLE_ENDIAN);
-                b_buffer.asShortBuffer().put(short_buffer);
-                if (hearItBleMicrophone != null && !hearItBleMicrophone.isConnected()) {
-                    mChunkCallback.onSuccess(b_buffer);
-                }
-                b_buffer.clear();
             }
+
+            Log.d(TAG, "Recording thread exiting");
         }
 
         private String getBufferReadFailureReason(int errorCode) {
@@ -351,39 +483,55 @@ public class MicrophoneLocalAndBluetooth {
         AVAILABLE, UNAVAILABLE
     }
 
-    private CountDownTimer mCountDown = new CountDownTimer(1201, 400) {
-        @Override
-        public void onTick(long millisUntilFinished) {
-            audioManager.startBluetoothSco();
-        }
-
-        @Override
-        public void onFinish() {
-            mIsCountDownOn = false;
-            bluetoothAudio = false;
-            startRecording();
-        }
-    };
-
-    public void destroy() {
+    public synchronized void destroy() {
         Log.d(TAG, "Destroying local microphone...");
+
+        // If already destroyed, exit early
+        if (isDestroyed.get()) {
+            Log.d(TAG, "Already destroyed, skipping");
+            return;
+        }
+
+        // Set the destroyed flag first to prevent any new operations
+        isDestroyed.set(true);
+
+        // Cancel the countdown timer
+        if (mCountDown != null) {
+            mIsCountDownOn = false;
+            mCountDown.cancel();
+            mCountDown = null;
+        }
+
+        // Stop recording
         stopRecording();
 
-        if (hearItBleMicrophone != null) {
-            hearItBleMicrophone.destroy();
+        // Clean up Bluetooth SCO
+        try {
+            deactivateBluetoothSco();
+            if (audioManager != null) {
+                audioManager.setMode(AudioManager.MODE_NORMAL);
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error cleaning up Bluetooth SCO", e);
         }
 
-        mIsCountDownOn = false;
-        mCountDown.cancel();
-        deactivateBluetoothSco();
-        audioManager.setMode(AudioManager.MODE_NORMAL);
+        // Unregister the receiver
         if (mContext != null && isReceiverRegistered) {
             try {
                 mContext.unregisterReceiver(bluetoothStateReceiver);
                 isReceiverRegistered = false;
+                Log.d(TAG, "Bluetooth state receiver unregistered in destroy()");
             } catch (IllegalArgumentException e) {
-                e.printStackTrace();
+                Log.e(TAG, "Error unregistering receiver", e);
             }
         }
+
+        // Clear references
+        mContext = null;
+        mChunkCallback = null;
+        mHandler = null;
+        audioManager = null;
+
+        Log.d(TAG, "MicrophoneLocalAndBluetooth fully destroyed");
     }
 }

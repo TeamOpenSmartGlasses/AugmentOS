@@ -5,6 +5,7 @@ import static com.augmentos.augmentos_core.smarterglassesmanager.smartglassescom
 import static com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService.getSmartGlassesDeviceFromModelName;
 import static com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService.savePreferredWearable;
 import static com.augmentos.augmentos_core.statushelpers.CoreVersionHelper.getCoreVersion;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTIFICATION_ID;
 import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AugmentOSAsgClientPackageName;
 import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
 import static com.augmentos.augmentos_core.BatteryOptimizationHelper.handleBatteryOptimization;
@@ -12,6 +13,9 @@ import static com.augmentos.augmentos_core.BatteryOptimizationHelper.isSystemApp
 import static com.augmentos.augmentos_core.Constants.notificationFilterKey;
 import static com.augmentos.augmentos_core.Constants.newsSummaryKey;
 import static com.augmentos.augmentos_core.Constants.augmentOsMainServiceNotificationId;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.GROUP_SUMMARY_NOTIFICATION_ID;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.SERVICE_CORE_NOTIFICATION_ID;
+import static com.augmentos.augmentoslib.SmartGlassesAndroidService.buildSharedForegroundNotification;
 
 
 import android.app.Notification;
@@ -46,6 +50,7 @@ import com.augmentos.augmentos_core.augmentos_backend.HTTPServerComms;
 import com.augmentos.augmentos_core.augmentos_backend.ServerComms;
 import com.augmentos.augmentos_core.augmentos_backend.ServerCommsCallback;
 import com.augmentos.augmentos_core.augmentos_backend.ThirdPartyCloudApp;
+import com.augmentos.augmentos_core.augmentos_backend.WebSocketLifecycleManager;
 import com.augmentos.augmentos_core.augmentos_backend.WebSocketManager;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.BatteryLevelEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.BrightnessLevelEvent;
@@ -159,6 +164,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     List<ThirdPartyCloudApp> cachedThirdPartyAppList;
     private WebSocketManager.IncomingMessageHandler.WebSocketStatus webSocketStatus = WebSocketManager.IncomingMessageHandler.WebSocketStatus.DISCONNECTED;
 
+    private WebSocketLifecycleManager webSocketLifecycleManager;
+
     public AugmentosService() {
     }
 
@@ -181,6 +188,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             isSmartGlassesServiceBound = false;
             smartGlassesService = null;
             edgeTpaSystem.setSmartGlassesService(smartGlassesService);
+            webSocketLifecycleManager.updateSmartGlassesState(SmartGlassesConnectionState.DISCONNECTED);
 
             // TODO: For now, stop all apps on disconnection
             // TODO: Future: Make this nicer
@@ -193,6 +201,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     public void onAugmentosSmartGlassesDisconnectedEvent(AugmentosSmartGlassesDisconnectedEvent event){
         // TODO: For now, stop all apps on disconnection
         // TODO: Future: Make this nicer
+        webSocketLifecycleManager.updateSmartGlassesState(SmartGlassesConnectionState.DISCONNECTED);
         edgeTpaSystem.stopAllThirdPartyApps();
         sendStatusToAugmentOsManager();
     }
@@ -326,6 +335,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         EventBus.getDefault().register(this);
 
+        ServerComms.getInstance(this);
+
         authHandler = new AuthHandler(this);
 
         userId = authHandler.getUniqueIdForAnalytics();
@@ -376,6 +387,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         cachedThirdPartyAppList = new ArrayList<ThirdPartyCloudApp>();
 
+        webSocketLifecycleManager = new WebSocketLifecycleManager(this, authHandler);
+
         // Set up backend comms
         this.httpServerComms = new HTTPServerComms();
         if(authHandler.getCoreToken() != null)
@@ -407,6 +420,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                     NotificationManager.IMPORTANCE_HIGH
             );
             channel.setDescription(notificationDescription);
+            channel.enableLights(false);
+            channel.enableVibration(false);
             NotificationManager manager = getSystemService(NotificationManager.class);
             if (manager != null) {
                 manager.createNotificationChannel(channel);
@@ -432,7 +447,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 // start the service in the foreground
                 Log.d("TEST", "starting foreground");
                 createNotificationChannel(); // New method to ensure one-time channel creation
-                startForeground(augmentOsMainServiceNotificationId, updateNotification());
+                //startForeground(augmentOsMainServiceNotificationId, updateNotification());
+                startForeground(AUGMENTOS_NOTIFICATION_ID, buildSharedForegroundNotification(this));
 
                 // Send out the status once AugmentOS_Core is ready :)
                 // tpaSystem.stopThirdPartyAppByPackageName(AugmentOSManagerPackageName);
@@ -470,6 +486,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
         NotificationChannel channel = new NotificationChannel(CHANNEL_ID, notificationAppName,
                 NotificationManager.IMPORTANCE_HIGH);
         channel.setDescription(notificationDescription);
+        channel.enableVibration(false);
+        channel.enableLights(false);
         manager.createNotificationChannel(channel);
 
         builder = new NotificationCompat.Builder(this, CHANNEL_ID);
@@ -497,6 +515,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             isSmartGlassesServiceBound = false;
             smartGlassesService = null;
             edgeTpaSystem.setSmartGlassesService(smartGlassesService);
+            webSocketLifecycleManager.updateSmartGlassesState(SmartGlassesConnectionState.DISCONNECTED);
         }
         Intent intent = new Intent(this, AugmentosSmartGlassesService.class);
         stopService(intent);  // Stop the service
@@ -513,6 +532,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Subscribe
     public void onSmartGlassesConnnectionEvent(SmartGlassesConnectionStateChangedEvent event) {
         if (event.connectionState == previousSmartGlassesConnectionState) return;
+        webSocketLifecycleManager.updateSmartGlassesState(event.connectionState);
         ServerComms.getInstance().sendGlassesConnectionState(event.device.deviceModelName, event.connectionState.name());
         sendStatusToAugmentOsManager();
         if (event.connectionState == SmartGlassesConnectionState.CONNECTED) {
@@ -1006,14 +1026,18 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
     @Override
     public void setForceCoreOnboardMic(boolean toForceCoreOnboardMic) {
         AugmentosSmartGlassesService.saveForceCoreOnboardMic(this, toForceCoreOnboardMic);
-        blePeripheral.sendNotifyManager(this.getResources().getString(R.string.SETTING_WILL_APPLY_ON_NEXT_GLASSES_CONNECTION), "success");
+        if(smartGlassesService != null && smartGlassesService.getConnectedSmartGlasses() != null) {
+            blePeripheral.sendNotifyManager(this.getResources().getString(R.string.SETTING_WILL_APPLY_ON_NEXT_GLASSES_CONNECTION), "success");
+        }
         sendStatusToBackend();
     }
 
     @Override
     public void setSensingEnabled(boolean sensingEnabled) {
         AugmentosSmartGlassesService.saveSensingEnabled(this, sensingEnabled);
-        blePeripheral.sendNotifyManager(this.getResources().getString(R.string.SETTING_WILL_APPLY_ON_NEXT_GLASSES_CONNECTION), "success");
+        if(smartGlassesService != null && smartGlassesService.getConnectedSmartGlasses() != null) {
+            blePeripheral.sendNotifyManager(this.getResources().getString(R.string.SETTING_WILL_APPLY_ON_NEXT_GLASSES_CONNECTION), "success");
+        }
         sendStatusToBackend();
     }
 
@@ -1177,10 +1201,15 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
             isSmartGlassesServiceBound = false;
             smartGlassesService = null;
             edgeTpaSystem.setSmartGlassesService(smartGlassesService);
+            webSocketLifecycleManager.updateSmartGlassesState(SmartGlassesConnectionState.DISCONNECTED);
         }
 
         if(edgeTpaSystem != null) {
             edgeTpaSystem.destroy();
+        }
+
+        if (webSocketLifecycleManager != null) {
+            webSocketLifecycleManager.cleanup();
         }
 
         ServerComms.getInstance().disconnectWebSocket();
