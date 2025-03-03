@@ -42,6 +42,7 @@
   "dependencies": {
     "@augmentos/config": "workspace:*",
     "@augmentos/types": "workspace:*",
+    "@augmentos/utils": "workspace:*",
     "@sentry/bun": "^9.1.0",
     "@sentry/cli": "^2.42.1",
     "axios": "^1.7.4",

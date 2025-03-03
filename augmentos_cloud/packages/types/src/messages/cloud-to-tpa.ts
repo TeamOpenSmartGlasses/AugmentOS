@@ -58,7 +58,7 @@ export interface TranscriptionData extends BaseMessage {
   type: StreamType.TRANSCRIPTION;
   text: string;  // The transcribed text
   isFinal: boolean;  // Whether this is a final transcription
-  language?: string;  // Detected language code
+  transcribeLanguage?: string;  // Detected language code
   startTime: number;  // Start time in milliseconds
   endTime: number;  // End time in milliseconds
   speakerId?: string;  // ID of the speaker if available

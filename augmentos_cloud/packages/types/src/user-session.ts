@@ -9,7 +9,7 @@ import {
   ConversationTranscriber,
   PushAudioInputStream,
 } from 'microsoft-cognitiveservices-speech-sdk';
-import { StreamType } from './streams';
+import { ExtendedStreamType, StreamType } from './streams';
 
 /**
  * Session for an application
@@ -79,7 +79,7 @@ export interface UserSession {
   installedApps: AppI[];
   activeAppSessions: string[];
   loadingApps: string[];
-  appSubscriptions: Map<string, StreamType[]> | Object; // packageName -> subscriptions;
+  appSubscriptions: Map<string, ExtendedStreamType[]> | Object; // packageName -> subscriptions;
   appConnections: Map<string, WebSocket>; // packageName -> websocket connection for the system app / TPA;
 
   displayManager: DisplayManagerI;
@@ -102,7 +102,7 @@ export interface UserSession {
   isAudioProcessing?: boolean;      // Flag to track audio processing state
 
   // TODO:
-  whatToStream: StreamType[];
+  whatToStream: ExtendedStreamType[];
 
   // OS Settings.
   OSSettings: any;
