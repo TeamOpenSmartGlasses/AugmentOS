@@ -1,0 +1,45 @@
+services:
+  augmentos-cloud:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: augmentos-cloud-dev
+    restart: unless-stopped
+    ports:
+      - "8002:8002"  # Cloud service
+      - "8010:8010"  # Live Captions
+      - "8011:8011"  # Flash
+      - "8012:8012"  # Dashboard
+      - "8013:8013"  # Agent Gatekeeper
+      - "8014:8014"  # Notifications
+      - "8015:8015"  # Mira AI
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+    volumes:
+      # Mount local source code for development (optional)
+      # - ./packages:/app/packages
+      # Mount logs directory
+      - ./logs:/app/logs
+    networks:
+      - augmentos-network
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    container_name: augmentos-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - augmentos-network
+
+networks:
+  augmentos-network:
+    driver: bridge
+
+volumes:
+  mongodb-data: 

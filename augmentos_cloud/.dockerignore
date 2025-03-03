@@ -1,0 +1,36 @@
+# Node.js dependencies and build artifacts
+node_modules
+**/node_modules
+**/dist
+**/build
+**/.next
+
+# Version control
+.git
+.gitignore
+
+# Logs
+**/*.log
+**/logs
+
+# Environment variables
+.env
+.env.*
+
+# Development tools
+.vscode
+.idea
+.DS_Store
+
+# Temporary files
+**/tmp
+**/temp
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Misc
+README.md
+LICENSE
+**/.turbo 
