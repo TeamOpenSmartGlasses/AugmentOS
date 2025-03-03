@@ -13,6 +13,8 @@ import {
   CloudToTpaMessageType,
   ViewType,
   LayoutType,
+  createTranscriptionStream,  // Import new helper for language streams
+  ExtendedStreamType,         // Import new type for extended stream types
 } from '@augmentos/types'; // Import the types from the shared package
 import { TranscriptProcessor } from '@augmentos/utils';
 import { systemApps, CLOUD_PORT } from '@augmentos/config';
@@ -26,6 +28,7 @@ const API_KEY = 'test_key'; // In production, this would be securely stored
 const userFinalTranscripts: Map<string, string> = new Map();
 const userTranscriptProcessors: Map<string, TranscriptProcessor> = new Map();
 const userSessions = new Map<string, Set<string>>(); // userId -> Set<sessionId>
+const userLanguageSettings: Map<string, string> = new Map(); // userId -> language code
 
 // For debouncing transcripts per session
 interface TranscriptDebouncer {
@@ -62,21 +65,55 @@ async function fetchAndApplySettings(sessionId: string, userId: string) {
     console.log(`Fetched settings for session ${sessionId}:`, settings);
     const lineWidthSetting = settings.find((s: any) => s.key === 'line_width');
     const numberOfLinesSetting = settings.find((s: any) => s.key === 'number_of_lines');
+    const transcribeLanguageSetting = settings.find((s: any) => s.key === 'transcribe_language');
 
-    // console.log(`==========`, lineWidthSetting);
     const lineWidth = lineWidthSetting ? convertLineWidth(lineWidthSetting.value) : 30; // fallback default
     const numberOfLines = numberOfLinesSetting ? Number(numberOfLinesSetting.value) : 3; // fallback default
+    
+    // Store the language setting for this user (default to en-US if not specified)
+    const language = transcribeLanguageSetting?.value || 'en-US';
+    const locale = languageToLocale(language);
 
-    // console.log(`==========`, lineWidth);
-    // console.log(`==========`, numberOfLines);
+    userLanguageSettings.set(userId, locale);
+    console.log(`Language setting for user ${userId}: ${locale}`);
+
     const transcriptProcessor = new TranscriptProcessor(lineWidth, numberOfLines);
     userTranscriptProcessors.set(userId, transcriptProcessor);
+    
+    // Update subscription if websocket is already open
+    updateSubscriptionForSession(sessionId, userId);
+    
+    return language;
   } catch (err) {
     console.error(`Error fetching settings for session ${sessionId}:`, err);
     // Fallback to default values.
     const transcriptProcessor = new TranscriptProcessor(30, 3);
     userTranscriptProcessors.set(userId, transcriptProcessor);
+    userLanguageSettings.set(userId, 'en-US'); // Default language
+    return 'en-US';
   }
+}
+
+// Function to update subscription based on current language settings
+function updateSubscriptionForSession(sessionId: string, userId: string) {
+  const ws = activeSessions.get(sessionId);
+  if (!ws || ws.readyState !== WebSocket.OPEN) return;
+  
+  const language = userLanguageSettings.get(userId) || 'en-US';
+  const transcriptionStream = createTranscriptionStream(language);
+  
+  console.log(`Updating subscription for session ${sessionId} to language: ${language}`);
+  
+  // Create subscription with language-specific stream
+  const subMessage: TpaSubscriptionUpdate = {
+    type: TpaToCloudMessageType.SUBSCRIPTION_UPDATE,
+    packageName: PACKAGE_NAME,
+    sessionId,
+    subscriptions: [transcriptionStream as ExtendedStreamType]
+  };
+  
+  ws.send(JSON.stringify(subMessage));
+  console.log(`Updated subscription for session ${sessionId} to ${transcriptionStream}`);
 }
 
 // Handle webhook call from AugmentOS Cloud
@@ -88,11 +125,10 @@ app.post('/webhook', async (req, res) => {
     // Start WebSocket connection to cloud
     const ws = new WebSocket(`ws://localhost:${CLOUD_PORT}/tpa-ws`);
 
-    ws.on('open', () => {
+    ws.on('open', async () => {
       console.log(`\n[Session ${sessionId}]\n connected to augmentos-cloud\n`);
       // Send connection init with session ID
       const initMessage: TpaConnectionInit = {
-        // type: 'tpa_connection_init',
         type: TpaToCloudMessageType.CONNECTION_INIT,
         sessionId,
         packageName: PACKAGE_NAME,
@@ -101,7 +137,9 @@ app.post('/webhook', async (req, res) => {
       ws.send(JSON.stringify(initMessage));
 
       // Fetch and apply settings for the session
-      fetchAndApplySettings(sessionId, userId).catch(err =>
+      // We'll subscribe to the appropriate language in the CONNECTION_ACK handler
+      // after we've loaded the settings
+      await fetchAndApplySettings(sessionId, userId).catch(err =>
         console.error(`Error in fetchAndApplySettings for session ${sessionId}:`, err)
       );
     });
@@ -155,22 +193,25 @@ app.use(express.static(path.join(__dirname, './public')));
 function handleMessage(sessionId: string, userId: string, ws: WebSocket, message: any) {
   switch (message.type) {
     case CloudToTpaMessageType.CONNECTION_ACK: {
-      // Connection acknowledged, subscribe to transcription
+      // Connection acknowledged, subscribe to language-specific transcription
+      const language = userLanguageSettings.get(userId) || 'en-US';
+      const transcriptionStream = createTranscriptionStream(language);
+      
       const subMessage: TpaSubscriptionUpdate = {
         type: TpaToCloudMessageType.SUBSCRIPTION_UPDATE,
         packageName: PACKAGE_NAME,
         sessionId,
-        subscriptions: [StreamType.TRANSCRIPTION]
+        subscriptions: [transcriptionStream as ExtendedStreamType]
       };
       ws.send(JSON.stringify(subMessage));
-      console.log(`Session ${sessionId} connected and subscribed`);
+      console.log(`Session ${sessionId} connected and subscribed to ${transcriptionStream}`);
       break;
     }
 
     case CloudToTpaMessageType.DATA_STREAM: {
       const streamMessage = message as DataStream;
       if (streamMessage.streamType === StreamType.TRANSCRIPTION) {
-        handleTranscription(sessionId, userId, ws, streamMessage.data);
+          handleTranscription(sessionId, userId, ws, streamMessage.data);
       }
       break;
     }
@@ -198,6 +239,10 @@ function handleTranscription(sessionId: string, userId: string, ws: WebSocket, t
 
   const isFinal = transcriptionData.isFinal;
   const newTranscript = transcriptionData.text;
+  const language = transcriptionData.language || 'en-US';
+
+  // Log language information from the transcription
+  console.log(`[Session ${sessionId}]: Received transcription in language: ${language}`);
 
   const text = transcriptProcessor.processString(userFinalTranscript + " " + newTranscript, isFinal);
 
@@ -295,6 +340,9 @@ function refreshUserSessions(userId: string, newUserTranscript: string) {
     if (ws && ws.readyState === WebSocket.OPEN) {
       console.log(`Refreshing session ${sessionId}`);
       
+      // Update subscription for new language settings
+      updateSubscriptionForSession(sessionId, userId);
+      
       // Clear display to reset visual state
       const clearDisplayRequest: DisplayRequest = {
         type: TpaToCloudMessageType.DISPLAY_REQUEST,
@@ -335,6 +383,7 @@ app.post('/settings', (req, res) => {
     
     const lineWidthSetting = settings.find((s: any) => s.key === 'line_width');
     const numberOfLinesSetting = settings.find((s: any) => s.key === 'number_of_lines');
+    const transcribeLanguageSetting = settings.find((s: any) => s.key === 'transcribe_language');
 
     // Validate settings
     let lineWidth = 30; // default
@@ -350,8 +399,18 @@ app.post('/settings', (req, res) => {
       if (isNaN(numberOfLines) || numberOfLines < 1) numberOfLines = 3;
     }
     
+    // Get language setting
+    const language = languageToLocale(transcribeLanguageSetting?.value) || 'en-US';
+    const previousLanguage = userLanguageSettings.get(userIdForSettings);
+    const languageChanged = language !== previousLanguage;
+    
+    if (languageChanged) {
+      console.log(`Language changed for user ${userIdForSettings}: ${previousLanguage} -> ${language}`);
+      userLanguageSettings.set(userIdForSettings, language);
+    }
+    
     // Update processor and clear transcript
-    console.log(`Updating settings for user ${userIdForSettings}: lineWidth=${lineWidth}, numberOfLines=${numberOfLines}`);
+    console.log(`Updating settings for user ${userIdForSettings}: lineWidth=${lineWidth}, numberOfLines=${numberOfLines}, language=${language}`);
     const lastUserTranscript = userTranscriptProcessors.get(userIdForSettings)?.getLastUserTranscript() || "";
     const newProcessor = new TranscriptProcessor(lineWidth, numberOfLines);
     userTranscriptProcessors.set(userIdForSettings, newProcessor);
@@ -364,7 +423,8 @@ app.post('/settings', (req, res) => {
     
     res.json({ 
       status: 'Settings updated successfully',
-      sessionsRefreshed: sessionsRefreshed
+      sessionsRefreshed: sessionsRefreshed,
+      languageChanged: languageChanged
     });
   } catch (error) {
     console.error('Error updating settings:', error);
