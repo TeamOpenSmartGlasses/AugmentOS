@@ -40,6 +40,8 @@ services:
       # PostHog
       - POSTHOG_PROJECT_API_KEY=${POSTHOG_PROJECT_API_KEY}
       - POSTHOG_HOST=https://app.posthog.com
+    env_file:
+      - .env
     volumes:
       # Mount local source code for development (optional)
       # - ./packages:/app/packages

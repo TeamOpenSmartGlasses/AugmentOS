@@ -51,6 +51,10 @@ RUN cd packages/config && bun run build && \
     cd ../notify && bun run build || true && \
     cd ../../cloud && bun run build
 
+# Ensure LC3 directory exists in dist and copy the WASM file
+RUN mkdir -p packages/utils/dist/lc3 && \
+    cp packages/utils/src/lc3/liblc3.wasm packages/utils/dist/lc3/
+
 # Expose necessary ports
 EXPOSE 8002 8010 8011 8012 8013 8014 8015
 
