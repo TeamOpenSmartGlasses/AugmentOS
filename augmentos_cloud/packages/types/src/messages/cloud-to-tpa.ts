@@ -68,13 +68,16 @@ export interface TranscriptionData extends BaseMessage {
 /**
  * Translation data
  */
-export interface TranslationData {
+export interface TranslationData extends BaseMessage {
   type: StreamType.TRANSLATION;
-  sourceText: string;  // Original text
-  translatedText: string;  // Translated text
-  sourceLang: string;  // Source language code
-  targetLang: string;  // Target language code
-  confidence: number;  // Translation confidence (0-1)
+  text: string;  // The transcribed text
+  isFinal: boolean;  // Whether this is a final transcription
+  startTime: number;  // Start time in milliseconds
+  endTime: number;  // End time in milliseconds
+  speakerId?: string;  // ID of the speaker if available
+  duration?: number;  // Audio duration in milliseconds
+  transcribeLanguage?: string;  // The language code of the transcribed text
+  translateLanguage?: string;  // The language code of the translated text
 }
 
 
