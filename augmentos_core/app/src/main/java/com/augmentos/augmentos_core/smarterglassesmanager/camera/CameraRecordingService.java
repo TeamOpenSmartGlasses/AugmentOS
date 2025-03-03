@@ -72,7 +72,7 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
      private int videoWidth = 640;
      private int videoHeight = 480;
      private int videoFps = 10;
-     private int videoBitrate = 2000 * 1024; // (2 Mbps)
+     private int videoBitrate = 500 * 1024; // (2 Mbps)
     private int videoRotation = 0;
     private int audioBitrate = 128 * 1024;
     private int audioSampleRate = 44100;
@@ -201,12 +201,12 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
         }
 
         if (!isDummyRecording) {
-            boolean audioPrepared = rtmpCamera2.prepareAudio(
-                    128 * 1024, 44100, true, false, false
-            );
-            if (!audioPrepared) {
-                Log.e(TAG, "Failed to re-prepare audio");
-            }
+//            boolean audioPrepared = rtmpCamera2.prepareAudio(
+//                    128 * 1024, 44100, true, false, false
+//            );
+//            if (!audioPrepared) {
+//                Log.e(TAG, "Failed to re-prepare audio");
+//            }
         }
 
         rtmpCamera2.startPreview();

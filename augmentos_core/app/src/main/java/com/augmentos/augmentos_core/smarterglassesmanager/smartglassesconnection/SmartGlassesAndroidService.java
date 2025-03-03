@@ -300,6 +300,18 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         editor.apply();
     }
 
+    public static boolean getBypassVadEnabled(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("AugmentOSPrefs", Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean(context.getResources().getString(R.string.BYPASS_VAD_ENABLED), false);
+    }
+
+    public static void setBypassVadEnabled(Context context, boolean enabled) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("AugmentOSPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(context.getResources().getString(R.string.BYPASS_VAD_ENABLED), enabled);
+        editor.apply();
+    }
+
     /** Gets the preferred wearable from shared preference. */
     public static boolean getForceCoreOnboardMic(Context context) {
 //        Log.d(TAG, "GETTING PREFERRED WEARABLE");
