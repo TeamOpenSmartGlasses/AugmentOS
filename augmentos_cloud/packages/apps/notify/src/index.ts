@@ -11,7 +11,7 @@ import {
   ViewType,
   LayoutType,
 } from '@augmentos/types'; // shared types for cloud TPA messages
-import { CLOUD_PORT, systemApps } from '@augmentos/config';
+import { CLOUD_HOST, CLOUD_PORT, systemApps } from '@augmentos/config';
 import { wrapText } from '@augmentos/utils';
 
 const app = express();
@@ -75,7 +75,7 @@ app.post('/webhook', async (req, res) => {
     console.log(`\n\n🗣️🗣️🗣️Received session request for user ${userId}, session ${sessionId}\n\n`);
 
     // Establish WebSocket connection to AugmentOS Cloud.
-    const ws = new WebSocket(`ws://localhost:${CLOUD_PORT}/tpa-ws`);
+    const ws = new WebSocket(`ws://${CLOUD_HOST}:${CLOUD_PORT}/tpa-ws`);
 
     ws.on('open', () => {
       console.log(`\n[Session ${sessionId}]\n connected to augmentos-cloud\n`);

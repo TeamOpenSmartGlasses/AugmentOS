@@ -1,0 +1,62 @@
+FROM node:18-slim
+
+# Install bun and build tools
+RUN apt-get update && apt-get install -y curl unzip git python3 make g++ && \
+    curl -fsSL https://bun.sh/install | bash && \
+    npm install -g typescript
+
+ENV PATH="/root/.bun/bin:${PATH}"
+ENV NODE_ENV=development
+# Skip Sentry sourcemap upload in Docker build
+ENV SKIP_SENTRY_UPLOAD=true
+
+WORKDIR /app
+
+# Copy package files for dependency installation
+COPY package*.json bun.lock* ./
+COPY packages/config/package.json ./packages/config/
+COPY packages/types/package.json ./packages/types/
+COPY packages/utils/package.json ./packages/utils/
+COPY packages/sdk/package.json ./packages/sdk/
+COPY packages/agents/package.json ./packages/agents/
+COPY packages/apps/dashboard-manager/package.json ./packages/apps/dashboard-manager/
+COPY packages/apps/flash/package.json ./packages/apps/flash/
+COPY packages/apps/live-captions/package.json ./packages/apps/live-captions/
+COPY packages/apps/miraai/package.json ./packages/apps/miraai/
+COPY packages/apps/notify/package.json ./packages/apps/notify/
+COPY packages/cloud/package.json ./packages/cloud/
+
+# Install dependencies with bun
+RUN bun install
+
+# Ensure the directory structure exists
+RUN mkdir -p \
+    packages/utils/dist \
+    packages/agents/dist \
+    packages/sdk/dist \
+    packages/config/dist \
+    packages/types/dist
+
+# Copy source files for shared packages
+COPY packages/config ./packages/config
+COPY packages/types ./packages/types
+COPY packages/utils ./packages/utils
+COPY packages/sdk ./packages/sdk
+COPY packages/agents ./packages/agents
+
+# Set environment variable to skip strict type checking for build
+ENV TS_NODE_TRANSPILE_ONLY=1
+
+# Build shared packages in the correct sequence
+RUN cd packages/config && bun run build && \
+    cd ../types && bun run build && \
+    cd ../utils && bun run build && \
+    cd ../sdk && bun run build && \
+    cd ../agents && bun run build
+
+# Ensure LC3 directory exists in dist and copy the WASM file
+RUN mkdir -p packages/utils/dist/lc3 && \
+    cp packages/utils/src/lc3/liblc3.wasm packages/utils/dist/lc3/
+
+# Set hostname environment variable for inter-service communication
+ENV HOST=0.0.0.0 

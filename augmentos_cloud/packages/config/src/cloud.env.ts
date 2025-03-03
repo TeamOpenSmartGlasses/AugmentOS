@@ -9,36 +9,43 @@ export interface SystemApp {
 }
 
 export const BASE_PORT = 8000;
+export const CLOUD_HOST = 'cloud';
 export const CLOUD_PORT = 8002;
 export const DEBUGGER_PORT = 6173;
 
 export const systemApps = {
   captions: {
+    host: 'live-captions',
     port: BASE_PORT + 10,
     packageName: 'org.augmentos.live-captions',
     name: 'Live Captions'
   },
   flash: {
+    host: 'flash',
     port: BASE_PORT + 11,
     packageName: 'org.augmentos.flash',
     name: 'Flash'
   },
   dashboard: {
+    host: 'dashboard-manager',
     port: BASE_PORT + 12,
     packageName: 'org.augmentos.dashboard',
     name: 'Dashboard'
   },
   merge: {
+    host: 'localhost',
     port: BASE_PORT + 13,
     packageName: 'org.augmentos.agentgatekeeper',
     name: 'Agent Gatekeeper'
   },
   notify: {
+    host: 'notify',
     port: BASE_PORT + 14,
     packageName: 'org.augmentos.shownotifications',
     name: 'Notifications'
   },
   mira: {
+    host: 'miraai',
     port: BASE_PORT + 15,
     packageName: 'org.augmentos.miraai',
     name: 'Mira AI'

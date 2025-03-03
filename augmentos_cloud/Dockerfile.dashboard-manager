@@ -1,0 +1,16 @@
+FROM augmentos-cloud-base:latest
+
+# Copy dashboard-manager app source files
+COPY packages/apps/dashboard-manager ./packages/apps/dashboard-manager
+
+# Create the dist directory for the app
+RUN mkdir -p packages/apps/dashboard-manager/dist
+
+# Build the application
+RUN cd packages/apps/dashboard-manager && bun run build
+
+# Expose the dashboard-manager port
+EXPOSE 8012
+
+# Start the service
+CMD ["node", "packages/apps/dashboard-manager/dist/index.js"] 

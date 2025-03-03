@@ -1,0 +1,16 @@
+FROM augmentos-cloud-base:latest
+
+# Copy notify app source files
+COPY packages/apps/notify ./packages/apps/notify
+
+# Create the dist directory for the app
+RUN mkdir -p packages/apps/notify/dist
+
+# Build the application
+RUN cd packages/apps/notify && bun run build
+
+# Expose the notify port
+EXPOSE 8014
+
+# Start the service
+CMD ["node", "packages/apps/notify/dist/index.js"] 

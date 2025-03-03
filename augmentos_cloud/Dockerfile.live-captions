@@ -1,0 +1,16 @@
+FROM augmentos-cloud-base:latest
+
+# Copy live-captions app source files
+COPY packages/apps/live-captions ./packages/apps/live-captions
+
+# Create the dist directory for the app
+RUN mkdir -p packages/apps/live-captions/dist
+
+# Build the application
+RUN cd packages/apps/live-captions && bun run build
+
+# Expose the live-captions port
+EXPOSE 8010
+
+# Start the service
+CMD ["node", "packages/apps/live-captions/dist/index.js"] 
