@@ -46,19 +46,19 @@ export const systemApps = {
 };
 
 // Environment Variables
-export const NODE_ENV = "development";
-export const CLOUD_VERSION = "1.0.0";
+export const NODE_ENV = process.env.NODE_ENV || "development";
+export const CLOUD_VERSION = process.env.CLOUD_VERSION || "1.0.0";
 
-// SECRETS. DO NOT COMMIT.
+// SECRETS fetched from environment variables
 // MongoDB
-export const MONGO_URL = "mongodb://localhost:27017/augmentos";
+export const MONGO_URL = process.env.MONGO_URL || "mongodb://localhost:27017/augmentos";
 
 // Sentry
-export const SENTRY_DSN = "https://xxx@xxx.ingest.sentry.io/xxx";
+export const SENTRY_DSN = process.env.SENTRY_DSN || "";
 
 // Azure
-export const AZURE_SPEECH_REGION = "centralus";
-export const AZURE_SPEECH_KEY = "xxx";
+export const AZURE_SPEECH_REGION = process.env.AZURE_SPEECH_REGION || "";
+export const AZURE_SPEECH_KEY = process.env.AZURE_SPEECH_KEY || "";
 
 // LLM Configuration
 // Need to define LLMModel enum for the switch case in LLMProvider
@@ -69,21 +69,21 @@ export enum LLMModel {
 }
 
 // Set LLM_MODEL to the enum value for compatibility
-export const LLM_MODEL = LLMModel.GPT4;
-export const AZURE_OPENAI_API_KEY = "xxx";
-export const AZURE_OPENAI_API_INSTANCE_NAME = "xxx";
-export const AZURE_OPENAI_API_DEPLOYMENT_NAME = "xxx";
-export const AZURE_OPENAI_API_VERSION = "2023-05-15";
-export const ANTHROPIC_API_KEY = "xxx";
+export const LLM_MODEL = (process.env.LLM_MODEL as LLMModel) || LLMModel.GPT4;
+export const AZURE_OPENAI_API_KEY = process.env.AZURE_OPENAI_API_KEY || "";
+export const AZURE_OPENAI_API_INSTANCE_NAME = process.env.AZURE_OPENAI_API_INSTANCE_NAME || "";
+export const AZURE_OPENAI_API_DEPLOYMENT_NAME = process.env.AZURE_OPENAI_API_DEPLOYMENT_NAME || "";
+export const AZURE_OPENAI_API_VERSION = process.env.AZURE_OPENAI_API_VERSION || "2023-05-15";
+export const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || "";
 
 // Search API
-export const SERPAPI_API_KEY = "xxx";
+export const SERPAPI_API_KEY = process.env.SERPAPI_API_KEY || "";
 
 // JWT Secrets
-export const SUPABASE_JWT_SECRET = 'xxx';
-export const AUGMENTOS_AUTH_JWT_SECRET = 'xxx';
-export const JOE_MAMA_USER_JWT = 'xxx';
+export const SUPABASE_JWT_SECRET = process.env.SUPABASE_JWT_SECRET || "";
+export const AUGMENTOS_AUTH_JWT_SECRET = process.env.AUGMENTOS_AUTH_JWT_SECRET || "";
+export const JOE_MAMA_USER_JWT = process.env.JOE_MAMA_USER_JWT || "";
 
 // posthog env vars
-export const POSTHOG_PROJECT_API_KEY = "phc_xxx";
-export const POSTHOG_HOST = "https://app.posthog.com"; 
+export const POSTHOG_PROJECT_API_KEY = process.env.POSTHOG_PROJECT_API_KEY || "";
+export const POSTHOG_HOST = process.env.POSTHOG_HOST || "https://app.posthog.com"; 
