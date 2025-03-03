@@ -264,10 +264,13 @@ export class WebSocketService {
     // For translation, you might also include target language if available.
     if (streamType === StreamType.TRANSLATION) {
       effectiveSubscription = `${streamType}:${(data as any).transcribeLanguage}-to-${(data as any).translateLanguage}`;
+    } else if (streamType === StreamType.TRANSCRIPTION && !(data as any).transcribeLanguage) {
+      effectiveSubscription = `${streamType}:en-US`;
     } else if (streamType === StreamType.TRANSCRIPTION) {
       effectiveSubscription = `${streamType}:${(data as any).transcribeLanguage}`;
     }
-    
+    console.log("🎤 Effective subscription: ", effectiveSubscription);
+
     const subscribedApps = this.subscriptionService.getSubscribedApps(userSessionId, effectiveSubscription);
 
     console.log(`🎤 Subscribed apps: ${JSON.stringify(subscribedApps)}`);
@@ -484,8 +487,8 @@ export class WebSocketService {
           const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
 
           // create a map of active apps and what steam types they are subscribed to.
-          const appSubscriptions = new Map<string, StreamType[]>(); // packageName -> streamTypes
-          const whatToStream: Set<StreamType> = new Set(); // packageName -> streamTypes
+          const appSubscriptions = new Map<string, ExtendedStreamType[]>(); // packageName -> streamTypes
+          const whatToStream: Set<ExtendedStreamType> = new Set(); // packageName -> streamTypes
 
           for (const packageName of activeAppPackageNames) {
             const subscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, packageName);
@@ -541,8 +544,8 @@ export class WebSocketService {
           const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
 
           // create a map of active apps and what steam types they are subscribed to.
-          const appSubscriptions = new Map<string, StreamType[]>(); // packageName -> streamTypes
-          const whatToStream: Set<StreamType> = new Set(); // packageName -> streamTypes
+          const appSubscriptions = new Map<string, ExtendedStreamType[]>(); // packageName -> streamTypes
+          const whatToStream: Set<ExtendedStreamType> = new Set(); // packageName -> streamTypes
 
           for (const packageName of activeAppPackageNames) {
             const subscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, packageName);
@@ -665,8 +668,8 @@ export class WebSocketService {
             const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
 
             // create a map of active apps and what steam types they are subscribed to.
-            const appSubscriptions = new Map<string, StreamType[]>(); // packageName -> streamTypes
-            const whatToStream: Set<StreamType> = new Set(); // packageName -> streamTypes
+            const appSubscriptions = new Map<string, ExtendedStreamType[]>(); // packageName -> streamTypes
+            const whatToStream: Set<ExtendedStreamType> = new Set(); // packageName -> streamTypes
 
             for (const packageName of activeAppPackageNames) {
               const subscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, packageName);
@@ -880,29 +883,59 @@ export class WebSocketService {
                 ws.close(1008, 'No active session');
                 return;
               }
-
+            
               const subMessage = message as TpaSubscriptionUpdate;
-              // if (!userSession) {
-              //   console.error(`\n\n[websocket.service] User session not found for ${userSessionId}\n\n`);
-              //   ws.close(1008, 'No active session');
-              //   return;
-              // }
-
+              
+              // Get the minimal language subscriptions before update
+              const previousLanguageSubscriptions = this.subscriptionService.getMinimalLanguageSubscriptions(userSessionId);
+              
+              // Update subscriptions
               this.subscriptionService.updateSubscriptions(
                 userSessionId,
                 message.packageName,
                 userSession.userId,
                 subMessage.subscriptions
               );
-
-              // TODO tell the client the new app state change for updates to the app subscriptions.
-              // Get the list of active apps.
+            
+              // Get the new minimal language subscriptions after update
+              const newLanguageSubscriptions = this.subscriptionService.getMinimalLanguageSubscriptions(userSessionId);
+              
+              // Check if language subscriptions have changed
+              const languageSubscriptionsChanged = 
+                previousLanguageSubscriptions.length !== newLanguageSubscriptions.length ||
+                !previousLanguageSubscriptions.every(sub => newLanguageSubscriptions.includes(sub));
+              
+              if (languageSubscriptionsChanged) {
+                console.log(`🎤 Language subscriptions changed. Updating transcription streams.`);
+                console.log(`🎤 Previous: ${JSON.stringify(previousLanguageSubscriptions)}`);
+                console.log(`🎤 New: ${JSON.stringify(newLanguageSubscriptions)}`);
+                
+                // Update transcription streams with new language subscriptions
+                this.transcriptionService.updateTranscriptionStreams(
+                  userSession as any, // Cast to ExtendedUserSession
+                  newLanguageSubscriptions
+                );
+                
+                // Check if we need to update microphone state based on media subscriptions
+                const mediaSubscriptions = this.subscriptionService.hasMediaSubscriptions(userSessionId);
+                console.log('Media subscriptions after update:', mediaSubscriptions);
+                
+                if (mediaSubscriptions) {
+                  console.log('Media subscriptions exist, ensuring microphone is enabled');
+                  this.sendDebouncedMicrophoneStateChange(userSession.websocket, userSession, true);
+                } else {
+                  console.log('No media subscriptions, ensuring microphone is disabled');
+                  this.sendDebouncedMicrophoneStateChange(userSession.websocket, userSession, false);
+                }
+              }
+            
+              // Get the list of active apps and update app state
               const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
-
-              // create a map of active apps and what steam types they are subscribed to.
-              const appSubscriptions = new Map<string, StreamType[]>(); // packageName -> streamTypes
-              const whatToStream: Set<StreamType> = new Set(); // packageName -> streamTypes
-
+            
+              // Create a map of active apps and what stream types they are subscribed to
+              const appSubscriptions = new Map<string, ExtendedStreamType[]>(); // packageName -> streamTypes
+              const whatToStream: Set<ExtendedStreamType> = new Set(); // streamTypes to enable
+            
               for (const packageName of activeAppPackageNames) {
                 const subscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, packageName);
                 appSubscriptions.set(packageName, subscriptions);
@@ -910,14 +943,20 @@ export class WebSocketService {
                   whatToStream.add(subscription);
                 }
               }
-
+            
+              console.log("🎤 App subscriptions: ", appSubscriptions);
+              console.log("🎤 What to stream: ", whatToStream);
+            
               // Dashboard subscriptions
-              const dashboardSubscriptions = this.subscriptionService.getAppSubscriptions(userSession.sessionId, systemApps.dashboard.packageName);
+              const dashboardSubscriptions = this.subscriptionService.getAppSubscriptions(
+                userSession.sessionId, 
+                systemApps.dashboard.packageName
+              );
               appSubscriptions.set(systemApps.dashboard.packageName, dashboardSubscriptions);
               for (const subscription of dashboardSubscriptions) {
                 whatToStream.add(subscription);
               }
-
+            
               const userSessionData = {
                 sessionId: userSession.sessionId,
                 userId: userSession.userId,
@@ -927,11 +966,10 @@ export class WebSocketService {
                 activeAppPackageNames,
                 whatToStream: Array.from(new Set(whatToStream)),
               };
-
+            
               const clientResponse: AppStateChange = {
-                // type: 'app_state_change',
                 type: CloudToGlassesMessageType.APP_STATE_CHANGE,
-                sessionId: userSession.sessionId, // TODO: Remove this field and check all references.
+                sessionId: userSession.sessionId,
                 userSession: userSessionData,
                 timestamp: new Date()
               };

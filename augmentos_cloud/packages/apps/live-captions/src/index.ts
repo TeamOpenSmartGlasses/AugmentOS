@@ -16,7 +16,7 @@ import {
   createTranscriptionStream,  // Import new helper for language streams
   ExtendedStreamType,         // Import new type for extended stream types
 } from '@augmentos/types'; // Import the types from the shared package
-import { TranscriptProcessor } from '@augmentos/utils';
+import { TranscriptProcessor, languageToLocale } from '@augmentos/utils';
 import { systemApps, CLOUD_PORT } from '@augmentos/config';
 import axios from 'axios';
 
@@ -239,7 +239,7 @@ function handleTranscription(sessionId: string, userId: string, ws: WebSocket, t
 
   const isFinal = transcriptionData.isFinal;
   const newTranscript = transcriptionData.text;
-  const language = transcriptionData.language || 'en-US';
+  const language = transcriptionData.transcribeLanguage || 'en-US';
 
   // Log language information from the transcription
   console.log(`[Session ${sessionId}]: Received transcription in language: ${language}`);

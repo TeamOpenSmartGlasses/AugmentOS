@@ -218,7 +218,7 @@ export class TranscriptionService {
           endTime: this.calculateRelativeTime(event.result.offset + event.result.duration),
           isFinal: false,
           speakerId: event.result.speakerId,
-          language: languageInfo.transcribeLanguage
+          transcribeLanguage: languageInfo.transcribeLanguage
         };
         this.broadcastTranscriptionResult(userSession, transcriptionData);
         this.updateTranscriptHistory(userSession, event, false);
@@ -235,7 +235,7 @@ export class TranscriptionService {
           endTime: this.calculateRelativeTime(event.result.offset + event.result.duration),
           speakerId: event.result.speakerId,
           duration: event.result.duration,
-          language: languageInfo.transcribeLanguage
+          transcribeLanguage: languageInfo.transcribeLanguage
         };
         this.broadcastTranscriptionResult(userSession, result);
         this.updateTranscriptHistory(userSession, event, true);
@@ -269,6 +269,7 @@ export class TranscriptionService {
     console.log('📢 Broadcasting transcription/translation result');
     try {
       const streamType = data.type === StreamType.TRANSLATION ? StreamType.TRANSLATION : StreamType.TRANSCRIPTION;
+      console.log("🎤 Broadcasting result: ", streamType, data);
       webSocketService.broadcastToTpa(userSession.sessionId, streamType, data);
     } catch (error) {
       console.error('❌ Error broadcasting result:', error);

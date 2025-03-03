@@ -9,7 +9,7 @@
  * - Providing subscription queries for broadcasting
  */
 
-import { StreamType, ExtendedStreamType, isLanguageStream, UserSession, parseLanguageStream } from '@augmentos/types';
+import { StreamType, ExtendedStreamType, isLanguageStream, UserSession, parseLanguageStream, createTranscriptionStream } from '@augmentos/types';
 
   /**
    * Record of a subscription change
@@ -33,7 +33,7 @@ import { StreamType, ExtendedStreamType, isLanguageStream, UserSession, parseLan
      * Map of active subscriptions keyed by session:app
      * @private
      */
-    private subscriptions = new Map<string, Set<StreamType>>();
+    private subscriptions = new Map<string, Set<ExtendedStreamType>>();
   
     /**
      * Map of subscription history keyed by session:app
@@ -71,23 +71,31 @@ import { StreamType, ExtendedStreamType, isLanguageStream, UserSession, parseLan
       const action: SubscriptionHistory['action'] = currentSubs.size === 0 ? 'add' : 'update';
 
       // Validate subscriptions
-      for (const sub of subscriptions) {
+      const processedSubscriptions = subscriptions.map(sub => 
+        sub === StreamType.TRANSCRIPTION ? 
+          createTranscriptionStream('en-US') : 
+          sub
+      );
+
+      for (const sub of processedSubscriptions) {
         if (!this.isValidSubscription(sub)) {
           throw new Error(`Invalid subscription type: ${sub}`);
         }
       }
 
+      console.log("🎤 Processed subscriptions: ", processedSubscriptions);
+
       // Update subscriptions
-      this.subscriptions.set(key, new Set(subscriptions as StreamType[]));
+      this.subscriptions.set(key, new Set(processedSubscriptions));
 
       // Record history
       this.addToHistory(key, {
         timestamp: new Date(),
-        subscriptions: [...subscriptions],
+        subscriptions: [...processedSubscriptions],
         action
       });
 
-      console.log(`Updated subscriptions for ${packageName} in session ${sessionId}:`, subscriptions);
+      console.log(`Updated subscriptions for ${packageName} in session ${sessionId}:`, processedSubscriptions);
     }
 
     /**
@@ -117,7 +125,6 @@ import { StreamType, ExtendedStreamType, isLanguageStream, UserSession, parseLan
       }
       return false;
     }
-    
 
     /**
      * Gets all TPAs subscribed to a specific stream type
@@ -127,6 +134,8 @@ import { StreamType, ExtendedStreamType, isLanguageStream, UserSession, parseLan
      */
     getSubscribedApps(sessionId: string, subscription: ExtendedStreamType): string[] {
       const subscribedApps: string[] = [];
+      console.log("🎤 1111 Subscribed apps: ", this.subscriptions.entries());
+
       for (const [key, subs] of this.subscriptions.entries()) {
         if (!key.startsWith(`${sessionId}:`)) continue;
         const [, packageName] = key.split(':');
@@ -151,7 +160,7 @@ import { StreamType, ExtendedStreamType, isLanguageStream, UserSession, parseLan
      * @param packageName - TPA identifier
      * @returns Array of active subscriptions
      */
-    getAppSubscriptions(sessionId: string, packageName: string): StreamType[] {
+    getAppSubscriptions(sessionId: string, packageName: string): ExtendedStreamType[] {
       const key = this.getKey(sessionId, packageName);
       const subs = this.subscriptions.get(key);
       return subs ? Array.from(subs) : [];

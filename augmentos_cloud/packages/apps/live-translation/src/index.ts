@@ -17,7 +17,7 @@ import {
   createTranslationStream,    // New helper for language-specific translation streams
   ExtendedStreamType
 } from '@augmentos/types';
-import { TranscriptProcessor } from '@augmentos/utils';
+import { TranscriptProcessor, languageToLocale } from '@augmentos/utils';
 import { systemApps, CLOUD_PORT } from '@augmentos/config';
 
 const app = express();
