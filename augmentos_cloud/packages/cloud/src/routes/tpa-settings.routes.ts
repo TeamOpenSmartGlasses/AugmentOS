@@ -79,7 +79,7 @@ router.get('/:tpaName', async (req, res) => {
       console.log(`Found existing settings for app "${tpaName}" for user ${userId}: ${JSON.stringify(storedSettings)}`);
     }
 
-    console.log('Stored settings:', storedSettings);
+    // console.log('Stored settings:', storedSettings);
 
     // Merge config settings with stored values.
     const mergedSettings = tpaConfig.settings.map((setting: any) => {
@@ -91,7 +91,7 @@ router.get('/:tpaName', async (req, res) => {
       };
     });
 
-    console.log('Merged settings:', mergedSettings);
+    // console.log('Merged settings:', mergedSettings);
 
     return res.json({
       success: true,
@@ -207,7 +207,7 @@ router.get('/user/:tpaName', async (req, res) => {
     // Retrieve stored settings for this TPA.
     let storedSettings = user.getAppSettings(tpaName);
 
-    console.log('Stored settings:', storedSettings);
+    // console.log('Stored settings:', storedSettings);
     if (!storedSettings) {
       // If settings are missing, load default settings from the TPA config file.
       const configFilePath = path.join(__dirname, '..', '..', '..', 'apps', tpaName, 'tpa_config.json'); // TODO: this should be an endpoint

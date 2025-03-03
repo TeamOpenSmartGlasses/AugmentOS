@@ -70,6 +70,7 @@ import { StreamType, ExtendedStreamType, isLanguageStream, UserSession, parseLan
       const currentSubs = this.subscriptions.get(key) || new Set();
       const action: SubscriptionHistory['action'] = currentSubs.size === 0 ? 'add' : 'update';
 
+      console.log("🎤 Updating subscriptions for ", key, " with ", subscriptions);
       // Validate subscriptions
       const processedSubscriptions = subscriptions.map(sub => 
         sub === StreamType.TRANSCRIPTION ? 
@@ -134,7 +135,7 @@ import { StreamType, ExtendedStreamType, isLanguageStream, UserSession, parseLan
      */
     getSubscribedApps(sessionId: string, subscription: ExtendedStreamType): string[] {
       const subscribedApps: string[] = [];
-      console.log("🎤 1111 Subscribed apps: ", this.subscriptions.entries());
+      // console.log("🎤 1111 Subscribed apps: ", this.subscriptions.entries());
 
       for (const [key, subs] of this.subscriptions.entries()) {
         if (!key.startsWith(`${sessionId}:`)) continue;

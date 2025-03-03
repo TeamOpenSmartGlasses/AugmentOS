@@ -269,7 +269,7 @@ export class WebSocketService {
     } else if (streamType === StreamType.TRANSCRIPTION) {
       effectiveSubscription = `${streamType}:${(data as any).transcribeLanguage}`;
     }
-    console.log("🎤 Effective subscription: ", effectiveSubscription);
+    // console.log("🎤 Effective subscription: ", effectiveSubscription);
 
     const subscribedApps = this.subscriptionService.getSubscribedApps(userSessionId, effectiveSubscription);
 
@@ -885,6 +885,9 @@ export class WebSocketService {
               }
             
               const subMessage = message as TpaSubscriptionUpdate;
+
+              console.log("🎤 Subscriptions before update: ", JSON.stringify(subMessage));
+              console.log("🎤 2222 User session: ", JSON.stringify(subMessage.subscriptions));
               
               // Get the minimal language subscriptions before update
               const previousLanguageSubscriptions = this.subscriptionService.getMinimalLanguageSubscriptions(userSessionId);
@@ -932,6 +935,7 @@ export class WebSocketService {
               // Get the list of active apps and update app state
               const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
             
+              console.log("🎤 Active app package names: ", activeAppPackageNames);
               // Create a map of active apps and what stream types they are subscribed to
               const appSubscriptions = new Map<string, ExtendedStreamType[]>(); // packageName -> streamTypes
               const whatToStream: Set<ExtendedStreamType> = new Set(); // streamTypes to enable

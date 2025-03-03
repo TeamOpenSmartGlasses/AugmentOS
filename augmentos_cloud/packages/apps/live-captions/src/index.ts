@@ -409,14 +409,23 @@ app.post('/settings', (req, res) => {
       userLanguageSettings.set(userIdForSettings, language);
     }
     
-    // Update processor and clear transcript
+    // Update processor and transcript
     console.log(`Updating settings for user ${userIdForSettings}: lineWidth=${lineWidth}, numberOfLines=${numberOfLines}, language=${language}`);
-    const lastUserTranscript = userTranscriptProcessors.get(userIdForSettings)?.getLastUserTranscript() || "";
+    
+    // Determine what to do with the transcript based on language change
+    let lastUserTranscript = "";
+    if (!languageChanged) {
+      // Only keep the previous transcript if language hasn't changed
+      lastUserTranscript = userTranscriptProcessors.get(userIdForSettings)?.getLastUserTranscript() || "";
+    }
+    
     const newProcessor = new TranscriptProcessor(lineWidth, numberOfLines);
     userTranscriptProcessors.set(userIdForSettings, newProcessor);
     userFinalTranscripts.set(userIdForSettings, lastUserTranscript);
 
-    const newUserTranscript = userTranscriptProcessors.get(userIdForSettings)?.processString(lastUserTranscript, true) || "";
+    // Process string will give empty result when lastUserTranscript is empty
+    const newUserTranscript = languageChanged ? "" : 
+      userTranscriptProcessors.get(userIdForSettings)?.processString(lastUserTranscript, true) || "";
 
     // Refresh active sessions
     const sessionsRefreshed = refreshUserSessions(userIdForSettings, newUserTranscript);
