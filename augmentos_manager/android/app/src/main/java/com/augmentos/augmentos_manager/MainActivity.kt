@@ -24,6 +24,19 @@ class MainActivity : ReactActivity() {
   // the cover screen while AugmentOS Manager is open
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(null)
+    
+    // Handle the intent if it exists
+    intent?.let { handleIntent(it) }
+  }
+
+  override fun onNewIntent(intent: Intent) {
+    super.onNewIntent(intent)
+    handleIntent(intent)
+  }
+
+  private fun handleIntent(intent: Intent) {
+    // Pass the intent to the IntentReceiverModule
+    IntentReceiverModule.handleIntent(intent)
   }
 
   override fun getMainComponentName(): String = "AugmentOS_Manager"

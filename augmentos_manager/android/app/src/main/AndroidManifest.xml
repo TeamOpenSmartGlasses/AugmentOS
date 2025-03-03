@@ -58,10 +58,17 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-        <data
-            android:scheme="com.augmentos"
-            android:host="auth"
-            android:pathPrefix="/callback" />
+                <data
+                    android:scheme="com.augmentos"
+                    android:host="auth"
+                    android:pathPrefix="/callback" />
+            </intent-filter>
+            
+            <!-- Add a new intent filter for custom intents -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.augmentos.CUSTOM_ACTION" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
         </activity>
