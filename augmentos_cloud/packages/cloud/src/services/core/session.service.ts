@@ -9,6 +9,7 @@ import appService, { SYSTEM_TPAS } from './app.service';
 import transcriptionService from '../processing/transcription.service';
 import DisplayManager from '../layout/DisplayManager6.1';
 import { LC3Service } from '@augmentos/utils';
+import { ASRStreamInstance } from '../processing/transcription.service';
 
 const RECONNECT_GRACE_PERIOD_MS = 30000; // 30 seconds
 const LOG_AUDIO = false;
@@ -38,6 +39,7 @@ export class SessionService {
       installedApps: appService.getSystemApps(),
       whatToStream: new Array<StreamType>(),
       appSubscriptions: new Map<string, StreamType[]>(),
+      transcriptionStreams: new Map<string, ASRStreamInstance>(),
       loadingApps: [],
       appConnections: new Map<string, WebSocket | any>(),
       OSSettings: { brightness: 50, volume: 50 },
@@ -146,19 +148,18 @@ export class SessionService {
   ): Promise<void> {
     // Update the last audio timestamp
     userSession.lastAudioTimestamp = Date.now();
-
+  
     // If not transcribing, just ignore the audio
     if (!userSession.isTranscribing) {
       if (LOG_AUDIO) console.log('🔇 Skipping audio while transcription is paused');
       return;
     }
-
+  
     // Process LC3 first if needed
     let processedAudioData = audioData;
     if (isLC3 && userSession.lc3Service) {
       try {
         processedAudioData = await userSession.lc3Service.decodeAudioChunk(audioData);
-
         if (!processedAudioData) {
           if (LOG_AUDIO) console.error(`❌ LC3 decode returned null for session ${userSession.sessionId}`);
           return; // Skip this chunk
@@ -168,24 +169,13 @@ export class SessionService {
         return; // Skip this chunk rather than sending corrupted data
       }
     }
-
-    // If we have a push stream, write directly to it
-    if (userSession.pushStream) {
-      try {
-        await userSession.pushStream.write(processedAudioData);
-        if (LOG_AUDIO) {
-          console.log('🎤 Wrote audio chunk to push stream', {
-            sessionId: userSession.sessionId,
-            hasRecognizer: !!userSession.recognizer,
-            isTranscribing: userSession.isTranscribing
-          });
-        }
-      } catch (error) {
-        console.error('❌ Error writing to push stream:', error);
-        transcriptionService.handlePushStreamError(userSession, error);
-      }
-    }
+  
+    // Instead of writing directly to a legacy push stream,
+    // forward the processed audio to the transcription service
+    // to feed all active transcription streams.
+    transcriptionService.feedAudioToTranscriptionStreams(userSession, processedAudioData);
   }
+  
 
   endSession(sessionId: string): void {
     const session = this.getSession(sessionId);

@@ -50,7 +50,7 @@ import sessionService, { SessionService } from './session.service';
 import subscriptionService, { SubscriptionService } from './subscription.service';
 import transcriptionService, { TranscriptionService } from '../processing/transcription.service';
 import appService, { IAppService } from './app.service';
-import { AppStateChange, AuthError, CloudToGlassesMessage, CloudToGlassesMessageType, CloudToTpaMessage, CloudToTpaMessageType, ConnectionAck, ConnectionError, ConnectionInit, DataStream, DisplayRequest, GlassesConnectionState, GlassesToCloudMessage, GlassesToCloudMessageType, HeadPosition, LocationUpdate, MicrophoneStateChange, StartApp, StopApp, StreamType, TpaConnectionAck, TpaConnectionError, TpaConnectionInit, TpaSubscriptionUpdate, TpaToCloudMessage, UserSession, Vad } from '@augmentos/types';
+import { AppStateChange, AuthError, CloudToGlassesMessage, CloudToGlassesMessageType, CloudToTpaMessage, CloudToTpaMessageType, ConnectionAck, ConnectionError, ConnectionInit, DataStream, DisplayRequest, ExtendedStreamType, GlassesConnectionState, GlassesToCloudMessage, GlassesToCloudMessageType, HeadPosition, LocationUpdate, MicrophoneStateChange, StartApp, StopApp, StreamType, TpaConnectionAck, TpaConnectionError, TpaConnectionInit, TpaSubscriptionUpdate, TpaToCloudMessage, UserSession, Vad } from '@augmentos/types';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { PosthogService } from '../logging/posthog.service';
 import { AUGMENTOS_AUTH_JWT_SECRET, systemApps } from '@augmentos/config';
@@ -252,32 +252,42 @@ export class WebSocketService {
    * @param data - Data to broadcast
    */
   broadcastToTpa(userSessionId: string, streamType: StreamType, data: CloudToTpaMessage): void {
-    const subscribedApps = this.subscriptionService.getSubscribedApps(userSessionId, streamType);
     const userSession = this.sessionService.getSession(userSessionId);
     if (!userSession) {
       console.error(`\n\n[websocket.service] User session not found for ${userSessionId}\n\n`);
       return;
     }
+    
+    // If the stream is transcription or translation and data has language info,
+    // construct an effective subscription string.
+    let effectiveSubscription: ExtendedStreamType = streamType;
+    // For translation, you might also include target language if available.
+    if (streamType === StreamType.TRANSLATION) {
+      effectiveSubscription = `${streamType}:${(data as any).transcribeLanguage}-to-${(data as any).translateLanguage}`;
+    } else if (streamType === StreamType.TRANSCRIPTION) {
+      effectiveSubscription = `${streamType}:${(data as any).transcribeLanguage}`;
+    }
+    
+    const subscribedApps = this.subscriptionService.getSubscribedApps(userSessionId, effectiveSubscription);
 
-    for (const packageName of subscribedApps) {
+    console.log(`🎤 Subscribed apps: ${JSON.stringify(subscribedApps)}`);
+    
+    subscribedApps.forEach(packageName => {
       const tpaSessionId = `${userSession.sessionId}-${packageName}`;
       const websocket = userSession.appConnections.get(packageName);
-
       if (websocket && websocket.readyState === WebSocket.OPEN) {
-        // CloudDataStreamMessage
         const streamMessage: DataStream = {
           type: CloudToTpaMessageType.DATA_STREAM,
           sessionId: tpaSessionId,
-          streamType,
-          data,
+          streamType, // Base type remains the same in the message.
+          data,      // The data now may contain language info.
           timestamp: new Date()
         };
-
         websocket.send(JSON.stringify(streamMessage));
       } else {
         console.error(`\n\n[websocket.service] TPA ${packageName} not connected\n\n`);
       }
-    }
+    });
   }
 
   /**
@@ -428,6 +438,8 @@ export class WebSocketService {
             ws.send(JSON.stringify(errorMessage));
             return;
           }
+
+          // let userId = 'loriamistadi75@gmail.com';
           console.log(`[websocket.service] Glasses client connected: ${userId}`);
 
           // See if this user has an existing session and reconnect if so.
