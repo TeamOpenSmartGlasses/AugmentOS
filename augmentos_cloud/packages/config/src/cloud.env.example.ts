@@ -64,17 +64,32 @@ export const AZURE_SPEECH_KEY = process.env.AZURE_SPEECH_KEY || "";
 // Need to define LLMModel enum for the switch case in LLMProvider
 export enum LLMModel {
   GPT4 = 'gpt-4o',
+  GPT4_MINI = 'gpt-4o-mini',
   CLAUDE = 'claude-3',
   GEMINI = 'gemini-pro',
 }
 
+export enum LLMService {
+  AZURE = 'azure',
+  OPENAI = 'openai',
+  ANTHROPIC = 'anthropic',
+}
+
 // Set LLM_MODEL to the enum value for compatibility
-export const LLM_MODEL = (process.env.LLM_MODEL as LLMModel) || LLMModel.GPT4;
+export const LLM_MODEL = process.env.LLM_MODEL || LLMModel.GPT4;
+export const LLM_PROVIDER = process.env.LLM_PROVIDER || LLMService.AZURE;
+
+// Azure OpenAI Configuration
 export const AZURE_OPENAI_API_KEY = process.env.AZURE_OPENAI_API_KEY || "";
 export const AZURE_OPENAI_API_INSTANCE_NAME = process.env.AZURE_OPENAI_API_INSTANCE_NAME || "";
 export const AZURE_OPENAI_API_DEPLOYMENT_NAME = process.env.AZURE_OPENAI_API_DEPLOYMENT_NAME || "";
 export const AZURE_OPENAI_API_VERSION = process.env.AZURE_OPENAI_API_VERSION || "2023-05-15";
+
+// Anthropic Configuration
 export const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || "";
+
+// OpenAI Configuration
+export const OPENAI_API_KEY = process.env.OPENAI_API_KEY || "";
 
 // Search API
 export const SERPAPI_API_KEY = process.env.SERPAPI_API_KEY || "";
@@ -84,6 +99,6 @@ export const SUPABASE_JWT_SECRET = process.env.SUPABASE_JWT_SECRET || "";
 export const AUGMENTOS_AUTH_JWT_SECRET = process.env.AUGMENTOS_AUTH_JWT_SECRET || "";
 export const JOE_MAMA_USER_JWT = process.env.JOE_MAMA_USER_JWT || "";
 
-// posthog env vars
+// PostHog
 export const POSTHOG_PROJECT_API_KEY = process.env.POSTHOG_PROJECT_API_KEY || "";
-export const POSTHOG_HOST = process.env.POSTHOG_HOST || "https://app.posthog.com"; 
+export const POSTHOG_HOST = process.env.POSTHOG_HOST || "https://app.posthog.com";
