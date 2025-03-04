@@ -8,16 +8,11 @@ import {
   StreamType,
   ViewType,
   LayoutType,
-<<<<<<< HEAD
-} from '@augmentos/types'; // shared types for cloud TPA messages
-import { CLOUD_HOST, CLOUD_PORT, systemApps } from '@augmentos/config';
-=======
   PhoneNotification,
   TpaSession,
   TpaServer,
 } from '@augmentos/sdk'; // shared types for cloud TPA messages
-import { CLOUD_PORT, systemApps } from '@augmentos/config';
->>>>>>> 00991c707b2780e836acd98071a29c57b15b01d4
+import { CLOUD_HOST, CLOUD_PORT, systemApps } from '@augmentos/config';
 import { wrapText } from '@augmentos/utils';
 
 const PORT = systemApps.notify.port;
