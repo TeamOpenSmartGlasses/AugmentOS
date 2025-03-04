@@ -26,18 +26,18 @@ const GlassesTroubleshootingModal: React.FC<TroubleshootingModalProps> = ({
     switch (model) {
       case 'Even Realities G1':
         return [
-          "Make sure your G1 is charged and the charging case is open",
+          "Make sure you closed the G1's left arm FIRST before putting it in the case",
+          "Plug your G1 case into a charger during the pairing process",
           "Try closing the charging case and opening it again",
           "Ensure no other app is currently connected to your G1",
           "Restart your phone's Bluetooth",
-          "Make sure your phone is within 3 feet of your glasses"
+          "Make sure your phone is within 3 feet of your glasses & case"
         ];
+      case 'Mentra Mach1':
       case 'Vuzix Z100':
         return [
-          "Make sure your Z100 is turned on",
-          "Check that your Z100 is in pairing mode (look for blinking light)",
-          "Ensure no other device is currently connected to your Z100",
-          "Restart your Z100 if necessary",
+          "Make sure your glasses are turned on",
+          "Check that your glasses are paired in the 'Vuzix Connect' app",
           "Try resetting your Bluetooth connection"
         ];
       case 'Mentra Live':
@@ -52,7 +52,6 @@ const GlassesTroubleshootingModal: React.FC<TroubleshootingModalProps> = ({
         return [
           "Make sure your glasses are charged and turned on",
           "Ensure no other device is connected to your glasses",
-          "Check that your phone's Bluetooth is enabled",
           "Try restarting both your glasses and phone",
           "Make sure your phone is within range of your glasses"
         ];

@@ -30,8 +30,6 @@
 
     "@react-native-community/slider": "^4.5.5",
 
-    "@react-native-cookies/cookies": "^6.2.1",
-
     "@react-navigation/native": "^6.1.18",
 
     "@react-navigation/native-stack": "^6.11.0",
@@ -57,8 +55,6 @@
     "react-native-bluetooth-classic": "^1.73.0-rc.12",
 
     "react-native-config": "^1.5.5",
-
-    "react-native-cookies": "^3.3.0",
 
     "react-native-elements": "^3.4.3",
 

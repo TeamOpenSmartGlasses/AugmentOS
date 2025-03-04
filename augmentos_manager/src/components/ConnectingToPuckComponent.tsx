@@ -6,7 +6,6 @@ import {NavigationProps} from "./types.ts";
 import { useAuth } from '../AuthContext.tsx';
 import BluetoothService from '../BluetoothService.tsx';
 import BackendServerComms from '../backend_comms/BackendServerComms.tsx';
-import CookieManager from '@react-native-cookies/cookies';
 import Config from 'react-native-config';
 
 
@@ -46,16 +45,16 @@ const ConnectingToPuckComponent = ({
             let uid = user.email || user.id;
             bluetoothService.setAuthenticationSecretKey(uid, coreToken);
 
-            const appStoreUrl: string = Config.AUGMENTOS_APPSTORE_URL || "";
-            console.log("OUR APP STORE URL: ", appStoreUrl);
-            CookieManager.set(appStoreUrl, {
-              name: 'coreToken',
-              value: coreToken,
-              domain: `.${Config.AUGMENTOS_DOMAIN || ""}`,  // Note the leading dot to include all subdomains
-              path: '/',
-              version: '1',
-              expires: new Date(Date.now() + (9999 * 24 * 60 * 60 * 1000)).toISOString() // 9999 days from now
-            }, Platform.OS === 'ios' ? true : undefined);
+            // const appStoreUrl: string = Config.AUGMENTOS_APPSTORE_URL || "";
+            // console.log("OUR APP STORE URL: ", appStoreUrl);
+            // CookieManager.set(appStoreUrl, {
+            //   name: 'coreToken',
+            //   value: coreToken,
+            //   domain: `.${Config.AUGMENTOS_DOMAIN || ""}`,  // Note the leading dot to include all subdomains
+            //   path: '/',
+            //   version: '1',
+            //   expires: new Date(Date.now() + (9999 * 24 * 60 * 60 * 1000)).toISOString() // 9999 days from now
+            // }, Platform.OS === 'ios' ? true : undefined);
           })
           .catch((err) => {
             console.error('Token exchange failed:', err);
