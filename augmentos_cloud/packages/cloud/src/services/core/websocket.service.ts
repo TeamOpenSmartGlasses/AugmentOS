@@ -235,7 +235,7 @@ export class WebSocketService {
 
       if (websocket && websocket.readyState === WebSocket.OPEN) {
         // CloudDataStreamMessage
-        const streamMessage: DataStream = {
+        const dataStream: DataStream = {
           type: CloudToTpaMessageType.DATA_STREAM,
           sessionId: tpaSessionId,
           streamType,
@@ -243,7 +243,7 @@ export class WebSocketService {
           timestamp: new Date()
         };
 
-        websocket.send(JSON.stringify(streamMessage));
+        websocket.send(JSON.stringify(dataStream));
       } else {
         console.error(`\n\n[websocket.service] TPA ${packageName} not connected\n\n`);
       }
@@ -778,6 +778,7 @@ export class WebSocketService {
             userSession.isTranscribing = false;
             transcriptionService.stopTranscription(userSession);
           }
+          this.broadcastToTpa(userSession.sessionId, message.type as any, message as any);
           break;
         }
 
@@ -793,7 +794,8 @@ export class WebSocketService {
           catch (error) {
             console.error(`\n\n[websocket.service] Error updating user location:`, error, `\n\n`);
           }
-
+          this.broadcastToTpa(userSession.sessionId, message.type as any, message as any);
+          console.warn(`[Session ${userSession.sessionId}] Catching and Sending message type:`, message.type);
           // userSession.location = locationUpdate.location;
           break;
         }
@@ -1072,7 +1074,8 @@ export class WebSocketService {
             lng: location.lng,
             timestamp: new Date()
           };
-          ws.send(JSON.stringify(locationUpdate));
+          // ws.send(JSON.stringify(locationUpdate));
+          this.broadcastToTpa(userSessionId, StreamType.LOCATION_UPDATE, locationUpdate);
         }
       }
     }

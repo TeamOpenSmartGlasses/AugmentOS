@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider';
 
 interface CloudConnectionProps {
   isDarkTheme: boolean;
@@ -40,12 +40,12 @@ const CloudConnection: React.FC<CloudConnectionProps> = ({ isDarkTheme }) => {
       case 'CONNECTED':
         return { name: 'check-circle', color: '#4CAF50', label: 'Connected' };
       case 'CONNECTING':
-        return { name: 'spinner', color: '#FB8C00', label: 'Connecting...' };
+        return { name: 'spinner', color: '#FB8C00', label: 'Connecting to cloud...' };
       case 'RECONNECTING':
-        return { name: 'refresh', color: '#FFD54F', label: 'Reconnecting...' };
+        return { name: 'refresh', color: '#FFD54F', label: 'Reconnecting to cloud...' };
       case 'DISCONNECTED':
       default:
-        return { name: 'exclamation-circle', color: '#FF5252', label: 'Disconnected' };
+        return { name: 'exclamation-circle', color: '#FF5252', label: 'Disconnected from cloud' };
     }
   };
 

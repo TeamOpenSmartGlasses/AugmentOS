@@ -4,6 +4,8 @@ import webSocketService from '../services/core/websocket.service';
 import sessionService from '../services/core/session.service';
 import appService from '../services/core/app.service';
 import { User } from '../models/user.model';
+import { CLOUD_VERSION } from '@augmentos/config';
+import { get } from 'http';
 
 const router = express.Router();
 
@@ -363,6 +365,10 @@ router.get('/:packageName', getAppByPackage);
 router.post('/:packageName/start', startApp);
 router.post('/:packageName/stop', stopApp);
 
-export default router;
 
 // TODO(isaiah): Add supabase auth middleare to routes that require it.
+router.get('/version', async (req, res) => {
+  res.json({ version: CLOUD_VERSION });
+});
+
+export default router;

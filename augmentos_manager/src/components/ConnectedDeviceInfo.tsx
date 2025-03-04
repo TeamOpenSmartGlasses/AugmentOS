@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated }
 import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { BluetoothService } from '../BluetoothService';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider';
 import { NavigationProps } from '../components/types';
 import { useNavigation } from '@react-navigation/native';
 import { getGlassesImage } from '../logic/getGlassesImage';
@@ -100,6 +100,8 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     setDisconnectButtonDisabled(true);
     setConnectButtonDisabled(false);
 
+    console.log('Disconnecting wearable');
+
     try {
       await bluetoothService.sendDisconnectWearable();
     } catch (error) { }
@@ -107,7 +109,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
 
   // New handler: if already connecting, pressing the button calls disconnect.
   const handleConnectOrDisconnect = async () => {
-    if (isConnectButtonDisabled) {
+    if (isConnectButtonDisabled || status.glasses_info?.is_searching) {
       await sendDisconnectWearable();
     } else {
       await connectGlasses();
@@ -146,10 +148,10 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
 
   // Determine the button style for connecting glasses
   const getConnectButtonStyle = () => {
-    if (isConnectButtonDisabled) {
-      return status.glasses_info?.is_searching ? styles.connectingButton : styles.disabledButton;
-    }
-    return styles.connectButton;
+      return status.glasses_info?.is_searching ?
+        styles.connectingButton :
+          isConnectButtonDisabled ? styles.disabledButton :
+                                    styles.connectButton;
   };
 
   return (
@@ -223,9 +225,9 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                     disabled={isConnectButtonDisabled && !status.glasses_info?.is_searching}
                   >
                     <Text style={styles.buttonText}>
-                      {isConnectButtonDisabled ? 'Connecting Glasses...' : 'Connect Glasses'}
+                      {isConnectButtonDisabled || status.glasses_info?.is_searching ? 'Connecting Glasses...' : 'Connect Glasses'}
                     </Text>
-                    {isConnectButtonDisabled && status.glasses_info?.is_searching && (
+                    {status.glasses_info?.is_searching && (
                       <ActivityIndicator size="small" color="#fff" style={{ marginLeft: 5 }} />
                     )}
                   </TouchableOpacity>

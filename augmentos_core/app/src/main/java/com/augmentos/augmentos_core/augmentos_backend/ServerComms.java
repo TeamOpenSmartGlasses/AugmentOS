@@ -1,5 +1,6 @@
 package com.augmentos.augmentos_core.augmentos_backend;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.augmentos.augmentos_core.BuildConfig;
@@ -46,10 +47,18 @@ public class ServerComms {
     private Thread audioSenderThread;
     private volatile boolean audioSenderRunning = false;
 
-    // 2) Provide a global accessor
+
+    public static synchronized ServerComms getInstance(Context context) {
+        if (instance == null) {
+            instance = new ServerComms(context);
+        }
+        return instance;
+    }
+
+
     public static synchronized ServerComms getInstance() {
         if (instance == null) {
-            instance = new ServerComms(); // calls private constructor
+            throw new IllegalStateException("ServerComms not initialized. Call getInstance(Context) first.");
         }
         return instance;
     }
@@ -58,9 +67,9 @@ public class ServerComms {
         this.serverCommsCallback = callback;
     }
 
-    private ServerComms() {
+    private ServerComms(Context context) {
         // Create the underlying WebSocketManager (OkHttp-based).
-        this.wsManager = new WebSocketManager(new WebSocketManager.IncomingMessageHandler() {
+        this.wsManager = new WebSocketManager(context, new WebSocketManager.IncomingMessageHandler() {
             @Override
             public void onIncomingMessage(JSONObject msg) {
                 handleIncomingMessage(msg);
@@ -107,9 +116,6 @@ public class ServerComms {
             }
         });
 
-        // --------------------------------------------------------------------
-        // START THE AUDIO SENDER THREAD
-        // --------------------------------------------------------------------
     }
 
     /**
@@ -398,20 +404,20 @@ public class ServerComms {
                 break;
 
             case "app_state_change":
-                Log.d(TAG, "Received app_state_change.");
+                //Log.d(TAG, "Received app_state_change.");
                 if (serverCommsCallback != null)
                     serverCommsCallback.onAppStateChange(parseAppList(msg));
                 break;
 
             case "connection_error":
                 String errorMsg = msg.optString("message", "Unknown error");
-                Log.e(TAG, "connection_error from server: " + errorMsg);
+                //Log.e(TAG, "connection_error from server: " + errorMsg);
                 if (serverCommsCallback != null)
                     serverCommsCallback.onConnectionError(errorMsg);
                 break;
 
             case "auth_error":
-                Log.d(TAG, "Server is requesting a reconnect.");
+                //Log.d(TAG, "Server is requesting a reconnect.");
                 disconnectWebSocket();
                 if (serverCommsCallback != null)
                     serverCommsCallback.onAuthError();
@@ -419,13 +425,13 @@ public class ServerComms {
 
             case "microphone_state_change":
                 boolean isMicrophoneEnabled = msg.optBoolean("isMicrophoneEnabled", true);
-                Log.d(TAG, "Received turn_microphone_on message." + isMicrophoneEnabled);
+                //Log.d(TAG, "Received turn_microphone_on message." + isMicrophoneEnabled);
                 if (serverCommsCallback != null)
                     serverCommsCallback.onMicrophoneStateChange(isMicrophoneEnabled);
                 break;
 
             case "display_event":
-                Log.d(TAG, "Received display_event: " + msg.toString());
+                //Log.d(TAG, "Received display_event: " + msg.toString());
                 String view = msg.optString("view");
                 boolean isDashboard = view.equals("dashboard");
 
@@ -438,7 +444,7 @@ public class ServerComms {
                 break;
 
             case "request_single":
-                Log.d(TAG, "Received request_core_status: " + msg.toString());
+                //Log.d(TAG, "Received request_core_status: " + msg.toString());
                 String dataType = msg.optString("data_type");
                 if (serverCommsCallback != null)
                     serverCommsCallback.onRequestSingle(dataType);
@@ -456,7 +462,6 @@ public class ServerComms {
 
             case "reconnect":
                 Log.d(TAG, "Server is requesting a reconnect.");
-                //attemptReconnect();
                 break;
 
             default:
@@ -571,4 +576,10 @@ public class ServerComms {
         }
     }
 
+
+
+    public void cleanup() {
+        wsManager.cleanup();
+        disconnectWebSocket();
+    }
 }

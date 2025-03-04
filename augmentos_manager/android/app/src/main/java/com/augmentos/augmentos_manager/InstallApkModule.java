@@ -54,7 +54,7 @@ public class InstallApkModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void downloadCoreApk(Promise promise) {
         DownloadManager downloadManager = (DownloadManager) getReactApplicationContext().getSystemService(Context.DOWNLOAD_SERVICE);
-        String downloadLink = "https://api.augmentos.org/apks/AugmentOSCore.apk";
+        String downloadLink = "https://cloud.augmentos.org/AugmentOS.apk";
         String packageName = "com.augmentos.augmentos_core";
         String appName = "AugmentOS Core";
         String version = "latest";
@@ -69,12 +69,12 @@ public class InstallApkModule extends ReactContextBaseJavaModule {
             DownloadManager.Request request = new DownloadManager.Request(uri);
             request.setTitle("Downloading " + appName);
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-            
+
             // Generate unique filename with timestamp
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
             String timestamp = sdf.format(new Date());
             String downloadedAppName = appName.replace(" ", "") + "_" + version + "_" + timestamp + ".apk";
-        
+
             request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, downloadedAppName);
 
             long downloadId = downloadManager.enqueue(request);

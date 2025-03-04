@@ -1,6 +1,14 @@
 package com.augmentos.augmentoslib;
 
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTIFICATION_CHANNEL_ID;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTIFICATION_CHANNEL_NAME;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTIFICATION_DESCRIPTION;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTIFICATION_ID;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AUGMENTOS_NOTIFICATION_TITLE;
+import static com.augmentos.augmentoslib.AugmentOSGlobalConstants.AugmentOSManagerPackageName;
+
 import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
@@ -18,7 +26,6 @@ import androidx.lifecycle.LifecycleService;
 
 import com.augmentos.augmentoslib.events.KillTpaEvent;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.Objects;
@@ -33,34 +40,55 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     public static final String TPA_ACTION = "tpaAction";
     public static final String ACTION_START_FOREGROUND_SERVICE = "AugmentOSLIB_ACTION_START_FOREGROUND_SERVICE";
     public static final String ACTION_STOP_FOREGROUND_SERVICE = "AugmentOSLIB_ACTION_STOP_FOREGROUND_SERVICE";
-    private String NOTIFICATION_DESCRIPTION = "Running in foreground";
-    private final int NOTIFICATION_ID = Math.abs(UUID.randomUUID().hashCode());//Math.abs(getPackageName().hashCode());
-    private static final String CHANNEL_ID = "augmentos_default_channel";
-
-    private static final String CHANNEL_NAME = "AugmentOS Background Service";
     public FocusStates focusState;
 
     public SmartGlassesAndroidService(){
         this.focusState = FocusStates.OUT_FOCUS;
     }
 
-    //service stuff
-    private Notification updateNotification() {
-        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        NotificationCompat.Builder builder;
 
-        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME,
-                NotificationManager.IMPORTANCE_HIGH);
-        channel.setDescription(NOTIFICATION_DESCRIPTION);
-        manager.createNotificationChannel(channel);
+    public static Notification buildSharedForegroundNotification(Context context) {
+        String title = AUGMENTOS_NOTIFICATION_TITLE;
+        String description = AUGMENTOS_NOTIFICATION_DESCRIPTION;
 
-        return new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle(CHANNEL_NAME)
-                .setContentText(NOTIFICATION_DESCRIPTION)
+        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    AUGMENTOS_NOTIFICATION_CHANNEL_ID,
+                    AUGMENTOS_NOTIFICATION_CHANNEL_NAME,
+                    NotificationManager.IMPORTANCE_HIGH
+            );
+            channel.setDescription(description);
+            manager.createNotificationChannel(channel);
+        }
+
+        Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(AugmentOSManagerPackageName);
+
+        PendingIntent pendingIntent = null;
+
+        if (launchIntent != null) {
+            // Optionally, set flags so the existing Activity in the stack is used, rather than creating a new one.
+            // This helps preserve the current Activity state if the user is already in the app.
+            launchIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+            // Use FLAG_IMMUTABLE if you target Android 12+ and don't need the PendingIntent to be mutable
+            pendingIntent = PendingIntent.getActivity(
+                    context,
+                    0,
+                    launchIntent,
+                    PendingIntent.FLAG_IMMUTABLE
+            );
+        }
+
+        return new NotificationCompat.Builder(context, AUGMENTOS_NOTIFICATION_CHANNEL_ID)
+                .setContentTitle(title)
+                .setContentText(description)
                 .setSmallIcon(android.R.drawable.sym_def_app_icon)
-                .setTicker("...")
-                .setOngoing(true).build();
+                .setOngoing(true)
+                .setContentIntent(pendingIntent)
+                .build();
     }
+
 
     public class LocalBinder extends Binder {
         public SmartGlassesAndroidService getService() {
@@ -91,7 +119,9 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
                 case ACTION_START_FOREGROUND_SERVICE:
                     // start the service in the foreground
                     Log.d("TEST", "starting foreground");
-                    startForeground(NOTIFICATION_ID, updateNotification());
+                    //startForeground(NOTIFICATION_ID, updateNotification());
+                    startForeground(AUGMENTOS_NOTIFICATION_ID, buildSharedForegroundNotification(this));
+
                     setup();
                     break;
                 case ACTION_STOP_FOREGROUND_SERVICE:

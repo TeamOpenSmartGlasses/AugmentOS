@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { useStatus } from './AugmentOSStatusProvider';
+import { useStatus } from './providers/AugmentOSStatusProvider';
 
 const HomeScreenComponent = () => {
   const { status } = useStatus();

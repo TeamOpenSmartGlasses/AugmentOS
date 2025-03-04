@@ -14,10 +14,10 @@ import { Slider } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider.tsx';
 import { BluetoothService } from '../BluetoothService';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
-import ManagerCoreCommsService from '../augmentos_core_comms/ManagerCoreCommsService';
+import { loadSetting, saveSetting } from '../logic/SettingsHelper.tsx';
+import ManagerCoreCommsService from '../bridge/ManagerCoreCommsService.tsx';
 import NavigationBar from '../components/NavigationBar';
 
 import { SETTINGS_KEYS } from '../consts';
@@ -202,6 +202,28 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
     status.glasses_info?.brightness === '-' ||
     !status.glasses_info.model_name.toLowerCase().includes('even');
 
+ // Fixed slider props to avoid warning
+ const sliderProps = {
+  disabled: !status.glasses_info?.model_name ||
+           status.glasses_info?.brightness === '-' ||
+           !status.glasses_info.model_name.toLowerCase().includes('even'),
+  style: styles.slider,
+  minimumValue: 0,
+  maximumValue: 100,
+  step: 1,
+  onSlidingComplete: (value: number) => changeBrightness(value),
+  value: brightness ?? 50,
+  minimumTrackTintColor: styles.minimumTrackTintColor.color,
+  maximumTrackTintColor: isDarkTheme 
+    ? styles.maximumTrackTintColorDark.color 
+    : styles.maximumTrackTintColorLight.color,
+  thumbTintColor: styles.thumbTintColor.color,
+  // Using inline objects instead of defaultProps
+  thumbTouchSize: { width: 40, height: 40 },
+  trackStyle: { height: 5 },
+  thumbStyle: { height: 20, width: 20 }
+};
+
   return (
     <View
       style={[
@@ -234,25 +256,25 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               style={[
                 styles.label,
                 isDarkTheme ? styles.lightText : styles.darkText,
-                (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
+                // (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
+                //   styles.disabledItem,
               ]}
             >
-              Force Onboard Microphone
+              Force Phone Microphone
             </Text>
             <Text
               style={[
                 styles.value,
                 isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-                (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
+                // (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
+                //   styles.disabledItem,
               ]}
             >
-              Force the use of the onboard mic instead of the glasses' mic (if applicable).
+              Force the use of the phone's microphone instead of the glasses' microphone (if applicable).
             </Text>
           </View>
           <Switch
-            disabled={!status.glasses_info?.model_name}
+            //disabled={!status.glasses_info?.model_name}
             value={forceCoreOnboardMic}
             onValueChange={toggleForceCoreOnboardMic}
             trackColor={switchColors.trackColor}
@@ -292,8 +314,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               style={[
                 styles.label,
                 isDarkTheme ? styles.lightText : styles.darkText,
-                (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
               ]}
             >
               Contextual Dashboard
@@ -303,8 +323,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
                 style={[
                   styles.value,
                   isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-                  (!status.core_info.puck_connected || !status.glasses_info?.model_name) &&
-                    styles.disabledItem,
                 ]}
               >
                 {`Show a summary of your phone notifications when you ${
@@ -318,7 +336,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
             )}
           </View>
           <Switch
-            disabled={!status.glasses_info?.model_name}
             value={isContextualDashboardEnabled}
             onValueChange={toggleContextualDashboard}
             trackColor={switchColors.trackColor}
@@ -353,8 +370,8 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
           />
         </TouchableOpacity>
 
-        {/* Brightness Slider */}
-        <View style={styles.settingItem}>
+               {/* Brightness Slider */}
+               <View style={styles.settingItem}>
           <View style={styles.settingTextContainer}>
             <Text
               style={[
@@ -377,27 +394,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
               Adjust the brightness level of your smart glasses.
             </Text>
             <Slider
-              disabled={
-                !status.glasses_info?.model_name ||
-                status.glasses_info?.brightness === '-' ||
-                !status.glasses_info.model_name.toLowerCase().includes('even')
-              }
-              style={styles.slider}
-              minimumValue={0}
-              maximumValue={100}
-              thumbTouchSize={styles.thumbTouchSize}
-              trackStyle={styles.trackStyle}
-              thumbStyle={styles.thumbStyle}
-              step={1}
-              onSlidingComplete={(value) => changeBrightness(value)}
-              value={brightness ?? 50}
-              minimumTrackTintColor={styles.minimumTrackTintColor.color}
-              maximumTrackTintColor={
-                isDarkTheme
-                  ? styles.maximumTrackTintColorDark.color
-                  : styles.maximumTrackTintColorLight.color
-              }
-              thumbTintColor={styles.thumbTintColor.color}
+              {...sliderProps}
             />
           </View>
         </View>

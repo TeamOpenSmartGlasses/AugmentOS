@@ -17,16 +17,17 @@ import com.facebook.react.bridge.WritableMap
 
 class MainActivity : ReactActivity() {
 
-  /**
-   * Returns the name of the main component registered from JavaScript. This is used to schedule
-   * rendering of the component.
-   */
+  // Pass `null` to avoid restoring Screen fragments,
+  // which react-native-screens does not support
+  // For reference: this onCreate block solves a critical error for our large base of
+  // Motorola Razr+ 2024 users, which causes the app to crash when opening/closing
+  // the cover screen while AugmentOS Manager is open
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(null)
+  }
+
   override fun getMainComponentName(): String = "AugmentOS_Manager"
 
-  /**
-   * Returns the instance of the [ReactActivityDelegate]. We use [DefaultReactActivityDelegate]
-   * which allows you to enable New Architecture with a single boolean flag [fabricEnabled].
-   */
   override fun createReactActivityDelegate(): ReactActivityDelegate =
       DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
 }

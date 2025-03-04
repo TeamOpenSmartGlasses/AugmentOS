@@ -7,8 +7,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useStatus } from '../AugmentOSStatusProvider';
-import { loadSetting } from '../augmentos_core_comms/SettingsHelper';
+import { useStatus } from '../providers/AugmentOSStatusProvider.tsx';
+import { loadSetting } from '../logic/SettingsHelper.tsx';
 import {
   SETTINGS_KEYS,
   SIMULATED_PUCK_DEFAULT,
@@ -18,12 +18,12 @@ import {
   isAugmentOsCoreInstalled,
   openCorePermissionsActivity,
   areAllCorePermissionsGranted
-} from '../augmentos_core_comms/CoreServiceStarter';
+} from '../bridge/CoreServiceStarter.tsx';
 import { ScrollView } from 'react-native-gesture-handler';
 import { NavigationProps } from '../components/types';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from '../components/Button';
-import InstallApkModule from '../logic/InstallApkModule';
+import InstallApkModule from '../bridge/InstallApkModule.tsx';
 import { fetchAppStoreData } from '../utils/backendUtils.ts';
 import BluetoothService from '../BluetoothService.tsx';
 
@@ -33,9 +33,9 @@ interface SimulatedPuckOnboardProps {
 }
 
 const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
-  isDarkTheme,
-  toggleTheme,
-}) => {
+                                                                     isDarkTheme,
+                                                                     toggleTheme,
+                                                                   }) => {
   const [isSimulatedPuck, setIsSimulatedPuck] = useState(false);
   const [isCoreInstalled, setIsCoreInstalled] = useState(false);
   const [isCoreOutdated, setIsCoreOutdated] = useState(true);
@@ -46,7 +46,7 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
 
   const { status } = useStatus();
   const navigation = useNavigation<NavigationProps>();
-    const bluetoothService = BluetoothService.getInstance();
+  const bluetoothService = BluetoothService.getInstance();
 
   // Use a ref flag to ensure we only fetch the app store data once.
   const didFetchStoreData = useRef(false);
@@ -67,7 +67,7 @@ const SimulatedPuckOnboard: React.FC<SimulatedPuckOnboardProps> = ({
         setIsSimulatedPuck(simulatedPuck);
         setIsCoreInstalled(true);
         if(await areAllCorePermissionsGranted()) {
-            navigation.reset({
+          navigation.reset({
             index: 0,
             routes: [{ name: 'Home' }],
           });

@@ -18,6 +18,7 @@ import { webSocketService } from './services/core/websocket.service';
 import appRoutes from './routes/apps.routes';
 import authRoutes from './routes/auth.routes';
 import transcriptRoutes from './routes/transcripts.routes';
+import tpaSettingsRoutes from './routes/tpa-settings.routes';
 import path from 'path';
 
 // Load configuration from environment
@@ -76,7 +77,7 @@ app.use('/api/apps', appRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/apps', appRoutes);
 app.use('/auth', authRoutes);
-
+app.use('/tpasettings', tpaSettingsRoutes);
 app.use(transcriptRoutes);
 
 // Health check endpoint

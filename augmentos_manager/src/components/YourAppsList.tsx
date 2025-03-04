@@ -5,7 +5,7 @@ import {
     Text,
     StyleSheet,
 } from 'react-native';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider';
 import AppIcon from './AppIcon';
 import { BluetoothService } from '../BluetoothService';
 

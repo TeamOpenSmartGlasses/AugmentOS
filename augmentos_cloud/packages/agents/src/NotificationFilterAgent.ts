@@ -187,7 +187,7 @@ export class NotificationFilterAgent implements Agent {
         };
       });
 
-      console.log("RANKING LIST:");
+      // console.log("RANKING LIST:");
       console.log(enrichedRankingList);
       return enrichedRankingList;
     } catch (err) {

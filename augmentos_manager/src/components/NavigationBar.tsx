@@ -68,24 +68,23 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
       {/* Glasses Mirror Icon */}
       <TouchableOpacity
         onPress={() => navigation.navigate('GlassesMirror')}
-        disabled={true}
         style={styles.iconWrapper}>
         <MaterialCommunityIcons
           name={icons.mirror}
           size={iconSize}
-          color={disabledColor}
+          color={iconColor}
         />
       </TouchableOpacity>
 
       {/* App Store Icon */}
       <TouchableOpacity
         onPress={() => navigation.navigate('AppStore')}
-        // disabled={true}
+        disabled={true}
         style={styles.iconWrapper}>
         <MaterialCommunityIcons
           name={icons.apps}
           size={iconSize}
-          color={iconColor}
+          color={disabledColor}
         />
       </TouchableOpacity>
 

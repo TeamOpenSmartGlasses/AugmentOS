@@ -1,14 +1,14 @@
 import React, { useEffect,useRef, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
+import { loadSetting, saveSetting } from '../logic/SettingsHelper';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from '../consts';
 import { NavigationProps } from '../components/types';
 import { supabase } from '../supabaseClient';
 import { useAuth } from '../AuthContext';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider';
 import { doesHaveAllPermissions } from '../logic/PermissionsUtils';
-import { isAugmentOsCoreInstalled, openCorePermissionsActivity, stopExternalService } from '../augmentos_core_comms/CoreServiceStarter';
+import { isAugmentOsCoreInstalled, openCorePermissionsActivity, stopExternalService } from '../bridge/CoreServiceStarter';
 
 interface SplashScreenProps {
   //navigation: any;

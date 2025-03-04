@@ -4,6 +4,7 @@ import { BaseMessage } from './base';
 import { CloudToTpaMessageType } from '../message-types';
 import { StreamType } from '../streams';
 import { AppSettings } from '../models';
+import { LocationUpdate } from './glasses-to-cloud';
 
 //===========================================================
 // Responses
@@ -110,6 +111,7 @@ export type CloudToTpaMessage =
   | TranscriptionData
   | TranslationData
   | AudioChunk
+  | LocationUpdate
   | DataStream;
 
 //===========================================================

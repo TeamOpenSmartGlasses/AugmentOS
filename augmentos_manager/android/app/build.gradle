@@ -43,8 +43,8 @@ android {
         applicationId "com.augmentos.augmentos_manager"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 19
+        versionName "1.9.0"
         multiDexEnabled true  // Add this if your app exceeds 64K method limit
     }
     signingConfigs {
@@ -109,6 +109,8 @@ dependencies {
 
     implementation project(path: ":augmentos_core")
     implementation 'com.facebook.react:hermes-android:0.75.4'
+
+    //implementation "androidx.lifecycle:lifecycle-process:2.5.1" // Use the version appropriate for your project
 
     implementation project(':react-native-config')
 }
