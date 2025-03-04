@@ -38,13 +38,17 @@ const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleThe
   const appInfo = useMemo(() => {
     return status.apps.find(app => app.packageName === packageName) || null;
   }, [status.apps, packageName]);
-  
+
   // Placeholder functions for app actions
   const handleStartStopApp = () => {
     console.log(`${appInfo?.is_running ? 'Stopping' : 'Starting'} app: ${packageName}`);
-    // This would be implemented with actual functionality to start/stop the app
+    if (appInfo?.packageName && appInfo?.is_running) {
+      BluetoothService.getInstance().stopAppByPackageName(appInfo?.packageName);
+    } else if (appInfo?.packageName && !appInfo?.is_running) {
+      BluetoothService.getInstance().startAppByPackageName(appInfo?.packageName);
+    }
   };
-  
+
   const handleUninstallApp = () => {
     console.log(`Uninstalling app: ${packageName}`);
     // This would be implemented with actual functionality to uninstall the app
@@ -129,22 +133,17 @@ const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleThe
         return require('../assets/app-icons/mentra-link.png');
       case 'com.mentra.adhdaid':
         return require('../assets/app-icons/ADHD-aid.png');
-      case 'com.augmentos.livetranslation':
-      case 'com.mentra.livetranslation':
+      case 'com.augmentos.live-translation':
         return require('../assets/app-icons/translation.png');
       case 'com.example.placeholder':
       case 'com.augmentos.screenmirror':
-      case 'com.mentra.screenmirror':
         return require('../assets/app-icons/screen-mirror.png');
       case 'com.augmentos.live-captions':
-      case 'com.mentra.live-captions':
         return require('../assets/app-icons/captions.png');
       case 'com.augmentos.miraai':
-      case 'com.mentra.miraai':
         return require('../assets/app-icons/mira-ai.png');
       case 'com.google.android.apps.maps':
       case 'com.augmentos.navigation':
-      case 'com.mentra.navigation':
         return require('../assets/app-icons/navigation.png');
       case 'com.augmentos.notify':
         return require('../assets/app-icons/phone-notifications.png');
@@ -251,7 +250,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleThe
                 />
               </View>
             </View>
-            
+
             <View style={styles.appInfoTextContainer}>
               <Text style={[styles.appName, { color: theme.textColor }]}>{appInfo.name}</Text>
               <View style={styles.appMetaInfoContainer}>
@@ -269,7 +268,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleThe
               </View>
             </View>
           </View>
-          
+
           {/* Description within the main card */}
           <View style={[styles.descriptionContainer, { borderTopColor: theme.separatorColor }]}>
             <Text style={[styles.descriptionText, { color: theme.textColor }]}>
@@ -281,37 +280,37 @@ const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleThe
         {/* App Action Buttons Section */}
         <View style={[styles.sectionContainer, { backgroundColor: theme.cardBackground, borderColor: theme.borderColor }]}>
           <View style={styles.actionButtonsRow}>
-            <TouchableOpacity 
+            <TouchableOpacity
               style={[
-                styles.actionButton, 
+                styles.actionButton,
                 { borderColor: theme.borderColor, backgroundColor: theme.backgroundColor }
               ]}
               onPress={handleStartStopApp}
               activeOpacity={0.7}
             >
-              <FontAwesome 
-                name={appInfo.is_running ? "stop" : "play"} 
-                size={16} 
-                style={[styles.buttonIcon, { color: theme.secondaryTextColor }]} 
+              <FontAwesome
+                name={appInfo.is_running ? "stop" : "play"}
+                size={16}
+                style={[styles.buttonIcon, { color: theme.secondaryTextColor }]}
               />
               <Text style={[styles.buttonText, { color: theme.secondaryTextColor }]}>
                 {appInfo.is_running ? "Stop" : "Start"}
               </Text>
             </TouchableOpacity>
-            
-            <TouchableOpacity 
+
+            <TouchableOpacity
               style={[
-                styles.actionButton, 
-                styles.disabledButton, 
+                styles.actionButton,
+                styles.disabledButton,
                 { borderColor: theme.borderColor, backgroundColor: theme.backgroundColor }
               ]}
               activeOpacity={0.7}
               disabled={true}
             >
-              <FontAwesome 
-                name="trash" 
+              <FontAwesome
+                name="trash"
                 size={16}
-                style={[styles.buttonIcon, { color: theme.secondaryTextColor }]} 
+                style={[styles.buttonIcon, { color: theme.secondaryTextColor }]}
               />
               <Text style={[styles.buttonText, { color: theme.secondaryTextColor }]}>Uninstall</Text>
             </TouchableOpacity>
@@ -349,12 +348,12 @@ const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleThe
 };
 
 const styles = StyleSheet.create({
-  safeArea: { 
-    flex: 1 
+  safeArea: {
+    flex: 1
   },
-  mainContainer: { 
-    flexGrow: 1, 
-    padding: 16, 
+  mainContainer: {
+    flexGrow: 1,
+    padding: 16,
     alignItems: 'stretch',
     gap: 16,
   },
@@ -438,8 +437,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     marginBottom: 12,
   },
-  instructionsText: { 
-    fontSize: 14, 
+  instructionsText: {
+    fontSize: 14,
     lineHeight: 22,
     fontFamily: 'Montserrat-Regular',
   },
@@ -453,11 +452,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 16,
   },
-  loadingContainer: { 
-    flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center', 
-    marginHorizontal: 20 
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 20
   },
   actionButtonsRow: {
     flexDirection: 'row',
