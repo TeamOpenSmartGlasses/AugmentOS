@@ -12,7 +12,7 @@ export default class BackendServerComms {
   private TAG = 'MXT2_BackendServerComms';
   private serverUrl;
 
-  private getServerUrl(): string {
+  public getServerUrl(): string {
     const secure = Config.AUGMENTOS_SECURE === 'true';
     const host = Config.AUGMENTOS_HOST;
     const port = Config.AUGMENTOS_PORT;

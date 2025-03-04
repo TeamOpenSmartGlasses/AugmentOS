@@ -1,0 +1,19 @@
+{
+  "name": "@augmentos/live-translation",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "deploy": "bun run build && bun start",
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@augmentos/types": "workspace:*",
+    "@augmentos/config": "workspace:*",
+    "@augmentos/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

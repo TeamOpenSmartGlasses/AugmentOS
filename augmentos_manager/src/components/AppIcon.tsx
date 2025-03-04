@@ -6,6 +6,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 import { NavigationProps } from './types';
+import { getAppImage } from '../logic/getAppImage';
 // import BluetoothService from '../BluetoothService';
 
 interface AppIconProps {
@@ -24,36 +25,6 @@ const AppIcon: React.FC<AppIconProps> = ({
     isDarkTheme = false,
 }) => {
   const navigation = useNavigation<NavigationProps>();
-
-    const getAppImage = useMemo(
-        () => (packageName: string) => {
-            switch (packageName) {
-                case 'com.mentra.merge':
-                    return require('../assets/app-icons/mentra-merge.png');
-                case 'com.mentra.link':
-                    return require('../assets/app-icons/mentra-link.png');
-                case 'com.mentra.adhdaid':
-                    return require('../assets/app-icons/ADHD-aid.png');
-                case 'com.augmentos.livetranslation':
-                    return require('../assets/app-icons/translation.png');
-                case 'com.example.placeholder':
-                case 'com.augmentos.screenmirror':
-                    return require('../assets/app-icons/screen-mirror.png');
-                case 'com.augmentos.live-captions':
-                    return require('../assets/app-icons/captions.png');
-                case 'com.augmentos.miraai':
-                    return require('../assets/app-icons/mira-ai.png');
-                case 'com.google.android.apps.maps':
-                case 'com.augmentos.navigation':
-                    return require('../assets/app-icons/navigation.png');
-                case 'com.augmentos.notify':
-                    return require('../assets/app-icons/phone-notifications.png');
-                default:
-                    return require('../assets/app-icons/navigation.png');
-            }
-        },
-        []
-    );
 
     const openAppSettings = async () => {
         navigation.navigate('AppSettings', {

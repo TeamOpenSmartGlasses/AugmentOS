@@ -2,7 +2,7 @@
 
 import { BaseMessage } from './base';
 import { TpaToCloudMessageType } from '../message-types';
-import { StreamType } from '../streams';
+import { ExtendedStreamType, StreamType } from '../streams';
 import { DisplayRequest } from '../layouts';
 
 /**
@@ -21,7 +21,7 @@ export interface TpaConnectionInit extends BaseMessage {
 export interface TpaSubscriptionUpdate extends BaseMessage {
   type: TpaToCloudMessageType.SUBSCRIPTION_UPDATE;
   packageName: string;
-  subscriptions: StreamType[];
+  subscriptions: ExtendedStreamType[];
 }
 
 /**

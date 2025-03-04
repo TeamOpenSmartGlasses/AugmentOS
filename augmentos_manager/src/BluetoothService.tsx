@@ -4,7 +4,7 @@ import { EventEmitter } from 'events';
 import { TextDecoder } from 'text-encoding';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { AppState } from 'react-native';
-import { ENABLE_PHONE_NOTIFICATIONS_DEFAULT, INTENSE_LOGGING, MOCK_CONNECTION, SETTINGS_KEYS, SIMULATED_PUCK_DEFAULT } from './consts';
+import { ENABLE_PHONE_NOTIFICATIONS_DEFAULT, INTENSE_LOGGING, MOCK_CONNECTION, SETTINGS_KEYS } from './consts';
 import { loadSetting, saveSetting } from './logic/SettingsHelper';
 import {isAugmentOsCoreInstalled, openCorePermissionsActivity, startExternalService } from './bridge/CoreServiceStarter';
 import ManagerCoreCommsService from './bridge/ManagerCoreCommsService';
@@ -44,7 +44,8 @@ export class BluetoothService extends EventEmitter {
 
   isLocked: boolean = false;
 
-  simulatedPuck: boolean = false;
+  // TODO: Holdover from old code. Core was originally supposed to run off-device.
+  simulatedPuck: boolean = true;
 
   private appStateSubscription: { remove: () => void } | null = null;
   private reconnectionTimer: NodeJS.Timeout | null = null;
@@ -60,9 +61,6 @@ export class BluetoothService extends EventEmitter {
 
     console.trace();
     console.log(console.trace());
-
-    // TODO: Temporarily default this to be true
-    this.simulatedPuck = await loadSetting(SETTINGS_KEYS.SIMULATED_PUCK, SIMULATED_PUCK_DEFAULT);
 
     if (this.simulatedPuck) {
       if (!(await ManagerCoreCommsService.isServiceRunning()))

@@ -111,7 +111,7 @@ class DisplayManager implements DisplayManagerI {
 
     // Always show dashboard immediately
     if (displayRequest.packageName === systemApps.dashboard.packageName) {
-      console.log(`[DisplayManager] - [${userSession.userId}] 📱 Dashboard display request: ${displayRequest.packageName}`);
+      // console.log(`[DisplayManager] - [${userSession.userId}] 📱 Dashboard display request: ${displayRequest.packageName}`);
       return this.sendDisplay(displayRequest);
     }
 
