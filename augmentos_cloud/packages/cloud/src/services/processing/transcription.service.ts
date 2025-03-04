@@ -57,6 +57,7 @@ export class TranscriptionService {
     );
 
     this.speechConfig.speechRecognitionLanguage = config.speechRecognitionLanguage || 'en-US';
+    // Remove profanity filtering by setting to Raw (i.e. unfiltered text)
     this.speechConfig.setProfanity(ProfanityOption.Raw);
     this.speechConfig.outputFormat = OutputFormat.Simple;
 
@@ -108,6 +109,8 @@ export class TranscriptionService {
       const translationConfig = azureSpeechSDK.SpeechTranslationConfig.fromSubscription(AZURE_SPEECH_KEY, AZURE_SPEECH_REGION);
       translationConfig.speechRecognitionLanguage = languageInfo.transcribeLanguage;
       translationConfig.addTargetLanguage(languageInfo.translateLanguage);
+      // Remove profanity filtering for translation by setting to Raw
+      translationConfig.setProfanity(ProfanityOption.Raw);
       recognizer = new azureSpeechSDK.TranslationRecognizer(translationConfig, audioConfig);
       recognizer.startContinuousRecognitionAsync(
         () => { console.log(`✅ Started translation stream for ${subscription}`); },
@@ -119,6 +122,8 @@ export class TranscriptionService {
     } else {
       const speechConfig = azureSpeechSDK.SpeechConfig.fromSubscription(AZURE_SPEECH_KEY, AZURE_SPEECH_REGION);
       speechConfig.speechRecognitionLanguage = languageInfo.transcribeLanguage;
+      // Remove profanity filtering for transcription by setting to Raw
+      speechConfig.setProfanity(ProfanityOption.Raw);
       recognizer = new ConversationTranscriber(speechConfig, audioConfig);
       recognizer.startTranscribingAsync(
         () => { console.log(`✅ Started transcription stream for ${subscription}`); },
@@ -166,46 +171,46 @@ export class TranscriptionService {
   ): void {
     if (languageInfo.type === StreamType.TRANSLATION) {
       // Translation branch: use recognizing and recognized.
-      // In the translation branch of setupRecognitionHandlersForInstance:
-    (instance.recognizer as azureSpeechSDK.TranslationRecognizer).recognizing = (_sender: any, event: any) => {
-      if (!event.result.translations) return;
+      (instance.recognizer as azureSpeechSDK.TranslationRecognizer).recognizing = (_sender: any, event: any) => {
+        if (!event.result.translations) return;
 
-      const translateLanguage = languageInfo.translateLanguage?.split('-')[0];
-      const translatedText = event.result.translations.get(translateLanguage);
-      console.log(`🎤 TRANSLATION [Interim][${userSession.userId}][${subscription}]: ${translatedText}`);
-      const translationData: TranslationData = {
-        type: StreamType.TRANSLATION,
-        text: translatedText,
-        startTime: this.calculateRelativeTime(event.result.offset),
-        endTime: this.calculateRelativeTime(event.result.offset + event.result.duration),
-        isFinal: false,
-        speakerId: event.result.speakerId,
-        transcribeLanguage: languageInfo.transcribeLanguage,
-        translateLanguage: languageInfo.translateLanguage
+        // TODO: Find a better way to handle this.
+        const translateLanguage = languageInfo.translateLanguage == "zh-CN" ? "zh-Hans" : languageInfo.translateLanguage?.split('-')[0];
+        const translatedText = event.result.translations.get(translateLanguage);
+        console.log(`🎤 TRANSLATION [Interim][${userSession.userId}][${subscription}]: ${translatedText}`);
+        const translationData: TranslationData = {
+          type: StreamType.TRANSLATION,
+          text: translatedText,
+          startTime: this.calculateRelativeTime(event.result.offset),
+          endTime: this.calculateRelativeTime(event.result.offset + event.result.duration),
+          isFinal: false,
+          speakerId: event.result.speakerId,
+          transcribeLanguage: languageInfo.transcribeLanguage,
+          translateLanguage: languageInfo.translateLanguage
+        };
+        this.broadcastTranscriptionResult(userSession, translationData);
+        this.updateTranscriptHistory(userSession, event, false);
       };
-      this.broadcastTranscriptionResult(userSession, translationData);
-      this.updateTranscriptHistory(userSession, event, false);
-    };
 
-    (instance.recognizer as azureSpeechSDK.TranslationRecognizer).recognized = (_sender: any, event: any) => {
-      if (!event.result.translations) return;
-      const translateLanguage = languageInfo.translateLanguage?.split('-')[0];
-      const translatedText = event.result.translations.get(translateLanguage);
+      (instance.recognizer as azureSpeechSDK.TranslationRecognizer).recognized = (_sender: any, event: any) => {
+        if (!event.result.translations) return;
+        const translateLanguage = languageInfo.translateLanguage?.split('-')[0];
+        const translatedText = event.result.translations.get(translateLanguage);
 
-      const translationData: TranslationData = {
-        type: StreamType.TRANSLATION,
-        isFinal: true,
-        text: translatedText,
-        startTime: this.calculateRelativeTime(event.result.offset),
-        endTime: this.calculateRelativeTime(event.result.offset + event.result.duration),
-        speakerId: event.result.speakerId,
-        duration: event.result.duration,
-        transcribeLanguage: languageInfo.transcribeLanguage,
-        translateLanguage: languageInfo.translateLanguage
+        const translationData: TranslationData = {
+          type: StreamType.TRANSLATION,
+          isFinal: true,
+          text: translatedText,
+          startTime: this.calculateRelativeTime(event.result.offset),
+          endTime: this.calculateRelativeTime(event.result.offset + event.result.duration),
+          speakerId: event.result.speakerId,
+          duration: event.result.duration,
+          transcribeLanguage: languageInfo.transcribeLanguage,
+          translateLanguage: languageInfo.translateLanguage
+        };
+        this.broadcastTranscriptionResult(userSession, translationData);
+        this.updateTranscriptHistory(userSession, event, true);
       };
-      this.broadcastTranscriptionResult(userSession, translationData);
-      this.updateTranscriptHistory(userSession, event, true);
-    };
     } else {
       // Transcription branch.
       (instance.recognizer as ConversationTranscriber).transcribing = (_sender: any, event: ConversationTranscriptionEventArgs) => {
