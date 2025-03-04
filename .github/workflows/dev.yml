@@ -126,6 +126,7 @@ jobs:
             # (If using a package manager other than bun for install on VM, adjust accordingly, e.g., npm ci --only=production)
             # Restart the Bun server process
             # If managed by PM2:
+
             bun run dev
             # pm2 restart augmentos-cloud || pm2 start index.js --name augmentos-cloud
             # If managed by systemd:
