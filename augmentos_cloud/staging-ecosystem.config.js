@@ -46,6 +46,15 @@ module.exports = {
       }
     },
     {
+      name: 'staging-live-translation',
+      script: 'packages/apps/live-translation/dist/index.js',
+      instances: 1,
+      exec_mode: 'fork',
+      env: {
+        NODE_ENV: 'staging'
+      }
+    },
+    {
       name: 'staging-cloud',
       script: 'packages/cloud/dist/index.js',
       instances: 1,

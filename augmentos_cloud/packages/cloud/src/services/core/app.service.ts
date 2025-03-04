@@ -50,6 +50,14 @@ export const APP_STORE: AppI[] = [
     description: "Merge AI, your proactive agent making all of your conversations better one insight at a time. 🚀",
     webhookURL: `http://localhost:${systemApps.merge.port}/webhook`,
     logoURL: `https://cloud.augmentos.org/${systemApps.merge.packageName}.png`,
+  },
+  {
+    packageName: systemApps.liveTranslation.packageName,
+    name: systemApps.liveTranslation.name,
+    tpaType: TpaType.STANDARD,
+    description: "Live translation app for smart glasses.",
+    webhookURL: `http://localhost:${systemApps.liveTranslation.port}/webhook`,
+    logoURL: `https://cloud.augmentos.org/${systemApps.liveTranslation.packageName}.png`,
   }
 ];
 
@@ -124,7 +132,8 @@ export class AppService {
    */
   async getAllApps(): Promise<AppI[]> {
     const apps = await App.find() as AppI[];
-    return [...APP_STORE, ...apps];
+    const allApps = [...APP_STORE, ...apps];
+    return allApps;
   }
 
   // /**
