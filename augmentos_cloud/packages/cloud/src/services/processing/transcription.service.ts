@@ -311,6 +311,9 @@ export class TranscriptionService {
   private updateTranscriptHistory(userSession: ExtendedUserSession, event: ConversationTranscriptionEventArgs, isFinal: boolean): void {
     const segments = userSession.transcript.segments;
     const hasInterimLast = segments.length > 0 && !segments[segments.length - 1].isFinal;
+    // Only save engligh transcriptions.
+    if (event.result.language !== 'en-US') return;
+
     if (isFinal) {
       if (hasInterimLast) {
         segments.pop();
