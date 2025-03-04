@@ -9,7 +9,6 @@ import { User } from '../models/user.model';
 
 console.log('systemApps', systemApps);
 
-
 const router = express.Router();
 
 // GET /tpasettings/:tpaName
@@ -129,6 +128,7 @@ router.get('/user/:tpaName', async (req, res) => {
 
     // Retrieve stored settings for this TPA.
     let storedSettings = user.getAppSettings(tpaName);
+
     if (!storedSettings) {
       // If settings are missing, load default settings from the TPA config file.
       const configFilePath = path.join(__dirname, '..', '..', '..', 'apps', tpaName, 'tpa_config.json');
