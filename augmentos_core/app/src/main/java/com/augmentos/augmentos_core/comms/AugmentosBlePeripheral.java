@@ -442,6 +442,14 @@ public class AugmentosBlePeripheral {
     }
 
     public void sendGlassesDisplayEventToManager(JSONObject displayEvent) {
+        int binderLimitBytes = 400_000;  // pick something comfortably < 1 MB
+        String jsonString = displayEvent.toString();
+        int jsonBytesLength = jsonString.getBytes(StandardCharsets.UTF_8).length;
+        if (jsonBytesLength > binderLimitBytes) {
+            Log.d(TAG, "Display event too large to send to manager. Size: " + jsonBytesLength + " bytes. Limit: " + binderLimitBytes + " bytes.");
+            return;
+        }
+
         Log.d(TAG, "sendNotifyManager");
         JSONObject data = new JSONObject();
         try{
