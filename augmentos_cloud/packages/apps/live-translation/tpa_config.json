@@ -1,7 +1,7 @@
 {
-    "name": "Live Captions",
-    "description": "Live captions app for smart glasses.",
-    "version": "1.0.6",
+    "name": "Live Translation",
+    "description": "Live translation app for smart glasses.",
+    "version": "1.0.0",
     "settings": [
         {
             "type": "group",
@@ -11,7 +11,7 @@
             "key": "transcribe_language",
             "type": "select",
             "label": "Transcribe language",
-            "defaultValue": "English",
+            "defaultValue": "Chinese (Hanzi)",
             "options": [
                 {
                     "label": "English",
@@ -69,6 +69,70 @@
                     "label": "Portuguese",
                     "value": "Portuguese"
                 }
+            ]
+        },
+        {
+            "key": "translate_language",
+            "type": "select",
+            "label": "Translate to",
+            "defaultValue": "English",
+            "options": [
+              {
+                "label": "English",
+                "value": "English"
+              },
+              {
+                "label": "Russian",
+                "value": "Russian"
+              },
+              {
+                "label": "Chinese (Pinyin)",
+                "value": "Chinese (Pinyin)"
+              },
+              {
+                "label": "Chinese (Hanzi)",
+                "value": "Chinese (Hanzi)"
+              },
+              {
+                "label": "Spanish",
+                "value": "Spanish"
+              },
+              {
+                "label": "Japanese",
+                "value": "Japanese"
+              },
+              {
+                "label": "Dutch",
+                "value": "Dutch"
+              },
+              {
+                "label": "Finnish",
+                "value": "Finnish"
+              },
+              {
+                "label": "French",
+                "value": "French"
+              },
+              {
+                "label": "German",
+                "value": "German"
+              },
+              {
+                "label": "Korean",
+                "value": "Korean"
+              },
+              {
+                "label": "Italian",
+                "value": "Italian"
+              },
+              {
+                "label": "Turkish",
+                "value": "Turkish"
+              },
+              {
+                "label": "Portuguese",
+                "value": "Portuguese"
+              }
             ]
         },
         {

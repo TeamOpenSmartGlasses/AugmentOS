@@ -7,7 +7,7 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc -p tsconfig.json && bun run sentry:sourcemaps && npm run sentry:sourcemaps",
+    "build": "rm -rf dist && tsc -p tsconfig.json",
     "postbuild": "cp -r src/public dist/public",
     "start": "NODE_ENV=production node dist/index.js",
     "dev": "tsx watch src/index.ts",
@@ -44,6 +44,7 @@
   "dependencies": {
     "@augmentos/config": "workspace:*",
     "@augmentos/sdk": "workspace:*",
+    "@augmentos/utils": "workspace:*",
     "@sentry/bun": "^9.1.0",
     "@sentry/cli": "^2.42.1",
     "@supabase/supabase-js": "^2.49.1",

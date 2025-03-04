@@ -34,7 +34,7 @@ const AppIcon: React.FC<AppIconProps> = ({
                     return require('../assets/app-icons/mentra-link.png');
                 case 'com.mentra.adhdaid':
                     return require('../assets/app-icons/ADHD-aid.png');
-                case 'com.augmentos.livetranslation':
+                case 'com.augmentos.live-translation':
                     return require('../assets/app-icons/translation.png');
                 case 'com.example.placeholder':
                 case 'com.augmentos.screenmirror':
