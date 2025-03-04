@@ -44,15 +44,27 @@ app.use(express.json());
 const activeSessions = new Map<string, WebSocket>();
 
 
-function convertLineWidth(width: string | number): number {
+function convertLineWidth(width: string | number, isHanzi: boolean): number {
   if (typeof width === 'number') return width;
+
+  if (!isHanzi) {
   switch (width.toLowerCase()) {
-    case 'very narrow': return 21;
-    case 'narrow': return 30;
-    case 'medium': return 38;
-    case 'wide': return 46;
-    case 'very wide': return 52;
-    default: return 45;
+      case 'very narrow': return 21;
+      case 'narrow': return 30;
+      case 'medium': return 38;
+      case 'wide': return 46;
+      case 'very wide': return 52;
+      default: return 45;
+    }
+  } else {
+    switch (width.toLowerCase()) {
+      case 'very narrow': return 7;
+      case 'narrow': return 10;
+      case 'medium': return 14;
+      case 'wide': return 18;
+      case 'very wide': return 21;
+      default: return 14;
+    }
   }
 }
 
@@ -67,12 +79,19 @@ async function fetchAndApplySettings(sessionId: string, userId: string) {
     const numberOfLinesSetting = settings.find((s: any) => s.key === 'number_of_lines');
     const transcribeLanguageSetting = settings.find((s: any) => s.key === 'transcribe_language');
 
-    const lineWidth = lineWidthSetting ? convertLineWidth(lineWidthSetting.value) : 30; // fallback default
-    const numberOfLines = numberOfLinesSetting ? Number(numberOfLinesSetting.value) : 3; // fallback default
     
     // Store the language setting for this user (default to en-US if not specified)
     const language = transcribeLanguageSetting?.value || 'en-US';
     const locale = languageToLocale(language);
+    const numberOfLines = numberOfLinesSetting ? Number(numberOfLinesSetting.value) : 3; // fallback default
+    
+    
+    const isChineseLanguage = locale.startsWith('zh-') || locale.startsWith('ja-');
+    
+    // Pass the divideByThree flag based on language
+    const lineWidth = lineWidthSetting ? 
+      convertLineWidth(lineWidthSetting.value, isChineseLanguage) : 
+      (isChineseLanguage ? 10 : 30); // adjusted fallback defaults
 
     userLanguageSettings.set(userId, locale);
     console.log(`Language setting for user ${userId}: ${locale}`);
@@ -387,11 +406,6 @@ app.post('/settings', (req, res) => {
 
     // Validate settings
     let lineWidth = 30; // default
-    if (lineWidthSetting) {
-      lineWidth = typeof lineWidthSetting.value === 'string' ? 
-        convertLineWidth(lineWidthSetting.value) : 
-        (typeof lineWidthSetting.value === 'number' ? lineWidthSetting.value : 30);
-    }
     
     let numberOfLines = 3; // default
     if (numberOfLinesSetting) {
@@ -403,6 +417,15 @@ app.post('/settings', (req, res) => {
     const language = languageToLocale(transcribeLanguageSetting?.value) || 'en-US';
     const previousLanguage = userLanguageSettings.get(userIdForSettings);
     const languageChanged = language !== previousLanguage;
+
+    if (lineWidthSetting) {
+      const isChineseLanguage = language.startsWith('zh-') || language.startsWith('ja-');
+      lineWidth = typeof lineWidthSetting.value === 'string' ? 
+        convertLineWidth(lineWidthSetting.value, isChineseLanguage) : 
+        (typeof lineWidthSetting.value === 'number' ? lineWidthSetting.value : 30);
+    }
+
+    console.log(`Language setting for user ${lineWidth}`);
     
     if (languageChanged) {
       console.log(`Language changed for user ${userIdForSettings}: ${previousLanguage} -> ${language}`);

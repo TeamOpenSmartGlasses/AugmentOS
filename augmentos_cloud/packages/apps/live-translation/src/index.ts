@@ -50,15 +50,27 @@ const activeSessions = new Map<string, WebSocket>();
 /**
  * Converts a line-width descriptor (or number) to a numeric value.
  */
-function convertLineWidth(width: string | number): number {
+function convertLineWidth(width: string | number, isHanzi: boolean = false): number {
   if (typeof width === 'number') return width;
+
+  if (!isHanzi) {
   switch (width.toLowerCase()) {
-    case 'very narrow': return 21;
-    case 'narrow': return 30;
-    case 'medium': return 38;
-    case 'wide': return 46;
-    case 'very wide': return 52;
-    default: return 45;
+      case 'very narrow': return 21;
+      case 'narrow': return 30;
+      case 'medium': return 38;
+      case 'wide': return 46;
+      case 'very wide': return 52;
+      default: return 45;
+    }
+  } else {
+    switch (width.toLowerCase()) {
+      case 'very narrow': return 7;
+      case 'narrow': return 10;
+      case 'medium': return 14;
+      case 'wide': return 18;
+      case 'very wide': return 21;
+      default: return 14;
+    }
   }
 }
 
@@ -79,17 +91,19 @@ async function fetchAndApplySettings(sessionId: string, userId: string) {
     const transcribeLanguageSetting = settings.find((s: any) => s.key === 'transcribe_language');
     const translateLanguageSetting = settings.find((s: any) => s.key === 'translate_language');
 
-    const lineWidth = lineWidthSetting ? convertLineWidth(lineWidthSetting.value) : 30;
     const numberOfLines = numberOfLinesSetting ? Number(numberOfLinesSetting.value) : 3;
-
+    
     // Determine languages: default source is en-US; default target can be set (here defaulting to es-ES)
     const sourceLang = transcribeLanguageSetting?.value ? languageToLocale(transcribeLanguageSetting.value) : 'en-US';
     const targetLang = translateLanguageSetting?.value ? languageToLocale(translateLanguageSetting.value) : 'es-ES';
-
+    
     usertranscribeLanguageSettings.set(userId, sourceLang);
     userTranslateLanguageSettings.set(userId, targetLang);
     console.log(`Settings for user ${userId}: source=${sourceLang}, target=${targetLang}`);
+    
+    const isChineseLanguage = targetLang.startsWith('zh-') || targetLang.startsWith('ja-');
 
+    const lineWidth = lineWidthSetting ? convertLineWidth(lineWidthSetting.value, isChineseLanguage) : 30;
     const transcriptProcessor = new TranscriptProcessor(lineWidth, numberOfLines);
     userTranscriptProcessors.set(userId, transcriptProcessor);
 
@@ -354,7 +368,8 @@ app.post('/settings', async (req, res) => {
     const transcribeLanguageSetting = settings.find((s: any) => s.key === 'transcribe_language');
     const translateLanguageSetting = settings.find((s: any) => s.key === 'translate_language');
 
-    const lineWidth = lineWidthSetting ? convertLineWidth(lineWidthSetting.value) : 30;
+    const isChineseLanguage = translateLanguageSetting?.value?.startsWith('zh-') || translateLanguageSetting?.value?.startsWith('ja-');
+    const lineWidth = lineWidthSetting ? convertLineWidth(lineWidthSetting.value, isChineseLanguage) : 30;
     let numberOfLines = numberOfLinesSetting ? Number(numberOfLinesSetting.value) : 3;
     if (isNaN(numberOfLines) || numberOfLines < 1) numberOfLines = 3;
     
