@@ -11,7 +11,7 @@ import {
   StreamType,
   ViewType,
   LayoutType,
-} from '@augmentos/types';
+} from '@augmentos/sdk';
 
 import { CLOUD_PORT, systemApps } from '@augmentos/config';
 import { MiraAgent } from '@augmentos/agents';

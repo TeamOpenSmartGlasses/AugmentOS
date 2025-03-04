@@ -13,20 +13,23 @@
     "restart:prod": "pm2 restart ecosystem.config.js",
     "monitor:prod": "pm2 monit",
     "deploy:prod": "bun run stop:prod && bun run build && bun run start:prod",
-
     "start:dev": "pm2 start dev-ecosystem.config.js",
     "stop:dev": "pm2 delete dev-ecosystem.config.js",
     "logs:dev": "pm2 logs dev-ecosystem.config.js",
     "restart:dev": "pm2 restart dev-ecosystem.config.js",
     "monitor:dev": "pm2 monit",
     "deploy:dev": "bun run stop:dev && bun run build && bun run start:dev",
-
     "start:staging": "pm2 start staging-ecosystem.config.js",
     "stop:staging": "pm2 delete staging-ecosystem.config.js",
     "logs:staging": "pm2 logs staging-ecosystem.config.js",
     "restart:staging": "pm2 restart staging-ecosystem.config.js",
     "monitor:staging": "pm2 monit",
-    "deploy:staging": "bun run stop:staging && bun run build && bun run start:staging"
+    "deploy:staging": "bun run stop:staging && bun run build && bun run start:staging",
+
+    "deploy:isaiah": "bun run stop:isaiah && bun run build && bun run start:isaiah",
+    "deploy:israelov": "bun run stop:israelov && bun run build && bun run start:israelov",
+    "deploy:nicolo": "bun run stop:nicolo && bun run build && bun run start:nicolo",
+    "deploy:cayden": "bun run stop:cayden && bun run build && bun run start:cayden"
   },
   "dependencies": {
     "@langchain/anthropic": "^0.3.13",
@@ -40,6 +43,7 @@
     "@sentry/tracing": "^7.120.3",
     "@types/bun": "^1.2.2",
     "assemblyai": "^4.9.0",
+    "axios": "^1.8.1",
     "langchain": "^0.3.18",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",

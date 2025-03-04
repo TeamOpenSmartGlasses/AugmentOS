@@ -9,7 +9,7 @@
  * - Providing subscription queries for broadcasting
  */
 
-import { StreamType, ExtendedStreamType, isLanguageStream, UserSession, parseLanguageStream, createTranscriptionStream } from '@augmentos/types';
+import { StreamType, ExtendedStreamType, isLanguageStream, UserSession, parseLanguageStream, createTranscriptionStream } from '@augmentos/sdk';
 
   /**
    * Record of a subscription change

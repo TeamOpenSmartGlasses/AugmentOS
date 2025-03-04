@@ -15,25 +15,27 @@ import {
   TpaSubscriptionUpdate,
   TpaToCloudMessageType,
   CloudToTpaMessageType,
-  
+
   // Event data types
   StreamType,
   ButtonPress,
   HeadPosition,
   PhoneNotification,
   TranscriptionData,
-  
+
   // Type guards
   isTpaConnectionAck,
   isTpaConnectionError,
   isDataStream,
   isAppStopped,
   isSettingsUpdate,
-  
+
   // Other types
-  AppSettings
-} from '@augmentos/types';
-import { CLOUD_PORT } from '@augmentos/config';
+  AppSettings,
+  AudioChunk,
+  isAudioChunk
+} from '../../types';
+// import { CLOUD_PORT } from '@augmentos/config';
 
 /**
  * ⚙️ Configuration options for TPA Session
@@ -53,7 +55,7 @@ export interface TpaSessionConfig {
   /** 🔑 API key for authentication with AugmentOS Cloud */
   apiKey: string;
   /** 🔌 WebSocket server URL (default: 'ws://localhost:7002/tpa-ws') */
-  serverUrl?: string;
+  augmentOSWebsocketUrl?: string;
   /** 🔄 Automatically attempt to reconnect on disconnect (default: true) */
   autoReconnect?: boolean;
   /** 🔁 Maximum number of reconnection attempts (default: 5) */
@@ -105,7 +107,7 @@ export class TpaSession {
 
   constructor(private config: TpaSessionConfig) {
     this.config = {
-      serverUrl: `ws://localhost:${CLOUD_PORT}/tpa-ws`,
+      augmentOSWebsocketUrl: `ws://dev.augmentos.org/tpa-ws`,
       autoReconnect: false,
       maxReconnectAttempts: 0,
       reconnectDelay: 1000,
@@ -197,13 +199,42 @@ export class TpaSession {
 
     return new Promise((resolve, reject) => {
       try {
-        this.ws = new WebSocket(this.config.serverUrl as string);
+        this.ws = new WebSocket(this.config.augmentOSWebsocketUrl as string);
 
         this.ws.on('open', () => {
           this.sendConnectionInit();
         });
 
-        this.ws.on('message', (data: Buffer) => {
+        // this.ws.on('message', (data: Buffer) => {
+        this.ws.on('message', async (data: Buffer | string, isBinary: boolean) => {
+          try {
+            if (isBinary && Buffer.isBuffer(data)) {
+              // console.log('Received binary message', data);
+              // Convert Node.js Buffer to ArrayBuffer
+              const arrayBuf: ArrayBufferLike = data.buffer.slice(
+                data.byteOffset,
+                data.byteOffset + data.byteLength
+              );
+              // Make AUDIO_CHUNK event message.
+              const audioChunk: AudioChunk = {
+                type: StreamType.AUDIO_CHUNK,
+                arrayBuffer: arrayBuf,
+              };
+
+              this.handleMessage(audioChunk);
+              return;
+            }
+          } catch (error) {
+            this.events.emit('error', new Error('Failed to parse binary message'));
+          }
+
+
+          // If so, handle it separately.
+          if (data instanceof ArrayBuffer) {
+            // this.handleMessage(data);
+            return;
+          }
+
           try {
             const message = JSON.parse(data.toString()) as CloudToTpaMessage;
             this.handleMessage(message);
@@ -254,6 +285,32 @@ export class TpaSession {
    * 📨 Handle incoming messages from cloud
    */
   private handleMessage(message: CloudToTpaMessage): void {
+
+    // Handle binary data (audio or video)
+    if (message instanceof ArrayBuffer) {
+      // Determine which type of binary data we're receiving
+      // This would typically be based on the active subscriptions
+      // or message metadata, but for now let's default to audio chunks
+
+      // Create the appropriate binary message structure
+      if (this.subscriptions.has(StreamType.AUDIO_CHUNK)) {
+        const audioChunk: AudioChunk = {
+          type: StreamType.AUDIO_CHUNK,
+          timestamp: new Date(),
+          arrayBuffer: message,
+          sampleRate: 16000, // Default values that could be set by the server
+          // data: message,
+          // channels: 1,
+          // format: 'pcm'
+        };
+
+        // Emit to subscribers
+        this.events.emit(StreamType.AUDIO_CHUNK, audioChunk);
+      }
+
+      return;
+    }
+
     // Using type guards to determine message type
     if (isTpaConnectionAck(message)) {
       this.events.emit('connected', message.settings);
@@ -261,6 +318,9 @@ export class TpaSession {
     }
     else if (isTpaConnectionError(message)) {
       this.events.emit('error', new Error(message.message));
+    }
+    else if (message.type === StreamType.AUDIO_CHUNK) {
+      this.events.emit(StreamType.AUDIO_CHUNK, message);
     }
     else if (isDataStream(message)) {
       this.events.emit(message.streamType, message.data as any);
@@ -271,6 +331,9 @@ export class TpaSession {
     else if (isAppStopped(message)) {
       this.events.emit('disconnected', `App stopped: ${message.reason}`);
     }
+    // else if (isAudioChunk(message)) {
+    //   this.events.emit(message.streamType, message);
+    // }
   }
 
   /**

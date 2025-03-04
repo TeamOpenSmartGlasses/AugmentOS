@@ -27,6 +27,10 @@ class FlashServer extends TpaServer {
         console.log(`[User ${userId}]: ${data.text}`);
       }),
 
+      session.events.onAudioChunk((data) => {
+        // console.log(`[User ${userId}]: Received audio chunk of length ${data.arrayBuffer}`);
+      }),
+
       // Handle connection events
       session.events.onConnected((settings) => {
         console.log(`\n[User ${userId}] connected to augmentos-cloud\n`);
@@ -49,7 +53,7 @@ const server = new FlashServer({
   packageName: PACKAGE_NAME,
   apiKey: API_KEY,
   port: PORT,
-  serverUrl: `ws://localhost:${CLOUD_PORT}/tpa-ws`,
+  augmentOSWebsocketUrl: `ws://localhost:${CLOUD_PORT}/tpa-ws`,
   webhookPath: '/webhook',
   publicDir: path.join(__dirname, './public')
 });

@@ -1,7 +1,7 @@
 // src/types/index.ts
 
 // Base exports
-export * from "@augmentos/types";
+export * from "./types";
 export * from "./tpa"
 
 // Model exports

@@ -16,7 +16,7 @@ import {
   UserSession,
   ExtendedStreamType,
   getLanguageInfo
-} from '@augmentos/types';
+} from '@augmentos/sdk';
 import { AZURE_SPEECH_KEY, AZURE_SPEECH_REGION } from '@augmentos/config';
 import webSocketService from '../core/websocket.service';
 import subscriptionService from '../core/subscription.service';

@@ -13,7 +13,7 @@ import {
   TpaToCloudMessageType,
   ViewType,
   StreamType,
-} from '@augmentos/types';
+} from '@augmentos/sdk';
 import tzlookup from 'tz-lookup';
 import { NewsAgent } from '@augmentos/agents';
 import { NotificationFilterAgent } from '@augmentos/agents'; // <-- added import

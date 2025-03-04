@@ -24,8 +24,9 @@ import {
   DashboardCard,
   LayoutType,
   ViewType,
-  TpaToCloudMessageType
-} from '@augmentos/types';
+  TpaToCloudMessageType,
+  BitmapView
+} from '../../types';
 
 export class LayoutManager {
   /**
@@ -162,6 +163,34 @@ export class LayoutManager {
       layoutType: LayoutType.REFERENCE_CARD,
       title,
       text
+    };
+    this.sendMessage(this.createDisplayEvent(
+      layout, 
+      options?.view, 
+      options?.durationMs
+    ));
+  }
+
+    /**
+   * 📇 Shows a bitmap
+   * 
+   * @param data - base64 encoded bitmap data
+   * @param options - Optional parameters (view, duration)
+   * 
+   * @example
+   * ```typescript
+   * layouts.showBitmapView(
+   *   yourBase64EncodedBitmapDataString
+   * );
+   * ```
+   */
+  showBitmapView(
+    data: string,
+    options?: { view?: ViewType; durationMs?: number }
+  ) {
+    const layout: BitmapView = {
+      layoutType: LayoutType.BITMAP_VIEW,
+      data
     };
     this.sendMessage(this.createDisplayEvent(
       layout, 

@@ -1,6 +1,7 @@
 {
   "name": "@augmentos/utils",
   "version": "1.0.0",
+  "private": true,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
@@ -8,10 +9,11 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "postbuild": "cp src/lc3/liblc3.wasm dist/lc3/liblc3.wasm",
     "dev": "tsc -w -p tsconfig.json"
   },
   "dependencies": {
-    "@augmentos/types": "workspace:*",
+    "@augmentos/sdk": "workspace:*",
     "@augmentos/config": "workspace:*"
   },
   "devDependencies": {

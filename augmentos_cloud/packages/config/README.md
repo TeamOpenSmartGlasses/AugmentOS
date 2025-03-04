@@ -1,4 +1,4 @@
-# @augmentos/types
+# @augmentos/sdk
 
 This package defines the core TypeScript types and interfaces used in the AugmentOS ecosystem. It includes definitions for models, events, and WebSocket communication messages for both client (glasses) and third-party applications (TPAs).
 
@@ -177,4 +177,4 @@ These types define the structure of layouts used in display events. They are spe
 
 ---
 
-This README provides a detailed overview of all message and event types within the `@augmentos/types` package. Understanding these types is essential for developing applications and components that interact with the AugmentOS platform.
+This README provides a detailed overview of all message and event types within the `@augmentos/sdk` package. Understanding these types is essential for developing applications and components that interact with the AugmentOS platform.

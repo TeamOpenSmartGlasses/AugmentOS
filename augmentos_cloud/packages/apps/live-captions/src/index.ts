@@ -13,9 +13,7 @@ import {
   CloudToTpaMessageType,
   ViewType,
   LayoutType,
-  createTranscriptionStream,  // Import new helper for language streams
-  ExtendedStreamType,         // Import new type for extended stream types
-} from '@augmentos/types'; // Import the types from the shared package
+} from '@augmentos/sdk';
 import { TranscriptProcessor, languageToLocale } from '@augmentos/utils';
 import { systemApps, CLOUD_PORT } from '@augmentos/config';
 import axios from 'axios';
