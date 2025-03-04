@@ -1,0 +1,44 @@
+FROM node:18-slim
+
+# Install bun and build tools
+RUN apt-get update && apt-get install -y curl unzip git python3 make g++ && \
+    curl -fsSL https://bun.sh/install | bash && \
+    npm install -g typescript
+
+ENV PATH="/root/.bun/bin:${PATH}"
+ENV NODE_ENV=development
+# Skip Sentry sourcemap upload in Docker build
+ENV SKIP_SENTRY_UPLOAD=true
+
+WORKDIR /app
+
+# Copy the entire project for simplicity
+COPY . .
+
+# Install dependencies with bun but skip prepare scripts
+RUN bun install --no-scripts
+
+# Ensure the directory structure exists
+RUN mkdir -p \
+    packages/utils/dist \
+    packages/agents/dist \
+    packages/sdk/dist \
+    packages/config/dist \
+    packages/types/dist
+
+# Set environment variable to skip strict type checking for build
+ENV TS_NODE_TRANSPILE_ONLY=1
+
+# Build shared packages in the correct sequence
+# Note: types is no longer a package so we don't build it
+RUN cd packages/config && bun run build && \
+    cd ../utils && bun run build && \
+    cd ../sdk && bun run build && \
+    cd ../agents && bun run build
+
+# Ensure LC3 directory exists in dist and copy the WASM file
+RUN mkdir -p packages/utils/dist/lc3 && \
+    cp packages/utils/src/lc3/liblc3.wasm packages/utils/dist/lc3/
+
+# Set hostname environment variable for inter-service communication
+ENV HOST=0.0.0.0 

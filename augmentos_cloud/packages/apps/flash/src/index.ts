@@ -1,6 +1,6 @@
 import path from 'path';
 import { TpaServer, TpaSession } from '@augmentos/sdk';
-import { CLOUD_PORT, systemApps } from '@augmentos/config';
+import { CLOUD_HOST, CLOUD_PORT, systemApps } from '@augmentos/config';
 
 const PORT = systemApps.flash.port;
 const PACKAGE_NAME = systemApps.flash.packageName;
@@ -53,7 +53,7 @@ const server = new FlashServer({
   packageName: PACKAGE_NAME,
   apiKey: API_KEY,
   port: PORT,
-  augmentOSWebsocketUrl: `ws://localhost:${CLOUD_PORT}/tpa-ws`,
+  augmentOSWebsocketUrl: `ws://${CLOUD_HOST}:${CLOUD_PORT}/tpa-ws`,
   webhookPath: '/webhook',
   publicDir: path.join(__dirname, './public')
 });

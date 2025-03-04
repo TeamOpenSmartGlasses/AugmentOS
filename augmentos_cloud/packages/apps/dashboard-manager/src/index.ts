@@ -17,7 +17,7 @@ import {
 import tzlookup from 'tz-lookup';
 import { NewsAgent } from '@augmentos/agents';
 import { NotificationFilterAgent } from '@augmentos/agents'; // <-- added import
-import { CLOUD_PORT, systemApps } from '@augmentos/config';
+import { CLOUD_HOST, CLOUD_PORT, systemApps } from '@augmentos/config';
 import { WeatherModule } from './dashboard-modules/WeatherModule';
 
 const app = express();
@@ -67,7 +67,7 @@ app.post('/webhook', async (req: express.Request, res: express.Response) => {
     console.log(`\n[Webhook] Session start for user ${userId}, session ${sessionId}\n`);
 
     // 1) Create a new WebSocket connection to the cloud
-    const ws = new WebSocket(`ws://localhost:${CLOUD_PORT}/tpa-ws`);
+    const ws = new WebSocket(`ws://${CLOUD_HOST}:${CLOUD_PORT}/tpa-ws`);
 
     // Create a new dashboard card
     const dashboardCard: DoubleTextWall = {

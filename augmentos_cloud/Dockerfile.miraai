@@ -1,0 +1,16 @@
+FROM augmentos-cloud-base:latest
+
+# Copy miraai app source files
+COPY packages/apps/miraai ./packages/apps/miraai
+
+# Create the dist directory for the app
+RUN mkdir -p packages/apps/miraai/dist
+
+# Build the application
+RUN cd packages/apps/miraai && bun run build
+
+# Expose the miraai port
+EXPOSE 8015
+
+# Start the service
+CMD ["node", "packages/apps/miraai/dist/index.js"] 

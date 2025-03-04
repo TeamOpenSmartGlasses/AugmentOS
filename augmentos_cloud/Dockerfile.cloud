@@ -1,0 +1,27 @@
+FROM augmentos-cloud-base:latest
+
+# Copy cloud service source files
+COPY packages/cloud ./packages/cloud
+
+# Create the dist directory for the service
+RUN mkdir -p packages/cloud/dist
+
+# Modify the cloud package's build script to remove Sentry sourcemaps if necessary
+RUN sed -i 's/&& bun run sentry:sourcemaps && npm run sentry:sourcemaps//' packages/cloud/package.json
+
+# WORKAROUND: In microservices architecture, these config files should be provided by their respective services
+# through API calls, but as a temporary solution, we're copying them into the cloud container
+# Ensure directories exist for all app configs
+RUN mkdir -p packages/apps/live-captions packages/apps/dashboard-manager packages/apps/flash packages/apps/miraai packages/apps/notify
+
+# Copy TPA config file - only live-captions has a tpa_config.json file
+COPY packages/apps/live-captions/tpa_config.json ./packages/apps/live-captions/tpa_config.json
+
+# Build the cloud service
+RUN cd packages/cloud && bun run build
+
+# Expose the cloud service port
+EXPOSE 8002 8013
+
+# Start the service
+CMD ["node", "packages/cloud/dist/index.js"] 

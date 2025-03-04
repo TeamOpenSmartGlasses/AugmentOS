@@ -13,7 +13,7 @@ import {
   LayoutType,
 } from '@augmentos/sdk';
 
-import { CLOUD_PORT, systemApps } from '@augmentos/config';
+import { CLOUD_HOST, CLOUD_PORT, systemApps } from '@augmentos/config';
 import { MiraAgent } from '@augmentos/agents';
 import { wrapText } from '@augmentos/utils';
 
@@ -71,7 +71,7 @@ app.post('/webhook', async (req, res) => {
     const { sessionId, userId, conversation_context } = req.body;
     console.log(`\n\n🗣️ Received session request for user ${userId}, session ${sessionId}\n\n`);
 
-    const ws = new WebSocket(`ws://localhost:${CLOUD_PORT}/tpa-ws`);
+    const ws = new WebSocket(`ws://${CLOUD_HOST}:${CLOUD_PORT}/tpa-ws`);
     
     ws.on('open', () => {
       console.log(`\n[Session ${sessionId}]\n connected to augmentos-cloud`);
@@ -242,7 +242,7 @@ async function processTranscripts(sessionId: string, ws: WebSocket) {
   console.log(`Processing transcripts for session ${sessionId} after ${durationSeconds} seconds`);
 
   try {
-    const backendUrl = `http://localhost:${CLOUD_PORT}/api/transcripts/${sessionId}?duration=${durationSeconds}`;
+    const backendUrl = `http://${CLOUD_HOST}:${CLOUD_PORT}/api/transcripts/${sessionId}?duration=${durationSeconds}`;
     const response = await fetch(backendUrl);
     const data = await response.json();
     console.log(`Retrieved transcripts: ${JSON.stringify(data)}`);

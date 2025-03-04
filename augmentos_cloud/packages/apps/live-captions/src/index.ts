@@ -17,7 +17,7 @@ import {
   ExtendedStreamType,
 } from '@augmentos/sdk';
 import { TranscriptProcessor, languageToLocale } from '@augmentos/utils';
-import { systemApps, CLOUD_PORT } from '@augmentos/config';
+import { systemApps, CLOUD_PORT, CLOUD_HOST } from '@augmentos/config';
 import axios from 'axios';
 
 const app = express();
@@ -70,7 +70,7 @@ function convertLineWidth(width: string | number, isHanzi: boolean): number {
 
 async function fetchAndApplySettings(sessionId: string, userId: string) {
   try {
-    const response = await axios.get(`http://localhost:${CLOUD_PORT}/tpasettings/user/${PACKAGE_NAME}`, {
+    const response = await axios.get(`http://${CLOUD_HOST}:${CLOUD_PORT}/tpasettings/user/${PACKAGE_NAME}`, {
       headers: { Authorization: `Bearer ${userId}` }
     });
     const settings = response.data.settings;
@@ -142,7 +142,7 @@ app.post('/webhook', async (req, res) => {
     console.log(`\n\n🗣️🗣️🗣️Received session request for user ${userId}, session ${sessionId}\n\n`);
 
     // Start WebSocket connection to cloud
-    const ws = new WebSocket(`ws://localhost:${CLOUD_PORT}/tpa-ws`);
+    const ws = new WebSocket(`ws://${CLOUD_HOST}:${CLOUD_PORT}/tpa-ws`);
 
     ws.on('open', async () => {
       console.log(`\n[Session ${sessionId}]\n connected to augmentos-cloud\n`);

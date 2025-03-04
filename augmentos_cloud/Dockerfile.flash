@@ -1,0 +1,16 @@
+FROM augmentos-cloud-base:latest
+
+# Copy flash app source files
+COPY packages/apps/flash ./packages/apps/flash
+
+# Create the dist directory for the app
+RUN mkdir -p packages/apps/flash/dist
+
+# Build the application
+RUN cd packages/apps/flash && bun run build
+
+# Expose the flash port
+EXPOSE 8011
+
+# Start the service
+CMD ["node", "packages/apps/flash/dist/index.js"] 

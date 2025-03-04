@@ -12,7 +12,7 @@ import {
   TpaSession,
   TpaServer,
 } from '@augmentos/sdk'; // shared types for cloud TPA messages
-import { CLOUD_PORT, systemApps } from '@augmentos/config';
+import { CLOUD_HOST, CLOUD_PORT, systemApps } from '@augmentos/config';
 import { wrapText } from '@augmentos/utils';
 
 const PORT = systemApps.notify.port;
@@ -251,7 +251,7 @@ const server = new NotifyServer({
   packageName: PACKAGE_NAME,
   apiKey: API_KEY,
   port: PORT,
-  augmentOSWebsocketUrl: `ws://localhost:${CLOUD_PORT}/tpa-ws`,
+  augmentOSWebsocketUrl: `ws://${CLOUD_HOST}:${CLOUD_PORT}/tpa-ws`,
   webhookPath: '/webhook',
   publicDir: path.join(__dirname, './public')
 });
