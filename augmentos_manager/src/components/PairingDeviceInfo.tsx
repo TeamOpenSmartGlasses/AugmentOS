@@ -25,41 +25,35 @@ const PairingDeviceInfo: React.FC<PairingDeviceInfoProps> = ({ isDarkTheme, glas
 
   useFocusEffect(
     React.useCallback(() => {
-      // Reset animations to initial values
       fadeAnim.setValue(0);
       scaleAnim.setValue(0.8);
       slideAnim.setValue(-50);
 
-      // Start animations if device is connected
-      if (status.core_info.puck_connected) {
-        Animated.parallel([
-          Animated.timing(fadeAnim, {
-            toValue: 1,
-            duration: 1200,
-            useNativeDriver: true,
-          }),
-          Animated.spring(scaleAnim, {
-            toValue: 1,
-            friction: 8,
-            tension: 60,
-            useNativeDriver: true,
-          }),
-          Animated.timing(slideAnim, {
-            toValue: 0,
-            duration: 700,
-            useNativeDriver: true,
-          }),
-        ]).start();
-      }
+      Animated.parallel([
+        Animated.timing(fadeAnim, {
+          toValue: 1,
+          duration: 1200,
+          useNativeDriver: true,
+        }),
+        Animated.spring(scaleAnim, {
+          toValue: 1,
+          friction: 8,
+          tension: 60,
+          useNativeDriver: true,
+        }),
+        Animated.timing(slideAnim, {
+          toValue: 0,
+          duration: 700,
+          useNativeDriver: true,
+        }),
+      ]).start();
 
-
-      // Cleanup function
       return () => {
         fadeAnim.stopAnimation();
         scaleAnim.stopAnimation();
         slideAnim.stopAnimation();
       };
-    }, [status.core_info.puck_connected, fadeAnim, scaleAnim, slideAnim])
+    }, [fadeAnim, scaleAnim, slideAnim])
   );
 
 
@@ -71,28 +65,6 @@ const PairingDeviceInfo: React.FC<PairingDeviceInfoProps> = ({ isDarkTheme, glas
     connectedDotColor: '#28a745',
     separatorColor: isDarkTheme ? '#666666' : '#999999',
   };
-
-  const getBatteryIcon = (level: number) => {
-    if (level > 75) { return 'battery-full'; }
-    if (level > 50) { return 'battery-three-quarters'; }
-    if (level > 25) { return 'battery-half'; }
-    if (level > 10) { return 'battery-quarter'; }
-    return 'battery-empty';
-  };
-
-  const getBatteryColor = (level: number) => {
-    if (level > 60) { return '#4CAF50'; }
-    if (level > 20) { return '#FFB300'; }
-    return '#FF5722';
-  };
-
-  const formatGlassesTitle = (title: string) =>
-    title.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
-
-  const batteryIcon = getBatteryIcon(status.glasses_info?.battery_life ?? 0);
-  const batteryColor = getBatteryColor(status.glasses_info?.battery_life ?? 0);
-
-
 
   return (
     <View style={[styles.deviceInfoContainer, { backgroundColor: themeStyles.backgroundColor }]}>
