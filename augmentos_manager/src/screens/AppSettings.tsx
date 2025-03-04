@@ -27,7 +27,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleThe
   const backendServerComms = BackendServerComms.getInstance();
 
   // State to hold the complete configuration from the server.
-  const [appInfo, setAppInfo] = useState<any>(null);
+  const [serverAppInfo, setServerAppInfo] = useState<any>(null);
   // Local state to track current values for each setting.
   const [settingsState, setSettingsState] = useState<{ [key: string]: any }>({});
 
@@ -35,31 +35,40 @@ const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleThe
 
   // Fetch TPA settings on mount or when packageName/status change.
   useEffect(() => {
+
+
+    (async () => {
+      await fetchUpdatedSettingsInfo();
+    })();
+  }, [packageName]);
+
+  const fetchUpdatedSettingsInfo = async () => {
     const coreToken = status.core_info.core_token;
     if (!coreToken) {
       console.warn('No core token available. Cannot fetch TPA settings.');
       return;
     }
 
-    (async () => {
-      try {
-        const data = await backendServerComms.getTpaSettings(coreToken, packageName);
-        setAppInfo(data);
-        // Initialize local state using the "selected" property.
-        if (data.settings && Array.isArray(data.settings)) {
-          const initialState: { [key: string]: any } = {};
-          data.settings.forEach((setting: any) => {
-            if (setting.type !== 'group') {
-              initialState[setting.key] = setting.selected;
-            }
-          });
-          setSettingsState(initialState);
-        }
-      } catch (err) {
-        console.error('Error fetching TPA settings:', err);
+    try {
+      const data = await backendServerComms.getTpaSettings(coreToken, packageName);
+      console.log("\n\n\nGOT TPA SETTING INFO:");
+      console.log(JSON.stringify(data));
+      console.log("\n\n\n");
+      setServerAppInfo(data);
+      // Initialize local state using the "selected" property.
+      if (data.settings && Array.isArray(data.settings)) {
+        const initialState: { [key: string]: any } = {};
+        data.settings.forEach((setting: any) => {
+          if (setting.type !== 'group') {
+            initialState[setting.key] = setting.selected;
+          }
+        });
+        setSettingsState(initialState);
       }
-    })();
-  }, [status, packageName]);
+    } catch (err) {
+      console.error('Error fetching TPA settings:', err);
+    }
+  }
 
   // When a setting changes, update local state and send the full updated settings payload.
   const handleSettingChange = (key: string, value: any) => {
@@ -171,20 +180,20 @@ const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleThe
     }
   };
 
-  if (!appInfo) {
+  if (!serverAppInfo) {
     return <LoadingComponent message="Loading App Settings..." theme={theme} />;
   }
 
   return (
     <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
       <ScrollView contentContainerStyle={styles.mainContainer}>
-        {appInfo.instructions && (
+        {serverAppInfo.instructions && (
           <View style={[styles.instructionsContainer, { marginBottom: 20 }]}>
             <Text style={[styles.title, { color: theme.textColor }]}>Instructions</Text>
-            <Text style={[styles.instructionsText, { color: theme.textColor }]}>{appInfo.instructions}</Text>
+            <Text style={[styles.instructionsText, { color: theme.textColor }]}>{serverAppInfo.instructions}</Text>
           </View>
         )}
-        {appInfo.settings.map((setting: any, index: number) =>
+        {serverAppInfo.settings.map((setting: any, index: number) =>
           renderSetting({ ...setting, uniqueKey: `${setting.key}-${index}` }, index)
         )}
       </ScrollView>
