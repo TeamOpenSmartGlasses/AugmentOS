@@ -64,11 +64,11 @@ function convertLineWidth(width: string | number, isHanzi: boolean = false): num
     }
   } else {
     switch (width.toLowerCase()) {
-      case 'very narrow': return 7;
-      case 'narrow': return 10;
-      case 'medium': return 14;
-      case 'wide': return 18;
-      case 'very wide': return 21;
+      case 'very narrow': return 10;
+      case 'narrow': return 14;
+      case 'medium': return 18;
+      case 'wide': return 22;
+      case 'very wide': return 26;
       default: return 14;
     }
   }
@@ -101,7 +101,7 @@ async function fetchAndApplySettings(sessionId: string, userId: string) {
     userTranslateLanguageSettings.set(userId, targetLang);
     console.log(`Settings for user ${userId}: source=${sourceLang}, target=${targetLang}`);
     
-    const isChineseLanguage = targetLang.startsWith('zh-') || targetLang.startsWith('ja-');
+    const isChineseLanguage = targetLang.toLowerCase().startsWith('zh-') || targetLang.toLowerCase().startsWith('ja-');
 
     const lineWidth = lineWidthSetting ? convertLineWidth(lineWidthSetting.value, isChineseLanguage) : 30;
     const transcriptProcessor = new TranscriptProcessor(lineWidth, numberOfLines);
@@ -368,7 +368,7 @@ app.post('/settings', async (req, res) => {
     const transcribeLanguageSetting = settings.find((s: any) => s.key === 'transcribe_language');
     const translateLanguageSetting = settings.find((s: any) => s.key === 'translate_language');
 
-    const isChineseLanguage = translateLanguageSetting?.value?.startsWith('zh-') || translateLanguageSetting?.value?.startsWith('ja-');
+    const isChineseLanguage = translateLanguageSetting?.value?.toLowerCase().startsWith('zh-') || translateLanguageSetting?.value?.toLowerCase().startsWith('ja-');
     const lineWidth = lineWidthSetting ? convertLineWidth(lineWidthSetting.value, isChineseLanguage) : 30;
     let numberOfLines = numberOfLinesSetting ? Number(numberOfLinesSetting.value) : 3;
     if (isNaN(numberOfLines) || numberOfLines < 1) numberOfLines = 3;

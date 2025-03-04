@@ -161,7 +161,7 @@ export class WebSocketService {
    */
   async startAppSession(userSession: UserSession, packageName: string): Promise<string> {
     // check if it's already loading or running, if so return the session id.
-    if (userSession.loadingApps.includes(packageName) || userSession.activeAppSessions.includes(packageName)) {
+    if (userSession.loadingApps.has(packageName) || userSession.activeAppSessions.includes(packageName)) {
       console.log(`\n[websocket.service]\n🚀🚀🚀 App ${packageName} already loading or running\n `);
 
       return userSession.sessionId + '-' + packageName;
@@ -174,7 +174,7 @@ export class WebSocketService {
     console.log(`\n[websocket.service]\n⚡️ Loading app ${packageName} for user ${userSession.userId}\n`);
 
     // Store pending session.
-    userSession.loadingApps.push(packageName);
+    userSession.loadingApps.add(packageName);
     console.log(`\nCurrent Loading Apps:`, userSession.loadingApps);
 
     try {
@@ -191,27 +191,22 @@ export class WebSocketService {
 
       // Set timeout to clean up pending session
       setTimeout(() => {
-        if (userSession.loadingApps.includes(packageName)) {
-          userSession.loadingApps = userSession.loadingApps.filter(
-            (packageName) => packageName !== packageName
-          );
-          console.log(`👴🏻 TPA ${packageName} expired without connection`);
-          userSession.loadingApps = userSession.loadingApps.filter(
-            (packageName) => packageName !== packageName
-          );
+        if (userSession.loadingApps.has(packageName)) {
+          userSession.loadingApps.delete(packageName);
+          console.log(`👴🏻[] TPA ${packageName} expired without connection`);
 
           // Clean up boot screen.
           userSession.displayManager.handleAppStop(app.packageName, userSession);
         }
       }, TPA_SESSION_TIMEOUT_MS);
 
+      userSession.loadingApps.delete(packageName);
+      console.log(`Successfully started app ${packageName}`);
       return userSession.sessionId + '-' + packageName;
     } catch (error) {
       // this.pendingTpaSessions.delete(tpaSessionId);
       console.error(`\n[GG]\nError starting app ${packageName}:`, error);
-      userSession.loadingApps = userSession.loadingApps.filter(
-        (packageName) => packageName !== packageName
-      );
+      userSession.loadingApps.delete(packageName);
       throw error;
     }
   }
