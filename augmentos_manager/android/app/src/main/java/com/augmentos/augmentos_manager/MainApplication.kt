@@ -54,7 +54,6 @@ class MainApplication : Application(), ReactApplication {
                 TpaHelpersPackage(),
                 FetchConfigHelperPackage(),
                 RNCConfigPackage(),
-                IntentReceiverPackage()
             )
         }
 
