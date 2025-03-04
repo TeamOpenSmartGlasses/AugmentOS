@@ -6,7 +6,7 @@ import path from 'path';
 import axios from 'axios';
 import { AUGMENTOS_AUTH_JWT_SECRET, systemApps } from '@augmentos/config';
 import { User } from '../models/user.model';
-
+import appService from '../services/core/app.service';
 console.log('systemApps', systemApps);
 
 
@@ -51,8 +51,21 @@ router.get('/:tpaName', async (req, res) => {
       const rawData = fs.readFileSync(configFilePath, 'utf8');
       tpaConfig = JSON.parse(rawData);
     } catch (err) {
-      console.error('Error reading TPA config file:', err);
-      return res.status(500).json({ error: 'Error reading TPA config file' });
+      const _tpa = await appService.getApp(req.params.tpaName);
+      if (_tpa) {
+        tpaConfig = {
+          name: _tpa.name || req.params.tpaName,
+          scription: _tpa.description || '',
+          version: "1.0.0",
+          settings: []
+        }
+      } else {
+        console.error('Error reading TPA config file:', err);
+        return res.status(500).json({ error: 'Error reading TPA config file' });
+      }
+      // If the config file doesn't exist or is invalid, just return 
+      // console.error('Error reading TPA config file:', err);
+      // return res.status(500).json({ error: 'Error reading TPA config file' });
     }
 
     // Find or create the user.
