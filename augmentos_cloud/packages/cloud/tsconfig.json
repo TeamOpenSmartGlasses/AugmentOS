@@ -13,7 +13,7 @@
     "baseUrl": ".",
 
     "paths": {
-      "@augmentos/types": ["../types/dist"],
+      "@augmentos/sdk": ["../sdk/dist"],
       "@augmentos/config": ["../config/dist"]
     },
 

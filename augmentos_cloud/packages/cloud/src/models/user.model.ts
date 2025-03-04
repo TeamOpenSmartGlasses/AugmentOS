@@ -1,10 +1,15 @@
-// models/user.model.ts
+// cloud/src/models/user.model.ts
 import mongoose, { Schema, Document, Model } from 'mongoose';
-import { AppSettingType, type AppSetting } from '@augmentos/types';
+import { AppSettingType, type AppSetting } from '@augmentos/sdk';
 
 interface Location {
   lat: number;
   lng: number;
+}
+
+interface InstalledApp {
+  packageName: string;
+  installedDate: Date;
 }
 
 // Extend Document for TypeScript support
@@ -13,6 +18,10 @@ interface UserDocument extends Document {
   runningApps: string[];
   appSettings: Map<string, AppSetting[]>;
   location?: Location;
+  installedApps?: Array<{
+    packageName: string;
+    installedDate: Date;
+  }>;
 
   setLocation(location: Location): Promise<void>;
   addRunningApp(appName: string): Promise<void>;
@@ -21,7 +30,17 @@ interface UserDocument extends Document {
   // getAppSettings(appName: string): AppSetting[] | undefined;
   getAppSettings(appName: string): any[] | undefined;
   isAppRunning(appName: string): boolean;
+
+  // New methods for installed apps
+  installApp(packageName: string): Promise<void>;
+  uninstallApp(packageName: string): Promise<void>;
+  isAppInstalled(packageName: string): boolean;
 }
+
+const InstalledAppSchema = new Schema({
+  packageName: { type: String, required: true },
+  installedDate: { type: Date, default: Date.now }
+});
 
 // --- New Schema for Lightweight Updates ---
 const AppSettingUpdateSchema = new Schema({
@@ -57,9 +76,9 @@ const AppSettingUpdateSchema = new Schema({
 
 // --- User Schema ---
 const UserSchema = new Schema<UserDocument>({
-  email: { 
-    type: String, 
-    required: true, 
+  email: {
+    type: String,
+    required: true,
     unique: true,
     trim: true,
     lowercase: true,
@@ -78,8 +97,8 @@ const UserSchema = new Schema<UserDocument>({
     }
   },
 
-  runningApps: { 
-    type: [String], 
+  runningApps: {
+    type: [String],
     default: [],
     validate: {
       validator: function(apps: string[]) {
@@ -92,8 +111,21 @@ const UserSchema = new Schema<UserDocument>({
     type: Map,
     of: [AppSettingUpdateSchema], // Use the new schema for updates
     default: new Map()
+  },
+
+  installedApps: {
+    type: [InstalledAppSchema],
+    default: [],
+    validate: {
+      validator: function(apps: InstalledApp[]) {
+        // Ensure no duplicate package names
+        const packageNames = apps.map(app => app.packageName);
+        return new Set(packageNames).size === packageNames.length;
+      },
+      message: 'Installed apps must be unique'
+    }
   }
-}, { 
+}, {
   timestamps: true,
   optimisticConcurrency: true,
   toJSON: {
@@ -116,26 +148,75 @@ const UserSchema = new Schema<UserDocument>({
 UserSchema.index({ email: 1, 'runningApps': 1 }, { unique: true });
 
 // Instance methods
-// Update location.
 
-UserSchema.methods.setLocation = async function(this: UserDocument, location: Location): Promise<void> {
+// Install / uninstall.
+// Add methods for managing installed apps
+UserSchema.methods.installApp = async function (this: UserDocument, packageName: string): Promise<void> {
+  if (!this.isAppInstalled(packageName)) {
+    if (!this.installedApps) {
+      this.installedApps = [];
+    }
+    this.installedApps.push({
+      packageName,
+      installedDate: new Date()
+    });
+    await this.save();
+  }
+};
+
+UserSchema.methods.uninstallApp = async function (this: UserDocument, packageName: string): Promise<void> {
+  if (this.isAppInstalled(packageName)) {
+    if (!this.installedApps) {
+      this.installedApps = [];
+    }
+    this.installedApps = this.installedApps.filter(app => app.packageName !== packageName);
+    await this.save();
+  }
+};
+
+UserSchema.methods.isAppInstalled = function(this: UserDocument, packageName: string): boolean {
+  return this.installedApps?.some(app => app.packageName === packageName) ?? false;
+}
+
+// Update location.
+UserSchema.methods.setLocation = async function (this: UserDocument, location: Location): Promise<void> {
   this.location = location;
   await this.save();
 }
 
-UserSchema.methods.addRunningApp = async function(this: UserDocument, appName: string): Promise<void> {
+UserSchema.methods.addRunningApp = async function (this: UserDocument, appName: string): Promise<void> {
   if (!this.runningApps.includes(appName)) {
     this.runningApps.push(appName);
     await this.save();
   }
 };
 
-UserSchema.methods.removeRunningApp = async function(this: UserDocument, appName: string): Promise<void> {
+UserSchema.methods.removeRunningApp = async function (this: UserDocument, appName: string): Promise<void> {
   if (this.runningApps.includes(appName)) {
     this.runningApps = this.runningApps.filter(app => app !== appName);
     await this.save();
   }
 };
+
+// UserSchema.methods.updateAppSettings = async function (
+//   this: UserDocument,
+//   appName: string,
+//   settings: AppSetting[]
+// ): Promise<void> {
+//   // Validate settings before updating
+//   const isValid = settings.every(setting => {
+//     switch (setting.type) {
+//       case AppSettingType.TOGGLE:
+//         return typeof setting.defaultValue === 'boolean';
+//       case AppSettingType.SELECT:
+//         return Array.isArray(setting.options) &&
+//           setting.options.length > 0 &&
+//           (!setting.defaultValue || setting.options.some(opt => opt.value === setting.defaultValue));
+//       case AppSettingType.TEXT:
+//         return true; // Text settings can have any string default value
+//       default:
+//         return false;
+
 
 UserSchema.methods.updateAppSettings = async function(
   appName: string, 
@@ -175,11 +256,11 @@ UserSchema.methods.updateAppSettings = async function(
   console.log('Settings retrieved after save:', JSON.stringify(afterUpdate));
 };
 
-UserSchema.methods.getAppSettings = function(this: UserDocument, appName: string): AppSetting[] | undefined {
+UserSchema.methods.getAppSettings = function (this: UserDocument, appName: string): AppSetting[] | undefined {
   return this.appSettings.get(appName);
 };
 
-UserSchema.methods.isAppRunning = function(this: UserDocument, appName: string): boolean {
+UserSchema.methods.isAppRunning = function (this: UserDocument, appName: string): boolean {
   return this.runningApps.includes(appName);
 };
 
@@ -188,7 +269,7 @@ UserSchema.statics.findByEmail = async function(email: string): Promise<UserDocu
   return this.findOne({ email: email.toLowerCase() });
 };
 
-UserSchema.statics.findOrCreateUser = async function(email: string): Promise<UserDocument> {
+UserSchema.statics.findOrCreateUser = async function (email: string): Promise<UserDocument> {
   email = email.toLowerCase();
   let user = await this.findOne({ email });
   if (!user) {

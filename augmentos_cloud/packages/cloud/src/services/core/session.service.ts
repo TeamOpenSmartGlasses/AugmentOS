@@ -2,9 +2,9 @@
 
 import { WebSocket } from 'ws';
 import { v4 as uuidv4 } from 'uuid';
-import { LayoutType, StreamType, TpaToCloudMessageType, UserSession, ViewType } from '@augmentos/types';
-import { TranscriptSegment } from '@augmentos/types';
-import { DisplayRequest } from '@augmentos/types';
+import { StreamType, UserSession } from '@augmentos/sdk';
+import { TranscriptSegment } from '@augmentos/sdk';
+import { DisplayRequest } from '@augmentos/sdk';
 import appService, { SYSTEM_TPAS } from './app.service';
 import transcriptionService from '../processing/transcription.service';
 import DisplayManager from '../layout/DisplayManager6.1';
@@ -35,7 +35,7 @@ export class SessionService {
       userId,
       startTime: new Date(),
       activeAppSessions: [],
-      installedApps: appService.getSystemApps(),
+      installedApps: await appService.getAllApps(),
       whatToStream: new Array<StreamType>(),
       appSubscriptions: new Map<string, StreamType[]>(),
       loadingApps: [],
@@ -143,7 +143,7 @@ export class SessionService {
     userSession: ExtendedUserSession,
     audioData: ArrayBuffer | any,
     isLC3 = true
-  ): Promise<void> {
+  ): Promise<ArrayBuffer | void> {
     // Update the last audio timestamp
     userSession.lastAudioTimestamp = Date.now();
 
@@ -165,7 +165,7 @@ export class SessionService {
         }
       } catch (error) {
         console.error('❌ Error decoding LC3 audio:', error);
-        return; // Skip this chunk rather than sending corrupted data
+        processedAudioData = null;
       }
     }
 
@@ -185,6 +185,8 @@ export class SessionService {
         transcriptionService.handlePushStreamError(userSession, error);
       }
     }
+
+    return processedAudioData;
   }
 
   endSession(sessionId: string): void {

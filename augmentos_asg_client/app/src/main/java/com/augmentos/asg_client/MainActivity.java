@@ -78,7 +78,11 @@ public class MainActivity extends AppCompatActivity {
       gettingPermissions = true;
     }
 
-   finish();
+   //finish();
+    // Launch WebViewActivity FOR THE DEMO TODO:
+    Intent webViewIntent = new Intent(this, WebViewActivity.class);
+    webViewIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    startActivity(webViewIntent);
   }
 
   @Override

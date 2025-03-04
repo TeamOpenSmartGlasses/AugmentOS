@@ -43,7 +43,7 @@ public class PermissionsActivity extends AppCompatActivity {
             Manifest.permission.BLUETOOTH_ADVERTISE,
             Manifest.permission.RECORD_AUDIO,
             Manifest.permission.READ_PHONE_STATE,
-//            Manifest.permission.CAMERA,
+            Manifest.permission.CAMERA,
             Manifest.permission.POST_NOTIFICATIONS,
     };
 

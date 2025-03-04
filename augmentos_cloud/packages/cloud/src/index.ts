@@ -51,6 +51,20 @@ app.use(cors({
     'https://dev.augmentos.org',
     'https://www.augmentos.org',
     'https://augmentos.org',
+    "https://augmentos.dev",
+
+    // AugmentOS App Store / Developer Portal
+    "https://augmentos.dev",
+    "https://appstore.augmentos.dev",
+
+    "https://dev.appstore.augmentos.dev",
+    "https://dev.augmentos.dev",
+    "https://staging.appstore.augmentos.dev",
+    "https://staging.augmentos.dev",
+    "https://prod.appstore.augmentos.dev",
+    "https://prod.augmentos.dev",
+
+    "https://augmentos-developer-portal.netlify.app",
   ]
 }));
 
@@ -59,6 +73,8 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
 
 // Routes
+app.use('/api/apps', appRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/apps', appRoutes);
 app.use('/auth', authRoutes);
 app.use('/tpasettings', tpaSettingsRoutes);

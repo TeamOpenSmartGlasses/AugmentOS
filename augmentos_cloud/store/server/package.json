@@ -1,0 +1,20 @@
+{
+  "name": "@augmentos/appstore",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "deploy": "bun run build && bun start",
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@augmentos/sdk": "^1.0.6",
+    "@supabase/supabase-js": "^2.49.1",
+    "axios": "^1.8.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "ts-node-dev": "^1.1.6"
+  }
+}

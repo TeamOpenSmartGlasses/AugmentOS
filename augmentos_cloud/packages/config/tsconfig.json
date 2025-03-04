@@ -11,7 +11,7 @@
     "rootDir": "src",                          // The root folder for your source files.
     "baseUrl": ".",                            // Base directory for non-relative module names.
     "paths": {
-      "@augmentos/types/*": ["../types/src/*"] // Map module paths; adjust if needed for your project structure.
+      "@augmentos/sdk/*": ["../sdk/src/*"] // Map module paths; adjust if needed for your project structure.
     }
   },
   "include": ["src/**/*"],                     // Include all files in the src directory.

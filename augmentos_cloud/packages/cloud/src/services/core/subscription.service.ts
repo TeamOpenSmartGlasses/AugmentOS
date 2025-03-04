@@ -12,7 +12,7 @@
 import {
     StreamType,
     UserSession,
-  } from '@augmentos/types';
+  } from '@augmentos/sdk';
   
   /**
    * Record of a subscription change

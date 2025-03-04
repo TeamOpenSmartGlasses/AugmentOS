@@ -7,10 +7,10 @@
  * to maintain core functionality regardless of database state.
  */
 
-import { AppI, StopWebhookRequest, TpaType, WebhookResponse } from '@augmentos/types';
-import { AppState } from '@augmentos/types';
+import { AppI, StopWebhookRequest, TpaType, WebhookResponse, AppState } from '@augmentos/sdk';
 import axios, { AxiosError } from 'axios';
 import { systemApps } from '@augmentos/config';
+import App from '../../models/app.model';
 
 
 /**
@@ -55,7 +55,7 @@ export const APP_STORE: AppI[] = [
 
 // if we are not in production, add the dashboard to the app 
 if (process.env.NODE_ENV !== 'production') {
-  APP_STORE.push(  {
+  APP_STORE.push({
     packageName: systemApps.flash.packageName,
     name: systemApps.flash.name,
     tpaType: TpaType.BACKGROUND,
@@ -106,22 +106,6 @@ interface WebhookPayload {
 }
 
 /**
- * Interface defining the public API of the app service.
- */
-export interface IAppService {
-  getAllApps(): Promise<AppI[]>;
-  getApp(packageName: string): Promise<AppI | undefined>;
-  createApp(app: AppI): Promise<AppI>;
-  triggerWebhook(url: string, payload: WebhookPayload): Promise<void>;
-  triggerStopWebhook(webhookUrl: string, payload: StopWebhookRequest): Promise<{
-    status: number;
-    data: WebhookResponse;
-  }>;
-  validateApiKey(packageName: string, apiKey: string): Promise<boolean>;
-  getAppState(packageName: string, userId: string): Promise<AppState>;
-}
-
-/**
  * Implementation of the app management service.
  * Design decisions:
  * 1. Separate system and user TPAs
@@ -129,10 +113,7 @@ export interface IAppService {
  * 3. Webhook retry logic
  * 4. API key validation
  */
-export class AppService implements IAppService {
-  // In-memory storage for user-created TPAs
-  private userTpas: AppI[] = [];
-
+export class AppService {
   // In-memory cache for app states
   // Map of userId to Map of packageName to AppState
   private appStates = new Map<string, Map<string, AppState>>();
@@ -142,13 +123,14 @@ export class AppService implements IAppService {
    * @returns Promise resolving to array of all apps
    */
   async getAllApps(): Promise<AppI[]> {
-    return [...APP_STORE, ...this.userTpas];
+    const apps = await App.find() as AppI[];
+    return [...APP_STORE, ...apps];
   }
 
-  /**
-   * Gets available system TPAs.
-   * @returns array of system apps.
-   */
+  // /**
+  //  * Gets available system TPAs.
+  //  * @returns array of system apps.
+  //  */
   getSystemApps(): AppI[] {
     return SYSTEM_TPAS;
   }
@@ -159,25 +141,15 @@ export class AppService implements IAppService {
    * @returns Promise resolving to app if found
    */
   async getApp(packageName: string): Promise<AppI | undefined> {
-    return [...SYSTEM_TPAS, ...APP_STORE].find(app => app.packageName === packageName);
-  }
-
-  /**
-   * Creates a new TPA.
-   * @param app - TPA to create
-   * @returns Promise resolving to created app
-   * @throws If packageName already exists
-   */
-  async createApp(app: AppI): Promise<AppI> {
-    const existingApp = await this.getApp(app.packageName);
-    if (existingApp) {
-      throw new Error(`App with ID ${app.packageName} already exists`);
+    // return [...SYSTEM_TPAS, ...APP_STORE].find(app => app.packageName === packageName);
+    let app: AppI | undefined = [...SYSTEM_TPAS, ...APP_STORE].find(app => app.packageName === packageName);
+    // if we can't find the app, try checking the appstore via the App Mongodb model.
+    if (!app) {
+      app = await App.findOne({
+        packageName: packageName
+      }) as AppI;
     }
 
-    // Validate required fields
-    this.validateAppFields(app);
-
-    this.userTpas.push(app);
     return app;
   }
 
@@ -228,15 +200,11 @@ export class AppService implements IAppService {
     status: number;
     data: WebhookResponse;
   }> {
-    try {
-      const response = await axios.post(`${webhookUrl}/stop`, payload);
-      return {
-        status: response.status,
-        data: response.data
-      };
-    } catch (error) {
-      throw error;
-    }
+    const response = await axios.post(`${webhookUrl}/stop`, payload);
+    return {
+      status: response.status,
+      data: response.data
+    };
   }
 
   /**
@@ -265,56 +233,6 @@ export class AppService implements IAppService {
 
     // Return existing state or default to not_installed
     return userStates.get(packageName) || AppState.NOT_INSTALLED;
-  }
-
-  /**
-   * Updates the state of a TPA for a user.
-   * @param packageName - TPA identifier
-   * @param userId - User identifier
-   * @param state - New state
-   * @private
-   */
-  private async updateAppState(packageName: string, userId: string, state: AppState): Promise<void> {
-    const userStates = this.appStates.get(userId) || new Map<string, AppState>();
-    userStates.set(packageName, state);
-    this.appStates.set(userId, userStates);
-
-    // Log state change
-    console.log(`App ${packageName} state changed to ${state} for user ${userId}`);
-  }
-
-  /**
-   * Validates required fields for a new TPA.
-   * @param app - TPA to validate
-   * @throws If validation fails
-   * @private
-   */
-  private validateAppFields(app: AppI): void {
-    const requiredFields: (keyof AppI)[] = [
-      'packageName',
-      'name',
-      'webhookURL',
-      'logoURL'
-    ];
-
-    for (const field of requiredFields) {
-      if (!app[field]) {
-        throw new Error(`Missing required field: ${String(field)}`);
-      }
-    }
-
-    // Validate packageName format
-    if (!app.packageName.match(/^[a-z0-9.-]+$/)) {
-      throw new Error('Invalid packageName format. Use lowercase letters, numbers, dots, and hyphens only.');
-    }
-
-    // Validate URLs
-    try {
-      new URL(app.webhookURL);
-      new URL(app.logoURL);
-    } catch {
-      throw new Error('Invalid webhook or logo URL');
-    }
   }
 }
 

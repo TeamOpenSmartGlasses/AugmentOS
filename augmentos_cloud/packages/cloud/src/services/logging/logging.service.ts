@@ -4,7 +4,7 @@ import * as Sentry from "@sentry/node";
 import { nodeProfilingIntegration } from "@sentry/profiling-node";
 import winston from 'winston';
 import { WebSocket } from 'ws';
-import { UserSession } from '@augmentos/types';
+import { UserSession } from '@augmentos/sdk';
 
 /**
  * Configuration options for the logging service
