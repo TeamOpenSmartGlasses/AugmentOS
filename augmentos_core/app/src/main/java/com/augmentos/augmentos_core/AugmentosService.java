@@ -391,8 +391,8 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
 
         // Set up backend comms
         this.httpServerComms = new HTTPServerComms();
-        if(authHandler.getCoreToken() != null)
-            ServerComms.getInstance().connectWebSocket(authHandler.getCoreToken());
+        //if(authHandler.getCoreToken() != null)
+        //    ServerComms.getInstance().connectWebSocket(authHandler.getCoreToken());
         initializeServerCommsCallbacks();
 
         httpServerComms.getApps(new Callback() {

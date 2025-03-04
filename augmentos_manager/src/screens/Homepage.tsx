@@ -13,14 +13,8 @@ import ConnectedDeviceInfo from '../components/ConnectedDeviceInfo';
 import RunningAppsList from '../components/RunningAppsList';
 import YourAppsList from '../components/YourAppsList';
 import NavigationBar from '../components/NavigationBar';
-import PuckConnection from '../components/PuckConnection';
 import { useStatus } from '../providers/AugmentOSStatusProvider.tsx';
 import { ScrollView } from 'react-native-gesture-handler';
-import {
-  SETTINGS_KEYS,
-  SIMULATED_PUCK_DEFAULT,
-} from '../consts';
-import { loadSetting } from '../logic/SettingsHelper.tsx';
 import BackendServerComms from '../backend_comms/BackendServerComms.tsx';
 import semver from 'semver';
 import { Config } from 'react-native-config';
@@ -138,19 +132,6 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
     [fadeAnim, slideAnim],
   );
 
-  // Load SIMULATED_PUCK setting once
-  React.useEffect(() => {
-    const loadSimulatedPuckSetting = async () => {
-      const simulatedPuck = await loadSetting(
-        SETTINGS_KEYS.SIMULATED_PUCK,
-        SIMULATED_PUCK_DEFAULT,
-      );
-      setIsSimulatedPuck(simulatedPuck);
-    };
-
-    loadSimulatedPuckSetting();
-  }, []);
-
   useFocusEffect(
     useCallback(() => {
       // Reset animations when screen is about to focus
@@ -189,12 +170,6 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
         <AnimatedSection>
           <Header isDarkTheme={isDarkTheme} navigation={navigation} />
         </AnimatedSection>
-
-        {!isSimulatedPuck && (
-          <AnimatedSection>
-            <PuckConnection isDarkTheme={isDarkTheme} />
-          </AnimatedSection>
-        )}
 
         {status.core_info.cloud_connection_status !== 'CONNECTED' &&
           <AnimatedSection>
