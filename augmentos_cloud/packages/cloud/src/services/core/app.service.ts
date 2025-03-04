@@ -132,7 +132,8 @@ export class AppService {
    */
   async getAllApps(): Promise<AppI[]> {
     const apps = await App.find() as AppI[];
-    return [...APP_STORE, ...apps];
+    const allApps = [...APP_STORE, ...apps];
+    return allApps;
   }
 
   // /**
