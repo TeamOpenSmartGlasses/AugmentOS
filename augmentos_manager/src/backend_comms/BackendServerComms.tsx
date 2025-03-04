@@ -12,26 +12,12 @@ export default class BackendServerComms {
   private TAG = 'MXT2_BackendServerComms';
   private serverUrl;
 
-  public getAppStoreUrl(): string {
-    const secure = Config.AUGMENTOS_SECURE === 'true';
-    const base = Config.AUGMENTOS_BASE;
-    const port = Config.AUGMENTOS_PORT;
-    const protocol = secure ? 'https' : 'http';
-    const appstoreUrl = `${protocol}://appstore.${base}:${port}`;
-    console.log("\n\n\n\n Got a new appstore url: ");
-    console.log(appstoreUrl);
-    console.log('React Native Config:', Config);
-    console.log("\n\n\n");
-    return appstoreUrl;
-  }
-
   public getServerUrl(): string {
     const secure = Config.AUGMENTOS_SECURE === 'true';
-    const environment = Config.AUGMENTOS_ENVIRONMENT;
-    const base = Config.AUGMENTOS_BASE;
+    const host = Config.AUGMENTOS_HOST;
     const port = Config.AUGMENTOS_PORT;
     const protocol = secure ? 'https' : 'http';
-    const serverUrl = `${protocol}://${environment}.${base}:${port}`;
+    const serverUrl = `${protocol}://${host}:${port}`;
     console.log("\n\n\n\n Got a new server url: ");
     console.log(serverUrl);
     console.log('React Native Config:', Config);
