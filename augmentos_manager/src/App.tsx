@@ -210,7 +210,7 @@ const App: React.FC = () => {
                 </Stack.Screen>
                 <Stack.Screen name="AppSettings"
                   options={({ route }) => ({
-                    title: route.params?.appName + ' Settings',
+                    title: route.params?.appName,
                     headerStyle: {
                       backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
                     },

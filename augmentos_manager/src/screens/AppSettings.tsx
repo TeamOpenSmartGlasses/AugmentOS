@@ -1,6 +1,6 @@
 // src/AppSettings.tsx
-import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import React, { useEffect, useState, useMemo } from 'react';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../components/types';
 import NavigationBar from '../components/NavigationBar';
@@ -16,6 +16,9 @@ import TitleValueSetting from '../components/settings/TitleValueSetting';
 import LoadingComponent from '../components/LoadingComponent';
 import { useStatus } from '../providers/AugmentOSStatusProvider';
 import BackendServerComms from '../backend_comms/BackendServerComms';
+import { AppInfo } from '../AugmentOSStatusParser';
+import LinearGradient from 'react-native-linear-gradient';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 type AppSettingsProps = NativeStackScreenProps<RootStackParamList, 'AppSettings'> & {
   isDarkTheme: boolean;
@@ -30,13 +33,29 @@ const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleThe
   const [serverAppInfo, setServerAppInfo] = useState<any>(null);
   // Local state to track current values for each setting.
   const [settingsState, setSettingsState] = useState<{ [key: string]: any }>({});
-
+  // Get app info from status
   const { status } = useStatus();
+  const appInfo = useMemo(() => {
+    return status.apps.find(app => app.packageName === packageName) || null;
+  }, [status.apps, packageName]);
+
+  // Placeholder functions for app actions
+  const handleStartStopApp = () => {
+    console.log(`${appInfo?.is_running ? 'Stopping' : 'Starting'} app: ${packageName}`);
+    if (appInfo?.packageName && appInfo?.is_running) {
+      BluetoothService.getInstance().stopAppByPackageName(appInfo?.packageName);
+    } else if (appInfo?.packageName && !appInfo?.is_running) {
+      BluetoothService.getInstance().startAppByPackageName(appInfo?.packageName);
+    }
+  };
+
+  const handleUninstallApp = () => {
+    console.log(`Uninstalling app: ${packageName}`);
+    // This would be implemented with actual functionality to uninstall the app
+  };
 
   // Fetch TPA settings on mount or when packageName/status change.
   useEffect(() => {
-
-
     (async () => {
       await fetchUpdatedSettingsInfo();
     })();
@@ -99,6 +118,38 @@ const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleThe
   const theme = {
     backgroundColor: isDarkTheme ? '#1c1c1c' : '#f9f9f9',
     textColor: isDarkTheme ? '#FFFFFF' : '#333333',
+    cardBackground: isDarkTheme ? '#2c2c2c' : '#ffffff',
+    borderColor: isDarkTheme ? '#444444' : '#e0e0e0',
+    secondaryTextColor: isDarkTheme ? '#cccccc' : '#666666',
+    separatorColor: isDarkTheme ? '#444444' : '#e0e0e0',
+  };
+
+  // App icon getter based on the one in AppIcon component
+  const getAppImage = (packageName: string) => {
+    switch (packageName) {
+      case 'com.mentra.merge':
+        return require('../assets/app-icons/mentra-merge.png');
+      case 'com.mentra.link':
+        return require('../assets/app-icons/mentra-link.png');
+      case 'com.mentra.adhdaid':
+        return require('../assets/app-icons/ADHD-aid.png');
+      case 'com.augmentos.live-translation':
+        return require('../assets/app-icons/translation.png');
+      case 'com.example.placeholder':
+      case 'com.augmentos.screenmirror':
+        return require('../assets/app-icons/screen-mirror.png');
+      case 'com.augmentos.live-captions':
+        return require('../assets/app-icons/captions.png');
+      case 'com.augmentos.miraai':
+        return require('../assets/app-icons/mira-ai.png');
+      case 'com.google.android.apps.maps':
+      case 'com.augmentos.navigation':
+        return require('../assets/app-icons/navigation.png');
+      case 'com.augmentos.notify':
+        return require('../assets/app-icons/phone-notifications.png');
+      default:
+        return require('../assets/app-icons/navigation.png');
+    }
   };
 
   // Render each setting.
@@ -180,35 +231,273 @@ const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleThe
     }
   };
 
-  if (!serverAppInfo) {
+  if (!serverAppInfo || !appInfo) {
     return <LoadingComponent message="Loading App Settings..." theme={theme} />;
   }
 
   return (
     <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.backgroundColor }]}>
       <ScrollView contentContainerStyle={styles.mainContainer}>
-        {serverAppInfo.instructions && (
-          <View style={[styles.instructionsContainer, { marginBottom: 20 }]}>
-            <Text style={[styles.title, { color: theme.textColor }]}>Instructions</Text>
-            <Text style={[styles.instructionsText, { color: theme.textColor }]}>{serverAppInfo.instructions}</Text>
+        {/* App Info Header Section */}
+        <View style={[styles.appInfoHeader, { backgroundColor: theme.cardBackground, borderColor: theme.borderColor }]}>
+          <View style={styles.appIconRow}>
+            <View style={styles.appIconContainer}>
+              <View style={styles.iconWrapper}>
+                <ImageBackground
+                  source={getAppImage(packageName)}
+                  style={styles.appIconLarge}
+                  imageStyle={styles.appIconRounded}
+                />
+              </View>
+            </View>
+
+            <View style={styles.appInfoTextContainer}>
+              <Text style={[styles.appName, { color: theme.textColor }]}>{appInfo.name}</Text>
+              <View style={styles.appMetaInfoContainer}>
+                <Text style={[styles.appMetaInfo, { color: theme.secondaryTextColor }]}>
+                  Version {appInfo.version || '1.0.0'}
+                </Text>
+                <Text style={[styles.appMetaInfo, { color: theme.secondaryTextColor }]}>
+                  Package: {packageName}
+                </Text>
+                {appInfo.is_foreground && (
+                  <Text style={[styles.appMetaInfo, { color: '#2196F3' }]}>
+                    Foreground App
+                  </Text>
+                )}
+              </View>
+            </View>
+          </View>
+
+          {/* Description within the main card */}
+          <View style={[styles.descriptionContainer, { borderTopColor: theme.separatorColor }]}>
+            <Text style={[styles.descriptionText, { color: theme.textColor }]}>
+              {appInfo.description || 'No description available.'}
+            </Text>
+          </View>
+        </View>
+
+        {/* App Action Buttons Section */}
+        <View style={[styles.sectionContainer, { backgroundColor: theme.cardBackground, borderColor: theme.borderColor }]}>
+          <View style={styles.actionButtonsRow}>
+            <TouchableOpacity
+              style={[
+                styles.actionButton,
+                { borderColor: theme.borderColor, backgroundColor: theme.backgroundColor }
+              ]}
+              onPress={handleStartStopApp}
+              activeOpacity={0.7}
+            >
+              <FontAwesome
+                name={appInfo.is_running ? "stop" : "play"}
+                size={16}
+                style={[styles.buttonIcon, { color: theme.secondaryTextColor }]}
+              />
+              <Text style={[styles.buttonText, { color: theme.secondaryTextColor }]}>
+                {appInfo.is_running ? "Stop" : "Start"}
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[
+                styles.actionButton,
+                styles.disabledButton,
+                { borderColor: theme.borderColor, backgroundColor: theme.backgroundColor }
+              ]}
+              activeOpacity={0.7}
+              disabled={true}
+            >
+              <FontAwesome
+                name="trash"
+                size={16}
+                style={[styles.buttonIcon, { color: theme.secondaryTextColor }]}
+              />
+              <Text style={[styles.buttonText, { color: theme.secondaryTextColor }]}>Uninstall</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        {/* App Instructions Section */}
+        {(serverAppInfo.instructions || appInfo.instructions) && (
+          <View style={[styles.sectionContainer, { backgroundColor: theme.cardBackground, borderColor: theme.borderColor }]}>
+            <Text style={[styles.sectionTitle, { color: theme.textColor }]}>About this App</Text>
+            <Text style={[styles.instructionsText, { color: theme.textColor }]}>
+              {serverAppInfo.instructions || appInfo.instructions}
+            </Text>
           </View>
         )}
-        {serverAppInfo.settings.map((setting: any, index: number) =>
-          renderSetting({ ...setting, uniqueKey: `${setting.key}-${index}` }, index)
-        )}
+
+        {/* App Settings Section */}
+        <View style={[styles.sectionContainer, { backgroundColor: theme.cardBackground, borderColor: theme.borderColor }]}>
+          <Text style={[styles.sectionTitle, { color: theme.textColor }]}>App Settings</Text>
+          <View style={styles.settingsContainer}>
+            {serverAppInfo.settings && serverAppInfo.settings.length > 0 ? (
+              serverAppInfo.settings.map((setting: any, index: number) =>
+                renderSetting({ ...setting, uniqueKey: `${setting.key}-${index}` }, index)
+              )
+            ) : (
+              <Text style={[styles.noSettingsText, { color: theme.secondaryTextColor }]}>
+                No settings available for this app
+              </Text>
+            )}
+          </View>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  safeArea: { flex: 1 },
-  mainContainer: { flexGrow: 1, padding: 16, alignItems: 'stretch' },
-  instructionsContainer: { marginTop: 10, marginBottom: 20, alignItems: 'flex-start' },
-  title: { fontSize: 18, fontWeight: 'bold', marginBottom: 10 },
-  instructionsText: { fontSize: 16, lineHeight: 22 },
-  loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', marginHorizontal: 20 },
-  text: { fontSize: 18, fontFamily: 'Montserrat-Regular', textAlign: 'center', marginBottom: 20 },
+  safeArea: {
+    flex: 1
+  },
+  mainContainer: {
+    flexGrow: 1,
+    padding: 16,
+    alignItems: 'stretch',
+    gap: 16,
+  },
+  appInfoHeader: {
+    padding: 16,
+    borderRadius: 12,
+    borderWidth: 1,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  appIconRow: {
+    flexDirection: 'row',
+    marginBottom: 12,
+  },
+  appIconContainer: {
+    marginRight: 16,
+  },
+  descriptionContainer: {
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: '#e0e0e0',
+  },
+  iconGradient: {
+    borderRadius: 24,
+    padding: 3,
+  },
+  iconWrapper: {
+    width: 100,
+    height: 100,
+    borderRadius: 22,
+    overflow: 'hidden',
+    backgroundColor: 'white',
+  },
+  appIconLarge: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+  },
+  appIconRounded: {
+    borderRadius: 18,
+  },
+  appInfoTextContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  appName: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
+    marginBottom: 4,
+  },
+  descriptionText: {
+    fontSize: 16,
+    fontFamily: 'Montserrat-Regular',
+    lineHeight: 22,
+  },
+  appMetaInfoContainer: {
+    marginTop: 4,
+  },
+  appMetaInfo: {
+    fontSize: 12,
+    fontFamily: 'Montserrat-Regular',
+    marginVertical: 1,
+  },
+  sectionContainer: {
+    borderRadius: 12,
+    borderWidth: 1,
+    padding: 16,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
+    marginBottom: 12,
+  },
+  instructionsText: {
+    fontSize: 14,
+    lineHeight: 22,
+    fontFamily: 'Montserrat-Regular',
+  },
+  settingsContainer: {
+    gap: 8,
+  },
+  noSettingsText: {
+    fontSize: 14,
+    fontFamily: 'Montserrat-Regular',
+    fontStyle: 'italic',
+    textAlign: 'center',
+    padding: 16,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 20
+  },
+  actionButtonsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: 10,
+  },
+  actionButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    backgroundColor: '#f5f5f5',
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+  },
+  startButton: {
+    // Light background for Android-style
+  },
+  stopButton: {
+    // Same styling as start for consistency
+  },
+  uninstallButton: {
+    // Same styling as other buttons
+  },
+  disabledButton: {
+    opacity: 0.5,
+  },
+  buttonIcon: {
+    marginRight: 8,
+    color: '#5c5c5c',
+  },
+  buttonText: {
+    color: '#5c5c5c',
+    fontWeight: '600',
+    fontSize: 14,
+    fontFamily: 'Montserrat-Bold',
+  },
 });
 
 export default AppSettings;
