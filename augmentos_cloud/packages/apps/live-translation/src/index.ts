@@ -58,17 +58,17 @@ function convertLineWidth(width: string | number, isHanzi: boolean = false): num
       case 'very narrow': return 21;
       case 'narrow': return 30;
       case 'medium': return 38;
-      case 'wide': return 46;
+      case 'wide': return 44;
       case 'very wide': return 52;
       default: return 45;
     }
   } else {
     switch (width.toLowerCase()) {
-      case 'very narrow': return 7;
-      case 'narrow': return 10;
-      case 'medium': return 14;
-      case 'wide': return 18;
-      case 'very wide': return 21;
+      case 'very narrow': return 10;
+      case 'narrow': return 14;
+      case 'medium': return 18;
+      case 'wide': return 22;
+      case 'very wide': return 26;
       default: return 14;
     }
   }
@@ -101,7 +101,7 @@ async function fetchAndApplySettings(sessionId: string, userId: string) {
     userTranslateLanguageSettings.set(userId, targetLang);
     console.log(`Settings for user ${userId}: source=${sourceLang}, target=${targetLang}`);
     
-    const isChineseLanguage = targetLang.startsWith('zh-') || targetLang.startsWith('ja-');
+    const isChineseLanguage = targetLang.toLowerCase().startsWith('zh-') || targetLang.toLowerCase().startsWith('ja-');
 
     const lineWidth = lineWidthSetting ? convertLineWidth(lineWidthSetting.value, isChineseLanguage) : 30;
     const transcriptProcessor = new TranscriptProcessor(lineWidth, numberOfLines);
@@ -116,9 +116,9 @@ async function fetchAndApplySettings(sessionId: string, userId: string) {
     // Fallback defaults
     const transcriptProcessor = new TranscriptProcessor(30, 3);
     userTranscriptProcessors.set(userId, transcriptProcessor);
-    usertranscribeLanguageSettings.set(userId, 'en-US');
-    userTranslateLanguageSettings.set(userId, 'es-ES');
-    return { sourceLang: 'en-US', targetLang: 'es-ES' };
+    usertranscribeLanguageSettings.set(userId, 'zh-CN');
+    userTranslateLanguageSettings.set(userId, 'en-US');
+    return { sourceLang: 'zh-CN', targetLang: 'en-US' };
   }
 }
 
@@ -130,8 +130,8 @@ function updateSubscriptionForSession(sessionId: string, userId: string) {
   const ws = activeSessions.get(sessionId);
   if (!ws || ws.readyState !== WebSocket.OPEN) return;
 
-  const source = usertranscribeLanguageSettings.get(userId) || 'en-US';
-  const target = userTranslateLanguageSettings.get(userId) || 'es-ES';
+  const source = usertranscribeLanguageSettings.get(userId) || 'zh-CN';
+  const target = userTranslateLanguageSettings.get(userId) || 'en-US';
   const translationStream = createTranslationStream(source, target);
   console.log(`Updating subscription for session ${sessionId} to translation stream: ${translationStream}`);
 
@@ -368,7 +368,7 @@ app.post('/settings', async (req, res) => {
     const transcribeLanguageSetting = settings.find((s: any) => s.key === 'transcribe_language');
     const translateLanguageSetting = settings.find((s: any) => s.key === 'translate_language');
 
-    const isChineseLanguage = translateLanguageSetting?.value?.startsWith('zh-') || translateLanguageSetting?.value?.startsWith('ja-');
+    const isChineseLanguage = translateLanguageSetting?.value?.toLowerCase().startsWith('zh-') || translateLanguageSetting?.value?.toLowerCase().startsWith('ja-');
     const lineWidth = lineWidthSetting ? convertLineWidth(lineWidthSetting.value, isChineseLanguage) : 30;
     let numberOfLines = numberOfLinesSetting ? Number(numberOfLinesSetting.value) : 3;
     if (isNaN(numberOfLines) || numberOfLines < 1) numberOfLines = 3;

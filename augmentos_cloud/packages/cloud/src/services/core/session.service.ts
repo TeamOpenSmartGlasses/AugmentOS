@@ -40,7 +40,7 @@ export class SessionService {
       whatToStream: new Array<StreamType>(),
       appSubscriptions: new Map<string, StreamType[]>(),
       transcriptionStreams: new Map<string, ASRStreamInstance>(),
-      loadingApps: [],
+      loadingApps: new Set<string>(),
       appConnections: new Map<string, WebSocket | any>(),
       OSSettings: { brightness: 50, volume: 50 },
       displayManager: new DisplayManager(),
