@@ -20,7 +20,7 @@ import sessionService, { SessionService } from './session.service';
 import subscriptionService, { SubscriptionService } from './subscription.service';
 import transcriptionService, { TranscriptionService } from '../processing/transcription.service';
 import appService, { AppService } from './app.service';
-import { AppStateChange, AuthError, CloudToGlassesMessage, CloudToGlassesMessageType, CloudToTpaMessage, CloudToTpaMessageType, ConnectionAck, ConnectionError, ConnectionInit, DataStream, DisplayRequest, GlassesConnectionState, GlassesToCloudMessage, GlassesToCloudMessageType, HeadPosition, LocationUpdate, MicrophoneStateChange, StartApp, StopApp, StreamType, TpaConnectionAck, TpaConnectionError, TpaConnectionInit, TpaSubscriptionUpdate, TpaToCloudMessage, UserSession, Vad } from '@augmentos/sdk';
+import { AppStateChange, AuthError, CloudToGlassesMessage, CloudToGlassesMessageType, CloudToTpaMessage, CloudToTpaMessageType, ConnectionAck, ConnectionError, ConnectionInit, DataStream, DisplayRequest, ExtendedStreamType, GlassesConnectionState, GlassesToCloudMessage, GlassesToCloudMessageType, HeadPosition, LocationUpdate, MicrophoneStateChange, StartApp, StopApp, StreamType, TpaConnectionAck, TpaConnectionError, TpaConnectionInit, TpaSubscriptionUpdate, TpaToCloudMessage, UserSession, Vad } from '@augmentos/sdk';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { PosthogService } from '../logging/posthog.service';
 import { AUGMENTOS_AUTH_JWT_SECRET, systemApps } from '@augmentos/config';

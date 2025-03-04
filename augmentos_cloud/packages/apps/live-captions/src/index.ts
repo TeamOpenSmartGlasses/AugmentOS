@@ -13,6 +13,8 @@ import {
   CloudToTpaMessageType,
   ViewType,
   LayoutType,
+  createTranscriptionStream,
+  ExtendedStreamType,
 } from '@augmentos/sdk';
 import { TranscriptProcessor, languageToLocale } from '@augmentos/utils';
 import { systemApps, CLOUD_PORT } from '@augmentos/config';
