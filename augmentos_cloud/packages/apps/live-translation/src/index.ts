@@ -16,7 +16,7 @@ import {
   LayoutType,
   createTranslationStream,    // New helper for language-specific translation streams
   ExtendedStreamType
-} from '@augmentos/types';
+} from '@augmentos/sdk';
 import { TranscriptProcessor, languageToLocale } from '@augmentos/utils';
 import { systemApps, CLOUD_PORT } from '@augmentos/config';
 
