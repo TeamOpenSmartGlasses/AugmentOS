@@ -12,22 +12,11 @@ ENV SKIP_SENTRY_UPLOAD=true
 
 WORKDIR /app
 
-# Copy package files for dependency installation
-COPY package*.json bun.lock* ./
-COPY packages/config/package.json ./packages/config/
-COPY packages/types/package.json ./packages/types/
-COPY packages/utils/package.json ./packages/utils/
-COPY packages/sdk/package.json ./packages/sdk/
-COPY packages/agents/package.json ./packages/agents/
-COPY packages/apps/dashboard-manager/package.json ./packages/apps/dashboard-manager/
-COPY packages/apps/flash/package.json ./packages/apps/flash/
-COPY packages/apps/live-captions/package.json ./packages/apps/live-captions/
-COPY packages/apps/miraai/package.json ./packages/apps/miraai/
-COPY packages/apps/notify/package.json ./packages/apps/notify/
-COPY packages/cloud/package.json ./packages/cloud/
+# Copy the entire project for simplicity
+COPY . .
 
-# Install dependencies with bun
-RUN bun install
+# Install dependencies with bun but skip prepare scripts
+RUN bun install --no-scripts
 
 # Ensure the directory structure exists
 RUN mkdir -p \
@@ -37,19 +26,12 @@ RUN mkdir -p \
     packages/config/dist \
     packages/types/dist
 
-# Copy source files for shared packages
-COPY packages/config ./packages/config
-COPY packages/types ./packages/types
-COPY packages/utils ./packages/utils
-COPY packages/sdk ./packages/sdk
-COPY packages/agents ./packages/agents
-
 # Set environment variable to skip strict type checking for build
 ENV TS_NODE_TRANSPILE_ONLY=1
 
 # Build shared packages in the correct sequence
+# Note: types is no longer a package so we don't build it
 RUN cd packages/config && bun run build && \
-    cd ../types && bun run build && \
     cd ../utils && bun run build && \
     cd ../sdk && bun run build && \
     cd ../agents && bun run build

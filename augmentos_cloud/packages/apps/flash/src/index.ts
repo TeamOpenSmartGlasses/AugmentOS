@@ -53,7 +53,7 @@ const server = new FlashServer({
   packageName: PACKAGE_NAME,
   apiKey: API_KEY,
   port: PORT,
-  serverUrl: `ws://${CLOUD_HOST}:${CLOUD_PORT}/tpa-ws`,
+  augmentOSWebsocketUrl: `ws://${CLOUD_HOST}:${CLOUD_PORT}/tpa-ws`,
   webhookPath: '/webhook',
   publicDir: path.join(__dirname, './public')
 });
