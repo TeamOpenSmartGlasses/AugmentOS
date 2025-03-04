@@ -8,6 +8,7 @@ import { NavigationProps } from '../components/types';
 import { useNavigation } from '@react-navigation/native';
 import { getGlassesImage } from '../logic/getGlassesImage';
 import GlobalEventEmitter from '../logic/GlobalEventEmitter.tsx';
+import { getBatteryColor, getBatteryIcon } from '../logic/getBatteryIcon.tsx';
 
 
 interface ConnectedDeviceInfoProps {
@@ -123,21 +124,6 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     statusValueColor: isDarkTheme ? '#FFFFFF' : '#333333',
     connectedDotColor: '#28a745',
     separatorColor: isDarkTheme ? '#666666' : '#999999',
-  };
-
-  const getBatteryIcon = (level: number) => {
-    if (level > 75) { return 'battery-full'; }
-    if (level > 50) { return 'battery-three-quarters'; }
-    if (level > 25) { return 'battery-half'; }
-    if (level > 10) { return 'battery-quarter'; }
-    return 'battery-full';
-  };
-
-  const getBatteryColor = (level: number) => {
-    if (level > 60) { return '#4CAF50'; }
-    if (level > 20) { return '#ff9a00'; }
-    if (level == -1) { return '#000000'; }
-    return '#FF5722';
   };
 
   const formatGlassesTitle = (title: string) =>

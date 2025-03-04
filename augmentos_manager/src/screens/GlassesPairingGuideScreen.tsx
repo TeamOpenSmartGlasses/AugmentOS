@@ -19,7 +19,7 @@ import { SETTINGS_KEYS } from '../consts';
 import { NavigationProps } from '../components/types';
 import { getGlassesImage } from '../logic/getGlassesImage';
 import PairingDeviceInfo from '../components/PairingDeviceInfo';
-import { EvenRealitiesG1PairingGuide, VuzixZ100PairingGuide } from '../components/GlassesPairingGuides';
+import { EvenRealitiesG1PairingGuide, MentraLivePairingGuide, VuzixZ100PairingGuide } from '../components/GlassesPairingGuides';
 // import NavigationBar from '../components/NavigationBar'; // if needed
 
 interface GlassesPairingGuideScreenProps {
@@ -83,6 +83,8 @@ const GlassesPairingGuideScreen: React.FC<GlassesPairingGuideScreenProps> = ({
         return <EvenRealitiesG1PairingGuide isDarkTheme={isDarkTheme}/>;
       case 'Vuzix Z100':
         return <VuzixZ100PairingGuide isDarkTheme={isDarkTheme}/>;
+      case 'Mentra Live':
+        return <MentraLivePairingGuide isDarkTheme={isDarkTheme}/>;
       default:
         return <View />;
     }
@@ -128,7 +130,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1c1c1c',
   },
   lightBackground: {
-    backgroundColor: '#f9f9f9',
+    //backgroundColor: '#f9f9f9',
   },
   darkText: {
     color: '#FFFFFF',

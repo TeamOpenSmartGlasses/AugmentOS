@@ -69,10 +69,10 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
      private static final int INITIAL_RETRY_DELAY_MS = 6000;
      private static final int BACKOFF_FACTOR = 2;
 
-     private int videoWidth = 1280;
-     private int videoHeight = 720;
-     private int videoFps = 30;
-     private int videoBitrate = 2000 * 1024; // (2 Mbps)
+     private int videoWidth = 640;
+     private int videoHeight = 480;
+     private int videoFps = 10;
+     private int videoBitrate = 500 * 1024; // (2 Mbps)
     private int videoRotation = 0;
     private int audioBitrate = 128 * 1024;
     private int audioSampleRate = 44100;
@@ -100,12 +100,12 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
     private void prepareCameraAndAudio() {
         // Prepare video: width, height, fps, bitrate, hardwareRotation, rotation, camera facing
         boolean videoPrepared = rtmpCamera2.prepareVideo(
-                1280,            // width
-                720,             // height
-                30,              // fps
-                2000 * 1024,     // bitrate (2 Mbps)
+                videoWidth,            // width
+                videoHeight,             // height
+                videoFps,              // fps
+                videoBitrate,     // bitrate (2 Mbps)
                // false,           // hardwareRotation
-                0              // rotation (0, 90, 180, 270)
+                videoRotation              // rotation (0, 90, 180, 270)
                 //CameraHelper.Facing.BACK
         );
         if (!videoPrepared) {
@@ -194,19 +194,19 @@ public class CameraRecordingService extends Service implements ConnectCheckerRtm
         }
         // Re-start preview with fresh encoders
         boolean videoPrepared = rtmpCamera2.prepareVideo(
-                1280, 720, 30, 2000 * 1024, 0
+                videoWidth, videoHeight, videoFps, videoBitrate, videoRotation
         );
         if (!videoPrepared) {
             Log.e(TAG, "Failed to re-prepare video");
         }
 
         if (!isDummyRecording) {
-            boolean audioPrepared = rtmpCamera2.prepareAudio(
-                    128 * 1024, 44100, true, false, false
-            );
-            if (!audioPrepared) {
-                Log.e(TAG, "Failed to re-prepare audio");
-            }
+//            boolean audioPrepared = rtmpCamera2.prepareAudio(
+//                    128 * 1024, 44100, true, false, false
+//            );
+//            if (!audioPrepared) {
+//                Log.e(TAG, "Failed to re-prepare audio");
+//            }
         }
 
         rtmpCamera2.startPreview();
