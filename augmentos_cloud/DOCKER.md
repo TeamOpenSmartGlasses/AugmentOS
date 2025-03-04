@@ -137,25 +137,6 @@ If you encounter issues with dependencies not being found after changes:
    docker compose build --no-cache augmentos-cloud-base
    ```
 
-## Development Workflow
-
-When developing locally, you can choose to:
-
-1. Run all services in separate containers
-2. Run only the service you're working on in a container while running other services locally
-
-If you make changes to the shared packages (utils, config, types, sdk, agents), you'll need to rebuild the base image:
-
-```bash
-docker compose build augmentos-cloud-base
-```
-
-And then rebuild the service containers that depend on it:
-
-```bash
-docker compose build
-```
-
 ## Volumes
 
 - MongoDB data is persisted in a Docker volume `mongodb-data`
