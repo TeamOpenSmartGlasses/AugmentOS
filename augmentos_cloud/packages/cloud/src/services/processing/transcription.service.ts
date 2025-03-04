@@ -11,7 +11,7 @@ import {
   ConversationTranscriber,
   ConversationTranscriptionEventArgs
 } from 'microsoft-cognitiveservices-speech-sdk';
-import { StreamType, TranscriptionData, UserSession } from '@augmentos/types';
+import { StreamType, TranscriptionData, UserSession } from '@augmentos/sdk';
 import { AZURE_SPEECH_KEY, AZURE_SPEECH_REGION } from '@augmentos/config';
 import webSocketService from '../core/websocket.service';
 

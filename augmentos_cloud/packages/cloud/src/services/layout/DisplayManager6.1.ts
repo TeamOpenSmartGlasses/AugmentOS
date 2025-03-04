@@ -1,5 +1,5 @@
 import { systemApps } from '@augmentos/config';
-import { ActiveDisplay, Layout, DisplayRequest, DisplayManagerI, UserSession, TpaToCloudMessageType, ViewType, LayoutType } from '@augmentos/types';
+import { ActiveDisplay, Layout, DisplayRequest, DisplayManagerI, UserSession, TpaToCloudMessageType, ViewType, LayoutType } from '@augmentos/sdk';
 import { WebSocket } from 'ws';
 
 interface DisplayState {

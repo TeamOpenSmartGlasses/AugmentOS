@@ -13,7 +13,7 @@ import {
   CloudToTpaMessageType,
   ViewType,
   LayoutType,
-} from '@augmentos/types'; // Import the types from the shared package
+} from '@augmentos/sdk'; // Import the types from the shared package
 import { TranscriptProcessor } from '@augmentos/utils';
 import { systemApps, CLOUD_PORT } from '@augmentos/config';
 import axios from 'axios';

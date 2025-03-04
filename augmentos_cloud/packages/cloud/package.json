@@ -1,6 +1,7 @@
 {
   "name": "@augmentos/cloud",
   "version": "1.0.0",
+  "private": true,
   "main": "dist/index.js",
   "engines": {
     "node": ">=18.0.0"
@@ -10,6 +11,7 @@
     "postbuild": "cp -r src/public dist/public",
     "start": "NODE_ENV=production node dist/index.js",
     "dev": "tsx watch src/index.ts",
+    "isaiah": "NODE_ENV=isaiah-dev tsx watch src/index.ts",
     "staging": "NODE_ENV=staging tsx watch src/index.ts",
     "deploy": "bun run build && bun run start",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
@@ -41,9 +43,10 @@
   },
   "dependencies": {
     "@augmentos/config": "workspace:*",
-    "@augmentos/types": "workspace:*",
+    "@augmentos/sdk": "workspace:*",
     "@sentry/bun": "^9.1.0",
     "@sentry/cli": "^2.42.1",
+    "@supabase/supabase-js": "^2.49.1",
     "axios": "^1.7.4",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",

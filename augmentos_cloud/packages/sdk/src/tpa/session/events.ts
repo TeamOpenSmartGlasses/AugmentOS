@@ -17,8 +17,9 @@ import {
   GlassesConnectionState,
   LocationUpdate,
   Vad,
-  NotificationDismissed
-} from '@augmentos/types';
+  NotificationDismissed,
+  AudioChunk
+} from '../../types';
 
 /** 🎯 Type-safe event handler function */
 type Handler<T> = (data: T) => void;
@@ -47,7 +48,7 @@ interface StreamDataTypes {
   [StreamType.LOCATION_UPDATE]: LocationUpdate;
   [StreamType.VAD]: Vad;
   [StreamType.NOTIFICATION_DISMISSED]: NotificationDismissed;
-  [StreamType.AUDIO_CHUNK]: ArrayBuffer;
+  [StreamType.AUDIO_CHUNK]: AudioChunk;
   [StreamType.VIDEO]: ArrayBuffer;
   [StreamType.OPEN_DASHBOARD]: never;
   [StreamType.START_APP]: never;
@@ -104,6 +105,15 @@ export class EventManager {
 
   onLocation(handler: Handler<LocationUpdate>) {
     return this.addHandler(StreamType.LOCATION_UPDATE, handler);
+  }
+
+  /**
+   * 🎤 Listen for audio chunk data
+   * @param handler - Function to handle audio chunks
+   * @returns Cleanup function to remove the handler
+   */
+  onAudioChunk(handler: Handler<AudioChunk>) {
+    return this.addHandler(StreamType.AUDIO_CHUNK, handler);
   }
 
   // System event handlers

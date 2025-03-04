@@ -1,7 +1,7 @@
 //backend/src/routes/apps.ts
 import express from 'express';
 import sessionService from '../services/core/session.service';
-import { TranscriptSegment } from '@augmentos/types';
+import { TranscriptSegment } from '@augmentos/sdk';
 const router = express.Router();
 
 // GET /api/transcripts/:appSessionId
