@@ -543,7 +543,7 @@ export class WebSocketService {
           // Get the list of active apps.
           const activeAppPackageNames = Array.from(new Set(userSession.activeAppSessions));
 
-          console.log("🎤1111 Active app package names: ", activeAppPackageNames);
+          // console.log("🎤1111 Active app package names: ", activeAppPackageNames);
 
           // create a map of active apps and what steam types they are subscribed to.
           const appSubscriptions = new Map<string, ExtendedStreamType[]>(); // packageName -> streamTypes
