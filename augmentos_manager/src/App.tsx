@@ -34,6 +34,7 @@ import GrantPermissionsScreen from './screens/GrantPermissionsScreen.tsx';
 import ConnectingToPuckComponent from './components/ConnectingToPuckComponent.tsx';
 import VersionUpdateScreen from './screens/VersionUpdateScreen.tsx';
 import { GlassesMirrorProvider } from './providers/GlassesMirrorContext.tsx';
+import GlassesPairingGuidePreparationScreen from './screens/GlassesPairingGuidePreparationScreen.tsx';
 
 const linking = {
   prefixes: ['https://augmentos.org'],
@@ -290,6 +291,17 @@ const App: React.FC = () => {
                 >
                   {props => (
                     <GlassesPairingGuideScreen
+                      {...props}
+                      toggleTheme={toggleTheme}
+                      isDarkTheme={isDarkTheme}
+                    />
+                  )}
+                </Stack.Screen>
+                <Stack.Screen name="GlassesPairingGuidePreparationScreen"
+                  options={{ title: 'Pairing Guide' }}
+                >
+                  {props => (
+                    <GlassesPairingGuidePreparationScreen
                       {...props}
                       toggleTheme={toggleTheme}
                       isDarkTheme={isDarkTheme}

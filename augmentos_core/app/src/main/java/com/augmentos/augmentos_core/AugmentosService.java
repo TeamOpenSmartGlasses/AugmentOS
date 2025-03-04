@@ -876,7 +876,7 @@ public class AugmentosService extends Service implements AugmentOsActionsCallbac
                 if (smartGlassesService != null)
                     smartGlassesService.windowManager.showAppLayer("serverappid", newRunnable, -1);
                 if (blePeripheral != null)
-                    blePeripheral.sendGlassesDisplayEventToManager(displayData);
+                    blePeripheral.sendGlassesDisplayEventToManager(displayData);  //THIS LINE RIGHT HERE ENDS UP TRIGGERING IT
             }
 
             @Override

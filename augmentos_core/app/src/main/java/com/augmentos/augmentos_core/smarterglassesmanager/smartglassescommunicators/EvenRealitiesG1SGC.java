@@ -34,13 +34,13 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 //BMP
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.zip.CRC32;
 import java.nio.ByteBuffer;
 
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.LC3AudioChunkNewEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.HeadUpAngleEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.utils.BitmapJavaUtils;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.G1FontLoader;
 import com.augmentos.augmentos_core.smarterglassesmanager.utils.SmartGlassesConnectionState;
 import com.google.gson.Gson;
@@ -107,8 +107,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private boolean shouldUseAutoBrightness = false;
     private int brightnessValue;
 
-    private static final long DELAY_BETWEEN_SENDS_MS = 8; //not using now
-    private static final long DELAY_BETWEEN_CHUNKS_SEND = 16; //super small just in case
+    private static final long DELAY_BETWEEN_SENDS_MS = 5; //not using now
+    private static final long DELAY_BETWEEN_CHUNKS_SEND = 5; //super small just in case
     private static final long DELAY_BETWEEN_ACTIONS_SEND = 250; //not using now
     private static final long HEARTBEAT_INTERVAL_MS = 15000;
     private static final long MICBEAT_INTERVAL_MS = (1000 * 60) * 30; //micbeat every 30 minutes
@@ -189,6 +189,7 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
     private Runnable rightConnectionTimeoutRunnable;
     private boolean isBondingReceiverRegistered = false;
     private boolean shouldRunOnboardMic;
+    private boolean lastThingDisplayedWasAnImage = false;
 
     // lock writing until the last write is successful
     //fonts in G1
@@ -1641,13 +1642,25 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
 
     public void showHomeScreen() {
         displayTextWall(" ");
-//        clearG1Screen();
+
+        if (lastThingDisplayedWasAnImage) {
+            //clearG1Screen();
+            lastThingDisplayedWasAnImage = false;
+        }
     }
 
     public void clearG1Screen() {
-        displayTextWall(" ");
+        Log.d(TAG, "Clearing G1 screen");
         byte[] exitCommand = new byte[]{(byte) 0x18};
-        sendDataSequentially(exitCommand, false);
+        // sendDataSequentially(exitCommand, false);
+        byte[] theClearBitmapOrSomething = loadEmptyBmpFromAssets();
+        Bitmap bmp = BitmapJavaUtils.bytesToBitmap(theClearBitmapOrSomething);
+        try {
+            byte[] bmpBytes = convertBitmapTo1BitBmpBytes(bmp, false);
+            displayBitmapImage(bmpBytes);
+        } catch (Exception e) {
+            Log.e(TAG, "Error displaying clear bitmap: " + e.getMessage());
+        }
     }
 
     @Override
@@ -2517,6 +2530,8 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             // Calculate and send CRC
             sendBmpCRC(bmpData);
 
+            lastThingDisplayedWasAnImage = true;
+
         } catch (Exception e) {
             Log.e(TAG, "Error in displayBitmapImage: " + e.getMessage());
         }
@@ -2569,11 +2584,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         Log.d(TAG, "Sending BMP end command");
         sendDataSequentially(END_COMMAND);
 
-        try {
-            Thread.sleep(100); // Give it time to process
-        } catch (InterruptedException e) {
-            Log.e(TAG, "Sleep interrupted: " + e.getMessage());
-        }
+//        try {
+//            Thread.sleep(100); // Give it time to process
+//        } catch (InterruptedException e) {
+//            Log.e(TAG, "Sleep interrupted: " + e.getMessage());
+//        }
     }
 
     private void sendBmpCRC(byte[] bmpData) {
@@ -2599,9 +2614,9 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
         sendDataSequentially(crcCommand);
     }
 
-    private byte[] loadBmpFromAssets() {
+    private byte[] loadEmptyBmpFromAssets() {
         try {
-            try (InputStream is = context.getAssets().open("image_1.bmp")) {
+            try (InputStream is = context.getAssets().open("empty_bmp.bmp")) {
                 return is.readAllBytes();
             }
         } catch (IOException e) {

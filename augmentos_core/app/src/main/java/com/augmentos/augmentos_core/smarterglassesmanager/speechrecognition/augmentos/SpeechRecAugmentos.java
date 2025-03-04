@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.augmentos.augmentos_core.augmentos_backend.ServerComms;
+import com.augmentos.augmentos_core.smarterglassesmanager.smartglassesconnection.SmartGlassesAndroidService;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.AsrStreamKey;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.SpeechRecFramework;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.vad.VadGateSpeechPolicy;
@@ -40,6 +41,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     // VAD
     private VadGateSpeechPolicy vadPolicy;
     private volatile boolean isSpeaking = false; // Track VAD state
+    private boolean vadEnabled = true;
 
     // VAD buffer for chunking
     private final BlockingQueue<Short> vadBuffer = new LinkedBlockingQueue<>();
@@ -48,6 +50,8 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
 
     private SpeechRecAugmentos(Context context) {
         this.mContext = context;
+
+        vadEnabled = !SmartGlassesAndroidService.getBypassVadEnabled(context);
 
         // 1) Create or fetch your single ServerComms (the new consolidated manager).
         //    For example, we create a new instance here:
@@ -177,7 +181,7 @@ public class SpeechRecAugmentos extends SpeechRecFramework {
     @Override
     public void ingestLC3AudioChunk(byte[] LC3audioChunk) {
         // If currently speaking, send data live
-        if (isSpeaking) {
+        if (!vadEnabled || isSpeaking) {
             ServerComms.getInstance().sendAudioChunk(LC3audioChunk);
         }
 

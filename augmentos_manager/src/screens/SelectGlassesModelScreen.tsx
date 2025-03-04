@@ -56,7 +56,7 @@ const SelectGlassesModelScreen: React.FC<SelectGlassesModelScreenProps> = ({
 
         setGlassesModelNameToPair(glassesModelName);
         console.log("TRIGGERING SEARCH SCREEN FOR: " + glassesModelName);
-        navigation.navigate('SelectGlassesBluetoothScreen', {
+        navigation.navigate('GlassesPairingGuidePreparationScreen', {
             glassesModelName: glassesModelName,
         });
     }
