@@ -16,8 +16,6 @@ import Reviews from './screens/ReviewSection.tsx';
 import { StyleSheet, Text, View } from 'react-native';
 import { AppStoreItem, RootStackParamList } from './components/types'; // Update path as needed
 import MessageBanner from './components/MessageBanner.tsx';
-import SimulatedPuckSettings from './screens/SimulatedPuckSettings.tsx';
-import SimulatedPuckOnboard from './screens/SimulatedPuckOnboard.tsx';
 import SelectGlassesModelScreen from './screens/SelectGlassesModelScreen.tsx';
 import GlassesPairingGuideScreen from './screens/GlassesPairingGuideScreen.tsx';
 import SelectGlassesBluetoothScreen from './screens/SelectGlassesBluetoothScreen.tsx';
@@ -210,42 +208,9 @@ const App: React.FC = () => {
                   }}>
                   {() => <GlassesMirror isDarkTheme={isDarkTheme} />}
                 </Stack.Screen>
-                <Stack.Screen name="SimulatedPuckSettings"
-                  options={{
-                    title: 'Simulated Puck',
-                    headerStyle: {
-                      backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
-                    },
-                    headerTintColor: isDarkTheme ? '#ffffff' : '#000000',
-                  }}>
-                  {props => (
-                    <SimulatedPuckSettings
-                      {...props}
-                      toggleTheme={toggleTheme}
-                      isDarkTheme={isDarkTheme}
-                    />
-                  )}
-                </Stack.Screen>
-                <Stack.Screen name="SimulatedPuckOnboard"
-                  options={{
-                    title: 'Simulated Puck',
-                    headerShown: false,
-                    headerStyle: {
-                      backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
-                    },
-                    headerTintColor: isDarkTheme ? '#ffffff' : '#000000',
-                  }}>
-                  {props => (
-                    <SimulatedPuckOnboard
-                      {...props}
-                      toggleTheme={toggleTheme}
-                      isDarkTheme={isDarkTheme}
-                    />
-                  )}
-                </Stack.Screen>
                 <Stack.Screen name="AppSettings"
                   options={({ route }) => ({
-                    title: route.params?.appName + ' Settings',
+                    title: route.params?.appName,
                     headerStyle: {
                       backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
                     },

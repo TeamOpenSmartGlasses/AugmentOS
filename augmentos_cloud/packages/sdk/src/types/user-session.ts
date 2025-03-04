@@ -78,7 +78,7 @@ export interface UserSession {
   // App Sessions and App State
   installedApps: AppI[];
   activeAppSessions: string[];
-  loadingApps: string[];
+  loadingApps: Set<string>;
   appSubscriptions: Map<string, ExtendedStreamType[]> | Object; // packageName -> subscriptions;
   appConnections: Map<string, WebSocket>; // packageName -> websocket connection for the system app / TPA;
 

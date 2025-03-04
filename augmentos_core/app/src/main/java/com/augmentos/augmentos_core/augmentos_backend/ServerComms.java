@@ -79,19 +79,25 @@ public class ServerComms {
             public void onConnectionOpen() {
                 // As soon as the connection is open, send the "connection_init" message
                 // that your server expects.
-                try {
-                    JSONObject initMsg = new JSONObject();
-                    initMsg.put("type", "connection_init");
-                    // You can send any additional fields if your server needs them, e.g. "userId".
-                    initMsg.put("coreToken", coreToken);
-                    // add more fields if needed, e.g. initMsg.put("someField", "someValue");
 
-                    // Send the JSON over the WebSocket
-                    wsManager.sendText(initMsg.toString());
+                // TODO: There is a weird race condition when hosting the server locally that can be
+                // worked around by adding a small delay here... very weird...
+                new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> {
+                    try {
+                        JSONObject initMsg = new JSONObject();
+                        initMsg.put("type", "connection_init");
+                        // You can send any additional fields if your server needs them, e.g. "userId".
+                        initMsg.put("coreToken", coreToken);
+                        // add more fields if needed, e.g. initMsg.put("someField", "someValue");
 
-                } catch (JSONException e) {
-                    Log.e(TAG, "Error building connection_init JSON", e);
-                }
+                        // Send the JSON over the WebSocket
+                        wsManager.sendText(initMsg.toString());
+                        Log.d(TAG, "Sent delayed connection_init message");
+
+                    } catch (JSONException e) {
+                        Log.e(TAG, "Error building connection_init JSON", e);
+                    }
+                }, 1000);
             }
 
             @Override
