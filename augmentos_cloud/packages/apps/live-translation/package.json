@@ -4,6 +4,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.json",
+    "postbuild": "cp -r src/public dist/public",
     "start": "node dist/index.js",
     "deploy": "bun run build && bun start",
     "dev": "tsx watch src/index.ts"

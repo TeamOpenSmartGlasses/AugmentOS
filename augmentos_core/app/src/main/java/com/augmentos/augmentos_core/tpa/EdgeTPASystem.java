@@ -100,8 +100,8 @@ public class EdgeTPASystem {
         sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         gson = new Gson();
         thirdPartyApps = new HashMap<>();
-        loadThirdPartyAppsFromStorage();
-        setupPackageInstallReceiver();
+        //loadThirdPartyAppsFromStorage();
+        //setupPackageInstallReceiver();
 
         healthCheckHandler = new Handler();
         healthCheckRunnable = new Runnable() {

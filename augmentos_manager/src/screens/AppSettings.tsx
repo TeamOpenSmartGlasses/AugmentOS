@@ -245,7 +245,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({ route, isDarkTheme, toggleThe
           {/* Description within the main card */}
           <View style={[styles.descriptionContainer, { borderTopColor: theme.separatorColor }]}>
             <Text style={[styles.descriptionText, { color: theme.textColor }]}>
-              {appInfo.description || 'No description available.'}
+              {serverAppInfo.description || 'No description available.'}
             </Text>
           </View>
         </View>
