@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   Image,
+  TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import NavigationBar from '../components/NavigationBar.tsx';
 import { useStatus } from '../providers/AugmentOSStatusProvider.tsx';
@@ -16,71 +18,126 @@ interface GlassesMirrorProps {
 const GlassesMirror: React.FC<GlassesMirrorProps> = ({isDarkTheme}) => {
   const { status } = useStatus();
   const { events } = useGlassesMirror(); // From context
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   // Helper to check if we have a glasses model name
   const isGlassesConnected = !!status.glasses_info?.model_name;
   
   // Get only the last event
   const lastEvent = events.length > 0 ? events[events.length - 1] : null;
+  
+  // Function to toggle fullscreen mode
+  const toggleFullScreen = () => {
+    if (!isFullScreen) {
+      // Enter fullscreen mode and hide status bar
+      StatusBar.setHidden(true);
+      setIsFullScreen(true);
+    } else {
+      // Exit fullscreen mode and show status bar
+      StatusBar.setHidden(false);
+      setIsFullScreen(false);
+    }
+  };
 
   return (
     <View
       style={[
         styles.container,
-        isDarkTheme ? styles.darkContainer : styles.lightContainer,
+        isFullScreen ? styles.fullscreenContainer : (isDarkTheme ? styles.darkContainer : styles.lightContainer),
       ]}
     >
-      <View
-        style={[
-          styles.titleContainer,
-          isDarkTheme ? styles.titleContainerDark : styles.titleContainerLight,
-        ]}
-      >
-        <Text
+      {!isFullScreen && (
+        <View
           style={[
-            styles.title,
-            isDarkTheme ? styles.titleTextDark : styles.titleTextLight,
+            styles.titleContainer,
+            isDarkTheme ? styles.titleContainerDark : styles.titleContainerLight,
           ]}
         >
-          Glasses Mirror
-        </Text>
-      </View>
+          <Text
+            style={[
+              styles.title,
+              isDarkTheme ? styles.titleTextDark : styles.titleTextLight,
+            ]}
+          >
+            Glasses Mirror
+          </Text>
+          
+          {isGlassesConnected && lastEvent && (
+            <TouchableOpacity
+              style={styles.fullscreenButton}
+              onPress={toggleFullScreen}
+            >
+              <Text style={styles.fullscreenButtonText}>
+                Enter Fullscreen
+              </Text>
+            </TouchableOpacity>
+          )}
+        </View>
+      )}
 
-      {/* 
-        If the glasses are connected, show the last event.
-        Otherwise, show a simple fallback message.
-      */}
-      {isGlassesConnected ? (
-        <View style={styles.contentContainer}>
-          {lastEvent ? (
-            <View style={styles.glassesDisplayContainer}>
-              <View style={styles.glassesScreen}>
-                {lastEvent.layout && lastEvent.layout.layoutType ? (
-                  renderLayout(lastEvent.layout)
-                ) : (
-                  <Text style={styles.glassesText}>
-                    Unknown layout data
+      {/* Fullscreen mode */}
+      {isFullScreen && isGlassesConnected && lastEvent ? (
+        <View style={styles.fullscreenContainer}>
+          {/* Dark background for better contrast */}
+          <View style={styles.fullscreenBackground} />
+          
+          {/* Overlay the glasses display content */}
+          <View style={styles.fullscreenOverlay}>
+            {lastEvent.layout && lastEvent.layout.layoutType ? (
+              renderLayout(lastEvent.layout)
+            ) : (
+              <Text style={styles.glassesText}>
+                Unknown layout data
+              </Text>
+            )}
+          </View>
+          
+          {/* Fullscreen exit button */}
+          <TouchableOpacity
+            style={styles.exitFullscreenButton}
+            onPress={toggleFullScreen}
+          >
+            <Text style={styles.exitFullscreenText}>Exit</Text>
+          </TouchableOpacity>
+        </View>
+      ) : (
+        /* Regular mode - same as before */
+        <>
+          {isGlassesConnected ? (
+            <View style={styles.contentContainer}>
+              {lastEvent ? (
+                <View style={styles.glassesDisplayContainer}>
+                  <View style={styles.glassesScreen}>
+                    {lastEvent.layout && lastEvent.layout.layoutType ? (
+                      renderLayout(lastEvent.layout)
+                    ) : (
+                      <Text style={styles.glassesText}>
+                        Unknown layout data
+                      </Text>
+                    )}
+                  </View>
+                </View>
+              ) : (
+                <View style={styles.fallbackContainer}>
+                  <Text style={[isDarkTheme ? styles.darkText : styles.lightText, styles.fallbackText]}>
+                    No display events available
                   </Text>
-                )}
-              </View>
+                </View>
+              )}
             </View>
           ) : (
             <View style={styles.fallbackContainer}>
               <Text style={[isDarkTheme ? styles.darkText : styles.lightText, styles.fallbackText]}>
-                No display events available
+                Connect glasses to use the Glasses Mirror
               </Text>
             </View>
           )}
-        </View>
-      ) : (
-        <View style={styles.fallbackContainer}>
-          <Text style={[isDarkTheme ? styles.darkText : styles.lightText, styles.fallbackText]}>
-            Connect glasses to use the Glasses Mirror
-          </Text>
-        </View>
+        </>
       )}
 
-      <NavigationBar isDarkTheme={isDarkTheme} toggleTheme={() => {}} />
+      {!isFullScreen && (
+        <NavigationBar isDarkTheme={isDarkTheme} toggleTheme={() => {}} />
+      )}
     </View>
   );
 };
@@ -129,7 +186,7 @@ function renderLayout(layout: any) {
         </Text>
       ));
     }
-    case 'bitmap': {
+    case 'bitmap_view': {
       // layout.data is a base64 string. We can show an image in RN by creating a data URL
       // e.g. { uri: "data:image/png;base64,<base64string>" }
       const { data } = layout;
@@ -161,12 +218,26 @@ const styles = StyleSheet.create({
   lightContainer: {
     backgroundColor: '#f8f9fa',
   },
+  fullscreenContainer: {
+    flex: 1,
+    padding: 0, // No padding in fullscreen mode
+    backgroundColor: 'black',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 1000,
+  },
   titleContainer: {
     paddingVertical: 15,
     paddingHorizontal: 20,
     marginHorizontal: -20,
     marginTop: -20,
     marginBottom: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   titleContainerDark: {
     backgroundColor: '#333333',
@@ -180,6 +251,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     textAlign: 'left',
     marginBottom: 5,
+    flex: 1,
   },
   titleTextDark: {
     color: '#ffffff',
@@ -223,6 +295,10 @@ const styles = StyleSheet.create({
     color: '#00FF00', // Bright green color for monochrome display
     fontFamily: 'Montserrat-Regular',
     fontSize: 16,
+    // Add text shadow for better visibility against any background
+    textShadowColor: 'rgba(0, 0, 0, 0.9)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
   },
   emptyTextWall: {
     borderWidth: 1,
@@ -252,6 +328,50 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     marginHorizontal: 20,
+  },
+  // Fullscreen mode styles
+  fullscreenButton: {
+    backgroundColor: '#4c8bf5',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    alignSelf: 'flex-end',
+  },
+  fullscreenButtonText: {
+    color: 'white',
+    fontSize: 14,
+    fontFamily: 'Montserrat-Bold',
+  },
+  fullscreenBackground: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#1a1a1a', // Dark background for contrast with green text
+  },
+  fullscreenOverlay: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    padding: 40,
+    zIndex: 10,
+  },
+  exitFullscreenButton: {
+    position: 'absolute',
+    top: 40,
+    right: 20,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 30,
+    zIndex: 10,
+  },
+  exitFullscreenText: {
+    color: 'white',
+    fontSize: 16,
+    fontFamily: 'Montserrat-Bold',
   },
 });
 
