@@ -46,6 +46,15 @@ module.exports = {
       }
     },
     {
+      name: 'translation',
+      script: 'packages/apps/live-translation/dist/index.js',
+      instances: 1,
+      exec_mode: 'fork',
+      env: {
+        NODE_ENV: 'production'
+      }
+    },
+    {
       name: 'cloud-server',
       script: 'packages/cloud/dist/index.js',
       instances: 1,
