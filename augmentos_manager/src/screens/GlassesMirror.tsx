@@ -186,7 +186,7 @@ function renderLayout(layout: any) {
         </Text>
       ));
     }
-    case 'bitmap': {
+    case 'bitmap_view': {
       // layout.data is a base64 string. We can show an image in RN by creating a data URL
       // e.g. { uri: "data:image/png;base64,<base64string>" }
       const { data } = layout;

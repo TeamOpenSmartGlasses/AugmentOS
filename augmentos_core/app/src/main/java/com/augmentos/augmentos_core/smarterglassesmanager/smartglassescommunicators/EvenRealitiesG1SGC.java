@@ -688,6 +688,11 @@ public class EvenRealitiesG1SGC extends SmartGlassesCommunicator {
             String action = intent.getAction();
             if (BluetoothDevice.ACTION_BOND_STATE_CHANGED.equals(action)) {
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                if (device.getName() == null) {
+                    Log.d(TAG, "Bluetooth Device Name is Null!!!");
+                    return;
+                }
+
                 int bondState = intent.getIntExtra(BluetoothDevice.EXTRA_BOND_STATE, -1);
 
                 if (bondState == BluetoothDevice.BOND_BONDED) {
