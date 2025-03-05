@@ -97,6 +97,11 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     public Handler connectHandler;
     String translationLanguage;
 
+    private Handler micDebounceHandler = new Handler();
+    private Runnable micTurnOffRunnable;
+    private static final long MIC_DEBOUNCE_DELAY_MS = 10000; // 10 seconds
+    private boolean pendingMicTurnOff = false;
+
     public SmartGlassesAndroidService(Class mainActivityClass, String myChannelId, int myNotificationId, String notificationAppName, String notificationDescription, int notificationDrawable){
         this.myNotificationId = myNotificationId;
         this.mainActivityClass = mainActivityClass;
@@ -574,6 +579,44 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     }
 
     public void changeMicrophoneState(boolean isMicrophoneEnabled) {
+        Log.d(TAG, "Want to changing microphone state to " + isMicrophoneEnabled);
+        Log.d(TAG, "Force core onboard mic: " + getForceCoreOnboardMic(this.getApplicationContext()));
+
+        // If we're trying to turn ON the microphone
+        if (isMicrophoneEnabled) {
+            // Cancel any pending turn-off operations
+            if (pendingMicTurnOff) {
+                Log.d(TAG, "Cancelling pending microphone turn-off");
+                micDebounceHandler.removeCallbacks(micTurnOffRunnable);
+                pendingMicTurnOff = false;
+            }
+
+            // Immediately turn on the microphone
+            applyMicrophoneState(true);
+        }
+        // If we're trying to turn OFF the microphone
+        else {
+            // If there's already a pending turn-off, do nothing (debounce is already in progress)
+            if (!pendingMicTurnOff) {
+                Log.d(TAG, "Scheduling microphone turn-off with " + MIC_DEBOUNCE_DELAY_MS + "ms debounce");
+                pendingMicTurnOff = true;
+
+                // Define the runnable that will turn off the mic after the delay
+                micTurnOffRunnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.d(TAG, "Executing debounced microphone turn-off");
+                        pendingMicTurnOff = false;
+                        applyMicrophoneState(false);
+                    }
+                };
+
+                // Schedule the delayed turn-off
+                micDebounceHandler.postDelayed(micTurnOffRunnable, MIC_DEBOUNCE_DELAY_MS);
+            }
+        }
+    }
+    public void applyMicrophoneState(boolean isMicrophoneEnabled) {
         Log.d(TAG, "Want to changing microphone state to " + isMicrophoneEnabled);
         Log.d(TAG, "Force core onboard mic: " + getForceCoreOnboardMic(this.getApplicationContext()));
         if (smartGlassesRepresentative.smartGlassesDevice.getHasInMic() && !getForceCoreOnboardMic(this.getApplicationContext())) {
