@@ -58,7 +58,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/augmentos-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'AugmentOS Docs',
       logo: {
         alt: 'AugmentOS Logo',
         src: 'img/logo.svg',
