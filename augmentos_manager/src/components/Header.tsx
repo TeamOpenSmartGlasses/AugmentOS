@@ -37,18 +37,6 @@ const Header: React.FC<HeaderProps> = ({ isDarkTheme, navigation }) => {
       <Text style={[styles.title, { color: textColor }]} numberOfLines={1}>
         AugmentOS
       </Text>
-      {isDropdownVisible && (
-        <View style={[styles.dropdown, { backgroundColor: dropdownBackgroundColor, shadowColor }]}>
-          <TouchableOpacity style={styles.dropdownItem} onPress={handleProfileSettings}>
-            <Text style={[styles.dropdownItemText, { color: textColor }]}>Profile Settings</Text>
-          </TouchableOpacity>
-          {isLoggedIn && (
-            <TouchableOpacity style={styles.dropdownItem} onPress={handleLogout}>
-              <Text style={[styles.dropdownItemText, { color: textColor }]}>Sign Out</Text>
-            </TouchableOpacity>
-          )}
-        </View>
-      )}
     </View>
   );
 };

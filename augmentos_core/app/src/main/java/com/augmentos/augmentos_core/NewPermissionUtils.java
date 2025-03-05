@@ -20,8 +20,8 @@ public final class NewPermissionUtils {
             Manifest.permission.BLUETOOTH_CONNECT,
             Manifest.permission.BLUETOOTH_ADVERTISE,
             Manifest.permission.RECORD_AUDIO,
-            Manifest.permission.READ_PHONE_STATE,
-            Manifest.permission.CAMERA,
+//            Manifest.permission.READ_PHONE_STATE,
+//            Manifest.permission.CAMERA,
             Manifest.permission.POST_NOTIFICATIONS
     };
 
@@ -39,7 +39,8 @@ public final class NewPermissionUtils {
 
         // For Android 13+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            permissionsList.add(Manifest.permission.READ_MEDIA_IMAGES);
+            // TODO: Temporarily remove this as I don't think we need this right now
+            // permissionsList.add(Manifest.permission.READ_MEDIA_IMAGES);
         } else {
             // For devices below Android 13
             permissionsList.add(Manifest.permission.READ_EXTERNAL_STORAGE);

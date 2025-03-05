@@ -137,6 +137,7 @@ public class PermissionsActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
                 // If the device is *not* ignoring battery optimizations, prompt the user; otherwise, just continue
+//                if (!pm.isIgnoringBatteryOptimizations(getPackageName())) {
                 if (!pm.isIgnoringBatteryOptimizations(getPackageName())) {
                     showBatteryOptimizationSettings();
                 } else {

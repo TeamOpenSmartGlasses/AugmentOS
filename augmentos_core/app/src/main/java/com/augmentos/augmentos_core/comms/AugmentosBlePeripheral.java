@@ -20,7 +20,7 @@ import android.util.Log;
 import androidx.core.app.ActivityCompat;
 
 import com.google.gson.Gson;
-import com.augmentos.augmentoslib.ThirdPartyApp;
+import com.augmentos.augmentoslib.ThirdPartyEdgeApp;
 import com.augmentos.augmentoslib.events.CoreToManagerOutputEvent;
 import com.augmentos.augmentoslib.events.ManagerToCoreRequestEvent;
 
@@ -417,6 +417,16 @@ public class AugmentosBlePeripheral {
         sendDataToAugmentOsManager(data.toString());
     }
 
+    public void sendAuthErrorToManager() {
+        JSONObject data = new JSONObject();
+        try{
+            data.put("auth_error", true);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        sendDataToAugmentOsManager(data.toString());
+    }
+
     public void sendNotifyManager(String message, String type) {
         Log.d(TAG, "sendNotifyManager");
         JSONObject data = new JSONObject();
@@ -431,7 +441,26 @@ public class AugmentosBlePeripheral {
         sendDataToAugmentOsManager(data.toString());
     }
 
-    public void sendAppInfoToManager(ThirdPartyApp tpa) {
+    public void sendGlassesDisplayEventToManager(JSONObject displayEvent) {
+        int binderLimitBytes = 400_000;  // pick something comfortably < 1 MB
+        String jsonString = displayEvent.toString();
+        int jsonBytesLength = jsonString.getBytes(StandardCharsets.UTF_8).length;
+        if (jsonBytesLength > binderLimitBytes) {
+            Log.d(TAG, "Display event too large to send to manager. Size: " + jsonBytesLength + " bytes. Limit: " + binderLimitBytes + " bytes.");
+            return;
+        }
+
+        Log.d(TAG, "sendNotifyManager");
+        JSONObject data = new JSONObject();
+        try{
+            data.put("glasses_display_event", displayEvent);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        sendDataToAugmentOsManager(data.toString());
+    }
+
+    public void sendAppInfoToManager(ThirdPartyEdgeApp tpa) {
         Log.d(TAG, "sendNotifyManager");
         JSONObject data = new JSONObject();
         try{
@@ -486,7 +515,8 @@ public class AugmentosBlePeripheral {
     @SuppressLint("MissingPermission")
     public void sendDataToAugmentOsManager(String jsonData) {
         if(isSimulatedPuck){
-//            Log.d(TAG, "Simulated puck is active, sending data to AugmentOS Manager: " + jsonData);
+           // Log.d(TAG, "Simulated puck is active, sending data to AugmentOS Manager: " + jsonData);
+
             EventBus.getDefault().post(new CoreToManagerOutputEvent(jsonData));
             return;
         }

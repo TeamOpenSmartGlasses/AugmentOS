@@ -1,15 +1,15 @@
 package com.augmentos.augmentoslib.events;
 
-import com.augmentos.augmentoslib.ThirdPartyApp;
+import com.augmentos.augmentoslib.ThirdPartyEdgeApp;
 
 import java.io.Serializable;
 
 public class RegisterTpaRequestEvent implements Serializable {
-    public ThirdPartyApp thirdPartyApp;
+    public ThirdPartyEdgeApp thirdPartyEdgeApp;
     public static final String eventId = "registerTpaRequestEvent";
 
-    public RegisterTpaRequestEvent(ThirdPartyApp thirdPartyApp){
-        this.thirdPartyApp = thirdPartyApp;
+    public RegisterTpaRequestEvent(ThirdPartyEdgeApp thirdPartyEdgeApp){
+        this.thirdPartyEdgeApp = thirdPartyEdgeApp;
     }
 
     public static String getEventId(){

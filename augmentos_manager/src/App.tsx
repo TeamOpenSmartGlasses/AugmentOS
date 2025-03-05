@@ -2,7 +2,7 @@ import React, {useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusProvider } from './AugmentOSStatusProvider';
+import { StatusProvider } from './providers/AugmentOSStatusProvider.tsx';
 import Homepage from './screens/Homepage';
 import SettingsPage from './screens/SettingsPage';
 // import IntroScreen from './screens/IntroScreen';
@@ -16,13 +16,11 @@ import Reviews from './screens/ReviewSection.tsx';
 import { StyleSheet, Text, View } from 'react-native';
 import { AppStoreItem, RootStackParamList } from './components/types'; // Update path as needed
 import MessageBanner from './components/MessageBanner.tsx';
-import SimulatedPuckSettings from './screens/SimulatedPuckSettings.tsx';
-import SimulatedPuckOnboard from './screens/SimulatedPuckOnboard.tsx';
 import SelectGlassesModelScreen from './screens/SelectGlassesModelScreen.tsx';
 import GlassesPairingGuideScreen from './screens/GlassesPairingGuideScreen.tsx';
 import SelectGlassesBluetoothScreen from './screens/SelectGlassesBluetoothScreen.tsx';
 import PhoneNotificationSettings from './screens/PhoneNotificationSettings.tsx';
-import { SearchResultsProvider } from './SearchResultsContext.tsx';
+import { SearchResultsProvider } from './providers/SearchResultsContext.tsx';
 import AppSettings from './screens/AppSettings.tsx';
 import LoginScreen from './screens/LoginScreen.tsx';
 import SplashScreen from './screens/SplashScreen.tsx';
@@ -32,6 +30,9 @@ import VerifyEmailScreen from './screens/VerifyEmail.tsx';
 import PrivacySettingsScreen from './screens/PrivacySettingsScreen.tsx';
 import GrantPermissionsScreen from './screens/GrantPermissionsScreen.tsx';
 import ConnectingToPuckComponent from './components/ConnectingToPuckComponent.tsx';
+import VersionUpdateScreen from './screens/VersionUpdateScreen.tsx';
+import { GlassesMirrorProvider } from './providers/GlassesMirrorContext.tsx';
+import GlassesPairingGuidePreparationScreen from './screens/GlassesPairingGuidePreparationScreen.tsx';
 
 const linking = {
   prefixes: ['https://augmentos.org'],
@@ -59,6 +60,7 @@ const App: React.FC = () => {
         <AuthProvider>
         <StatusProvider>
           <SearchResultsProvider>
+            <GlassesMirrorProvider>
             <MessageBanner />
             <NavigationContainer linking={linking}>
               <Stack.Navigator initialRouteName="SplashScreen">
@@ -72,10 +74,20 @@ const App: React.FC = () => {
                   component={LoginScreen}
                   options={{ headerShown: false }}
                 />
-                  <Stack.Screen
+                <Stack.Screen
                   name="VerifyEmailScreen"
                   component={VerifyEmailScreen}
                   options={{ headerShown: false }}
+                />
+
+                <Stack.Screen
+                  name="VersionUpdateScreen"
+                  component={VersionUpdateScreen}
+                  options={{
+                    headerShown: false,
+                    // Optional: prevent going back with hardware back button on Android
+                    gestureEnabled: false,
+                  }}
                 />
 
                 <Stack.Screen name="Home" options={{ headerShown: false }}>
@@ -196,42 +208,9 @@ const App: React.FC = () => {
                   }}>
                   {() => <GlassesMirror isDarkTheme={isDarkTheme} />}
                 </Stack.Screen>
-                <Stack.Screen name="SimulatedPuckSettings"
-                  options={{
-                    title: 'Simulated Puck',
-                    headerStyle: {
-                      backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
-                    },
-                    headerTintColor: isDarkTheme ? '#ffffff' : '#000000',
-                  }}>
-                  {props => (
-                    <SimulatedPuckSettings
-                      {...props}
-                      toggleTheme={toggleTheme}
-                      isDarkTheme={isDarkTheme}
-                    />
-                  )}
-                </Stack.Screen>
-                <Stack.Screen name="SimulatedPuckOnboard"
-                  options={{
-                    title: 'Simulated Puck',
-                    headerShown: false,
-                    headerStyle: {
-                      backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
-                    },
-                    headerTintColor: isDarkTheme ? '#ffffff' : '#000000',
-                  }}>
-                  {props => (
-                    <SimulatedPuckOnboard
-                      {...props}
-                      toggleTheme={toggleTheme}
-                      isDarkTheme={isDarkTheme}
-                    />
-                  )}
-                </Stack.Screen>
                 <Stack.Screen name="AppSettings"
                   options={({ route }) => ({
-                    title: route.params?.appName + ' Settings',
+                    title: route.params?.appName,
                     headerStyle: {
                       backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
                     },
@@ -283,6 +262,17 @@ const App: React.FC = () => {
                     />
                   )}
                 </Stack.Screen>
+                <Stack.Screen name="GlassesPairingGuidePreparationScreen"
+                  options={{ title: 'Pairing Guide' }}
+                >
+                  {props => (
+                    <GlassesPairingGuidePreparationScreen
+                      {...props}
+                      toggleTheme={toggleTheme}
+                      isDarkTheme={isDarkTheme}
+                    />
+                  )}
+                </Stack.Screen>
                 <Stack.Screen name="SelectGlassesBluetoothScreen"
                   options={{ title: 'Finding Glasses' }}
                 >
@@ -297,6 +287,7 @@ const App: React.FC = () => {
 
               </Stack.Navigator>
             </NavigationContainer>
+            </GlassesMirrorProvider>
           </SearchResultsProvider>
         </StatusProvider>
         </AuthProvider>

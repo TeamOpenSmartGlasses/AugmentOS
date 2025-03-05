@@ -45,11 +45,11 @@ public class TPABroadcastSender {
         packageName = context.getPackageName();
 
         //register event bus subscribers
-        EventBus.getDefault().register(this);
+        AugmentOSLibBus.getInstance().register(this);
     }
 
     public void sendEventToAugmentOS(String eventId, Serializable eventBundle) {
-        Log.d("TPASEND event: ", this.intentPkg);
+//        Log.d("TPASEND event: ", this.intentPkg);
 
         //setup intent to send
         Intent intent = new Intent();
@@ -175,6 +175,6 @@ public class TPABroadcastSender {
 
     public void destroy(){
         //unregister event bus subscribers
-        EventBus.getDefault().unregister(this);
+        AugmentOSLibBus.getInstance().unregister(this);
     }
 }

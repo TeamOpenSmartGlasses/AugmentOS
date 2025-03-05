@@ -12,15 +12,16 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider';
 import BluetoothService from '../BluetoothService';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
+import { loadSetting, saveSetting } from '../logic/SettingsHelper';
 import { ENABLE_PHONE_NOTIFICATIONS_DEFAULT, SETTINGS_KEYS } from '../consts';
-import ManagerCoreCommsService from '../augmentos_core_comms/ManagerCoreCommsService';
-import { openCorePermissionsActivity, stopExternalService } from '../augmentos_core_comms/CoreServiceStarter';
+import ManagerCoreCommsService from '../bridge/ManagerCoreCommsService';
+import { openCorePermissionsActivity, stopExternalService } from '../bridge/CoreServiceStarter';
 import { ScrollView } from 'react-native-gesture-handler';
-import { checkNotificationPermission, NotificationService, requestNotificationPermission, } from '../augmentos_core_comms/NotificationServiceUtils';
+import { NotificationService } from '../logic/NotificationServiceUtils';
 import GlobalEventEmitter from '../logic/GlobalEventEmitter';
+import { checkAndRequestNotificationAccessSpecialPermission, checkNotificationAccessSpecialPermission } from '../utils/NotificationServiceUtils';
 
 interface PhoneNotificationSettingsProps {
   isDarkTheme: boolean;
@@ -51,7 +52,7 @@ const PhoneNotificationSettings: React.FC<PhoneNotificationSettingsProps> = ({
   const toggleEnablePhoneNotification = async () => {
     let newEnablePhoneNotification = !isEnablePhoneNotification;
     if (newEnablePhoneNotification) {
-      if ((await checkNotificationPermission()) && (await requestNotificationPermission())) {
+      if ((await checkNotificationAccessSpecialPermission())) {
         console.log("We have notification perms!!!")
         if (await NotificationService.isNotificationListenerEnabled()) {
           console.log('Notification listener already enabled');
@@ -61,6 +62,7 @@ const PhoneNotificationSettings: React.FC<PhoneNotificationSettingsProps> = ({
       } else {
         console.log("Don't have permissions oh well sad")
         GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Lacking permissions to display notifications', type: 'error' });
+        await checkAndRequestNotificationAccessSpecialPermission();
         newEnablePhoneNotification = false;
         return;
       }

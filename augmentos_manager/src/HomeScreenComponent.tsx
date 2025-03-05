@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { useStatus } from './AugmentOSStatusProvider';
+import { useStatus } from './providers/AugmentOSStatusProvider';
 
 const HomeScreenComponent = () => {
   const { status } = useStatus();
@@ -8,8 +8,8 @@ const HomeScreenComponent = () => {
   return (
     <View style={{ padding: 20 }}>
       <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Puck Status</Text>
-      <Text>Puck Connected: {status.puck_connected ? 'Yes' : 'No'}</Text>
-      <Text>Puck Battery Life: {status.puck_battery_life ?? 'N/A'}%</Text>
+      <Text>Puck Connected: {status.core_info.puck_connected ? 'Yes' : 'No'}</Text>
+      <Text>Puck Battery Life: {status.core_info.puck_battery_life ?? 'N/A'}%</Text>
 
       <Text style={{ marginTop: 10, fontWeight: 'bold' }}>Connected Glasses</Text>
       {status.glasses_info ? (

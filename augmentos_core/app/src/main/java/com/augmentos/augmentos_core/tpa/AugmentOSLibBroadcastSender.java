@@ -11,7 +11,7 @@ import android.util.Log;
 import com.augmentos.augmentoslib.AugmentOSCommand;
 import com.augmentos.augmentoslib.AugmentOSGlobalConstants;
 import com.augmentos.augmentoslib.SmartGlassesAndroidService;
-import com.augmentos.augmentoslib.ThirdPartyApp;
+import com.augmentos.augmentoslib.ThirdPartyEdgeApp;
 import com.augmentos.augmentoslib.ThirdPartyAppType;
 import com.augmentos.augmentoslib.events.CommandTriggeredEvent;
 import com.augmentos.augmentoslib.events.KillTpaEvent;
@@ -63,7 +63,7 @@ public class AugmentOSLibBroadcastSender {
         context.sendBroadcast(intent);
     }
 
-    public boolean startThirdPartyApp(ThirdPartyApp tpa){
+    public boolean startThirdPartyApp(ThirdPartyEdgeApp tpa){
         if(tpa.packageName == "" || tpa.serviceName == ""){
             return false;
         }
@@ -77,7 +77,7 @@ public class AugmentOSLibBroadcastSender {
         return true;
     }
 
-    public void killThirdPartyApp(ThirdPartyApp tpa){
+    public void killThirdPartyApp(ThirdPartyEdgeApp tpa){
         Log.d(TAG, "Attempting to kill third-party app: " + tpa.packageName);
         if (tpa.appType == ThirdPartyAppType.CORE_SYSTEM) {
             Log.d(TAG, "Cannot kill a core system app: " + tpa.packageName);
@@ -107,7 +107,7 @@ public class AugmentOSLibBroadcastSender {
         //EventBus.getDefault().post(new HomeScreenEvent());
     }
 
-    public boolean isThirdPartyAppRunning(ThirdPartyApp tpa) {
+    public boolean isThirdPartyAppRunning(ThirdPartyEdgeApp tpa) {
 // TODO: Cannot be implemented this way w/o being a system level app
         //        if (tpa.packageName.isEmpty() || tpa.serviceName.isEmpty()) {
 //            return false; // Invalid TPA details

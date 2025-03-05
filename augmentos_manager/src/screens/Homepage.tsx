@@ -13,22 +13,12 @@ import ConnectedDeviceInfo from '../components/ConnectedDeviceInfo';
 import RunningAppsList from '../components/RunningAppsList';
 import YourAppsList from '../components/YourAppsList';
 import NavigationBar from '../components/NavigationBar';
-import PuckConnection from '../components/PuckConnection';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider.tsx';
 import { ScrollView } from 'react-native-gesture-handler';
-import {
-  GET_APP_STORE_DATA_ENDPOINT,
-  SETTINGS_KEYS,
-  SIMULATED_PUCK_DEFAULT,
-} from '../consts';
-import { loadSetting } from '../augmentos_core_comms/SettingsHelper';
-import { AppStoreItem, NavigationProps } from '../components/types.ts';
-import { NativeModules } from 'react-native';
 import BackendServerComms from '../backend_comms/BackendServerComms.tsx';
-const { FetchConfigHelperModule } = NativeModules;
 import semver from 'semver';
-import { AUGMENTOS_MANAGER_PACKAGE_NAME, AUGMENTOS_CORE_PACKAGE_NAME } from '../consts';
-import { fetchAppStoreData } from '../utils/backendUtils.ts';
+import { Config } from 'react-native-config';
+import CloudConnection from '../components/CloudConnection.tsx';
 
 interface HomepageProps {
   isDarkTheme: boolean;
@@ -43,147 +33,89 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
   const navigation = useNavigation<NavigationProp<any>>();
   const { status } = useStatus();
   const [isSimulatedPuck, setIsSimulatedPuck] = React.useState(false);
-  const [appStoreData, setAppStoreData] = useState<AppStoreItem[]>([]);
-  // We keep these only if you want them for display; no longer rely on them for immediate comparison
-  const [localVersion, setLocalVersion] = useState<string | null>(null);
-  const [storeVersion, setStoreVersion] = useState<string | null>(null);
-
-  const [isAugmentOSNotUpdatedString, setIsAugmentOSNotUpdatedString] =
-    useState('');
+  const [isCheckingVersion, setIsCheckingVersion] = useState(false);
 
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(-50)).current;
 
-  useEffect(() => {
-    if (!status.puck_connected) {
-      navigation.reset({
-        index: 0,
-        routes: [{name: 'ConnectingToPuck'}],
-      });
-    }
-  }, [navigation, status]);
-
-  /**
-   * 2) Fetch the local config for the manager; return the version instead
-   *    of only setting it in state. We'll still setLocalVersion for other usage.
-   */
-  const fetchConfig = async (packageName: string): Promise<string | null> => {
+  // Get local version from env file
+  const getLocalVersion = () => {
     try {
-      const configJson = await FetchConfigHelperModule.fetchConfig(packageName);
-      const parsedConfig = JSON.parse(configJson);
-      const version = parsedConfig.version;
-      // console.log('Local App Version:', version);
-      setLocalVersion(version); // If you want to display or store it
-      return version;
+      const version = Config.AUGMENTOS_VERSION;
+      console.log('Local version from env:', version);
+      return version || null;
     } catch (error) {
-      console.error(
-        'Failed to load config for package name ' + packageName,
-        error,
-      );
+      console.error('Error getting local version:', error);
       return null;
     }
   };
 
-  /**
-   * 3) For the core version, just return it. We'll still setLocalVersion in case
-   *    you want to keep it for display in the component.
-   */
-  const fetchVersionFromStatus = (): string | null => {
-    // console.log('AugmentOS Core Version:', status.augmentos_core_version);
-    setLocalVersion(status?.augmentos_core_version);
-    return status?.augmentos_core_version ?? null;
-  };
+  // Check cloud version and navigate if needed
+  const checkCloudVersion = async () => {
+    if (isCheckingVersion) return;
+    setIsCheckingVersion(true);
 
-  /**
-   * 4) Compare versions in a single flow. We'll do the fetches, then compare
-   *    using the local variables (rather than waiting on setState).
-   */
-  const compareVersions = async (packageName: string) => {
-    // Fetch the store data (returns a fresh copy).
-    const data = await fetchAppStoreData();
+    try {
+      const backendComms = BackendServerComms.getInstance();
+      const localVer = getLocalVersion();
 
-    // Fetch local version depending on the package
-    let local: string | null = null;
-    if (packageName === AUGMENTOS_MANAGER_PACKAGE_NAME) {
-      local = await fetchConfig(packageName);
-    } else {
-      local = fetchVersionFromStatus();
-    }
+      if (!localVer) {
+        console.error('Failed to get local version from env file');
+        // Navigate to update screen with connection error
+        navigation.navigate('VersionUpdateScreen', {
+          isDarkTheme,
+          connectionError: true
+        });
+        setIsCheckingVersion(false);
+        return;
+      }
 
-    if (!local) {
-      // console.warn('Local version not available for ' + packageName);
-      return '';
-    }
+      // Call the endpoint to get cloud version
+      await backendComms.restRequest('/apps/version', null, {
+        onSuccess: (data) => {
+          const cloudVer = data.version;
+          console.log(`Comparing local version (${localVer}) with cloud version (${cloudVer})`);
 
-    // Find store version from the newly fetched data
-    const matchedApp = data.find(
-      (app) => app.packageName === packageName,
-    );
-
-    if (!matchedApp) {
-      console.warn(
-        'App with the specified package name not found in store data: ' +
-          packageName,
-      );
-      return '';
-    }
-
-    const storeVer = String(matchedApp.version);
-    // console.log('Store App Version:', storeVer);
-    setStoreVersion(storeVer); // If you need it in your component state
-
-    // console.log(
-    //   `Comparing local version (${local}) with store version (${storeVer})`,
-    // );
-
-    const appString = packageName === AUGMENTOS_MANAGER_PACKAGE_NAME ? 'AugmentOS Manager' : 'AugmentOS Core';
-
-    // Use semver for comparison
-    if (semver.lt(local, storeVer)) {
-      console.log('A new version is available. Please update the app.');
-      return `${appString}`;
-    } else if (semver.gt(local, storeVer)) {
-      console.log('Local version is ahead of store version.');
-      return '';
-    } else {
-      // console.log('Local version is up-to-date.');
-      return '';
-    }
-  };
-
-  useEffect(() => {
-      const checkCoreUpdates = async () => {
-          const isCoreNotUpToDateString = await compareVersions(
-                AUGMENTOS_CORE_PACKAGE_NAME,
-          );
-
-          if (isCoreNotUpToDateString) {
-            navigation.reset({
-              index: 0,
-              routes: [{ name: 'SimulatedPuckOnboard' }],
+          // Compare versions using semver
+          if (semver.lt(localVer, cloudVer)) {
+            console.log('A new version is available. Navigate to update screen.');
+            // Navigate to update screen with version mismatch
+            navigation.navigate('VersionUpdateScreen', {
+              isDarkTheme,
+              localVersion: localVer,
+              cloudVersion: cloudVer
             });
+          } else {
+            console.log('Local version is up-to-date.');
+            // Stay on homepage, no navigation needed
           }
-      };
+          setIsCheckingVersion(false);
+        },
+        onFailure: (errorCode) => {
+          console.error('Failed to fetch cloud version:', errorCode);
+          // Navigate to update screen with connection error
+          navigation.navigate('VersionUpdateScreen', {
+            isDarkTheme,
+            connectionError: true
+          });
+          setIsCheckingVersion(false);
+        }
+      });
+    } catch (error) {
+      console.error('Error checking cloud version:', error);
+      // Navigate to update screen with connection error
+      navigation.navigate('VersionUpdateScreen', {
+        isDarkTheme,
+        connectionError: true
+      });
+      setIsCheckingVersion(false);
+    }
+  };
 
-      checkCoreUpdates();
-  }, []);
-
-  // Call both checks and concatenate any "update needed" messages
+  // Check version once on mount
   useEffect(() => {
-    const checkUpdates = async () => {
-      const isManagerNotUpToDateString = await compareVersions(
-        AUGMENTOS_MANAGER_PACKAGE_NAME,
-      );
-
-      // If either returned a string, show them together
-      setIsAugmentOSNotUpdatedString(
-        (isManagerNotUpToDateString + '\n' ?? '').trim(),
-      );
-    };
-
-    checkUpdates();
+    //checkCloudVersion();
   }, []);
-
 
   // Simple animated wrapper so we do not duplicate logic
   const AnimatedSection: React.FC<AnimatedSectionProps> = useCallback(
@@ -199,19 +131,6 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
     ),
     [fadeAnim, slideAnim],
   );
-
-  // Load SIMULATED_PUCK setting once
-  React.useEffect(() => {
-    const loadSimulatedPuckSetting = async () => {
-      const simulatedPuck = await loadSetting(
-        SETTINGS_KEYS.SIMULATED_PUCK,
-        SIMULATED_PUCK_DEFAULT,
-      );
-      setIsSimulatedPuck(simulatedPuck);
-    };
-
-    loadSimulatedPuckSetting();
-  }, []);
 
   useFocusEffect(
     useCallback(() => {
@@ -247,58 +166,47 @@ const Homepage: React.FC<HomepageProps> = ({ isDarkTheme, toggleTheme }) => {
 
   return (
     <View style={currentThemeStyles.container}>
-      {isAugmentOSNotUpdatedString.length > 0 ? (
-        <View style={{ padding: 20, backgroundColor: '#ffcccc' }}>
-            <Text style={{ color: '#cc0000', fontSize: 16 }}>
-              Please open the app store tab and update the following apps:
-            </Text>
-            <Text style={{ color: '#cc0000', fontSize: 16 }}>
-              {isAugmentOSNotUpdatedString}
-            </Text>
-        </View>
-      ) : (
-        <ScrollView style={currentThemeStyles.contentContainer}>
+      <ScrollView style={currentThemeStyles.contentContainer}>
+        <AnimatedSection>
+          <Header isDarkTheme={isDarkTheme} navigation={navigation} />
+        </AnimatedSection>
+
+        {status.core_info.cloud_connection_status !== 'CONNECTED' &&
           <AnimatedSection>
-            <Header isDarkTheme={isDarkTheme} navigation={navigation} />
+            <CloudConnection isDarkTheme={isDarkTheme} />
           </AnimatedSection>
+        }
 
-          {!isSimulatedPuck && (
-            <AnimatedSection>
-              <PuckConnection isDarkTheme={isDarkTheme} />
-            </AnimatedSection>
-          )}
+        <AnimatedSection>
+          <ConnectedDeviceInfo isDarkTheme={isDarkTheme} />
+        </AnimatedSection>
 
-          <AnimatedSection>
-            <ConnectedDeviceInfo isDarkTheme={isDarkTheme} />
-          </AnimatedSection>
-
-          {status.puck_connected && (
-            <>
-              {status.apps.length > 0 ? (
-                <>
-                  <AnimatedSection>
-                    <RunningAppsList isDarkTheme={isDarkTheme} />
-                  </AnimatedSection>
-
-                  <AnimatedSection>
-                    <YourAppsList
-                      isDarkTheme={isDarkTheme}
-                      key={`apps-list-${status.apps.length}`}
-                    />
-                  </AnimatedSection>
-                </>
-              ) : (
+        {status.core_info.puck_connected && (
+          <>
+            {status.apps.length > 0 ? (
+              <>
                 <AnimatedSection>
-                  <Text style={currentThemeStyles.noAppsText}>
-                    No apps found. Visit the AugmentOS App Store to explore and
-                    download apps for your device.
-                  </Text>
+                  <RunningAppsList isDarkTheme={isDarkTheme} />
                 </AnimatedSection>
-              )}
-            </>
-          )}
-        </ScrollView>
-      )}
+
+                <AnimatedSection>
+                  <YourAppsList
+                    isDarkTheme={isDarkTheme}
+                    key={`apps-list-${status.apps.length}`}
+                  />
+                </AnimatedSection>
+              </>
+            ) : (
+              <AnimatedSection>
+                <Text style={currentThemeStyles.noAppsText}>
+                  No apps found. Visit the AugmentOS App Store to explore and
+                  download apps for your device.
+                </Text>
+              </AnimatedSection>
+            )}
+          </>
+        )}
+      </ScrollView>
       <NavigationBar toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
     </View>
   );

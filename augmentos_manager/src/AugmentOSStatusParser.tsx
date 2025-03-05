@@ -38,8 +38,10 @@ export interface CoreAuthInfo {
   last_verification_timestamp: number;
 }
 
-export interface AugmentOSMainStatus {
+export interface CoreInfo {
   augmentos_core_version: string | null;
+  core_token: string | null;
+  cloud_connection_status: string;
   puck_connected: boolean;
   puck_battery_life: number | null;
   puck_charging_status: boolean;
@@ -47,6 +49,10 @@ export interface AugmentOSMainStatus {
   sensing_enabled: boolean;
   force_core_onboard_mic: boolean;
   contextual_dashboard_enabled: boolean;
+}
+
+export interface AugmentOSMainStatus {
+  core_info: CoreInfo;
   glasses_info: Glasses | null;
   wifi: WifiConnection | null;
   gsm: GSMConnection | null;
@@ -56,14 +62,18 @@ export interface AugmentOSMainStatus {
 
 export class AugmentOSParser {
   static defaultStatus: AugmentOSMainStatus = {
-    augmentos_core_version: null,
-    puck_connected: false,
-    puck_battery_life: null,
-    puck_charging_status: false,
-    sensing_enabled: false,
-    force_core_onboard_mic: false,
-    contextual_dashboard_enabled: false,
-    default_wearable: null,
+    core_info: {
+      augmentos_core_version: null,
+      cloud_connection_status: 'DISCONNECTED',
+      core_token: null,
+      puck_connected: false,
+      puck_battery_life: null,
+      puck_charging_status: false,
+      sensing_enabled: false,
+      force_core_onboard_mic: false,
+      contextual_dashboard_enabled: false,
+      default_wearable: null,
+    },
     glasses_info: null,
     wifi: { is_connected: false, ssid: '', signal_strength: 0 },
     gsm: { is_connected: false, carrier: '', signal_strength: 0 },
@@ -76,18 +86,20 @@ export class AugmentOSParser {
   };
 
   static mockStatus: AugmentOSMainStatus = {
-    augmentos_core_version: '1.0.0',
-    puck_connected: true,
-    puck_battery_life: 88,
-    puck_charging_status: true,
-    sensing_enabled: true,
-    force_core_onboard_mic: false,
-    contextual_dashboard_enabled: true,
-   // default_wearable: 'Vuzix Z100',
-   default_wearable: 'evenrealities_g1',
+    core_info: {
+      augmentos_core_version: '1.0.0',
+      cloud_connection_status: 'CONNECTED',
+      core_token: '1234567890',
+      puck_connected: true,
+      puck_battery_life: 88,
+      puck_charging_status: true,
+      sensing_enabled: true,
+      force_core_onboard_mic: false,
+      contextual_dashboard_enabled: true,
+      default_wearable: 'evenrealities_g1',
+    },
     glasses_info: {
       model_name: 'Even Realities G1',
-      //model_name: 'Vuzix Z100',
       battery_life: 60,
       is_searching: false,
       brightness: "87%",
@@ -153,7 +165,7 @@ export class AugmentOSParser {
       },
       {
         name: 'Captions',
-        packageName: 'com.mentra.livecaptions',
+        packageName: 'com.mentra.live-captions',
         icon: '/assets/app-icons/captions.png',
         description: 'Live captioning app',
         instructions: "",
@@ -198,22 +210,26 @@ export class AugmentOSParser {
       let status = data.status;
 
       return {
-        augmentos_core_version: status.augmentos_core_version ?? null,
-        puck_connected: true,
-        puck_battery_life: status.puck_battery_life ?? null,
-        puck_charging_status: status.charging_status ?? false,
-        sensing_enabled: status.sensing_enabled ?? false,
-        force_core_onboard_mic: status.force_core_onboard_mic ?? false,
-        contextual_dashboard_enabled: status.contextual_dashboard_enabled ?? true,
-        default_wearable: status.default_wearable ?? null,
+        core_info: {
+          augmentos_core_version: status.core_info.augmentos_core_version ?? null,
+          core_token: status.core_info.core_token ?? null,
+          cloud_connection_status: status.core_info.cloud_connection_status ?? 'DISCONNECTED',
+          puck_connected: true,
+          puck_battery_life: status.core_info.puck_battery_life ?? null,
+          puck_charging_status: status.core_info.charging_status ?? false,
+          sensing_enabled: status.core_info.sensing_enabled ?? false,
+          force_core_onboard_mic: status.core_info.force_core_onboard_mic ?? false,
+          contextual_dashboard_enabled: status.core_info.contextual_dashboard_enabled ?? true,
+          default_wearable: status.core_info.default_wearable ?? null,
+        },
         glasses_info: status.connected_glasses
           ? {
-              model_name: status.connected_glasses.model_name,
-              battery_life: status.connected_glasses.battery_life,
-              is_searching: status.connected_glasses.is_searching ?? false,
-              brightness: status.connected_glasses.brightness,
-              headUp_angle: status.connected_glasses.headUp_angle,
-            }
+            model_name: status.connected_glasses.model_name,
+            battery_life: status.connected_glasses.battery_life,
+            is_searching: status.connected_glasses.is_searching ?? false,
+            brightness: status.connected_glasses.brightness,
+            headUp_angle: status.connected_glasses.headUp_angle,
+          }
           : null,
         wifi: status.wifi ?? AugmentOSParser.defaultStatus.wifi,
         gsm: status.gsm ?? AugmentOSParser.defaultStatus.gsm,
@@ -224,7 +240,7 @@ export class AugmentOSParser {
           is_foreground: !!app.is_foreground,
           packageName: app.packageName || 'unknown.package',
           version: app.version || '1.0.0',
-          icon: app.icon || '/assets/icons/default-app.png',
+          icon: app.iconUrl || '/assets/icons/default-app.png',
           type: app.type || 'APP',
         })) || [],
         auth: {

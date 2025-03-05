@@ -2,6 +2,13 @@ apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
+project.ext.envConfigFiles = [
+  debug: ".env",
+  release: ".env",
+]
+
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -36,8 +43,8 @@ android {
         applicationId "com.augmentos.augmentos_manager"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 19
+        versionName "1.9.0"
         multiDexEnabled true  // Add this if your app exceeds 64K method limit
     }
     signingConfigs {
@@ -61,6 +68,9 @@ android {
     packagingOptions {
         pickFirst '**/libjsc.so'
         pickFirst '**/libc++_shared.so'
+                resources {
+            excludes += ["META-INF/INDEX.LIST"]
+        }
     }
 }
 dependencies {
@@ -92,8 +102,17 @@ dependencies {
 
     // AugmentOSLib project dependency
     implementation project(path: ':AugmentOSLib')
+    implementation project(path: ":SmartGlassesManager")
     implementation "androidx.lifecycle:lifecycle-service:2.6.1"
     implementation("org.greenrobot:eventbus:3.3.1")
+
+
+    implementation project(path: ":augmentos_core")
+    implementation 'com.facebook.react:hermes-android:0.75.4'
+
+    //implementation "androidx.lifecycle:lifecycle-process:2.5.1" // Use the version appropriate for your project
+
+    implementation project(':react-native-config')
 }
 
 // Include custom vector icons fonts from react-native-vector-icons
@@ -104,6 +123,5 @@ project.ext.vectoricons = [
 project.ext.react = [
     enableHermes: false  // Disable Hermes for troubleshooting
 ]
-
 
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"

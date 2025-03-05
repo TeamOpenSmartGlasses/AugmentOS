@@ -13,9 +13,9 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Slider } from 'react-native-elements';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider';
 import { BluetoothService } from '../BluetoothService';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
+import { loadSetting, saveSetting } from '../logic/SettingsHelper';
 import { SETTINGS_KEYS } from '../consts';
 import NavigationBar from '../components/NavigationBar';
 import { supabase } from '../supabaseClient';
@@ -33,11 +33,11 @@ const PrivacySettingsScreen: React.FC<PrivacySettingsScreenProps> = ({
 }) => {
   const { status } = useStatus();
   const [isSensingEnabled, setIsSensingEnabled] = React.useState(
-    status.sensing_enabled,
+    status.core_info.sensing_enabled,
   );
-  const [forceCoreOnboardMic, setForceCoreOnboardMic] = React.useState(status.force_core_onboard_mic);
+  const [forceCoreOnboardMic, setForceCoreOnboardMic] = React.useState(status.core_info.force_core_onboard_mic);
   const [isContextualDashboardEnabled, setIsContextualDashboardEnabled] = React.useState(
-    status.contextual_dashboard_enabled,
+    status.core_info.contextual_dashboard_enabled,
   );
 
   React.useEffect(() => {
@@ -73,7 +73,7 @@ const PrivacySettingsScreen: React.FC<PrivacySettingsScreenProps> = ({
 
 
   // React.useEffect(() => {
-  //   setIsSensingEnabled(status.sensing_enabled);
+  //   setIsSensingEnabled(status.core_info.sensing_enabled);
   // }, [status]);
 
   const switchColors = {
@@ -135,24 +135,19 @@ const PrivacySettingsScreen: React.FC<PrivacySettingsScreenProps> = ({
             <Text
               style={[
                 styles.label,
-                isDarkTheme ? styles.lightText : styles.darkText,
-                (!status.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
+                isDarkTheme ? styles.lightText : styles.darkText
               ]}>
               Sensing
             </Text>
             <Text
               style={[
                 styles.value,
-                isDarkTheme ? styles.lightSubtext : styles.darkSubtext,
-                (!status.puck_connected || !status.glasses_info?.model_name) &&
-                  styles.disabledItem,
+                isDarkTheme ? styles.lightSubtext : styles.darkSubtext
               ]}>
               Enable microphones & cameras.
             </Text>
           </View>
           <Switch
-            disabled={!status.glasses_info?.model_name}
             value={isSensingEnabled}
             onValueChange={toggleSensing}
             trackColor={switchColors.trackColor}

@@ -132,7 +132,6 @@ dependencies {
 
     //VOSK ASR
     implementation 'net.java.dev.jna:jna:5.8.0@aar'
-    implementation "com.alphacephei:vosk-android:0.3.34@aar"
 
     //java.util.time backport
     implementation "org.threeten:threetenbp:1.5.2"
@@ -150,14 +149,14 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.10.1'
 
     //for VAD (using Silero DNN)
-    implementation 'com.github.gkonovalov:android-vad:2.0.1'
-    implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.15.0'
+    implementation 'com.github.gkonovalov:android-vad:2.0.9'
+    //implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.15.0'
 
     //Vuzix Ultralite OEM Platform / Vuzix Z100
     implementation 'com.vuzix:ultralite-sdk-android:1.8'
 
     //Azure ASR
-    implementation "com.microsoft.cognitiveservices.speech:client-sdk:1.42.0"
+    // implementation "com.microsoft.cognitiveservices.speech:client-sdk:1.42.0"
 
     implementation 'io.github.cdimascio:dotenv-java:3.0.0'
 
@@ -165,27 +164,27 @@ dependencies {
 }
 
 //VOSK ASR prep models - need one for each language
-tasks.register('genUUID_en') {
-    def uuid = UUID.randomUUID().toString()
-    def odir = file("$buildDir/generated/assets/model-en-us")
-    def ofile = file("$odir/uuid")
-    doLast {
-        mkdir odir
-        ofile.text = uuid
-    }
-}
-tasks.register('genUUID_fr') {
-    def uuid = UUID.randomUUID().toString()
-    def odir = file("$buildDir/generated/assets/model-fr-small")
-    def ofile = file("$odir/uuid")
-    doLast {
-        mkdir odir
-        ofile.text = uuid
-    }
-}
-
-preBuild.dependsOn(genUUID_en)
-preBuild.dependsOn(genUUID_fr)
+//tasks.register('genUUID_en') {
+//    def uuid = UUID.randomUUID().toString()
+//    def odir = file("$buildDir/generated/assets/model-en-us")
+//    def ofile = file("$odir/uuid")
+//    doLast {
+//        mkdir odir
+//        ofile.text = uuid
+//    }
+//}
+//tasks.register('genUUID_fr') {
+//    def uuid = UUID.randomUUID().toString()
+//    def odir = file("$buildDir/generated/assets/model-fr-small")
+//    def ofile = file("$odir/uuid")
+//    doLast {
+//        mkdir odir
+//        ofile.text = uuid
+//    }
+//}
+//
+//preBuild.dependsOn(genUUID_en)
+//preBuild.dependsOn(genUUID_fr)
 
 protobuf {
     protoc {

@@ -13,16 +13,16 @@ import {
 } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native'; // <<--- import useRoute
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider';
 import { BluetoothService } from '../BluetoothService';
-import { loadSetting, saveSetting } from '../augmentos_core_comms/SettingsHelper';
+import { loadSetting, saveSetting } from '../logic/SettingsHelper';
 import { MOCK_CONNECTION, SETTINGS_KEYS } from '../consts';
 import { NavigationProps } from '../components/types';
 import { getGlassesImage } from '../logic/getGlassesImage';
 import PairingDeviceInfo from '../components/PairingDeviceInfo';
 import { EvenRealitiesG1PairingGuide, VuzixZ100PairingGuide } from '../components/GlassesPairingGuides';
 import GlobalEventEmitter from '../logic/GlobalEventEmitter';
-import { useSearchResults } from '../SearchResultsContext';
+import { useSearchResults } from '../providers/SearchResultsContext';
 // import NavigationBar from '../components/NavigationBar'; // if needed
 
 interface SelectGlassesBluetoothScreenProps {
@@ -134,13 +134,13 @@ const SelectGlassesBluetoothScreen: React.FC<SelectGlassesBluetoothScreenProps> 
 
   React.useEffect(() => {
     // If puck gets d/c'd here, return to home
-    if (!status.puck_connected) {
+    if (!status.core_info.puck_connected) {
       console.log("RETURN HOME FROM PAIR SCREEN: DISCONNECTED FROM PUCK")
       navigation.navigate('Home');
     }
 
     // If pairing successful, return to home
-    if (status.puck_connected && status.glasses_info?.model_name) {
+    if (status.core_info.puck_connected && status.glasses_info?.model_name) {
       console.log("RETURN HOME FROM PAIR SCREEN: GOT MODEL NAME: " + status.glasses_info?.model_name);
       navigation.navigate('Home');
     }

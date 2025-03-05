@@ -1,12 +1,14 @@
-import React, { useRef, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated, Alert, PermissionsAndroid, Permission, Platform } from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Animated } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { BluetoothService } from '../BluetoothService';
-import { useStatus } from '../AugmentOSStatusProvider';
+import { useStatus } from '../providers/AugmentOSStatusProvider';
 import { NavigationProps } from '../components/types';
 import { useNavigation } from '@react-navigation/native';
 import { getGlassesImage } from '../logic/getGlassesImage';
+import GlobalEventEmitter from '../logic/GlobalEventEmitter.tsx';
+import { getBatteryColor, getBatteryIcon } from '../logic/getBatteryIcon.tsx';
 
 
 interface ConnectedDeviceInfoProps {
@@ -32,7 +34,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
       slideAnim.setValue(-50);
 
       // Start animations if device is connected
-      if (status.puck_connected) {
+      if (status.core_info.puck_connected) {
         Animated.parallel([
           Animated.timing(fadeAnim, {
             toValue: 1,
@@ -52,28 +54,33 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
           }),
         ]).start();
       }
-
+      if (status.core_info.default_wearable !== '') {
+        setDisconnectButtonDisabled(false);
+      }
       // Cleanup function
       return () => {
         fadeAnim.stopAnimation();
         scaleAnim.stopAnimation();
         slideAnim.stopAnimation();
       };
-    }, [status.puck_connected, fadeAnim, scaleAnim, slideAnim])
+    }, [status.core_info.default_wearable, status.core_info.puck_connected, fadeAnim, scaleAnim, slideAnim])
   );
 
   const handleConnectToPuck = async () => {
     try {
       await bluetoothService.scanForDevices();
     } catch (error) {
-      // Alert.alert('Error', 'Failed to start scanning for devices');
-      // console.error('Scanning error:', error);
       bluetoothService.emit('SHOW_BANNER', { message: 'Failed to start scanning for devices', type: 'error' });
     }
   };
 
   const connectGlasses = async () => {
-    if (status.default_wearable === undefined || status.default_wearable === '') {
+    if (!(await bluetoothService.isBluetoothEnabled() && await bluetoothService.isLocationEnabled())) {
+      GlobalEventEmitter.emit('SHOW_BANNER', { message: 'Please enable Bluetooth and Location', type: 'error' });
+      return;
+    }
+
+    if (status.core_info.default_wearable === undefined || status.core_info.default_wearable === '') {
       navigation.navigate('SelectGlassesModelScreen');
       return;
     }
@@ -81,13 +88,9 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     setConnectButtonDisabled(true);
     setDisconnectButtonDisabled(false);
 
-    setTimeout(() => {
-      setConnectButtonDisabled(false);
-    }, 10000);
-
     try {
-      if (status.default_wearable && status.default_wearable != "") {
-        await bluetoothService.sendConnectWearable(status.default_wearable);
+      if (status.core_info.default_wearable && status.core_info.default_wearable != "") {
+        await bluetoothService.sendConnectWearable(status.core_info.default_wearable);
       }
     } catch (error) {
       console.error('connect 2 glasses error:', error);
@@ -98,12 +101,20 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     setDisconnectButtonDisabled(true);
     setConnectButtonDisabled(false);
 
-    setTimeout(() => {
-      setDisconnectButtonDisabled(false);
-    }, 10000);
+    console.log('Disconnecting wearable');
+
     try {
       await bluetoothService.sendDisconnectWearable();
     } catch (error) { }
+  };
+
+  // New handler: if already connecting, pressing the button calls disconnect.
+  const handleConnectOrDisconnect = async () => {
+    if (isConnectButtonDisabled || status.glasses_info?.is_searching) {
+      await sendDisconnectWearable();
+    } else {
+      await connectGlasses();
+    }
   };
 
   const themeStyles = {
@@ -115,40 +126,33 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
     separatorColor: isDarkTheme ? '#666666' : '#999999',
   };
 
-  const getBatteryIcon = (level: number) => {
-    if (level > 75) { return 'battery-full'; }
-    if (level > 50) { return 'battery-three-quarters'; }
-    if (level > 25) { return 'battery-half'; }
-    if (level > 10) { return 'battery-quarter'; }
-    return 'battery-full';
-  };
-
-  const getBatteryColor = (level: number) => {
-    if (level > 60) { return '#4CAF50'; }
-    if (level > 20) { return '#ff9a00'; }
-    if (level == -1) { return '#000000'; }
-    return '#FF5722';
-  };
-
   const formatGlassesTitle = (title: string) =>
     title.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 
   const batteryIcon = getBatteryIcon(status.glasses_info?.battery_life ?? 0);
   const batteryColor = getBatteryColor(status.glasses_info?.battery_life ?? 0);
 
+  // Determine the button style for connecting glasses
+  const getConnectButtonStyle = () => {
+      return status.glasses_info?.is_searching ?
+        styles.connectingButton :
+          isConnectButtonDisabled ? styles.disabledButton :
+                                    styles.connectButton;
+  };
+
   return (
     <View style={[styles.deviceInfoContainer, { backgroundColor: themeStyles.backgroundColor }]}>
-      {status.puck_connected ? (
+      {status.core_info.puck_connected ? (
         <>
-          {status.default_wearable ? (
+          {status.core_info.default_wearable ? (
             <View style={styles.connectedContent}>
               <Animated.Image
-                source={getGlassesImage(status.default_wearable)}
+                source={getGlassesImage(status.core_info.default_wearable)}
                 style={[styles.glassesImage, { opacity: fadeAnim, transform: [{ scale: scaleAnim }] }]}
               />
               <Animated.View style={[styles.connectedStatus, { transform: [{ translateX: slideAnim }] }]}>
                 <Text style={[styles.connectedTextTitle, { color: themeStyles.textColor }]}>
-                  {formatGlassesTitle(connectedGlasses)} {status.default_wearable}
+                  {formatGlassesTitle(connectedGlasses)} {status.core_info.default_wearable}
                 </Text>
               </Animated.View>
 
@@ -187,7 +191,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                       }
                     </View>
                     <TouchableOpacity
-                      style={[styles.disconnectButton, isDisconnectButtonDisabled && styles.disabledButton]}
+                      style={[styles.disconnectButton, isDisconnectButtonDisabled && styles.disabledDisconnectButton]}
                       onPress={sendDisconnectWearable}
                       disabled={isDisconnectButtonDisabled}
                     >
@@ -199,24 +203,20 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
                   </Animated.View>
                 </>
               ) : (
-                <View style={styles.statusInfoNotConnected}>
-                  {status.glasses_info?.is_searching ? (
-                    <View style={styles.disconnectedContent}>
-                      <ActivityIndicator size="small" color="#2196F3" />
-                    </View>
-                  ) : (
-                    <View style={styles.noGlassesContent}>
-                        <TouchableOpacity
-                          style={[styles.connectButton, isConnectButtonDisabled && styles.disabledButton]}
-                          onPress={connectGlasses}
-                          disabled={isConnectButtonDisabled}
-                        >
-                          <Text style={styles.buttonText}>
-                            {isConnectButtonDisabled ? 'Connecting...' : 'Connect'}
-                          </Text>
-                        </TouchableOpacity>
-                      </View>
-                  )}
+                // Connect button rendering with spinner on right
+                <View style={styles.noGlassesContent}>
+                  <TouchableOpacity
+                    style={getConnectButtonStyle()}
+                    onPress={handleConnectOrDisconnect}
+                    disabled={isConnectButtonDisabled && !status.glasses_info?.is_searching}
+                  >
+                    <Text style={styles.buttonText}>
+                      {isConnectButtonDisabled || status.glasses_info?.is_searching ? 'Connecting Glasses...' : 'Connect Glasses'}
+                    </Text>
+                    {status.glasses_info?.is_searching && (
+                      <ActivityIndicator size="small" color="#fff" style={{ marginLeft: 5 }} />
+                    )}
+                  </TouchableOpacity>
                 </View>
               )}
             </View>
@@ -250,7 +250,7 @@ const ConnectedDeviceInfo: React.FC<ConnectedDeviceInfoProps> = ({ isDarkTheme }
           ) : (
             <TouchableOpacity style={styles.connectButton} onPress={handleConnectToPuck}>
               <Icon name="wifi" size={16} color="white" style={styles.icon} />
-              <Text style={styles.buttonText}>Connect</Text>
+              <Text style={styles.buttonText}>Connect Glasses</Text>
             </TouchableOpacity>
           )}
         </View>
@@ -376,6 +376,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   connectButton: {
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#2196F3',
@@ -383,7 +384,25 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     width: '80%',
   },
+  connectingButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FFC107', // Yellow when enabled & searching
+    padding: 10,
+    borderRadius: 8,
+    width: '80%',
+  },
   disabledButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#A9A9A9', // Grey when disabled
+    padding: 10,
+    borderRadius: 8,
+    width: '80%',
+  },
+  disabledDisconnectButton: {
     backgroundColor: '#A9A9A9',
   },
   icon: {

@@ -14,15 +14,20 @@ export type RootStackParamList = {
   ProfileSettings: undefined;
   GlassesMirror: undefined;
   Reviews: { appId: string; appName: string }; // Add appName here
-  SimulatedPuckSettings: undefined;
-  SimulatedPuckOnboard: undefined;
   ConnectingToPuck: undefined;
   PhoneNotificationSettings: undefined;
   PrivacySettingsScreen: undefined;
   GrantPermissionsScreen: undefined;
   SelectGlassesModelScreen: undefined;
+  VersionUpdateScreen: {
+    isDarkTheme: boolean;
+    connectionError?: boolean;
+    localVersion?: string;
+    cloudVersion?: string;
+  };
   SelectGlassesBluetoothScreen: { glassesModelName: string };
   GlassesPairingGuideScreen: { glassesModelName: string };
+  GlassesPairingGuidePreparationScreen: { glassesModelName: string };
   AppSettings: { packageName: string, appName: string };
 };
 
