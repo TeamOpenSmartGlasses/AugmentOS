@@ -45,17 +45,28 @@ router.get('/:tpaName', async (req, res) => {
     }
 
     // Read TPA configuration file.
-    const configFilePath = path.join(__dirname, '..', '..', '..', 'apps', tpaName, 'tpa_config.json');
+    // const configFilePath = path.join(__dirname, '..', '..', '..', 'apps', tpaName, 'tpa_config.json');
     let tpaConfig;
     try {
-      const rawData = fs.readFileSync(configFilePath, 'utf8');
-      tpaConfig = JSON.parse(rawData);
+      // const rawData = fs.readFileSync(configFilePath, 'utf8');
+      // tpaConfig = JSON.parse(rawData);
+      // find the app, then call it with it's port. i.e: http://localhost:8017/tpa_config.json
+      const _tpa = await appService.getApp(req.params.tpaName);
+      const port = Object.values(systemApps).find(app => app.packageName === req.params.tpaName)?.port;
+      
+      if (!port || !_tpa) {
+        throw new Error('Port / TPA not found for app ' + req.params.tpaName); // throw an error if the port is not found.
+      }
+      const _tpaConfig = (await axios.get(`http://localhost:${port}/tpa_config.json`)).data; 
+      console.log('TPA Config:', _tpaConfig);
+      tpaConfig = _tpaConfig;
+
     } catch (err) {
       const _tpa = await appService.getApp(req.params.tpaName);
       if (_tpa) {
         tpaConfig = {
           name: _tpa.name || req.params.tpaName,
-          scription: _tpa.description || '',
+          description: _tpa.description || '',
           version: "1.0.0",
           settings: []
         }
@@ -176,9 +187,9 @@ router.post('/:tpaName', async (req, res) => {
       const appEndpoint = `http://localhost:${matchingApp.port}/settings`;
       try {
         // Add userIdForSettings to the payload that the captions app expects
-        const response = await axios.post(appEndpoint, { 
-          userIdForSettings: userId, 
-          settings: updatedPayload 
+        const response = await axios.post(appEndpoint, {
+          userIdForSettings: userId,
+          settings: updatedPayload
         });
         console.log(`Called app endpoint at ${appEndpoint} with response:`, response.data);
       } catch (err) {
