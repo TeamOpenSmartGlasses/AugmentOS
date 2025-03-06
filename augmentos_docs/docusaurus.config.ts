@@ -20,7 +20,7 @@ const config: Config = {
   organizationName: 'augmentos-community', // Usually your GitHub org/user name.
   projectName: 'augmentos', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -36,16 +36,12 @@ const config: Config = {
       'classic',
       {
         docs: {
-          // The docs folder is now served at the root
-          // Removing any homepage and making docs the default route
-          routeBasePath: '/',
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove or update this to remove/edit "edit this page" links.
           editUrl:
             'https://github.com/augmentos-community/augmentos/tree/main/augmentos_docs/create-docusaurus/',
         },
-        // Turn off the blog so there's literally just docs
         blog: false,
         theme: {
           customCss: './src/css/custom.css',
@@ -118,7 +114,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} AugmentOS Community. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

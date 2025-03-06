@@ -19,8 +19,8 @@ module.exports = {
       }
     },
     {
-      name: 'live-captions',
-      script: 'packages/apps/live-captions/dist/index.js',
+      name: 'livecaptions',
+      script: 'packages/apps/livecaptions/dist/index.js',
       instances: 1,
       exec_mode: 'fork',
       env: {
@@ -46,8 +46,8 @@ module.exports = {
       }
     },
     {
-      name: 'translation',
-      script: 'packages/apps/live-translation/dist/index.js',
+      name: 'livetranslation',
+      script: 'packages/apps/livetranslation/dist/index.js',
       instances: 1,
       exec_mode: 'fork',
       env: {
