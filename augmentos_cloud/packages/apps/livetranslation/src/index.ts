@@ -164,8 +164,8 @@ function handleTranslation(sessionId: string, userId: string, ws: WebSocket, tra
   const isFinal = translationData.isFinal;
   const newText = translationData.text;
   // For translation, we might have both source and target languages in the data.
-  const sourceLanguage = translationData.language || 'en-US';
-  const targetLanguage = translationData.targetLanguage || 'es-ES';
+  const sourceLanguage = translationData.language || 'zh-CN';
+  const targetLanguage = translationData.targetLanguage || 'en-US';
 
   console.log(`[Session ${sessionId}]: Received translation (${sourceLanguage}->${targetLanguage})`);
 
@@ -336,8 +336,8 @@ function handleMessage(sessionId: string, userId: string, ws: WebSocket, message
   switch (message.type) {
     case CloudToTpaMessageType.CONNECTION_ACK: {
       // Connection acknowledged; update subscription for translation.
-      const source = usertranscribeLanguageSettings.get(userId) || 'en-US';
-      const target = userTranslateLanguageSettings.get(userId) || 'es-ES';
+      const source = usertranscribeLanguageSettings.get(userId) || 'zh-CN';
+      const target = userTranslateLanguageSettings.get(userId) || 'en-US';
       const translationStream = createTranslationStream(source, target);
       const subMessage: TpaSubscriptionUpdate = {
         type: TpaToCloudMessageType.SUBSCRIPTION_UPDATE,
