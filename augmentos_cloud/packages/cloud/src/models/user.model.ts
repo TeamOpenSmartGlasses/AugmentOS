@@ -224,6 +224,10 @@ UserSchema.methods.updateAppSettings = async function(
 ): Promise<void> {
   console.log('Settings update payload (before saving):', JSON.stringify(settings));
 
+  appName = appName.split('.').pop() || appName; // TODO: find a better way to do this.
+
+  console.log('App name:', appName);
+
   // Retrieve existing settings and convert subdocuments to plain objects.
   const existingSettings = this.appSettings.get(appName);
   let existingSettingsPlain: { key: string; value: any }[] = [];
@@ -257,6 +261,7 @@ UserSchema.methods.updateAppSettings = async function(
 };
 
 UserSchema.methods.getAppSettings = function (this: UserDocument, appName: string): AppSetting[] | undefined {
+  appName = appName.split('.').pop() || appName;
   return this.appSettings.get(appName);
 };
 
