@@ -14,6 +14,7 @@ import androidx.lifecycle.LifecycleOwner;
 
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.AudioChunkNewEvent;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.DisableBleScoAudioEvent;
+import com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators.VirtualSGC;
 import com.augmentos.augmentos_core.smarterglassesmanager.smartglassescommunicators.special.SelfSGC;
 import com.augmentos.augmentos_core.smarterglassesmanager.eventbusmessages.LC3AudioChunkNewEvent;
 import com.augmentos.augmentoslib.events.DisplayCustomContentRequestEvent;
@@ -131,6 +132,8 @@ class SmartGlassesRepresentative {
                 return new AndroidSGC(context, smartGlassesDevice, dataObservable);
             case AUDIO_WEARABLE_GLASSES:
                 return new AudioWearableSGC(context, smartGlassesDevice);
+            case VIRTUAL_WEARABLE:
+                return new VirtualSGC(context, smartGlassesDevice);
             case ULTRALITE_MCU_OS_GLASSES:
                 return new UltraliteSGC(context, smartGlassesDevice, lifecycleOwner);
             case EVEN_REALITIES_G1_MCU_OS_GLASSES:
