@@ -235,28 +235,29 @@ function handleLocationUpdate(sessionId: string, locationData: any) {
     return;
   }
 
-  // Determine the timezone for any given coordinates.
-  let timezone: string;
+  // Try to determine the timezone for the coordinates
+  let timezone: string | undefined;
   try {
     timezone = tzlookup(lat, lng);
   } catch (error) {
     console.error(`[Session ${sessionId}] Error looking up timezone for lat=${lat}, lng=${lng}:`, error);
-    // Fallback to a default timezone if lookup fails.
-    timezone = "America/New_York";
+    // No default timezone - just keep the previous one if it exists
   }
 
   // Check if this is the first location update for the session.
   const isFirstLocationUpdate = !sessionInfo.latestLocation;
 
-  // Cache the location update in the session with the determined timezone.
+  // Cache the location update in the session
+  // If we couldn't determine a timezone, preserve the previous one if it exists
   sessionInfo.latestLocation = { 
     latitude: lat, 
-    longitude: lng, 
-    timezone, 
+    longitude: lng,
+    // Only update timezone if we found one, otherwise keep previous
+    timezone: timezone || (sessionInfo.latestLocation?.timezone)
   };
 
   console.log(
-    `[Session ${sessionId}] Cached location update: lat=${lat}, lng=${lng}, timezone=${timezone}`
+    `[Session ${sessionId}] Cached location update: lat=${lat}, lng=${lng}, timezone=${timezone || 'not determined'}`
   );
 
   // Call updateDashboard if this was the first location update
@@ -384,23 +385,30 @@ async function updateDashboard(sessionId?: string) {
     {
       name: "time",
       async run(sessionInfo: SessionInfo) {
-        // Use the timezone from the latest location update if available; else default.
-        let timezone = "America/New_York";
-        if (sessionInfo.latestLocation && sessionInfo.latestLocation.timezone) {
-          timezone = sessionInfo.latestLocation.timezone;
+        // Check if we have a valid timezone from location
+        if (!sessionInfo.latestLocation?.timezone) {
+          return "◌ -"; // No timezone available
         }
+        
+        const timezone = sessionInfo.latestLocation.timezone;
         console.log(`[Session ${sessionInfo.userId}] Using timezone: ${timezone}`);
-        const options = {
-          timeZone: timezone,
-          hour: "2-digit" as const,
-          minute: "2-digit" as const,
-          month: "numeric" as const,
-          day: "numeric" as const,
-          hour12: true
-        };
-        let formatted = new Date().toLocaleString("en-US", options);
-        formatted = formatted.replace(/ [AP]M/, "");
-        return `◌ ${formatted}`;
+        
+        try {
+          const options = {
+            timeZone: timezone,
+            hour: "2-digit" as const,
+            minute: "2-digit" as const,
+            month: "numeric" as const,
+            day: "numeric" as const,
+            hour12: true
+          };
+          let formatted = new Date().toLocaleString("en-US", options);
+          formatted = formatted.replace(/ [AP]M/, "");
+          return `◌ ${formatted}`;
+        } catch (error) {
+          console.error(`[Session ${sessionInfo.userId}] Error formatting time with timezone ${timezone}:`, error);
+          return "◌ -"; // Error formatting time
+        }
       }
     },
     { 
@@ -629,5 +637,5 @@ setTimeout(() => {
   // Run updateDashboard 5 seconds after the file runs.
   updateDashboard();
   // Then, schedule it to run every 5 seconds.
-  setInterval(() => updateDashboard(), 5000);
-}, 60000);
+  setInterval(() => updateDashboard(), 60000);
+}, 5000);
