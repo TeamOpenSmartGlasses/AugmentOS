@@ -4,11 +4,15 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.CalendarContract;
 import android.util.Log;
 import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.pm.PackageManager;
+
+import com.augmentos.augmentos_core.augmentos_backend.ServerComms;
 
 /**
  * CalendarSystem wraps interactions with the Android Calendar Provider.
@@ -18,12 +22,31 @@ public class CalendarSystem {
 
     private static final String TAG = "CalendarSystem";
     private static CalendarSystem instance;
-    private final Context context;
+    private Context context;
+
+    // Calendar data tracking
+    public CalendarItem latestCalendarItem = null;
+    public CalendarItem latestAccessedCalendarItem = null;
+
+    private final Handler calendarSendingLoopHandler = new Handler(Looper.getMainLooper());
+    private Runnable calendarSendingRunnableCode;
+    private final long calendarSendTime = 1000 * 60 * 5; // 5 minutes
+
+    // Add a flag and polling interval for first calendar fetch
+    private boolean firstCalendarFetchDone = false;
+    private final long firstFetchPollingInterval = 5000; // 5 seconds
 
     private CalendarSystem(Context context) {
         this.context = context.getApplicationContext();
+        scheduleCalendarUpdates();
     }
 
+    /**
+     * Get the singleton instance of CalendarSystem
+     *
+     * @param context The application context
+     * @return The singleton instance
+     */
     public static synchronized CalendarSystem getInstance(Context context) {
         if (instance == null) {
             instance = new CalendarSystem(context);
@@ -32,15 +55,56 @@ public class CalendarSystem {
     }
 
     /**
-     * Checks if the necessary calendar permissions (read, write) are granted.
+     * Checks if the necessary calendar permissions are granted.
      *
-     * @return true if both permissions are granted.
+     * @return true if permissions are granted.
      */
     private boolean hasCalendarPermissions() {
         return ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CALENDAR)
-                == PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_CALENDAR)
-                        == PackageManager.PERMISSION_GRANTED;
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
+    /**
+     * Request a calendar update from the system
+     */
+    public void requestCalendarUpdate() {
+        if (!hasCalendarPermissions()) {
+            Log.w(TAG, "Calendar permissions are not granted.");
+            return;
+        }
+
+        // Fetch the next calendar event
+        CalendarItem nextEvent = getNextUpcomingEvent();
+        if (nextEvent != null) {
+            latestCalendarItem = nextEvent;
+            sendCalendarEventToServer();
+
+            if (!firstCalendarFetchDone) {
+                firstCalendarFetchDone = true;
+            }
+        }
+    }
+
+    /**
+     * Send the calendar event to the server if it's new
+     */
+    public void sendCalendarEventToServer() {
+        CalendarItem calendarItem = getNewCalendarItem();
+
+        if (calendarItem == null) return;
+
+        ServerComms.getInstance().sendCalendarUpdate(calendarItem);
+    }
+
+    /**
+     * Get a new calendar item if available
+     *
+     * @return the new calendar item or null if nothing new
+     */
+    public CalendarItem getNewCalendarItem() {
+        if (latestAccessedCalendarItem == latestCalendarItem || latestCalendarItem == null) return null;
+        latestAccessedCalendarItem = latestCalendarItem;
+        return latestAccessedCalendarItem;
     }
 
     /**
@@ -48,7 +112,7 @@ public class CalendarSystem {
      *
      * @return a CalendarItem representing the next upcoming event or null if none found.
      */
-    public CalendarItem getNextUpcomingEvent() {
+    private CalendarItem getNextUpcomingEvent() {
         if (!hasCalendarPermissions()) {
             Log.w(TAG, "Calendar permissions are not granted.");
             return null;
@@ -83,5 +147,26 @@ public class CalendarSystem {
         }
 
         return nextEvent;
+    }
+
+    /**
+     * Schedule periodic calendar updates
+     */
+    public void scheduleCalendarUpdates() {
+        calendarSendingRunnableCode = new Runnable() {
+            @Override
+            public void run() {
+                requestCalendarUpdate(); // Request calendar update
+
+                if (!firstCalendarFetchDone) {
+                    // Poll more frequently until first fetch is done
+                    calendarSendingLoopHandler.postDelayed(this, firstFetchPollingInterval);
+                } else {
+                    // Once first fetch is done, revert to normal interval
+                    calendarSendingLoopHandler.postDelayed(this, calendarSendTime);
+                }
+            }
+        };
+        calendarSendingLoopHandler.post(calendarSendingRunnableCode);
     }
 }

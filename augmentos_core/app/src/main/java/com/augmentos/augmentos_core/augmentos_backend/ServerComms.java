@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.augmentos.augmentos_core.BuildConfig;
+import com.augmentos.augmentos_core.CalendarItem;
 import com.augmentos.augmentos_core.augmentos_backend.WebSocketManager;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.AsrStreamKey;
 import com.augmentos.augmentos_core.smarterglassesmanager.speechrecognition.augmentos.SpeechRecAugmentos;
@@ -369,6 +370,22 @@ public class ServerComms {
             wsManager.sendText(event.toString());
         } catch (JSONException e) {
             Log.e(TAG, "Error building location_update JSON", e);
+        }
+    }
+
+    public void sendCalendarUpdate(CalendarItem calendarItem) {
+        try {
+            JSONObject event = new JSONObject();
+            event.put("type", "calendar_update");
+            event.put("title", calendarItem.getTitle());
+            event.put("eventId", calendarItem.getEventId());
+            event.put("dtStart", calendarItem.getDtStart());
+            event.put("dtEnd", calendarItem.getDtEnd());
+            event.put("timeZone", calendarItem.getTimeZone());
+            event.put("timestamp", System.currentTimeMillis());
+            wsManager.sendText(event.toString());
+        } catch (JSONException e) {
+            Log.e(TAG, "Error building calendar_update JSON", e);
         }
     }
 
